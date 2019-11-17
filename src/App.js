@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// Dependencies
+import React, {Component} from 'react';
+import {Provider} from 'react-redux';
+import {Route, Switch} from 'react-router';
+import {ConnectedRouter} from 'connected-react-router';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Utils
+import configureStore, {history} from './utils/configureStore';
+
+// Components
+import NotFound from './components/routes/NotFound';
+import Home from './components/routes/Home'
+
+// Stylesheets
+import style from './App.module.scss';
+
+const initialState = {};
+const store = configureStore(initialState);
+
+class App extends Component {
+  render() {
+    return (<Provider store={store}>
+      <ConnectedRouter history={history}>
+        <div className={style.container}>
+          <Switch>
+            <Route exact={true} path="/" render={() => (<Home/>)}/>
+            <Route render={() => (<NotFound/>)}/>
+          </Switch>
+        </div>
+      </ConnectedRouter>
+    </Provider>);
+  }
 }
 
 export default App;
