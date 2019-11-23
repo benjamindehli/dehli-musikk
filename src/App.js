@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'connected-react-router';
+import {Helmet} from 'react-helmet';
 
 // Utils
 import configureStore, {history} from './utils/configureStore';
@@ -22,6 +23,15 @@ class App extends Component {
   render() {
     return (<Provider store={store}>
       <ConnectedRouter history={history}>
+        <Helmet>
+        <script type="application/ld+json">{`
+          {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Dehli Musikk"
+          }
+        `}</script>
+        </Helmet>
         <div className={style.container}>
           <Switch>
             <Route exact={true} path="/" render={() => (<Home/>)}/>
