@@ -9,7 +9,8 @@ import configureStore, {history} from './utils/configureStore';
 
 // Components
 import NotFound from './components/routes/NotFound';
-import Home from './components/routes/Home'
+import Home from './components/routes/Home';
+import Portfolio from './components/routes/Portfolio';
 
 // Stylesheets
 import style from './App.module.scss';
@@ -24,6 +25,7 @@ class App extends Component {
         <div className={style.container}>
           <Switch>
             <Route exact={true} path="/" render={() => (<Home/>)}/>
+            <Route exact={true} path="/portfolio" render={() => (<Portfolio/>)}/>
             <Route render={() => (<NotFound/>)}/>
           </Switch>
         </div>
