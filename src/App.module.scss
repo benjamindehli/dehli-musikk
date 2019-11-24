@@ -1,6 +1,6 @@
-body{
-  background: #f4f4f4;
-}
 :local(.container) {
-
+  position: absolute;
+  height: calc(100% - 64px);
+  overflow-y: scroll;
+  width: 100%;
 }
