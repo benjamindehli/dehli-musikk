@@ -1,0 +1,58 @@
+:local(.socialMediaLinks) {
+  text-align: center;
+
+  a {
+    display: inline-block;
+    background-color: #555;
+    color: #fff;
+    font-size:: 34px;
+    line-height: 68px;
+    width: 64px;
+    height: 64px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 12px;
+
+    &:local(.facebook) {
+      &:hover {
+        background-color: #4267b2;
+      }
+    }
+
+    &:local(.instagram) {
+      &:hover {
+        background: #b900b4;
+        background: -moz-linear-gradient(left, #b900b4 0%, #f50000 100%);
+        background: -webkit-linear-gradient(left, #b900b4 0%,#f50000 100%);
+        background: linear-gradient(to right, #b900b4 0%,#f50000 100%);
+      }
+    }
+
+    &:local(.youtube) {
+      // color: #ff0000;
+//
+      &:hover {
+        background-color: #ff0000;
+        // color: #ffffff;
+      }
+    }
+
+    &:local(.vimeo) {
+      &:hover {
+        background-color: #1ab7ea;
+      }
+    }
+
+    &:local(.tumblr) {
+      &:hover {
+        background-color: #051933;
+      }
+    }
+
+    &:local(.twitter) {
+      &:hover {
+        background-color: #1da1f2;
+      }
+    }
+  }
+}
