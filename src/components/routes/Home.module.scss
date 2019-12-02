@@ -1,0 +1,64 @@
+@import "../../style/abstracts/all";
+
+img {
+  width: 100%;
+}
+
+:local(.header) {
+  position: relative;
+  overflow: hidden;
+
+  :local(.backgroundsImage) {
+    position: absolute;
+  }
+
+  :local(.overlay) {
+    background-color: rgba(25,25,25,.75);
+    height: 250px;
+    display: flex;
+    position: relative;
+
+    :local(.logo) {
+      margin: auto;
+      width: 200px;
+    }
+    @media (min-width: $screen-sm) {
+      height: 350px;
+
+      :local(.logo) {
+        width: 250px;
+      }
+    }
+    @media (min-width: $screen-md) {
+      height: 400px;
+
+      :local(.logo) {
+        width: 300px;
+      }
+    }
+    @media (min-width: $screen-lg) {
+      height: 450px;
+
+      :local(.logo) {
+        width: 350px;
+      }
+    }
+    @media (min-width: $screen-xl) {
+      height: 500px;
+
+      :local(.logo) {
+        width: 400px;
+      }
+    }
+  }
+}
+
+:local(.contentSection) {
+  max-width: 1200px;
+  padding: 32px;
+  margin: auto;
+}
+
+:local(.socialMediaSection) {
+  background-color: #202122;
+}
