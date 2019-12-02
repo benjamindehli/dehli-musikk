@@ -9,6 +9,7 @@ import {Helmet} from 'react-helmet';
 import configureStore, {history} from './utils/configureStore';
 
 // Components
+import NavigationBar from './components/partials/NavigationBar';
 import NotFound from './components/routes/NotFound';
 import Home from './components/routes/Home';
 import Portfolio from './components/routes/Portfolio';
@@ -32,6 +33,7 @@ class App extends Component {
           }
         `}</script>
         </Helmet>
+        <NavigationBar/>
         <div className={style.container}>
           <Switch>
             <Route exact={true} path="/" render={() => (<Home/>)}/>
