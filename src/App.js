@@ -10,6 +10,7 @@ import configureStore, {history} from './utils/configureStore';
 
 // Components
 import NavigationBar from './components/partials/NavigationBar';
+import Footer from './components/partials/Footer';
 import NotFound from './components/routes/NotFound';
 import Home from './components/routes/Home';
 import Portfolio from './components/routes/Portfolio';
@@ -40,6 +41,7 @@ class App extends Component {
             <Route exact={true} path="/portfolio" render={() => (<Portfolio/>)}/>
             <Route render={() => (<NotFound/>)}/>
           </Switch>
+          <Footer/>
         </div>
       </ConnectedRouter>
     </Provider>);
