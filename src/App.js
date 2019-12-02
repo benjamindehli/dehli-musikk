@@ -5,6 +5,17 @@ import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'connected-react-router';
 import {Helmet} from 'react-helmet';
 
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {
+  faFacebookF,
+  faInstagram,
+  faTumblr,
+  faTwitter,
+  faVimeoV,
+  faYoutube
+} from '@fortawesome/free-brands-svg-icons'
+import {faGripHorizontal, faListUl} from '@fortawesome/free-solid-svg-icons'
+
 // Utils
 import configureStore, {history} from './utils/configureStore';
 
@@ -17,6 +28,8 @@ import Portfolio from './components/routes/Portfolio';
 
 // Stylesheets
 import style from './App.module.scss';
+
+library.add(faFacebookF, faInstagram, faTumblr, faTwitter, faVimeoV, faYoutube, faGripHorizontal, faListUl)
 
 const initialState = {};
 const store = configureStore(initialState);
