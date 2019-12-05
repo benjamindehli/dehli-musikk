@@ -3,16 +3,62 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
+
+// Components
+import {withFirebase} from '../Firebase';
 import SocialMediaLinks from '../partials/SocialMediaLinks';
+
+// Assets
+import header1680 from '../../assets/images/header_1680.jpg';
+
+// import {ReactComponent as DehliMusikkLogo} from '../../assets/svg/DehliMusikkLogoInverse.svg'
 import DehliMusikkLogo from '../../assets/svg/DehliMusikkLogoInverse.svg'
+
 // Stylesheets
 import style from './Home.module.scss';
 
 class Home extends Component {
-
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      headerImage: {
+        webp:{},
+        jpg:{}
+      },
+    };
   }
 
+  componentDidMount() {
+    const headerImage = this.props.firebase.getTemplateImage('header');
+    if (headerImage) {
+      Object.keys(headerImage).map(fileType => {
+        const headerImageWithFileType = headerImage[fileType];
+        Object.keys(headerImageWithFileType).map(imageSize => {
+          headerImageWithFileType[imageSize].getDownloadURL().then(url => {
+            this.setState({
+              headerImage: {
+                ...this.state.headerImage,
+                [fileType]: {
+                  ...this.state.headerImage[fileType],
+                  [imageSize]: `${url} ${imageSize}w`
+                }
+              }
+            })
+          })
+        });
+      })
+    }
+  }
+
+  renderHeaderImage(headerImage){
+    const srcSets = Object.keys(headerImage).map(fileType => {
+      const srcSet = Object.keys(headerImage[fileType]).map(imageSize => {
+        return headerImage[fileType][imageSize];
+      })
+      return (<source key={fileType} srcSet={srcSet} type={`image/${fileType}`}/>)
+    })
+    return (<picture className={style.backgroundsImage}>{srcSets}<img src={header1680} alt='Header' /></picture>);
+  }
 
   render() {
     return (<div>
@@ -50,4 +96,4 @@ const mapStateToProps = null;
 
 const mapDispatchToProps = null;
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(Home));
