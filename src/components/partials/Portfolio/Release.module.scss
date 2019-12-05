@@ -1,0 +1,118 @@
+@import "../../../style/abstracts/all";
+
+:local(.listItem) {
+  @media (min-width: $screen-sm) {
+    display: flex;
+    align-items: center;
+  }
+  border-bottom: 1px solid #eee;
+  padding: 8px 16px;
+
+  :local(.thumbnail) {
+    @media (min-width: $screen-sm) {
+      flex: none;
+    }
+    display: inline-block;
+    width: 55px;
+
+    img {
+      width: 55px;
+      border-radius: 50%;
+      border: 1px solid #eee;
+    }
+  }
+
+  :local(.content) {
+    @media (min-width: $screen-sm) {
+      flex: 1;
+    }
+    display: inline-block;
+    padding: 6px 12px;
+
+    :local(.header) {
+      display: inline-block;
+
+      h2 {
+        margin: 0;
+        font-size: 19px;
+      }
+    }
+
+    :local(.body) {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          margin-left: 6px;
+          font-size: 14px;
+
+          &:not(:first-child) {
+            &:before {
+              content: ' | ';
+            }
+          }
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  :local(.links) {
+    @media (min-width: $screen-sm) {
+      display: inline-block;
+      flex: 1.3;
+      text-align: right;
+    }
+
+    :local(.link) {
+      margin: 2px;
+      width: 30px;
+      display: inline-flex;
+    }
+  }
+}
+
+:local(.gridItem) {
+  background-color: #fff;
+  width: 350px;
+  margin: 8px 0;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+
+  :local(.content) {
+    padding: 6px 12px;
+
+    :local(.header) {
+      h2 {
+        margin: 0;
+        font-size: 19px;
+      }
+    }
+
+    :local(.body) {}
+  }
+
+  :local(.thumbnail) {
+    img {
+      width: 350px;
+      width: 100%;
+    }
+  }
+
+  :local(.links) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    :local(.link) {
+      margin: 2px;
+    }
+  }
+}
