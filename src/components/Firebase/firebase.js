@@ -20,6 +20,7 @@ class Firebase {
     this.getArtists = this.getArtists.bind(this);
     this.getReleasesByArtistId = this.getReleasesByArtistId.bind(this);
     this.getTemplateImage = this.getTemplateImage.bind(this);
+    this.getReleaseThumbnail = this.getReleaseThumbnail.bind(this);
   }
 
   getArtists(){
@@ -70,7 +71,29 @@ class Firebase {
       images[filetype] = images[filetype] ? images[filetype] : {};
       sizes.forEach(size => {
         images[filetype][size] = images[filetype][size] ? images[filetype][size] : {};
-        const imageRef = templateImagesRef.child('header_' + size + '.' + filetype);
+        const imageRef = templateImagesRef.child(`header_${size}.${filetype}`);
+        images[filetype][size] = imageRef;
+      })
+    })
+    return images;
+  }
+
+  getReleaseThumbnail(thumbnailFilename){
+    const images = {};
+    // Points to the root reference
+    const storageRef = app.storage().ref();
+
+    // Points to 'images'
+    const releaseImagesRef = storageRef.child('releases');
+
+    const sizes = [350, 55];
+    const filetypes = ['jpg', 'webp'];
+
+    filetypes.forEach(filetype => {
+      images[filetype] = images[filetype] ? images[filetype] : {};
+      sizes.forEach(size => {
+        images[filetype][size] = images[filetype][size] ? images[filetype][size] : {};
+        const imageRef = releaseImagesRef.child(`${thumbnailFilename}_${size}.${filetype}`);
         images[filetype][size] = imageRef;
       })
     })
