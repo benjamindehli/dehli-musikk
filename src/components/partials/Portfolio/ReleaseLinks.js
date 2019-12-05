@@ -73,20 +73,16 @@ class ReleaseLinks extends Component {
     });
   }
 
-
   render() {
-    return (
-      <React.Fragment>
+    return (<div className={style.releaseLinks}>
       {this.renderReleaseLinks(this.props.release)}
-      </React.Fragment>
-    );
+    </div>);
   }
 }
 
 ReleaseLinks.propTypes = {
   release: PropTypes.object.isRequired
 };
-
 
 const mapStateToProps = null;
 

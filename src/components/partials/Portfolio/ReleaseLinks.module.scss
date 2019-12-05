@@ -1,0 +1,14 @@
+:local(.releaseLinks) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  :local(.link) {
+    margin: 6px;
+
+    svg {
+      height: 45px;
+      width: 45px;
+    }
+  }
+}

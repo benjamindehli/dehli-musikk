@@ -22,15 +22,31 @@ class Release extends Component {
       showLinks: false,
       isLoaded: false
     };
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
-  handleShowLinksClick(){
-    this.setState({
-      showLinks: true
-    });
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleShowLinksClick() {
+    this.setState({showLinks: true});
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.setState({showLinks: false});
+    }
   }
 
   componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+
     const releaseThumbnail = this.props.firebase.getReleaseThumbnail(this.props.release.thumbnailFilename);
     if (releaseThumbnail) {
       Object.keys(releaseThumbnail).map(fileType => {
@@ -125,14 +141,18 @@ class Release extends Component {
               <li>{new Date(release.releaseDate).getFullYear()}</li>
             </ul>
           </div>
-          <button onClick={() => this.handleShowLinksClick()}>Listen to {release.title}</button>
-          {this.state.showLinks ? (
-            <div className={style.links}>
-              <ReleaseLinks release={release}/> {/* {this.renderReleaseLinks(release)} */}
-            </div>
-          ) : ''}
-
         </div>
+        <button onClick={() => this.handleShowLinksClick()}>Listen to {release.title}</button>
+        {
+          this.state.showLinks
+            ? (<div className={style.linksModalOverlay}>
+              <div ref={this.setWrapperRef} className={style.linksModalContent}>
+                <h3>Listen to {release.title}</h3>
+                <ReleaseLinks release={release}/>
+              </div>
+            </div>)
+            : ''
+        }
       </div>)
       : '';
   }
