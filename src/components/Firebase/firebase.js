@@ -24,7 +24,7 @@ class Firebase {
   }
 
   getArtists(){
-    const artists = app.firestore().collection('artists');
+    const artists = app.firestore().collection('artists').orderBy('artistName', 'asc');
     return artists.get().then(querySnapshot => {
       let datas = [];
        querySnapshot.forEach(doc => {
