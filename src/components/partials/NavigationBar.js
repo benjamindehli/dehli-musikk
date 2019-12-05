@@ -22,7 +22,6 @@ class NavigationBar extends Component {
           <DehliMusikkLogo alt="Dehli Musikk logo"/>
         </span>
       </Link>
-      Navbar
     </div>)
   }
 }

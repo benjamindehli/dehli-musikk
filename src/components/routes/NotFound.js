@@ -2,9 +2,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-// Stylesheets
-import style from './NotFound.module.scss';
-
 class NotFound extends Component {
   render() {
     return (<div>
