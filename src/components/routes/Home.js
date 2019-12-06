@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 // Components
 import {withFirebase} from '../Firebase';
 import SocialMediaLinks from '../partials/SocialMediaLinks';
+import Button from '../partials/Button';
 
 // Assets
 import header1680 from '../../assets/images/header_1680.jpg';
@@ -75,7 +76,7 @@ class Home extends Component {
         <h1>Dehli Musikk</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam maximus neque ac dolor porta fringilla. Aliquam eget orci sollicitudin, facilisis augue convallis, commodo ante. Aliquam vitae magna eu ante porta pharetra. Pellentesque nisl eros, mollis eget finibus id, ultrices at elit. Nunc vitae convallis ex.
         </p>
-        <Link to='/portfolio'>portfolio</Link>
+        <Link to='/portfolio'><Button buttontype='minimal'>portfolio</Button></Link>
         <h2>Portfolio</h2>
         <p>Aliquam erat volutpat. Donec varius justo nibh, vel malesuada mi dapibus at. Sed maximus pulvinar erat, eget ornare ex lobortis vitae. Quisque nec turpis mauris. Mauris in commodo elit. In non purus justo. Nunc rhoncus tortor vitae fringilla condimentum. Sed ultrices mi eros, eget tempus nisi congue ut.
         </p>

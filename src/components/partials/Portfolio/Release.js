@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 // Components
 import {withFirebase} from '../../Firebase';
 import ReleaseLinks from './ReleaseLinks';
+import Button from '../Button';
 
 // Stylesheets
 import style from './Release.module.scss';
@@ -142,7 +143,7 @@ class Release extends Component {
             </ul>
           </div>
         </div>
-        <button onClick={() => this.handleShowLinksClick()}>Listen to {release.title}</button>
+        <Button onClick={() => this.handleShowLinksClick()} buttontype='minimal'>Listen to {release.title}</Button>
         {
           this.state.showLinks
             ? (<div className={style.linksModalOverlay}>
