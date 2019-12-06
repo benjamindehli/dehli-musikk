@@ -1,3 +1,5 @@
+@import "../../style/abstracts/all";
+
 :local(.menuButton) {
   line-height: 64px;
   width: 64px;
@@ -5,7 +7,7 @@
 
   :local(.menuIcon) {
     vertical-align: middle;
-    fill: #543;
+    fill: #fff;
     width: 32px;
     height: 32px;
     display: inline-block;
@@ -16,13 +18,17 @@
 :local(.navigationBar) {
   box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);
   background-color: #1976d2;
-  background-color: #fff;
+  background-color: #0068c1;
+  background-color: #C32A22;
   color: #fff;
   position: relative;
   z-index: 2;
-  height: 64px;
+  height: 56px;
   display: flex;
   align-items: center;
+  @media (min-width: $screen-sm) {
+    height: 64px;
+  }
 
   :local(.appLogo) {
     display: inline-block;
