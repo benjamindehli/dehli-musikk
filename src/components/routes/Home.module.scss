@@ -14,13 +14,16 @@ img {
 
   :local(.overlay) {
     background-color: rgba(25,25,25,.75);
-    height: 250px;
     display: flex;
     position: relative;
+    padding: 16px 24px;
 
     :local(.logo) {
       margin: auto;
       width: 200px;
+    }
+    @media (min-width: $screen-xs) {
+      height: 200px;
     }
     @media (min-width: $screen-sm) {
       height: 350px;
