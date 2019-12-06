@@ -14,13 +14,15 @@
     margin: 12px;
 
     &:local(.facebook) {
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: #4267b2;
       }
     }
 
     &:local(.instagram) {
-      &:hover {
+      &:hover,
+      &:focus {
         background: #b900b4;
         background: -moz-linear-gradient(left, #b900b4 0%, #f50000 100%);
         background: -webkit-linear-gradient(left, #b900b4 0%,#f50000 100%);
@@ -29,28 +31,29 @@
     }
 
     &:local(.youtube) {
-      // color: #ff0000;
-//
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: #ff0000;
-        // color: #ffffff;
       }
     }
 
     &:local(.vimeo) {
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: #1ab7ea;
       }
     }
 
     &:local(.tumblr) {
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: #051933;
       }
     }
 
     &:local(.twitter) {
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: #1da1f2;
       }
     }
