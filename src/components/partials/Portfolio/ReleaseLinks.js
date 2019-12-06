@@ -69,7 +69,7 @@ class ReleaseLinks extends Component {
     const links = release.links;
     return Object.keys(links).map(linkKey => {
       const url = links[linkKey];
-      return <a href={url} key={linkKey} aria-label={`Listen to ${release.title} at ${linkKey}`} className={style.link}>{this.getLinkIcon(linkKey)}</a>;
+      return <a href={url} key={linkKey} aria-label={`Listen to ${release.title} on ${linkKey}`} className={style.link}>{this.getLinkIcon(linkKey)}</a>;
     });
   }
 
