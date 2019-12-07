@@ -15,7 +15,6 @@ import Button from '../partials/Button';
 // Assets
 import header1680 from '../../assets/images/header_1680.jpg';
 
-// import {ReactComponent as DehliMusikkLogo} from '../../assets/svg/DehliMusikkLogoInverse.svg'
 import DehliMusikkLogo from '../../assets/svg/DehliMusikkLogoInverse.svg'
 
 // Stylesheets
