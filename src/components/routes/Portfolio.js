@@ -70,10 +70,10 @@ class Portfolio extends Component {
   render() {
     return (<div className={style.container}>
       <Helmet>
-        <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
-        <link rel="alternate" href="https://www.dehlimusikk.no/portfolio" hreflang="no" />
-        <link rel="alternate" href="https://www.dehlimusikk.no/en/portfolio" hreflang="en" />
-        <link rel="alternate" href="https://www.dehlimusikk.no/portfolio" hreflang="x-default" />
+        <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
+        <link rel="alternate" href={`${window.location.origin}/portfolio`} hreflang="no" />
+        <link rel="alternate" href={`${window.location.origin}/en/portfolio`} hreflang="en" />
+        <link rel="alternate" href={`${window.location.origin}/portfolio`} hreflang="x-default" />
       </Helmet>
       <div className='padding'>
         <h1>Portfolio</h1>
