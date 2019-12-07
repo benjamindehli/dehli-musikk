@@ -19,3 +19,13 @@ a{
 		color: focus-color($primary-color);
 	}
 }
+
+.padding {
+	padding: 24px;
+}
+
+.padding-sm {
+	@media (min-width: $screen-sm) {
+		padding: 24px;
+  }
+}

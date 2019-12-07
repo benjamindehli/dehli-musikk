@@ -143,7 +143,9 @@ class Release extends Component {
             </ul>
           </div>
         </div>
-        <Button onClick={() => this.handleShowLinksClick()} buttontype='minimal'>Listen to {release.title}</Button>
+        <div className={style.actionButton}>
+          <Button onClick={() => this.handleShowLinksClick()} buttontype='minimal'>Listen to {release.title}</Button>
+        </div>
         {
           this.state.showLinks
             ? (<div className={style.linksModalOverlay}>
