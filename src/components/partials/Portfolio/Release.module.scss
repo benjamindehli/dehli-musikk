@@ -26,6 +26,7 @@
     @media (min-width: $screen-sm) {
       flex: 1;
     }
+    @include calc('width', '100% - 55px')
     display: inline-block;
     padding: 6px 12px;
 
@@ -87,7 +88,29 @@
       }
     }
 
-    :local(.body) {}
+    :local(.body) {
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          margin-left: 6px;
+          font-size: 14px;
+
+          &:not(:first-child) {
+            &:before {
+              content: ' | ';
+            }
+          }
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
   }
 
   :local(.thumbnail) {
