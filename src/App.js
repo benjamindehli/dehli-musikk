@@ -50,8 +50,10 @@ class App extends Component {
         <NavigationBar/>
         <div className={style.container}>
           <Switch>
-            <Route exact={true} path="/" render={() => (<Home/>)}/>
             <Route exact={true} path="/portfolio" render={() => (<Portfolio/>)}/>
+            <Route exact={true} path="/:selectedLanguage/portfolio" render={(props) => (<Portfolio {...props}/>)}/>
+            <Route exact={true} path="/:selectedLanguage" render={(props) => (<Home {...props}/>)}/>
+            <Route exact={true} path="/" render={() => (<Home/>)}/>
             <Route render={() => (<NotFound/>)}/>
           </Switch>
           <Footer/>
