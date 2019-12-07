@@ -14,9 +14,6 @@ import { getLanguageSlug, updateMultilingualRoutes } from '../../actions/Languag
 // Stylesheets
 import style from './Portfolio.module.scss';
 
-// Data
-import releases from '../../data/portfolio';
-
 class Portfolio extends Component {
   constructor(props) {
     super(props);
