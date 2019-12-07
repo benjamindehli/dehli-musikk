@@ -2,10 +2,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Helmet} from 'react-helmet';
 
 // Components
 import {withFirebase} from '../Firebase';
 import Artist from '../partials/Portfolio/Artist';
+
+// Actions
+import { getLanguageSlug } from '../../actions/LanguageActions';
 
 // Stylesheets
 import style from './Portfolio.module.scss';
@@ -19,7 +23,9 @@ class Portfolio extends Component {
     this.state = {
       viewType: 'list',
       artists: null,
-      releases: {}
+      releases: {},
+      isMobile: false,
+      selectedLanguageKey: this.props.match && this.props.match.params && this.props.match.params.selectedLanguage ? this.props.match.params.selectedLanguage : ''
     };
   }
 
@@ -27,6 +33,9 @@ class Portfolio extends Component {
     this.props.firebase.getArtists().then(artists => {
       this.setState({artists: artists});
     });
+      this.setState({
+        isMobile: window.innerWidth < 816
+      });
   }
 
   changeViewType(viewType) {
@@ -55,9 +64,17 @@ class Portfolio extends Component {
 
   render() {
     return (<div className={style.container}>
-      <h1>Portfolio</h1>
-      {this.renderViewTypeButton(this.state.viewType)}
-      <div className={style.releases}>
+      <Helmet>
+        <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.state.selectedLanguageKey)}portfolio`} />
+        <link rel="alternate" href="https://www.dehlimusikk.no/portfolio" hreflang="no" />
+        <link rel="alternate" href="https://www.dehlimusikk.no/en/portfolio" hreflang="en" />
+        <link rel="alternate" href="https://www.dehlimusikk.no/portfolio" hreflang="x-default" />
+      </Helmet>
+      <div className='padding'>
+        <h1>Portfolio</h1>
+        {!this.state.isMobile ? this.renderViewTypeButton(this.state.viewType) : ''}
+      </div>
+      <div className={`${style.releases} padding-sm`}>
         <div className={style[this.state.viewType]}>
           {this.renderArtists()}
         </div>
@@ -68,6 +85,8 @@ class Portfolio extends Component {
 
 const mapStateToProps = null;
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = {
+  getLanguageSlug
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(Portfolio));
