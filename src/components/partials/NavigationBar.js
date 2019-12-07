@@ -38,6 +38,14 @@ class NavigationBar extends Component {
     document.removeEventListener('mousedown', this.handleClickOutsideLanguageSelectorList);
   }
 
+  componentDidUpdate(prevProps){
+    if (prevProps.location.pathname !== this.props.location.pathname){
+      if (this.state.showSidebar){
+        this.hideSidebar();
+      }
+    }
+  }
+
   setSidebarWrapperRef(node) {
     this.sidebarWrapperRef = node;
   }
@@ -145,7 +153,12 @@ class NavigationBar extends Component {
   }
 }
 
-const mapStateToProps = state => ({availableLanguages: state.availableLanguages, multilingualRoutes: state.multilingualRoutes, selectedLanguageKey: state.selectedLanguageKey});
+const mapStateToProps = state => ({
+  availableLanguages: state.availableLanguages,
+  multilingualRoutes: state.multilingualRoutes,
+  selectedLanguageKey: state.selectedLanguageKey,
+  location: state.router.location
+});
 
 const mapDispatchToProps = {
   getLanguageSlug
