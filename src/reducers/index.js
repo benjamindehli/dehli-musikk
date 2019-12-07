@@ -5,9 +5,11 @@ import {connectRouter} from 'connected-react-router'
 // Reducers
 import AvailableLanguagesReducer from "./AvailableLanguagesReducer";
 import MultilingualRoutesReducer from "./MultilingualRoutesReducer";
+import SelectedLanguageKeyReducer from "./SelectedLanguageKeyReducer";
 
 export default (history) => combineReducers({
   router: connectRouter(history),
   availableLanguages: AvailableLanguagesReducer,
-  multilingualRoutes: MultilingualRoutesReducer
+  multilingualRoutes: MultilingualRoutesReducer,
+  selectedLanguageKey: SelectedLanguageKeyReducer
 });

@@ -1,4 +1,4 @@
-import {UPDATE_MULTILINGUAL_ROUTES} from '../constants/types';
+import {UPDATE_MULTILINGUAL_ROUTES, UPDATE_SELECTED_LANGUAGE_KEY} from '../constants/types';
 
 export const getLanguageSlug = (selectedLanguageKey) => (dispatch, getState) => {
   return getState().availableLanguages && getState().availableLanguages.hasOwnProperty(selectedLanguageKey)
@@ -19,4 +19,8 @@ export const updateMultilingualRoutes = (path) => (dispatch, getState) => {
     });
     dispatch({type: UPDATE_MULTILINGUAL_ROUTES, payload: multilingualRoutes});
   }
+}
+
+export const updateSelectedLanguageKey = (languageKey) => dispatch => {
+  dispatch({type: UPDATE_SELECTED_LANGUAGE_KEY, payload: languageKey});
 }
