@@ -74,7 +74,7 @@ class Release extends Component {
     }
   }
 
-  renderReleaseThumbnail(releaseThumbnail) {
+  renderReleaseThumbnail(releaseThumbnail, artist, release) {
     const srcSets = Object.keys(releaseThumbnail).map(fileType => {
       const srcSet = Object.keys(releaseThumbnail[fileType]).map(imageSize => {
         return releaseThumbnail[fileType][imageSize].srcSet;
@@ -86,7 +86,7 @@ class Release extends Component {
     const thumbnailImageSrc = releaseThumbnail.jpg[350] && releaseThumbnail.jpg[350].url
       ? releaseThumbnail.jpg[350].url
       : '';
-    return (<picture className={style.backgroundsImage}>{srcSets}<img src={thumbnailImageSrc} alt='Header image'/></picture>);
+    return (<picture>{srcSets}<img src={thumbnailImageSrc} alt={`Album cover for ${release.title} by ${artist.artistName}`} /></picture>);
   }
 
   renderReleaseSnippet(artist, release, releaseThumbnailSrc) {
@@ -124,7 +124,7 @@ class Release extends Component {
           : style.gridItem}>
         {this.renderReleaseSnippet(artist, release, releaseThumbnailSrc)}
         <div className={style.thumbnail}>
-          {this.renderReleaseThumbnail(this.state.releaseThumbnail)}
+          {this.renderReleaseThumbnail(this.state.releaseThumbnail, artist, release)}
         </div>
         <div className={style.content}>
           <div className={style.header}>
