@@ -7,9 +7,6 @@ import PropTypes from 'prop-types';
 import {withFirebase} from '../../Firebase';
 import Release from './Release';
 
-// Stylesheets
-import style from './Artist.module.scss';
-
 class Artist extends Component {
   constructor(props) {
     super(props);

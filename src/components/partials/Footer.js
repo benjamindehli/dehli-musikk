@@ -7,8 +7,6 @@ import style from './Footer.module.scss';
 
 class Footer extends Component {
 
-  componentDidMount() {}
-
   render() {
     return (<div className={style.footer}>
       <div className={style.contentSection}>
