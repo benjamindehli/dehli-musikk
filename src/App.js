@@ -14,7 +14,7 @@ import {
   faVimeoV,
   faYoutube
 } from '@fortawesome/free-brands-svg-icons'
-import {faGripHorizontal, faListUl} from '@fortawesome/free-solid-svg-icons'
+import {faGripHorizontal, faListUl, faLanguage, faChevronDown} from '@fortawesome/free-solid-svg-icons'
 
 // Utils
 import configureStore, {history} from './utils/configureStore';
@@ -29,7 +29,7 @@ import Portfolio from './components/routes/Portfolio';
 // Stylesheets
 import style from './App.module.scss';
 
-library.add(faFacebookF, faInstagram, faTumblr, faTwitter, faVimeoV, faYoutube, faGripHorizontal, faListUl)
+library.add(faFacebookF, faInstagram, faTumblr, faTwitter, faVimeoV, faYoutube, faGripHorizontal, faListUl, faLanguage, faChevronDown)
 
 const initialState = {};
 const store = configureStore(initialState);

@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 // Assets
 import {ReactComponent as DehliMusikkLogo} from '../../assets/svg/DehliMusikkLogoHorizontal.svg'
@@ -77,7 +78,7 @@ class NavigationBar extends Component {
     const hasAvailableLanguages = availableLanguages && Object.keys(availableLanguages).length;
     if (hasAvailableLanguages) {
       const selectedLanguage = availableLanguages[selectedLanguageKey];
-      return (<span>{selectedLanguage.name}</span>)
+      return (<span className={style.languageSelectorButton}><FontAwesomeIcon icon={['fas', 'language']}/> {selectedLanguage.name} <FontAwesomeIcon icon={['fas', 'chevron-down']}/> </span>)
     } else
       return '';
     }
