@@ -50,9 +50,9 @@ class Release extends Component {
 
     const releaseThumbnail = this.props.firebase.getReleaseThumbnail(this.props.release.thumbnailFilename);
     if (releaseThumbnail) {
-      Object.keys(releaseThumbnail).map(fileType => {
+      Object.keys(releaseThumbnail).forEach(fileType => {
         const releaseThumbnailWithFileType = releaseThumbnail[fileType];
-        Object.keys(releaseThumbnailWithFileType).map(imageSize => {
+        Object.keys(releaseThumbnailWithFileType).forEach(imageSize => {
           releaseThumbnailWithFileType[imageSize].getDownloadURL().then(url => {
             this.setState({
               releaseThumbnail: {

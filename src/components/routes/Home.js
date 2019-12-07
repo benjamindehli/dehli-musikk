@@ -43,9 +43,9 @@ class Home extends Component {
     this.initLanguage();
     const headerImage = this.props.firebase.getTemplateImage('header');
     if (headerImage) {
-      Object.keys(headerImage).map(fileType => {
+      Object.keys(headerImage).forEach(fileType => {
         const headerImageWithFileType = headerImage[fileType];
-        Object.keys(headerImageWithFileType).map(imageSize => {
+        Object.keys(headerImageWithFileType).forEach(imageSize => {
           headerImageWithFileType[imageSize].getDownloadURL().then(url => {
             this.setState({
               headerImage: {
