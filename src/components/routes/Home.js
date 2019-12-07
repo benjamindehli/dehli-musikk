@@ -75,10 +75,10 @@ class Home extends Component {
   render() {
     return (<div>
       <Helmet>
-        <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} />
-        <link rel="alternate" href="https://www.dehlimusikk.no" hreflang="no" />
-        <link rel="alternate" href="https://www.dehlimusikk.no/en" hreflang="en" />
-        <link rel="alternate" href="https://www.dehlimusikk.no" hreflang="x-default" />
+        <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} />
+        <link rel="alternate" href={`${window.location.origin}`} hreflang="no" />
+        <link rel="alternate" href={`${window.location.origin}/en`} hreflang="en" />
+        <link rel="alternate" href={`${window.location.origin}`} hreflang="x-default" />
       </Helmet>
       <div className={style.header}>
       {this.renderHeaderImage(this.state.headerImage)}
