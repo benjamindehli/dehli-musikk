@@ -9,7 +9,7 @@ import {withFirebase} from '../Firebase';
 import Artist from '../partials/Portfolio/Artist';
 
 // Actions
-import { getLanguageSlug, updateMultilingualRoutes } from '../../actions/LanguageActions';
+import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from '../../actions/LanguageActions';
 
 // Stylesheets
 import style from './Portfolio.module.scss';
@@ -22,12 +22,19 @@ class Portfolio extends Component {
       artists: null,
       releases: {},
       isMobile: false,
-      selectedLanguageKey: this.props.match && this.props.match.params && this.props.match.params.selectedLanguage ? this.props.match.params.selectedLanguage : ''
     };
   }
 
-  componentDidMount() {
+  initLanguage(){
     this.props.updateMultilingualRoutes('portfolio');
+    const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage ? this.props.match.params.selectedLanguage : 'no';
+    if (selectedLanguageKey !== this.props.selectedLanguageKey){
+      this.props.updateSelectedLanguageKey(selectedLanguageKey);
+    }
+  }
+
+  componentDidMount() {
+    this.initLanguage();
     this.props.firebase.getArtists().then(artists => {
       this.setState({artists: artists});
     });
@@ -63,7 +70,7 @@ class Portfolio extends Component {
   render() {
     return (<div className={style.container}>
       <Helmet>
-        <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.state.selectedLanguageKey)}portfolio`} />
+        <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
         <link rel="alternate" href="https://www.dehlimusikk.no/portfolio" hreflang="no" />
         <link rel="alternate" href="https://www.dehlimusikk.no/en/portfolio" hreflang="en" />
         <link rel="alternate" href="https://www.dehlimusikk.no/portfolio" hreflang="x-default" />
@@ -81,11 +88,14 @@ class Portfolio extends Component {
   }
 }
 
-const mapStateToProps = null;
+const mapStateToProps = state => ({
+  selectedLanguageKey: state.selectedLanguageKey
+});
 
 const mapDispatchToProps = {
   getLanguageSlug,
-  updateMultilingualRoutes
+  updateMultilingualRoutes,
+  updateSelectedLanguageKey
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(Portfolio));
