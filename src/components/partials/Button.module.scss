@@ -3,7 +3,7 @@
 :local(.button) {
   @include appearance(none);
   @include border-radius(4px);
-  @include transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0);
+  @include transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
   padding: 4px 8px;
   font-size: 0.81rem;
   font-weight: 500;
