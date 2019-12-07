@@ -1,8 +1,11 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
+// Actions
+import {getLanguageSlug} from '../../actions/LanguageActions';
 
 // Assets
 import {ReactComponent as DehliMusikkLogo} from '../../assets/svg/DehliMusikkLogoHorizontal.svg'
@@ -78,7 +81,7 @@ class NavigationBar extends Component {
     const hasAvailableLanguages = availableLanguages && Object.keys(availableLanguages).length;
     if (hasAvailableLanguages) {
       const selectedLanguage = availableLanguages[selectedLanguageKey];
-      return (<span className={style.languageSelectorButton}><FontAwesomeIcon icon={['fas', 'language']}/> {selectedLanguage.name} <FontAwesomeIcon icon={['fas', 'chevron-down']}/> </span>)
+      return (<span className={style.languageSelectorButton}><FontAwesomeIcon icon={['fas', 'language']}/> {selectedLanguage.name} <FontAwesomeIcon icon={['fas', 'chevron-down']}/></span>);
     } else
       return '';
     }
@@ -123,12 +126,19 @@ class NavigationBar extends Component {
             : ''} `}>
         <div ref={this.setSidebarWrapperRef} className={style.sidebarContent}>
           <div className={style.sidebarContentHeader}>
-            <Link to='/' aria-label='Link to Dehli Musikk home page'>
+            <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} aria-label='Link to Dehli Musikk home page'>
               <span className={style.appLogo}>
                 <DehliMusikkLogo alt="Dehli Musikk logo"/>
               </span>
             </Link>
           </div>
+          <ul className={style.sidebarLinks}>
+            <li>
+              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} activeClassName={style.activeLink}>
+                Portfolio
+              </NavLink>
+            </li>
+          </ul>
         </div>
       </div>
     </div>)
@@ -137,6 +147,8 @@ class NavigationBar extends Component {
 
 const mapStateToProps = state => ({availableLanguages: state.availableLanguages, multilingualRoutes: state.multilingualRoutes, selectedLanguageKey: state.selectedLanguageKey});
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = {
+  getLanguageSlug
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
