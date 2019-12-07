@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'connected-react-router';
-import {Helmet} from 'react-helmet';
+import {Helmet, HelmetProvider } from 'react-helmet-async';
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
@@ -38,6 +38,7 @@ class App extends Component {
   render() {
     return (<Provider store={store}>
       <ConnectedRouter history={history}>
+      <HelmetProvider>
         <Helmet>
         <script type="application/ld+json">{`
           {
@@ -58,6 +59,7 @@ class App extends Component {
           </Switch>
           <Footer/>
         </div>
+        </HelmetProvider>
       </ConnectedRouter>
     </Provider>);
   }
