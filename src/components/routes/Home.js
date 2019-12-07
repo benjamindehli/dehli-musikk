@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 
 // Actions
-import { getLanguageSlug } from '../../actions/LanguageActions';
+import { getLanguageSlug, updateMultilingualRoutes } from '../../actions/LanguageActions';
 
 // Components
 import {withFirebase} from '../Firebase';
@@ -34,6 +34,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    this.props.updateMultilingualRoutes('');
     const headerImage = this.props.firebase.getTemplateImage('header');
     if (headerImage) {
       Object.keys(headerImage).map(fileType => {
@@ -106,7 +107,8 @@ class Home extends Component {
 const mapStateToProps = null;
 
 const mapDispatchToProps = {
-  getLanguageSlug
+  getLanguageSlug,
+  updateMultilingualRoutes
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(Home));

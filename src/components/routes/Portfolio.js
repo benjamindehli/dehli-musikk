@@ -9,7 +9,7 @@ import {withFirebase} from '../Firebase';
 import Artist from '../partials/Portfolio/Artist';
 
 // Actions
-import { getLanguageSlug } from '../../actions/LanguageActions';
+import { getLanguageSlug, updateMultilingualRoutes } from '../../actions/LanguageActions';
 
 // Stylesheets
 import style from './Portfolio.module.scss';
@@ -30,6 +30,7 @@ class Portfolio extends Component {
   }
 
   componentDidMount() {
+    this.props.updateMultilingualRoutes('portfolio');
     this.props.firebase.getArtists().then(artists => {
       this.setState({artists: artists});
     });
@@ -86,7 +87,8 @@ class Portfolio extends Component {
 const mapStateToProps = null;
 
 const mapDispatchToProps = {
-  getLanguageSlug
+  getLanguageSlug,
+  updateMultilingualRoutes
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(Portfolio));
