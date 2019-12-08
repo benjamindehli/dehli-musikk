@@ -17,6 +17,7 @@ const config = {
 class Firebase {
   constructor() {
     app.initializeApp(config);
+    app.analytics();
     this.getArtists = this.getArtists.bind(this);
     this.getReleasesByArtistId = this.getReleasesByArtistId.bind(this);
     this.getTemplateImage = this.getTemplateImage.bind(this);
