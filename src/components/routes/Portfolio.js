@@ -71,6 +71,7 @@ class Portfolio extends Component {
     return (<div className={style.container}>
       <Helmet>
         <title>Portfolio - Dehli Musikk</title>
+        <meta name='description' content={this.props.selectedLanguageKey == 'en' ? 'Recordings Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'} />
         <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
         <link rel="alternate" href={`${window.location.origin}/portfolio`} hreflang="no" />
         <link rel="alternate" href={`${window.location.origin}/en/portfolio`} hreflang="en" />

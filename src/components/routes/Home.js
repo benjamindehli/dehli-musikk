@@ -75,6 +75,7 @@ class Home extends Component {
   render() {
     return (<div>
       <Helmet>
+        <meta name='description' content={this.props.selectedLanguageKey == 'en' ? 'Offers keyboard instrument tracks for artists and bands' : 'Tilbyr spilling av tangentinstrumenter på låter for artister og band'} />
         <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} />
         <link rel="alternate" href={`${window.location.origin}`} hreflang="no" />
         <link rel="alternate" href={`${window.location.origin}/en`} hreflang="en" />
