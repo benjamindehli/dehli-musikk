@@ -58,12 +58,10 @@ class Portfolio extends Component {
   renderViewTypeButton(selectedViewType) {
     return selectedViewType === 'list'
       ? (<button onClick={() => this.changeViewType('grid')} className={style.viewTypeButton}>
-        <FontAwesomeIcon icon={['fas', 'grip-horizontal']}/>
-        Show as grid
+        <FontAwesomeIcon icon={['fas', 'grip-horizontal']}/> {this.props.selectedLanguageKey == 'en' ? 'Show as grid' : 'Rutenettvisning'}
       </button>)
       : (<button onClick={(event) => this.changeViewType('list')} className={style.viewTypeButton}>
-        <FontAwesomeIcon icon={['fas', 'list-ul']}/>
-        Show as list
+        <FontAwesomeIcon icon={['fas', 'list-ul']}/> {this.props.selectedLanguageKey == 'en' ? 'Show as list' : 'Listevisning'}
       </button>)
   }
 

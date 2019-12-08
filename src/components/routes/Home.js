@@ -91,17 +91,8 @@ class Home extends Component {
       </div>
 
       <div className={style.contentSection}>
-        <h1>Dehli Musikk</h1>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam maximus neque ac dolor porta fringilla. Aliquam eget orci sollicitudin, facilisis augue convallis, commodo ante. Aliquam vitae magna eu ante porta pharetra. Pellentesque nisl eros, mollis eget finibus id, ultrices at elit. Nunc vitae convallis ex.
-        </p>
-        <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`}><Button buttontype='minimal'>portfolio</Button></Link>
-        <h2>Portfolio</h2>
-        <p>Aliquam erat volutpat. Donec varius justo nibh, vel malesuada mi dapibus at. Sed maximus pulvinar erat, eget ornare ex lobortis vitae. Quisque nec turpis mauris. Mauris in commodo elit. In non purus justo. Nunc rhoncus tortor vitae fringilla condimentum. Sed ultrices mi eros, eget tempus nisi congue ut.
-        </p>
-        <h2>Hoyhoy</h2>
-        <p>Aliquam malesuada faucibus arcu ac aliquam. Donec at volutpat urna. Duis volutpat pretium mi, ut mollis risus dignissim eget. Proin eget scelerisque lacus. In at pharetra nisl, vitae facilisis libero. Maecenas scelerisque hendrerit scelerisque. Nulla consequat elit ut urna porttitor, in sodales libero pellentesque. Cras nec turpis urna. Nulla non varius libero.
-        </p>
+        <h1>{this.props.selectedLanguageKey == 'en' ? 'Coming soon' : 'Kommer snart'}</h1>
+        <p>{this.props.selectedLanguageKey == 'en' ? 'The website is under development' : 'Nettsiden er under utvikling'}</p>
       </div>
       <div className={style.socialMediaSection}>
         <div className={style.contentSection}>

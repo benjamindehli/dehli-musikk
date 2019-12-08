@@ -69,7 +69,7 @@ class ReleaseLinks extends Component {
     const links = release.links;
     return Object.keys(links).map(linkKey => {
       const url = links[linkKey];
-      return <a href={url} key={linkKey} aria-label={`Listen to ${release.title} on ${linkKey}`} className={style.link}>{this.getLinkIcon(linkKey)}</a>;
+      return <a href={url} key={linkKey} aria-label={`${this.props.selectedLanguageKey == 'en' ? 'Listen to' : 'Lytt til'}  ${release.title} ${this.props.selectedLanguageKey == 'en' ? 'on' : 'på'} ${linkKey}`} className={style.link}>{this.getLinkIcon(linkKey)}</a>;
     });
   }
 
@@ -84,7 +84,9 @@ ReleaseLinks.propTypes = {
   release: PropTypes.object.isRequired
 };
 
-const mapStateToProps = null;
+const mapStateToProps = state => ({
+  selectedLanguageKey: state.selectedLanguageKey
+});
 
 const mapDispatchToProps = null;
 
