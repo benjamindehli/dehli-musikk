@@ -41,7 +41,7 @@ class Firebase {
   getReleasesByArtistId(artistId){
     const artist = app.firestore().collection('artists').doc(artistId);
     if (artist.collection && artist.collection('releases')) {
-      return artist.collection('releases').get().then(querySnapshot => {
+      return artist.collection('releases').orderBy('title', 'asc').get().then(querySnapshot => {
         let releases = [];
          querySnapshot.forEach(doc => {
            releases.push({
