@@ -5,7 +5,7 @@ import style from './Button.module.scss';
 class Button extends React.Component {
   render() {
     return (<button {...this.props} className={`${style.button} ${style[this.props.buttontype]}`}>
-      {this.props.children}
+      <span className={style.content}>{this.props.children}</span>
     </button>)
   }
 };

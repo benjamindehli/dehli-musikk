@@ -3,23 +3,59 @@
 :local(.button) {
   @include appearance(none);
   @include border-radius(4px);
-  @include transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
-  padding: 4px 8px;
   font-size: 0.81rem;
+  line-height: 1.5;
   font-weight: 500;
   text-transform: uppercase;
+  padding: 0;
 
-  &:local(.minimal) {
-    color: $primary-color;
-    background-color: transparent;
+  :local(.content) {
+    @include border-radius(4px);
+    @include transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
+    padding: 6px 16px;
+    min-width: 64px;
+    display: block;
+  }
 
-    &:hover,
-    &:focus {
-      background-color: rgba(195, 42, 34, 0.08);
+  &:local(.default) {
+    background-color: $primary-color;
+    color: #fff;
+
+    :local(.content) {
+      background-color: rgba(195, 42, 34, 0.00);
+    }
+
+    &:focus,
+    &:hover {
+      :local(.content) {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
     }
 
     &:active {
-      background-color: rgba(195, 42, 34, 0.38);
+      :local(.content) {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  &:local(.minimal) {
+    :local(.content) {
+      color: $primary-color;
+      background-color: transparent;
+    }
+
+    &:focus,
+    &:hover {
+      :local(.content) {
+        background-color: rgba(195, 42, 34, 0.08);
+      }
+    }
+
+    &:active {
+      :local(.content) {
+        background-color: rgba(195, 42, 34, 0.38);
+      }
     }
   }
 
