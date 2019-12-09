@@ -23,6 +23,8 @@ import configureStore, {history} from './utils/configureStore';
 import NavigationBar from './components/partials/NavigationBar';
 import Footer from './components/partials/Footer';
 import NotFound from './components/routes/NotFound';
+import CookieDialog from './components/partials/CookieDialog';
+import CookiePolicy from './components/routes/CookiePolicy';
 import Home from './components/routes/Home';
 import Portfolio from './components/routes/Portfolio';
 
@@ -51,6 +53,8 @@ class App extends Component {
         <NavigationBar/>
         <div className={style.container}>
           <Switch>
+              <Route exact={true} path="/cookie-policy" render={() => (<CookiePolicy/>)}/>
+              <Route exact={true} path="/:selectedLanguage/cookie-policy" render={(props) => (<CookiePolicy {...props}/>)}/>
             <Route exact={true} path="/portfolio" render={() => (<Portfolio/>)}/>
             <Route exact={true} path="/:selectedLanguage/portfolio" render={(props) => (<Portfolio {...props}/>)}/>
             <Route exact={true} path="/:selectedLanguage" render={(props) => (<Home {...props}/>)}/>
@@ -58,6 +62,7 @@ class App extends Component {
             <Route render={() => (<NotFound/>)}/>
           </Switch>
           <Footer/>
+            <CookieDialog/>
         </div>
         </HelmetProvider>
       </ConnectedRouter>
