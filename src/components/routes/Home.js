@@ -1,16 +1,14 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet-async';
 
 // Actions
-import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from '../../actions/LanguageActions';
+import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from '../../actions/LanguageActions';
 
 // Components
 import {withFirebase} from '../Firebase';
 import SocialMediaLinks from '../partials/SocialMediaLinks';
-import Button from '../partials/Button';
 
 // Assets
 import header1680 from '../../assets/images/header_1680.jpg';
@@ -25,16 +23,18 @@ class Home extends Component {
     super(props);
     this.state = {
       headerImage: {
-        webp:{},
-        jpg:{}
+        webp: {},
+        jpg: {}
       }
     };
   }
 
-  initLanguage(){
+  initLanguage() {
     this.props.updateMultilingualRoutes('');
-    const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage ? this.props.match.params.selectedLanguage : 'no';
-    if (selectedLanguageKey !== this.props.selectedLanguageKey){
+    const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage
+      ? this.props.match.params.selectedLanguage
+      : 'no';
+    if (selectedLanguageKey !== this.props.selectedLanguageKey) {
       this.props.updateSelectedLanguageKey(selectedLanguageKey);
     }
   }
@@ -62,27 +62,30 @@ class Home extends Component {
     }
   }
 
-  renderHeaderImage(headerImage){
+  renderHeaderImage(headerImage) {
     const srcSets = Object.keys(headerImage).map(fileType => {
       const srcSet = Object.keys(headerImage[fileType]).map(imageSize => {
         return headerImage[fileType][imageSize];
       })
       return (<source key={fileType} srcSet={srcSet} type={`image/${fileType}`}/>)
     })
-    return (<picture className={style.backgroundsImage}>{srcSets}<img src={header1680} alt='Header' /></picture>);
+    return (<picture className={style.backgroundsImage}>{srcSets}<img src={header1680} alt='Header'/></picture>);
   }
 
   render() {
     return (<div>
       <Helmet>
-        <meta name='description' content={this.props.selectedLanguageKey == 'en' ? 'Offers keyboard instrument tracks for artists and bands' : 'Tilbyr spilling av tangentinstrumenter på låter for artister og band'} />
-        <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} />
-        <link rel="alternate" href={`${window.location.origin}`} hreflang="no" />
-        <link rel="alternate" href={`${window.location.origin}/en`} hreflang="en" />
-        <link rel="alternate" href={`${window.location.origin}`} hreflang="x-default" />
+        <title>Portfolio - Dehli Musikk</title>
+        <meta name='description' content={this.props.selectedLanguageKey === 'en'
+            ? 'Offers keyboard instrument tracks for artists and bands'
+            : 'Tilbyr spilling av tangentinstrumenter på låter for artister og band'}/>
+        <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`}/>
+        <link rel="alternate" href={`${window.location.origin}`} hreflang="no"/>
+        <link rel="alternate" href={`${window.location.origin}/en`} hreflang="en"/>
+        <link rel="alternate" href={`${window.location.origin}`} hreflang="x-default"/>
       </Helmet>
       <div className={style.header}>
-      {this.renderHeaderImage(this.state.headerImage)}
+        {this.renderHeaderImage(this.state.headerImage)}
         <div className={style.overlay}>
           <span className={style.logo}>
             <img src={DehliMusikkLogo} alt='Logo for Dehli Musikk'/>
@@ -91,8 +94,16 @@ class Home extends Component {
       </div>
 
       <div className={style.contentSection}>
-        <h1>{this.props.selectedLanguageKey == 'en' ? 'Coming soon' : 'Kommer snart'}</h1>
-        <p>{this.props.selectedLanguageKey == 'en' ? 'The website is under development' : 'Nettsiden er under utvikling'}</p>
+        <h1>{
+            this.props.selectedLanguageKey === 'en'
+              ? 'Coming soon'
+              : 'Kommer snart'
+          }</h1>
+        <p>{
+            this.props.selectedLanguageKey === 'en'
+              ? 'The website is under development'
+              : 'Nettsiden er under utvikling'
+          }</p>
       </div>
       <div className={style.socialMediaSection}>
         <div className={style.contentSection}>
@@ -103,9 +114,7 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  selectedLanguageKey: state.selectedLanguageKey
-});
+const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
 
 const mapDispatchToProps = {
   getLanguageSlug,

@@ -1,10 +1,6 @@
 // Dependencies
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-
-// Stylesheets
-import style from './Policies.module.scss';
 
 class CookiePolicy extends Component {
   render() {

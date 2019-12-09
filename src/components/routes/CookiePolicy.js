@@ -1,7 +1,6 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet-async';
 
 // Actions
@@ -29,8 +28,8 @@ class CookiePolicy extends Component {
   render() {
     return (<div>
       <Helmet>
-      <title>{this.props.selectedLanguageKey == 'en' ? 'Cookie Policy' : 'Cookie-erklæring'} - Dehli Musikk</title>
-      <meta name='description' content={this.props.selectedLanguageKey == 'en' ? 'Cookie Policy for Dehli Musikk\s website' : 'Cookie-erklæring for Dehli Musikks nettsted'} />
+      <title>{this.props.selectedLanguageKey === 'en' ? 'Cookie Policy' : 'Cookie-erklæring'} - Dehli Musikk</title>
+      <meta name='description' content={this.props.selectedLanguageKey === 'en' ? 'Cookie Policy for Dehli Musikk\'s website' : 'Cookie-erklæring for Dehli Musikks nettsted'} />
       <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}cookie-policy`} />
       <link rel="alternate" href={`${window.location.origin}/cookie-policy`} hreflang="no" />
       <link rel="alternate" href={`${window.location.origin}/en/cookie-policy`} hreflang="en" />

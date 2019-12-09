@@ -58,10 +58,10 @@ class Portfolio extends Component {
   renderViewTypeButton(selectedViewType) {
     return selectedViewType === 'list'
       ? (<button onClick={() => this.changeViewType('grid')} className={style.viewTypeButton}>
-        <FontAwesomeIcon icon={['fas', 'grip-horizontal']}/> {this.props.selectedLanguageKey == 'en' ? 'Show as grid' : 'Rutenettvisning'}
+        <FontAwesomeIcon icon={['fas', 'grip-horizontal']}/> {this.props.selectedLanguageKey === 'en' ? 'Show as grid' : 'Rutenettvisning'}
       </button>)
       : (<button onClick={(event) => this.changeViewType('list')} className={style.viewTypeButton}>
-        <FontAwesomeIcon icon={['fas', 'list-ul']}/> {this.props.selectedLanguageKey == 'en' ? 'Show as list' : 'Listevisning'}
+        <FontAwesomeIcon icon={['fas', 'list-ul']}/> {this.props.selectedLanguageKey === 'en' ? 'Show as list' : 'Listevisning'}
       </button>)
   }
 
@@ -69,7 +69,7 @@ class Portfolio extends Component {
     return (<div className={style.container}>
       <Helmet>
         <title>Portfolio - Dehli Musikk</title>
-        <meta name='description' content={this.props.selectedLanguageKey == 'en' ? 'Recordings Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'} />
+        <meta name='description' content={this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'} />
         <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
         <link rel="alternate" href={`${window.location.origin}/portfolio`} hreflang="no" />
         <link rel="alternate" href={`${window.location.origin}/en/portfolio`} hreflang="en" />

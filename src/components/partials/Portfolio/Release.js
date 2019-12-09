@@ -144,13 +144,13 @@ class Release extends Component {
           </div>
         </div>
         <div className={style.actionButton}>
-          <Button onClick={() => this.handleShowLinksClick()} buttontype='minimal'>{this.props.selectedLanguageKey == 'en' ? 'Listen to' : 'Lytt til'} {release.title}</Button>
+          <Button onClick={() => this.handleShowLinksClick()} buttontype='minimal'>{this.props.selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} {release.title}</Button>
         </div>
         {
           this.state.showLinks
             ? (<div className={style.linksModalOverlay}>
               <div ref={this.setWrapperRef} className={style.linksModalContent}>
-                <h3>{this.props.selectedLanguageKey == 'en' ? 'Listen to' : 'Lytt til'} {release.title}</h3>
+                <h3>{this.props.selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} {release.title}</h3>
                 <ReleaseLinks release={release}/>
               </div>
             </div>)
