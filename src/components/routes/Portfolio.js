@@ -7,6 +7,7 @@ import {Helmet} from 'react-helmet-async';
 // Components
 import {withFirebase} from '../Firebase';
 import Artist from '../partials/Portfolio/Artist';
+import Breadcrumbs from '../partials/Breadcrumbs';
 
 // Actions
 import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from '../../actions/LanguageActions';
@@ -66,9 +67,16 @@ class Portfolio extends Component {
   }
 
   render() {
+    const pageTitle = 'Portfolio';
+    const breadcrumbs = [
+      {
+        name: pageTitle,
+        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`
+      }
+    ];
     return (<div className={style.container}>
       <Helmet>
-        <title>Portfolio - Dehli Musikk</title>
+        <title>{pageTitle} - Dehli Musikk</title>
         <meta name='description' content={this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'} />
         <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
         <link rel="alternate" href={`${window.location.origin}/portfolio`} hreflang="no" />
@@ -76,6 +84,7 @@ class Portfolio extends Component {
         <link rel="alternate" href={`${window.location.origin}/portfolio`} hreflang="x-default" />
       </Helmet>
       <div className='padding'>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
         <h1>Portfolio</h1>
         {!this.state.isMobile ? this.renderViewTypeButton(this.state.viewType) : ''}
       </div>

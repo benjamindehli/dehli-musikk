@@ -9,6 +9,7 @@ import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } 
 // Components
 import {withFirebase} from '../Firebase';
 import CookiePolicyEnglish from '../partials/Policies/CookiePolicyEnglish';
+import Breadcrumbs from '../partials/Breadcrumbs';
 
 class CookiePolicy extends Component {
 
@@ -26,17 +27,25 @@ class CookiePolicy extends Component {
 
 
   render() {
+    const pageTitle = this.props.selectedLanguageKey === 'en' ? 'Cookie Policy' : 'Cookie-erklæring';
+    const breadcrumbs = [
+      {
+        name: pageTitle,
+        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}cookie-policy`
+      }
+    ];
     return (<div>
       <Helmet>
-      <title>{this.props.selectedLanguageKey === 'en' ? 'Cookie Policy' : 'Cookie-erklæring'} - Dehli Musikk</title>
-      <meta name='description' content={this.props.selectedLanguageKey === 'en' ? 'Cookie Policy for Dehli Musikk\'s website' : 'Cookie-erklæring for Dehli Musikks nettsted'} />
-      <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}cookie-policy`} />
-      <link rel="alternate" href={`${window.location.origin}/cookie-policy`} hreflang="no" />
-      <link rel="alternate" href={`${window.location.origin}/en/cookie-policy`} hreflang="en" />
-      <link rel="alternate" href={`${window.location.origin}/cookie-policy`} hreflang="x-default" />
+        <title>{pageTitle} - Dehli Musikk</title>
+        <meta name='description' content={this.props.selectedLanguageKey === 'en' ? 'Cookie Policy for Dehli Musikk\'s website' : 'Cookie-erklæring for Dehli Musikks nettsted'} />
+        <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}cookie-policy`} />
+        <link rel="alternate" href={`${window.location.origin}/cookie-policy`} hreflang="no" />
+        <link rel="alternate" href={`${window.location.origin}/en/cookie-policy`} hreflang="en" />
+        <link rel="alternate" href={`${window.location.origin}/cookie-policy`} hreflang="x-default" />
       </Helmet>
 
       <div className='padding'>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <h1>{this.props.selectedLanguageKey === 'en' ? 'Cookie Policy for Dehli Musikk' : 'Cookie-erklæring for Dehli Musikk'}</h1>
         <CookiePolicyEnglish />
       </div>
