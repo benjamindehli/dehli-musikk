@@ -75,7 +75,7 @@ class Home extends Component {
   render() {
     return (<div>
       <Helmet>
-        <title>Portfolio - Dehli Musikk</title>
+        <title>Dehli Musikk</title>
         <meta name='description' content={this.props.selectedLanguageKey === 'en'
             ? 'Offers keyboard instrument tracks for artists and bands'
             : 'Tilbyr spilling av tangentinstrumenter på låter for artister og band'}/>
