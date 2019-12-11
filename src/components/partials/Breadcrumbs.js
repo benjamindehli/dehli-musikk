@@ -1,9 +1,14 @@
+// Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet-async';
 
+// Actions
+import {getLanguageSlug} from '../../actions/LanguageActions';
+
+// Stylesheets
 import style from './Breadcrumbs.module.scss';
 
 export class Breadcrumbs extends Component {
@@ -17,7 +22,7 @@ export class Breadcrumbs extends Component {
           "@type": "ListItem",
           "position": 1,
           "item": {
-            "@id": "https://www.dehlimusikk.no",
+            "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`,
             "name": "Dehli Musikk"
           }
         }
@@ -55,7 +60,7 @@ export class Breadcrumbs extends Component {
       {this.renderBreadcrumbJsonLd(this.props.breadcrumbs)}
       <ul>
         <li>
-          <Link to={'/'}>Dehli Musikk</Link>
+          <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`}>Dehli Musikk</Link>
         </li>
         {this.renderBreadcrumbListElements(this.props.breadcrumbs)}
       </ul>
@@ -75,4 +80,10 @@ Breadcrumbs.defaultProps = {
   breadcrumbs: []
 };
 
-export default connect(null, null)(Breadcrumbs);
+const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
+
+const mapDispatchToProps = {
+  getLanguageSlug
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Breadcrumbs);
