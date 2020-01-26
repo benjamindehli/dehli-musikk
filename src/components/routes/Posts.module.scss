@@ -1,0 +1,21 @@
+@import "../../style/abstracts/all";
+
+:local(.container) {
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {}
+
+:local(.viewTypeButton) {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+:local(.posts) {
+  :local(.grid) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
