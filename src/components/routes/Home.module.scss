@@ -60,8 +60,27 @@ img {
   max-width: 1200px;
   padding: 24px;
   margin: auto;
+
+  > h2 {
+    text-align: center;
+  }
 }
 
 :local(.socialMediaSection) {
   background-color: #202122;
+
+  h2 {
+    color: #fff;
+  }
+}
+
+:local(.latestPostsSection) {
+  background-color: #eee;
+
+  :local(.callToAction) {
+    text-align: center;
+    margin: 16px 0;
+
+    a {}
+  }
 }
