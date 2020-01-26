@@ -38,15 +38,6 @@ class Portfolio extends Component {
 
   componentDidMount() {
     this.initLanguage();
-    const savedArtists = sessionStorage.getItem('artists');
-    // if (savedArtists && savedArtists.length){
-    //   this.setState({artists: JSON.parse(savedArtists)});
-    // } else{
-    //   this.props.firebase.getArtists().then(artists => {
-    //     this.setState({artists: artists});
-    //     sessionStorage.setItem('artists', JSON.stringify(artists));
-    //   });
-    // }
     this.setState({
       isMobile: window.innerWidth < 816
     });

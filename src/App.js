@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'connected-react-router';
-import {Helmet} from 'react-helmet';
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
@@ -65,16 +64,6 @@ class App extends Component {
   render() {
     return (<Provider store={store}>
       <ConnectedRouter history={history}>
-      <HelmetProvider>
-        <Helmet>
-        <script type="application/ld+json">{`
-          {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "name": "Dehli Musikk"
-          }
-        `}</script>
-        </Helmet>
         <NavigationBar/>
         <div className={style.container}>
           <Switch>

@@ -46,7 +46,6 @@ class Release extends Component {
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
-    const thumbnailFilename = this.props.release.thumbnailFilename;
   }
 
   renderReleaseThumbnail_old(releaseThumbnail, artist, release) {

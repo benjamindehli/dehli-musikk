@@ -1,6 +1,6 @@
 import { UPDATE_HAS_ACCEPTED_POLICY } from '../constants/types';
 
-const initialState = localStorage.getItem('hasAcceptedPolicy') ? localStorage.getItem('hasAcceptedPolicy') : false;
+const initialState = false;
 
 export default function(state = initialState, action) {
 	switch(action.type) {
