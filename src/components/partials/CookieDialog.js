@@ -40,7 +40,9 @@ class CookieDialog extends React.Component {
   }
 
   handleAcceptPolicyClick() {
-    localStorage.setItem("hasAcceptedPolicy", true);
+    if (localStorage){
+      localStorage.setItem("hasAcceptedPolicy", true);
+    }
     this.props.updateHasAcceptedPolicy(true);
   }
 
@@ -85,7 +87,8 @@ class CookieDialog extends React.Component {
     </div>);
   }
   render() {
-    return this.props.hasAcceptedPolicy && this.props.hasAcceptedPolicy !== 'false'
+    let hasAcceptedPolicy = localStorage && localStorage.getItem('hasAcceptedPolicy'); // TODO temporarly replacing this.props.hasAcceptedPolicy
+    return hasAcceptedPolicy && hasAcceptedPolicy !== 'false'
       ? ''
       : (<React.Fragment>
         <div className={style.cookieDialogHeightElement}></div>

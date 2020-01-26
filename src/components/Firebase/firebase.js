@@ -1,7 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/storage';
 import "firebase/firestore";
-import "firebase/analytics";
+//import "firebase/analytics";
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -14,10 +14,12 @@ const config = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
 
+
 class Firebase {
   constructor() {
     app.initializeApp(config);
-    app.analytics();
+    // app.analytics();
+    // app.firestore().enablePersistence()
     this.getArtists = this.getArtists.bind(this);
     this.getReleasesByArtistId = this.getReleasesByArtistId.bind(this);
     this.getTemplateImage = this.getTemplateImage.bind(this);

@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'connected-react-router';
-import {Helmet, HelmetProvider} from 'react-helmet-async';
+import {Helmet} from 'react-helmet';
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
@@ -23,18 +23,42 @@ import configureStore, {history} from './utils/configureStore';
 import NavigationBar from './components/partials/NavigationBar';
 import Footer from './components/partials/Footer';
 import NotFound from './components/routes/NotFound';
-import CookieDialog from './components/partials/CookieDialog';
-import CookiePolicy from './components/routes/CookiePolicy';
-import Home from './components/routes/Home';
-import Portfolio from './components/routes/Portfolio';
+
 
 // Stylesheets
 import style from './App.module.scss';
 
+import loadable from "@loadable/component";
+import { PrerenderedComponent } from "react-prerendered-component";
+
+const prerenderedLoadable = dynamicImport => {
+  const LoadableComponent = loadable(dynamicImport);
+  return React.memo(props => (
+    <PrerenderedComponent live={LoadableComponent.load()}>
+      <LoadableComponent {...props} />
+    </PrerenderedComponent>
+  ));
+};
+
+
+const Home = prerenderedLoadable(() => import("./components/routes/Home"));
+const Portfolio = prerenderedLoadable(() => import("./components/routes/Portfolio"));
+
 library.add(faFacebookF, faInstagram, faTumblr, faTwitter, faVimeoV, faYoutube, faGripHorizontal, faListUl, faLanguage, faChevronDown)
 
 const initialState = {};
-const store = configureStore(initialState);
+
+// Grab the state from a global variable injected into the server-generated HTML
+const preloadedState = window.__PRELOADED_STATE__;
+
+// Allow the passed state to be garbage-collected
+delete window.__PRELOADED_STATE__;
+
+const store = configureStore(preloadedState || initialState);
+
+window.snapSaveState = () => ({
+  __PRELOADED_STATE__: store.getState()
+});
 
 class App extends Component {
   render() {
@@ -53,18 +77,20 @@ class App extends Component {
         <NavigationBar/>
         <div className={style.container}>
           <Switch>
-              <Route exact={true} path="/cookie-policy" render={() => (<CookiePolicy/>)}/>
-              <Route exact={true} path="/:selectedLanguage/cookie-policy" render={(props) => (<CookiePolicy {...props}/>)}/>
             <Route exact={true} path="/portfolio" render={() => (<Portfolio/>)}/>
             <Route exact={true} path="/:selectedLanguage/portfolio" render={(props) => (<Portfolio {...props}/>)}/>
             <Route exact={true} path="/:selectedLanguage" render={(props) => (<Home {...props}/>)}/>
             <Route exact={true} path="/" render={() => (<Home/>)}/>
+            <Route
+           key={"/shell.html"}
+           path="/shell.html"
+           component={() => null}
+         />
+          <Route key={"/404.html"} component={NotFound} />
             <Route render={() => (<NotFound/>)}/>
           </Switch>
           <Footer/>
-            <CookieDialog/>
         </div>
-        </HelmetProvider>
       </ConnectedRouter>
     </Provider>);
   }

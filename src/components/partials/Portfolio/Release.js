@@ -1,25 +1,24 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet-async';
+import {Helmet} from 'react-helmet';
 import PropTypes from 'prop-types';
 
 // Components
-import {withFirebase} from '../../Firebase';
 import ReleaseLinks from './ReleaseLinks';
 import Button from '../Button';
 
+// Actions
+import {fetchReleasesThumbnail} from '../../../actions/PortfolioActions';
+
 // Stylesheets
 import style from './Release.module.scss';
+
 
 class Release extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      releaseThumbnail: {
-        webp: {},
-        jpg: {}
-      },
       showLinks: false,
       isLoaded: false
     };
@@ -47,34 +46,10 @@ class Release extends Component {
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
-
-    const releaseThumbnail = this.props.firebase.getReleaseThumbnail(this.props.release.thumbnailFilename);
-    if (releaseThumbnail) {
-      Object.keys(releaseThumbnail).forEach(fileType => {
-        const releaseThumbnailWithFileType = releaseThumbnail[fileType];
-        Object.keys(releaseThumbnailWithFileType).forEach(imageSize => {
-          releaseThumbnailWithFileType[imageSize].getDownloadURL().then(url => {
-            this.setState({
-              releaseThumbnail: {
-                ...this.state.releaseThumbnail,
-                [fileType]: {
-                  ...this.state.releaseThumbnail[fileType],
-                  [imageSize]: {
-                    srcSet: `${url} ${imageSize}w`,
-                    url: url
-                  }
-                }
-              }
-            }, () => {
-              this.setState({isLoaded: true})
-            })
-          })
-        });
-      })
-    }
+    const thumbnailFilename = this.props.release.thumbnailFilename;
   }
 
-  renderReleaseThumbnail(releaseThumbnail, artist, release) {
+  renderReleaseThumbnail_old(releaseThumbnail, artist, release) {
     const srcSets = Object.keys(releaseThumbnail).map(fileType => {
       const srcSet = Object.keys(releaseThumbnail[fileType]).map(imageSize => {
         return releaseThumbnail[fileType][imageSize].srcSet;
@@ -86,14 +61,24 @@ class Release extends Component {
     const thumbnailImageSrc = releaseThumbnail.jpg[350] && releaseThumbnail.jpg[350].url
       ? releaseThumbnail.jpg[350].url
       : '';
-    return (<picture>{srcSets}<img src={thumbnailImageSrc} alt={`Album cover for ${release.title} by ${artist.artistName}`} /></picture>);
+    return (<picture>{srcSets}<img src={thumbnailImageSrc} alt={`Album cover for ${release.title} by ${artist.artistName}`}/></picture>);
+  }
+
+  renderReleaseThumbnail(image, viewType){
+    const imageSize = viewType === 'list' ? '55px' : '350px';
+
+    return (<picture>
+      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w`} type="image/webp"/>
+      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w`} type="image/jpg"/>
+      <img src={image.jpg350} alt="Album cover" />
+      </picture>);
   }
 
   renderReleaseSnippet(artist, release, releaseThumbnailSrc) {
     const snippet = {
       "@context": "http://schema.org",
       "@type": "MusicRecording",
-      "@id": `${window.location.origin}${window.location.pathname}#${release.id}`,
+      "@id": `https://www.dehlimusikk.no/portfolio/#${release.id}`,
       "name": release.title,
       "duration": release.durationISO,
       "genre": release.genre,
@@ -113,18 +98,26 @@ class Release extends Component {
   }
 
   render() {
+
+
     const release = this.props.release;
     const artist = this.props.artist;
-    const releaseThumbnailSrc = this.state.releaseThumbnail.jpg[350] && this.state.releaseThumbnail.jpg[350].url
-      ? this.state.releaseThumbnail.jpg[350].url
-      : null;
-    return this.state.isLoaded
-      ? (<div className={this.props.viewType === 'list'
+
+    const imagePathWebp = `data/releases/thumbnails/web/webp/${release.thumbnailFilename}`;
+    const imagePathJpg = `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}`;
+    const image = {
+      webp55: require(`../../../${imagePathWebp}_55.webp`),
+      webp350: require(`../../../${imagePathWebp}_350.webp`),
+      jpg55: require(`../../../${imagePathJpg}_55.jpg`),
+      jpg350: require(`../../../${imagePathJpg}_350.jpg`)
+    };
+
+    return (<div className={this.props.viewType === 'list'
           ? style.listItem
           : style.gridItem}>
-        {this.renderReleaseSnippet(artist, release, releaseThumbnailSrc)}
+        {this.renderReleaseSnippet(artist, release, image['jpg350'])}
         <div className={style.thumbnail}>
-          {this.renderReleaseThumbnail(this.state.releaseThumbnail, artist, release)}
+          {this.renderReleaseThumbnail(image, this.props.viewType)}
         </div>
         <div className={style.content}>
           <div className={style.header}>
@@ -144,20 +137,29 @@ class Release extends Component {
           </div>
         </div>
         <div className={style.actionButton}>
-          <Button onClick={() => this.handleShowLinksClick()} buttontype='minimal'>{this.props.selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} {release.title}</Button>
+          <Button onClick={() => this.handleShowLinksClick()} buttontype='minimal'>{
+              this.props.selectedLanguageKey === 'en'
+                ? 'Listen to '
+                : 'Lytt til '
+            }
+            {release.title}</Button>
         </div>
         {
           this.state.showLinks
             ? (<div className={style.linksModalOverlay}>
               <div ref={this.setWrapperRef} className={style.linksModalContent}>
-                <h3>{this.props.selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} {release.title}</h3>
+                <h3>{
+                    this.props.selectedLanguageKey === 'en'
+                      ? 'Listen to'
+                      : 'Lytt til'
+                  }
+                  {release.title}</h3>
                 <ReleaseLinks release={release}/>
               </div>
             </div>)
             : ''
         }
-      </div>)
-      : '';
+      </div>);
   }
 }
 
@@ -171,10 +173,10 @@ Release.defaultProps = {
   viewType: 'list'
 }
 
-const mapStateToProps = state => ({
-  selectedLanguageKey: state.selectedLanguageKey
-});
+const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
 
-const mapDispatchToProps = null;
+const mapDispatchToProps = {
+  fetchReleasesThumbnail
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(Release));
+export default connect(mapStateToProps, mapDispatchToProps)(Release);

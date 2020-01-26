@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 // Components
-import {withFirebase} from '../../Firebase';
 
 // Assets
 import {ReactComponent as AmazonStoreIcon} from '../../../assets/svg/amazonStore.svg'
@@ -90,4 +89,4 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = null;
 
-export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(ReleaseLinks));
+export default connect(mapStateToProps, mapDispatchToProps)(ReleaseLinks);

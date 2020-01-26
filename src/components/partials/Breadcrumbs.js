@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {Helmet} from 'react-helmet-async';
+import {Helmet} from 'react-helmet';
 
 // Actions
 import {getLanguageSlug} from '../../actions/LanguageActions';

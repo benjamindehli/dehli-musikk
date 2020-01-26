@@ -20,6 +20,17 @@ class Artist extends Component {
   }
 
   getReleasesByArtist(artistId) {
+    const savedReleases = sessionStorage.getItem(`releases_${artistId}`);
+    if (savedReleases && savedReleases.length){
+      this.setState({artists: JSON.parse(savedReleases)});
+    } else{
+      this.props.firebase.getReleasesByArtistId(artistId).then(releasesByArtist => {
+        this.setState({releases: releasesByArtist})
+        sessionStorage.setItem(`releases_${artistId}`, JSON.stringify(releasesByArtist));
+      });
+    }
+
+
     this.props.firebase.getReleasesByArtistId(artistId).then(releasesByArtist => {
       this.setState({releases: releasesByArtist})
     });
