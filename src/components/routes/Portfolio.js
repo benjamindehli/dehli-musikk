@@ -2,15 +2,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {Helmet} from 'react-helmet-async';
+import {Helmet} from 'react-helmet';
 
 // Components
-import {withFirebase} from '../Firebase';
-import Artist from '../partials/Portfolio/Artist';
+import Release from '../partials/Portfolio/Release';
 import Breadcrumbs from '../partials/Breadcrumbs';
 
 // Actions
 import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from '../../actions/LanguageActions';
+
+// Data
+import releases from '../../data/portfolio';
 
 // Stylesheets
 import style from './Portfolio.module.scss';
@@ -36,22 +38,31 @@ class Portfolio extends Component {
 
   componentDidMount() {
     this.initLanguage();
-    this.props.firebase.getArtists().then(artists => {
-      this.setState({artists: artists});
+    const savedArtists = sessionStorage.getItem('artists');
+    // if (savedArtists && savedArtists.length){
+    //   this.setState({artists: JSON.parse(savedArtists)});
+    // } else{
+    //   this.props.firebase.getArtists().then(artists => {
+    //     this.setState({artists: artists});
+    //     sessionStorage.setItem('artists', JSON.stringify(artists));
+    //   });
+    // }
+    this.setState({
+      isMobile: window.innerWidth < 816
     });
-      this.setState({
-        isMobile: window.innerWidth < 816
-      });
   }
 
   changeViewType(viewType) {
     this.setState({viewType: viewType});
   }
 
-  renderArtists() {
-    return this.state.artists && this.state.artists.length
-      ? this.state.artists.map((artist, key) => {
-        return <Artist key={artist.id} artist={artist} viewType={this.state.viewType}/>;
+  renderReleases() {
+    return releases && releases.length
+      ? releases.map(release => {
+        const artist = {
+          artistName: release.artistName
+        }
+        return <Release key={release.id} release={release} artist={artist} viewType={this.props.viewType}/>
       })
       : '';
   }
@@ -67,7 +78,7 @@ class Portfolio extends Component {
   }
 
   render() {
-    const pageTitle = 'Portfolio';
+    const pageTitle = this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje';
     const breadcrumbs = [
       {
         name: pageTitle,
@@ -78,19 +89,19 @@ class Portfolio extends Component {
       <Helmet>
         <title>{pageTitle} - Dehli Musikk</title>
         <meta name='description' content={this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'} />
-        <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
-        <link rel="alternate" href={`${window.location.origin}/portfolio`} hreflang="no" />
-        <link rel="alternate" href={`${window.location.origin}/en/portfolio`} hreflang="en" />
-        <link rel="alternate" href={`${window.location.origin}/portfolio`} hreflang="x-default" />
+        <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio`} hreflang="no" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/en/portfolio`} hreflang="en" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio`} hreflang="x-default" />
       </Helmet>
       <div className='padding'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <h1>Portfolio</h1>
-        {!this.state.isMobile ? this.renderViewTypeButton(this.state.viewType) : ''}
+        <h1>{pageTitle}</h1>
+        <p>{this.props.selectedLanguageKey === 'en' ? 'Recordings where I\'ve contributed' : 'Utgivelser jeg har bidratt på'}</p>
       </div>
       <div className={`${style.releases} padding-sm`}>
         <div className={style[this.state.viewType]}>
-          {this.renderArtists()}
+           {this.renderReleases()}
         </div>
       </div>
     </div>)
@@ -107,4 +118,6 @@ const mapDispatchToProps = {
   updateSelectedLanguageKey
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(Portfolio));
+export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);
+
+// {!this.state.isMobile ? this.renderViewTypeButton(this.state.viewType) : ''}

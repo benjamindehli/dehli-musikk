@@ -1,17 +1,15 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet-async';
+import {Helmet} from 'react-helmet';
+import {Link, NavLink} from 'react-router-dom';
+
 
 // Actions
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from '../../actions/LanguageActions';
 
 // Components
-import {withFirebase} from '../Firebase';
 import SocialMediaLinks from '../partials/SocialMediaLinks';
-
-// Assets
-import header1680 from '../../assets/images/header_1680.jpg';
 
 import DehliMusikkLogo from '../../assets/svg/DehliMusikkLogoInverse.svg'
 
@@ -19,15 +17,6 @@ import DehliMusikkLogo from '../../assets/svg/DehliMusikkLogoInverse.svg'
 import style from './Home.module.scss';
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      headerImage: {
-        webp: {},
-        jpg: {}
-      }
-    };
-  }
 
   initLanguage() {
     this.props.updateMultilingualRoutes('');
@@ -41,51 +30,54 @@ class Home extends Component {
 
   componentDidMount() {
     this.initLanguage();
-    const headerImage = this.props.firebase.getTemplateImage('header');
-    if (headerImage) {
-      Object.keys(headerImage).forEach(fileType => {
-        const headerImageWithFileType = headerImage[fileType];
-        Object.keys(headerImageWithFileType).forEach(imageSize => {
-          headerImageWithFileType[imageSize].getDownloadURL().then(url => {
-            this.setState({
-              headerImage: {
-                ...this.state.headerImage,
-                [fileType]: {
-                  ...this.state.headerImage[fileType],
-                  [imageSize]: `${url} ${imageSize}w`
-                }
-              }
-            })
-          })
-        });
-      })
-    }
   }
 
-  renderHeaderImage(headerImage) {
+  renderHeaderImage() {
+    const imagePath = `assets/images/header`;
+    const headerImage = {
+      webp: {
+        480: require(`../../${imagePath}_480.webp`),
+        640: require(`../../${imagePath}_640.webp`),
+        800: require(`../../${imagePath}_800.webp`),
+        1024: require(`../../${imagePath}_1024.webp`),
+        1260: require(`../../${imagePath}_1260.webp`),
+        1440: require(`../../${imagePath}_1440.webp`),
+        1680: require(`../../${imagePath}_1680.webp`)
+      },
+      jpg: {
+        480: require(`../../${imagePath}_480.jpg`),
+        640: require(`../../${imagePath}_640.jpg`),
+        800: require(`../../${imagePath}_800.jpg`),
+        1024: require(`../../${imagePath}_1024.jpg`),
+        1260: require(`../../${imagePath}_1260.jpg`),
+        1440: require(`../../${imagePath}_1440.jpg`),
+        1680: require(`../../${imagePath}_1680.jpg`)
+      }
+    };
     const srcSets = Object.keys(headerImage).map(fileType => {
       const srcSet = Object.keys(headerImage[fileType]).map(imageSize => {
-        return headerImage[fileType][imageSize];
+        return `${headerImage[fileType][imageSize]} ${imageSize}w`
       })
       return (<source key={fileType} srcSet={srcSet} type={`image/${fileType}`}/>)
     })
-    return (<picture className={style.backgroundsImage}>{srcSets}<img src={header1680} alt='Header'/></picture>);
+    return (<picture className={style.backgroundsImage}>{srcSets}<img src={headerImage.jpg[1024]} alt='Header'/></picture>);
   }
 
   render() {
+
     return (<div>
       <Helmet>
         <title>Dehli Musikk</title>
         <meta name='description' content={this.props.selectedLanguageKey === 'en'
             ? 'Offers keyboard instrument tracks for artists and bands'
             : 'Tilbyr spilling av tangentinstrumenter på låter for artister og band'}/>
-        <link rel="canonical" href={`${window.location.origin}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`}/>
-        <link rel="alternate" href={`${window.location.origin}`} hreflang="no"/>
-        <link rel="alternate" href={`${window.location.origin}/en`} hreflang="en"/>
-        <link rel="alternate" href={`${window.location.origin}`} hreflang="x-default"/>
+        <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`}/>
+        <link rel="alternate" href={`https://www.dehlimusikk.no/`} hreflang="no"/>
+        <link rel="alternate" href={`https://www.dehlimusikk.no/en`} hreflang="en"/>
+        <link rel="alternate" href={`https://www.dehlimusikk.no/`} hreflang="x-default"/>
       </Helmet>
       <div className={style.header}>
-        {this.renderHeaderImage(this.state.headerImage)}
+        {this.renderHeaderImage()}
         <div className={style.overlay}>
           <span className={style.logo}>
             <img src={DehliMusikkLogo} alt='Logo for Dehli Musikk'/>
@@ -94,16 +86,18 @@ class Home extends Component {
       </div>
 
       <div className={style.contentSection}>
+      <header>
         <h1>{
-            this.props.selectedLanguageKey === 'en'
-              ? 'Coming soon'
-              : 'Kommer snart'
-          }</h1>
-        <p>{
             this.props.selectedLanguageKey === 'en'
               ? 'The website is under development'
               : 'Nettsiden er under utvikling'
-          }</p>
+          }</h1>
+          </header>
+          {
+              this.props.selectedLanguageKey === 'en'
+                ? (<p>Content coming soon. In the meantime, you can check out my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`}>portfolio</Link> or visit some of my social media links below</p>)
+                : (<p>Innhold kommer snart. Inntil videre kan du sjekke ut min <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`}>portefølje</Link> eller besøke noen av mine sosiale medier lenker under</p>)
+            }
       </div>
       <div className={style.socialMediaSection}>
         <div className={style.contentSection}>
@@ -122,4 +116,4 @@ const mapDispatchToProps = {
   updateSelectedLanguageKey
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withFirebase(Home));
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

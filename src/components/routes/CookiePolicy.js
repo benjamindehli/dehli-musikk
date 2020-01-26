@@ -1,7 +1,7 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet-async';
+import {Helmet} from 'react-helmet';
 
 // Actions
 import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from '../../actions/LanguageActions';
