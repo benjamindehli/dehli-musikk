@@ -1,0 +1,11 @@
+resize: {
+  width: 350
+},
+cleanMetadata: 'all',
+crop: {
+  fromPosition: {
+    width: 350,
+    height: 260
+  }
+},
+quality: 80

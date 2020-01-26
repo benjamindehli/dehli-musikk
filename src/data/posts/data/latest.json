@@ -1,0 +1,43 @@
+[{
+    "id": "2020012500",
+    "timestamp": 1579910400000,
+    "title": {
+      "no": "Stemmetid",
+      "en": "Tuning time"
+    },
+    "content": {
+      "no": "Stemming av Pianette 🎹🔧",
+      "en": "Tuning the Pianette 🎹🔧"
+    },
+    "thumbnailDescription": "Piano with a tuning wrench",
+    "thumbnailFilename": "2020-01-25-00"
+  },
+  {
+    "id": "2020012000",
+    "timestamp": 1579478400000,
+    "title": {
+      "no": "Mer 80-tallsrock",
+      "en": "Some more '80s rock"
+    },
+    "content": {
+      "no": "Litt mer klaviaturopptak for 80-talls rockelåt 🤠🤘",
+      "en": "Another recording session with some '80s rock keyboards 🤠🤘"
+    },
+    "thumbnailDescription": "Fostex 4-track tape recorder",
+    "thumbnailFilename": "2020-01-20-00"
+  },
+  {
+    "id": "2020011500",
+    "timestamp": 1579046400000,
+    "title": {
+      "no": "Ny synth i posten 📦",
+      "en": "New Synth Day 📦"
+    },
+    "content": {
+      "no": "Vocoder VC340 🎹\nNå blir det bare robotmusikk fremover 🤖",
+      "en": "Vocoder VC340 🎹\nTime to make some robot music 🤖"
+    },
+    "thumbnailDescription": "Behringer VC340 Vocoder keyboard instrument",
+    "thumbnailFilename": "2020-01-15-00"
+  }
+]
