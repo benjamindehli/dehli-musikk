@@ -1,8 +1,39 @@
-:local(.footer){
+@import "../../style/abstracts/all";
+
+:local(.footer) {
   background-color: #eee;
+
   :local(.contentSection) {
     max-width: 1200px;
     padding: 16px;
     margin: auto;
+    flex: 1;
+
+    iframe {
+      width: 100%;
+    }
+
+    :local(.grid) {
+      @media (min-width: $screen-md) {
+        display: flex;
+      }
+
+      > div {
+        @media (min-width: $screen-md) {
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  :local(.addressContent) {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin: 6px 0;
+      }
+    }
   }
 }
