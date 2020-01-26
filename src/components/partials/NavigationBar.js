@@ -89,7 +89,7 @@ class NavigationBar extends Component {
     const hasAvailableLanguages = availableLanguages && Object.keys(availableLanguages).length;
     if (hasAvailableLanguages) {
       const selectedLanguage = availableLanguages[selectedLanguageKey];
-      return (<span className={style.languageSelectorButton}><FontAwesomeIcon icon={['fas', 'language']}/> {selectedLanguage.name} <FontAwesomeIcon icon={['fas', 'chevron-down']}/></span>);
+      return (<span className={style.languageSelectorButton}><FontAwesomeIcon icon={['fas', 'language']}/> {selectedLanguage && selectedLanguage.name ? selectedLanguage.name : ''} <FontAwesomeIcon icon={['fas', 'chevron-down']}/></span>);
     } else
       return '';
     }
@@ -143,7 +143,12 @@ class NavigationBar extends Component {
           <ul className={style.sidebarLinks}>
             <li>
               <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} activeClassName={style.activeLink}>
-                Portfolio
+                {this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`} activeClassName={style.activeLink}>
+                {this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}
               </NavLink>
             </li>
           </ul>
