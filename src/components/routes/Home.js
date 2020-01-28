@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
 import {Link} from 'react-router-dom';
 
-
 // Actions
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from '../../actions/LanguageActions';
 
@@ -88,34 +87,39 @@ class Home extends Component {
       </div>
 
       <div className={style.contentSection}>
-      <header>
-        <h1>{
-            this.props.selectedLanguageKey === 'en'
-              ? 'The website is under development'
-              : 'Nettsiden er under utvikling'
-          }</h1>
-          </header>
-          {
-              this.props.selectedLanguageKey === 'en'
-                ? (<p>Content coming soon. In the meantime, you can check out my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`}>portfolio</Link>, my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>posts</Link> or visit some of my social media links below</p>)
-                : (<p>Innhold kommer snart. Inntil videre kan du sjekke ut min <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`}>portefølje</Link>, mine <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>innlegg</Link> eller besøke noen av mine sosiale medier lenker under</p>)
-            }
+        <header>
+          <h1>Dehli Musikk</h1>
+        </header>
+        {
+          this.props.selectedLanguageKey === 'en'
+            ? (<p>Content coming soon. In the meantime, you can check out my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`}>portfolio</Link>, my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>posts</Link> or visit some of my social media links below</p>)
+            : (<p>Innhold kommer snart. Inntil videre kan du sjekke ut min <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`}>portefølje</Link>, mine <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>innlegg</Link> eller besøke noen av mine sosiale medier lenker under</p>)
+        }
       </div>
       <div className={style.latestPostsSection}>
         <div className={style.contentSection}>
-        <h2>Siste oppdateringer</h2>
-          <LatestPosts />
+          <h2>Siste oppdateringer</h2>
+          <LatestPosts/>
           <div className={style.callToAction}>
-            {this.props.selectedLanguageKey === 'en'
-                  ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}><Button>See all posts</Button></Link>)
-                  : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}><Button>Se alle innlegg</Button></Link>)
+            {
+              this.props.selectedLanguageKey === 'en'
+                ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>
+                  <Button>See all posts</Button>
+                </Link>)
+                : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>
+                  <Button>Se alle innlegg</Button>
+                </Link>)
             }
           </div>
         </div>
       </div>
       <div className={style.socialMediaSection}>
         <div className={style.contentSection}>
-        <h2>{this.props.selectedLanguageKey === 'en' ? 'Follow Dehli Musikk on social media' : 'Følg Dehli Musikk på sosiale medier'}</h2>
+          <h2>{
+              this.props.selectedLanguageKey === 'en'
+                ? 'Follow Dehli Musikk on social media'
+                : 'Følg Dehli Musikk på sosiale medier'
+            }</h2>
           <SocialMediaLinks/>
         </div>
       </div>
