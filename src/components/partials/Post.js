@@ -129,9 +129,11 @@ class NavigationBar extends Component {
 
   renderLink(link) {
     return (<div className={style.buttons}>
-      <Button buttontype='minimal'>
-        {link.text[this.props.selectedLanguageKey]}
-      </Button>
+      <a href={link.url} target="_blank" rel="noopener noreferrer">
+        <Button buttontype='minimal'>
+          {link.text[this.props.selectedLanguageKey]}
+        </Button>
+      </a>
     </div>);
   }
 
