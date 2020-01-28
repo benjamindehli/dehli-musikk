@@ -24,7 +24,14 @@
       "en": "Another recording session with some '80s rock keyboards 🤠🤘"
     },
     "thumbnailDescription": "Fostex 4-track tape recorder",
-    "thumbnailFilename": "2020-01-20-00"
+    "thumbnailFilename": "2020-01-20-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B7jvEE5hBlK/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2020011500",

@@ -24,7 +24,14 @@
       "en": "Another recording session with some '80s rock keyboards 🤠🤘"
     },
     "thumbnailDescription": "Fostex 4-track tape recorder",
-    "thumbnailFilename": "2020-01-20-00"
+    "thumbnailFilename": "2020-01-20-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B7jvEE5hBlK/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2020011500",
@@ -52,7 +59,14 @@
       "en": "Recording keys for '80s rock 🎹📼🕹️"
     },
     "thumbnailDescription": "Effects pedals",
-    "thumbnailFilename": "2020-01-14-00"
+    "thumbnailFilename": "2020-01-14-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B7R4s7MhH1f/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2019121600",
@@ -66,7 +80,14 @@
       "en": "Korg MS-20 ESP with guitar 🤠🤘🎹🎸"
     },
     "thumbnailDescription": "A red Fender Stratocaster being played",
-    "thumbnailFilename": "2019-12-16-00"
+    "thumbnailFilename": "2019-12-16-00",
+    "link": {
+      "url": "https://youtu.be/5EG7SBBUJpY",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2019121500",
@@ -94,7 +115,14 @@
       "en": "Recording fuzz wah Clavinet 🤠🤘"
     },
     "thumbnailDescription": "A Hohner Clavinet D6 instrument being played",
-    "thumbnailFilename": "2019-11-30-00"
+    "thumbnailFilename": "2019-11-30-00",
+    "link": {
+      "url": "https://youtu.be/cHUEsZwsdTE",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2019112200",
@@ -122,7 +150,14 @@
       "en": "Coverversion of Twin Peaks Theme ⛰⛰☕️"
     },
     "thumbnailDescription": "Fender Rhodes piano being played",
-    "thumbnailFilename": "2019-11-17-00"
+    "thumbnailFilename": "2019-11-17-00",
+    "link": {
+      "url": "https://youtu.be/cPS2CXe-ZPk",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2019111200",
