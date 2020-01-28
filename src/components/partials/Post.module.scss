@@ -7,18 +7,30 @@
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   overflow: hidden;
+  position: relative;
+  &:local(.hasButtons){
+    padding-bottom: 47px;
+  }
 
   :local(.content) {
-    padding: 6px 12px;
+    padding: 16px;
 
     :local(.header) {
       h2 {
         margin: 0;
-        font-size: 19px;
+        font-size: 22px;
+        font-weight: 400;
       }
     }
 
+    time {
+      font-size: .75em;
+    }
+
     :local(.body) {
+      color: #434445;
+      font-size: 14px;
+
       ul {
         list-style: none;
         padding: 0;
@@ -43,8 +55,15 @@
     }
   }
 
+  :local(.buttons) {
+    padding: 8px;
+    position: absolute;
+    bottom: 0;
+  }
+
   :local(.thumbnail) {
     margin: 0;
+
     img {
       width: 350px;
       width: 100%;

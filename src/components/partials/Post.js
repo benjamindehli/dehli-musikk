@@ -6,6 +6,12 @@ import {Helmet} from 'react-helmet';
 // Actions
 import {getLanguageSlug} from '../../actions/LanguageActions';
 
+// Helpers
+import {getPrettyDate} from '../../helpers/dateFormatter';
+
+// Components
+import Button from './Button';
+
 // Stylesheets
 import style from './Post.module.scss';
 
@@ -13,10 +19,13 @@ class NavigationBar extends Component {
 
   renderPostSnippet(post, postThumbnailSrc) {
     const postDate = new Date(post.timestamp).toISOString();
+    const selectedLanguageKey = this.props.selectedLanguageKey
+      ? this.props.selectedLanguageKey
+      : 'no';
     const snippet = {
       "@context": "http://schema.org",
       "@type": "Article",
-      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/#${post.id}`,
+      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/#${post.id}`,
       "author": {
         "@type": "Person",
         "name": "Benjamin Dehli",
@@ -86,22 +95,24 @@ class NavigationBar extends Component {
         "telephone": "+47 92 29 27 19",
         "url": "https://www.dehlimusikk.no"
       },
-      "headline": post.title[this.props.selectedLanguageKey],
+      "headline": post.title[selectedLanguageKey],
       "inLanguage": this.props.selectedLanguageKey,
-      "articleBody": post.content[this.props.selectedLanguageKey].replace("\n", " "),
+      "articleBody": post.content[selectedLanguageKey]
+        ? post.content[selectedLanguageKey].replace("\n", " ")
+        : '',
       "dateCreated": postDate,
       "dateModified": postDate,
       "datePublished": postDate,
-      "name": post.title[this.props.selectedLanguageKey],
+      "name": post.title[selectedLanguageKey],
       "image": {
         "@type": "ImageObject",
         "url": postThumbnailSrc
       },
       "thumbnailUrl": postThumbnailSrc,
       "mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "https://www.dehlimusikk.no"
-      },
+        "@type": "WebPage",
+        "@id": "https://www.dehlimusikk.no"
+      }
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
@@ -116,7 +127,18 @@ class NavigationBar extends Component {
     </picture>);
   }
 
+  renderLink(link) {
+    return (<div className={style.buttons}>
+      <Button buttontype='minimal'>
+        {link.text[this.props.selectedLanguageKey]}
+      </Button>
+    </div>);
+  }
+
   render() {
+    const selectedLanguageKey = this.props.selectedLanguageKey
+      ? this.props.selectedLanguageKey
+      : 'no';
     const post = this.props.post;
     const imagePathWebp = `data/posts/thumbnails/web/webp/${post.thumbnailFilename}`;
     const imagePathJpg = `data/posts/thumbnails/web/jpg/${post.thumbnailFilename}`;
@@ -124,31 +146,40 @@ class NavigationBar extends Component {
       webp350: require(`../../${imagePathWebp}_350.webp`),
       jpg350: require(`../../${imagePathJpg}_350.jpg`)
     };
-    return (<article className={style.gridItem}>
-      {this.renderPostSnippet(post, image.jpg350)}
-      <figure className={style.thumbnail}>
-        {this.renderPostThumbnail(image, post.thumbnailDescription)}
-      </figure>
-      <div className={style.content}>
-        <div className={style.header}>
-          <h2>{post.title[this.props.selectedLanguageKey]}</h2>
+    const postDate = new Date(post.timestamp);
+    return post && post.content && post.content[selectedLanguageKey]
+      ? (<article className={`${style.gridItem} ${post.link ? style.hasButtons : ''}`}>
+        {this.renderPostSnippet(post, image.jpg350)}
+        <figure className={style.thumbnail}>
+          {this.renderPostThumbnail(image, post.thumbnailDescription)}
+        </figure>
+        <div className={style.content}>
+          <div className={style.header}>
+            <h2>{post.title[selectedLanguageKey]}</h2>
+            <time dateTime={postDate.toISOString()}>
+              {getPrettyDate(postDate, selectedLanguageKey)}
+            </time>
+          </div>
+          <div className={style.body}>
+            {
+              post.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
+                return (<p key={key}>{paragraph}</p>)
+              })
+            }
+
+          </div>
         </div>
-        <div className={style.body}>
-          {post.content[this.props.selectedLanguageKey].split('\n').map((paragraph, key) => {
-            return (<p key={key}>{paragraph}</p>)
-          })}
-          <ul>
-            <li>{new Date(post.timestamp).getFullYear()}</li>
-          </ul>
-        </div>
-      </div>
-    </article>)
+        {
+          post.link
+            ? this.renderLink(post.link)
+            : ''
+        }
+      </article>)
+      : '';
   }
 }
 
-const mapStateToProps = state => ({
-  selectedLanguageKey: state.selectedLanguageKey
-});
+const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
 
 const mapDispatchToProps = {
   getLanguageSlug
