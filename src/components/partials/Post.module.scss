@@ -8,8 +8,39 @@
   border-radius: 4px;
   overflow: hidden;
   position: relative;
-  &:local(.hasButtons){
+
+  &:local(.hasButtons) {
     padding-bottom: 47px;
+  }
+
+  &:local(.fullscreen) {
+    width: 100%;
+    margin: 0;
+
+    :local(.thumbnail) {
+      picture {
+        display: block;
+        line-height: 0;
+      }
+    }
+
+    :local(.contentContainer) {
+      :local(.content) {
+        :local(.header) {
+          h2 {
+            font-size: 26px;
+          }
+        }
+
+        time {
+          font-size: 0.8em;
+        }
+
+        :local(.body) {
+          font-size: 16px;
+        }
+      }
+    }
   }
 
   :local(.content) {
@@ -24,34 +55,12 @@
     }
 
     time {
-      font-size: .75em;
+      font-size: 0.75em;
     }
 
     :local(.body) {
       color: #434445;
       font-size: 14px;
-
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li {
-          display: inline-block;
-          margin-left: 6px;
-          font-size: 14px;
-
-          &:not(:first-child) {
-            &:before {
-              content: ' | ';
-            }
-          }
-
-          &:first-child {
-            margin-left: 0;
-          }
-        }
-      }
     }
   }
 

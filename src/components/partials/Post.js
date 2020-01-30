@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
+import {Link} from 'react-router-dom';
 
 // Actions
 import {getLanguageSlug} from '../../actions/LanguageActions';
@@ -150,10 +151,10 @@ class NavigationBar extends Component {
     </Helmet>)
   }
 
-  renderPostThumbnail(image, altText) {
+  renderPostThumbnail(image, altText, fullscreen) {
     return (<picture>
-      <source sizes='350px' srcSet={`${image.webp350} 350w`} type="image/webp"/>
-      <source sizes='350px' srcSet={`${image.jpg350} 350w`} type="image/jpg"/>
+      <source sizes={fullscreen ? '540px' : '175px'} srcSet={`${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
+      <source sizes={fullscreen ? '540px' : '175px'} srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
       <img src={image.jpg350} alt={altText}/>
     </picture>);
   }
@@ -177,36 +178,40 @@ class NavigationBar extends Component {
     const imagePathJpg = `data/posts/thumbnails/web/jpg/${post.thumbnailFilename}`;
     const image = {
       webp350: require(`../../${imagePathWebp}_350.webp`),
-      jpg350: require(`../../${imagePathJpg}_350.jpg`)
+      webp540: require(`../../${imagePathWebp}_540.webp`),
+      jpg350: require(`../../${imagePathJpg}_350.jpg`),
+      jpg540: require(`../../${imagePathJpg}_540.jpg`)
     };
     const postDate = new Date(post.timestamp);
     return post && post.content && post.content[selectedLanguageKey]
-      ? (<article className={`${style.gridItem} ${post.link ? style.hasButtons : ''}`}>
-        {this.renderPostSnippet(post, image.jpg350)}
+      ? (<article className={`${style.gridItem} ${post.link ? style.hasButtons: ''} ${this.props.fullscreen ? style.fullscreen : ''}`}>
+        {this.renderPostSnippet(post, image.webp540)}
         <figure className={style.thumbnail}>
-          {this.renderPostThumbnail(image, post.thumbnailDescription)}
+          {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen)}
         </figure>
-        <div className={style.content}>
-          <div className={style.header}>
-            <h2>{post.title[selectedLanguageKey]}</h2>
-            <time dateTime={postDate.toISOString()}>
-              {getPrettyDate(postDate, selectedLanguageKey)}
-            </time>
-          </div>
-          <div className={style.body}>
-            {
-              post.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
-                return (<p key={key}>{paragraph}</p>)
-              })
-            }
+        <div className={style.contentContainer}>
+          <div className={style.content}>
+            <div className={style.header}>
+              <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${post.id}`}><h2>{post.title[selectedLanguageKey]}</h2></Link>
+              <time dateTime={postDate.toISOString()}>
+                {getPrettyDate(postDate, selectedLanguageKey)}
+              </time>
+            </div>
+            <div className={style.body}>
+              {
+                post.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
+                  return (<p key={key}>{paragraph}</p>)
+                })
+              }
 
+            </div>
           </div>
+          {
+            post.link
+              ? this.renderLink(post.link)
+              : ''
+          }
         </div>
-        {
-          post.link
-            ? this.renderLink(post.link)
-            : ''
-        }
       </article>)
       : '';
   }
