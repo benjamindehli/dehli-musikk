@@ -34,6 +34,20 @@
     }
   },
   {
+    "id": "2020011900",
+    "timestamp": 1579392000000,
+    "title": {
+      "no": "Innspilling av Yamaha DX7",
+      "en": "Recording Yamaha DX7"
+    },
+    "content": {
+      "no": "Det er ikke rock 'n' roll før man fyrer igang \"Koto\"-lyden 🇯🇵🤘",
+      "en": "It's not rock 'n' roll until you fire up the \"Koto\" patch 🇯🇵🤘"
+    },
+    "thumbnailDescription": "Display on a Yamaha DX7 showing a patch named Koto",
+    "thumbnailFilename": "2020-01-19-00"
+  },
+  {
     "id": "2020011500",
     "timestamp": 1579046400000,
     "title": {
@@ -126,17 +140,31 @@
   },
   {
     "id": "2019112200",
-    "timestamp": 1573948800000,
+    "timestamp": 1574380800000,
     "title": {
       "no": "Ny låt fra The White Devil",
       "en": "New release by The White Devil"
     },
     "content": {
       "no": "I dag har The White Devil sluppet ut en frekk cowboyshanty-versjon av Get Lucky 🍾👯‍♂️\nJeg har fått æren av å snike inn noen skrekkspill-riff og diverse instrumentklimpringer på denne 😎\nNå er det bare å få på seg gamasjene og danse helga igang!",
-      "en": "I dag har The White Devil sluppet ut en frekk cowboyshanty-versjon av Get Lucky 🍾👯‍♂️\nJeg har fått æren av å snike inn noen skrekkspill-riff og diverse instrumentklimpringer på denne 😎\nNå er det bare å få på seg gamasjene og danse helga igang!"
+      "en": "Today The White Devil released a cowboy shanty version of Get Lucky 🍾👯‍♂️\nI've had the honor to play some accordion riffs and various instruments on this one 😎"
     },
     "thumbnailDescription": "Album cover for the single \"Get Lucky\"",
     "thumbnailFilename": "2019-11-22-00"
+  },
+  {
+    "id": "2019112000",
+    "timestamp": 1574208000000,
+    "title": {
+      "no": "Dehli Musikk skilt",
+      "en": "Dehli Musikk sign"
+    },
+    "content": {
+      "no": "Fikk skilt i posten i dag 😃🕴️🚧🎹",
+      "en": "Got my business sign today 😃🕴️🚧🎹"
+    },
+    "thumbnailDescription": "Sign with Dehli Musikk logo on house wall",
+    "thumbnailFilename": "2019-11-20-00"
   },
   {
     "id": "2019111700",
@@ -168,10 +196,31 @@
     },
     "content": {
       "no": "Rykende fersk låt fra Spinning Wheels Band!\nHar fått æren av å klimpre på orgel og clavinet på denna go'låta 😎\nKnalldyktige karer med produsent Halvor Halvorsen bak spakene og musikere fra bandet til Brad Paisley 😃👍",
-      "en": "Clavinet'en trengte en service"
+      "en": "New release by Spinning Wheels Band!\nI got the honor to play the organ and clavinet on this one 😎\nSuper talented guys with producer Halvor Halvorsen behind the faders and musicians from Brad Paisley's band 😃👍"
     },
     "thumbnailDescription": "Album cover for the single \"Back When\"",
     "thumbnailFilename": "2019-11-12-00"
+  },
+  {
+    "id": "2019111000",
+    "timestamp": 1573344000000,
+    "title": {
+      "no": "Kassettinnspilling av piano og Mellotron",
+      "en": "Recording piano and Mellotron to 4-track"
+    },
+    "content": {
+      "no": "Piano og Mellotron-fløyter spilt av fra kassett i halv hastighet 🐇🐢📼🎹",
+      "en": "Piano and Mellotron flutes at half speed 🐇🐢📼🎹"
+    },
+    "thumbnailDescription": "A piano and a Mellotron being played",
+    "thumbnailFilename": "2019-11-10-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B4s7gxYHPuN/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2019110800",
@@ -200,6 +249,27 @@
     },
     "thumbnailDescription": "Piano with effects pedals and a 4-track tape recorder",
     "thumbnailFilename": "2019-11-02-00"
+  },
+  {
+    "id": "2019102700",
+    "timestamp": 1572134400000,
+    "title": {
+      "no": "Testing av nyinnkjøpt piano",
+      "en": "Testing the new piano"
+    },
+    "content": {
+      "no": "Pianoet trenger definitivt litt justeringer og stemming, men det låter stort til å være så lite 😃",
+      "en": "It definitely needs some tuning and damper adjustments, but this small piano sounds big 😃"
+    },
+    "thumbnailDescription": "Piano with a mid-century design being played",
+    "thumbnailFilename": "2019-10-27-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B4GSSbeHD0U/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2019102500",
