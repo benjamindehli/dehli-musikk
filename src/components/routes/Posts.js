@@ -125,13 +125,6 @@ class Posts extends Component {
       }
     }
 
-    const listPageTitle = this.props.selectedLanguageKey === 'en'
-      ? 'Posts'
-      : 'Innlegg';
-    const listPageDescription = this.props.selectedLanguageKey === 'en'
-        ? 'Latest update from Dehli Musikk'
-        : 'Siste oppdateringer fra Dehli Musikk';
-
     let breadcrumbs = [
       {
         name: listPage.heading[this.props.selectedLanguageKey],
