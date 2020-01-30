@@ -78,7 +78,7 @@ class Portfolio extends Component {
     ];
     return (<div className={style.container}>
       <Helmet>
-        <title>{pageTitle} - Dehli Musikk</title>
+        <title>{pageTitle} | Dehli Musikk</title>
         <meta name='description' content={this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'} />
         <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
         <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio`} hreflang="no" />
