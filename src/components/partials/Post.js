@@ -24,16 +24,20 @@ class NavigationBar extends Component {
       : 'no';
     const snippet = {
       "@context": "http://schema.org",
-      "@type": "Article",
-      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/#${post.id}`,
+      "@type": "NewsArticle",
+      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${post.id}`,
+      "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${post.id}`,
       "author": {
         "@type": "Person",
         "name": "Benjamin Dehli",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Bø i Telemark, Norway",
+          "addressLocality": "Bø i Telemark",
           "postalCode": "3804",
-          "streetAddress": "Margretes veg 15"
+          "streetAddress": "Margretes veg 15",
+          "addressCountry": {
+            "name": "NO"
+          }
         }
       },
       "publisher": {
@@ -41,17 +45,23 @@ class NavigationBar extends Component {
         "@type": "Organization",
         "address": {
           "@type": "PostalAddress",
-          "addressLocality": "Bø i Telemark, Norway",
+          "addressLocality": "Bø i Telemark",
           "postalCode": "3804",
-          "streetAddress": "Margretes veg 15"
+          "streetAddress": "Margretes veg 15",
+          "addressCountry": {
+            "name": "NO"
+          }
         },
         "hasPos": {
           "@type": "Place",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Bø i Telemark, Norway",
+            "addressLocality": "Bø i Telemark",
             "postalCode": "3804",
-            "streetAddress": "Margretes veg 15"
+            "streetAddress": "Margretes veg 15",
+            "addressCountry": {
+              "name": "NO"
+            }
           },
           "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
         },
@@ -66,9 +76,12 @@ class NavigationBar extends Component {
           "@type": "Place",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Bø i Telemark, Norway",
+            "addressLocality": "Bø i Telemark",
             "postalCode": "3804",
-            "streetAddress": "Margretes veg 15"
+            "streetAddress": "Margretes veg 15",
+            "addressCountry": {
+              "name": "NO"
+            }
           },
           "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
         },
@@ -86,9 +99,12 @@ class NavigationBar extends Component {
           "name": "Benjamin Dehli",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Bø i Telemark, Norway",
+            "addressLocality": "Bø i Telemark",
             "postalCode": "3804",
-            "streetAddress": "Margretes veg 15"
+            "streetAddress": "Margretes veg 15",
+            "addressCountry": {
+              "name": "NO"
+            }
           }
         },
         "name": "Dehli Musikk",
@@ -106,9 +122,24 @@ class NavigationBar extends Component {
       "name": post.title[selectedLanguageKey],
       "image": {
         "@type": "ImageObject",
-        "url": postThumbnailSrc
+        "url": `https://www.dehlimusikk.no${postThumbnailSrc}`,
+        "caption": post.title[selectedLanguageKey],
+        "description": post.thumbnailDescription,
+        "uploadDate": postDate,
+        "contentLocation": {
+          "name": "Dehli Musikk",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bø i Telemark",
+            "postalCode": "3804",
+            "streetAddress": "Margretes veg 15",
+            "addressCountry": {
+              "name": "NO"
+            }
+          }
+        }
       },
-      "thumbnailUrl": postThumbnailSrc,
+      "thumbnailUrl": `https://www.dehlimusikk.no${postThumbnailSrc}`,
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://www.dehlimusikk.no"
