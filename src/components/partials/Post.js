@@ -26,8 +26,8 @@ class Post extends Component {
     const snippet = {
       "@context": "http://schema.org",
       "@type": "NewsArticle",
-      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${post.id}`,
-      "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${post.id}`,
+      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${post.id}/`,
+      "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${post.id}/`,
       "author": {
         "@type": "Person",
         "name": "Benjamin Dehli",
@@ -192,7 +192,7 @@ class Post extends Component {
         <div className={style.contentContainer}>
           <div className={style.content}>
             <div className={style.header}>
-              <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${post.id}`}><h2>{post.title[selectedLanguageKey]}</h2></Link>
+              <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${post.id}/`}><h2>{post.title[selectedLanguageKey]}</h2></Link>
               <time dateTime={postDate.toISOString()}>
                 {getPrettyDate(postDate, selectedLanguageKey)}
               </time>

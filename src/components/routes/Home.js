@@ -74,7 +74,7 @@ class Home extends Component {
             : 'Tilbyr spilling av tangentinstrumenter på låter for artister og band'}/>
         <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`}/>
         <link rel="alternate" href={`https://www.dehlimusikk.no/`} hreflang="no"/>
-        <link rel="alternate" href={`https://www.dehlimusikk.no/en`} hreflang="en"/>
+        <link rel="alternate" href={`https://www.dehlimusikk.no/en/`} hreflang="en"/>
         <link rel="alternate" href={`https://www.dehlimusikk.no/`} hreflang="x-default"/>
       </Helmet>
       <div className={style.header}>
@@ -92,8 +92,8 @@ class Home extends Component {
         </header>
         {
           this.props.selectedLanguageKey === 'en'
-            ? (<p>Content coming soon. In the meantime, you can check out my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`}>portfolio</Link>, my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>posts</Link> or visit some of my social media links below</p>)
-            : (<p>Innhold kommer snart. Inntil videre kan du sjekke ut min <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`}>portefølje</Link>, mine <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>innlegg</Link> eller besøke noen av mine sosiale medier lenker under</p>)
+            ? (<p>Content coming soon. In the meantime, you can check out my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`}>portfolio</Link>, my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`}>posts</Link> or visit some of my social media links below</p>)
+            : (<p>Innhold kommer snart. Inntil videre kan du sjekke ut min <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`}>portefølje</Link>, mine <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`}>innlegg</Link> eller besøke noen av mine sosiale medier lenker under</p>)
         }
       </div>
       <div className={style.latestPostsSection}>
@@ -103,10 +103,10 @@ class Home extends Component {
           <div className={style.callToAction}>
             {
               this.props.selectedLanguageKey === 'en'
-                ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>
+                ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`}>
                   <Button>See all posts</Button>
                 </Link>)
-                : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`}>
+                : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`}>
                   <Button>Se alle innlegg</Button>
                 </Link>)
             }

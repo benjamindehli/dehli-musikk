@@ -142,12 +142,12 @@ class NavigationBar extends Component {
           </div>
           <ul className={style.sidebarLinks}>
             <li>
-              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} activeClassName={style.activeLink}>
+              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} activeClassName={style.activeLink}>
                 {this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`} activeClassName={style.activeLink}>
+              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} activeClassName={style.activeLink}>
                 {this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}
               </NavLink>
             </li>

@@ -60,7 +60,7 @@ class Posts extends Component {
 
   handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({redirect: '/posts'});
+      this.setState({redirect: '/posts/'});
     }
   }
 
@@ -128,13 +128,13 @@ class Posts extends Component {
     let breadcrumbs = [
       {
         name: listPage.heading[this.props.selectedLanguageKey],
-        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts`
+        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`
       }
     ];
     if (selectedPost){
       breadcrumbs.push({
         name: detailsPage.heading[this.props.selectedLanguageKey],
-        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost.id}`
+        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost.id}/`
       })
     }
 
@@ -146,10 +146,10 @@ class Posts extends Component {
         <Helmet>
           <title>{selectedPost ? detailsPage.title[this.props.selectedLanguageKey] : listPage.title[this.props.selectedLanguageKey]}</title>
           <meta name='description' content={selectedPost ? detailsPage.description[this.props.selectedLanguageKey] : listPage.description[this.props.selectedLanguageKey]}/>
-          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts${selectedPost ? '/' + selectedPost.id : ''}`}/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/posts${selectedPost ? '/' + selectedPost.id : ''}`} hreflang="no"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/en/posts${selectedPost ? '/' + selectedPost.id : ''}`} hreflang="en"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/posts${selectedPost ? '/' + selectedPost.id : ''}`} hreflang="x-default"/>
+          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost ? selectedPost.id + '/' : ''}`}/>
+          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? '/' + selectedPost.id + '/' : ''}`} hreflang="no"/>
+          <link rel="alternate" href={`https://www.dehlimusikk.no/en/posts/${selectedPost ? '/' + selectedPost.id + '/' : ''}`} hreflang="en"/>
+          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? '/' + selectedPost.id + '/' : ''}`} hreflang="x-default"/>
         </Helmet>
         <div className='padding'>
           <Breadcrumbs breadcrumbs={breadcrumbs}/>

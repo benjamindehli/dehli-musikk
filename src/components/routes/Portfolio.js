@@ -80,10 +80,10 @@ class Portfolio extends Component {
       <Helmet>
         <title>{pageTitle} | Dehli Musikk</title>
         <meta name='description' content={this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'} />
-        <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`} />
-        <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio`} hreflang="no" />
-        <link rel="alternate" href={`https://www.dehlimusikk.no/en/portfolio`} hreflang="en" />
-        <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio`} hreflang="x-default" />
+        <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/`} hreflang="no" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/en/portfolio/`} hreflang="en" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/`} hreflang="x-default" />
       </Helmet>
       <div className='padding'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
