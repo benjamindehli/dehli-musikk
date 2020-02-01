@@ -74,6 +74,7 @@ class App extends Component {
           <meta property="og:image:height" content="630" />
           <meta property="og:image" content={openGraphImage} />
           <meta property="og:site_name" content="Dehli Musikk" />
+          <meta property="fb:app_id" content="525744544728800" />
         </Helmet>
         <NavigationBar/>
         <div className={style.container}>
