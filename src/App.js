@@ -5,6 +5,7 @@ import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'connected-react-router';
 import loadable from "@loadable/component";
 import { PrerenderedComponent } from "react-prerendered-component";
+import {Helmet} from 'react-helmet';
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
@@ -25,6 +26,8 @@ import NavigationBar from 'components/partials/NavigationBar';
 import Footer from 'components/partials/Footer';
 import NotFound from 'components/routes/NotFound';
 
+// Assets
+import openGraphImage from 'assets/images/DehliMusikk-OpenGraph.jpg';
 
 // Stylesheets
 import style from 'App.module.scss';
@@ -64,6 +67,14 @@ class App extends Component {
   render() {
     return (<Provider store={store}>
       <ConnectedRouter history={history}>
+        <Helmet>
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content={openGraphImage} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image" content={openGraphImage} />
+          <meta property="og:site_name" content="Dehli Musikk" />
+        </Helmet>
         <NavigationBar/>
         <div className={style.container}>
           <Switch>
