@@ -187,7 +187,7 @@ class Post extends Component {
     const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
     return post && post.content && post.content[selectedLanguageKey]
       ? (<article className={`${style.gridItem} ${post.link ? style.hasButtons: ''} ${this.props.fullscreen ? style.fullscreen : ''}`}>
-        {this.renderPostSnippet(post, postId, image.webp540)}
+        {this.renderPostSnippet(post, postId, image.jpg540)}
         <figure className={style.thumbnail}>
           {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen)}
         </figure>
