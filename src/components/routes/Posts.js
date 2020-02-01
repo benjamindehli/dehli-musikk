@@ -150,18 +150,26 @@ class Posts extends Component {
         en: selectedPost ? convertToUrlFriendlyString(selectedPost.title.en) : '',
         no: selectedPost ? convertToUrlFriendlyString(selectedPost.title.no) : ''
       };
+      const metaTitle = selectedPost ? detailsPage.title[this.props.selectedLanguageKey] : listPage.title[this.props.selectedLanguageKey];
+      const contentTitle = selectedPost ? detailsPage.heading[this.props.selectedLanguageKey] : listPage.heading[this.props.selectedLanguageKey];
+      const metaDescription = selectedPost ? detailsPage.description[this.props.selectedLanguageKey] : listPage.description[this.props.selectedLanguageKey];
       return (<div className={style.container}>
         <Helmet>
-          <title>{selectedPost ? detailsPage.title[this.props.selectedLanguageKey] : listPage.title[this.props.selectedLanguageKey]}</title>
-          <meta name='description' content={selectedPost ? detailsPage.description[this.props.selectedLanguageKey] : listPage.description[this.props.selectedLanguageKey]}/>
+          <title>{metaTitle}</title>
+          <meta name='description' content={metaDescription}/>
           <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost ? selectedPostId + '/' : ''}`}/>
           <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? selectedPostMultilingualIds.no + '/' : ''}`} hreflang="no"/>
           <link rel="alternate" href={`https://www.dehlimusikk.no/en/posts/${selectedPost ? selectedPostMultilingualIds.en + '/' : ''}`} hreflang="en"/>
           <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? selectedPostMultilingualIds.no + '/' : ''}`} hreflang="x-default"/>
+          <meta property="og:title" content={contentTitle} />
+          <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost ? selectedPostId + '/' : ''}`} />
+          <meta property="og:description" content={metaDescription} />
+          <meta property="og:locale" content={this.props.selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
+          <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
         </Helmet>
         <div className='padding'>
           <Breadcrumbs breadcrumbs={breadcrumbs}/>
-          <h1>{selectedPost ? detailsPage.heading[this.props.selectedLanguageKey] : listPage.heading[this.props.selectedLanguageKey]}</h1>
+          <h1>{contentTitle}</h1>
           <p>{
               this.props.selectedLanguageKey === 'en'
                 ? 'Updates from Dehli Musikk'

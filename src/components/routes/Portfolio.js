@@ -69,25 +69,32 @@ class Portfolio extends Component {
   }
 
   render() {
-    const pageTitle = this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje';
+    const metaTitle = `${this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'} | Dehli Musikk`;
+    const contentTitle = this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje';
     const breadcrumbs = [
       {
-        name: pageTitle,
+        name: contentTitle,
         path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio`
       }
     ];
+    const metaDescription = this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på';
     return (<div className={style.container}>
       <Helmet>
-        <title>{pageTitle} | Dehli Musikk</title>
-        <meta name='description' content={this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'} />
+        <title>{metaTitle}</title>
+        <meta name='description' content={metaDescription} />
         <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} />
         <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/`} hreflang="no" />
         <link rel="alternate" href={`https://www.dehlimusikk.no/en/portfolio/`} hreflang="en" />
         <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/`} hreflang="x-default" />
+        <meta property="og:title" content={contentTitle} />
+        <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:locale" content={this.props.selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
+        <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
       </Helmet>
       <div className='padding'>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-        <h1>{pageTitle}</h1>
+        <h1>{contentTitle}</h1>
         <p>{this.props.selectedLanguageKey === 'en' ? 'Recordings where I\'ve contributed' : 'Utgivelser jeg har bidratt på'}</p>
       </div>
       <div className={`${style.releases} padding-sm`}>

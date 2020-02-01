@@ -65,17 +65,22 @@ class Home extends Component {
   }
 
   render() {
-
+    const metaDescription = this.props.selectedLanguageKey === 'en'
+        ? 'Offers keyboard instrument tracks for artists and bands'
+        : 'Tilbyr spilling av tangentinstrumenter på låter for artister og band';
     return (<div>
       <Helmet>
         <title>Dehli Musikk</title>
-        <meta name='description' content={this.props.selectedLanguageKey === 'en'
-            ? 'Offers keyboard instrument tracks for artists and bands'
-            : 'Tilbyr spilling av tangentinstrumenter på låter for artister og band'}/>
+        <meta name='description' content={metaDescription}/>
         <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`}/>
         <link rel="alternate" href={`https://www.dehlimusikk.no/`} hreflang="no"/>
         <link rel="alternate" href={`https://www.dehlimusikk.no/en/`} hreflang="en"/>
         <link rel="alternate" href={`https://www.dehlimusikk.no/`} hreflang="x-default"/>
+        <meta property="og:title" content="Dehli Musikk" />
+        <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:locale" content={this.props.selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
+        <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
       </Helmet>
       <div className={style.header}>
         {this.renderHeaderImage()}
