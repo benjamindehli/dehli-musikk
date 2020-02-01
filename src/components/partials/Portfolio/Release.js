@@ -149,8 +149,8 @@ class Release extends Component {
               <div ref={this.setWrapperRef} className={style.linksModalContent}>
                 <h3>{
                     this.props.selectedLanguageKey === 'en'
-                      ? 'Listen to'
-                      : 'Lytt til'
+                      ? 'Listen to '
+                      : 'Lytt til '
                   }
                   {release.title}</h3>
                 <ReleaseLinks release={release}/>
