@@ -9,6 +9,7 @@ import {getLanguageSlug} from 'actions/LanguageActions';
 
 // Helpers
 import {getPrettyDate} from 'helpers/dateFormatter';
+import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 
 // Components
 import Button from 'components/partials/Button';
@@ -18,7 +19,7 @@ import style from 'components/partials/Post.module.scss';
 
 class Post extends Component {
 
-  renderPostSnippet(post, postThumbnailSrc) {
+  renderPostSnippet(post, postId, postThumbnailSrc) {
     const postDate = new Date(post.timestamp).toISOString();
     const selectedLanguageKey = this.props.selectedLanguageKey
       ? this.props.selectedLanguageKey
@@ -26,8 +27,8 @@ class Post extends Component {
     const snippet = {
       "@context": "http://schema.org",
       "@type": "NewsArticle",
-      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${post.id}/`,
-      "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${post.id}/`,
+      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${postId}/`,
+      "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${postId}/`,
       "author": {
         "@type": "Person",
         "name": "Benjamin Dehli",
@@ -183,16 +184,17 @@ class Post extends Component {
       jpg540: require(`../../${imagePathJpg}_540.jpg`)
     };
     const postDate = new Date(post.timestamp);
+    const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
     return post && post.content && post.content[selectedLanguageKey]
       ? (<article className={`${style.gridItem} ${post.link ? style.hasButtons: ''} ${this.props.fullscreen ? style.fullscreen : ''}`}>
-        {this.renderPostSnippet(post, image.webp540)}
+        {this.renderPostSnippet(post, postId, image.webp540)}
         <figure className={style.thumbnail}>
           {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen)}
         </figure>
         <div className={style.contentContainer}>
           <div className={style.content}>
             <div className={style.header}>
-              <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${post.id}/`}><h2>{post.title[selectedLanguageKey]}</h2></Link>
+              <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${postId}/`}><h2>{post.title[selectedLanguageKey]}</h2></Link>
               <time dateTime={postDate.toISOString()}>
                 {getPrettyDate(postDate, selectedLanguageKey)}
               </time>

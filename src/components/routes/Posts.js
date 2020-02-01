@@ -12,6 +12,9 @@ import Breadcrumbs from 'components/partials/Breadcrumbs';
 // Actions
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
 
+// Helpers
+import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+
 // Data
 import {allPosts} from 'data/posts';
 
@@ -83,9 +86,10 @@ class Posts extends Component {
       : '';
   }
 
-  getSelectedPost(selectedPostId){
+  getSelectedPost(selectedPostId, selectedLanguageKey){
     return allPosts.find(post => {
-      return post.id === selectedPostId
+      const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey])
+      return postId === selectedPostId
     });
   }
 
@@ -93,7 +97,7 @@ class Posts extends Component {
     const selectedPostId = this.props.match && this.props.match.params && this.props.match.params.postId
       ? this.props.match.params.postId
       : null;
-    const selectedPost = selectedPostId ? this.getSelectedPost(selectedPostId) : null;
+    const selectedPost = selectedPostId ? this.getSelectedPost(selectedPostId, this.props.selectedLanguageKey) : null;
 
     const listPage = {
       title: {
@@ -134,7 +138,7 @@ class Posts extends Component {
     if (selectedPost){
       breadcrumbs.push({
         name: detailsPage.heading[this.props.selectedLanguageKey],
-        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost.id}/`
+        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPostId}/`
       })
     }
 
@@ -142,14 +146,18 @@ class Posts extends Component {
       return <Redirect to={this.state.redirect}/>;
     }
     else {
+      const selectedPostMultilingualIds = {
+        en: selectedPost ? convertToUrlFriendlyString(selectedPost.title.en) : '',
+        no: selectedPost ? convertToUrlFriendlyString(selectedPost.title.no) : ''
+      };
       return (<div className={style.container}>
         <Helmet>
           <title>{selectedPost ? detailsPage.title[this.props.selectedLanguageKey] : listPage.title[this.props.selectedLanguageKey]}</title>
           <meta name='description' content={selectedPost ? detailsPage.description[this.props.selectedLanguageKey] : listPage.description[this.props.selectedLanguageKey]}/>
-          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost ? selectedPost.id + '/' : ''}`}/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? '/' + selectedPost.id + '/' : ''}`} hreflang="no"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/en/posts/${selectedPost ? '/' + selectedPost.id + '/' : ''}`} hreflang="en"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? '/' + selectedPost.id + '/' : ''}`} hreflang="x-default"/>
+          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost ? selectedPostId + '/' : ''}`}/>
+          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? selectedPostMultilingualIds.no + '/' : ''}`} hreflang="no"/>
+          <link rel="alternate" href={`https://www.dehlimusikk.no/en/posts/${selectedPost ? selectedPostMultilingualIds.en + '/' : ''}`} hreflang="en"/>
+          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? selectedPostMultilingualIds.no + '/' : ''}`} hreflang="x-default"/>
         </Helmet>
         <div className='padding'>
           <Breadcrumbs breadcrumbs={breadcrumbs}/>
