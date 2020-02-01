@@ -5,14 +5,14 @@ import {Link, NavLink} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 // Actions
-import {getLanguageSlug} from '../../actions/LanguageActions';
+import {getLanguageSlug} from 'actions/LanguageActions';
 
 // Assets
-import {ReactComponent as DehliMusikkLogo} from '../../assets/svg/DehliMusikkLogoHorizontal.svg'
-import {ReactComponent as MenuIcon} from '../../assets/svg/menuIcon.svg'
+import {ReactComponent as DehliMusikkLogo} from 'assets/svg/DehliMusikkLogoHorizontal.svg'
+import {ReactComponent as MenuIcon} from 'assets/svg/menuIcon.svg'
 
 // Stylesheets
-import style from './NavigationBar.module.scss';
+import style from 'components/partials/NavigationBar.module.scss';
 
 class NavigationBar extends Component {
   constructor(props) {

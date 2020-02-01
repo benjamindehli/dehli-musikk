@@ -3,13 +3,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 // Components
-import Post from '../partials/Post';
+import Post from 'components/partials/Post';
 
 // Data
-import {latestPosts} from '../../data/posts';
+import {latestPosts} from 'data/posts';
 
 // Stylesheets
-import style from './LatestPosts.module.scss';
+import style from 'components/partials/LatestPosts.module.scss';
 
 class LatestPosts extends Component {
 

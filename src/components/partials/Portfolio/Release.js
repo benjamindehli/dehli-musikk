@@ -5,14 +5,14 @@ import {Helmet} from 'react-helmet';
 import PropTypes from 'prop-types';
 
 // Components
-import ReleaseLinks from './ReleaseLinks';
-import Button from '../Button';
+import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
+import Button from 'components/partials//Button';
 
 // Actions
-import {fetchReleasesThumbnail} from '../../../actions/PortfolioActions';
+import {fetchReleasesThumbnail} from 'actions/PortfolioActions';
 
 // Stylesheets
-import style from './Release.module.scss';
+import style from 'components/partials/Portfolio/Release.module.scss';
 
 
 class Release extends Component {

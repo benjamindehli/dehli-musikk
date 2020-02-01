@@ -6,10 +6,10 @@ import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
 
 // Actions
-import {getLanguageSlug} from '../../actions/LanguageActions';
+import {getLanguageSlug} from 'actions/LanguageActions';
 
 // Stylesheets
-import style from './Breadcrumbs.module.scss';
+import style from 'components/partials/Breadcrumbs.module.scss';
 
 export class Breadcrumbs extends Component {
 

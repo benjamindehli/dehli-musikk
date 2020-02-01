@@ -1,4 +1,4 @@
-import { UPDATE_HAS_ACCEPTED_POLICY } from '../constants/types';
+import { UPDATE_HAS_ACCEPTED_POLICY } from 'constants/types';
 
 const initialState = false;
 

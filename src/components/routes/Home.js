@@ -5,17 +5,17 @@ import {Helmet} from 'react-helmet';
 import {Link} from 'react-router-dom';
 
 // Actions
-import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from '../../actions/LanguageActions';
+import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
 
 // Components
-import Button from '../partials/Button';
-import SocialMediaLinks from '../partials/SocialMediaLinks';
-import LatestPosts from '../partials/LatestPosts';
+import Button from 'components/partials/Button';
+import SocialMediaLinks from 'components/partials/SocialMediaLinks';
+import LatestPosts from 'components/partials/LatestPosts';
 
-import DehliMusikkLogo from '../../assets/svg/DehliMusikkLogoInverse.svg'
+import DehliMusikkLogo from 'assets/svg/DehliMusikkLogoInverse.svg'
 
 // Stylesheets
-import style from './Home.module.scss';
+import style from 'components/routes/Home.module.scss';
 
 class Home extends Component {
 

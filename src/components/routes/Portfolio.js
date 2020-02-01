@@ -5,17 +5,17 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Helmet} from 'react-helmet';
 
 // Components
-import Release from '../partials/Portfolio/Release';
-import Breadcrumbs from '../partials/Breadcrumbs';
+import Release from 'components/partials/Portfolio/Release';
+import Breadcrumbs from 'components/partials/Breadcrumbs';
 
 // Actions
-import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from '../../actions/LanguageActions';
+import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';
 
 // Data
-import releases from '../../data/portfolio';
+import releases from 'data/portfolio';
 
 // Stylesheets
-import style from './Portfolio.module.scss';
+import style from 'components/routes/Portfolio.module.scss';
 
 class Portfolio extends Component {
   constructor(props) {

@@ -3,27 +3,25 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-// Components
-
 // Assets
-import {ReactComponent as AmazonStoreIcon} from '../../../assets/svg/amazonStore.svg'
-import {ReactComponent as AmazonMusicIcon} from '../../../assets/svg/amazonMusic.svg'
-import {ReactComponent as AppleMusicIcon} from '../../../assets/svg/appleMusic.svg'
-import {ReactComponent as DeezerIcon} from '../../../assets/svg/deezer.svg'
-import {ReactComponent as GoogleIcon} from '../../../assets/svg/google.svg'
-import {ReactComponent as GoogleStoreIcon} from '../../../assets/svg/googleStore.svg'
-import {ReactComponent as ItunesIcon} from '../../../assets/svg/itunes.svg'
-import {ReactComponent as NapsterIcon} from '../../../assets/svg/napster.svg'
-import {ReactComponent as PandoraIcon} from '../../../assets/svg/pandora.svg'
-import {ReactComponent as SoundcloudIcon} from '../../../assets/svg/soundcloud.svg'
-import {ReactComponent as SpotifyIcon} from '../../../assets/svg/spotify.svg'
-import {ReactComponent as TidalIcon} from '../../../assets/svg/tidal.svg'
-import {ReactComponent as YandexIcon} from '../../../assets/svg/yandex.svg'
-import {ReactComponent as YoutubeIcon} from '../../../assets/svg/youtube.svg'
-import {ReactComponent as YoutubeMusicIcon} from '../../../assets/svg/youtubeMusic.svg'
+import {ReactComponent as AmazonStoreIcon} from 'assets/svg/amazonStore.svg'
+import {ReactComponent as AmazonMusicIcon} from 'assets/svg/amazonMusic.svg'
+import {ReactComponent as AppleMusicIcon} from 'assets/svg/appleMusic.svg'
+import {ReactComponent as DeezerIcon} from 'assets/svg/deezer.svg'
+import {ReactComponent as GoogleIcon} from 'assets/svg/google.svg'
+import {ReactComponent as GoogleStoreIcon} from 'assets/svg/googleStore.svg'
+import {ReactComponent as ItunesIcon} from 'assets/svg/itunes.svg'
+import {ReactComponent as NapsterIcon} from 'assets/svg/napster.svg'
+import {ReactComponent as PandoraIcon} from 'assets/svg/pandora.svg'
+import {ReactComponent as SoundcloudIcon} from 'assets/svg/soundcloud.svg'
+import {ReactComponent as SpotifyIcon} from 'assets/svg/spotify.svg'
+import {ReactComponent as TidalIcon} from 'assets/svg/tidal.svg'
+import {ReactComponent as YandexIcon} from 'assets/svg/yandex.svg'
+import {ReactComponent as YoutubeIcon} from 'assets/svg/youtube.svg'
+import {ReactComponent as YoutubeMusicIcon} from 'assets/svg/youtubeMusic.svg'
 
 // Stylesheets
-import style from './ReleaseLinks.module.scss';
+import style from 'components/partials/Portfolio/ReleaseLinks.module.scss';
 
 class ReleaseLinks extends Component {
 

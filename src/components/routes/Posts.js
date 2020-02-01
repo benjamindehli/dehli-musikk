@@ -6,17 +6,17 @@ import {Redirect} from 'react-router-dom';
 
 
 // Components
-import Post from '../partials/Post';
-import Breadcrumbs from '../partials/Breadcrumbs';
+import Post from 'components/partials/Post';
+import Breadcrumbs from 'components/partials/Breadcrumbs';
 
 // Actions
-import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from '../../actions/LanguageActions';
+import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
 
 // Data
-import {allPosts} from '../../data/posts';
+import {allPosts} from 'data/posts';
 
 // Stylesheets
-import style from './Posts.module.scss';
+import style from 'components/routes/Posts.module.scss';
 
 class Posts extends Component {
 

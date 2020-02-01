@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 // Stylesheets
-import style from './Footer.module.scss';
+import style from 'components/partials/Footer.module.scss';
 
 class Footer extends Component {
 

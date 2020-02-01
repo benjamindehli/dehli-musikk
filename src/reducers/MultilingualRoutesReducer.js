@@ -1,4 +1,4 @@
-import { UPDATE_MULTILINGUAL_ROUTES } from '../constants/types';
+import { UPDATE_MULTILINGUAL_ROUTES } from 'constants/types';
 
 const initialState = {}
 

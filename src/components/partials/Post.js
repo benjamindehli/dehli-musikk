@@ -5,18 +5,18 @@ import {Helmet} from 'react-helmet';
 import {Link} from 'react-router-dom';
 
 // Actions
-import {getLanguageSlug} from '../../actions/LanguageActions';
+import {getLanguageSlug} from 'actions/LanguageActions';
 
 // Helpers
-import {getPrettyDate} from '../../helpers/dateFormatter';
+import {getPrettyDate} from 'helpers/dateFormatter';
 
 // Components
-import Button from './Button';
+import Button from 'components/partials/Button';
 
 // Stylesheets
-import style from './Post.module.scss';
+import style from 'components/partials/Post.module.scss';
 
-class NavigationBar extends Component {
+class Post extends Component {
 
   renderPostSnippet(post, postThumbnailSrc) {
     const postDate = new Date(post.timestamp).toISOString();
@@ -223,4 +223,4 @@ const mapDispatchToProps = {
   getLanguageSlug
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
+export default connect(mapStateToProps, mapDispatchToProps)(Post);

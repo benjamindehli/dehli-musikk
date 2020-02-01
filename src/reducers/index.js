@@ -3,10 +3,10 @@ import {combineReducers} from 'redux';
 import {connectRouter} from 'connected-react-router'
 
 // Reducers
-import AvailableLanguagesReducer from './AvailableLanguagesReducer';
-import MultilingualRoutesReducer from './MultilingualRoutesReducer';
-import SelectedLanguageKeyReducer from './SelectedLanguageKeyReducer';
-import HasAcceptedPolicyReducer from './HasAcceptedPolicyReducer';
+import AvailableLanguagesReducer from 'reducers/AvailableLanguagesReducer';
+import MultilingualRoutesReducer from 'reducers/MultilingualRoutesReducer';
+import SelectedLanguageKeyReducer from 'reducers/SelectedLanguageKeyReducer';
+import HasAcceptedPolicyReducer from 'reducers/HasAcceptedPolicyReducer';
 
 export default (history) => combineReducers({
   router: connectRouter(history),

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 // Stylesheets
-import style from './SocialMediaLinks.module.scss';
+import style from 'components/partials/SocialMediaLinks.module.scss';
 
 class SocialMediaLinks extends Component {
 

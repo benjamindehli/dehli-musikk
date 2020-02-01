@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'connected-react-router';
+import loadable from "@loadable/component";
+import { PrerenderedComponent } from "react-prerendered-component";
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
@@ -16,19 +18,17 @@ import {
 import {faGripHorizontal, faListUl, faLanguage, faChevronDown} from '@fortawesome/free-solid-svg-icons'
 
 // Utils
-import configureStore, {history} from './utils/configureStore';
+import configureStore, {history} from 'utils/configureStore';
 
 // Components
-import NavigationBar from './components/partials/NavigationBar';
-import Footer from './components/partials/Footer';
-import NotFound from './components/routes/NotFound';
+import NavigationBar from 'components/partials/NavigationBar';
+import Footer from 'components/partials/Footer';
+import NotFound from 'components/routes/NotFound';
 
 
 // Stylesheets
-import style from './App.module.scss';
+import style from 'App.module.scss';
 
-import loadable from "@loadable/component";
-import { PrerenderedComponent } from "react-prerendered-component";
 
 const prerenderedLoadable = dynamicImport => {
   const LoadableComponent = loadable(dynamicImport);
