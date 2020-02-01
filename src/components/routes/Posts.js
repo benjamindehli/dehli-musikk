@@ -33,7 +33,10 @@ class Posts extends Component {
   }
 
   initLanguage() {
-    this.props.updateMultilingualRoutes('posts');
+    const selectedPostId = this.props.match && this.props.match.params && this.props.match.params.postId
+      ? this.props.match.params.postId
+      : null;
+    this.props.updateMultilingualRoutes(selectedPostId ? `posts/${selectedPostId}/` : 'posts/');
     const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage
       ? this.props.match.params.selectedLanguage
       : 'no';
@@ -63,7 +66,7 @@ class Posts extends Component {
 
   handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({redirect: '/posts/'});
+      this.setState({redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`});
     }
   }
 

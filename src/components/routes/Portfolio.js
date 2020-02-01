@@ -29,7 +29,7 @@ class Portfolio extends Component {
   }
 
   initLanguage(){
-    this.props.updateMultilingualRoutes('portfolio');
+    this.props.updateMultilingualRoutes('portfolio/');
     const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage ? this.props.match.params.selectedLanguage : 'no';
     if (selectedLanguageKey !== this.props.selectedLanguageKey){
       this.props.updateSelectedLanguageKey(selectedLanguageKey);

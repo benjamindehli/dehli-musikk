@@ -24,7 +24,6 @@ import configureStore, {history} from 'utils/configureStore';
 // Components
 import NavigationBar from 'components/partials/NavigationBar';
 import Footer from 'components/partials/Footer';
-import NotFound from 'components/routes/NotFound';
 
 // Assets
 import openGraphImage from 'assets/images/DehliMusikk-OpenGraph.jpg';
@@ -46,6 +45,7 @@ const prerenderedLoadable = dynamicImport => {
 const Home = prerenderedLoadable(() => import("./components/routes/Home"));
 const Portfolio = prerenderedLoadable(() => import("./components/routes/Portfolio"));
 const Posts = prerenderedLoadable(() => import("./components/routes/Posts"));
+const NotFound = prerenderedLoadable(() => import("./components/routes/NotFound"));
 
 library.add(faFacebookF, faInstagram, faTumblr, faTwitter, faVimeoV, faYoutube, faGripHorizontal, faListUl, faLanguage, faChevronDown)
 
@@ -79,21 +79,16 @@ class App extends Component {
         <NavigationBar/>
         <div className={style.container}>
           <Switch>
-            <Route exact={true} path="/portfolio/" render={() => (<Portfolio/>)}/>
-            <Route exact={true} path="/:selectedLanguage/portfolio/" render={(props) => (<Portfolio {...props}/>)}/>
-            <Route exact={true} path="/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
-            <Route exact={true} path="/posts/" render={() => (<Posts/>)}/>
-            <Route exact={true} path="/:selectedLanguage/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
-            <Route exact={true} path="/:selectedLanguage/posts/" render={(props) => (<Posts {...props}/>)}/>
-            <Route exact={true} path="/:selectedLanguage" render={(props) => (<Home {...props}/>)}/>
-            <Route exact={true} path="/:selectedLanguage/" render={(props) => (<Home {...props}/>)}/>
+            <Route exact={true} strict={true} path="/portfolio/" render={() => (<Portfolio/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/portfolio/" render={(props) => (<Portfolio {...props}/>)}/>
+            <Route exact={true} strict={true} path="/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
+            <Route exact={true} strict={true} path="/posts/" render={() => (<Posts/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/posts/" render={(props) => (<Posts {...props}/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/" render={(props) => (<Home {...props}/>)}/>
             <Route exact={true} path="/" render={() => (<Home/>)}/>
-            <Route
-           key={"/shell.html"}
-           path="/shell.html"
-           component={() => null}
-         />
-          <Route key={"/404.html"} component={NotFound} />
+            <Route key={"/shell.html"} path="/shell.html" component={() => null} />
+            <Route key={"/404.html"} component={NotFound} />
             <Route render={() => (<NotFound/>)}/>
           </Switch>
           <Footer/>
