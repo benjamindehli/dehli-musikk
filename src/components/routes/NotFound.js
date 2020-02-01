@@ -3,10 +3,11 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
 
+import style from 'components/routes/NotFound.module.scss';
 
 class NotFound extends Component {
   render() {
-    return (<div>
+    return (<div className={style.contentSection}>
       <Helmet>
         <title>404 - Siden finnes ikke - Dehli Musikk</title>
       </Helmet>
