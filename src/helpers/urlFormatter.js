@@ -26,6 +26,9 @@ export const convertToUrlFriendlyString = string => {
     // Unwated character replace
     string = string.replace(/[^a-z0-9-]+/ig, "");
 
+    // Remove any character before first and after last A-Z or 0-9
+    string = string.replace(/^[^A-Z0-9]*|[^a-z0-9]*$/ig, "");
+
     return string;
   } else {
     return '';
