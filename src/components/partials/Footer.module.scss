@@ -9,8 +9,12 @@
     margin: auto;
     flex: 1;
 
-    iframe {
-      width: 100%;
+    :local(.map) {
+      margin: 0;
+
+      img {
+        width: 100%;
+      }
     }
 
     :local(.grid) {
@@ -18,9 +22,15 @@
         display: flex;
       }
 
-      > div {
+      :local(.textSection) {
         @media (min-width: $screen-md) {
           flex: 1;
+        }
+      }
+
+      :local(.mapSection) {
+        @media (min-width: $screen-md) {
+          flex: 2;
         }
       }
     }

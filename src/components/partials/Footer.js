@@ -2,6 +2,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+// Assets
+import map930Webp from 'assets/images/map_930.webp';
+import map930Jpg from 'assets/images/map_930.jpg';
+
 // Stylesheets
 import style from 'components/partials/Footer.module.scss';
 
@@ -12,7 +16,7 @@ class Footer extends Component {
     return (<div className={style.footer}>
       <div className={style.contentSection}>
         <div className={style.grid}>
-          <div>
+          <div className={style.textSection}>
             <h2>Kontakt</h2>
             <address className={style.addressContent}>
               <ul>
@@ -28,8 +32,16 @@ class Footer extends Component {
               </ul>
             </address>
           </div>
-          <div>
-            <iframe src={mapSrc} title="Location for Dehli Musikk" width="400" height="300" frameBorder="0"></iframe>
+          <div className={style.mapSection}>
+            <a href='https://g.page/dehli-musikk?share' title='Location for Dehli Musikk in Google Maps' aria-label='Location for Dehli Musikk in Google Maps' target='_blank' rel="noopener noreferrer">
+              <figure className={style.map}>
+                <picture>
+                  <source srcSet={`${map930Webp} 930w`} type="image/webp"/>
+                  <source srcSet={`${map930Jpg} 930w`} type="image/jpg"/>
+                  <img src={map930Jpg} alt="Location for Dehli Musikk"/>
+                </picture>
+              </figure>
+            </a>
           </div>
         </div>
       </div>
