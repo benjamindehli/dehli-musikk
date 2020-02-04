@@ -27,7 +27,7 @@
   "scripts": {
     "start": "PORT=3001 react-app-rewired start",
     "build": "react-app-rewired build",
-    "postbuild": "react-snap && yarn run generate-sw",
+    "postbuild": "react-snap --disable-dev-shm-usage && yarn run generate-sw",
     "generate-sw": "sw-precache --root=build --config sw-precache-config.js && uglifyjs build/service-worker.js -o build/service-worker.js",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
