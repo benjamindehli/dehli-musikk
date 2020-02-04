@@ -75,3 +75,6 @@ typings/
 
 # Misc
 .DS_Store
+
+# Firebase
+.firebase/
