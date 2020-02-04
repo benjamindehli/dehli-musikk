@@ -10,10 +10,6 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [{
-      "source": "**",
-      "destination": "/index.html"
-    }],
     "headers": [{
       "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
       "headers": [{
@@ -48,7 +44,7 @@
       "port": 5000
     },
     "cleanUrls": true,
-    "trailingSlash": false,
+    "trailingSlash": true,
     "appAssociation": "AUTO"
   }
 }
