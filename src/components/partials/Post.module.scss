@@ -2,15 +2,16 @@
 
 :local(.gridItem) {
   background-color: #fff;
-  width: 350px;
-  margin: 8px;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
   overflow: hidden;
   position: relative;
-
-  &:local(.hasButtons) {
-    padding-bottom: 47px;
+  width: 100%;
+  padding-bottom: 16px;
+  @media (min-width: $screen-sm) {
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    margin: 8px;
+    width: 350px;
+    border-radius: 4px;
+    padding-bottom: 0;
   }
 
   &:local(.fullscreen) {
@@ -28,23 +29,32 @@
       :local(.content) {
         :local(.header) {
           h2 {
-            font-size: 26px;
+            @media (min-width: $screen-sm) {
+              font-size: 26px;
+            }
           }
         }
 
         time {
-          font-size: 0.8em;
+          @media (min-width: $screen-sm) {
+            font-size: 0.8em;
+          }
         }
 
         :local(.body) {
-          font-size: 16px;
+          @media (min-width: $screen-sm) {
+            font-size: 16px;
+          }
         }
       }
     }
   }
 
   :local(.content) {
-    padding: 16px;
+    padding: 8px;
+    @media (min-width: $screen-sm) {
+      padding: 16px;
+    }
 
     :local(.header) {
       h2 {
@@ -65,9 +75,7 @@
   }
 
   :local(.buttons) {
-    padding: 8px;
-    position: absolute;
-    bottom: 0;
+    padding: 0 8px 8px;
   }
 
   :local(.thumbnail) {

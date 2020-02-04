@@ -152,12 +152,21 @@ class Post extends Component {
     </Helmet>)
   }
 
-  renderPostThumbnail(image, altText, fullscreen) {
-    return (<picture>
-      <source sizes={fullscreen ? '540px' : '175px'} srcSet={`${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
-      <source sizes={fullscreen ? '540px' : '175px'} srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
-      <img src={image.jpg350} alt={altText}/>
-    </picture>);
+  renderPostThumbnail(image, altText, fullscreen, postPath) {
+    const thumbnailElement = (<figure className={style.thumbnail}>
+      <picture>
+        <source sizes={fullscreen
+            ? '540px'
+            : '175px'} srcSet={`${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
+        <source sizes={fullscreen
+            ? '540px'
+            : '175px'} srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
+        <img src={image.jpg350} alt={altText}/>
+      </picture>
+    </figure>);
+    return fullscreen
+      ? thumbnailElement
+      : (<Link to={postPath}>{thumbnailElement}</Link>);
   }
 
   renderLink(link) {
@@ -185,16 +194,23 @@ class Post extends Component {
     };
     const postDate = new Date(post.timestamp);
     const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
+    const postPath = `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${postId}/`;
     return post && post.content && post.content[selectedLanguageKey]
-      ? (<article className={`${style.gridItem} ${post.link ? style.hasButtons: ''} ${this.props.fullscreen ? style.fullscreen : ''}`}>
+      ? (<article className={`${style.gridItem} ${this.props.fullscreen
+          ? style.fullscreen
+          : ''}`}>
         {this.renderPostSnippet(post, postId, image.jpg540)}
-        <figure className={style.thumbnail}>
-          {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen)}
-        </figure>
+        {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen, postPath)}
         <div className={style.contentContainer}>
           <div className={style.content}>
             <div className={style.header}>
-              <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${postId}/`}><h2>{post.title[selectedLanguageKey]}</h2></Link>
+              {
+                this.props.fullscreen
+                  ? (<h2>{post.title[selectedLanguageKey]}</h2>)
+                  : (<Link to={postPath}>
+                    <h2>{post.title[selectedLanguageKey]}</h2>
+                  </Link>)
+              }
               <time dateTime={postDate.toISOString()}>
                 {getPrettyDate(postDate, selectedLanguageKey)}
               </time>
@@ -205,11 +221,10 @@ class Post extends Component {
                   return (<p key={key}>{paragraph}</p>)
                 })
               }
-
             </div>
           </div>
           {
-            post.link
+            post.link && this.props.fullscreen
               ? this.renderLink(post.link)
               : ''
           }
