@@ -7,6 +7,7 @@ import {Redirect} from 'react-router-dom';
 // Components
 import Release from 'components/partials/Portfolio/Release';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
+import Modal from 'components/partials/Modal';
 
 // Actions
 import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';
@@ -26,8 +27,6 @@ class Portfolio extends Component {
     this.state = {
       redirect: null
     };
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   initLanguage(){
@@ -40,26 +39,11 @@ class Portfolio extends Component {
 
   componentDidMount() {
     this.initLanguage();
-    document.addEventListener('mousedown', this.handleClickOutside);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
   componentDidUpdate(){
     if (this.state.redirect) {
       this.setState({redirect: null});
-    }
-  }
-
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
-
-  handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`});
     }
   }
 
@@ -72,13 +56,15 @@ class Portfolio extends Component {
   }
 
   renderSelectedRelease(selectedRelease) {
-      return selectedRelease
-      ? (<div className={style.postModalOverlay}>
-          <div ref={this.setWrapperRef} className={style.postModalContent}>
-            <Release key={selectedRelease.id} release={selectedRelease} fullscreen={true} />
-          </div>
-        </div>
-      )
+    const handleClickOutside = () => {
+      this.setState({
+        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`
+      });
+    }
+    return selectedRelease
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="400px">
+        <Release key={selectedRelease.id} release={selectedRelease} fullscreen={true} />
+      </Modal>)
       : '';
   }
 
@@ -163,12 +149,14 @@ class Portfolio extends Component {
           <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
         </Helmet>
         {selectedRelease ? this.renderSelectedRelease(selectedRelease) : ''}
-        <div className='padding'>
+        <div className={`padding ${selectedRelease
+            ? style.blur
+            : ''}`}>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
           <h1>{contentTitle}</h1>
           <p>{this.props.selectedLanguageKey === 'en' ? 'Recordings where I\'ve contributed' : 'Utgivelser jeg har bidratt på'}</p>
         </div>
-        <div className={`${style.releases} padding-sm`}>
+        <div className={`${style.releases} ${selectedRelease ? style.blur : ''} padding-sm`}>
           <div className={style.list}>
              {this.renderReleases()}
           </div>

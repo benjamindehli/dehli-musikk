@@ -4,10 +4,10 @@ import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
 import {Redirect} from 'react-router-dom';
 
-
 // Components
 import Post from 'components/partials/Post';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
+import Modal from 'components/partials/Modal';
 
 // Actions
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
@@ -28,15 +28,16 @@ class Posts extends Component {
     this.state = {
       redirect: null
     };
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   initLanguage() {
     const selectedPostId = this.props.match && this.props.match.params && this.props.match.params.postId
       ? this.props.match.params.postId
       : null;
-    this.props.updateMultilingualRoutes(selectedPostId ? `posts/${selectedPostId}/` : 'posts/');
+    this.props.updateMultilingualRoutes(
+      selectedPostId
+      ? `posts/${selectedPostId}/`
+      : 'posts/');
     const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage
       ? this.props.match.params.selectedLanguage
       : 'no';
@@ -47,26 +48,11 @@ class Posts extends Component {
 
   componentDidMount() {
     this.initLanguage();
-    document.addEventListener('mousedown', this.handleClickOutside);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
-  }
-
-  componentDidUpdate(){
+  componentDidUpdate() {
     if (this.state.redirect) {
       this.setState({redirect: null});
-    }
-  }
-
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
-
-  handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`});
     }
   }
 
@@ -79,17 +65,19 @@ class Posts extends Component {
   }
 
   renderSelectedPost(selectedPost) {
-      return selectedPost
-      ? (<div className={style.postModalOverlay}>
-          <div ref={this.setWrapperRef} className={style.postModalContent}>
-            <Post key={selectedPost.id} post={selectedPost} fullscreen={true} />
-          </div>
-        </div>
-      )
+    const handleClickOutside = () => {
+      this.setState({
+        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`
+      });
+    }
+    return selectedPost
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px">
+        <Post post={selectedPost} fullscreen={true}/>
+      </Modal>)
       : '';
   }
 
-  getSelectedPost(selectedPostId, selectedLanguageKey){
+  getSelectedPost(selectedPostId, selectedLanguageKey) {
     return allPosts.find(post => {
       const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey])
       return postId === selectedPostId
@@ -100,7 +88,9 @@ class Posts extends Component {
     const selectedPostId = this.props.match && this.props.match.params && this.props.match.params.postId
       ? this.props.match.params.postId
       : null;
-    const selectedPost = selectedPostId ? this.getSelectedPost(selectedPostId, this.props.selectedLanguageKey) : null;
+    const selectedPost = selectedPostId
+      ? this.getSelectedPost(selectedPostId, this.props.selectedLanguageKey)
+      : null;
 
     const listPage = {
       title: {
@@ -119,16 +109,28 @@ class Posts extends Component {
 
     const detailsPage = {
       title: {
-        en: `${selectedPost ? selectedPost.title.en : ''} - Posts | Dehli Musikk`,
-        no: `${selectedPost ? selectedPost.title.no : ''} - Innlegg | Dehli Musikk`
+        en: `${selectedPost
+          ? selectedPost.title.en
+          : ''} - Posts | Dehli Musikk`,
+        no: `${selectedPost
+          ? selectedPost.title.no
+          : ''} - Innlegg | Dehli Musikk`
       },
       heading: {
-        en: selectedPost ? selectedPost.title.en : '',
-        no: selectedPost ? selectedPost.title.no : ''
+        en: selectedPost
+          ? selectedPost.title.en
+          : '',
+        no: selectedPost
+          ? selectedPost.title.no
+          : ''
       },
       description: {
-        en: selectedPost ? selectedPost.content.en : '',
-        no: selectedPost ? selectedPost.content.no : ''
+        en: selectedPost
+          ? selectedPost.content.en
+          : '',
+        no: selectedPost
+          ? selectedPost.content.no
+          : ''
       }
     }
 
@@ -138,7 +140,7 @@ class Posts extends Component {
         path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`
       }
     ];
-    if (selectedPost){
+    if (selectedPost) {
       breadcrumbs.push({
         name: detailsPage.heading[this.props.selectedLanguageKey],
         path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPostId}/`
@@ -147,30 +149,57 @@ class Posts extends Component {
 
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect}/>;
-    }
-    else {
+    } else {
       const selectedPostMultilingualIds = {
-        en: selectedPost ? convertToUrlFriendlyString(selectedPost.title.en) : '',
-        no: selectedPost ? convertToUrlFriendlyString(selectedPost.title.no) : ''
+        en: selectedPost
+          ? convertToUrlFriendlyString(selectedPost.title.en)
+          : '',
+        no: selectedPost
+          ? convertToUrlFriendlyString(selectedPost.title.no)
+          : ''
       };
-      const metaTitle = selectedPost ? detailsPage.title[this.props.selectedLanguageKey] : listPage.title[this.props.selectedLanguageKey];
-      const contentTitle = selectedPost ? detailsPage.heading[this.props.selectedLanguageKey] : listPage.heading[this.props.selectedLanguageKey];
-      const metaDescription = selectedPost ? detailsPage.description[this.props.selectedLanguageKey] : listPage.description[this.props.selectedLanguageKey];
+      const metaTitle = selectedPost
+        ? detailsPage.title[this.props.selectedLanguageKey]
+        : listPage.title[this.props.selectedLanguageKey];
+      const contentTitle = selectedPost
+        ? detailsPage.heading[this.props.selectedLanguageKey]
+        : listPage.heading[this.props.selectedLanguageKey];
+      const metaDescription = selectedPost
+        ? detailsPage.description[this.props.selectedLanguageKey]
+        : listPage.description[this.props.selectedLanguageKey];
       return (<div className={style.container}>
-        <Helmet htmlAttributes={{ lang : this.props.selectedLanguageKey }}>
+        <Helmet htmlAttributes={{
+            lang: this.props.selectedLanguageKey
+          }}>
           <title>{metaTitle}</title>
           <meta name='description' content={metaDescription}/>
-          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost ? selectedPostId + '/' : ''}`}/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? selectedPostMultilingualIds.no + '/' : ''}`} hreflang="no"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/en/posts/${selectedPost ? selectedPostMultilingualIds.en + '/' : ''}`} hreflang="en"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost ? selectedPostMultilingualIds.no + '/' : ''}`} hreflang="x-default"/>
-          <meta property="og:title" content={contentTitle} />
-          <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost ? selectedPostId + '/' : ''}`} />
-          <meta property="og:description" content={metaDescription} />
-          <meta property="og:locale" content={this.props.selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
-          <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
+          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost
+              ? selectedPostId + '/'
+              : ''}`}/>
+          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost
+              ? selectedPostMultilingualIds.no + '/'
+              : ''}`} hreflang="no"/>
+          <link rel="alternate" href={`https://www.dehlimusikk.no/en/posts/${selectedPost
+              ? selectedPostMultilingualIds.en + '/'
+              : ''}`} hreflang="en"/>
+          <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost
+              ? selectedPostMultilingualIds.no + '/'
+              : ''}`} hreflang="x-default"/>
+          <meta property="og:title" content={contentTitle}/>
+          <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost
+              ? selectedPostId + '/'
+              : ''}`}/>
+          <meta property="og:description" content={metaDescription}/>
+          <meta property="og:locale" content={this.props.selectedLanguageKey === 'en'
+              ? 'en_US'
+              : 'no_NO'}/>
+          <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en'
+              ? 'nb_NO'
+              : 'en_US'}/>
         </Helmet>
-        <div className='padding'>
+        <div className={`padding ${selectedPost
+            ? style.blur
+            : ''}`}>
           <Breadcrumbs breadcrumbs={breadcrumbs}/>
           <h1>{contentTitle}</h1>
           <p>{
@@ -179,8 +208,14 @@ class Posts extends Component {
                 : 'Oppdateringer fra Dehli Musikk'
             }</p>
         </div>
-        {selectedPost ? this.renderSelectedPost(selectedPost) : ''}
-        <div className={`${style.posts} padding-sm`}>
+        {
+          selectedPost
+            ? this.renderSelectedPost(selectedPost)
+            : ''
+        }
+        <div className={`${style.posts} ${selectedPost
+            ? style.blur
+            : ''} padding-sm`}>
           <div className={style.grid}>
             {this.renderPosts()}
           </div>
