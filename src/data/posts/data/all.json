@@ -1,4 +1,25 @@
 [{
+    "id": "2020020200",
+    "timestamp": 1580601600000,
+    "title": {
+      "no": "Piano som romklang-effekt til synth",
+      "en": "Piano as reverb for the synthesizer"
+    },
+    "content": {
+      "no": "Her brukes synthen Korg MS-20 med Louis Zwicki Pianette som romklang-effekt 🎹🎛\nSynthen blir styrt av en Korg SQ-1 step sequencer",
+      "en": "Using the Louis Zwicki Pianette as a reverb effect for the Korg MS-20 🎹🎛\nThe MS-20 is triggered by the Korg SQ-1 step sequencer"
+    },
+    "thumbnailDescription": "Louis Zwicki Pianette with a loudspeaker inside",
+    "thumbnailFilename": "2020-02-02-00",
+    "link": {
+      "url": "https://youtu.be/g1jnNf5ZSzY",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
     "id": "2020012500",
     "timestamp": 1579910400000,
     "title": {
