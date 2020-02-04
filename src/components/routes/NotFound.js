@@ -11,7 +11,7 @@ class NotFound extends Component {
     return (<div className={style.contentSection}>
       <Helmet>
         <title>404 - Siden finnes ikke - Dehli Musikk</title>
-        <meta name="ROBOTS" content="NOINDEX"/>
+        <meta name="prerender-status-code" content="404" />
       </Helmet>
       <h1>404 - Siden finnes ikke</h1>
     </div>)
