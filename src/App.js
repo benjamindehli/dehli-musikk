@@ -69,10 +69,9 @@ class App extends Component {
       <ConnectedRouter history={history}>
         <Helmet>
           <meta property="og:type" content="website" />
-          <meta property="og:image" content={openGraphImage} />
+          <meta property="og:image" content={`https://www.dehlimusikk.no${openGraphImage}`} />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
-          <meta property="og:image" content={openGraphImage} />
           <meta property="og:site_name" content="Dehli Musikk" />
           <meta property="fb:app_id" content="525744544728800" />
         </Helmet>

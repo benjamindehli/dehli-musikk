@@ -89,7 +89,7 @@ class Release extends Component {
         "@type": "MusicComposition",
         "name": release.title
       },
-      "thumbnailUrl": releaseThumbnailSrc
+      "thumbnailUrl": `https://www.dehlimusikk.no/portfolio${releaseThumbnailSrc}`
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
