@@ -5,22 +5,32 @@
   margin: auto;
 }
 
-h1 {}
-
-:local(.viewTypeButton) {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
 :local(.releases) {
   :local(.list) {
     background-color: #fff;
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   }
+}
 
-  :local(.grid) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+:local(.postModalOverlay) {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  width: 100%;
+  background: rgba(0,0,0,.5);
+  height: 100%;
+  top: 0;
+  left: 0;
+  align-content: center;
+  padding: 36px;
+  z-index: 2;
+
+  :local(.postModalContent) {
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 11px 15px -7px rgba(0,0,0,0.2), 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12);
+    border-radius: 4px;
   }
 }

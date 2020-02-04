@@ -78,13 +78,18 @@ class App extends Component {
         <NavigationBar/>
         <div className={style.container}>
           <Switch>
+
+            <Route exact={true} strict={true} path="/portfolio/:releaseId/" render={(props) => (<Portfolio {...props}/>)}/>
             <Route exact={true} strict={true} path="/portfolio/" render={() => (<Portfolio/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/portfolio/:releaseId/" render={(props) => (<Portfolio {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/portfolio/" render={(props) => (<Portfolio {...props}/>)}/>
+
             <Route exact={true} strict={true} path="/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
             <Route exact={true} strict={true} path="/posts/" render={() => (<Posts/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/" render={(props) => (<Posts {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/" render={(props) => (<Home {...props}/>)}/>
+
             <Route exact={true} path="/" render={() => (<Home/>)}/>
             <Route key={"/shell.html"} path="/shell.html" component={() => null} />
             <Route key={"/404.html"} component={NotFound} />
