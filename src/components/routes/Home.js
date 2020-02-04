@@ -102,8 +102,12 @@ class Home extends Component {
         }
       </div>
       <div className={style.latestPostsSection}>
-        <div className={style.contentSection}>
-          <h2>Siste oppdateringer</h2>
+        <div className={`${style.contentSection} ${style.fullWidthSm}`}>
+          <h2>{
+              this.props.selectedLanguageKey === 'en'
+                ? 'Latest updates'
+                : 'Siste oppdateringer'
+            }</h2>
           <LatestPosts/>
           <div className={style.callToAction}>
             {
