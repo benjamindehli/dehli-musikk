@@ -79,7 +79,7 @@ class Portfolio extends Component {
     ];
     const metaDescription = this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på';
     return (<div className={style.container}>
-      <Helmet>
+        <Helmet htmlAttributes={{ lang : this.props.selectedLanguageKey }}>
         <title>{metaTitle}</title>
         <meta name='description' content={metaDescription} />
         <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} />

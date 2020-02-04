@@ -157,7 +157,7 @@ class Posts extends Component {
       const contentTitle = selectedPost ? detailsPage.heading[this.props.selectedLanguageKey] : listPage.heading[this.props.selectedLanguageKey];
       const metaDescription = selectedPost ? detailsPage.description[this.props.selectedLanguageKey] : listPage.description[this.props.selectedLanguageKey];
       return (<div className={style.container}>
-        <Helmet>
+        <Helmet htmlAttributes={{ lang : this.props.selectedLanguageKey }}>
           <title>{metaTitle}</title>
           <meta name='description' content={metaDescription}/>
           <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost ? selectedPostId + '/' : ''}`}/>

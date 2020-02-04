@@ -69,7 +69,7 @@ class Home extends Component {
         ? 'Offers keyboard instrument tracks for artists and bands'
         : 'Tilbyr spilling av tangentinstrumenter på låter for artister og band';
     return (<div>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang : this.props.selectedLanguageKey }}>
         <title>Dehli Musikk</title>
         <meta name='description' content={metaDescription}/>
         <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`}/>
