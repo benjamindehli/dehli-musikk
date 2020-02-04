@@ -61,6 +61,13 @@ img {
   padding: 64px 24px;
   margin: auto;
 
+  &:local(.fullWidthSm) {
+    padding: 20px 0;
+    @media (min-width: $screen-sm) {
+      padding: 64px 24px;
+    }
+  }
+
   > h2 {
     text-align: center;
   }
