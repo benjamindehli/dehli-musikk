@@ -6,6 +6,7 @@ import {ConnectedRouter} from 'connected-react-router';
 import loadable from "@loadable/component";
 import { PrerenderedComponent } from "react-prerendered-component";
 import {Helmet} from 'react-helmet';
+import WebFont from 'webfontloader';
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {
@@ -45,7 +46,14 @@ const prerenderedLoadable = dynamicImport => {
 const Home = prerenderedLoadable(() => import("./components/routes/Home"));
 const Portfolio = prerenderedLoadable(() => import("./components/routes/Portfolio"));
 const Posts = prerenderedLoadable(() => import("./components/routes/Posts"));
+const Equipment = prerenderedLoadable(() => import("./components/routes/Equipment"));
 const NotFound = prerenderedLoadable(() => import("./components/routes/NotFound"));
+
+WebFont.load({
+  google: {
+    families: ['Roboto:400,700']
+  }
+});
 
 library.add(faFacebookF, faInstagram, faTumblr, faTwitter, faVimeoV, faYoutube, faGripHorizontal, faListUl, faLanguage, faChevronDown)
 
@@ -88,12 +96,18 @@ class App extends Component {
             <Route exact={true} strict={true} path="/posts/" render={() => (<Posts/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/" render={(props) => (<Posts {...props}/>)}/>
+
+            <Route exact={true} strict={true} path="/equipment/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
+            <Route exact={true} strict={true} path="/equipment/" render={() => (<Equipment/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/equipment/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/equipment/" render={(props) => (<Equipment {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/" render={(props) => (<Home {...props}/>)}/>
 
             <Route exact={true} path="/" render={() => (<Home/>)}/>
             <Route key={"/shell.html"} path="/shell.html" component={() => null} />
             <Route key={"/404.html"} component={NotFound} />
-            <Route render={() => (<NotFound/>)}/>
+            <Route render={() => (<NotFound />)}/>
+
           </Switch>
           <Footer/>
         </div>
