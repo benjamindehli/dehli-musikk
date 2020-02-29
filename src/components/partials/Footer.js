@@ -12,7 +12,6 @@ import style from 'components/partials/Footer.module.scss';
 class Footer extends Component {
 
   render() {
-    const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2028.2397254204238!2d9.082164416109066!3d59.44575370872419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46474b358bd48fdb%3A0xb904a39178048510!2sDehli%20Musikk!5e0!3m2!1sno!2sno!4v1580048325174!5m2!1sno!2sno';
     return (<div className={style.footer}>
       <div className={style.contentSection}>
         <div className={style.grid}>
