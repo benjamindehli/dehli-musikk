@@ -1,57 +1,59 @@
 [{
-    "id": "2020020200",
-    "timestamp": 1580601600000,
+    "id": "2020021400",
+    "timestamp": 1581667200000,
     "title": {
-      "no": "Piano som romklang-effekt til synth",
-      "en": "Piano as reverb for the synthesizer"
+      "no": "Ny utgivelse - Tåkemann av Esben Meyer",
+      "en": "New release - Tåkemann by Esben Meyer"
     },
     "content": {
-      "no": "Her brukes synthen Korg MS-20 med Louis Zwicki Pianette som romklang-effekt 🎹🎛\nSynthen blir styrt av en Korg SQ-1 step sequencer",
-      "en": "Using the Louis Zwicki Pianette as a reverb effect for the Korg MS-20 🎹🎛\nThe MS-20 is triggered by the Korg SQ-1 step sequencer"
+      "no": "Tåkemann fra Esben Meyer er ute!\nKanontøff låt hvor jeg har fått lekt meg med litt forskjellige tangentinstrumenter 😀",
+      "en": "Tåkemann by Esben Meyer is out!\nI've had a fun time experimenting with various keyboard instruments on this one 😀"
     },
-    "thumbnailDescription": "Louis Zwicki Pianette with a loudspeaker inside",
-    "thumbnailFilename": "2020-02-02-00",
+    "thumbnailDescription": "Album cover for the single \"Tåkemann\" by Esben Meyer",
+    "thumbnailFilename": "2020-02-14-00",
     "link": {
-      "url": "https://youtu.be/g1jnNf5ZSzY",
+      "url": "portfolio/esben-meyer-taakemann/",
+      "internal": true,
       "text": {
-        "en": "Show video",
-        "no": "Se video"
+        "en": "Listen to Tåkemann",
+        "no": "Lytt til Tåkemann"
       }
     }
   },
   {
-    "id": "2020012500",
-    "timestamp": 1579910400000,
+    "id": "2020021101",
+    "timestamp": 1581379200000,
     "title": {
-      "no": "Stemmetid",
-      "en": "Tuning time"
+      "no": "Ny utgivelse - Give Me a Smile, Joe av Lene Nevisdal",
+      "en": "New release - Give Me a Smile, Joe by Lene Nevisdal"
     },
     "content": {
-      "no": "Stemming av Pianette 🎹🔧",
-      "en": "Tuning the Pianette 🎹🔧"
+      "no": "Ny låt ute fra Lene Nevisdal!\nJeg har fått lurt inn no vrengorgel på denne steintøffe låta 😎",
+      "en": "New release by Lene Nevisdal!\nI've had the honor to play the Hammond C3 organ on this track 😎"
     },
-    "thumbnailDescription": "Piano with a tuning wrench",
-    "thumbnailFilename": "2020-01-25-00"
-  },
-  {
-    "id": "2020012000",
-    "timestamp": 1579478400000,
-    "title": {
-      "no": "Mer 80-tallsrock",
-      "en": "Some more '80s rock"
-    },
-    "content": {
-      "no": "Litt mer klaviaturopptak for 80-talls rockelåt 🤠🤘",
-      "en": "Another recording session with some '80s rock keyboards 🤠🤘"
-    },
-    "thumbnailDescription": "Fostex 4-track tape recorder",
-    "thumbnailFilename": "2020-01-20-00",
+    "thumbnailDescription": "Album cover for the single \"Give Me a Smile, Joe\" by Lene Nevisdal",
+    "thumbnailFilename": "2020-02-11-01",
     "link": {
-      "url": "https://www.instagram.com/p/B7jvEE5hBlK/",
+      "url": "portfolio/lene-nevisdal-give-me-a-smile-joe/",
+      "internal": true,
       "text": {
-        "en": "Show video",
-        "no": "Se video"
+        "en": "Listen to Give Me a Smile, Joe",
+        "no": "Lytt til Give Me a Smile, Joe"
       }
     }
+  },
+  {
+    "id": "2020021100",
+    "timestamp": 1581379200000,
+    "title": {
+      "no": "Nytt orgel - Yamaha YC-25D",
+      "en": "New organ - Yamaha YC-25D"
+    },
+    "content": {
+      "no": "Har nettop skaffet meg et Yamaha YC-25D combo-orgel fra 70-tallet",
+      "en": "I've just acquired this Yamaha YC-25D combo organ from the '70s'"
+    },
+    "thumbnailDescription": "A red Yamaha YC-25D combo organ",
+    "thumbnailFilename": "2020-02-11-00"
   }
 ]

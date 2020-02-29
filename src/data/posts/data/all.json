@@ -1,4 +1,62 @@
 [{
+    "id": "2020021400",
+    "timestamp": 1581667200000,
+    "title": {
+      "no": "Ny utgivelse - Tåkemann av Esben Meyer",
+      "en": "New release - Tåkemann by Esben Meyer"
+    },
+    "content": {
+      "no": "Tåkemann fra Esben Meyer er ute!\nKanontøff låt hvor jeg har fått lekt meg med litt forskjellige tangentinstrumenter 😀",
+      "en": "Tåkemann by Esben Meyer is out!\nI've had a fun time experimenting with various keyboard instruments on this one 😀"
+    },
+    "thumbnailDescription": "Album cover for the single \"Tåkemann\" by Esben Meyer",
+    "thumbnailFilename": "2020-02-14-00",
+    "link": {
+      "url": "portfolio/esben-meyer-taakemann/",
+      "internal": true,
+      "text": {
+        "en": "Listen to Tåkemann",
+        "no": "Lytt til Tåkemann"
+      }
+    }
+  },
+  {
+    "id": "2020021101",
+    "timestamp": 1581379200000,
+    "title": {
+      "no": "Ny utgivelse - Give Me a Smile, Joe av Lene Nevisdal",
+      "en": "New release - Give Me a Smile, Joe by Lene Nevisdal"
+    },
+    "content": {
+      "no": "Ny låt ute fra Lene Nevisdal!\nJeg har fått lurt inn no vrengorgel på denne steintøffe låta 😎",
+      "en": "New release by Lene Nevisdal!\nI've had the honor to play the Hammond C3 organ on this track 😎"
+    },
+    "thumbnailDescription": "Album cover for the single \"Give Me a Smile, Joe\" by Lene Nevisdal",
+    "thumbnailFilename": "2020-02-11-01",
+    "link": {
+      "url": "portfolio/lene-nevisdal-give-me-a-smile-joe/",
+      "internal": true,
+      "text": {
+        "en": "Listen to Give Me a Smile, Joe",
+        "no": "Lytt til Give Me a Smile, Joe"
+      }
+    }
+  },
+  {
+    "id": "2020021100",
+    "timestamp": 1581379200000,
+    "title": {
+      "no": "Nytt orgel - Yamaha YC-25D",
+      "en": "New organ - Yamaha YC-25D"
+    },
+    "content": {
+      "no": "Har nettop skaffet meg et Yamaha YC-25D combo-orgel fra 70-tallet",
+      "en": "I've just acquired this Yamaha YC-25D combo organ from the '70s'"
+    },
+    "thumbnailDescription": "A red Yamaha YC-25D combo organ",
+    "thumbnailFilename": "2020-02-11-00"
+  },
+  {
     "id": "2020020200",
     "timestamp": 1580601600000,
     "title": {
@@ -170,7 +228,7 @@
       "no": "I dag har The White Devil sluppet ut en frekk cowboyshanty-versjon av Get Lucky 🍾👯‍♂️\nJeg har fått æren av å snike inn noen skrekkspill-riff og diverse instrumentklimpringer på denne 😎\nNå er det bare å få på seg gamasjene og danse helga igang!",
       "en": "Today The White Devil released a cowboy shanty version of Get Lucky 🍾👯‍♂️\nI've had the honor to play some accordion riffs and various instruments on this one 😎"
     },
-    "thumbnailDescription": "Album cover for the single \"Get Lucky\"",
+    "thumbnailDescription": "Album cover for the single \"Get Lucky\" by The White Devil",
     "thumbnailFilename": "2019-11-22-00"
   },
   {
@@ -219,7 +277,7 @@
       "no": "Rykende fersk låt fra Spinning Wheels Band!\nHar fått æren av å klimpre på orgel og clavinet på denna go'låta 😎\nKnalldyktige karer med produsent Halvor Halvorsen bak spakene og musikere fra bandet til Brad Paisley 😃👍",
       "en": "New release by Spinning Wheels Band!\nI got the honor to play the organ and clavinet on this one 😎\nSuper talented guys with producer Halvor Halvorsen behind the faders and musicians from Brad Paisley's band 😃👍"
     },
-    "thumbnailDescription": "Album cover for the single \"Back When\"",
+    "thumbnailDescription": "Album cover for the single \"Back When\" by Spinning Wheels Band",
     "thumbnailFilename": "2019-11-12-00"
   },
   {
@@ -305,5 +363,138 @@
     },
     "thumbnailDescription": "Piano with a mid-century design",
     "thumbnailFilename": "2019-10-25-00"
+  },
+  {
+    "id": "2019102000",
+    "timestamp": 1571529600000,
+    "title": {
+      "no": "Kassettinnspilling",
+      "en": "Recording to tape"
+    },
+    "content": {
+      "no": "Innspilling av et par Twin Peaks melodier med litt båndvreng 📼⛰️⛰️",
+      "en": "Recording a couple of Twin Peaks melodies with some tape saturation 📼⛰️⛰️"
+    },
+    "thumbnailDescription": "Tape recorder with cassette tape",
+    "thumbnailFilename": "2019-10-20-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B32OYGCnY51/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2019101200",
+    "timestamp": 1570838400000,
+    "title": {
+      "no": "Trekkspillsynthmaskin",
+      "en": "Accordionsyntesizermachine"
+    },
+    "content": {
+      "no": "Hvorfor dra på fest når man kan bli hjemme å spille på trekkspillsynthmaskinen 🤠",
+      "en": "Why go out partying when you can stay home and play the accordionsyntesizermachine 🤠"
+    },
+    "thumbnailDescription": "An accordion being played",
+    "thumbnailFilename": "2019-10-12-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B3iKAd6hKxU/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2019100100",
+    "timestamp": 1569888000000,
+    "title": {
+      "no": "Twin Peaks på Clavinet og Rhodes",
+      "en": "Twin Peaks with Clavinet and Rhodes"
+    },
+    "content": {
+      "no": "Twin Peaks Theme på Hohner Clavinet D6 og Rhodes Mark I Stage Piano",
+      "en": "Twin Peaks Theme on Hohner Clavinet D6 and Rhodes Mark I Stage Piano"
+    },
+    "thumbnailDescription": "A Clavinet and a Rhodes Piano being played",
+    "thumbnailFilename": "2019-10-01-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B3FyA13Hamz/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2019092100",
+    "timestamp": 1569024000000,
+    "title": {
+      "no": "Lyddesign med Mellotron",
+      "en": "Sound design with the Mellotron"
+    },
+    "content": {
+      "no": "Lager romskiplyder med Mellotron M4000D og effektpedaler 🤠🚀",
+      "en": "Making spaceship sounds with the Mellotron M4000D and effects pedals 🤠🚀"
+    },
+    "thumbnailDescription": "",
+    "thumbnailFilename": "2019-09-21-00"
+  },
+  {
+    "id": "2019091801",
+    "timestamp": 1568764800000,
+    "title": {
+      "no": "Testing av Korg Polysix",
+      "en": "Testing the Korg Polysix"
+    },
+    "content": {
+      "no": "Kjapp testkjøring av Korg Polysix 😊",
+      "en": "Quick test run of the Korg Polysix 😊"
+    },
+    "thumbnailDescription": "A Korg Polisix being played",
+    "thumbnailFilename": "2019-09-18-01",
+    "link": {
+      "url": "https://youtu.be/ikwXGKd3vks",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2019091800",
+    "timestamp": 1568764800000,
+    "title": {
+      "no": "Ny synth - Korg Polysix",
+      "en": "New synth - Korg Polysix"
+    },
+    "content": {
+      "no": "Kjøpte en bursdagsgave til meg selv 😁",
+      "en": "Bought myself a birthday present 😁"
+    },
+    "thumbnailDescription": "Close-up shot of the Korg Polysix",
+    "thumbnailFilename": "2019-09-18-00"
+  },
+  {
+    "id": "2019091600",
+    "timestamp": 1568592000000,
+    "title": {
+      "no": "A Saucerful of Secrets",
+      "en": "A Saucerful of Secrets"
+    },
+    "content": {
+      "no": "Tester ut den nyfiksede Logan String Melody II med noen akkorder fra \"A Saucerful of Secrets\" av Pink Floyd 🎹🦄",
+      "en": "Testing the newly maintained Logan String Melody II with some chords from \"A Saucerful of Secrets\" by Pink Floyd 🎹🦄"
+    },
+    "thumbnailDescription": "Close-up shot of the Logan / Hohner String Melody string synthesizer",
+    "thumbnailFilename": "2019-09-16-00",
+    "link": {
+      "url": "https://youtu.be/a7SZGHTse5U",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   }
 ]
