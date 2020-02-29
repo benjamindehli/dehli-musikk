@@ -170,12 +170,19 @@ class Post extends Component {
   }
 
   renderLink(link) {
-    return (<div className={style.buttons}>
-      <a href={link.url} target="_blank" rel="noopener noreferrer">
+    const linkElement = link.internal
+    ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url}`}>
         <Button buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
         </Button>
-      </a>
+      </Link>)
+    : (<a href={link.url} target="_blank" rel="noopener noreferrer">
+        <Button buttontype='minimal'>
+          {link.text[this.props.selectedLanguageKey]}
+        </Button>
+      </a>);
+    return (<div className={style.buttons}>
+      {linkElement}
     </div>);
   }
 
