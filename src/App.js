@@ -51,7 +51,7 @@ const NotFound = prerenderedLoadable(() => import("./components/routes/NotFound"
 
 WebFont.load({
   google: {
-    families: ['Roboto:400,700']
+    families: ['Roboto:400,700&display=swap']
   }
 });
 
@@ -101,7 +101,12 @@ class App extends Component {
             <Route exact={true} strict={true} path="/equipment/" render={() => (<Equipment/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/equipment/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/equipment/" render={(props) => (<Equipment {...props}/>)}/>
+
+
+
+
             <Route exact={true} strict={true} path="/:selectedLanguage/" render={(props) => (<Home {...props}/>)}/>
+
 
             <Route exact={true} path="/" render={() => (<Home/>)}/>
             <Route key={"/shell.html"} path="/shell.html" component={() => null} />
