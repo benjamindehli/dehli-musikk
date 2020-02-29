@@ -196,6 +196,8 @@ class Posts extends Component {
           <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en'
               ? 'nb_NO'
               : 'en_US'}/>
+          <meta property="twitter:title" content={contentTitle} />
+          <meta property="twitter:description" content={metaDescription} />
         </Helmet>
         <div className={`padding ${selectedPost
             ? style.blur

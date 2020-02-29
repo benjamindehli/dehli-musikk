@@ -147,6 +147,8 @@ class Portfolio extends Component {
           <meta property="og:description" content={metaDescription} />
           <meta property="og:locale" content={this.props.selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
           <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
+          <meta property="twitter:title" content={contentTitle} />
+          <meta property="twitter:description" content={metaDescription} />
         </Helmet>
         {selectedRelease ? this.renderSelectedRelease(selectedRelease) : ''}
         <div className={`padding ${selectedRelease

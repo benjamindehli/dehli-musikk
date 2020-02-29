@@ -82,6 +82,10 @@ class App extends Component {
           <meta property="og:image:height" content="630" />
           <meta property="og:site_name" content="Dehli Musikk" />
           <meta property="fb:app_id" content="525744544728800" />
+          <meta name="twitter:card" content="summary"></meta>
+          <meta name="twitter:site" content="@BenjaminDehli" />
+          <meta name="twitter:creator" content="@BenjaminDehli" />
+          <meta name="twitter:image" content={`https://www.dehlimusikk.no${openGraphImage}`} />
         </Helmet>
         <NavigationBar/>
         <div className={style.container}>
