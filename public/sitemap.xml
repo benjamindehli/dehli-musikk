@@ -1,624 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <url>
-    <loc>https://www.dehlimusikk.no/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/piano-as-reverb-for-the-synthesizer/</loc>
-    <lastmod>2020-02-04T23:33:37+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/piano-som-romklang-effekt-til-synth/</loc>
-    <lastmod>2020-02-04T23:33:37+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/stemmetid/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/mer-80-tallsrock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/ny-synth-i-posten/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/tuning-time/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/some-more-80s-rock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/new-synth-day/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/aina-wassvik-dauntless/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/changemakers-veidemannen/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/confusion-confusion/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/confusion-escape-and-explore/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/confusion-fade-away/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/confusion-its-all-too-clear/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/confusion-this-time/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/confusion-let-the-games-begin/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/haunted-by-silhouettes-deadlock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/haunted-by-silhouettes-the-last-day-on-earth/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/haunted-by-silhouettes-undertow/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/set-ones-cap-dont-you-wanna-know/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/set-ones-cap-like-a-stone/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/set-ones-cap-wait-for-the-other/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/spinning-wheels-band-power-of-a-grin/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/spinning-wheels-band-randle-currie-and-justin-williamso-back-when/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/the-white-devil-get-lucky/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/wild-whens-backtrack-jack/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/wild-whens-chains-of-yesterday/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/wild-whens-crazy-to-the-bone/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/wild-whens-crazy-to-the-bone-remastered/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/wild-whens-from-the-valley/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/wild-whens-rebel-heart/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/wild-whens-sailin-sarah/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/portfolio/wild-whens-travellin-man/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/innspilling-av-yamaha-dx7/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/innspilling-av-80-tallsrock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/synthgitar/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/julestemning/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/clavinet-opptak/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/ny-laat-fra-the-white-devil/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/dehli-musikk-skilt/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/twin-peaks/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/ny-laat-fra-spinning-wheels-band/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/kassettinnspilling-av-piano-og-mellotron/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/tid-for-vedlikehold/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/pianoinnspilling/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/testing-av-nyinnkjoept-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/nytt-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/stemmetid/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/mer-80-tallsrock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/ny-synth-i-posten/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.64</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/aina-wassvik-dauntless/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/changemakers-veidemannen/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/confusion-confusion/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/confusion-escape-and-explore/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/confusion-fade-away/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/confusion-its-all-too-clear/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/confusion-this-time/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/confusion-let-the-games-begin/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/haunted-by-silhouettes-deadlock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/haunted-by-silhouettes-the-last-day-on-earth/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/haunted-by-silhouettes-undertow/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/set-ones-cap-dont-you-wanna-know/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/set-ones-cap-like-a-stone/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/set-ones-cap-wait-for-the-other/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/spinning-wheels-band-power-of-a-grin/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/spinning-wheels-band-randle-currie-and-justin-williamso-back-when/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/the-white-devil-get-lucky/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-backtrack-jack/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-chains-of-yesterday/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-crazy-to-the-bone/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-crazy-to-the-bone-remastered/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-from-the-valley/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-rebel-heart/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-sailin-sarah/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-travellin-man/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/recording-yamaha-dx7/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/recording-80s-rock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/synth-guitar/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/christmas-spirit/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/recording-clavinet/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/new-release-by-the-white-devil/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/dehli-musikk-sign/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/twin-peaks/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/new-release-by-spinning-wheels-band/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/recording-piano-and-mellotron-to-4-track/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/maintenance-time/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/recording-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/testing-the-new-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/new-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/tuning-time/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/some-more-80s-rock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/new-synth-day/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/innspilling-av-yamaha-dx7/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/innspilling-av-80-tallsrock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/synthgitar/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/julestemning/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/clavinet-opptak/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/ny-laat-fra-the-white-devil/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/dehli-musikk-skilt/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/ny-laat-fra-spinning-wheels-band/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/kassettinnspilling-av-piano-og-mellotron/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/tid-for-vedlikehold/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/pianoinnspilling/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/testing-av-nyinnkjoept-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/posts/nytt-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.51</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/recording-yamaha-dx7/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/recording-80s-rock/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/synth-guitar/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/christmas-spirit/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/recording-clavinet/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/new-release-by-the-white-devil/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/dehli-musikk-sign/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/new-release-by-spinning-wheels-band/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/recording-piano-and-mellotron-to-4-track/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/maintenance-time/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/recording-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/testing-the-new-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/posts/new-piano/</loc>
-    <lastmod>2020-02-03T21:32:37+00:00</lastmod>
-    <priority>0.41</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://www.dehlimusikk.no/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/ny-utgivelse-taakemann-av-esben-meyer/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/new-release-taakemann-by-esben-meyer/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/ny-utgivelse-give-me-a-smile-joe-av-lene-nevisdal/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/new-release-give-me-a-smile-joe-by-lene-nevisdal/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/nytt-orgel-yamaha-yc-25d/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/new-organ-yamaha-yc-25d/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/piano-som-romklang-effekt-til-synth/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/piano-as-reverb-for-the-synthesizer/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/stemmetid/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/tuning-time/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/mer-80-tallsrock/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/some-more-80s-rock/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/innspilling-av-yamaha-dx7/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/recording-yamaha-dx7/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/ny-synth-i-posten/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/new-synth-day/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/innspilling-av-80-tallsrock/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/recording-80s-rock/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/synthgitar/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/synth-guitar/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/julestemning/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/christmas-spirit/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/clavinet-opptak/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/recording-clavinet/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/ny-laat-fra-the-white-devil/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/new-release-by-the-white-devil/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/dehli-musikk-skilt/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/dehli-musikk-sign/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/twin-peaks/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/twin-peaks/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/ny-laat-fra-spinning-wheels-band/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/new-release-by-spinning-wheels-band/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/kassettinnspilling-av-piano-og-mellotron/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/recording-piano-and-mellotron-to-4-track/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/tid-for-vedlikehold/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/maintenance-time/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/pianoinnspilling/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/recording-piano/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/testing-av-nyinnkjoept-piano/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/testing-the-new-piano/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/nytt-piano/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/new-piano/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/kassettinnspilling/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/recording-to-tape/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/trekkspillsynthmaskin/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/accordionsyntesizermachine/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/twin-peaks-paa-clavinet-og-rhodes/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/twin-peaks-with-clavinet-and-rhodes/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/lyddesign-med-mellotron/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/sound-design-with-the-mellotron/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/testing-av-korg-polysix/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/testing-the-korg-polysix/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/ny-synth-korg-polysix/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/new-synth-korg-polysix/</loc></url>
+<url><loc>https://www.dehlimusikk.no/posts/a-saucerful-of-secrets/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/posts/a-saucerful-of-secrets/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/aina-wassvik-dauntless/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/aina-wassvik-dauntless/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/changemakers-veidemannen/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/changemakers-veidemannen/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/confusion-confusion/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/confusion-confusion/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/confusion-escape-and-explore/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/confusion-escape-and-explore/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/confusion-fade-away/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/confusion-fade-away/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/confusion-its-all-too-clear/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/confusion-its-all-too-clear/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/confusion-this-time/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/confusion-this-time/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/confusion-let-the-games-begin/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/confusion-let-the-games-begin/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/esben-meyer-taakemann/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/esben-meyer-taakemann/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/haunted-by-silhouettes-deadlock/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/haunted-by-silhouettes-deadlock/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/haunted-by-silhouettes-the-last-day-on-earth/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/haunted-by-silhouettes-the-last-day-on-earth/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/haunted-by-silhouettes-undertow/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/haunted-by-silhouettes-undertow/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/lene-nevisdal-give-me-a-smile-joe/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/lene-nevisdal-give-me-a-smile-joe/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/set-ones-cap-dont-you-wanna-know/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/set-ones-cap-dont-you-wanna-know/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/set-ones-cap-like-a-stone/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/set-ones-cap-like-a-stone/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/set-ones-cap-wait-for-the-other/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/set-ones-cap-wait-for-the-other/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/spinning-wheels-band-power-of-a-grin/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/spinning-wheels-band-power-of-a-grin/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/spinning-wheels-band-randle-currie-and-justin-williamso-back-when/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/spinning-wheels-band-randle-currie-and-justin-williamso-back-when/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/the-white-devil-get-lucky/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/the-white-devil-get-lucky/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/wild-whens-backtrack-jack/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-backtrack-jack/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/wild-whens-chains-of-yesterday/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-chains-of-yesterday/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/wild-whens-crazy-to-the-bone/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-crazy-to-the-bone/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/wild-whens-crazy-to-the-bone-remastered/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-crazy-to-the-bone-remastered/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/wild-whens-from-the-valley/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-from-the-valley/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/wild-whens-rebel-heart/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-rebel-heart/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/wild-whens-sailin-sarah/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-sailin-sarah/</loc></url>
+<url><loc>https://www.dehlimusikk.no/portfolio/wild-whens-travellin-man/</loc></url>
+<url><loc>https://www.dehlimusikk.no/en/portfolio/wild-whens-travellin-man/</loc></url>
 </urlset>
