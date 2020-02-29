@@ -6,8 +6,10 @@ import confusionFadeAway from './releases/data/confusion_fadeAway_5kskx9GuawhjiD
 import confusionItsAllToClear from './releases/data/confusion_itsAllTooClear_1Z3Rj0CzsAhtobNPYVDcke.json';
 import confusionLetTheGamesBegin from './releases/data/confusion_thisTime_2Lr467UefH9pjf3KP2deAL.json';
 import confusionThisTime from './releases/data/confusion_lettheGamesBegin_4XEL4eIvtDQ4plgFKtyu1t.json';
+import esbenMeyerTaakemann from './releases/data/esbenMeyer_taakemann_1B1s5wIUS5YacAPFBXmbTU.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock_7fVdrI4oTPXduyZiZNlcCH.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth_5Ea891yomzVe9qs5e2DXMJ.json';
+import leneNevisdalGiveMeaSmileJoe from './releases/data/leneNevisdal_giveMeaSmileJoe_3a3EqE5GyONmvpC2LeN0TH.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow_1rTLnAzETljGUZHk7aoetP.json';
 import setOnesCapDontYouWannaKnow from './releases/data/setOnesCap_dontYouWannaKnow_6I5ZjNZ9P7mS56sEuP5QzU.json';
 import setOnesCapLikeAStone from './releases/data/setOnesCap_likeaStone_0uiT2eVvUf9zRDs2Jx6RES.json';
@@ -33,9 +35,11 @@ export default [
   confusionItsAllToClear,
   confusionLetTheGamesBegin,
   confusionThisTime,
+  esbenMeyerTaakemann,
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesTheLastDayOnEarth,
   hauntedBySilhouettesUndertow,
+  leneNevisdalGiveMeaSmileJoe,
   setOnesCapDontYouWannaKnow,
   setOnesCapLikeAStone,
   setOnesCapWaitForTheOther,
