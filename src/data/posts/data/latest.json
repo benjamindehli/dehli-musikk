@@ -1,4 +1,47 @@
 [{
+    "id": "2020030601",
+    "timestamp": 1583452800000,
+    "title": {
+      "no": "Musikkvideo - Då E Det Verdt Det av Thomas Tveiten",
+      "en": "Music video - Då E Det Verdt Det by Thomas Tveiten"
+    },
+    "content": {
+      "no": "Musikkvideo til låta Då E Det Verdt Det av Thomas Tveiten er ute 📼\nVideoen er laget av Esben Meyer Kristensen 🎬",
+      "en": "Music video for Då E Det Verdt Det by Thomas Tveiten is out 📼\nThe video is made by Esben Meyer Kristensen 🎬"
+    },
+    "thumbnailDescription": "Snapshot from the music video for \"Då E Det Verdt Det\" by Thomas Tveiten",
+    "thumbnailFilename": "2020-03-06-01",
+    "link": {
+      "url": "https://www.facebook.com/thomas.tveiten/videos/2661253993973702/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020030600",
+    "timestamp": 1583452800000,
+    "title": {
+      "no": "Ny utgivelse - Då E Det Verdt Det av Thomas Tveiten",
+      "en": "New release - Då E Det Verdt Det by Thomas Tveiten"
+    },
+    "content": {
+      "no": "Få en pangstart på helga med en rykende fersk rockelåt fra Thomas Tveiten 😎🤘\nJeg har hatt æren av å spille tangenter på denne go'låta 😃",
+      "en": "Kick start the weekend with this all new release by Thomas Tveiten 😎🤘\nI've had the honor to play keyboard instruments on this one 😃"
+    },
+    "thumbnailDescription": "Album cover for the single \"Då E Det Verdt Det\" by Thomas Tveiten",
+    "thumbnailFilename": "2020-03-06-00",
+    "link": {
+      "url": "portfolio/thomas-tveiten-daa-e-det-verdt-det/",
+      "internal": true,
+      "text": {
+        "en": "Listen to Då E Det Verdt Det",
+        "no": "Lytt til Då E Det Verdt Det"
+      }
+    }
+  },
+  {
     "id": "2020021400",
     "timestamp": 1581667200000,
     "title": {
@@ -19,41 +62,5 @@
         "no": "Lytt til Tåkemann"
       }
     }
-  },
-  {
-    "id": "2020021101",
-    "timestamp": 1581379200000,
-    "title": {
-      "no": "Ny utgivelse - Give Me a Smile, Joe av Lene Nevisdal",
-      "en": "New release - Give Me a Smile, Joe by Lene Nevisdal"
-    },
-    "content": {
-      "no": "Ny låt ute fra Lene Nevisdal!\nJeg har fått lurt inn no vrengorgel på denne steintøffe låta 😎",
-      "en": "New release by Lene Nevisdal!\nI've had the honor to play the Hammond C3 organ on this track 😎"
-    },
-    "thumbnailDescription": "Album cover for the single \"Give Me a Smile, Joe\" by Lene Nevisdal",
-    "thumbnailFilename": "2020-02-11-01",
-    "link": {
-      "url": "portfolio/lene-nevisdal-give-me-a-smile-joe/",
-      "internal": true,
-      "text": {
-        "en": "Listen to Give Me a Smile, Joe",
-        "no": "Lytt til Give Me a Smile, Joe"
-      }
-    }
-  },
-  {
-    "id": "2020021100",
-    "timestamp": 1581379200000,
-    "title": {
-      "no": "Nytt orgel - Yamaha YC-25D",
-      "en": "New organ - Yamaha YC-25D"
-    },
-    "content": {
-      "no": "Har nettop skaffet meg et Yamaha YC-25D combo-orgel fra 70-tallet",
-      "en": "I've just acquired this Yamaha YC-25D combo organ from the '70s'"
-    },
-    "thumbnailDescription": "A red Yamaha YC-25D combo organ",
-    "thumbnailFilename": "2020-02-11-00"
   }
 ]
