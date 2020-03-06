@@ -81,6 +81,8 @@ class Home extends Component {
         <meta property="og:description" content={metaDescription} />
         <meta property="og:locale" content={this.props.selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
         <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
+        <meta property="twitter:title" content="Dehli Musikk" />
+        <meta property="twitter:description" content={metaDescription} />
       </Helmet>
       <div className={style.header}>
         {this.renderHeaderImage()}
@@ -112,10 +114,10 @@ class Home extends Component {
           <div className={style.callToAction}>
             {
               this.props.selectedLanguageKey === 'en'
-                ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`}>
+                ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} title='See all posts'>
                   <Button>See all posts</Button>
                 </Link>)
-                : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`}>
+                : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} title='Se alle innlegg'>
                   <Button>Se alle innlegg</Button>
                 </Link>)
             }
