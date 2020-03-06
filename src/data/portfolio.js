@@ -17,6 +17,7 @@ import setOnesCapWaitForTheOther from './releases/data/setOnesCap_waitfortheOthe
 import spinningsWheelsBandPowerOfAGrin from './releases/data/spinningWheelsBand_powerofaGrin_3frJWthdoCi4OyLnDUh4j0.json';
 import spinningsWheelsBandBackWhen from './releases/data/spinningWheelsBandRandleCurrieJustinWilliamso_backWhen_7tW3Ik76uWSXsksLoheDrr.json';
 import theWhiteDevilGetLucky from './releases/data/theWhiteDevil_getLucky_3WQblBc1s04myN7D7M3x2M.json';
+import thomasTveitenDaaEDetVerdtDet from './releases/data/thomasTveiten_daaEDetVerdtDet_0HOLqowmkcU2MWOFAhxwi5.json';
 import wildWhensBacktrackJack from './releases/data/wildWhens_backtrackJack_2qdN2vUuvcryyN9WeT2EP9.json';
 import wildWhensChainsOfYesterday from './releases/data/wildWhens_chainsofYesterday_2gQwPWaqLb7bS7PjNuLppZ.json';
 import wildWhensCrazyToTheBone from './releases/data/wildWhens_crazytotheBone_0iZwHC4UX76xpFv10Dr6i0.json';
@@ -46,6 +47,7 @@ export default [
   spinningsWheelsBandPowerOfAGrin,
   spinningsWheelsBandBackWhen,
   theWhiteDevilGetLucky,
+  thomasTveitenDaaEDetVerdtDet,
   wildWhensBacktrackJack,
   wildWhensChainsOfYesterday,
   wildWhensCrazyToTheBone,
