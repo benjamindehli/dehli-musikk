@@ -23,10 +23,10 @@ class Footer extends Component {
                 <li>Margretes veg 15</li>
                 <li>3804 Bø i Telemark, Norway</li>
                 <li>
-                  <a href="mailto:superelg@gmail.com">superelg@gmail.com</a>
+                  <a href="mailto:superelg@gmail.com" title="Send email to Dehli Musikk">superelg@gmail.com</a>
                 </li>
                 <li>
-                  <a href="tel:+4792292719">(47) 922 92 719</a>
+                  <a href="tel:+4792292719" title="Call Dehli Musikk">(47) 922 92 719</a>
                 </li>
               </ul>
             </address>

@@ -152,7 +152,7 @@ class Post extends Component {
     </Helmet>)
   }
 
-  renderPostThumbnail(image, altText, fullscreen, postPath) {
+  renderPostThumbnail(image, altText, fullscreen, postPath, postTitle) {
     const thumbnailElement = (<figure className={style.thumbnail}>
       <picture>
         <source sizes={fullscreen
@@ -166,17 +166,17 @@ class Post extends Component {
     </figure>);
     return fullscreen
       ? thumbnailElement
-      : (<Link to={postPath}>{thumbnailElement}</Link>);
+      : (<Link to={postPath} title={postTitle}>{thumbnailElement}</Link>);
   }
 
   renderLink(link) {
     const linkElement = link.internal
-    ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url}`}>
+    ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url}`} title={link.text[this.props.selectedLanguageKey]}>
         <Button buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
         </Button>
       </Link>)
-    : (<a href={link.url} target="_blank" rel="noopener noreferrer">
+    : (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
         <Button buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
         </Button>
@@ -207,14 +207,14 @@ class Post extends Component {
           ? style.fullscreen
           : ''}`}>
         {this.renderPostSnippet(post, postId, image.jpg540)}
-        {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen, postPath)}
+        {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen, postPath, post.title[selectedLanguageKey])}
         <div className={style.contentContainer}>
           <div className={style.content}>
             <div className={style.header}>
               {
                 this.props.fullscreen
                   ? (<h2>{post.title[selectedLanguageKey]}</h2>)
-                  : (<Link to={postPath}>
+                  : (<Link to={postPath} title={post.title[selectedLanguageKey]}>
                     <h2>{post.title[selectedLanguageKey]}</h2>
                   </Link>)
               }

@@ -142,7 +142,7 @@ class Release extends Component {
         !this.props.fullscreen
           ? (<div className={style.actionButton}>
 
-            <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${releaseId}/`}>
+            <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${releaseId}/`} title={`${this.props.selectedLanguageKey === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`}>
               <Button onClick={() => this.handleShowLinksClick()} buttontype='minimal'>{
                   this.props.selectedLanguageKey === 'en'
                     ? 'Listen to '

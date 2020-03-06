@@ -103,7 +103,7 @@ class NavigationBar extends Component {
         const path = multilingualRoutes[languageKey].path;
         const isActive = languageKey === selectedLanguageKey;
         return (<li key={languageKey}>
-          <a href={path} className={isActive
+          <a href={path} title={language.name} className={isActive
               ? style.activeLink
               : ''}>{language.name}</a>
         </li>)
@@ -134,7 +134,7 @@ class NavigationBar extends Component {
             : ''} `}>
         <div ref={this.setSidebarWrapperRef} className={style.sidebarContent}>
           <div className={style.sidebarContentHeader}>
-            <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} aria-label='Link to Dehli Musikk home page'>
+            <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} aria-label='Link to Dehli Musikk home page' title='Link to Dehli Musikk home page'>
               <span className={style.appLogo}>
                 <DehliMusikkLogo alt="Dehli Musikk logo"/>
               </span>
@@ -142,12 +142,12 @@ class NavigationBar extends Component {
           </div>
           <ul className={style.sidebarLinks}>
             <li>
-              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} activeClassName={style.activeLink}>
+              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}>
                 {this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} activeClassName={style.activeLink}>
+              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}>
                 {this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}
               </NavLink>
             </li>

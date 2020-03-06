@@ -50,7 +50,7 @@ export class Breadcrumbs extends Component {
           <span>{breadcrumb.name}</span>
         </li>)
         : (<li key={key}>
-          <Link to={breadcrumb.path}>{breadcrumb.name}</Link>
+          <Link to={breadcrumb.path} title={breadcrumb.name}>{breadcrumb.name}</Link>
         </li>);
     })
   }
@@ -60,7 +60,7 @@ export class Breadcrumbs extends Component {
       {this.renderBreadcrumbJsonLd(this.props.breadcrumbs)}
       <ul>
         <li>
-          <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`}>Dehli Musikk</Link>
+          <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} title='Dehli Musikk'>Dehli Musikk</Link>
         </li>
         {this.renderBreadcrumbListElements(this.props.breadcrumbs)}
       </ul>
