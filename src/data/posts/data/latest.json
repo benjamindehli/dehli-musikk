@@ -1,18 +1,18 @@
 [{
-    "id": "2020030601",
-    "timestamp": 1583452800000,
+    "id": "2020031401",
+    "timestamp": 1584144000000,
     "title": {
-      "no": "Musikkvideo - Då E Det Verdt Det av Thomas Tveiten",
-      "en": "Music video - Då E Det Verdt Det by Thomas Tveiten"
+      "no": "Innspilling av Korg MS-20 arpeggioer",
+      "en": "Recording Korg MS-20 arpeggios"
     },
     "content": {
-      "no": "Musikkvideo til låta Då E Det Verdt Det av Thomas Tveiten er ute 📼\nVideoen er laget av Esben Meyer Kristensen 🎬",
-      "en": "Music video for Då E Det Verdt Det by Thomas Tveiten is out 📼\nThe video is made by Esben Meyer Kristensen 🎬"
+      "no": "Innspilling av arpeggioer med en Korg MS-20 synth, analog ekko og fjærklang\nNotene kommer som MIDI signal fra Logic og gjort om til styrespenning med en Korg SQ-1",
+      "en": "Recording some arpeggios with the Korg MS-20 synthesizer, analog delay and spring reverb\nThe notes are coming from Logic as MIDI signal and converted into control voltage with a Korg SQ-1"
     },
-    "thumbnailDescription": "Snapshot from the music video for \"Då E Det Verdt Det\" by Thomas Tveiten",
-    "thumbnailFilename": "2020-03-06-01",
+    "thumbnailDescription": "Korg MS-20 synthesizer",
+    "thumbnailFilename": "2020-03-14-01",
     "link": {
-      "url": "https://www.facebook.com/thomas.tveiten/videos/2661253993973702/",
+      "url": "https://youtu.be/ZsHg94LOXHw",
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -20,46 +20,44 @@
     }
   },
   {
-    "id": "2020030600",
-    "timestamp": 1583452800000,
+    "id": "2020031400",
+    "timestamp": 1584144000000,
     "title": {
-      "no": "Ny utgivelse - Då E Det Verdt Det av Thomas Tveiten",
-      "en": "New release - Då E Det Verdt Det by Thomas Tveiten"
+      "no": "Clavinet med wah-pedal",
+      "en": "Clavinet with wah-pedal"
     },
     "content": {
-      "no": "Få en pangstart på helga med en rykende fersk rockelåt fra Thomas Tveiten 😎🤘\nJeg har hatt æren av å spille tangenter på denne go'låta 😃",
-      "en": "Kick start the weekend with this all new release by Thomas Tveiten 😎🤘\nI've had the honor to play keyboard instruments on this one 😃"
+      "no": "Innspilling av Clavinet D6 med Real McCoy Custom Picture Wah og ProCo Rat vreng",
+      "en": "Recording Clavinet D6 with Real McCoy Custom Picture Wah and ProCo Rat distortion"
     },
-    "thumbnailDescription": "Album cover for the single \"Då E Det Verdt Det\" by Thomas Tveiten",
-    "thumbnailFilename": "2020-03-06-00",
+    "thumbnailDescription": "Effects pedals",
+    "thumbnailFilename": "2020-03-14-00",
     "link": {
-      "url": "portfolio/thomas-tveiten-daa-e-det-verdt-det/",
-      "internal": true,
+      "url": "https://www.instagram.com/p/B9tVPHUFD4f/",
       "text": {
-        "en": "Listen to Då E Det Verdt Det",
-        "no": "Lytt til Då E Det Verdt Det"
+        "en": "Show video",
+        "no": "Se video"
       }
     }
   },
   {
-    "id": "2020021400",
-    "timestamp": 1581667200000,
+    "id": "2020030801",
+    "timestamp": 1583625600000,
     "title": {
-      "no": "Ny utgivelse - Tåkemann av Esben Meyer",
-      "en": "New release - Tåkemann by Esben Meyer"
+      "no": "Tangentpålegg",
+      "en": "Layering keyboard tracks"
     },
     "content": {
-      "no": "Tåkemann fra Esben Meyer er ute!\nKanontøff låt hvor jeg har fått lekt meg med litt forskjellige tangentinstrumenter 😀",
-      "en": "Tåkemann by Esben Meyer is out!\nI've had a fun time experimenting with various keyboard instruments on this one 😀"
+      "no": "Pålegg av forskjellige tangentinstrumenter i Logic 🎹🎹🎹",
+      "en": "Layering different keyboard instruments in Logic 🎹🎹🎹"
     },
-    "thumbnailDescription": "Album cover for the single \"Tåkemann\" by Esben Meyer",
-    "thumbnailFilename": "2020-02-14-00",
+    "thumbnailDescription": "Computer screen with Logic session",
+    "thumbnailFilename": "2020-03-08-01",
     "link": {
-      "url": "portfolio/esben-meyer-taakemann/",
-      "internal": true,
+      "url": "https://www.instagram.com/p/B9fKf_hFYgs/",
       "text": {
-        "en": "Listen to Tåkemann",
-        "no": "Lytt til Tåkemann"
+        "en": "Show video",
+        "no": "Se video"
       }
     }
   }

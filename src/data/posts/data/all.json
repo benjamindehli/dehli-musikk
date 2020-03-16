@@ -1,4 +1,88 @@
 [{
+    "id": "2020031401",
+    "timestamp": 1584144000000,
+    "title": {
+      "no": "Innspilling av Korg MS-20 arpeggioer",
+      "en": "Recording Korg MS-20 arpeggios"
+    },
+    "content": {
+      "no": "Innspilling av arpeggioer med en Korg MS-20 synth, analog ekko og fjærklang\nNotene kommer som MIDI signal fra Logic og gjort om til styrespenning med en Korg SQ-1",
+      "en": "Recording some arpeggios with the Korg MS-20 synthesizer, analog delay and spring reverb\nThe notes are coming from Logic as MIDI signal and converted into control voltage with a Korg SQ-1"
+    },
+    "thumbnailDescription": "Korg MS-20 synthesizer",
+    "thumbnailFilename": "2020-03-14-01",
+    "link": {
+      "url": "https://youtu.be/ZsHg94LOXHw",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020031400",
+    "timestamp": 1584144000000,
+    "title": {
+      "no": "Clavinet med wah-pedal",
+      "en": "Clavinet with wah-pedal"
+    },
+    "content": {
+      "no": "Innspilling av Clavinet D6 med Real McCoy Custom Picture Wah og ProCo Rat vreng",
+      "en": "Recording Clavinet D6 with Real McCoy Custom Picture Wah and ProCo Rat distortion"
+    },
+    "thumbnailDescription": "Effects pedals",
+    "thumbnailFilename": "2020-03-14-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B9tVPHUFD4f/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020030801",
+    "timestamp": 1583625600000,
+    "title": {
+      "no": "Tangentpålegg",
+      "en": "Layering keyboard tracks"
+    },
+    "content": {
+      "no": "Pålegg av forskjellige tangentinstrumenter i Logic 🎹🎹🎹",
+      "en": "Layering different keyboard instruments in Logic 🎹🎹🎹"
+    },
+    "thumbnailDescription": "Computer screen with Logic session",
+    "thumbnailFilename": "2020-03-08-01",
+    "link": {
+      "url": "https://www.instagram.com/p/B9fKf_hFYgs/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020030800",
+    "timestamp": 1583625600000,
+    "title": {
+      "no": "Innspilling av tonehjulsorgel",
+      "en": "Recording the tonewheel organ"
+    },
+    "content": {
+      "no": "Innspilling av Hammond C3 tonehjulsorgel med Leslie 122 🎹📢🔄",
+      "en": "Recording the Hammond C3 tonewheel organ with Leslie 122 🎹📢🔄"
+    },
+    "thumbnailDescription": "Hammond C3 tonewheel organ with Leslie 122",
+    "thumbnailFilename": "2020-03-08-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B9eixyfFo34/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
     "id": "2020030601",
     "timestamp": 1583452800000,
     "title": {
@@ -38,6 +122,27 @@
       "text": {
         "en": "Listen to Då E Det Verdt Det",
         "no": "Lytt til Då E Det Verdt Det"
+      }
+    }
+  },
+  {
+    "id": "2020022400",
+    "timestamp": 1582502400000,
+    "title": {
+      "no": "Yamaha YC-25D med effektpedaler",
+      "en": "Yamaha YC-25D with effects pedals"
+    },
+    "content": {
+      "no": "Romskiplyder med Yamaha YC-25D og effektpedaler 🚀🛸",
+      "en": "Spaceship sounds with the Yamaha YC-25D and effects pedals 🚀🛸"
+    },
+    "thumbnailDescription": "Red Yamaha YC-25D combo organ with effects pedals on top",
+    "thumbnailFilename": "2020-02-24-00",
+    "link": {
+      "url": "https://youtu.be/-c4KhDYhvPM",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
       }
     }
   },
@@ -539,5 +644,19 @@
         "no": "Se video"
       }
     }
+  },
+  {
+    "id": "2019091400",
+    "timestamp": 1568419200000,
+    "title": {
+      "no": "Vedlikehold av Logan String Melody",
+      "en": "Logan String Melody maintenance"
+    },
+    "content": {
+      "no": "String Melody'en trengte litt pleie 🤕\nSkitne fadere og en tangent uten lyd 👨‍🏭",
+      "en": "The String Melody needed some TLC 🤕\nDirty faders and a stuck j-wire in the busbar👨‍🏭"
+    },
+    "thumbnailDescription": "Inside the Logan String Melody II synthesizer",
+    "thumbnailFilename": "2019-09-14-00"
   }
 ]
