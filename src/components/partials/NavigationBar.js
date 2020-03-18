@@ -89,7 +89,11 @@ class NavigationBar extends Component {
     const hasAvailableLanguages = availableLanguages && Object.keys(availableLanguages).length;
     if (hasAvailableLanguages) {
       const selectedLanguage = availableLanguages[selectedLanguageKey];
-      return (<span className={style.languageSelectorButton}><FontAwesomeIcon icon={['fas', 'language']}/> {selectedLanguage && selectedLanguage.name ? selectedLanguage.name : ''} <FontAwesomeIcon icon={['fas', 'chevron-down']}/></span>);
+      return (
+        <span className={style.languageSelectorButton}>
+          <FontAwesomeIcon icon={['fas', 'language']}/>
+          <span className={style.languageName}>{selectedLanguage && selectedLanguage.name ? selectedLanguage.name : ''}</span>
+          <FontAwesomeIcon icon={['fas', 'chevron-down']}/></span>);
     } else
       return '';
     }

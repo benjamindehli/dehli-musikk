@@ -15,8 +15,9 @@
     height: 42px;
     padding: 8px;
     display: inline-block;
-    &:hover,
-    &:focus {
+
+    &:focus,
+    &:hover {
       background-color: rgba(0, 0, 0, 0.08);
     }
 
@@ -33,13 +34,26 @@
   cursor: pointer;
   margin-right: 16px;
   padding: 6px 8px;
-  &:hover,
-  &:focus {
+
+  &:focus,
+  &:hover {
     background-color: rgba(0, 0, 0, 0.08);
   }
 
   &:active {
     background-color: rgba(0, 0, 0, 0.38);
+  }
+
+  svg {
+    margin: 0 4px;
+  }
+
+  :local(.languageName) {
+    display: none;
+    margin: 0;
+    @media (min-width: $screen-sm) {
+      display: inline-block;
+    }
   }
 }
 
@@ -76,10 +90,12 @@
           &:hover {
             background-color: rgba(0, 0, 0, 0.08);
           }
+
           &:active {
             background-color: rgba(0, 0, 0, 0.38);
           }
-          &:local(.activeLink){
+
+          &:local(.activeLink) {
             background-color: rgba(0, 0, 0, 0.14);
           }
         }
