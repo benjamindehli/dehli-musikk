@@ -1,11 +1,30 @@
+Small:
 resize: {
-  width: 350
+  Mode: fill,
+  width: 350,
+  height: 260
 },
 cleanMetadata: 'all',
 crop: {
   fromPosition: {
     width: 350,
     height: 260
+  }
+},
+quality: 80
+
+
+Large:
+resize: {
+  Mode: fill,
+  width: 540,
+  height: 400
+},
+cleanMetadata: 'all',
+crop: {
+  fromPosition: {
+    width: 540,
+    height: 400
   }
 },
 quality: 80
