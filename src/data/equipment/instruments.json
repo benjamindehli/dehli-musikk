@@ -1,78 +1,69 @@
-[
+[{
+    "brand": "Arturia",
+    "model": "DrumBrute",
+    "thumbnailFilename": ""
+  },
   {
-    "id": "behringer-vocoder-vc340",
     "brand": "Behringer",
     "model": "VOCODER VC340",
     "thumbnailFilename": ""
   },
   {
-    "id": "dave-smith-instruments-mopho-keyboard",
     "brand": "Dave Smith Instruments",
     "model": "Mopho Keyboard",
     "thumbnailFilename": ""
   },
   {
-    "id": "dave-smith-instruments-tetra",
     "brand": "Dave Smith Instruments",
     "model": "Tetra",
     "thumbnailFilename": ""
   },
   {
-    "id": "doepfer-dark-energy",
     "brand": "Doepfer",
     "model": "Dark Energy",
     "thumbnailFilename": ""
   },
   {
-    "id": "dubreq-stylophone-s-1",
     "brand": "Dubreq",
     "model": "Stylophone S-1",
     "thumbnailFilename": ""
   },
   {
-    "id": "fender-stratocaster",
     "brand": "Fender",
     "model": "Stratocaster",
     "thumbnailFilename": ""
   },
   {
-    "id": "hohner-clavinet-d6",
     "brand": "Hohner",
     "model": "Clavinet D6",
     "thumbnailFilename": ""
   },
   {
-    "id": "hohner-melodica-student-32",
     "brand": "Hohner",
     "model": "Melodica Student 32",
     "thumbnailFilename": ""
   },
   {
-    "id": "kalika-leksakspiano",
     "brand": "Kalikå",
     "model": "Leksakspiano",
     "thumbnailFilename": ""
   },
   {
-    "id": "korg-cx-3",
     "brand": "Korg",
     "model": "CX-3",
     "thumbnailFilename": ""
   },
   {
-    "id": "korg-microkorg-xl-plus",
     "brand": "Korg",
     "model": "microKORG XL+",
     "thumbnailFilename": ""
   },
   {
-    "id": "korg-microsampler",
     "brand": "Korg",
     "model": "microSAMPLER",
     "thumbnailFilename": ""
   },
   {
-    "id": "korg-ms-20",
     "brand": "Korg",
     "model": "MS-20",
     "thumbnailFilename": ""
@@ -88,43 +79,36 @@
     "thumbnailFilename": ""
   },
   {
-    "id": "kurzweil-micro-ensemble",
     "brand": "Kurzweil",
     "model": "Micro Ensemble",
     "thumbnailFilename": ""
   },
   {
-    "id": "levin-model-27",
     "brand": "Levin",
     "model": "Model 27",
     "thumbnailFilename": ""
   },
   {
-    "id": "logan-string-melody-ii",
     "brand": "Logan",
     "model": "String Melody II",
     "thumbnailFilename": ""
   },
   {
-    "id": "louis-zwicki-Pianette",
     "brand": "Louis Zwicki",
     "model": "Pianette",
     "thumbnailFilename": ""
   },
   {
-    "id": "mellotron-m4000d",
     "brand": "Mellotron",
     "model": "M400D",
     "thumbnailFilename": ""
   },
   {
-    "id": "moog-minitaur",
     "brand": "Moog",
     "model": "Minitaur",
     "thumbnailFilename": ""
   },
   {
-    "id": "muse-researh-receptor-pro",
     "brand": "Muse Research",
     "model": "Receptor Pro",
     "thumbnailFilename": ""
@@ -135,45 +119,43 @@
     "thumbnailFilename": ""
   },
   {
-    "id": "hammond-c3",
     "brand": "Hammond",
     "model": "C3",
     "thumbnailFilename": ""
   },
   {
-    "id": "rhodes-mark-i-stage-piano",
     "brand": "Rhodes",
     "model": "Mark I Stage Piano",
     "thumbnailFilename": ""
   },
   {
-    "id": "roland-ax-1",
     "brand": "Roland",
     "model": "AX-1",
     "thumbnailFilename": ""
   },
   {
-    "id": "roland-e-14-inteligent-keyboard",
     "brand": "Roland",
     "model": "E-14 Inteligent Keyboard",
     "thumbnailFilename": ""
   },
   {
-    "id": "wurlitzer-200a",
     "brand": "Wurlitzer",
     "model": "200A",
     "thumbnailFilename": ""
   },
   {
-    "id": "yamaha-dx7",
     "brand": "Yamaha",
     "model": "DX7",
     "thumbnailFilename": ""
   },
   {
-    "id": "yamaha-l-20d",
     "brand": "Yamaha",
     "model": "L-20D",
+    "thumbnailFilename": ""
+  },
+  {
+    "brand": "Yamaha",
+    "model": "YC-25D",
     "thumbnailFilename": ""
   }
 ]
