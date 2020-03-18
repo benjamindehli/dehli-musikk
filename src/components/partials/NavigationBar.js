@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 import {Link, NavLink} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
+// Components
+import SearchField from 'components/partials/NavigationBar/SearchField';
+
 // Actions
 import {getLanguageSlug} from 'actions/LanguageActions';
 
@@ -123,6 +126,7 @@ class NavigationBar extends Component {
       <span onClick={() => this.handleShowSidebarClick()} className={style.menuButton}>
         <MenuIcon className={style.menuIcon}/>
       </span>
+      <SearchField />
       <div>
         <span onClick={() => this.handleShowLanguageSelectorList()}>{this.renderLanguageSelectorButton(this.props.availableLanguages, this.props.selectedLanguageKey)}</span>
         <div ref={this.setLanguageSelectorListWrapperRef} className={`${style.languageSelectorList} ${this.state.showLanguageSelectorList

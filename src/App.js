@@ -17,7 +17,7 @@ import {
   faVimeoV,
   faYoutube
 } from '@fortawesome/free-brands-svg-icons'
-import {faGripHorizontal, faListUl, faLanguage, faChevronDown} from '@fortawesome/free-solid-svg-icons'
+import {faGripHorizontal, faListUl, faLanguage, faChevronDown, faPhotoVideo, faMusic, faSearch} from '@fortawesome/free-solid-svg-icons'
 
 // Utils
 import configureStore, {history} from 'utils/configureStore';
@@ -55,7 +55,7 @@ WebFont.load({
   }
 });
 
-library.add(faFacebookF, faInstagram, faTumblr, faTwitter, faVimeoV, faYoutube, faGripHorizontal, faListUl, faLanguage, faChevronDown)
+library.add(faFacebookF, faInstagram, faTumblr, faTwitter, faVimeoV, faYoutube, faGripHorizontal, faListUl, faLanguage, faChevronDown, faSearch, faMusic, faPhotoVideo)
 
 const initialState = {};
 
