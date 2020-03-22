@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
 
 // Components
+import IntroContent from 'components/partials/IntroContent';
 import Button from 'components/partials/Button';
 import SocialMediaLinks from 'components/partials/SocialMediaLinks';
 import LatestPosts from 'components/partials/LatestPosts';
@@ -97,11 +98,7 @@ class Home extends Component {
         <header>
           <h1>Dehli Musikk</h1>
         </header>
-        {
-          this.props.selectedLanguageKey === 'en'
-            ? (<p>Content coming soon. In the meantime, you can check out my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`}>portfolio</Link>, my <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`}>posts</Link> or visit some of my social media links below</p>)
-            : (<p>Innhold kommer snart. Inntil videre kan du sjekke ut min <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`}>portefølje</Link>, mine <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`}>innlegg</Link> eller besøke noen av mine sosiale medier lenker under</p>)
-        }
+      <IntroContent />
       </div>
       <div className={style.latestPostsSection}>
         <div className={`${style.contentSection} ${style.fullWidthSm}`}>
