@@ -62,7 +62,7 @@ class Home extends Component {
       })
       return (<source key={fileType} srcSet={srcSet} type={`image/${fileType}`}/>)
     })
-    return (<picture className={style.backgroundsImage}>{srcSets}<img src={headerImage.jpg[1024]} alt='Header'/></picture>);
+    return (<picture className={style.backgroundsImage}>{srcSets}<img src={headerImage.jpg[1024]} alt='Header image for www.dehlimusikk.no' copyright="cc-by 2019 Benjamin Dehli dehlimusikk.no"/></picture>);
   }
 
   render() {
@@ -89,7 +89,7 @@ class Home extends Component {
         {this.renderHeaderImage()}
         <div className={style.overlay}>
           <span className={style.logo}>
-            <img src={DehliMusikkLogo} alt='Logo for Dehli Musikk'/>
+            <img src={DehliMusikkLogo} alt='Logo for Dehli Musikk' copyright="cc-by 2019 Benjamin Dehli dehlimusikk.no" />
           </span>
         </div>
       </div>
