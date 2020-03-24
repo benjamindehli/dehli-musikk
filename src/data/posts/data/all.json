@@ -1,5 +1,6 @@
 [{
     "id": "2020031401",
+    "copyright": true,
     "timestamp": 1584144000000,
     "title": {
       "no": "Innspilling av Korg MS-20 arpeggioer",
@@ -21,6 +22,7 @@
   },
   {
     "id": "2020031400",
+    "copyright": true,
     "timestamp": 1584144000000,
     "title": {
       "no": "Clavinet med wah-pedal",
@@ -42,6 +44,7 @@
   },
   {
     "id": "2020030801",
+    "copyright": true,
     "timestamp": 1583625600000,
     "title": {
       "no": "Tangentpålegg",
@@ -63,6 +66,7 @@
   },
   {
     "id": "2020030800",
+    "copyright": true,
     "timestamp": 1583625600000,
     "title": {
       "no": "Innspilling av tonehjulsorgel",
@@ -127,6 +131,7 @@
   },
   {
     "id": "2020022400",
+    "copyright": true,
     "timestamp": 1582502400000,
     "title": {
       "no": "Yamaha YC-25D med effektpedaler",
@@ -192,6 +197,7 @@
   },
   {
     "id": "2020021100",
+    "copyright": true,
     "timestamp": 1581379200000,
     "title": {
       "no": "Nytt orgel - Yamaha YC-25D",
@@ -227,6 +233,7 @@
   },
   {
     "id": "2020012500",
+    "copyright": true,
     "timestamp": 1579910400000,
     "title": {
       "no": "Stemmetid",
@@ -241,6 +248,7 @@
   },
   {
     "id": "2020012000",
+    "copyright": true,
     "timestamp": 1579478400000,
     "title": {
       "no": "Mer 80-tallsrock",
@@ -262,6 +270,7 @@
   },
   {
     "id": "2020011900",
+    "copyright": true,
     "timestamp": 1579392000000,
     "title": {
       "no": "Innspilling av Yamaha DX7",
@@ -276,6 +285,7 @@
   },
   {
     "id": "2020011500",
+    "copyright": true,
     "timestamp": 1579046400000,
     "title": {
       "no": "Ny synth i posten 📦",
@@ -290,6 +300,7 @@
   },
   {
     "id": "2020011400",
+    "copyright": true,
     "timestamp": 1578960000000,
     "title": {
       "no": "Innspilling av 80-tallsrock",
@@ -311,6 +322,7 @@
   },
   {
     "id": "2019121600",
+    "copyright": true,
     "timestamp": 1576454400000,
     "title": {
       "no": "Synthgitar",
@@ -332,6 +344,7 @@
   },
   {
     "id": "2019121500",
+    "copyright": true,
     "timestamp": 1576368000000,
     "title": {
       "no": "Julestemning",
@@ -346,6 +359,7 @@
   },
   {
     "id": "2019113000",
+    "copyright": true,
     "timestamp": 1575072000000,
     "title": {
       "no": "Clavinet-opptak",
@@ -381,6 +395,7 @@
   },
   {
     "id": "2019112000",
+    "copyright": true,
     "timestamp": 1574208000000,
     "title": {
       "no": "Dehli Musikk skilt",
@@ -395,6 +410,7 @@
   },
   {
     "id": "2019111700",
+    "copyright": true,
     "timestamp": 1573948800000,
     "title": {
       "no": "Twin Peaks",
@@ -430,6 +446,7 @@
   },
   {
     "id": "2019111000",
+    "copyright": true,
     "timestamp": 1573344000000,
     "title": {
       "no": "Kassettinnspilling av piano og Mellotron",
@@ -451,6 +468,7 @@
   },
   {
     "id": "2019110800",
+    "copyright": true,
     "timestamp": 1573171200000,
     "title": {
       "no": "Tid for vedlikehold",
@@ -465,6 +483,7 @@
   },
   {
     "id": "2019110200",
+    "copyright": true,
     "timestamp": 1572652800000,
     "title": {
       "no": "Pianoinnspilling",
@@ -479,6 +498,7 @@
   },
   {
     "id": "2019102700",
+    "copyright": true,
     "timestamp": 1572134400000,
     "title": {
       "no": "Testing av nyinnkjøpt piano",
@@ -500,6 +520,7 @@
   },
   {
     "id": "2019102500",
+    "copyright": true,
     "timestamp": 1571961600000,
     "title": {
       "no": "Nytt piano",
@@ -514,6 +535,7 @@
   },
   {
     "id": "2019102000",
+    "copyright": true,
     "timestamp": 1571529600000,
     "title": {
       "no": "Kassettinnspilling",
@@ -535,6 +557,7 @@
   },
   {
     "id": "2019101200",
+    "copyright": true,
     "timestamp": 1570838400000,
     "title": {
       "no": "Trekkspillsynthmaskin",
@@ -556,6 +579,7 @@
   },
   {
     "id": "2019100100",
+    "copyright": true,
     "timestamp": 1569888000000,
     "title": {
       "no": "Twin Peaks på Clavinet og Rhodes",
@@ -577,6 +601,7 @@
   },
   {
     "id": "2019092100",
+    "copyright": true,
     "timestamp": 1569024000000,
     "title": {
       "no": "Lyddesign med Mellotron",
@@ -591,6 +616,7 @@
   },
   {
     "id": "2019091801",
+    "copyright": true,
     "timestamp": 1568764800000,
     "title": {
       "no": "Testing av Korg Polysix",
@@ -612,6 +638,7 @@
   },
   {
     "id": "2019091800",
+    "copyright": true,
     "timestamp": 1568764800000,
     "title": {
       "no": "Ny synth - Korg Polysix",
@@ -626,6 +653,7 @@
   },
   {
     "id": "2019091600",
+    "copyright": true,
     "timestamp": 1568592000000,
     "title": {
       "no": "A Saucerful of Secrets",
@@ -647,6 +675,7 @@
   },
   {
     "id": "2019091400",
+    "copyright": true,
     "timestamp": 1568419200000,
     "title": {
       "no": "Vedlikehold av Logan String Melody",
@@ -661,6 +690,7 @@
   },
   {
     "id": "2019090800",
+    "copyright": true,
     "timestamp": 1567900800000,
     "title": {
       "no": "Innspilling av Clavinet",
@@ -675,6 +705,7 @@
   },
   {
     "id": "2019081100",
+    "copyright": true,
     "timestamp": 1565481600000,
     "title": {
       "no": "Røykvarslerpedal",
@@ -689,6 +720,7 @@
   },
   {
     "id": "2019080500",
+    "copyright": true,
     "timestamp": 1564963200000,
     "title": {
       "no": "Fender Rhodes - Direkte/Klang oppsett med \"Leslie\" og Twin Reverb",
@@ -703,6 +735,7 @@
   },
   {
     "id": "2019080300",
+    "copyright": true,
     "timestamp": 1564790400000,
     "title": {
       "no": "Tester min nye Arturia DrumBrute",
@@ -718,6 +751,7 @@
 
   {
     "id": "2019073100",
+    "copyright": true,
     "timestamp": 1564531200000,
     "title": {
       "no": "Innspilling av orgel",
@@ -732,6 +766,7 @@
   },
   {
     "id": "2019072300",
+    "copyright": true,
     "timestamp": 1563840000000,
     "title": {
       "no": "Led clipping fuzz boost effektpedal",

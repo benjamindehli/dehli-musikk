@@ -152,7 +152,8 @@ class Post extends Component {
     </Helmet>)
   }
 
-  renderPostThumbnail(image, altText, fullscreen, postPath, postTitle) {
+  renderPostThumbnail(image, altText, fullscreen, postPath, postTitle, copyright, postDate) {
+    const copyrightString = copyright && postDate ? `cc-by ${postDate.getFullYear()} Benjamin Dehli dehlimusikk.no` : null;
     const thumbnailElement = (<figure className={style.thumbnail}>
       <picture>
         <source sizes={fullscreen
@@ -161,7 +162,7 @@ class Post extends Component {
         <source sizes={fullscreen
             ? '540px'
             : '175px'} srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
-        <img src={image.jpg350} alt={altText}/>
+        <img src={image.jpg350} alt={altText} copyright={copyrightString} />
       </picture>
     </figure>);
     return fullscreen
@@ -207,7 +208,7 @@ class Post extends Component {
           ? style.fullscreen
           : ''}`}>
         {this.renderPostSnippet(post, postId, image.jpg540)}
-        {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen, postPath, post.title[selectedLanguageKey])}
+        {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen, postPath, post.title[selectedLanguageKey], post.copyright, postDate)}
         <div className={style.contentContainer}>
           <div className={style.content}>
             <div className={style.header}>
