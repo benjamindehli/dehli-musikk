@@ -658,5 +658,90 @@
     },
     "thumbnailDescription": "Inside the Logan String Melody II synthesizer",
     "thumbnailFilename": "2019-09-14-00"
+  },
+  {
+    "id": "2019090800",
+    "timestamp": 1567900800000,
+    "title": {
+      "no": "Innspilling av Clavinet",
+      "en": "Recording the Clavinet"
+    },
+    "content": {
+      "no": "Innspilling av Hohner Clavinet D6 med effektpedaler 🎹👯🦄‍",
+      "en": "Recording the Hohner Clavinet D6 with effects pedals 🎹👯🦄"
+    },
+    "thumbnailDescription": "A Hohner Clavinet D6 with effects pedals on top",
+    "thumbnailFilename": "2019-09-08-00"
+  },
+  {
+    "id": "2019081100",
+    "timestamp": 1565481600000,
+    "title": {
+      "no": "Røykvarslerpedal",
+      "en": "Smoke detector pedal"
+    },
+    "content": {
+      "no": "Hjemmelaget Dallas Rangemaster Treble Booster klone i en røyvarsler 👨‍🚒🎛️",
+      "en": "Home made Dallas Rangemaster Treble Booster clone in a smoke detector enclosure 👨‍🚒🎛️"
+    },
+    "thumbnailDescription": "A smoke detector with electronics from an effects pedal",
+    "thumbnailFilename": "2019-08-11-00"
+  },
+  {
+    "id": "2019080500",
+    "timestamp": 1564963200000,
+    "title": {
+      "no": "Fender Rhodes - Direkte/Klang oppsett med \"Leslie\" og Twin Reverb",
+      "en": "Fender Rhodes - Wet/Dry setup with rotary speaker and Twin Reverb"
+    },
+    "content": {
+      "no": "Fender Rhodes med en Fender Twin Reverb som tørr-/direktelyds-forsterker og en Solton Dopplertone som våtsignal/klang-forsterker",
+      "en": "Fender Rhodes with Fender Twin Reverb as dry/direct amp and Solton Dopplertone as wet/delay amp."
+    },
+    "thumbnailDescription": "A Fender Rhodes MKI electric piano being played",
+    "thumbnailFilename": "2019-08-05-00"
+  },
+  {
+    "id": "2019080300",
+    "timestamp": 1564790400000,
+    "title": {
+      "no": "Tester min nye Arturia DrumBrute",
+      "en": "Testing my new Arturia DrumBrute"
+    },
+    "content": {
+      "no": "Synkroniserer Arturia DrumBrute med Korg MS-20 og Korg SQ-1 🎛️🥁🎹",
+      "en": "Syncing Arturia DrumBrute with Korg MS-20 and Korg SQ-1 🎛️🥁🎹"
+    },
+    "thumbnailDescription": "An Arturia DrumBrute drum machine and a Korg MS-20 synthesizer",
+    "thumbnailFilename": "2019-08-03-00"
+  },
+
+  {
+    "id": "2019073100",
+    "timestamp": 1564531200000,
+    "title": {
+      "no": "Innspilling av orgel",
+      "en": "Recording the organ"
+    },
+    "content": {
+      "no": "Varmer opp Hammond C3-orgelet før innspilling 🤠🎹",
+      "en": "Warming up the Hammond C3 for some recording 🤠🎹"
+    },
+    "thumbnailDescription": "A Hammond C3 tonewheel organ being played",
+    "thumbnailFilename": "2019-07-31-00"
+  },
+  {
+    "id": "2019072300",
+    "timestamp": 1563840000000,
+    "title": {
+      "no": "Led clipping fuzz boost effektpedal",
+      "en": "Led clipping fuzz boost effects pedal"
+    },
+    "content": {
+      "no": "Hjemmelaget effektpedal med LED clipping, volum boost og oktav fuzz.\nBoost-kretsen er basert på en Electro Harmonix LPB-1",
+      "en": "Home made an effects pedal with LED clipping, volume boost and octave fuzz,\nThe boost circuit is based of an Electro Harmonix LPB-1"
+    },
+    "thumbnailDescription": "Home made effects pedal",
+    "thumbnailFilename": "2019-07-23-00"
   }
 ]
