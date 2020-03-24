@@ -1,7 +1,7 @@
 const replaceAndAddSpace = (string, replace, replaceWith) => {
-  string = string.replace(new RegExp(`([^\s])([${replace}])([^\s])`, 'ig'), `\$1 ${replaceWith} \$3`); // Character right before and after
-  string = string.replace(new RegExp(`([^\s])([${replace}])`, 'ig'), `\$1 ${replaceWith}`); // Character right before
-  string = string.replace(new RegExp(`([${replace}])([^\s])`, 'ig'), `${replaceWith} \$2`); // Character right after
+  string = string.replace(new RegExp(`([^s])([${replace}])([^s])`, 'ig'), `$1 ${replaceWith} $3`); // Character right before and after
+  string = string.replace(new RegExp(`([^s])([${replace}])`, 'ig'), `$1 ${replaceWith}`); // Character right before
+  string = string.replace(new RegExp(`([${replace}])([^s])`, 'ig'), `${replaceWith} $2`); // Character right after
   string = string.replace(new RegExp(`[${replace}]`, 'ig'), replaceWith); // No character right before or after
 
   return string;
