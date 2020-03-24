@@ -731,7 +731,14 @@
       "en": "Fender Rhodes with Fender Twin Reverb as dry/direct amp and Solton Dopplertone as wet/delay amp."
     },
     "thumbnailDescription": "A Fender Rhodes MKI electric piano being played",
-    "thumbnailFilename": "2019-08-05-00"
+    "thumbnailFilename": "2019-08-05-00",
+    "link": {
+      "url": "https://youtu.be/rZ5D-5CRkZg",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2019080300",
@@ -746,7 +753,14 @@
       "en": "Syncing Arturia DrumBrute with Korg MS-20 and Korg SQ-1 🎛️🥁🎹"
     },
     "thumbnailDescription": "An Arturia DrumBrute drum machine and a Korg MS-20 synthesizer",
-    "thumbnailFilename": "2019-08-03-00"
+    "thumbnailFilename": "2019-08-03-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B0tacZ0Ifz5/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
 
   {
@@ -762,7 +776,14 @@
       "en": "Warming up the Hammond C3 for some recording 🤠🎹"
     },
     "thumbnailDescription": "A Hammond C3 tonewheel organ being played",
-    "thumbnailFilename": "2019-07-31-00"
+    "thumbnailFilename": "2019-07-31-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B0l6kiYIkvi/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2019072300",
@@ -777,6 +798,13 @@
       "en": "Home made an effects pedal with LED clipping, volume boost and octave fuzz,\nThe boost circuit is based of an Electro Harmonix LPB-1"
     },
     "thumbnailDescription": "Home made effects pedal",
-    "thumbnailFilename": "2019-07-23-00"
+    "thumbnailFilename": "2019-07-23-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B0PE5TEIfrY/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   }
 ]
