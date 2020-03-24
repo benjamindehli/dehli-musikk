@@ -127,7 +127,7 @@ class NavigationBar extends Component {
         <MenuIcon className={style.menuIcon}/>
       </span>
       <SearchField />
-      <div>
+      <div className={style.languageSelectorListContainer}>
         <span onClick={() => this.handleShowLanguageSelectorList()}>{this.renderLanguageSelectorButton(this.props.availableLanguages, this.props.selectedLanguageKey)}</span>
         <div ref={this.setLanguageSelectorListWrapperRef} className={`${style.languageSelectorList} ${this.state.showLanguageSelectorList
             ? style.active
