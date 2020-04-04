@@ -849,5 +849,42 @@
         "no": "Se video"
       }
     }
+  },
+  {
+    "id": "2019072101",
+    "copyright": true,
+    "timestamp": 1563667200000,
+    "title": {
+      "no": "Fender Rhodes og Korg MS-20",
+      "en": "Fender Rhodes and Korg MS-20"
+    },
+    "content": {
+      "no": "En liten videosnutt av Korg MS-20 og Fender Rhodes MKI tatt opp på kassett",
+      "en": "I recorded a short live jam to tape with Korg MS-20 and Fender Rhodes MKI."
+    },
+    "thumbnailDescription": "A Fender Rhodes MKI electric piano with a Korg MS-20 synthesizer on top",
+    "thumbnailFilename": "2019-07-21-01",
+    "link": {
+      "url": "https://youtu.be/bXcYmN3bTME",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2019072100",
+    "copyright": true,
+    "timestamp": 1563667200000,
+    "title": {
+      "no": "Vedlikehold av Korg MS-20",
+      "en": "Korg MS-20 maintenance"
+    },
+    "content": {
+      "no": "Reparerer en ødelagt strømkabel på en Korg MS-20",
+      "en": "Repairing a broken power cord on the Korg MS-20 👷‍🛠️🎹"
+    },
+    "thumbnailDescription": "A Korg MS-20 being repaired with a soldering iron",
+    "thumbnailFilename": "2019-07-21-00"
   }
 ]
