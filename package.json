@@ -29,7 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "postbuild": "react-snap --disable-dev-shm-usage && yarn run generate-sw",
-    "generate-sw": "sw-precache --root=build --config sw-precache-config.js && uglifyjs build/service-worker.js -o build/service-worker.js",
+    "generate-sw": "workbox generateSW --root=build workbox-config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
