@@ -1,3 +1,4 @@
+import twentyTwentyVisionCanYouSeeMe from './releases/data/2020Vision_canYouSeeMe_306eApL5c1v3HDGt43W1S5.json';
 import ainaWassvikDauntless from './releases/data/ainaWassvik_dauntless_0u0XnmGmw3WF99J0jMXyP3.json';
 import changemakersVeidemannen from './releases/data/changemakers_veidemannen_7brelOFhq6xXGWExXPwcuw.json';
 import confusionConfusion from './releases/data/confusion_confusion_3k9hYBU4jbh2divQo8vauI.json';
@@ -28,6 +29,7 @@ import wildWhensSailinSarah from './releases/data/wildWhens_sailinSarah_50PONsFQ
 import wildWhensTravellinMan from './releases/data/wildWhens_travellinMan_2kO379DWolHqoC4lrlgToK.json';
 
 export default [
+  twentyTwentyVisionCanYouSeeMe,
   ainaWassvikDauntless,
   changemakersVeidemannen,
   confusionConfusion,
