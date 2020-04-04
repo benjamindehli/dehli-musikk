@@ -157,7 +157,7 @@ class SearchField extends Component {
       });
       return resultsElements;
     } else {
-      return selectedLanguageKey === 'en' ? 'No results' : 'Ingen resultat';
+      return (<span className={style.resultsListItem}>{selectedLanguageKey === 'en' ? 'No results' : 'Ingen resultat'}</span>);
     }
   }
 
