@@ -32,13 +32,13 @@
       "source": "**/*.@(js|css)",
       "headers": [{
         "key": "Cache-Control",
-        "value": "max-age=31536000"
+        "value": "max-age=3600"
       }]
     }, {
       "source": "404.html",
       "headers": [{
         "key": "Cache-Control",
-        "value": "max-age=300"
+        "value": "max-age=3600"
       }]
     }]
   },
