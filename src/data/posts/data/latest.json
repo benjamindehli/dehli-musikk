@@ -1,4 +1,47 @@
 [{
+    "id": "2020040300",
+    "timestamp": 1585872000000,
+    "title": {
+      "no": "Ny serie fra Haunted By Silhouettes",
+      "en": "New series from Haunted By Silhouettes"
+    },
+    "content": {
+      "no": "Sjekk ut første episode av serien TrackByTrack fra Haunted By Silhouettes.\nHer viser de blandt annet marsvin- og tangentspora jeg fikk æren av å legge på låta 'The Last Day on Earth' 🐹🤘",
+      "en": "Check out the first episode of the TrackByTrack series from Haunted By Silhouettes.\nIn this episode you can hear guinea pig noises and the keyboard tracks I got the honor of playing on the song 'The Last Day on Earth' 🐹🤘"
+    },
+    "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
+    "thumbnailFilename": "2020-04-03-00",
+    "link": {
+      "url": "https://youtu.be/ZsHg94LOXHw",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020040100",
+    "timestamp": 1585699200000,
+    "title": {
+      "no": "Ny utgivelse - Can You See Me av 2020 Vision",
+      "en": "New release - Can You See Me by 2020 Vision"
+    },
+    "content": {
+      "no": "Ny steintøff rockelåt fra rockegutta i rockebandet 2020 Vision med rocke-Halvor bak spakene 😎🤘\nOg jeg har vært så heldig å få spille rocketangenter 🤠",
+      "en": "New rock song from the rock guys in the rock band 2020 Vision with rock Halvor \"The Rock\" Halvorsen behind the faders 😎🤘\nAnd I've been so lucky to play the rock keyboards 🤠"
+    },
+    "thumbnailDescription": "Album cover for the single \"Can You See Me\" by 2020 Vision",
+    "thumbnailFilename": "2020-04-01-00",
+    "link": {
+      "url": "portfolio/2020-vision-can-you-see-me/",
+      "internal": true,
+      "text": {
+        "en": "Listen to Can You See Me",
+        "no": "Lytt til Can You See Me"
+      }
+    }
+  },
+  {
     "id": "2020031401",
     "timestamp": 1584144000000,
     "title": {
@@ -13,48 +56,6 @@
     "thumbnailFilename": "2020-03-14-01",
     "link": {
       "url": "https://youtu.be/ZsHg94LOXHw",
-      "text": {
-        "en": "Show video",
-        "no": "Se video"
-      }
-    }
-  },
-  {
-    "id": "2020031400",
-    "timestamp": 1584144000000,
-    "title": {
-      "no": "Clavinet med wah-pedal",
-      "en": "Clavinet with wah-pedal"
-    },
-    "content": {
-      "no": "Innspilling av Clavinet D6 med Real McCoy Custom Picture Wah og ProCo Rat vreng",
-      "en": "Recording Clavinet D6 with Real McCoy Custom Picture Wah and ProCo Rat distortion"
-    },
-    "thumbnailDescription": "Effects pedals",
-    "thumbnailFilename": "2020-03-14-00",
-    "link": {
-      "url": "https://www.instagram.com/p/B9tVPHUFD4f/",
-      "text": {
-        "en": "Show video",
-        "no": "Se video"
-      }
-    }
-  },
-  {
-    "id": "2020030801",
-    "timestamp": 1583625600000,
-    "title": {
-      "no": "Tangentpålegg",
-      "en": "Layering keyboard tracks"
-    },
-    "content": {
-      "no": "Pålegg av forskjellige tangentinstrumenter i Logic 🎹🎹🎹",
-      "en": "Layering different keyboard instruments in Logic 🎹🎹🎹"
-    },
-    "thumbnailDescription": "Computer screen with Logic session",
-    "thumbnailFilename": "2020-03-08-01",
-    "link": {
-      "url": "https://www.instagram.com/p/B9fKf_hFYgs/",
       "text": {
         "en": "Show video",
         "no": "Se video"
