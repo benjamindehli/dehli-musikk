@@ -7,11 +7,18 @@
       "en": "Piano through a rotary speaker "
     },
     "content": {
-      "no": "🎹🔄📢",
-      "en": "🎹🔄📢"
+      "no": "Tester ut Louis Zwicki Pianette med en Solton Dopplertone 🎹🔄📢",
+      "en": "Testing out the Louis Zwicki Pianette through a Solton Dopplertone 🎹🔄📢"
     },
     "thumbnailDescription": "Solton Dopplertone rotary speaker",
-    "thumbnailFilename": "2020-04-04-00"
+    "thumbnailFilename": "2020-04-04-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B-karVClzzn/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
   },
   {
     "id": "2020040300",
@@ -65,10 +72,10 @@
       "en": "My favorite kind of candles"
     },
     "content": {
-      "no": "🕯️✨💡",
-      "en": "🕯️✨💡"
+      "no": "Rør i AO-28 forforsterkeren inne i Hammond C3-orgelet ✨💡",
+      "en": "Vacuum Tubes in the AO-28 pre-amp inside the Hammond C3 organ ✨💡"
     },
-    "thumbnailDescription": "",
+    "thumbnailDescription": "Vacuum Tubes in the AO-28 pre-amp inside a Hammond C3 organ",
     "thumbnailFilename": "2020-03-28-00"
   },
   {
@@ -77,13 +84,13 @@
     "timestamp": 1585267200000,
     "title": {
       "no": "Bånn gass",
-      "en": "It might get loud😎📢"
+      "en": "It might get loud"
     },
     "content": {
-      "no": "😎📢",
-      "en": "😎📢"
+      "no": "Leslie 122 forsterker med volum på fullt 😎📢",
+      "en": "Maxing out the Leslie 122 amplifier 😎📢"
     },
-    "thumbnailDescription": "",
+    "thumbnailDescription": "A Leslie 122 amplifier with full volume",
     "thumbnailFilename": "2020-03-27-00"
   },
   {
