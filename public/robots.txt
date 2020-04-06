@@ -1,3 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 Sitemap: https://www.dehlimusikk.no/sitemap.xml
+Sitemap: https://www.dehlimusikk.no/news-sitemap.xml
+Sitemap: https://www.dehlimusikk.no/image-sitemap.xml
 User-agent: *
