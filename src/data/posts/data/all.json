@@ -1,4 +1,19 @@
 [{
+    "id": "2020040400",
+    "copyright": true,
+    "timestamp": 1585958400000,
+    "title": {
+      "no": "Piano med snurreforsterker",
+      "en": "Piano through a rotary speaker "
+    },
+    "content": {
+      "no": "🎹🔄📢",
+      "en": "🎹🔄📢"
+    },
+    "thumbnailDescription": "Solton Dopplertone rotary speaker",
+    "thumbnailFilename": "2020-04-04-00"
+  },
+  {
     "id": "2020040300",
     "timestamp": 1585872000000,
     "title": {
@@ -40,6 +55,36 @@
         "no": "Lytt til Can You See Me"
       }
     }
+  },
+  {
+    "id": "2020032800",
+    "copyright": true,
+    "timestamp": 1585353600000,
+    "title": {
+      "no": "Min favoritt belysning",
+      "en": "My favorite kind of candles"
+    },
+    "content": {
+      "no": "🕯️✨💡",
+      "en": "🕯️✨💡"
+    },
+    "thumbnailDescription": "",
+    "thumbnailFilename": "2020-03-28-00"
+  },
+  {
+    "id": "2020032700",
+    "copyright": true,
+    "timestamp": 1585267200000,
+    "title": {
+      "no": "Bånn gass",
+      "en": "It might get loud😎📢"
+    },
+    "content": {
+      "no": "😎📢",
+      "en": "😎📢"
+    },
+    "thumbnailDescription": "",
+    "thumbnailFilename": "2020-03-27-00"
   },
   {
     "id": "2020031401",
@@ -143,7 +188,7 @@
     "thumbnailDescription": "Snapshot from the music video for \"Då E Det Verdt Det\" by Thomas Tveiten",
     "thumbnailFilename": "2020-03-06-01",
     "link": {
-      "url": "https://www.facebook.com/thomas.tveiten/videos/2661253993973702/",
+      "url": "https://youtu.be/UYrtVXf96oI",
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -747,6 +792,28 @@
     "thumbnailFilename": "2019-09-08-00"
   },
   {
+    "id": "2019090600",
+    "timestamp": 1567728000000,
+    "title": {
+      "no": "Ny utgivelse - Deadlock av Haunted By Silhouettes",
+      "en": "New release - Deadlock by Haunted By Silhouettes"
+    },
+    "content": {
+      "no": "Få en pangstart på helga med denna rykende ferske godlåta fra Haunted By Silhouettes!💥\nHar vært så heldig å få legge på Mellotron og marsvin/romskip-synth 🛸🐹",
+      "en": "Kick start the weekend with this all new release by Haunted By Silhouettes!💥\nI've had a lot of fun recording some Mellotron and guinea pig/spaceship sounds on this 🛸🐹"
+    },
+    "thumbnailDescription": "Album cover for the single \"Deadlock\" by Haunted By Silhouettes",
+    "thumbnailFilename": "2019-09-06-00",
+    "link": {
+      "url": "portfolio/haunted-by-silhouettes-deadlock/",
+      "internal": true,
+      "text": {
+        "en": "Listen to Deadlock",
+        "no": "Lytt til Deadlock"
+      }
+    }
+  },
+  {
     "id": "2019081100",
     "copyright": true,
     "timestamp": 1565481600000,
@@ -881,10 +948,98 @@
       "en": "Korg MS-20 maintenance"
     },
     "content": {
-      "no": "Reparerer en ødelagt strømkabel på en Korg MS-20",
+      "no": "Reparerer en ødelagt strømkabel på en Korg MS-20 👷‍🛠️🎹",
       "en": "Repairing a broken power cord on the Korg MS-20 👷‍🛠️🎹"
     },
     "thumbnailDescription": "A Korg MS-20 being repaired with a soldering iron",
     "thumbnailFilename": "2019-07-21-00"
+  },
+  {
+    "id": "2019062500",
+    "copyright": true,
+    "timestamp": 1561420800000,
+    "title": {
+      "no": "Fender-kroken",
+      "en": "The Fender corner"
+    },
+    "content": {
+      "no": "Fender Rhodes, Fender Blender, Fender Twin Reverb og Fender Stratocaster",
+      "en": "Fender Rhodes, Fender Blender, Fender Twin Reverb and Fender Stratocaster"
+    },
+    "thumbnailDescription": "A Fender Rhodes electric piano, a Fender Blender effects pedal, a Fender Twin Reverb amplifier and a Fender Stratocaster electric guitar",
+    "thumbnailFilename": "2019-06-25-00"
+  },
+  {
+    "id": "2019062101",
+    "timestamp": 1561075200000,
+    "title": {
+      "no": "Musikkvideo - Deadlock av Haunted By Silhouettes",
+      "en": "Music video - Deadlock by Haunted By Silhouettes"
+    },
+    "content": {
+      "no": "Musikkvideo til låta Deadlock av Haunted By Silhouettes er ute 📼🎬",
+      "en": "Music video for Deadlock by Haunted By Silhouettes is out 📼🎬"
+    },
+    "thumbnailDescription": "Snapshot from the music video for \"Deadlock\" by Haunted By Silhouettes",
+    "thumbnailFilename": "2019-06-21-01",
+    "link": {
+      "url": "https://youtu.be/rR7lrmn04qA",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2019062100",
+    "timestamp": 1561075200000,
+    "title": {
+      "no": "Ny utgivelse - Deadlock av Haunted By Silhouettes",
+      "en": "New release - Deadlock by Haunted By Silhouettes"
+    },
+    "content": {
+      "no": "Har fått æren av å legge vrengtangenter og plingplong lyder på denna panserlåta fra Haunted By Silhouettes 😀\nNå er det bare å fyre opp anlegget og nyte sommer'n 🔈🍻☀️",
+      "en": "I've had the honor to play organ and various keyboards on this one 😀\nTurn up the volume and enjoy the summer 🔈🍻☀️"
+    },
+    "thumbnailDescription": "Album cover for the single \"Deadlock\" by Haunted By Silhouettes",
+    "thumbnailFilename": "2019-06-21-00",
+    "link": {
+      "url": "portfolio/haunted-by-silhouettes-deadlock/",
+      "internal": true,
+      "text": {
+        "en": "Listen to Deadlock",
+        "no": "Lytt til Deadlock"
+      }
+    }
+  },
+  {
+    "id": "2019062000",
+    "copyright": true,
+    "timestamp": 1560988800000,
+    "title": {
+      "no": "Ny forsterker - Fender Twin Reverb",
+      "en": "New amp - Fender Twin Reverb"
+    },
+    "content": {
+      "no": "Har nettop fåt tak i en god gammal tvillingklangforsterker 🍾👯",
+      "en": "I've just acquired this good ol' Twin Reverb amplifier 🍾👯"
+    },
+    "thumbnailDescription": "A Fender Twin Reverb amplifier",
+    "thumbnailFilename": "2019-06-20-00"
+  },
+  {
+    "id": "2019061600",
+    "copyright": true,
+    "timestamp": 1560643200000,
+    "title": {
+      "no": "Gledelig Pride-måned",
+      "en": "Happy Pride Month"
+    },
+    "content": {
+      "no": "🏳️‍🌈🌈❤️",
+      "en": "🏳️‍🌈🌈❤️"
+    },
+    "thumbnailDescription": "A Korg MS-20 synthesizer with rainbow colored patch cables",
+    "thumbnailFilename": "2019-06-16-00"
   }
 ]
