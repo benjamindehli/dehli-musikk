@@ -28,3 +28,20 @@ crop: {
   }
 },
 quality: 80
+
+
+
+x-Large:
+resize: {
+  Mode: fill,
+  width: 945,
+  height: 700
+},
+cleanMetadata: 'all',
+crop: {
+  fromPosition: {
+    width: 945,
+    height: 700
+  }
+},
+quality: 80
