@@ -36,42 +36,40 @@
   {
     "brand": "Hohner",
     "model": "Clavinet D6",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Hohner",
-    "model": "Melodica Student 32",
-    "thumbnailFilename": ""
+    "model": "Melodica Student 32"
   },
   {
     "brand": "Kalikå",
-    "model": "Leksakspiano",
-    "thumbnailFilename": ""
+    "model": "Leksakspiano"
   },
   {
     "brand": "Korg",
     "model": "CX-3",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Korg",
     "model": "microKORG XL+",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Korg",
     "model": "microSAMPLER",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Korg",
     "model": "MS-20",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Korg",
     "model": "Polysix",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Korg",
@@ -91,22 +89,20 @@
   {
     "brand": "Logan",
     "model": "String Melody II",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Louis Zwicki",
-    "model": "Pianette",
-    "thumbnailFilename": ""
+    "model": "Pianette"
   },
   {
     "brand": "Mellotron",
-    "model": "M400D",
-    "thumbnailFilename": ""
+    "model": "M400D"
   },
   {
     "brand": "Moog",
     "model": "Minitaur",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Muse Research",
@@ -121,7 +117,7 @@
   {
     "brand": "Hammond",
     "model": "C3",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Rhodes",
@@ -156,6 +152,6 @@
   {
     "brand": "Yamaha",
     "model": "YC-25D",
-    "thumbnailFilename": ""
+    "hasImage": true
   }
 ]

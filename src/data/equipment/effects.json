@@ -1,28 +1,41 @@
 [
   {
     "brand": "Boss",
-    "model": "CE-1 Chorus Ensemble",
-    "thumbnailFilename": ""
+    "model": "CE-1 Chorus Ensemble"
   },
   {
     "brand": "Boss",
     "model": "DM-2 Delay",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Boss",
     "model": "NS-2 Noise Suppressor",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Dallas Arbiter",
     "model": "Fuzz Face",
-    "thumbnailFilename": ""
+    "hasImage": true
+  },
+  {
+    "brand": "Dehli Musikk",
+    "model": "Fuzz Boost Limiter",
+    "hasImage": true
+  },
+  {
+    "brand": "Dehli Musikk",
+    "model": "Pianoforte",
+    "hasImage": true
+  },
+  {
+    "brand": "Dehli Musikk",
+    "model": "Smoke Booster"
   },
   {
     "brand": "Diamond",
     "model": "Memory Lane 2",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Digitech",
@@ -37,12 +50,12 @@
   {
     "brand": "Electro-Harmonix",
     "model": "Bass Balls",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Electro-Harmonix",
     "model": "Deluxe Memory Man",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Electro-Harmonix",
@@ -52,17 +65,17 @@
   {
     "brand": "Electro-Harmonix",
     "model": "Small Stone",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Fender",
     "model": "Blender (3 knob)",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Fulltone",
     "model": "Supa-Trem",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Fulltone",
@@ -77,12 +90,12 @@
   {
     "brand": "HardWire",
     "model": "RV-7",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Hudson Electronics, UK",
     "model": "Broadcast",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Hughes & Kettner",
@@ -107,12 +120,12 @@
   {
     "brand": "Origin Effects",
     "model": "Cali76 Standard",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Pro Co",
     "model": "RAT 2",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Real McCoy Custom",
@@ -127,7 +140,7 @@
   {
     "brand": "TC Electronic",
     "model": "SCF Stereo Chorus Flanger",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "VanAmps",
