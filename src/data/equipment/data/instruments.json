@@ -1,22 +1,22 @@
 [{
     "brand": "Arturia",
     "model": "DrumBrute",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Behringer",
     "model": "VOCODER VC340",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Dave Smith Instruments",
     "model": "Mopho Keyboard",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Dave Smith Instruments",
     "model": "Tetra",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Doepfer",
@@ -93,11 +93,13 @@
   },
   {
     "brand": "Louis Zwicki",
-    "model": "Pianette"
+    "model": "Pianette",
+    "hasImage": true
   },
   {
     "brand": "Mellotron",
-    "model": "M400D"
+    "model": "M4000D",
+    "hasImage": true
   },
   {
     "brand": "Moog",
@@ -107,7 +109,7 @@
   {
     "brand": "Muse Research",
     "model": "Receptor Pro",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Nagoya Suzuki",

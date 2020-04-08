@@ -2,26 +2,26 @@
   {
     "brand": "Fender",
     "model": "Twin Reverb",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Leslie",
     "model": "122",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Roland",
     "model": "JC-120 Jazz Chorus",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Solton",
     "model": "Dopplertone",
-    "thumbnailFilename": ""
+    "hasImage": true
   },
   {
     "brand": "Vox",
     "model": "AC15H1TV",
-    "thumbnailFilename": ""
+    "hasImage": true
   }
 ]

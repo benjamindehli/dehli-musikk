@@ -101,9 +101,11 @@ class App extends Component {
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/" render={(props) => (<Posts {...props}/>)}/>
 
-            <Route exact={true} strict={true} path="/equipment/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
+            <Route exact={true} strict={true} path="/equipment/:equipmentType/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
+            <Route exact={true} strict={true} path="/equipment/:equipmentType/" render={(props) => (<Equipment {...props}/>)}/>
             <Route exact={true} strict={true} path="/equipment/" render={() => (<Equipment/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/equipment/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/equipment/:equipmentType/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/equipment/:equipmentType/" render={(props) => (<Equipment {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/equipment/" render={(props) => (<Equipment {...props}/>)}/>
 
 
