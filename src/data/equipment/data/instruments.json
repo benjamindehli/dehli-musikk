@@ -1,42 +1,42 @@
 [{
     "brand": "Arturia",
-    "model": "DrumBrute",
-    "hasImage": true
+    "model": "DrumBrute"
   },
   {
     "brand": "Behringer",
-    "model": "VOCODER VC340",
-    "hasImage": true
+    "model": "VOCODER VC340"
+  },
+  {
+    "brand": "Carola",
+    "model": "Dragspel 3 körigt"
+  },
+  {
+    "brand": "Casio",
+    "model": "CTK-200"
   },
   {
     "brand": "Dave Smith Instruments",
-    "model": "Mopho Keyboard",
-    "hasImage": true
+    "model": "Mopho Keyboard"
   },
   {
     "brand": "Dave Smith Instruments",
-    "model": "Tetra",
-    "hasImage": true
+    "model": "Tetra"
   },
   {
     "brand": "Doepfer",
-    "model": "Dark Energy",
-    "thumbnailFilename": ""
+    "model": "Dark Energy"
   },
   {
     "brand": "Dubreq",
-    "model": "Stylophone S-1",
-    "thumbnailFilename": ""
+    "model": "Stylophone S-1"
   },
   {
     "brand": "Fender",
-    "model": "Stratocaster",
-    "thumbnailFilename": ""
+    "model": "Stratocaster"
   },
   {
     "brand": "Hohner",
-    "model": "Clavinet D6",
-    "hasImage": true
+    "model": "Clavinet D6"
   },
   {
     "brand": "Hohner",
@@ -48,112 +48,78 @@
   },
   {
     "brand": "Korg",
-    "model": "CX-3",
-    "hasImage": true
+    "model": "CX-3"
   },
   {
     "brand": "Korg",
-    "model": "microKORG XL+",
-    "hasImage": true
+    "model": "microKORG XL+"
   },
   {
     "brand": "Korg",
-    "model": "microSAMPLER",
-    "hasImage": true
+    "model": "microSAMPLER"
   },
   {
     "brand": "Korg",
-    "model": "MS-20",
-    "hasImage": true
+    "model": "MS-20"
   },
   {
     "brand": "Korg",
-    "model": "Polysix",
-    "hasImage": true
+    "model": "Polysix"
   },
   {
     "brand": "Korg",
-    "model": "SQ-1",
-    "thumbnailFilename": ""
-  },
-  {
-    "brand": "Kurzweil",
-    "model": "Micro Ensemble",
-    "thumbnailFilename": ""
+    "model": "SQ-1"
   },
   {
     "brand": "Levin",
-    "model": "Model 27",
-    "thumbnailFilename": ""
+    "model": "Model 27"
   },
   {
     "brand": "Logan",
-    "model": "String Melody II",
-    "hasImage": true
+    "model": "String Melody II"
   },
   {
     "brand": "Louis Zwicki",
-    "model": "Pianette",
-    "hasImage": true
+    "model": "Pianette"
   },
   {
     "brand": "Mellotron",
-    "model": "M4000D",
-    "hasImage": true
+    "model": "M4000D"
   },
   {
     "brand": "Moog",
-    "model": "Minitaur",
-    "hasImage": true
+    "model": "Minitaur"
   },
   {
     "brand": "Muse Research",
-    "model": "Receptor Pro",
-    "hasImage": true
+    "model": "Receptor Pro"
   },
   {
     "brand": "Nagoya Suzuki",
-    "model": "No. 305",
-    "thumbnailFilename": ""
+    "model": "No. 305"
   },
   {
     "brand": "Hammond",
-    "model": "C3",
-    "hasImage": true
+    "model": "C3"
   },
   {
     "brand": "Rhodes",
-    "model": "Mark I Stage Piano",
-    "thumbnailFilename": ""
-  },
-  {
-    "brand": "Roland",
-    "model": "AX-1",
-    "thumbnailFilename": ""
-  },
-  {
-    "brand": "Roland",
-    "model": "E-14 Inteligent Keyboard",
-    "thumbnailFilename": ""
+    "model": "Mark I Stage Piano"
   },
   {
     "brand": "Wurlitzer",
-    "model": "200A",
-    "thumbnailFilename": ""
+    "model": "200A"
   },
   {
     "brand": "Yamaha",
-    "model": "DX7",
-    "thumbnailFilename": ""
+    "model": "DX7"
   },
   {
     "brand": "Yamaha",
-    "model": "L-20D",
-    "thumbnailFilename": ""
+    "model": "L-20D"
   },
   {
     "brand": "Yamaha",
-    "model": "YC-25D",
-    "hasImage": true
+    "model": "YC-25D"
   }
 ]

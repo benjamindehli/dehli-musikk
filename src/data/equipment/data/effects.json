@@ -1,32 +1,26 @@
-[
-  {
+[{
     "brand": "Boss",
     "model": "CE-1 Chorus Ensemble"
   },
   {
     "brand": "Boss",
-    "model": "DM-2 Delay",
-    "hasImage": true
+    "model": "DM-2 Delay"
   },
   {
     "brand": "Boss",
-    "model": "NS-2 Noise Suppressor",
-    "hasImage": true
+    "model": "NS-2 Noise Suppressor"
   },
   {
     "brand": "Dallas Arbiter",
-    "model": "Fuzz Face",
-    "hasImage": true
+    "model": "Fuzz Face"
   },
   {
     "brand": "Dehli Musikk",
-    "model": "Fuzz Boost Limiter",
-    "hasImage": true
+    "model": "Fuzz Boost Limiter"
   },
   {
     "brand": "Dehli Musikk",
-    "model": "Pianoforte",
-    "hasImage": true
+    "model": "Pianoforte"
   },
   {
     "brand": "Dehli Musikk",
@@ -34,122 +28,99 @@
   },
   {
     "brand": "Diamond",
-    "model": "Memory Lane 2",
-    "hasImage": true
+    "model": "Memory Lane 2"
   },
   {
-    "brand": "Digitech",
-    "model": "Whammy (5th Gen)",
-    "thumbnailFilename": ""
+    "brand": "DigiTech",
+    "model": "Whammy (5th Gen)"
   },
   {
     "brand": "Dunlop",
-    "model": "Heil Talk Box",
-    "thumbnailFilename": ""
+    "model": "Heil Talk Box"
   },
   {
     "brand": "Electro-Harmonix",
-    "model": "Bass Balls",
-    "hasImage": true
+    "model": "Bassballs"
   },
   {
     "brand": "Electro-Harmonix",
-    "model": "Deluxe Memory Man",
-    "hasImage": true
+    "model": "Deluxe Memory Man"
   },
   {
     "brand": "Electro-Harmonix",
-    "model": "English Muff'n",
-    "thumbnailFilename": ""
+    "model": "English Muff'n"
   },
   {
     "brand": "Electro-Harmonix",
-    "model": "Small Stone",
-    "hasImage": true
+    "model": "Small Stone"
   },
   {
     "brand": "Fender",
-    "model": "Blender (3 knob)",
-    "hasImage": true
+    "model": "Blender (3 knob)"
   },
   {
     "brand": "Fulltone",
-    "model": "Supa-Trem",
-    "hasImage": true
+    "model": "Supa-Trem"
   },
   {
     "brand": "Fulltone",
-    "model": "True-Path ABY-ST",
-    "thumbnailFilename": ""
+    "model": "True-Path ABY-ST"
   },
   {
     "brand": "Goodrich",
-    "model": "H-120 HighBoy",
-    "thumbnailFilename": ""
+    "model": "H-120 HighBoy"
   },
   {
     "brand": "HardWire",
-    "model": "RV-7",
-    "hasImage": true
+    "model": "RV-7"
   },
   {
     "brand": "Hudson Electronics, UK",
-    "model": "Broadcast",
-    "hasImage": true
+    "model": "Broadcast"
   },
   {
     "brand": "Hughes & Kettner",
-    "model": "Tube Factor",
-    "thumbnailFilename": ""
+    "model": "Tube Factor"
   },
   {
     "brand": "Mojo Hand FX",
-    "model": "Iron Bell",
-    "thumbnailFilename": ""
+    "model": "Iron Bell"
   },
   {
     "brand": "MXR",
-    "model": "Six Band EQ",
-    "thumbnailFilename": ""
+    "model": "Six Band EQ"
   },
   {
     "brand": "Neo Instruments",
-    "model": "Ventilator",
-    "thumbnailFilename": ""
+    "model": "Ventilator"
+
   },
   {
     "brand": "Origin Effects",
-    "model": "Cali76 Standard",
-    "hasImage": true
+    "model": "Cali76 Standard"
   },
   {
     "brand": "Pro Co",
-    "model": "RAT 2",
-    "hasImage": true
+    "model": "RAT 2"
   },
   {
     "brand": "Real McCoy Custom",
-    "model": "Picture Wah",
-    "thumbnailFilename": ""
+    "model": "Picture Wah"
   },
   {
     "brand": "Roger Mayer",
-    "model": "Voodoo-Vibe+",
-    "thumbnailFilename": ""
+    "model": "Voodoo-Vibe+"
   },
   {
     "brand": "TC Electronic",
-    "model": "SCF Stereo Chorus Flanger",
-    "hasImage": true
+    "model": "SCF Stereo Chorus Flanger"
   },
   {
     "brand": "VanAmps",
-    "model": "Sole-Mate Jr.",
-    "thumbnailFilename": ""
+    "model": "Sole-Mate Jr."
   },
   {
     "brand": "Xotic",
-    "model": "EP-Booster",
-    "thumbnailFilename": ""
+    "model": "EP-Booster"
   }
 ]

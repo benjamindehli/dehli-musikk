@@ -1,27 +1,21 @@
-[
-  {
+[{
     "brand": "Fender",
-    "model": "Twin Reverb",
-    "hasImage": true
+    "model": "Twin Reverb"
   },
   {
     "brand": "Leslie",
-    "model": "122",
-    "hasImage": true
+    "model": "122"
   },
   {
     "brand": "Roland",
-    "model": "JC-120 Jazz Chorus",
-    "hasImage": true
+    "model": "JC-120 Jazz Chorus"
   },
   {
     "brand": "Solton",
-    "model": "Dopplertone",
-    "hasImage": true
+    "model": "Dopplertone"
   },
   {
     "brand": "Vox",
-    "model": "AC15H1TV",
-    "hasImage": true
+    "model": "AC15H1TV"
   }
 ]
