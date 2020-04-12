@@ -25,6 +25,13 @@ module.exports = {
       }
     },
     {
+      urlPattern: /\.(?:js)$/,
+      handler: 'StaleWhileRevalidate',
+      options: {
+        cacheName: 'scripts'
+      }
+    },
+    {
       urlPattern: /api/,
       handler: "StaleWhileRevalidate"
     }
