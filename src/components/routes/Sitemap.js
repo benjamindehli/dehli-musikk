@@ -294,12 +294,12 @@ class Sitemap extends Component {
           {`<?xml version="1.0" encoding="UTF-8"?>\n`}
           {`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`}
             {this.renderHome()}
-            {this.renderEquipmentTypesList()}
-            {this.renderEquipmentDetails()}
-            {this.renderPostsList()}
             {this.renderReleasesList()}
-            {this.renderPostsDetails()}
+            {this.renderPostsList()}
+            {this.renderEquipmentTypesList()}
             {this.renderReleasesDetails()}
+            {this.renderPostsDetails()}
+            {this.renderEquipmentDetails()}
           {`</urlset>\n`}
           </pre>
 
