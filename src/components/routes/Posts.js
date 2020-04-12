@@ -50,9 +50,12 @@ class Posts extends Component {
     this.initLanguage();
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     if (this.state.redirect) {
       this.setState({redirect: null});
+    }
+    if (this.props.location.pathname !== prevProps.location.pathname){
+      this.initLanguage();
     }
   }
 
@@ -227,7 +230,7 @@ class Posts extends Component {
   }
 }
 
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
+const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey, location: state.router.location});
 
 const mapDispatchToProps = {
   getLanguageSlug,
