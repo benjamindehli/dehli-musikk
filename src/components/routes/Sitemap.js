@@ -11,6 +11,7 @@ import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 // Data
 import {allPosts} from 'data/posts';
 import releases from 'data/portfolio';
+import equipmentTypes from 'data/equipment';
 
 
 class Sitemap extends Component {
@@ -95,7 +96,51 @@ class Sitemap extends Component {
       })
     });
     return images;
+  }
 
+  getImagesFromEquipmentType(equipmentType, languageKey) {
+    let images = [];
+    const formats = ['webp', 'jpg'];
+    const sizes = [350, 540, 945];
+
+    formats.forEach(format => {
+      const imagePath = `data/equipment/thumbnails/web/${format}/${equipmentType.equipmentType}`;
+      sizes.forEach(size => {
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
+        let image = {
+          loc: imageLoc,
+          caption: equipmentType.name[languageKey],
+          title: equipmentType.name[languageKey],
+          license: 'https://creativecommons.org/licenses/by-sa/4.0/',
+          geoLocation: 'Bø i Telemark, Norway'
+        };
+        images.push(image);
+      })
+    });
+    return images;
+  }
+
+  getImagesFromEquipmentItem(equipmentItem, equipmentType) {
+    let images = [];
+    const formats = ['webp', 'jpg'];
+    const sizes = [350, 540, 945];
+
+    const imageFileName = convertToUrlFriendlyString(`${equipmentItem.brand} ${equipmentItem.model}`);
+    formats.forEach(format => {
+      const imagePath = `data/equipment/thumbnails/${equipmentType}/web/${format}/${imageFileName}`;
+      sizes.forEach(size => {
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
+        let image = {
+          loc: imageLoc,
+          caption: `${equipmentItem.model} by ${equipmentItem.brand}`,
+          title: `${equipmentItem.brand} ${equipmentItem.model}`,
+          license: 'https://creativecommons.org/licenses/by-sa/4.0/',
+          geoLocation: 'Bø i Telemark, Norway'
+        };
+        images.push(image);
+      })
+    });
+    return images;
   }
 
   renderPostsListImages(){
@@ -141,6 +186,94 @@ class Sitemap extends Component {
       : '';
   }
 
+  renderEquipmentTypesList() {
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+
+    const equipmentTypeElements = [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)];
+    if (equipmentTypes && Object.keys(equipmentTypes).length){
+      Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
+        equipmentTypeElements.push(this.renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/`));
+        equipmentTypeElements.push(this.renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/`));
+      })
+    }
+    return equipmentTypeElements;
+  }
+
+  renderEquipmentDetails() {
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+
+    const equipmentDetailsElements = [];
+    if (equipmentTypes && Object.keys(equipmentTypes).length){
+      Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
+        const equipmentItems = equipmentTypes[equipmentTypeKey].items;
+        equipmentItems.forEach(item => {
+          const itemId = `${item.brand} ${item.model}`;
+          equipmentDetailsElements.push(this.renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
+          equipmentDetailsElements.push(this.renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
+        })
+      })
+    }
+    return equipmentDetailsElements;
+  }
+
+  renderEquipmentTypesListImages(){
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+    let norwegianImages = [];
+    let englishImages = [];
+    if (equipmentTypes && Object.keys(equipmentTypes).length){
+      Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
+        const equipmentType = equipmentTypes[equipmentTypeKey];
+        norwegianImages = norwegianImages.concat(this.getImagesFromEquipmentType(equipmentType, 'no'));
+        englishImages = englishImages.concat(this.getImagesFromEquipmentType(equipmentType, 'en'));
+      })
+    }
+    return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)]
+  }
+
+  renderEquipmentListImages(){
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+    const equipmentDetailsElements = [];
+    if (equipmentTypes && Object.keys(equipmentTypes).length){
+      Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
+        const equipmentItems = equipmentTypes[equipmentTypeKey].items;
+        const urlNorwegianItemListPage = `${urlNorwegianPage}${equipmentTypeKey}/`;
+        const urlEnglishItemListPage = `${urlEnglishPage}${equipmentTypeKey}/`;
+        let images = [];
+        equipmentItems.forEach(item => {
+          images = images.concat(this.getImagesFromEquipmentItem(item, equipmentTypeKey));
+        });
+        equipmentDetailsElements.push(this.renderImagePageUrlElement(urlNorwegianItemListPage, images));
+        equipmentDetailsElements.push(this.renderImagePageUrlElement(urlEnglishItemListPage, images));
+      })
+    }
+    return equipmentDetailsElements;
+  }
+
+  renderEquipmentDetailsImages() {
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+
+    const equipmentDetailsElements = [];
+    if (equipmentTypes && Object.keys(equipmentTypes).length){
+      Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
+        const equipmentItems = equipmentTypes[equipmentTypeKey].items;
+        equipmentItems.forEach(item => {
+          const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
+          const urlNorwegianItemPage = `${urlNorwegianPage}${equipmentTypeKey}/${itemId}/`;
+          const urlEnglishItemPage = `${urlEnglishPage}${equipmentTypeKey}/${itemId}/`;
+          const images = this.getImagesFromEquipmentItem(item, equipmentTypeKey);
+          equipmentDetailsElements.push(this.renderImagePageUrlElement(urlNorwegianItemPage, images));
+          equipmentDetailsElements.push(this.renderImagePageUrlElement(urlEnglishItemPage, images));
+        })
+      })
+    }
+    return equipmentDetailsElements;
+  }
+
   renderNewsPostsDetails() {
     return allPosts && allPosts.length
       ? allPosts.map(post => {
@@ -161,6 +294,8 @@ class Sitemap extends Component {
           {`<?xml version="1.0" encoding="UTF-8"?>\n`}
           {`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`}
             {this.renderHome()}
+            {this.renderEquipmentTypesList()}
+            {this.renderEquipmentDetails()}
             {this.renderPostsList()}
             {this.renderReleasesList()}
             {this.renderPostsDetails()}
@@ -186,6 +321,9 @@ class Sitemap extends Component {
           {`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`}
             {this.renderPostsListImages()}
             {this.renderPostsDetailsImages()}
+            {this.renderEquipmentTypesListImages()}
+            {this.renderEquipmentListImages()}
+            {this.renderEquipmentDetailsImages()}
           {`</urlset>\n`}
           </pre>
 
