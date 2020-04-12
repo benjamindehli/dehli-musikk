@@ -1,18 +1,10 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
 import {Link} from 'react-router-dom';
 
 // Actions
 import {getLanguageSlug} from 'actions/LanguageActions';
-
-// Helpers
-import {getPrettyDate} from 'helpers/dateFormatter';
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
-
-// Components
-import Button from 'components/partials/Button';
 
 // Stylesheets
 import style from 'components/partials/Post.module.scss';
@@ -44,25 +36,24 @@ class EquipmentItem extends Component {
     const item = this.props.item;
     const itemId = this.props.itemId;
     const itemType = this.props.itemType;
-    const hasImage = this.props.item.hasImage;
 
-    const imagePathWebp = `data/equipment/thumbnails/web/webp/${itemId}`;
-    const imagePathJpg = `data/equipment/thumbnails/web/jpg/${itemId}`;
-    const image = hasImage ? {
+    const imagePathWebp = `data/equipment/thumbnails/${itemType}/web/webp/${itemId}`;
+    const imagePathJpg = `data/equipment/thumbnails/${itemType}/web/jpg/${itemId}`;
+    const image = {
       webp350: require(`../../${imagePathWebp}_350.webp`),
       webp540: require(`../../${imagePathWebp}_540.webp`),
       webp945: require(`../../${imagePathWebp}_945.webp`),
       jpg350: require(`../../${imagePathJpg}_350.jpg`),
       jpg540: require(`../../${imagePathJpg}_540.jpg`),
       jpg945: require(`../../${imagePathJpg}_945.jpg`)
-    } : null;
-    const itemPath = `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${itemType}/${itemId}/`;
+    };
+    const itemPath = `/${this.props.getLanguageSlug(selectedLanguageKey)}equipment/${itemType}/${itemId}/`;
     const itemName = `${item.brand} ${item.model}`;
     return item
       ? (<article className={`${style.gridItem} ${this.props.fullscreen
           ? style.fullscreen
           : ''}`}>
-        {hasImage ? this.renderPostThumbnail(image, itemName, this.props.fullscreen, itemPath) : ''}
+        {this.renderPostThumbnail(image, itemName, this.props.fullscreen, itemPath)}
         <div className={style.contentContainer}>
           <div className={style.content}>
             <div className={style.header}>
