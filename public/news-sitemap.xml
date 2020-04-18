@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.dehlimusikk.no/posts/deadlock-i-ny-episode-fra-serien-trackbytrack/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-04-17</news:publication_date>
+      <news:title>Deadlock i ny episode fra serien TrackByTrack</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/deadlock-in-new-episode-from-the-trackbytrack-series/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-04-17</news:publication_date>
+      <news:title>Deadlock in new episode from the TrackByTrack series</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/ny-synth-dreadbox-erebus-v2/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-04-16</news:publication_date>
+      <news:title>Ny synth - Dreadbox Erebus v2</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/new-synth-dreadbox-erebus-v2/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-04-16</news:publication_date>
+      <news:title>New synth - Dreadbox Erebus v2</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/posts/piano-med-snurreforsterker/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
@@ -77,7 +109,7 @@
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2020-03-27</news:publication_date>
-      <news:title>It might get loud😎📢</news:title>
+      <news:title>It might get loud</news:title>
     </news:news>
   </url>
   <url>
@@ -673,19 +705,19 @@
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/posts/ny-utgivelse-deadlock-av-haunted-by-silhouettes/</loc>
+    <loc>https://www.dehlimusikk.no/posts/ny-utgivelse-the-last-day-on-earth-av-haunted-by-silhouettes/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
       <news:publication_date>2019-09-06</news:publication_date>
-      <news:title>Ny utgivelse - Deadlock av Haunted By Silhouettes</news:title>
+      <news:title>Ny utgivelse - The Last Day on Earth av Haunted By Silhouettes</news:title>
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/en/posts/new-release-deadlock-by-haunted-by-silhouettes/</loc>
+    <loc>https://www.dehlimusikk.no/en/posts/new-release-the-last-day-on-earth-by-haunted-by-silhouettes/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2019-09-06</news:publication_date>
-      <news:title>New release - Deadlock by Haunted By Silhouettes</news:title>
+      <news:title>New release - The Last Day on Earth by Haunted By Silhouettes</news:title>
     </news:news>
   </url>
   <url>
