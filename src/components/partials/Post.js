@@ -162,7 +162,7 @@ class Post extends Component {
         <source sizes={fullscreen
             ? '540px'
             : '175px'} srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
-        <img src={image.jpg350} alt={altText} copyright={copyrightString} />
+        <img loading="lazy" src={image.jpg350} alt={altText} copyright={copyrightString} />
       </picture>
     </figure>);
     return fullscreen
