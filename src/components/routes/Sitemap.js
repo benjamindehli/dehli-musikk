@@ -6,7 +6,8 @@ import {connect} from 'react-redux';
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
 
 // Helpers
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import {convertToUrlFriendlyString} from 'helpers/urlFormatter';
+import {convertToXmlFriendlyString} from 'helpers/xmlStringFormatter';
 
 // Data
 import {allPosts} from 'data/posts';
@@ -85,8 +86,8 @@ class Sitemap extends Component {
         const imageLoc = require(`../../${imagePath}_${size}.${format}`);
         let image = {
           loc: imageLoc,
-          caption: post.thumbnailDescription,
-          title: post.title[languageKey]
+          caption: convertToXmlFriendlyString(post.thumbnailDescription),
+          title: convertToXmlFriendlyString(post.title[languageKey])
         };
         if (post.copyright){
           image.license = 'https://creativecommons.org/licenses/by-sa/4.0/';
@@ -109,8 +110,8 @@ class Sitemap extends Component {
         const imageLoc = require(`../../${imagePath}_${size}.${format}`);
         let image = {
           loc: imageLoc,
-          caption: equipmentType.name[languageKey],
-          title: equipmentType.name[languageKey],
+          caption: convertToXmlFriendlyString(equipmentType.name[languageKey]),
+          title: convertToXmlFriendlyString(equipmentType.name[languageKey]),
           license: 'https://creativecommons.org/licenses/by-sa/4.0/',
           geoLocation: 'Bø i Telemark, Norway'
         };
@@ -132,8 +133,8 @@ class Sitemap extends Component {
         const imageLoc = require(`../../${imagePath}_${size}.${format}`);
         let image = {
           loc: imageLoc,
-          caption: `${equipmentItem.model} by ${equipmentItem.brand}`,
-          title: `${equipmentItem.brand} ${equipmentItem.model}`,
+          caption: convertToXmlFriendlyString(`${equipmentItem.model} by ${equipmentItem.brand}`),
+          title: convertToXmlFriendlyString(`${equipmentItem.brand} ${equipmentItem.model}`),
           license: 'https://creativecommons.org/licenses/by-sa/4.0/',
           geoLocation: 'Bø i Telemark, Norway'
         };
