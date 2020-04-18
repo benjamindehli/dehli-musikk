@@ -1,4 +1,47 @@
 [{
+    "id": "2020041700",
+    "timestamp": 1587081600000,
+    "title": {
+      "no": "Deadlock i ny episode fra serien TrackByTrack",
+      "en": "Deadlock in new episode from the TrackByTrack series"
+    },
+    "content": {
+      "no": "Ny episode av serien TrackByTrack fra Haunted By Silhouettes!\nDenne gangen er det låta 'Deadlock', hvor jeg fikk snike inn litt vrengorgel, synth og Mellotron 😎🤘",
+      "en": "New episode of the TrackByTrack series from Haunted By Silhouettes.\nIn this episode you can hear overdriven organ, synthesizers and Mellotron I had a lot of fun playing on the song 'Deadlock' 😎🤘"
+    },
+    "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
+    "thumbnailFilename": "2020-04-17-00",
+    "link": {
+      "url": "https://youtu.be/3Tjitgv8QVU",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020041600",
+    "copyright": true,
+    "timestamp": 1586995200000,
+    "title": {
+      "no": "Ny synth - Dreadbox Erebus v2",
+      "en": "New synth - Dreadbox Erebus v2"
+    },
+    "content": {
+      "no": "Kjapp testing av nyinnkjøpt Dreadbox Erebus v2 analog paraphonic synthesizer",
+      "en": "Quick test of my newly purchased Dreadbox Erebus v2 analog paraphonic synthesizer"
+    },
+    "thumbnailDescription": "A Dreadbox Erebus synthesizer being played",
+    "thumbnailFilename": "2020-04-16-00",
+    "link": {
+      "url": "https://youtu.be/rXkcBYeyiBo",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
     "id": "2020040400",
     "copyright": true,
     "timestamp": 1585958400000,
@@ -17,49 +60,6 @@
       "text": {
         "en": "Show video",
         "no": "Se video"
-      }
-    }
-  },
-  {
-    "id": "2020040300",
-    "timestamp": 1585872000000,
-    "title": {
-      "no": "Ny serie fra Haunted By Silhouettes",
-      "en": "New series from Haunted By Silhouettes"
-    },
-    "content": {
-      "no": "Sjekk ut første episode av serien TrackByTrack fra Haunted By Silhouettes.\nHer viser de blandt annet marsvin- og tangentspora jeg fikk æren av å legge på låta 'The Last Day on Earth' 🐹🤘",
-      "en": "Check out the first episode of the TrackByTrack series from Haunted By Silhouettes.\nIn this episode you can hear guinea pig noises and the keyboard tracks I got the honor of playing on the song 'The Last Day on Earth' 🐹🤘"
-    },
-    "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
-    "thumbnailFilename": "2020-04-03-00",
-    "link": {
-      "url": "https://youtu.be/ZsHg94LOXHw",
-      "text": {
-        "en": "Show video",
-        "no": "Se video"
-      }
-    }
-  },
-  {
-    "id": "2020040100",
-    "timestamp": 1585699200000,
-    "title": {
-      "no": "Ny utgivelse - Can You See Me av 2020 Vision",
-      "en": "New release - Can You See Me by 2020 Vision"
-    },
-    "content": {
-      "no": "Ny steintøff rockelåt fra rockegutta i rockebandet 2020 Vision med rocke-Halvor bak spakene 😎🤘\nOg jeg har vært så heldig å få spille rocketangenter 🤠",
-      "en": "New rock song from the rock guys in the rock band 2020 Vision with rock Halvor \"The Rock\" Halvorsen behind the faders 😎🤘\nAnd I've been so lucky to play the rock keyboards 🤠"
-    },
-    "thumbnailDescription": "Album cover for the single \"Can You See Me\" by 2020 Vision",
-    "thumbnailFilename": "2020-04-01-00",
-    "link": {
-      "url": "portfolio/2020-vision-can-you-see-me/",
-      "internal": true,
-      "text": {
-        "en": "Listen to Can You See Me",
-        "no": "Lytt til Can You See Me"
       }
     }
   }
