@@ -1,13 +1,122 @@
 [{
+    "id": "2020042500",
+    "timestamp": 1587772800000,
+    "title": {
+      "no": "Undertow i ny episode fra serien Track By Track",
+      "en": "Undertow in new episode from the Track By Track series"
+    },
+    "content": {
+      "no": "Ny episode av serien Track By Track fra Haunted By Silhouettes 🔥\nDenne ganger er det panserlåta 'Undertow' som står for tur 🤘😎",
+      "en": "New episode of the Track By Track series from Haunted By Silhouettes 🔥\nThis time it's the song 'Undertow' 🤘😎"
+    },
+    "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
+    "thumbnailFilename": "2020-04-25-00",
+    "link": {
+      "url": "https://youtu.be/muAQ9UGKmcc",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020042300",
+    "copyright": true,
+    "timestamp": 1587600000000,
+    "title": {
+      "no": "Innspilling av forskjellige Mellotron spor",
+      "en": "Layering Mellotron tracks"
+    },
+    "content": {
+      "no": "Innspilling av fioliner, cello, gitar, vibrafon og pauker med Mellotron M4000D 🎻🥁🎸🎹",
+      "en": "Adding violins, cello, guitar, vibraphone and timpani track with the Mellotron M4000D 🎻🥁🎸🎹"
+    },
+    "thumbnailDescription": "A Mellotron M4000D being played",
+    "thumbnailFilename": "2020-04-23-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B_Vq3slFbRc/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020042200",
+    "copyright": true,
+    "timestamp": 1587513600000,
+    "title": {
+      "no": "Innspilling av harmonium og piano",
+      "en": "Recording harmonium and piano"
+    },
+    "content": {
+      "no": "Innspilling av Yamaha L20-D harmonium og Louis Zwicki Pianette 🎹",
+      "en": "Innspilling the Yamaha L20-D harmonium and Louis Zwicki Pianette 🎹"
+    },
+    "thumbnailDescription": "A Yamaha L20-D harmonium being played",
+    "thumbnailFilename": "2020-04-22-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B_S-HXYhQCd/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020042101",
+    "copyright": true,
+    "timestamp": 1587427200000,
+    "title": {
+      "no": "Ny effektboks - Roland Dimension D SDD-320",
+      "en": "New effects unit - Roland Dimension D SDD-320"
+    },
+    "content": {
+      "no": "Kjapp test av Roland Dimension D hvor jeg prosesserer lyd fra en Dreadbox Erebus v2 synthesizer",
+      "en": "Quick test of the Roland Dimension D SDD-320 processing audio from a Dreadbox Erebus v2 synthesizer"
+    },
+    "thumbnailDescription": "Roland Dimension D SDD-320",
+    "thumbnailFilename": "2020-04-21-01",
+    "link": {
+      "url": "https://youtu.be/01DNzmtdgUs",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020042100",
+    "copyright": true,
+    "timestamp": 1587427200000,
+    "title": {
+      "no": "Prøver ut nye mikrofonplasseringer på pianoet",
+      "en": "Trying out some new mic placements on the piano"
+    },
+    "content": {
+      "no": "Mikker opp Louis Zwicki Pianette med et AKG C451E stereopar 🎤🎹",
+      "en": "Micing the Louis Zwicki Pianette with a stereo pair of AKG C451E 🎤🎹"
+    },
+    "thumbnailDescription": "A Louis Zwicki Pianette miced with a stereo pait of AKG C451E",
+    "thumbnailFilename": "2020-04-21-00",
+    "link": {
+      "url": "https://www.instagram.com/p/B_OCTBJllCD/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
     "id": "2020041700",
     "timestamp": 1587081600000,
     "title": {
-      "no": "Deadlock i ny episode fra serien TrackByTrack",
-      "en": "Deadlock in new episode from the TrackByTrack series"
+      "no": "Deadlock i ny episode fra serien Track By Track",
+      "en": "Deadlock in new episode from the Track By Track series"
     },
     "content": {
-      "no": "Ny episode av serien TrackByTrack fra Haunted By Silhouettes!\nDenne gangen er det låta 'Deadlock', hvor jeg fikk snike inn litt vrengorgel, synth og Mellotron 😎🤘",
-      "en": "New episode of the TrackByTrack series from Haunted By Silhouettes.\nIn this episode you can hear overdriven organ, synthesizers and Mellotron I had a lot of fun playing on the song 'Deadlock' 😎🤘"
+      "no": "Ny episode av serien Track By Track fra Haunted By Silhouettes!\nDenne gangen er det låta 'Deadlock', hvor jeg fikk snike inn litt vrengorgel, synth og Mellotron 😎🤘",
+      "en": "New episode of the Track By Track series from Haunted By Silhouettes.\nIn this episode you can hear overdriven organ, synthesizers and Mellotron I had a lot of fun playing on the song 'Deadlock' 😎🤘"
     },
     "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
     "thumbnailFilename": "2020-04-17-00",
@@ -47,7 +156,7 @@
     "timestamp": 1585958400000,
     "title": {
       "no": "Piano med snurreforsterker",
-      "en": "Piano through a rotary speaker "
+      "en": "Piano through a rotary speaker"
     },
     "content": {
       "no": "Tester ut Louis Zwicki Pianette med en Solton Dopplertone 🎹🔄📢",
@@ -71,8 +180,8 @@
       "en": "New series from Haunted By Silhouettes"
     },
     "content": {
-      "no": "Sjekk ut første episode av serien TrackByTrack fra Haunted By Silhouettes.\nHer viser de blandt annet marsvin- og tangentspora jeg fikk æren av å legge på låta 'The Last Day on Earth' 🐹🤘",
-      "en": "Check out the first episode of the TrackByTrack series from Haunted By Silhouettes.\nIn this episode you can hear guinea pig noises and the keyboard tracks I got the honor of playing on the song 'The Last Day on Earth' 🐹🤘"
+      "no": "Sjekk ut første episode av serien Track By Track fra Haunted By Silhouettes.\nHer viser de blandt annet marsvin- og tangentspora jeg fikk æren av å legge på låta 'The Last Day on Earth' 🐹🤘",
+      "en": "Check out the first episode of the Track By Track series from Haunted By Silhouettes.\nIn this episode you can hear guinea pig noises and the keyboard tracks I got the honor of playing on the song 'The Last Day on Earth' 🐹🤘"
     },
     "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
     "thumbnailFilename": "2020-04-03-00",
