@@ -34,7 +34,8 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    &:focus{
+
+    &:focus {
       outline: none;
     }
 
@@ -92,9 +93,9 @@
 
     :local(.resultsListItem) {
       color: $default-text-color;
-      padding: 6px 16px;
-      display: block;
-      line-height: 1.5;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
 
       &:focus,
       &:hover {
@@ -104,8 +105,69 @@
       &:active {
         background-color: rgba(0, 0, 0, 0.38);
       }
+
       > svg {
         margin-right: 3px;
+      }
+
+      picture {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      :local(.resultsListItemText) {
+        flex: 1;
+        padding: 0 8px;
+      }
+
+      :local(.resultsListItemTypeLabel) {
+        width: 105px;
+        text-align: right;
+        font-size: 0.75em;
+        font-weight: bold;
+
+
+        > span {
+          background-color: #eee;
+          border-radius: 4px;
+          padding: 6px;
+          color: #fff;
+          svg {
+            margin-right: 2px;
+          }
+        }
+
+        &:local(.release) {
+          > span {
+            background-color: $blue-color;
+          }
+        }
+
+        &:local(.post) {
+          > span {
+            background-color: $primary-color;
+          }
+        }
+
+        &:local(.instruments) {
+          > span {
+            background-color: $orange-color;
+          }
+        }
+
+        &:local(.effects) {
+          > span {
+            background-color: $purple-color;
+          }
+        }
+
+        &:local(.amplifiers) {
+          > span {
+            background-color: $green-color;
+          }
+        }
       }
     }
   }

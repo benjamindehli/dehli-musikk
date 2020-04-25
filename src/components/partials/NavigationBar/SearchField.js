@@ -15,6 +15,7 @@ import style from 'components/partials/NavigationBar/SearchField.module.scss';
 // Data
 import releases from 'data/portfolio';
 import {allPosts} from 'data/posts';
+import equipmentTypes from 'data/equipment';
 
 class SearchField extends Component {
   constructor(props) {
@@ -43,15 +44,22 @@ class SearchField extends Component {
     this.resultsListWrapperRef = node;
   }
 
+  renderReleaseThumbnail(thumbnailPaths, alt) {
+    return (<picture>
+      <source sizes='55' srcSet={`${thumbnailPaths.webp} 55w`} type="image/webp"/>
+      <source sizes='55' srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpg"/>
+      <img src={thumbnailPaths.jpg} width='55' height='55' alt={alt}/>
+    </picture>);
+  }
+
   getSearchPointsFromRelease(release, searchString){
     const selectedLanguageKey = this.props.selectedLanguageKey;
 
     const id = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
     const link = `/${this.props.getLanguageSlug(selectedLanguageKey)}portfolio/${id}/`;
-    const linkTitle = `${selectedLanguageKey === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`;
+    const linkTitle = `${selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} ${release.title}`;
 
     const regex = new RegExp(searchString, "gi");
-
 
     const artistNameMatch = release.artistName.match(regex);
     const titleMatch = release.title.match(regex);
@@ -63,9 +71,18 @@ class SearchField extends Component {
 
     const points = artistNamePoints + titlePoints + genrePoints;
 
+    const thumbnailPaths = {
+      webp: require(`../../../data/releases/thumbnails/web/webp/${release.thumbnailFilename}_55.webp`),
+      jpg: require(`../../../data/releases/thumbnails/web/jpg/${release.thumbnailFilename}_55.jpg`)
+    };
+    const thumbnailDescription = selectedLanguageKey === 'en' ? `Cover image for ${release.title} by ${release.artistName}` : `Coverbilde til ${release.title} av ${release.artistName}`;
+
     return {
       type: 'release',
-      text: `${release.artistName} ${release.title} (${release.genre})`,
+      text: `${release.artistName} - ${release.title} (${release.genre})`,
+      label: selectedLanguageKey === 'en' ? 'Releases' : 'Utgivelser',
+      thumbnailPaths,
+      thumbnailDescription,
       points,
       link,
       linkTitle
@@ -98,9 +115,18 @@ class SearchField extends Component {
 
     const points = titlePoints + contentPoints;
 
+    const thumbnailPaths = {
+      webp: require(`../../../data/posts/thumbnails/web/webp/${post.thumbnailFilename}_55.webp`),
+      jpg: require(`../../../data/posts/thumbnails/web/jpg/${post.thumbnailFilename}_55.jpg`)
+    };
+    const thumbnailDescription = post.thumbnailDescription;
+
     return {
       type: 'post',
       text: post.title[selectedLanguageKey],
+      label: selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg',
+      thumbnailPaths,
+      thumbnailDescription,
       points,
       link,
       linkTitle
@@ -116,13 +142,70 @@ class SearchField extends Component {
     });
   }
 
+  getSearchPointsFromEquipmentItems(item, equipmentType, equipmentTypeKey, searchString){
+    const selectedLanguageKey = this.props.selectedLanguageKey;
+
+    const id = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
+    const link = `/${this.props.getLanguageSlug(selectedLanguageKey)}equipment/${equipmentTypeKey}/${id}/`;
+    const linkTitle = `${item.brand} ${item.model}`;
+
+    const regex = new RegExp(searchString, "gi");
+
+    const brandMatch = item.brand.match(regex);
+    const modelMatch = item.model.match(regex);
+    const equipmentTypeMatch = equipmentType.name[selectedLanguageKey].match(regex);
+
+    const brandPoints = brandMatch ? brandMatch.length * 5 : 0;
+    const modelPoints = modelMatch ? modelMatch.length * 5 : 0;
+    const equipmentTypePoints = equipmentTypeMatch ? equipmentTypeMatch.length * 1 : 0;
+
+    const points = brandPoints + modelPoints + equipmentTypePoints;
+
+    const thumbnailPaths = {
+      webp: require(`../../../data/equipment/thumbnails/${equipmentTypeKey}/web/webp/${id}_55.webp`),
+      jpg: require(`../../../data/equipment/thumbnails/${equipmentTypeKey}/web/jpg/${id}_55.jpg`)
+    };
+    const thumbnailDescription = `${item.brand} ${item.model}`;
+
+    return {
+      type: equipmentTypeKey,
+      text: `${item.brand} ${item.model}`,
+      label: equipmentType.name[selectedLanguageKey],
+      thumbnailPaths,
+      thumbnailDescription,
+      points,
+      link,
+      linkTitle
+    };
+  }
+
+  getSearchResultsFromEquipmentType(equipmentType, equipmentTypeKey, searchString){
+    const searchResultsFromEquipmentItems = equipmentType.items.map(item => {
+      return this.getSearchPointsFromEquipmentItems(item, equipmentType, equipmentTypeKey, searchString);
+    })
+    return searchResultsFromEquipmentItems.filter(result => {
+      return result.points && result.points > 0;
+    });
+  }
+
+  getSearchResultsFromEquipmentTypes(equipmentTypes, searchString){
+    let searchResultsFromEquipmentTypes = [];
+    Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
+      const equipmentType = equipmentTypes[equipmentTypeKey];
+      const searchResultsFromEquipmentType = this.getSearchResultsFromEquipmentType(equipmentType, equipmentTypeKey, searchString);
+      searchResultsFromEquipmentTypes = searchResultsFromEquipmentTypes.concat(searchResultsFromEquipmentType);
+    })
+    return searchResultsFromEquipmentTypes;
+  }
+
   handleShowResultsList(event) {
     const searchString = event.target.value.replace(/[^a-å0-9-]+/ig, ""); // Removes unwanted characters
 
-    if (searchString.length) {
+    if (searchString.length > 1) {
       const searchResultsFromReleases = this.getSearchResultsFromReleases(releases, searchString);
       const searchResultsFromPosts = this.getSearchResultsFromPosts(allPosts, searchString);
-      const results = searchResultsFromReleases.concat(searchResultsFromPosts);
+      const searchResultsFromEquipmentTypes = this.getSearchResultsFromEquipmentTypes(equipmentTypes, searchString);
+      const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromEquipmentTypes);
       this.setState({
         showResultsList: true,
         results: results.sort((a, b) => b.points - a.points)
@@ -148,11 +231,16 @@ class SearchField extends Component {
     if (results && results.length) {
       const itemTypeIcons = {
         post: ['fas', 'photo-video'],
-        release: ['fas', 'music']
+        release: ['fas', 'music'],
+        instruments: ['fas', 'guitar'],
+        amplifiers: ['fas', 'bullhorn'],
+        effects: ['fas', 'sliders-h']
       };
       const resultsElements = results.map((result, resultKey) => {
         return (<a href={result.link} title={result.linkTitle} key={resultKey} className={style.resultsListItem}>
-          <FontAwesomeIcon icon={itemTypeIcons[result.type]}/> {result.text}
+          {result.thumbnailPaths && result.thumbnailDescription ? this.renderReleaseThumbnail(result.thumbnailPaths, result.thumbnailDescription) : ''}
+          <span className={style.resultsListItemText}>{result.text}</span>
+          <span className={`${style.resultsListItemTypeLabel} ${style[result.type]}`}><span><FontAwesomeIcon icon={itemTypeIcons[result.type]}/> {result.label}</span></span>
         </a>)
       });
       return resultsElements;
