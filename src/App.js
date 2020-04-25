@@ -8,7 +8,7 @@ import { PrerenderedComponent } from "react-prerendered-component";
 import {Helmet} from 'react-helmet';
 import WebFont from 'webfontloader';
 
-import {library} from '@fortawesome/fontawesome-svg-core'
+import {library} from '@fortawesome/fontawesome-svg-core';
 import {
   faFacebookF,
   faInstagram,
@@ -16,8 +16,19 @@ import {
   faTwitter,
   faVimeoV,
   faYoutube
-} from '@fortawesome/free-brands-svg-icons'
-import {faGripHorizontal, faListUl, faLanguage, faChevronDown, faPhotoVideo, faMusic, faSearch} from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/free-brands-svg-icons';
+import {
+  faBullhorn,
+  faChevronDown,
+  faGripHorizontal,
+  faGuitar,
+  faListUl,
+  faLanguage,
+  faMusic,
+  faPhotoVideo,
+  faSearch,
+  faSlidersH
+} from '@fortawesome/free-solid-svg-icons';
 
 // Utils
 import configureStore, {history} from 'utils/configureStore';
@@ -55,7 +66,24 @@ WebFont.load({
   }
 });
 
-library.add(faFacebookF, faInstagram, faTumblr, faTwitter, faVimeoV, faYoutube, faGripHorizontal, faListUl, faLanguage, faChevronDown, faSearch, faMusic, faPhotoVideo)
+library.add(
+  faBullhorn,
+  faChevronDown,
+  faFacebookF,
+  faGripHorizontal,
+  faGuitar,
+  faInstagram,
+  faLanguage,
+  faListUl,
+  faMusic,
+  faPhotoVideo,
+  faSearch,
+  faSlidersH,
+  faTumblr,
+  faTwitter,
+  faVimeoV,
+  faYoutube
+);
 
 const initialState = {};
 
