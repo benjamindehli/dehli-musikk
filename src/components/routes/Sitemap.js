@@ -78,7 +78,7 @@ class Sitemap extends Component {
   getImagesFromPost(post, languageKey) {
     let images = [];
     const formats = ['webp', 'jpg'];
-    const sizes = [350, 540];
+    const sizes = [55, 350, 540];
     const languageKeys = ['en', 'no'];
     formats.forEach(format => {
       const imagePath = `data/posts/thumbnails/web/${format}/${post.thumbnailFilename}`;
@@ -124,7 +124,7 @@ class Sitemap extends Component {
   getImagesFromEquipmentItem(equipmentItem, equipmentType) {
     let images = [];
     const formats = ['webp', 'jpg'];
-    const sizes = [350, 540, 945];
+    const sizes = [55, 350, 540, 945];
 
     const imageFileName = convertToUrlFriendlyString(`${equipmentItem.brand} ${equipmentItem.model}`);
     formats.forEach(format => {
