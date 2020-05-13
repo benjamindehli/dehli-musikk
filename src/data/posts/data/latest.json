@@ -1,18 +1,19 @@
 [{
-    "id": "2020042500",
-    "timestamp": 1587772800000,
+    "id": "2020051000",
+    "copyright": true,
+    "timestamp": 1589068800000,
     "title": {
-      "no": "Undertow i ny episode fra serien Track By Track",
-      "en": "Undertow in new episode from the Track By Track series"
+      "no": "Piano, synth og trommemaskin",
+      "en": "Piano, synthesizers and drum machine"
     },
     "content": {
-      "no": "Ny episode av serien Track By Track fra Haunted By Silhouettes 🔥\nDenne gangen er det panserlåta 'Undertow' som står for tur 🤘😎",
-      "en": "New episode of the Track By Track series from Haunted By Silhouettes 🔥\nThis time it's the song 'Undertow' 🤘😎"
+      "no": "Lager 80-tallsinnspirert musikk med piano, forskjellige synther og trommemaskin 🎹🎛️👯‍♂️🦄",
+      "en": "Making '80s inspired music with piano, various synthesizers and drum machine 🎹🎛️👯‍♂️🦄"
     },
-    "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
-    "thumbnailFilename": "2020-04-25-00",
+    "thumbnailDescription": "A Fostex X-28H 4-track tape recorder",
+    "thumbnailFilename": "2020-05-10-00",
     "link": {
-      "url": "https://youtu.be/muAQ9UGKmcc",
+      "url": "https://www.instagram.com/p/CABZIKGh_dt/",
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -20,21 +21,21 @@
     }
   },
   {
-    "id": "2020042300",
+    "id": "2020050900",
     "copyright": true,
-    "timestamp": 1587600000000,
+    "timestamp": 1588982400000,
     "title": {
-      "no": "Innspilling av forskjellige Mellotron spor",
-      "en": "Layering Mellotron tracks"
+      "no": "Vrengkeytar",
+      "en": "Distortion keytar"
     },
     "content": {
-      "no": "Innspilling av fioliner, cello, gitar, vibrafon og pauker med Mellotron M4000D 🎻🥁🎸🎹",
-      "en": "Adding violins, cello, guitar, vibraphone and timpani track with the Mellotron M4000D 🎻🥁🎸🎹"
+      "no": "Innspilling av solo med Roland AX-1 keytar, vrengbokser og rørforsterkere 🎹🤠🦄📼🔊",
+      "en": "Recording a solo with a Roland AX-1 keytar, overdrive pedals and tube amplifiers 🎹🤠🦄📼🔊"
     },
-    "thumbnailDescription": "A Mellotron M4000D being played",
-    "thumbnailFilename": "2020-04-23-00",
+    "thumbnailDescription": "A Roland AX-1 being played",
+    "thumbnailFilename": "2020-05-09-00",
     "link": {
-      "url": "https://www.instagram.com/p/B_Vq3slFbRc/",
+      "url": "https://www.instagram.com/p/B_-vosvAFuD/",
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -42,21 +43,20 @@
     }
   },
   {
-    "id": "2020042200",
-    "copyright": true,
-    "timestamp": 1587513600000,
+    "id": "2020050800",
+    "timestamp": 1588896000000,
     "title": {
-      "no": "Innspilling av harmonium og piano",
-      "en": "Recording harmonium and piano"
+      "no": "Musikkvideo - Give Me a Smile, Joe av Lene Nevisdal",
+      "en": "Music video - Give Me a Smile, Joe by Lene Nevisdal"
     },
     "content": {
-      "no": "Innspilling av Yamaha L20-D harmonium og Louis Zwicki Pianette 🎹",
-      "en": "Innspilling the Yamaha L20-D harmonium and Louis Zwicki Pianette 🎹"
+      "no": "Musikkvideo til låta Give Me a Smile, Joe av Lene Nevisdal er ute 📼",
+      "en": "Music video for Give Me a Smile, Joe by Lene Nevisdal is out 📼"
     },
-    "thumbnailDescription": "A Yamaha L20-D harmonium being played",
-    "thumbnailFilename": "2020-04-22-00",
+    "thumbnailDescription": "Snapshot from the music video for \"Give Me a Smile, Joe\" by Lene Nevisdal",
+    "thumbnailFilename": "2020-05-08-00",
     "link": {
-      "url": "https://www.instagram.com/p/B_S-HXYhQCd/",
+      "url": "https://www.facebook.com/lenenevisdalofficial/videos/1554443811374263/",
       "text": {
         "en": "Show video",
         "no": "Se video"
