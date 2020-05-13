@@ -1,3 +1,21 @@
+searchResults: {
+resize: {
+  Mode: fill,
+  width: 55,
+  height: 55,
+  keepRatio: false (posts)
+},
+cleanMetadata: 'all',
+crop: {
+  fromPosition: {
+    x: 10 (equipment)
+    width: 55,
+    height: 55
+  }
+},
+quality: 80
+}
+
 Small:
 resize: {
   Mode: fill,
