@@ -20,6 +20,8 @@ import {
 import {
   faBullhorn,
   faChevronDown,
+  faChevronLeft,
+  faChevronRight,
   faGripHorizontal,
   faGuitar,
   faListUl,
@@ -69,6 +71,8 @@ WebFont.load({
 library.add(
   faBullhorn,
   faChevronDown,
+  faChevronLeft,
+  faChevronRight,
   faFacebookF,
   faGripHorizontal,
   faGuitar,

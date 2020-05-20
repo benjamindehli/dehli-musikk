@@ -158,19 +158,36 @@ class Equipment extends Component {
         redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${selectedEquipmentType}/`
       });
     }
+    const handleClickArrowLeft = selectedEquipment && selectedEquipment.previousEquipmentItemId ? () => {
+      this.setState({
+        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${selectedEquipmentType}/${selectedEquipment.previousEquipmentItemId}/`
+      });
+    } : null;
+    const handleClickArrowRight = selectedEquipment && selectedEquipment.nextEquipmentItemId ? () => {
+      this.setState({
+        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${selectedEquipmentType}/${selectedEquipment.nextEquipmentItemId}/`
+      });
+    } : null;
 
     const itemId = convertToUrlFriendlyString(`${selectedEquipment.brand} ${selectedEquipment.model}`);
     return selectedEquipment
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px">
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight}>
           <EquipmentItem key={itemId} item={selectedEquipment} itemType={selectedEquipmentType} itemId={itemId} fullscreen={true}/>
         </Modal>)
       : '';
   }
 
-  getSelectedEquipment(equipment, selectedEquipmentType, selectedEquipmentId) {
-    const selectedEquipment = equipment.find(equipmentItem => {
+  getSelectedEquipment(equipment, selectedEquipmentId) {
+    let selectedEquipment = null;
+    equipment.forEach((equipmentItem, index) => {
       const equipmentItemId = convertToUrlFriendlyString(`${equipmentItem.brand} ${equipmentItem.model}`)
-      return equipmentItemId === selectedEquipmentId
+      if (equipmentItemId === selectedEquipmentId) {
+        selectedEquipment = {
+          ...equipmentItem,
+          previousEquipmentItemId: index > 0 ? convertToUrlFriendlyString(`${equipment[index-1].brand} ${equipment[index-1].model}`) : null,
+          nextEquipmentItemId: index < equipment.length-1 ? convertToUrlFriendlyString(`${equipment[index+1].brand} ${equipment[index+1].model}`) : null
+        }
+      }
     });
     return selectedEquipment;
   }
@@ -183,7 +200,7 @@ class Equipment extends Component {
       ? this.props.match.params.equipmentId
       : null;
     const selectedEquipment = selectedEquipmentType && selectedEquipmentId
-      ? this.getSelectedEquipment(equipment[selectedEquipmentType].items, selectedEquipmentType, selectedEquipmentId)
+      ? this.getSelectedEquipment(equipment[selectedEquipmentType].items, selectedEquipmentId)
       : null;
 
     const listEquipmentTypesPage = {

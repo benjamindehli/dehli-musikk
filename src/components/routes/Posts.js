@@ -73,18 +73,36 @@ class Posts extends Component {
         redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`
       });
     }
+    const handleClickArrowLeft = selectedPost && selectedPost.previousPostId ? () => {
+      this.setState({
+        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost.previousPostId}/`
+      });
+    } : null;
+    const handleClickArrowRight = selectedPost && selectedPost.nextPostId ? () => {
+      this.setState({
+        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${selectedPost.nextPostId}/`
+      });
+    } : null;
     return selectedPost
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px">
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight}>
         <Post post={selectedPost} fullscreen={true}/>
       </Modal>)
       : '';
   }
 
   getSelectedPost(selectedPostId, selectedLanguageKey) {
-    return allPosts.find(post => {
+    let selectedPost = null;
+    allPosts.forEach((post, index) => {
       const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey])
-      return postId === selectedPostId
+      if (postId === selectedPostId) {
+        selectedPost = {
+          ...post,
+          previousPostId: index > 0 ? convertToUrlFriendlyString(allPosts[index-1].title[selectedLanguageKey]) : null,
+          nextPostId: index < allPosts.length-1 ? convertToUrlFriendlyString(allPosts[index+1].title[selectedLanguageKey]) : null
+        }
+      }
     });
+    return selectedPost;
   }
 
   render() {
