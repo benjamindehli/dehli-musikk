@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.dehlimusikk.no/posts/ja-vi-elsker-dette-landet-norges-nasjonalsang/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-05-17</news:publication_date>
+      <news:title>Ja, vi elsker dette landet (Norges nasjonalsang)</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/ja-vi-elsker-dette-landet-norwegian-national-anthem/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-05-17</news:publication_date>
+      <news:title>Ja, vi elsker dette landet (Norwegian national anthem)</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/lo-fi-sampling-av-piano/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-05-14</news:publication_date>
+      <news:title>Lo-fi sampling av piano</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/lo-fi-piano-sampling/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-05-14</news:publication_date>
+      <news:title>Lo-fi piano sampling</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/posts/piano-synth-og-trommemaskin/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
