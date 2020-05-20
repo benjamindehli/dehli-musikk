@@ -23,6 +23,12 @@
     padding: 22px;
     color: rgba(255,255,255,.5);
     cursor: pointer;
+    svg {
+      @include transform(rotate(90deg));
+      @media (min-width: $screen-sm) {
+        @include transform(none);
+      }
+    }
   }
   :local(.arrowPlaceholderButton){
     width: 64px;
@@ -35,5 +41,8 @@
     box-shadow: 0 11px 15px -7px rgba(0,0,0,0.2), 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12);
     border-radius: 4px;
     overflow: hidden;
+    @media (min-width: $screen-sm) {
+      @include calc('width', '100% - 128px');
+    }
   }
 }
