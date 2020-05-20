@@ -134,14 +134,16 @@ class Equipment extends Component {
     </div>);
   }
 
-  renderEquipmentItems(equipment){
+  renderEquipmentItems(equipment, selectedEquipment){
     const equipmentItemElements = equipment.items && equipment.items.length
       ? equipment.items.map(item => {
         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
         return <EquipmentItem key={itemId} item={item} itemId={itemId} itemType={equipment.equipmentType} />;
       })
       : '';
-    return (<div className={`${style.posts} padding-sm`}>
+    return (<div className={`${style.posts} ${selectedEquipment
+        ? style.blur
+        : ''} padding-sm`}>
       <h2>{equipment.name[this.props.selectedLanguageKey]}</h2>
       <div className={style.grid}>
         {equipmentItemElements}
@@ -303,7 +305,9 @@ class Equipment extends Component {
                 : ''
             }`} hreflang="x-default"/>
         </Helmet>
-        <div className='padding'>
+        <div className={`${selectedEquipment
+            ? style.blur
+            : ''} padding`}>
           <Breadcrumbs breadcrumbs={breadcrumbs}/>
           <h1>{
               selectedEquipment
@@ -327,7 +331,7 @@ class Equipment extends Component {
         }
         {
           selectedEquipmentType
-            ? this.renderEquipmentItems(equipment[selectedEquipmentType])
+            ? this.renderEquipmentItems(equipment[selectedEquipmentType], selectedEquipment)
             : this.renderEquipmentTypes(listEquipmentTypesPage)
         }
       </div>)
