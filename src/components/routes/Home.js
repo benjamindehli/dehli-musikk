@@ -62,7 +62,7 @@ class Home extends Component {
       })
       return (<source key={fileType} srcSet={srcSet} type={`image/${fileType}`}/>)
     })
-    return (<picture className={style.backgroundsImage}>{srcSets}<img src={headerImage.jpg[1024]} alt='Header image for www.dehlimusikk.no' copyright="cc-by 2019 Benjamin Dehli dehlimusikk.no"/></picture>);
+    return (<picture className={style.backgroundsImage}>{srcSets}<img src={headerImage.jpg[1024]} alt='A Korg MS-20 with a cassette and tape recorder' copyright="cc-by 2019 Benjamin Dehli dehlimusikk.no"/></picture>);
   }
 
   render() {
