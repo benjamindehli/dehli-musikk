@@ -1,4 +1,41 @@
 [{
+    "id": "2020051700",
+    "copyright": true,
+    "timestamp": 1589673600000,
+    "title": {
+      "no": "Ja, vi elsker dette landet (Norges nasjonalsang)",
+      "en": "Ja, vi elsker dette landet (Norwegian national anthem)"
+    },
+    "content": {
+      "no": "Gratulerer med dagen, Norge 🇧🇻\nFeirer dagen med en synth-versjon av Norges nasjonalsang",
+      "en": "Happy National Day 🇧🇻\nCelebrating the day with a synthesizer version of the Norwegian national anthem"
+    },
+    "thumbnailDescription": "A Korg MS-20 and patch cables with the color of the Norwegian flag",
+    "thumbnailFilename": "2020-05-17-00",
+    "link": {
+      "url": "https://youtu.be/ppjbdVeWfdA",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020051400",
+    "copyright": true,
+    "timestamp": 1589414400000,
+    "title": {
+      "no": "Lo-fi sampling av piano",
+      "en": "Lo-fi piano sampling"
+    },
+    "content": {
+      "no": "Sampling av Louis Zwicki Pianette med forskjellige typer mikrofoner og kassettopptaker 🎹☎️📼",
+      "en": "Sampling the Louis Zwicki Pianette with different kind of microphones and a 4-track recorder 🎹☎️📼"
+    },
+    "thumbnailDescription": "Louis Zwicki Pianette with a modified Televerket telephone as microphone",
+    "thumbnailFilename": "2020-05-14-00"
+  },
+  {
     "id": "2020051000",
     "copyright": true,
     "timestamp": 1589068800000,
