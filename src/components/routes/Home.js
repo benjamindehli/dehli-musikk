@@ -125,8 +125,27 @@ class Home extends Component {
             }
           </div>
         </Container>
-        </div>
+      </div>
       <div className={style.latestReleasesSection}>
+        <Container>
+          <h2>{
+            this.props.selectedLanguageKey === 'en'
+              ? 'Latest releases'
+              : 'Siste utgivelser'
+          }</h2>
+          <LatestReleases />
+          <div className={style.callToActionButtonContainer}>
+            {
+              this.props.selectedLanguageKey === 'en'
+                ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} title='See all releases'>
+                  <Button>See all releases</Button>
+                </Link>)
+                : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} title='Se alle utgivelser'>
+                  <Button>Se alle utgivelser</Button>
+                </Link>)
+            }
+          </div>
+        </Container>
       </div>
       <div className={style.socialMediaSection}>
         <div className={style.contentSection}>
