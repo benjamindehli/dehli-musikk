@@ -1,0 +1,20 @@
+@import "../../../style/abstracts/all";
+
+:local(.listItem) {
+  border-bottom: 1px solid #eee;
+  padding: 8px;
+  display: flex;
+  align-items: flex-start;
+  @media (min-width: $screen-sm) {
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    margin: 8px;
+    width: 350px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: none;
+    padding: 0;
+    padding-bottom: 0;
+    background-color: #fff;
+    display: block;
+  }
+}
