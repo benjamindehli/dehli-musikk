@@ -205,13 +205,7 @@ class Product extends Component {
         </ListItemThumbnail>
         <ListItemContent fullscreen={this.props.fullscreen}>
             <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
-              {
-                this.props.fullscreen
-                  ? (<h2>{product.title}</h2>)
-                  : (<Link to={productPath} title={product.title}>
-                    <h2>{product.title}</h2>
-                  </Link>)
-              }
+              <h2>{product.title}</h2>
               <time dateTime={productDate.toISOString()}>
                 {getPrettyDate(productDate, selectedLanguageKey)}
               </time>
