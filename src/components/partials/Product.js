@@ -132,7 +132,7 @@ class Product extends Component {
         "@type": "Offer",
         "price": product.price,
         "priceCurrency": product.priceCurrency,
-        "url": product.links.shop.url,
+        "url": product.link.url,
         "availability": "http://schema.org/OnlineOnly",
         "validFrom" : productDate,
       },
@@ -158,14 +158,8 @@ class Product extends Component {
     </React.Fragment>);
   }
 
-  renderLink(link) {
-    return link.internal
-    ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url}`} title={link.text[this.props.selectedLanguageKey]}>
-        <Button buttontype='minimal'>
-          {link.text[this.props.selectedLanguageKey]}
-        </Button>
-      </Link>)
-    : (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
+  renderShopLink(link) {
+    return (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
         <Button buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
         </Button>
@@ -220,7 +214,7 @@ class Product extends Component {
             <ListItemActionButtons fullscreen={this.props.fullscreen}>
             {
               product.link && this.props.fullscreen
-                ? this.renderLink(product.link)
+                ? this.renderShopLink(product.link)
                 : ''
             }
           </ListItemActionButtons>
