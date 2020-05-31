@@ -14,7 +14,7 @@ import style from 'components/partials/NavigationBar/SearchField.module.scss';
 
 // Data
 import releases from 'data/portfolio';
-import {allPosts} from 'data/posts';
+import posts from 'data/posts';
 import products from 'data/products';
 import equipmentTypes from 'data/equipment';
 
@@ -248,7 +248,7 @@ class SearchField extends Component {
 
     if (searchString.length > 1) {
       const searchResultsFromReleases = this.getSearchResultsFromReleases(releases, searchString);
-      const searchResultsFromPosts = this.getSearchResultsFromPosts(allPosts, searchString);
+      const searchResultsFromPosts = this.getSearchResultsFromPosts(posts, searchString);
       const searchResultsFromProducts = this.getSearchResultsFromProducts(products, searchString);
       const searchResultsFromEquipmentTypes = this.getSearchResultsFromEquipmentTypes(equipmentTypes, searchString);
       const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromProducts, searchResultsFromEquipmentTypes);

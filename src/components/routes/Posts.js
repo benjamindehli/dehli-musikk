@@ -21,7 +21,7 @@ import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} fr
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 
 // Data
-import {allPosts} from 'data/posts';
+import posts from 'data/posts';
 
 
 class Posts extends Component {
@@ -63,8 +63,8 @@ class Posts extends Component {
   }
 
   renderPosts() {
-    return allPosts && allPosts.length
-      ? allPosts.map(post => {
+    return posts && posts.length
+      ? posts.map(post => {
         return (<ListItem key={post.id} fullscreen={this.props.fullscreen}>
           <Post post={post}/>
         </ListItem>)
@@ -97,13 +97,13 @@ class Posts extends Component {
 
   getSelectedPost(selectedPostId, selectedLanguageKey) {
     let selectedPost = null;
-    allPosts.forEach((post, index) => {
+    posts.forEach((post, index) => {
       const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey])
       if (postId === selectedPostId) {
         selectedPost = {
           ...post,
-          previousPostId: index > 0 ? convertToUrlFriendlyString(allPosts[index-1].title[selectedLanguageKey]) : null,
-          nextPostId: index < allPosts.length-1 ? convertToUrlFriendlyString(allPosts[index+1].title[selectedLanguageKey]) : null
+          previousPostId: index > 0 ? convertToUrlFriendlyString(posts[index-1].title[selectedLanguageKey]) : null,
+          nextPostId: index < posts.length-1 ? convertToUrlFriendlyString(posts[index+1].title[selectedLanguageKey]) : null
         }
       }
     });
