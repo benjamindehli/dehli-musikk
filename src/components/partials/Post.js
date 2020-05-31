@@ -14,8 +14,13 @@ import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 // Components
 import Button from 'components/partials/Button';
 
-// Stylesheets
-import style from 'components/partials/Post.module.scss';
+// Template
+import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+import ListItemContent from 'components/template/List/ListItem/ListItemContent';
+import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
+import ListItemActionButtons from 'components/template/List/ListItem/ListItemActionButtons';
+
 
 class Post extends Component {
 
@@ -154,24 +159,18 @@ class Post extends Component {
 
   renderPostThumbnail(image, altText, fullscreen, postPath, postTitle, copyright, postDate) {
     const copyrightString = copyright && postDate ? `cc-by ${postDate.getFullYear()} Benjamin Dehli dehlimusikk.no` : null;
-    const thumbnailElement = (<figure className={style.thumbnail}>
-      <picture>
-        <source sizes={fullscreen
-            ? '540px'
-            : '175px'} srcSet={`${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
-        <source sizes={fullscreen
-            ? '540px'
-            : '175px'} srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
-        <img loading="lazy" src={image.jpg350} alt={altText} copyright={copyrightString} />
-      </picture>
-    </figure>);
-    return fullscreen
-      ? thumbnailElement
-      : (<Link to={postPath} title={postTitle}>{thumbnailElement}</Link>);
+    const imageSize = fullscreen
+      ? '540px'
+      : '350px';
+    return (<React.Fragment>
+      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
+      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
+      <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} copyright={copyrightString} />
+    </React.Fragment>);
   }
 
   renderLink(link) {
-    const linkElement = link.internal
+    return link.internal
     ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url}`} title={link.text[this.props.selectedLanguageKey]}>
         <Button buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
@@ -182,9 +181,6 @@ class Post extends Component {
           {link.text[this.props.selectedLanguageKey]}
         </Button>
       </a>);
-    return (<div className={style.buttons}>
-      {linkElement}
-    </div>);
   }
 
   render() {
@@ -195,49 +191,49 @@ class Post extends Component {
     const imagePathWebp = `data/posts/thumbnails/web/webp/${post.thumbnailFilename}`;
     const imagePathJpg = `data/posts/thumbnails/web/jpg/${post.thumbnailFilename}`;
     const image = {
+      webp55: require(`../../${imagePathWebp}_55.webp`),
       webp350: require(`../../${imagePathWebp}_350.webp`),
       webp540: require(`../../${imagePathWebp}_540.webp`),
+      jpg55: require(`../../${imagePathJpg}_55.jpg`),
       jpg350: require(`../../${imagePathJpg}_350.jpg`),
       jpg540: require(`../../${imagePathJpg}_540.jpg`)
     };
     const postDate = new Date(post.timestamp);
     const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
     const postPath = `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${postId}/`;
+
+    const link = {
+      to: postPath,
+      title: post.title[selectedLanguageKey]
+    };
+
     return post && post.content && post.content[selectedLanguageKey]
-      ? (<article className={`${style.gridItem} ${this.props.fullscreen
-          ? style.fullscreen
-          : ''}`}>
+      ? (<React.Fragment>
         {this.renderPostSnippet(post, postId, image.jpg540)}
-        {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen, postPath, post.title[selectedLanguageKey], post.copyright, postDate)}
-        <div className={style.contentContainer}>
-          <div className={style.content}>
-            <div className={style.header}>
-              {
-                this.props.fullscreen
-                  ? (<h2>{post.title[selectedLanguageKey]}</h2>)
-                  : (<Link to={postPath} title={post.title[selectedLanguageKey]}>
-                    <h2>{post.title[selectedLanguageKey]}</h2>
-                  </Link>)
-              }
-              <time dateTime={postDate.toISOString()}>
-                {getPrettyDate(postDate, selectedLanguageKey)}
-              </time>
-            </div>
-            <div className={style.body}>
+        <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
+          {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen, postPath, post.title[selectedLanguageKey], post.copyright, postDate)}
+        </ListItemThumbnail>
+        <ListItemContent fullscreen={this.props.fullscreen}>
+          <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
+            <h2>{post.title[selectedLanguageKey]}</h2>
+            <time dateTime={postDate.toISOString()}>{getPrettyDate(postDate, selectedLanguageKey)}</time>
+          </ListItemContentHeader>
+          <ListItemContentBody fullscreen={this.props.fullscreen}>
               {
                 post.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
                   return (<p key={key}>{paragraph}</p>)
                 })
               }
-            </div>
-          </div>
+          </ListItemContentBody>
+          <ListItemActionButtons fullscreen={this.props.fullscreen}>
           {
             post.link && this.props.fullscreen
               ? this.renderLink(post.link)
               : ''
           }
-        </div>
-      </article>)
+          </ListItemActionButtons>
+        </ListItemContent>
+      </React.Fragment>)
       : '';
   }
 }

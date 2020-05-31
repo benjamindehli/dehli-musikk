@@ -9,6 +9,11 @@ import Release from 'components/partials/Portfolio/Release';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Modal from 'components/partials/Modal';
 
+// Template
+import Container from 'components/template/Container';
+import List from 'components/template/List';
+import ListItem from 'components/template/List/ListItem';
+
 // Actions
 import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';
 
@@ -18,8 +23,6 @@ import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 // Data
 import releases from 'data/portfolio';
 
-// Stylesheets
-import style from 'components/routes/Portfolio.module.scss';
 
 class Portfolio extends Component {
   constructor(props) {
@@ -50,7 +53,9 @@ class Portfolio extends Component {
   renderReleases() {
     return releases && releases.length
       ? releases.map(release => {
-        return <Release key={release.id} release={release} />
+        return (<ListItem key={release.id} fullscreen={this.props.fullscreen}>
+            <Release release={release} />
+          </ListItem>)
       })
       : '';
   }
@@ -62,7 +67,7 @@ class Portfolio extends Component {
       });
     }
     return selectedRelease
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="400px">
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px">
         <Release key={selectedRelease.id} release={selectedRelease} fullscreen={true} />
       </Modal>)
       : '';
@@ -80,7 +85,6 @@ class Portfolio extends Component {
       ? this.props.match.params.releaseId
       : null;
     const selectedRelease = selectedReleaseId ? this.getSelectedRelease(selectedReleaseId, this.props.selectedLanguageKey) : null;
-
 
     const listPage = {
       title: {
@@ -134,7 +138,7 @@ class Portfolio extends Component {
       const contentTitle = selectedRelease ? detailsPage.heading[this.props.selectedLanguageKey] : listPage.heading[this.props.selectedLanguageKey];
       const metaDescription = selectedRelease ? detailsPage.description[this.props.selectedLanguageKey] : listPage.description[this.props.selectedLanguageKey];
 
-      return (<div className={style.container}>
+      return (<React.Fragment>
         <Helmet htmlAttributes={{ lang : this.props.selectedLanguageKey }}>
           <title>{metaTitle}</title>
           <meta name='description' content={metaDescription} />
@@ -151,19 +155,17 @@ class Portfolio extends Component {
           <meta property="twitter:description" content={metaDescription} />
         </Helmet>
         {selectedRelease ? this.renderSelectedRelease(selectedRelease) : ''}
-        <div className={`padding ${selectedRelease
-            ? style.blur
-            : ''}`}>
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <Container blur={selectedRelease !== null}>
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
           <h1>{contentTitle}</h1>
           <p>{this.props.selectedLanguageKey === 'en' ? 'Recordings where I\'ve contributed' : 'Utgivelser jeg har bidratt på'}</p>
-        </div>
-        <div className={`${style.releases} ${selectedRelease ? style.blur : ''} padding-sm`}>
-          <div className={style.list}>
+        </Container>
+        <Container blur={selectedRelease !== null}>
+          <List>
              {this.renderReleases()}
-          </div>
-        </div>
-      </div>)
+          </List>
+        </Container>
+      </React.Fragment>)
     }
   }
 }

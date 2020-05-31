@@ -81,13 +81,11 @@ img {
   }
 }
 
-:local(.latestPostsSection) {
-  background-color: #eee;
+:local(.mutedSection) {
+  background-color: #e6e6e6;
+}
 
-  :local(.callToAction) {
-    text-align: center;
-    margin: 16px 0;
-
-    a {}
-  }
+:local(.callToActionButtonContainer) {
+  text-align: center;
+  margin: 16px 0;
 }

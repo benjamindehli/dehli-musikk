@@ -12,7 +12,12 @@ import IntroContent from 'components/partials/IntroContent';
 import Button from 'components/partials/Button';
 import SocialMediaLinks from 'components/partials/SocialMediaLinks';
 import LatestPosts from 'components/partials/LatestPosts';
+import LatestReleases from 'components/partials/LatestReleases';
 
+// Template
+import Container from 'components/template/Container';
+
+// Assets
 import DehliMusikkLogo from 'assets/svg/DehliMusikkLogoInverse.svg'
 
 // Stylesheets
@@ -100,15 +105,15 @@ class Home extends Component {
         </header>
       <IntroContent />
       </div>
-      <div className={style.latestPostsSection}>
-        <div className={`${style.contentSection} ${style.fullWidthSm}`}>
+      <div className={style.mutedSection}>
+        <Container>
           <h2>{
               this.props.selectedLanguageKey === 'en'
                 ? 'Latest updates'
                 : 'Siste oppdateringer'
             }</h2>
           <LatestPosts/>
-          <div className={style.callToAction}>
+          <div className={style.callToActionButtonContainer}>
             {
               this.props.selectedLanguageKey === 'en'
                 ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} title='See all posts'>
@@ -119,7 +124,9 @@ class Home extends Component {
                 </Link>)
             }
           </div>
+        </Container>
         </div>
+      <div className={style.latestReleasesSection}>
       </div>
       <div className={style.socialMediaSection}>
         <div className={style.contentSection}>

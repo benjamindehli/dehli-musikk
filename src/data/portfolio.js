@@ -29,8 +29,19 @@ import wildWhensRebelHeart from './releases/data/wildWhens_rebelHeart_7vIxzySCGM
 import wildWhensSailinSarah from './releases/data/wildWhens_sailinSarah_50PONsFQZadgxvPJclRLjv.json';
 import wildWhensTravellinMan from './releases/data/wildWhens_travellinMan_2kO379DWolHqoC4lrlgToK.json';
 
+const latestReleases = [
+  twentyTwentyVisionCanYouSeeMe,
+  thomasTveitenDaaEDetVerdtDet,
+  esbenMeyerTaakemann
+];
+
+export {
+  latestReleases
+}
+
 export default [
   twentyTwentyVisionCanYouSeeMe,
+  twentyTwentyVisionUnderTheMidnightSun,
   ainaWassvikDauntless,
   changemakersVeidemannen,
   confusionConfusion,

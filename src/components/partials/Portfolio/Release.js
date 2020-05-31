@@ -2,20 +2,22 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
-import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // Components
 import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
-import Button from 'components/partials//Button';
+
+// Template
+import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+import ListItemContent from 'components/template/List/ListItem/ListItemContent';
+import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
 
 // Actions
 import {fetchReleasesThumbnail} from 'actions/PortfolioActions';
 import {getLanguageSlug} from 'actions/LanguageActions';
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 
-// Stylesheets
-import style from 'components/partials/Portfolio/Release.module.scss';
 
 class Release extends Component {
   constructor(props) {
@@ -50,31 +52,16 @@ class Release extends Component {
     document.addEventListener('mousedown', this.handleClickOutside);
   }
 
-  renderReleaseThumbnail_old(releaseThumbnail, release) {
-    const srcSets = Object.keys(releaseThumbnail).map(fileType => {
-      const srcSet = Object.keys(releaseThumbnail[fileType]).map(imageSize => {
-        return releaseThumbnail[fileType][imageSize].srcSet;
-      })
-      return (<source sizes={this.props.fullscreen
-          ? '400px'
-          : '55px'} key={fileType} srcSet={`${srcSet}`} type={`image/${fileType}`}/>)
-    })
-    const thumbnailImageSrc = releaseThumbnail.jpg[400] && releaseThumbnail.jpg[400].url
-      ? releaseThumbnail.jpg[400].url
-      : '';
-    return (<picture>{srcSets}<img src={thumbnailImageSrc} alt={`Album cover for ${release.title} by ${release.artistName}`}/></picture>);
-  }
-
   renderReleaseThumbnail(image, fullscreen, release) {
     const imageSize = fullscreen
-      ? '400px'
-      : '55px';
+      ? '540px'
+      : '350px';
 
-    return (<picture>
-      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp400} 400w`} type="image/webp"/>
-      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg400} 400w`} type="image/jpg"/>
-      <img src={image.jpg400} alt={`Album cover for ${release.title} by ${release.artistName}`}/>
-    </picture>);
+    return (<React.Fragment>
+      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
+      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
+      <img loading="lazy" src={image.jpg540} width="540" height="540" alt={`Album cover for ${release.title} by ${release.artistName}`}/>
+    </React.Fragment>);
   }
 
   renderReleaseSnippet(release, releaseThumbnailSrc) {
@@ -101,7 +88,6 @@ class Release extends Component {
   }
 
   render() {
-
     const release = this.props.release;
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
 
@@ -109,58 +95,46 @@ class Release extends Component {
     const imagePathJpg = `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}`;
     const image = {
       webp55: require(`../../../${imagePathWebp}_55.webp`),
-      webp400: require(`../../../${imagePathWebp}_400.webp`),
+      webp350: require(`../../../${imagePathWebp}_350.webp`),
+      webp540: require(`../../../${imagePathWebp}_540.webp`),
       jpg55: require(`../../../${imagePathJpg}_55.jpg`),
-      jpg400: require(`../../../${imagePathJpg}_400.jpg`)
+      jpg350: require(`../../../${imagePathJpg}_350.jpg`),
+      jpg540: require(`../../../${imagePathJpg}_540.jpg`)
     };
 
-    return (<div className={this.props.fullscreen
-        ? style.fullscreen
-        : style.listItem}>
+    const link = {
+      to: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${releaseId}/`,
+      title: `${this.props.selectedLanguageKey === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`
+    };
+
+    return (<React.Fragment>
       {this.renderReleaseSnippet(release, image['jpg400'])}
-      <div className={style.thumbnail}>
+      <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
         {this.renderReleaseThumbnail(image, this.props.fullscreen, release)}
-      </div>
-      <div className={style.content}>
-        <div className={style.header}>
-          <h2>{release.title}</h2>
-        </div>
-        <div className={style.body}>
-          <span>{release.artistName}</span>
+      </ListItemThumbnail>
+      <ListItemContent fullscreen={this.props.fullscreen}>
+        <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
+          <h2>{release.title}
+            <span>{release.artistName}</span>
+          </h2>
+        </ListItemContentHeader>
+        <ListItemContentBody fullscreen={this.props.fullscreen}>
           <ul>
             <li>{release.genre}</li>
-            <li>{new Date(release.duration).getMinutes()}:{
+            <li><time dateTime={release.durationISO}>
+              {new Date(release.duration).getMinutes()}:{
                 new Date(release.duration).getSeconds() > 9
                   ? new Date(release.duration).getSeconds()
                   : '0' + new Date(release.duration).getSeconds()
-              }</li>
-            <li>{new Date(release.releaseDate).getFullYear()}</li>
+              }</time></li>
+            <li><time dateTime={new Date(release.releaseDate).toISOString()}>{new Date(release.releaseDate).getFullYear()}</time></li>
           </ul>
-        </div>
-      </div>
+        </ListItemContentBody>
+      </ListItemContent>
       {
-        !this.props.fullscreen
-          ? (<div className={style.actionButton}>
-
-            <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${releaseId}/`} title={`${this.props.selectedLanguageKey === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`}>
-              <Button onClick={() => this.handleShowLinksClick()} buttontype='minimal'>{
-                  this.props.selectedLanguageKey === 'en'
-                    ? 'Listen to '
-                    : 'Lytt til '
-                }
-                {release.title}</Button>
-            </Link>
-          </div>)
-          : ''
+        this.props.fullscreen ? <ReleaseLinks release={release}/> : ''
       }
-      {
-        this.props.fullscreen
-          ? (<div className={style.links}>
-            <ReleaseLinks release={release}/>
-          </div>)
-          : ''
-      }
-    </div>);
+    </React.Fragment>);
   }
 }
 

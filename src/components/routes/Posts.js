@@ -9,6 +9,11 @@ import Post from 'components/partials/Post';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Modal from 'components/partials/Modal';
 
+// Template
+import Container from 'components/template/Container';
+import List from 'components/template/List';
+import ListItem from 'components/template/List/ListItem';
+
 // Actions
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
 
@@ -18,8 +23,6 @@ import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 // Data
 import {allPosts} from 'data/posts';
 
-// Stylesheets
-import style from 'components/routes/Posts.module.scss';
 
 class Posts extends Component {
 
@@ -62,7 +65,9 @@ class Posts extends Component {
   renderPosts() {
     return allPosts && allPosts.length
       ? allPosts.map(post => {
-        return <Post key={post.id} post={post}/>
+        return (<ListItem key={post.id} fullscreen={this.props.fullscreen}>
+          <Post post={post}/>
+        </ListItem>)
       })
       : '';
   }
@@ -188,7 +193,7 @@ class Posts extends Component {
       const metaDescription = selectedPost
         ? detailsPage.description[this.props.selectedLanguageKey]
         : listPage.description[this.props.selectedLanguageKey];
-      return (<div className={style.container}>
+      return (<React.Fragment>
         <Helmet htmlAttributes={{
             lang: this.props.selectedLanguageKey
           }}>
@@ -220,9 +225,7 @@ class Posts extends Component {
           <meta property="twitter:title" content={contentTitle} />
           <meta property="twitter:description" content={metaDescription} />
         </Helmet>
-        <div className={`padding ${selectedPost
-            ? style.blur
-            : ''}`}>
+        <Container blur={selectedPost !== null}>
           <Breadcrumbs breadcrumbs={breadcrumbs}/>
           <h1>{contentTitle}</h1>
           <p>{
@@ -230,20 +233,16 @@ class Posts extends Component {
                 ? 'Updates from Dehli Musikk'
                 : 'Oppdateringer fra Dehli Musikk'
             }</p>
-        </div>
+        </Container>
         {
-          selectedPost
-            ? this.renderSelectedPost(selectedPost)
-            : ''
+          selectedPost ? this.renderSelectedPost(selectedPost) : ''
         }
-        <div className={`${style.posts} ${selectedPost
-            ? style.blur
-            : ''} padding-sm`}>
-          <div className={style.grid}>
+        <Container blur={selectedPost !== null}>
+          <List>
             {this.renderPosts()}
-          </div>
-        </div>
-      </div>)
+          </List>
+        </Container>
+      </React.Fragment>)
     }
   }
 }

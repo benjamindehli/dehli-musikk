@@ -2,12 +2,20 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
-import {Link, Redirect} from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 
 // Components
 import EquipmentItem from 'components/partials/EquipmentItem';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Modal from 'components/partials/Modal';
+
+// Template
+import Container from 'components/template/Container';
+import List from 'components/template/List';
+import ListItem from 'components/template/List/ListItem';
+import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+import ListItemContent from 'components/template/List/ListItem/ListItemContent';
+import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 
 // Actions
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
@@ -18,8 +26,6 @@ import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 // Data
 import equipment from 'data/equipment';
 
-// Stylesheets
-import style from 'components/routes/Equipment.module.scss';
 
 class Equipment extends Component {
 
@@ -82,20 +88,17 @@ class Equipment extends Component {
     }
   }
 
-  renderEquipmentTypeThumbnail(image, itemName, itemPath) {
+  renderEquipmentTypeThumbnail(image, itemName) {
     const copyrightString = 'cc-by 2020 Benjamin Dehli dehlimusikk.no';
-    const thumbnailElement = (<figure className={style.thumbnail}>
-      <picture>
+    return (<React.Fragment>
         <source sizes='175px' srcSet={`${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp"/>
         <source sizes='175px' srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
         <img loading="lazy" src={image.jpg350} alt={itemName} copyright={copyrightString} />
-      </picture>
-    </figure>);
-    return (<Link to={itemPath} title={itemName}>{thumbnailElement}</Link>);
+    </React.Fragment>);
   }
 
   renderEquipmentTypes(listEquipmentTypesPage){
-    const equipmentTypeElements = equipment && Object.keys(equipment).length ? Object.keys(equipment).map(equipmentTypeKey => {
+    return equipment && Object.keys(equipment).length ? Object.keys(equipment).map(equipmentTypeKey => {
       const equipmentType = equipment[equipmentTypeKey];
       const itemPath = `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${equipmentTypeKey}/`;
 
@@ -110,45 +113,33 @@ class Equipment extends Component {
         jpg945: require(`../../${imagePathJpg}_945.jpg`)
       };
 
-      return (<div key={equipmentTypeKey} className={style.gridItem}>
-          {this.renderEquipmentTypeThumbnail(image, equipmentType.name[this.props.selectedLanguageKey], itemPath)}
-          <div className={style.contentContainer}>
-            <div className={style.content}>
-              <div className={style.header}>
-                <Link to={itemPath} title={equipmentType.name[this.props.selectedLanguageKey]}>
-                  <h2>{equipmentType.name[this.props.selectedLanguageKey]}</h2>
-                </Link>
-              </div>
-              <div className={style.body}>
-              </div>
-            </div>
-          </div>
-        </div>)
+      const link = {
+        to: itemPath,
+        title: equipmentType.name[this.props.selectedLanguageKey]
+      };
+
+      return (<ListItem key={equipmentTypeKey}>
+          <ListItemThumbnail link={link}>
+            {this.renderEquipmentTypeThumbnail(image, equipmentType.name[this.props.selectedLanguageKey])}
+          </ListItemThumbnail>
+          <ListItemContent>
+            <ListItemContentHeader link={link}>
+              <h2>{equipmentType.name[this.props.selectedLanguageKey]}</h2>
+            </ListItemContentHeader>
+          </ListItemContent>
+        </ListItem>)
     }): null;
-    return (<div className={`${style.posts} padding-sm`}>
-      <h2>{listEquipmentTypesPage.heading[this.props.selectedLanguageKey]}</h2>
-      <p>{listEquipmentTypesPage.description[this.props.selectedLanguageKey]}</p>
-      <div className={style.grid}>
-        {equipmentTypeElements}
-      </div>
-    </div>);
   }
 
   renderEquipmentItems(equipment, selectedEquipment){
-    const equipmentItemElements = equipment.items && equipment.items.length
+    return equipment.items && equipment.items.length
       ? equipment.items.map(item => {
         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
-        return <EquipmentItem key={itemId} item={item} itemId={itemId} itemType={equipment.equipmentType} />;
+        return (<ListItem key={itemId}>
+          <EquipmentItem item={item} itemId={itemId} itemType={equipment.equipmentType} />
+        </ListItem>);
       })
       : '';
-    return (<div className={`${style.posts} ${selectedEquipment
-        ? style.blur
-        : ''} padding-sm`}>
-      <h2>{equipment.name[this.props.selectedLanguageKey]}</h2>
-      <div className={style.grid}>
-        {equipmentItemElements}
-      </div>
-    </div>);
   }
 
 
@@ -281,7 +272,7 @@ class Equipment extends Component {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect}/>;
     } else {
-      return (<div className={style.container}>
+      return (<React.Fragment>
         <Helmet htmlAttributes={{
             lang: this.props.selectedLanguageKey
           }}>
@@ -322,9 +313,7 @@ class Equipment extends Component {
                 : ''
             }`} hreflang="x-default"/>
         </Helmet>
-        <div className={`${selectedEquipment
-            ? style.blur
-            : ''} padding`}>
+        <Container blur={selectedEquipment !== null}>
           <Breadcrumbs breadcrumbs={breadcrumbs}/>
           <h1>{
               selectedEquipment
@@ -340,18 +329,22 @@ class Equipment extends Component {
                   ? listPage.description[this.props.selectedLanguageKey]
                   : listEquipmentTypesPage.description[this.props.selectedLanguageKey]
             }</p>
-        </div>
+        </Container>
         {
           selectedEquipment
             ? this.renderSelectedEquipment(selectedEquipment, selectedEquipmentType)
             : ''
         }
-        {
-          selectedEquipmentType
-            ? this.renderEquipmentItems(equipment[selectedEquipmentType], selectedEquipment)
-            : this.renderEquipmentTypes(listEquipmentTypesPage)
-        }
-      </div>)
+        <Container blur={selectedEquipment !== null}>
+          <List>
+          {
+            selectedEquipmentType
+              ? this.renderEquipmentItems(equipment[selectedEquipmentType], selectedEquipment)
+              : this.renderEquipmentTypes(listEquipmentTypesPage)
+          }
+          </List>
+        </Container>
+      </React.Fragment>)
     }
   }
 }

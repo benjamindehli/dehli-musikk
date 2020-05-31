@@ -1,32 +1,27 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 
 // Actions
 import {getLanguageSlug} from 'actions/LanguageActions';
 
-// Stylesheets
-import style from 'components/partials/Post.module.scss';
+// Template
+import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+import ListItemContent from 'components/template/List/ListItem/ListItemContent';
+import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 
 class EquipmentItem extends Component {
 
-  renderPostThumbnail(image, itemName, fullscreen, itemPath) {
+  renderPostThumbnail(image, itemName, fullscreen) {
     const copyrightString = 'cc-by 2020 Benjamin Dehli dehlimusikk.no';
-    const thumbnailElement = (<figure className={style.thumbnail}>
-      <picture>
-        <source sizes={fullscreen
-            ? '540px'
-            : '175px'} srcSet={`${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp"/>
-        <source sizes={fullscreen
-            ? '540px'
-            : '175px'} srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
-        <img loading="lazy" src={image.jpg350} alt={itemName} copyright={copyrightString} />
-      </picture>
-    </figure>);
-    return fullscreen
-      ? thumbnailElement
-      : (<Link to={itemPath} title={itemName}>{thumbnailElement}</Link>);
+    const imageSize = fullscreen
+      ? '540px'
+      : '350px';
+    return (<React.Fragment>
+        <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp"/>
+        <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
+        <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} copyright={copyrightString} />
+    </React.Fragment>);
   }
 
   render() {
@@ -40,36 +35,37 @@ class EquipmentItem extends Component {
     const imagePathWebp = `data/equipment/thumbnails/${itemType}/web/webp/${itemId}`;
     const imagePathJpg = `data/equipment/thumbnails/${itemType}/web/jpg/${itemId}`;
     const image = {
+      webp55: require(`../../${imagePathWebp}_55.webp`),
       webp350: require(`../../${imagePathWebp}_350.webp`),
       webp540: require(`../../${imagePathWebp}_540.webp`),
       webp945: require(`../../${imagePathWebp}_945.webp`),
+      jpg55: require(`../../${imagePathJpg}_55.jpg`),
       jpg350: require(`../../${imagePathJpg}_350.jpg`),
       jpg540: require(`../../${imagePathJpg}_540.jpg`),
       jpg945: require(`../../${imagePathJpg}_945.jpg`)
     };
     const itemPath = `/${this.props.getLanguageSlug(selectedLanguageKey)}equipment/${itemType}/${itemId}/`;
     const itemName = `${item.brand} ${item.model}`;
+
+    const link = {
+      to: itemPath,
+      title: itemName
+    };
+
     return item
-      ? (<article className={`${style.gridItem} ${this.props.fullscreen
-          ? style.fullscreen
-          : ''}`}>
-        {this.renderPostThumbnail(image, itemName, this.props.fullscreen, itemPath)}
-        <div className={style.contentContainer}>
-          <div className={style.content}>
-            <div className={style.header}>
-              {
-                this.props.fullscreen
-                  ? (<h2>{item.model}<small>{item.brand}</small></h2>)
-                  : (<Link to={itemPath} title={itemName}>
-                    <h2>{item.model}<small>{item.brand}</small></h2>
-                  </Link>)
-              }
-            </div>
-            <div className={style.body}>
-            </div>
-          </div>
-        </div>
-      </article>)
+      ? (<React.Fragment>
+          <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
+            {this.renderPostThumbnail(image, itemName, this.props.fullscreen, itemPath)}
+          </ListItemThumbnail>
+          <ListItemContent fullscreen={this.props.fullscreen}>
+            <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
+                <h2>
+                  {item.model}
+                  <span>{item.brand}</span>
+                </h2>
+            </ListItemContentHeader>
+        </ListItemContent>
+      </React.Fragment>)
       : '';
   }
 }

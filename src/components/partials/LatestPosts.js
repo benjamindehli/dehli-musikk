@@ -5,28 +5,29 @@ import {connect} from 'react-redux';
 // Components
 import Post from 'components/partials/Post';
 
+// Template
+import List from 'components/template/List';
+import ListItem from 'components/template/List/ListItem';
+
 // Data
 import {latestPosts} from 'data/posts';
 
-// Stylesheets
-import style from 'components/partials/LatestPosts.module.scss';
 
 class LatestPosts extends Component {
-
   renderPosts() {
     return latestPosts && latestPosts.length
       ? latestPosts.map(post => {
-        return <Post key={post.id} post={post}/>
+        return (<ListItem key={post.id}>
+          <Post post={post}/>
+        </ListItem>)
       })
       : '';
   }
 
   render() {
-    return (<div className={style.container}>
-        <div className={style.grid}>
-          {this.renderPosts()}
-        </div>
-    </div>)
+    return (<List>
+      {this.renderPosts()}
+    </List>)
   }
 }
 
