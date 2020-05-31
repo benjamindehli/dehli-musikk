@@ -26,7 +26,7 @@ class Sitemap extends Component {
     const dateYear = date.getFullYear();
     const dateMonth = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1 }` : date.getMonth() + 1;
     const dateDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-    const dateString = `${date.getFullYear()}-${dateMonth}-${dateDay}`;
+    const dateString = `${dateYear}-${dateMonth}-${dateDay}`;
     return `  <url>
     <loc>https://www.dehlimusikk.no/${url}</loc>
     <news:news>
@@ -145,7 +145,6 @@ class Sitemap extends Component {
     let images = [];
     const formats = ['webp', 'jpg'];
     const sizes = [55, 350, 540];
-    const languageKeys = ['en', 'no'];
     formats.forEach(format => {
       const imagePath = `data/posts/thumbnails/web/${format}/${post.thumbnailFilename}`;
       sizes.forEach(size => {
@@ -169,7 +168,6 @@ class Sitemap extends Component {
     let images = [];
     const formats = ['webp', 'jpg'];
     const sizes = [55, 350, 540];
-    const languageKeys = ['en', 'no'];
     formats.forEach(format => {
       const imagePath = `data/products/thumbnails/web/${format}/${convertToUrlFriendlyString(product.title)}`;
       sizes.forEach(size => {
