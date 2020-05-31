@@ -15,6 +15,7 @@ import style from 'components/partials/NavigationBar/SearchField.module.scss';
 // Data
 import releases from 'data/portfolio';
 import {allPosts} from 'data/posts';
+import products from 'data/products';
 import equipmentTypes from 'data/equipment';
 
 class SearchField extends Component {
@@ -142,6 +143,50 @@ class SearchField extends Component {
     });
   }
 
+  getSearchPointsFromProduct(product, searchString){
+    const selectedLanguageKey = this.props.selectedLanguageKey;
+
+    const id = convertToUrlFriendlyString(product.title);
+    const link = `/${this.props.getLanguageSlug(selectedLanguageKey)}products/${id}/`;
+    const linkTitle = product.title;
+
+    const regex = new RegExp(searchString, "gi");
+
+    const titleMatch = product.title.match(regex);
+    const contentMatch = product.content[selectedLanguageKey].match(regex);
+
+    const titlePoints = titleMatch ? titleMatch.length * 10 : 0;
+    const contentPoints = contentMatch ? contentMatch.length*2 : 0;
+
+    const points = titlePoints + contentPoints;
+
+    const thumbnailPaths = {
+      webp: require(`../../../data/products/thumbnails/web/webp/${id}_55.webp`),
+      jpg: require(`../../../data/products/thumbnails/web/jpg/${id}_55.jpg`)
+    };
+    const thumbnailDescription = linkTitle;
+
+    return {
+      type: 'product',
+      text: product.title,
+      label: selectedLanguageKey === 'en' ? 'Products' : 'Produkter',
+      thumbnailPaths,
+      thumbnailDescription,
+      points,
+      link,
+      linkTitle
+    }
+  }
+
+  getSearchResultsFromProducts(products, searchString){
+    const searchResultsFromProducts = products.map(product => {
+      return this.getSearchPointsFromProduct(product, searchString);
+    })
+    return searchResultsFromProducts.filter(result => {
+      return result.points && result.points > 0;
+    });
+  }
+
   getSearchPointsFromEquipmentItems(item, equipmentType, equipmentTypeKey, searchString){
     const selectedLanguageKey = this.props.selectedLanguageKey;
 
@@ -204,8 +249,9 @@ class SearchField extends Component {
     if (searchString.length > 1) {
       const searchResultsFromReleases = this.getSearchResultsFromReleases(releases, searchString);
       const searchResultsFromPosts = this.getSearchResultsFromPosts(allPosts, searchString);
+      const searchResultsFromProducts = this.getSearchResultsFromProducts(products, searchString);
       const searchResultsFromEquipmentTypes = this.getSearchResultsFromEquipmentTypes(equipmentTypes, searchString);
-      const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromEquipmentTypes);
+      const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromProducts, searchResultsFromEquipmentTypes);
       this.setState({
         showResultsList: true,
         results: results.sort((a, b) => b.points - a.points)
@@ -231,6 +277,7 @@ class SearchField extends Component {
     if (results && results.length) {
       const itemTypeIcons = {
         post: ['fas', 'photo-video'],
+        product: ['fas', 'shopping-cart'],
         release: ['fas', 'music'],
         instruments: ['fas', 'guitar'],
         amplifiers: ['fas', 'bullhorn'],

@@ -160,6 +160,11 @@ class NavigationBar extends Component {
               </NavLink>
             </li>
             <li>
+              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}>
+                {this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}
+              </NavLink>
+            </li>
+            <li>
               <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}>
                 {this.props.selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}
               </NavLink>

@@ -151,6 +151,12 @@
           }
         }
 
+        &:local(.product) {
+          > span {
+            background-color: $indigo-color;
+          }
+        }
+
         &:local(.instruments) {
           > span {
             background-color: $orange-color;

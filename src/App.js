@@ -29,6 +29,7 @@ import {
   faMusic,
   faPhotoVideo,
   faSearch,
+  faShoppingCart,
   faSlidersH
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -59,6 +60,7 @@ const prerenderedLoadable = dynamicImport => {
 const Home = prerenderedLoadable(() => import("./components/routes/Home"));
 const Portfolio = prerenderedLoadable(() => import("./components/routes/Portfolio"));
 const Posts = prerenderedLoadable(() => import("./components/routes/Posts"));
+const Products = prerenderedLoadable(() => import("./components/routes/Products"));
 const Equipment = prerenderedLoadable(() => import("./components/routes/Equipment"));
 const NotFound = prerenderedLoadable(() => import("./components/routes/NotFound"));
 
@@ -82,6 +84,7 @@ library.add(
   faMusic,
   faPhotoVideo,
   faSearch,
+  faShoppingCart,
   faSlidersH,
   faTumblr,
   faTwitter,
@@ -132,6 +135,11 @@ class App extends Component {
             <Route exact={true} strict={true} path="/posts/" render={() => (<Posts/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/" render={(props) => (<Posts {...props}/>)}/>
+
+            <Route exact={true} strict={true} path="/products/:productId/" render={(props) => (<Products {...props}/>)}/>
+            <Route exact={true} strict={true} path="/products/" render={() => (<Products/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/products/:productId/" render={(props) => (<Products {...props}/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/products/" render={(props) => (<Products {...props}/>)}/>
 
             <Route exact={true} strict={true} path="/equipment/:equipmentType/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
             <Route exact={true} strict={true} path="/equipment/:equipmentType/" render={(props) => (<Equipment {...props}/>)}/>
