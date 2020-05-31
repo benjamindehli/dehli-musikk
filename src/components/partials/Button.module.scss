@@ -3,7 +3,7 @@
 :local(.button) {
   @include appearance(none);
   @include border-radius(4px);
-  font-size: 0.81rem;
+  font-size: 1rem;
   line-height: 1.5;
   font-weight: 500;
   text-transform: uppercase;
@@ -13,7 +13,7 @@
   :local(.content) {
     @include border-radius(4px);
     @include transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
-    padding: 6px 8px;
+    padding: 8px 12px;
     min-width: 64px;
     display: block;
   }
@@ -44,7 +44,9 @@
   }
 
   &:local(.minimal) {
+    font-size: 0.81rem;
     :local(.content) {
+      padding: 6px 8px;
       color: $primary-color;
       background-color: transparent;
       a {
