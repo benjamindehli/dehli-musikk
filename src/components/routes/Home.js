@@ -108,7 +108,7 @@ class Home extends Component {
       </div>
       <div className={style.mutedSection}>
         <Container>
-          <h2>{
+          <h2 className={style.sectionHeader}>{
               this.props.selectedLanguageKey === 'en'
                 ? 'Latest updates'
                 : 'Siste oppdateringer'
@@ -129,7 +129,7 @@ class Home extends Component {
       </div>
       <div>
         <Container>
-          <h2>{
+          <h2 className={style.sectionHeader}>{
             this.props.selectedLanguageKey === 'en'
               ? 'Latest releases'
               : 'Siste utgivelser'
@@ -150,7 +150,7 @@ class Home extends Component {
       </div>
       <div className={style.mutedSection}>
         <Container>
-          <h2>{
+          <h2 className={style.sectionHeader}>{
               this.props.selectedLanguageKey === 'en'
                 ? 'Newest products'
                 : 'Nyeste produkter'
