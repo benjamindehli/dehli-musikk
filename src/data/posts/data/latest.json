@@ -1,57 +1,64 @@
-[
-  {
-    "id": "2020051700",
-    "copyright": true,
-    "timestamp": 1589673600000,
+[{
+    "id": "2020052900",
+    "timestamp": 1590710400000,
     "title": {
-      "no": "Ja, vi elsker dette landet (Norges nasjonalsang)",
-      "en": "Ja, vi elsker dette landet (Norwegian national anthem)"
+      "no": "Ny utgivelse - Under the Midnight Sun av 2020 Vision",
+      "en": "New release - Under the Midnight Sun by 2020 Vision"
     },
     "content": {
-      "no": "Gratulerer med dagen, Norge 🇧🇻\nFeirer dagen med en synth-versjon av Norges nasjonalsang",
-      "en": "Happy National Day 🇧🇻\nCelebrating the day with a synthesizer version of the Norwegian national anthem"
+      "no": "En kanontøff rockelåt fra gjengen i 2020 Vision ble sluppet ut i dag 😎🤘Bare å skru anlegget på fullt med denna 80-talls råkk'n'råll-låta 📼👾 God helg!",
+      "en": "New release by 2020 Vision 😎🤘Turn up the volume and enjoy this 80's rock'n'roll song 📼👾 Have a nice weekend!"
     },
-    "thumbnailDescription": "A Korg MS-20 and patch cables with the color of the Norwegian flag",
-    "thumbnailFilename": "2020-05-17-00",
+    "thumbnailDescription": "Album cover for the single \"Under the Midnight Sun\" by 2020 Vision",
+    "thumbnailFilename": "2020-05-29-00",
     "link": {
-      "url": "https://youtu.be/ppjbdVeWfdA",
+      "url": "portfolio/2020-vision-under-the-midnight-sun/",
+      "internal": true,
       "text": {
-        "en": "Show video",
-        "no": "Se video"
+        "en": "Listen to Under the Midnight Sun",
+        "no": "Lytt til Under the Midnight Sun"
       }
     }
   },
   {
-    "id": "2020051400",
+    "id": "2020052500",
     "copyright": true,
-    "timestamp": 1589414400000,
+    "timestamp": 1590364800000,
     "title": {
-      "no": "Lo-fi sampling av piano",
-      "en": "Lo-fi piano sampling"
+      "no": "Nytt produkt - Lo-fi Tape Piano",
+      "en": "New product - Lo-fi Tape Piano"
     },
     "content": {
-      "no": "Sampling av Louis Zwicki Pianette med forskjellige typer mikrofoner og kassettopptaker 🎹☎️📼",
-      "en": "Sampling the Louis Zwicki Pianette with different kind of microphones and a 4-track recorder 🎹☎️📼"
+      "no": "Nå er sample-pakka 'Lo-fi Tape Piano' klar tilgjengelig for ca. 50 norske penger ($4.99) hos Roqstar 😃",
+      "en": "The 'Lo-fi Tape Piano' sample pack is now available for $4.99 at Roqstar 😃"
     },
-    "thumbnailDescription": "Louis Zwicki Pianette with a modified Televerket telephone as microphone",
-    "thumbnailFilename": "2020-05-14-00"
+    "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
+    "thumbnailFilename": "2020-05-25-00",
+    "link": {
+      "url": "products/lo-fi-tape-piano/",
+      "internal": true,
+      "text": {
+        "en": "Read more about Lo-fi Tape Piano",
+        "no": "Les mer om Lo-fi Tape Piano"
+      }
+    }
   },
   {
-    "id": "2020051000",
+    "id": "2020052400",
     "copyright": true,
-    "timestamp": 1589068800000,
+    "timestamp": 1590278400000,
     "title": {
-      "no": "Piano, synth og trommemaskin",
-      "en": "Piano, synthesizers and drum machine"
+      "no": "Demonstrasjonsvideo av Lo-fi Tape Piano",
+      "en": "Demo video of Lo-fi Tape Piano"
     },
     "content": {
-      "no": "Lager 80-tallsinnspirert musikk med piano, forskjellige synther og trommemaskin 🎹🎛️👯‍♂️🦄",
-      "en": "Making '80s inspired music with piano, various synthesizers and drum machine 🎹🎛️👯‍♂️🦄"
+      "no": "Sample pakka 'Lo-fi Tape Piano' blir straks tilgjengelig for salg 👯‍♂️Inntil videre kan du sjekke ut denne videoen med lydeksempler",
+      "en": "Lo-fi Tape Piano will soon be available for purchase 👯‍♂️‍For the time being, you can check out this video with examples"
     },
-    "thumbnailDescription": "A Fostex X-28H 4-track tape recorder",
-    "thumbnailFilename": "2020-05-10-00",
+    "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
+    "thumbnailFilename": "2020-05-24-00",
     "link": {
-      "url": "https://www.instagram.com/p/CABZIKGh_dt/",
+      "url": "https://youtu.be/2k1QpuwCZzk",
       "text": {
         "en": "Show video",
         "no": "Se video"

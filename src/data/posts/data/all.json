@@ -1,4 +1,115 @@
 [{
+    "id": "2020052900",
+    "timestamp": 1590710400000,
+    "title": {
+      "no": "Ny utgivelse - Under the Midnight Sun av 2020 Vision",
+      "en": "New release - Under the Midnight Sun by 2020 Vision"
+    },
+    "content": {
+      "no": "En kanontøff rockelåt fra gjengen i 2020 Vision ble sluppet ut i dag 😎🤘Bare å skru anlegget på fullt med denna 80-talls råkk'n'råll-låta 📼👾 God helg!",
+      "en": "New release by 2020 Vision 😎🤘Turn up the volume and enjoy this 80's rock'n'roll song 📼👾 Have a nice weekend!"
+    },
+    "thumbnailDescription": "Album cover for the single \"Under the Midnight Sun\" by 2020 Vision",
+    "thumbnailFilename": "2020-05-29-00",
+    "link": {
+      "url": "portfolio/2020-vision-under-the-midnight-sun/",
+      "internal": true,
+      "text": {
+        "en": "Listen to Under the Midnight Sun",
+        "no": "Lytt til Under the Midnight Sun"
+      }
+    }
+  },
+  {
+    "id": "2020052500",
+    "copyright": true,
+    "timestamp": 1590364800000,
+    "title": {
+      "no": "Nytt produkt - Lo-fi Tape Piano",
+      "en": "New product - Lo-fi Tape Piano"
+    },
+    "content": {
+      "no": "Nå er sample-pakka 'Lo-fi Tape Piano' klar tilgjengelig for ca. 50 norske penger ($4.99) hos Roqstar 😃",
+      "en": "The 'Lo-fi Tape Piano' sample pack is now available for $4.99 at Roqstar 😃"
+    },
+    "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
+    "thumbnailFilename": "2020-05-25-00",
+    "link": {
+      "url": "products/lo-fi-tape-piano/",
+      "internal": true,
+      "text": {
+        "en": "Read more about Lo-fi Tape Piano",
+        "no": "Les mer om Lo-fi Tape Piano"
+      }
+    }
+  },
+  {
+    "id": "2020052400",
+    "copyright": true,
+    "timestamp": 1590278400000,
+    "title": {
+      "no": "Demonstrasjonsvideo av Lo-fi Tape Piano",
+      "en": "Demo video of Lo-fi Tape Piano"
+    },
+    "content": {
+      "no": "Sample pakka 'Lo-fi Tape Piano' blir straks tilgjengelig for salg 👯‍♂️Inntil videre kan du sjekke ut denne videoen med lydeksempler",
+      "en": "Lo-fi Tape Piano will soon be available for purchase 👯‍♂️‍For the time being, you can check out this video with examples"
+    },
+    "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
+    "thumbnailFilename": "2020-05-24-00",
+    "link": {
+      "url": "https://youtu.be/2k1QpuwCZzk",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020052300",
+    "copyright": true,
+    "timestamp": 1590192000000,
+    "title": {
+      "no": "Combo-orgel med effektpedaler og rørforsterker",
+      "en": "Combo organ with effects pedals and tube amp"
+    },
+    "content": {
+      "no": "Yamaha YC-25D med vreng, ekko, fjærklang og tremolo 🤠",
+      "en": "Distorted Yamaha YC-25D with delay, spring reverb and tremolo 🤠"
+    },
+    "thumbnailDescription": "Yamaha YC-25D with effects pedals on top",
+    "thumbnailFilename": "2020-05-23-00",
+    "link": {
+      "url": "https://www.instagram.com/p/CAizNGWAnth/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020052100",
+    "copyright": true,
+    "timestamp": 1590019200000,
+    "title": {
+      "no": "Forsmak på Lo-fi Tape Piano",
+      "en": "Lo-fi Tape Piano (teaser video)"
+    },
+    "content": {
+      "no": "Liten forsmak på en sample-pakke jeg holder på å lage 🤠☎️🦄📼🎹",
+      "en": "Short teaser video of the sample pack I'm making 🤠☎️🦄📼🎹"
+    },
+    "thumbnailDescription": "Close up of a Louis Zwicki Pianette",
+    "thumbnailFilename": "2020-05-21-00",
+    "link": {
+      "url": "https://www.instagram.com/p/CAdVNcUgVGG/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
     "id": "2020051700",
     "copyright": true,
     "timestamp": 1589673600000,
