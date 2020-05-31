@@ -141,7 +141,7 @@ class Products extends Component {
           : ''} - Products | Dehli Musikk`,
         no: `${selectedProduct
           ? selectedProduct.title
-          : ''} - Innlegg | Dehli Musikk`
+          : ''} - Produkter | Dehli Musikk`
       },
       heading: {
         en: selectedProduct
