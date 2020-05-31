@@ -137,18 +137,18 @@ class Products extends Component {
     const detailsPage = {
       title: {
         en: `${selectedProduct
-          ? selectedProduct.title.en
+          ? selectedProduct.title
           : ''} - Products | Dehli Musikk`,
         no: `${selectedProduct
-          ? selectedProduct.title.no
+          ? selectedProduct.title
           : ''} - Innlegg | Dehli Musikk`
       },
       heading: {
         en: selectedProduct
-          ? selectedProduct.title.en
+          ? selectedProduct.title
           : '',
         no: selectedProduct
-          ? selectedProduct.title.no
+          ? selectedProduct.title
           : ''
       },
       description: {
@@ -179,10 +179,10 @@ class Products extends Component {
     } else {
       const selectedProductMultilingualIds = {
         en: selectedProduct
-          ? convertToUrlFriendlyString(selectedProduct.title.en)
+          ? convertToUrlFriendlyString(selectedProduct.title)
           : '',
         no: selectedProduct
-          ? convertToUrlFriendlyString(selectedProduct.title.no)
+          ? convertToUrlFriendlyString(selectedProduct.title)
           : ''
       };
       const metaTitle = selectedProduct
