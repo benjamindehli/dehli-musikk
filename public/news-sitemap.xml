@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.dehlimusikk.no/posts/ny-utgivelse-under-the-midnight-sun-av-2020-vision/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-05-29</news:publication_date>
+      <news:title>Ny utgivelse - Under the Midnight Sun av 2020 Vision</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/new-release-under-the-midnight-sun-by-2020-vision/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-05-29</news:publication_date>
+      <news:title>New release - Under the Midnight Sun by 2020 Vision</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/nytt-produkt-lo-fi-tape-piano/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-05-25</news:publication_date>
+      <news:title>Nytt produkt - Lo-fi Tape Piano</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/new-product-lo-fi-tape-piano/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-05-25</news:publication_date>
+      <news:title>New product - Lo-fi Tape Piano</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/demonstrasjonsvideo-av-lo-fi-tape-piano/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-05-24</news:publication_date>
+      <news:title>Demonstrasjonsvideo av Lo-fi Tape Piano</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/demo-video-of-lo-fi-tape-piano/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-05-24</news:publication_date>
+      <news:title>Demo video of Lo-fi Tape Piano</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/combo-orgel-med-effektpedaler-og-roerforsterker/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-05-23</news:publication_date>
+      <news:title>Combo-orgel med effektpedaler og rørforsterker</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/combo-organ-with-effects-pedals-and-tube-amp/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-05-23</news:publication_date>
+      <news:title>Combo organ with effects pedals and tube amp</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/forsmak-paa-lo-fi-tape-piano/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-05-21</news:publication_date>
+      <news:title>Forsmak på Lo-fi Tape Piano</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/lo-fi-tape-piano-teaser-video/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-05-21</news:publication_date>
+      <news:title>Lo-fi Tape Piano (teaser video)</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/posts/ja-vi-elsker-dette-landet-norges-nasjonalsang/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
