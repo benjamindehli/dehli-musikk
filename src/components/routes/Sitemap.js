@@ -10,7 +10,8 @@ import {convertToUrlFriendlyString} from 'helpers/urlFormatter';
 import {convertToXmlFriendlyString} from 'helpers/xmlStringFormatter';
 
 // Data
-import {allPosts} from 'data/posts';
+import posts from 'data/posts';
+import products from 'data/products';
 import releases from 'data/portfolio';
 import equipmentTypes from 'data/equipment';
 
@@ -65,14 +66,79 @@ class Sitemap extends Component {
     return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
   }
 
+  renderProductsList(){
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}products/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}products/`;
+    return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
+  }
+
+  renderReleasesList(){
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}portfolio/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}portfolio/`;
+    return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
+  }
+
+  renderEquipmentTypesList() {
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+
+    const equipmentTypeElements = [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)];
+    if (equipmentTypes && Object.keys(equipmentTypes).length){
+      Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
+        equipmentTypeElements.push(this.renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/`));
+        equipmentTypeElements.push(this.renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/`));
+      })
+    }
+    return equipmentTypeElements;
+  }
+
   renderPostsDetails() {
-    return allPosts && allPosts.length
-      ? allPosts.map(post => {
+    return posts && posts.length
+      ? posts.map(post => {
         const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/${convertToUrlFriendlyString(post.title.no)}/`;
         const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/${convertToUrlFriendlyString(post.title.en)}/`;
         return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
       })
       : '';
+  }
+
+  renderProductsDetails() {
+    return products && products.length
+      ? products.map(product => {
+        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}products/${convertToUrlFriendlyString(product.title)}/`;
+        const urlEnglishPage = `${this.props.getLanguageSlug('en')}products/${convertToUrlFriendlyString(product.title)}/`;
+        return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
+      })
+      : '';
+  }
+
+  renderReleasesDetails() {
+    return releases && releases.length
+      ? releases.map(release => {
+        const relaseId = `${release.artistName} ${release.title}`;
+        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
+        const urlEnglishPage = `${this.props.getLanguageSlug('en')}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
+        return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
+      })
+      : '';
+  }
+
+  renderEquipmentDetails() {
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+
+    const equipmentDetailsElements = [];
+    if (equipmentTypes && Object.keys(equipmentTypes).length){
+      Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
+        const equipmentItems = equipmentTypes[equipmentTypeKey].items;
+        equipmentItems.forEach(item => {
+          const itemId = `${item.brand} ${item.model}`;
+          equipmentDetailsElements.push(this.renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
+          equipmentDetailsElements.push(this.renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
+        })
+      })
+    }
+    return equipmentDetailsElements;
   }
 
   getImagesFromPost(post, languageKey) {
@@ -93,6 +159,28 @@ class Sitemap extends Component {
           image.license = 'https://creativecommons.org/licenses/by-sa/4.0/';
           image.geoLocation = 'Bø i Telemark, Norway';
         }
+        images.push(image);
+      })
+    });
+    return images;
+  }
+
+  getImagesFromProduct(product, languageKey) {
+    let images = [];
+    const formats = ['webp', 'jpg'];
+    const sizes = [55, 350, 540];
+    const languageKeys = ['en', 'no'];
+    formats.forEach(format => {
+      const imagePath = `data/products/thumbnails/web/${format}/${convertToUrlFriendlyString(product.title)}`;
+      sizes.forEach(size => {
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
+        let image = {
+          loc: imageLoc,
+          caption: convertToXmlFriendlyString(product.thumbnailDescription),
+          title: convertToXmlFriendlyString(product.title),
+          license: 'https://creativecommons.org/licenses/by-sa/4.0/',
+          geoLocation: 'Bø i Telemark, Norway'
+        };
         images.push(image);
       })
     });
@@ -149,8 +237,8 @@ class Sitemap extends Component {
     const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/`;
     let norwegianImages = [];
     let englishImages = [];
-    if (allPosts && allPosts.length){
-      allPosts.forEach(post => {
+    if (posts && posts.length){
+      posts.forEach(post => {
         norwegianImages = norwegianImages.concat(this.getImagesFromPost(post, 'no'));
         englishImages = englishImages.concat(this.getImagesFromPost(post, 'en'));
       })
@@ -158,65 +246,18 @@ class Sitemap extends Component {
     return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)]
   }
 
-  renderPostsDetailsImages() {
-    return allPosts && allPosts.length
-      ? allPosts.map(post => {
-        const norwegianImages = this.getImagesFromPost(post, 'no');
-        const englishImages = this.getImagesFromPost(post, 'en');
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/${convertToUrlFriendlyString(post.title.no)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/${convertToUrlFriendlyString(post.title.en)}/`;
-        return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)]
-      })
-      : '';
-  }
-
-  renderReleasesList(){
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}portfolio/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}portfolio/`;
-    return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
-  }
-
-  renderReleasesDetails() {
-    return releases && releases.length
-      ? releases.map(release => {
-        const relaseId = `${release.artistName} ${release.title}`;
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
-        return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
-      })
-      : '';
-  }
-
-  renderEquipmentTypesList() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
-
-    const equipmentTypeElements = [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)];
-    if (equipmentTypes && Object.keys(equipmentTypes).length){
-      Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
-        equipmentTypeElements.push(this.renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/`));
-        equipmentTypeElements.push(this.renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/`));
+  renderProductsListImages(){
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}products/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}products/`;
+    let norwegianImages = [];
+    let englishImages = [];
+    if (products && products.length){
+      products.forEach(product => {
+        norwegianImages = norwegianImages.concat(this.getImagesFromProduct(product, 'no'));
+        englishImages = englishImages.concat(this.getImagesFromProduct(product, 'en'));
       })
     }
-    return equipmentTypeElements;
-  }
-
-  renderEquipmentDetails() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
-
-    const equipmentDetailsElements = [];
-    if (equipmentTypes && Object.keys(equipmentTypes).length){
-      Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
-        const equipmentItems = equipmentTypes[equipmentTypeKey].items;
-        equipmentItems.forEach(item => {
-          const itemId = `${item.brand} ${item.model}`;
-          equipmentDetailsElements.push(this.renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
-          equipmentDetailsElements.push(this.renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
-        })
-      })
-    }
-    return equipmentDetailsElements;
+    return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)]
   }
 
   renderEquipmentTypesListImages(){
@@ -254,6 +295,30 @@ class Sitemap extends Component {
     return equipmentDetailsElements;
   }
 
+  renderPostsDetailsImages() {
+    return posts && posts.length
+      ? posts.map(post => {
+        const norwegianImages = this.getImagesFromPost(post, 'no');
+        const englishImages = this.getImagesFromPost(post, 'en');
+        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/${convertToUrlFriendlyString(post.title.no)}/`;
+        const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/${convertToUrlFriendlyString(post.title.en)}/`;
+        return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)]
+      })
+      : '';
+  }
+
+  renderProductsDetailsImages() {
+    return products && products.length
+      ? products.map(product => {
+        const norwegianImages = this.getImagesFromProduct(product, 'no');
+        const englishImages = this.getImagesFromProduct(product, 'en');
+        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}products/${convertToUrlFriendlyString(product.title)}/`;
+        const urlEnglishPage = `${this.props.getLanguageSlug('en')}products/${convertToUrlFriendlyString(product.title)}/`;
+        return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)]
+      })
+      : '';
+  }
+
   renderEquipmentDetailsImages() {
     const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
     const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
@@ -276,8 +341,8 @@ class Sitemap extends Component {
   }
 
   renderNewsPostsDetails() {
-    return allPosts && allPosts.length
-      ? allPosts.map(post => {
+    return posts && posts.length
+      ? posts.map(post => {
         const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/${convertToUrlFriendlyString(post.title.no)}/`;
         const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/${convertToUrlFriendlyString(post.title.en)}/`;
         return [this.renderNewsUrlElement(urlNorwegianPage, post, 'no'), this.renderNewsUrlElement(urlEnglishPage, post, 'en')]
@@ -295,11 +360,13 @@ class Sitemap extends Component {
           {`<?xml version="1.0" encoding="UTF-8"?>\n`}
           {`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`}
             {this.renderHome()}
-            {this.renderReleasesList()}
             {this.renderPostsList()}
+            {this.renderProductsList()}
+            {this.renderReleasesList()}
             {this.renderEquipmentTypesList()}
-            {this.renderReleasesDetails()}
             {this.renderPostsDetails()}
+            {this.renderProductsDetails()}
+            {this.renderReleasesDetails()}
             {this.renderEquipmentDetails()}
           {`</urlset>\n`}
           </pre>
@@ -325,6 +392,8 @@ class Sitemap extends Component {
             {this.renderEquipmentTypesListImages()}
             {this.renderEquipmentListImages()}
             {this.renderEquipmentDetailsImages()}
+            {this.renderProductsListImages()}
+            {this.renderProductsDetailsImages()}
           {`</urlset>\n`}
           </pre>
 
