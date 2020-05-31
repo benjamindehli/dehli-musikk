@@ -1,5 +1,13 @@
 @import "../../../style/abstracts/all";
 
+:local(.hidden) {
+  height: 0;
+  width: 0;
+  position: absolute;
+  color: transparent;
+  overflow: hidden;
+}
+
 :local(.searchFieldContainer) {
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.15);
@@ -128,12 +136,12 @@
         font-size: 0.75em;
         font-weight: bold;
 
-
         > span {
           background-color: #eee;
           border-radius: 4px;
           padding: 6px;
           color: #fff;
+
           svg {
             margin-right: 2px;
           }

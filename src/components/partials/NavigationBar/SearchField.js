@@ -300,7 +300,8 @@ class SearchField extends Component {
     return (<React.Fragment>
       <div className={style.searchFieldContainer}>
         <FontAwesomeIcon icon={['fas', 'search']}/>
-        <input type="search" onChange={(event) => this.handleShowResultsList(event)} placeholder={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'} className={style.searchField} />
+        <label htmlFor="search" className={style.hidden}>{this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}</label>
+        <input type="search" autoComplete="off" id="search" onChange={(event) => this.handleShowResultsList(event)} placeholder={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'} className={style.searchField} />
       </div>
       <div className={`${style.resultsListContainer} ${this.state.showResultsList
           ? style.active
