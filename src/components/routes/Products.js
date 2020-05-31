@@ -65,7 +65,8 @@ class Products extends Component {
   renderProducts() {
     return products && products.length
       ? products.map(product => {
-        return (<ListItem key={product.id} fullscreen={this.props.fullscreen}>
+        const productId = convertToUrlFriendlyString(product.title);
+        return (<ListItem key={productId} fullscreen={this.props.fullscreen}>
           <Product product={product}/>
         </ListItem>)
       })
