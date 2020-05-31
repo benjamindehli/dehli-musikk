@@ -30,9 +30,9 @@ import wildWhensSailinSarah from './releases/data/wildWhens_sailinSarah_50PONsFQ
 import wildWhensTravellinMan from './releases/data/wildWhens_travellinMan_2kO379DWolHqoC4lrlgToK.json';
 
 const latestReleases = [
+  twentyTwentyVisionUnderTheMidnightSun,
   twentyTwentyVisionCanYouSeeMe,
-  thomasTveitenDaaEDetVerdtDet,
-  esbenMeyerTaakemann
+  thomasTveitenDaaEDetVerdtDet
 ];
 
 export {
