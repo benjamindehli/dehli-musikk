@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 // Stylesheets
-import style from 'components/partials/Modal.module.scss';
+import style from 'components/template/Modal.module.scss';
 
 class Modal extends React.Component {
 

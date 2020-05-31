@@ -7,12 +7,12 @@ import {Redirect} from 'react-router-dom';
 // Components
 import Release from 'components/partials/Portfolio/Release';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
-import Modal from 'components/partials/Modal';
 
 // Template
 import Container from 'components/template/Container';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import Modal from 'components/template/Modal';
 
 // Actions
 import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';

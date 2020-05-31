@@ -7,7 +7,6 @@ import { Redirect} from 'react-router-dom';
 // Components
 import EquipmentItem from 'components/partials/EquipmentItem';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
-import Modal from 'components/partials/Modal';
 
 // Template
 import Container from 'components/template/Container';
@@ -16,6 +15,7 @@ import ListItem from 'components/template/List/ListItem';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
+import Modal from 'components/template/Modal';
 
 // Actions
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
