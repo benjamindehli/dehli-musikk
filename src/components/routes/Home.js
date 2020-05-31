@@ -12,6 +12,7 @@ import IntroContent from 'components/partials/IntroContent';
 import Button from 'components/partials/Button';
 import SocialMediaLinks from 'components/partials/SocialMediaLinks';
 import LatestPosts from 'components/partials/LatestPosts';
+import LatestProducts from 'components/partials/LatestProducts';
 import LatestReleases from 'components/partials/LatestReleases';
 
 // Template
@@ -126,7 +127,7 @@ class Home extends Component {
           </div>
         </Container>
       </div>
-      <div className={style.latestReleasesSection}>
+      <div>
         <Container>
           <h2>{
             this.props.selectedLanguageKey === 'en'
@@ -142,6 +143,27 @@ class Home extends Component {
                 </Link>)
                 : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} title='Se alle utgivelser'>
                   <Button>Se alle utgivelser</Button>
+                </Link>)
+            }
+          </div>
+        </Container>
+      </div>
+      <div className={style.mutedSection}>
+        <Container>
+          <h2>{
+              this.props.selectedLanguageKey === 'en'
+                ? 'Newest products'
+                : 'Nyeste produkter'
+            }</h2>
+          <LatestProducts/>
+          <div className={style.callToActionButtonContainer}>
+            {
+              this.props.selectedLanguageKey === 'en'
+                ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} title='See all products'>
+                  <Button>See all products</Button>
+                </Link>)
+                : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} title='Se alle produkter'>
+                  <Button>Se alle produkter</Button>
                 </Link>)
             }
           </div>
