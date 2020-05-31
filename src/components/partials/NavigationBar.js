@@ -151,22 +151,22 @@ class NavigationBar extends Component {
           <ul className={style.sidebarLinks}>
             <li>
               <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}>
-                {this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}
+                <FontAwesomeIcon icon={['fas', 'music']}/> {this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}
               </NavLink>
             </li>
             <li>
               <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}>
-                {this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}
+                <FontAwesomeIcon icon={['fas', 'photo-video']}/> {this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}
               </NavLink>
             </li>
             <li>
               <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}>
-                {this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}
+                <FontAwesomeIcon icon={['fas', 'shopping-cart']}/> {this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}
               </NavLink>
             </li>
             <li>
               <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}>
-                {this.props.selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}
+                <FontAwesomeIcon icon={['fas', 'guitar']}/> {this.props.selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}
               </NavLink>
             </li>
           </ul>
