@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.dehlimusikk.no/posts/innspilling-av-combo-orgel-clavinet-og-synth/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-06-11</news:publication_date>
+      <news:title>Innspilling av combo-orgel, Clavinet og synth</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/recording-combo-organ-clavinet-and-synthesizers/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-06-11</news:publication_date>
+      <news:title>Recording combo organ, Clavinet and synthesizers</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/posts/ny-utgivelse-under-the-midnight-sun-av-2020-vision/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
