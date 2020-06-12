@@ -44,6 +44,7 @@
     overflow: auto;
     @media (min-width: $screen-sm) {
       @include calc('width', '100% - 128px');
+      max-height: 100%;
     }
   }
 }
