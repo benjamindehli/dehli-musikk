@@ -22,7 +22,7 @@ export const convertToUrlFriendlyString = string => {
     string = string.replace("å", "aa");
 
     // Whitespace replace
-    string = string.replace(" - ", "-");
+    string = string.replace(/( - )/g, "-");
     string = string.replace(/[\s]+/g, "-");
 
     // Unwated character replace
