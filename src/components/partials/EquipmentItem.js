@@ -1,6 +1,8 @@
 // Dependencies
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+
 
 // Actions
 import {getLanguageSlug} from 'actions/LanguageActions';
@@ -12,11 +14,13 @@ import ListItemContentHeader from 'components/template/List/ListItem/ListItemCon
 
 class EquipmentItem extends Component {
 
-  renderPostThumbnail(image, itemName, fullscreen) {
+  renderPostThumbnail(image, itemName, fullscreen, compact) {
     const copyrightString = 'cc-by 2020 Benjamin Dehli dehlimusikk.no';
-    const imageSize = fullscreen
-      ? '540px'
-      : '350px';
+    const imageSize = compact
+      ? '55px'
+      : fullscreen
+        ? '945px'
+        : '350px';
     return (<React.Fragment>
         <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp"/>
         <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
@@ -54,8 +58,8 @@ class EquipmentItem extends Component {
 
     return item
       ? (<React.Fragment>
-          <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
-            {this.renderPostThumbnail(image, itemName, this.props.fullscreen, itemPath)}
+          <ListItemThumbnail fullscreen={this.props.fullscreen} link={link} compact={this.props.compact}>
+            {this.renderPostThumbnail(image, itemName, this.props.fullscreen, this.props.compact)}
           </ListItemThumbnail>
           <ListItemContent fullscreen={this.props.fullscreen}>
             <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
@@ -69,6 +73,23 @@ class EquipmentItem extends Component {
       : '';
   }
 }
+
+EquipmentItem.propTypes = {
+  fullscreen: PropTypes.bool,
+  compact: PropTypes.bool,
+  item: PropTypes.exact({
+    brand: PropTypes.string,
+    model: PropTypes.string,
+    equipmentItemId: PropTypes.string,
+    nextEquipmentItemId: PropTypes.string,
+    previousEquipmentItemId: PropTypes.string
+  })
+};
+
+EquipmentItem.defaultProps = {
+  fullscreen: false,
+  compact: false
+};
 
 const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
 
