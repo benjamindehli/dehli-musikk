@@ -1,4 +1,19 @@
 [{
+    "id": "2020061300",
+    "copyright": true,
+    "timestamp": 1592006400000,
+    "title": {
+      "no": "Modifisering av Roland Dimension D",
+      "en": "Roland Dimension D modification"
+    },
+    "content": {
+      "no": "En liten modifisering av Dimension D for å få mono / stereobryteren tilgjengelig fra frontpanelet 🔧",
+      "en": "Doing a small modification to the Dimension D making the mono/stereo switch accessible from the front panel 🔧"
+    },
+    "thumbnailDescription": "Roland Dimension D SDD-320 modified with mono/stereo switch",
+    "thumbnailFilename": "2020-06-13-00"
+  },
+  {
     "id": "2020061100",
     "copyright": true,
     "timestamp": 1591833600000,

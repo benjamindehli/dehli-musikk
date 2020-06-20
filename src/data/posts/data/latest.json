@@ -1,4 +1,19 @@
 [{
+    "id": "2020061300",
+    "copyright": true,
+    "timestamp": 1592006400000,
+    "title": {
+      "no": "Modifisering av Roland Dimension D",
+      "en": "Roland Dimension D modification"
+    },
+    "content": {
+      "no": "En liten modifisering av Dimension D for å få mono / stereobryteren tilgjengelig fra frontpanelet 🔧",
+      "en": "Doing a small modification to the Dimension D making the mono/stereo switch accessible from the front panel 🔧"
+    },
+    "thumbnailDescription": "Roland Dimension D SDD-320 modified with mono/stereo switch",
+    "thumbnailFilename": "2020-06-13-00"
+  },
+  {
     "id": "2020061100",
     "copyright": true,
     "timestamp": 1591833600000,
@@ -39,29 +54,6 @@
       "text": {
         "en": "Listen to Under the Midnight Sun",
         "no": "Lytt til Under the Midnight Sun"
-      }
-    }
-  },
-  {
-    "id": "2020052500",
-    "copyright": true,
-    "timestamp": 1590364800000,
-    "title": {
-      "no": "Nytt produkt - Lo-fi Tape Piano",
-      "en": "New product - Lo-fi Tape Piano"
-    },
-    "content": {
-      "no": "Nå er sample-pakka 'Lo-fi Tape Piano' klar tilgjengelig for ca. 50 norske penger ($4.99) hos Roqstar 😃",
-      "en": "The 'Lo-fi Tape Piano' sample pack is now available for $4.99 at Roqstar 😃"
-    },
-    "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
-    "thumbnailFilename": "2020-05-25-00",
-    "link": {
-      "url": "products/lo-fi-tape-piano/",
-      "internal": true,
-      "text": {
-        "en": "Read more about Lo-fi Tape Piano",
-        "no": "Les mer om Lo-fi Tape Piano"
       }
     }
   }
