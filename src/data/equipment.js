@@ -1,11 +1,20 @@
-import instruments from './equipment/data/instruments.json';
-import effects from './equipment/data/effects.json';
-import amplifiers from './equipment/data/amplifiers.json';
+import instrumentItems from './equipment/data/instruments.json';
+import effectItems from './equipment/data/effects.json';
+import amplifierItems from './equipment/data/amplifiers.json';
+
+export const instruments = {
+  equipmentType: 'instruments',
+  items: instrumentItems,
+  name: {
+    en: 'Instruments',
+    no: 'Instrumenter'
+  }
+};
 
 export default {
   instruments: {
     equipmentType: 'instruments',
-    items: instruments,
+    items: instrumentItems,
     name: {
       en: 'Instruments',
       no: 'Instrumenter'
@@ -13,7 +22,7 @@ export default {
   },
   effects: {
     equipmentType: 'effects',
-    items: effects,
+    items: effectItems,
     name: {
       en: 'Effects',
       no: 'Effekter'
@@ -21,7 +30,7 @@ export default {
   },
   amplifiers: {
     equipmentType: 'amplifiers',
-    items: amplifiers,
+    items: amplifierItems,
     name: {
       en: 'Amplifiers',
       no: 'Forsterkere'
