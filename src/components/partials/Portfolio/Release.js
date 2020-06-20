@@ -6,8 +6,12 @@ import PropTypes from 'prop-types';
 
 // Components
 import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
+import EquipmentItem from 'components/partials/EquipmentItem';
 
 // Template
+import ExpansionPanel from 'components/template/ExpansionPanel';
+import List from 'components/template/List';
+import ListItem from 'components/template/List/ListItem';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
@@ -18,6 +22,8 @@ import {fetchReleasesThumbnail} from 'actions/PortfolioActions';
 import {getLanguageSlug} from 'actions/LanguageActions';
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 
+// Helpers
+import {getReleaseInstruments} from 'helpers/releaseInstruments';
 
 class Release extends Component {
   constructor(props) {
@@ -52,10 +58,12 @@ class Release extends Component {
     document.addEventListener('mousedown', this.handleClickOutside);
   }
 
-  renderReleaseThumbnail(image, fullscreen, release) {
-    const imageSize = fullscreen
-      ? '540px'
-      : '350px';
+  renderReleaseThumbnail(image, fullscreen, release, compact) {
+    const imageSize = compact
+      ? '55px'
+      : fullscreen
+        ? '540px'
+        : '350px';
 
     return (<React.Fragment>
       <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
@@ -87,7 +95,37 @@ class Release extends Component {
     </Helmet>)
   }
 
+  renderInstrumentsList(instruments, selectedLanguageKey){
+    if (instruments && instruments.length){
+      const listItems = instruments.map(instrument => {
+        return (<ListItem key={instrument.equipmentItemId} compact={true}>
+                  <EquipmentItem item={instrument} itemId={instrument.equipmentItemId} itemType='instruments' compact={true}/>
+                </ListItem>)
+      });
+      return (
+        <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? 'Instruments used on the song' : 'Instrumenter som er brukt på låta'}>
+          <List compact={true}>
+            {listItems}
+          </List>
+        </ExpansionPanel>
+      );
+    }else {
+      return '';
+    }
+  }
+
+  renderLinkList(release, selectedLanguageKey) {
+    return (
+      <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? `Listen to ${release.title}` : `Lytt til ${release.title}`}>
+        <ReleaseLinks release={release}/>
+      </ExpansionPanel>
+    );
+  }
+
   render() {
+    const selectedLanguageKey = this.props.selectedLanguageKey
+      ? this.props.selectedLanguageKey
+      : 'no';
     const release = this.props.release;
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
 
@@ -103,14 +141,14 @@ class Release extends Component {
     };
 
     const link = {
-      to: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${releaseId}/`,
-      title: `${this.props.selectedLanguageKey === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`
+      to: `/${this.props.getLanguageSlug(selectedLanguageKey)}portfolio/${releaseId}/`,
+      title: `${selectedLanguageKey === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`
     };
 
     return (<React.Fragment>
       {this.renderReleaseSnippet(release, image['jpg540'])}
-      <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
-        {this.renderReleaseThumbnail(image, this.props.fullscreen, release)}
+      <ListItemThumbnail fullscreen={this.props.fullscreen} link={link} compact={this.props.compact}>
+        {this.renderReleaseThumbnail(image, this.props.fullscreen, release, this.props.compact)}
       </ListItemThumbnail>
       <ListItemContent fullscreen={this.props.fullscreen}>
         <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
@@ -129,10 +167,14 @@ class Release extends Component {
               }</time></li>
             <li><time dateTime={new Date(release.releaseDate).toISOString()}>{new Date(release.releaseDate).getFullYear()}</time></li>
           </ul>
+
         </ListItemContentBody>
       </ListItemContent>
       {
-        this.props.fullscreen ? <ReleaseLinks release={release}/> : ''
+        this.props.fullscreen ? this.renderInstrumentsList(getReleaseInstruments(releaseId), selectedLanguageKey) : ''
+      }
+      {
+        this.props.fullscreen ? this.renderLinkList(release, selectedLanguageKey) : ''
       }
     </React.Fragment>);
   }
@@ -140,11 +182,13 @@ class Release extends Component {
 
 Release.propTypes = {
   release: PropTypes.object.isRequired,
-  fullscreen: PropTypes.bool
+  fullscreen: PropTypes.bool,
+  compact: PropTypes.bool
 };
 
 Release.defaultProps = {
-  fullscreen: false
+  fullscreen: false,
+  compact: false
 }
 
 const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
