@@ -39,6 +39,10 @@
     "model": "Stratocaster"
   },
   {
+    "brand": "Hammond",
+    "model": "C3"
+  },
+  {
     "brand": "Hohner",
     "model": "Clavinet D6"
   },
@@ -101,10 +105,6 @@
   {
     "brand": "Nagoya Suzuki",
     "model": "No. 305"
-  },
-  {
-    "brand": "Hammond",
-    "model": "C3"
   },
   {
     "brand": "Rhodes",
