@@ -9,7 +9,7 @@ import style from 'components/template/List/ListItem/ListItemThumbnail.module.sc
 class ListItemThumbnail extends React.Component {
   renderContent(link, children) {
     const childElements = (
-      <figure className={`${style.listItemThumbnail} ${this.props.fullscreen ? style.fullscreen : ''}`}>
+      <figure className={`${style.listItemThumbnail} ${this.props.fullscreen ? style.fullscreen : ''} ${this.props.compact ? style.compact : ''}`}>
         <picture>{children}</picture>
       </figure>
     );
@@ -25,6 +25,7 @@ class ListItemThumbnail extends React.Component {
 
 ListItemThumbnail.propTypes = {
   fullscreen: PropTypes.bool,
+  compact: PropTypes.bool,
   link: PropTypes.exact({
     to: PropTypes.string,
     title: PropTypes.string
@@ -32,7 +33,8 @@ ListItemThumbnail.propTypes = {
 };
 
 ListItemThumbnail.defaultProps = {
-  fullscreen: false
+  fullscreen: false,
+  compact: false
 };
 
 export default ListItemThumbnail;
