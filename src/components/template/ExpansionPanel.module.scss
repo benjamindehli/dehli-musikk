@@ -1,0 +1,36 @@
+@import "../../style/abstracts/all";
+
+:local(.expansionPanelHeader) {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 12px 6px;
+  font-weight: normal;
+  font-size: 20px;
+  cursor: pointer;
+  @media (min-width: $screen-sm) {
+    padding: 16px;
+    font-size: 23px;
+  }
+
+  span {
+    display: block;
+    flex: 1;
+  }
+
+  svg {
+    transform: rotate(0deg);
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  }
+
+  &:local(.expanded) {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+:local(.expansionPanelContent) {
+  overflow: hidden;
+  transition: max-height 222ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
