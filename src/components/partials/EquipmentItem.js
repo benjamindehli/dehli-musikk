@@ -7,10 +7,19 @@ import PropTypes from 'prop-types';
 // Actions
 import {getLanguageSlug} from 'actions/LanguageActions';
 
+// Components
+import Release from 'components/partials/Portfolio/Release';
+
 // Template
+import ExpansionPanel from 'components/template/ExpansionPanel';
+import List from 'components/template/List';
+import ListItem from 'components/template/List/ListItem';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
+
+// Helpers
+import {getInstrumentReleases} from 'helpers/instrumentReleases';
 
 class EquipmentItem extends Component {
 
@@ -26,6 +35,25 @@ class EquipmentItem extends Component {
         <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
         <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} copyright={copyrightString} />
     </React.Fragment>);
+  }
+
+  renderReleasesList(releases, selectedLanguageKey, item) {
+    if (releases && releases.length){
+      const listItems = releases.map(release => {
+        return (<ListItem key={release.releaseId} compact={true}>
+                  <Release release={release} compact={true}/>
+                </ListItem>)
+      });
+      return (
+        <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}>
+          <List compact={true}>
+            {listItems}
+          </List>
+        </ExpansionPanel>
+      );
+    } else {
+      return '';
+    }
   }
 
   render() {
@@ -69,6 +97,9 @@ class EquipmentItem extends Component {
                 </h2>
             </ListItemContentHeader>
         </ListItemContent>
+        {
+          this.props.fullscreen && itemType === 'instruments' ? this.renderReleasesList(getInstrumentReleases(itemId), selectedLanguageKey, item) : ''
+        }
       </React.Fragment>)
       : '';
   }
