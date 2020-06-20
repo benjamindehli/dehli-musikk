@@ -80,7 +80,7 @@ class Release extends Component {
         "@type": "MusicComposition",
         "name": release.title
       },
-      "thumbnailUrl": `https://www.dehlimusikk.no/portfolio${releaseThumbnailSrc}`
+      "thumbnailUrl": `https://www.dehlimusikk.no${releaseThumbnailSrc}`
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
@@ -108,7 +108,7 @@ class Release extends Component {
     };
 
     return (<React.Fragment>
-      {this.renderReleaseSnippet(release, image['jpg400'])}
+      {this.renderReleaseSnippet(release, image['jpg540'])}
       <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
         {this.renderReleaseThumbnail(image, this.props.fullscreen, release)}
       </ListItemThumbnail>
