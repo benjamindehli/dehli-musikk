@@ -65,19 +65,37 @@ class Portfolio extends Component {
       this.setState({
         redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`
       });
-    }
+    };
+    const handleClickArrowLeft = selectedRelease && selectedRelease.previousReleaseId ? () => {
+      this.setState({
+        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedRelease.previousReleaseId}/`
+      });
+    } : null;
+    const handleClickArrowRight = selectedRelease && selectedRelease.nextReleaseId ? () => {
+      this.setState({
+        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedRelease.nextReleaseId}/`
+      });
+    } : null;
     return selectedRelease
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px">
-        <Release key={selectedRelease.id} release={selectedRelease} fullscreen={true} />
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight}>
+        <Release release={selectedRelease} fullscreen={true} />
       </Modal>)
       : '';
   }
 
   getSelectedRelease(selectedReleaseId, selectedLanguageKey){
-    return releases.find(release => {
+    let selectedRelease = null;
+    releases.forEach((release, index) => {
       const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
-      return releaseId === selectedReleaseId
+      if (releaseId === selectedReleaseId) {
+        selectedRelease = {
+          ...release,
+          previousReleaseId: index > 0 ? convertToUrlFriendlyString(`${releases[index-1].artistName} ${releases[index-1].title}`) : null,
+          nextReleaseId: index < releases.length-1 ? convertToUrlFriendlyString(`${releases[index+1].artistName} ${releases[index+1].title}`) : null
+        }
+      }
     });
+    return selectedRelease;
   }
 
   render() {
