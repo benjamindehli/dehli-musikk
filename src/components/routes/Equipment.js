@@ -175,6 +175,7 @@ class Equipment extends Component {
       if (equipmentItemId === selectedEquipmentId) {
         selectedEquipment = {
           ...equipmentItem,
+          equipmentItemId,
           previousEquipmentItemId: index > 0 ? convertToUrlFriendlyString(`${equipment[index-1].brand} ${equipment[index-1].model}`) : null,
           nextEquipmentItemId: index < equipment.length-1 ? convertToUrlFriendlyString(`${equipment[index+1].brand} ${equipment[index+1].model}`) : null
         }
@@ -265,7 +266,7 @@ class Equipment extends Component {
     if (selectedEquipment) {
       breadcrumbs.push({
         name: detailsPage.heading,
-        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${selectedEquipmentType}/${selectedEquipment.id}/`
+        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${selectedEquipmentType}/${selectedEquipment.equipmentItemId}/`
       })
     }
 
