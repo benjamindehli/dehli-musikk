@@ -1,20 +1,21 @@
 @import "../../../style/abstracts/all";
 
 :local(.releaseLinks) {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 8px 0;
-
   :local(.link) {
-    margin: 6px;
-
+    padding: 8px 16px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    @media (min-width: $screen-sm) {
+      font-size: 22px;
+    }
     svg {
-      height: 34px;
-      width: 34px;
+      height: 55px;
+      width: 55px;
+      margin-right: 10px;
       @media (min-width: $screen-sm) {
-        height: 45px;
-        width: 45px;
+        margin-right: 20px;
       }
     }
   }

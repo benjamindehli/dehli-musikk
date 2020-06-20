@@ -62,12 +62,49 @@ class ReleaseLinks extends Component {
     }
   }
 
+  getLinkName(linkKey) {
+    switch (linkKey) {
+      case 'amazonStore':
+        return 'Amazon'
+      case 'amazonMusic':
+        return 'Amazon Music'
+      case 'appleMusic':
+        return 'Apple Music'
+      case 'deezer':
+        return 'Deezer'
+      case 'google':
+        return 'Google Play Music'
+      case 'googleStore':
+        return 'Google Play'
+      case 'itunes':
+        return 'iTunes'
+      case 'napster':
+        return 'NapsterIcon'
+      case 'pandora':
+        return 'PandoraIcon'
+      case 'soundcloud':
+        return 'SoundCloud'
+      case 'spotify':
+        return 'Spotify'
+      case 'tidal':
+        return 'Tidal'
+      case 'yandex':
+        return 'YandexIcon'
+      case 'youtube':
+        return 'YouTube'
+      case 'youtubeMusic':
+        return 'YouTube Music'
+      default:
+        return 'Missing icon'
+    }
+  }
+
   renderReleaseLinks(release) {
     const links = release.links;
     return Object.keys(links).map(linkKey => {
       const url = links[linkKey];
-      const linkTitle = `${this.props.selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} ${release.title} ${this.props.selectedLanguageKey === 'en' ? 'on' : 'på'} ${linkKey}`;
-      return <a href={url} key={linkKey} aria-label={linkTitle} title={linkTitle} className={style.link}>{this.getLinkIcon(linkKey)}</a>;
+      const linkTitle = `${this.props.selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} ${release.title} ${this.props.selectedLanguageKey === 'en' ? 'on' : 'på'} ${this.getLinkName(linkKey)}`;
+      return <a href={url} key={linkKey} aria-label={linkTitle} title={linkTitle} target='_blank' rel='noopener noreferrer' className={style.link}>{this.getLinkIcon(linkKey)} {this.getLinkName(linkKey)}</a>;
     });
   }
 
