@@ -25,6 +25,7 @@ class Product extends Component {
 
   renderProductSnippet(product, productId, productThumbnailSrc) {
     const productDate = new Date(product.timestamp).toISOString();
+    const plusOneYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString();
     const selectedLanguageKey = this.props.selectedLanguageKey
       ? this.props.selectedLanguageKey
       : 'no';
@@ -133,7 +134,8 @@ class Product extends Component {
         "priceCurrency": product.priceCurrency,
         "url": product.link.url,
         "availability": "http://schema.org/OnlineOnly",
-        "validFrom" : productDate,
+        "validFrom": productDate,
+        "priceValidUntil": plusOneYear
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
