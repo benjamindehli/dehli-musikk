@@ -53,24 +53,30 @@ class SearchField extends Component {
     </picture>);
   }
 
-  getSearchPointsFromRelease(release, searchString){
+  getSearchPointsFromRelease(release, searchStringWords){
     const selectedLanguageKey = this.props.selectedLanguageKey;
 
     const id = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
     const link = `/${this.props.getLanguageSlug(selectedLanguageKey)}portfolio/${id}/`;
     const linkTitle = `${selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} ${release.title}`;
 
-    const regex = new RegExp(searchString, "gi");
+    let artistNamePoints = 0;
+    let titlePoints = 0;
+    let genrePoints = 0;
 
-    const artistNameMatch = release.artistName.match(regex);
-    const titleMatch = release.title.match(regex);
-    const genreMatch = release.genre.match(regex);
+    searchStringWords.forEach(searchStringWord => {
+      const regex = new RegExp(searchStringWord, "gi");
 
-    const artistNamePoints = artistNameMatch ? artistNameMatch.length * 15 : 0;
-    const titlePoints = titleMatch ? titleMatch.length * 15 : 0;
-    const genrePoints = genreMatch ? genreMatch.length * 5 : 0;
+      const artistNameMatch = release.artistName.match(regex);
+      const titleMatch = release.title.match(regex);
+      const genreMatch = release.genre.match(regex);
 
-    const points = artistNamePoints + titlePoints + genrePoints;
+      artistNamePoints += artistNameMatch ? artistNameMatch.length * 15 : 0;
+      titlePoints += titleMatch ? titleMatch.length * 15 : 0;
+      genrePoints += genreMatch ? genreMatch.length * 5 : 0;
+    });
+
+    const points = (artistNamePoints + titlePoints + genrePoints) / searchStringWords.length;
 
     const thumbnailPaths = {
       webp: require(`../../../data/releases/thumbnails/web/webp/${release.thumbnailFilename}_55.webp`),
@@ -90,31 +96,36 @@ class SearchField extends Component {
     }
   }
 
-  getSearchResultsFromReleases(releases, searchString){
+  getSearchResultsFromReleases(releases, searchStringWords){
     const searchResultsFromReleases = releases.map(release => {
-      return this.getSearchPointsFromRelease(release, searchString);
+      return this.getSearchPointsFromRelease(release, searchStringWords);
     })
     return searchResultsFromReleases.filter(result => {
-      return result.points && result.points > 0;
+      return result.points && result.points >= 1;
     });
   }
 
-  getSearchPointsFromPost(post, searchString){
+  getSearchPointsFromPost(post, searchStringWords){
     const selectedLanguageKey = this.props.selectedLanguageKey;
 
     const id = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
     const link = `/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${id}/`;
     const linkTitle = post.title[selectedLanguageKey];
 
-    const regex = new RegExp(searchString, "gi");
+    let titlePoints = 0;
+    let contentPoints = 0;
 
-    const titleMatch = post.title[selectedLanguageKey].match(regex);
-    const contentMatch = post.content[selectedLanguageKey].match(regex);
+    searchStringWords.forEach(searchStringWord => {
+      const regex = new RegExp(searchStringWord, "gi");
 
-    const titlePoints = titleMatch ? titleMatch.length * 5 : 0;
-    const contentPoints = contentMatch ? contentMatch.length : 0;
+      const titleMatch = post.title[selectedLanguageKey].match(regex);
+      const contentMatch = post.content[selectedLanguageKey].match(regex);
 
-    const points = titlePoints + contentPoints;
+      titlePoints += titleMatch ? titleMatch.length * 5 : 0;
+      contentPoints += contentMatch ? contentMatch.length : 0;
+    });
+
+    const points = (titlePoints + contentPoints) / searchStringWords.length;
 
     const thumbnailPaths = {
       webp: require(`../../../data/posts/thumbnails/web/webp/${post.thumbnailFilename}_55.webp`),
@@ -134,31 +145,36 @@ class SearchField extends Component {
     }
   }
 
-  getSearchResultsFromPosts(posts, searchString){
+  getSearchResultsFromPosts(posts, searchStringWords){
     const searchResultsFromPosts = posts.map(post => {
-      return this.getSearchPointsFromPost(post, searchString);
+      return this.getSearchPointsFromPost(post, searchStringWords);
     })
     return searchResultsFromPosts.filter(result => {
-      return result.points && result.points > 0;
+      return result.points && result.points >= 1;
     });
   }
 
-  getSearchPointsFromProduct(product, searchString){
+  getSearchPointsFromProduct(product, searchStringWords){
     const selectedLanguageKey = this.props.selectedLanguageKey;
 
     const id = convertToUrlFriendlyString(product.title);
     const link = `/${this.props.getLanguageSlug(selectedLanguageKey)}products/${id}/`;
     const linkTitle = product.title;
 
-    const regex = new RegExp(searchString, "gi");
+    let titlePoints = 0;
+    let contentPoints = 0;
 
-    const titleMatch = product.title.match(regex);
-    const contentMatch = product.content[selectedLanguageKey].match(regex);
+    searchStringWords.forEach(searchStringWord => {
+      const regex = new RegExp(searchStringWord, "gi");
 
-    const titlePoints = titleMatch ? titleMatch.length * 10 : 0;
-    const contentPoints = contentMatch ? contentMatch.length*2 : 0;
+      const titleMatch = product.title.match(regex);
+      const contentMatch = product.content[selectedLanguageKey].match(regex);
 
-    const points = titlePoints + contentPoints;
+      titlePoints += titleMatch ? titleMatch.length * 10 : 0;
+      contentPoints += contentMatch ? contentMatch.length*2 : 0;
+    });
+
+    const points = (titlePoints + contentPoints) / searchStringWords.length;
 
     const thumbnailPaths = {
       webp: require(`../../../data/products/thumbnails/web/webp/${id}_55.webp`),
@@ -178,33 +194,39 @@ class SearchField extends Component {
     }
   }
 
-  getSearchResultsFromProducts(products, searchString){
+  getSearchResultsFromProducts(products, searchStringWords){
     const searchResultsFromProducts = products.map(product => {
-      return this.getSearchPointsFromProduct(product, searchString);
+      return this.getSearchPointsFromProduct(product, searchStringWords);
     })
     return searchResultsFromProducts.filter(result => {
-      return result.points && result.points > 0;
+      return result.points && result.points >= 1;
     });
   }
 
-  getSearchPointsFromEquipmentItems(item, equipmentType, equipmentTypeKey, searchString){
+  getSearchPointsFromEquipmentItems(item, equipmentType, equipmentTypeKey, searchStringWords){
     const selectedLanguageKey = this.props.selectedLanguageKey;
 
     const id = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
     const link = `/${this.props.getLanguageSlug(selectedLanguageKey)}equipment/${equipmentTypeKey}/${id}/`;
     const linkTitle = `${item.brand} ${item.model}`;
 
-    const regex = new RegExp(searchString, "gi");
+    let brandPoints = 0;
+    let modelPoints = 0;
+    let equipmentTypePoints = 0;
 
-    const brandMatch = item.brand.match(regex);
-    const modelMatch = item.model.match(regex);
-    const equipmentTypeMatch = equipmentType.name[selectedLanguageKey].match(regex);
+    searchStringWords.forEach(searchStringWord => {
+      const regex = new RegExp(searchStringWord, "gi");
 
-    const brandPoints = brandMatch ? brandMatch.length * 5 : 0;
-    const modelPoints = modelMatch ? modelMatch.length * 5 : 0;
-    const equipmentTypePoints = equipmentTypeMatch ? equipmentTypeMatch.length * 1 : 0;
+      const brandMatch = item.brand.match(regex);
+      const modelMatch = item.model.match(regex);
+      const equipmentTypeMatch = equipmentType.name[selectedLanguageKey].match(regex);
 
-    const points = brandPoints + modelPoints + equipmentTypePoints;
+      brandPoints += brandMatch ? brandMatch.length * 7 : 0;
+      modelPoints += modelMatch ? modelMatch.length * 7 : 0;
+      equipmentTypePoints += equipmentTypeMatch ? equipmentTypeMatch.length * 1 : 0;
+    });
+
+    const points = (brandPoints + modelPoints + equipmentTypePoints) / searchStringWords.length;
 
     const thumbnailPaths = {
       webp: require(`../../../data/equipment/thumbnails/${equipmentTypeKey}/web/webp/${id}_55.webp`),
@@ -224,42 +246,46 @@ class SearchField extends Component {
     };
   }
 
-  getSearchResultsFromEquipmentType(equipmentType, equipmentTypeKey, searchString){
+  getSearchResultsFromEquipmentType(equipmentType, equipmentTypeKey, searchStringWords){
     const searchResultsFromEquipmentItems = equipmentType.items.map(item => {
-      return this.getSearchPointsFromEquipmentItems(item, equipmentType, equipmentTypeKey, searchString);
+      return this.getSearchPointsFromEquipmentItems(item, equipmentType, equipmentTypeKey, searchStringWords);
     })
     return searchResultsFromEquipmentItems.filter(result => {
-      return result.points && result.points > 0;
+      return result.points && result.points >= 1;
     });
   }
 
-  getSearchResultsFromEquipmentTypes(equipmentTypes, searchString){
+  getSearchResultsFromEquipmentTypes(equipmentTypes, searchStringWords){
     let searchResultsFromEquipmentTypes = [];
     Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
       const equipmentType = equipmentTypes[equipmentTypeKey];
-      const searchResultsFromEquipmentType = this.getSearchResultsFromEquipmentType(equipmentType, equipmentTypeKey, searchString);
+      const searchResultsFromEquipmentType = this.getSearchResultsFromEquipmentType(equipmentType, equipmentTypeKey, searchStringWords);
       searchResultsFromEquipmentTypes = searchResultsFromEquipmentTypes.concat(searchResultsFromEquipmentType);
     })
     return searchResultsFromEquipmentTypes;
   }
 
   handleShowResultsList(event) {
-    const searchString = event.target.value.replace(/[^a-å0-9-]+/ig, ""); // Removes unwanted characters
-
+    let searchString = event.target.value.replace(/[^a-å0-9- ]+/ig, ""); // Removes unwanted characters
+    searchString = searchString.replace(/\s\s+/g, ' '); // Remove redundant whitespace
+    const searchStringWords = searchString.split(" ").filter(searchStringWord => {
+      return searchStringWord.length > 1;
+    });
     if (searchString.length > 1) {
-      const searchResultsFromReleases = this.getSearchResultsFromReleases(releases, searchString);
-      const searchResultsFromPosts = this.getSearchResultsFromPosts(posts, searchString);
-      const searchResultsFromProducts = this.getSearchResultsFromProducts(products, searchString);
-      const searchResultsFromEquipmentTypes = this.getSearchResultsFromEquipmentTypes(equipmentTypes, searchString);
+      const searchResultsFromReleases = this.getSearchResultsFromReleases(releases, searchStringWords);
+      const searchResultsFromPosts = this.getSearchResultsFromPosts(posts, searchStringWords);
+      const searchResultsFromProducts = this.getSearchResultsFromProducts(products, searchStringWords);
+      const searchResultsFromEquipmentTypes = this.getSearchResultsFromEquipmentTypes(equipmentTypes, searchStringWords);
       const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromProducts, searchResultsFromEquipmentTypes);
+
       this.setState({
         showResultsList: true,
         results: results.sort((a, b) => b.points - a.points)
       });
+
     } else {
       this.hideResultsList();
     }
-
   }
 
   handleClickOutsideResultsList(event) {
