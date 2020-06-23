@@ -1,4 +1,26 @@
 [{
+    "id": "2020062000",
+    "copyright": true,
+    "timestamp": 1592611200000,
+    "title": {
+      "no": "Rhodes piano med sample & hold filter modulasjon",
+      "en": "Rhodes piano with sample & hold filter modulation"
+    },
+    "content": {
+      "no": "Fender Rhodes med Moog Minitaur filter forsterket av en Roland Jazz Chorus og en Fender Twin Reverb 🎹🎛️🛸",
+      "en": "Fender Rhodes with Moog Minitaur filter amplified with a Roland Jazz Chorus and a Fender Twin Reverb  🎹🎛️🛸"
+    },
+    "thumbnailDescription": "A Fender Rhodes MKI Stage Piano being played",
+    "thumbnailFilename": "2020-06-20-00",
+    "link": {
+      "url": "https://www.instagram.com/p/CBq_jiYl5Kw/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
     "id": "2020061300",
     "copyright": true,
     "timestamp": 1592006400000,

@@ -1,4 +1,26 @@
 [{
+    "id": "2020062000",
+    "copyright": true,
+    "timestamp": 1592611200000,
+    "title": {
+      "no": "Rhodes piano med sample & hold filter modulasjon",
+      "en": "Rhodes piano with sample & hold filter modulation"
+    },
+    "content": {
+      "no": "Fender Rhodes med Moog Minitaur filter forsterket av en Roland Jazz Chorus og en Fender Twin Reverb 🎹🎛️🛸",
+      "en": "Fender Rhodes with Moog Minitaur filter amplified with a Roland Jazz Chorus and a Fender Twin Reverb  🎹🎛️🛸"
+    },
+    "thumbnailDescription": "A Fender Rhodes MKI Stage Piano being played",
+    "thumbnailFilename": "2020-06-20-00",
+    "link": {
+      "url": "https://www.instagram.com/p/CBq_jiYl5Kw/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
     "id": "2020061300",
     "copyright": true,
     "timestamp": 1592006400000,
@@ -32,28 +54,6 @@
       "text": {
         "en": "Show video",
         "no": "Se video"
-      }
-    }
-  },
-  {
-    "id": "2020052900",
-    "timestamp": 1590710400000,
-    "title": {
-      "no": "Ny utgivelse - Under the Midnight Sun av 2020 Vision",
-      "en": "New release - Under the Midnight Sun by 2020 Vision"
-    },
-    "content": {
-      "no": "En kanontøff rockelåt fra gjengen i 2020 Vision ble sluppet ut i dag 😎🤘Bare å skru anlegget på fullt med denna 80-talls råkk'n'råll-låta 📼👾 God helg!",
-      "en": "New release by 2020 Vision 😎🤘Turn up the volume and enjoy this 80's rock'n'roll song 📼👾 Have a nice weekend!"
-    },
-    "thumbnailDescription": "Album cover for the single \"Under the Midnight Sun\" by 2020 Vision",
-    "thumbnailFilename": "2020-05-29-00",
-    "link": {
-      "url": "portfolio/2020-vision-under-the-midnight-sun/",
-      "internal": true,
-      "text": {
-        "en": "Listen to Under the Midnight Sun",
-        "no": "Lytt til Under the Midnight Sun"
       }
     }
   }
