@@ -7,10 +7,6 @@ var oldString = string;
     string = string.replace(/>/g, "&gt;");
     string = string.replace(/"/g, '&quot;');
     string = string.replace(/'/g, "&apos;");
-if (oldString !== string){
-  console.log("old:", oldString);
-  console.log("new:", string);
-}
     return string;
   } else {
     return '';
