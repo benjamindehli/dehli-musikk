@@ -79,9 +79,9 @@ class ReleaseLinks extends Component {
       case 'itunes':
         return 'iTunes'
       case 'napster':
-        return 'NapsterIcon'
+        return 'Napster'
       case 'pandora':
-        return 'PandoraIcon'
+        return 'Pandora'
       case 'soundcloud':
         return 'SoundCloud'
       case 'spotify':
@@ -89,13 +89,13 @@ class ReleaseLinks extends Component {
       case 'tidal':
         return 'Tidal'
       case 'yandex':
-        return 'YandexIcon'
+        return 'Yandex'
       case 'youtube':
         return 'YouTube'
       case 'youtubeMusic':
         return 'YouTube Music'
       default:
-        return 'Missing icon'
+        return linkKey
     }
   }
 
