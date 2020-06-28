@@ -1,6 +1,5 @@
 export const convertToXmlFriendlyString = string => {
   if (string) {
-var oldString = string;
     // Character replace
     string = string.replace(/&/g, "&amp;");
     string = string.replace(/</g, "&lt;");
