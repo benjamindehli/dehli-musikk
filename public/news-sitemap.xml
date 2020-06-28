@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.dehlimusikk.no/posts/roland-dimension-d-sdd-230-med-synther-og-elektriske-pianoer/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-06-28</news:publication_date>
+      <news:title>Roland Dimension D SDD-230 med synther og elektriske pianoer</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/roland-dimension-d-sdd-230-with-synthesizers-and-electric-pianos/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-06-28</news:publication_date>
+      <news:title>Roland Dimension D SDD-230 with synthesizers and electric pianos</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/ny-utgivelse-the-keeper-of-the-lighthouse-av-wolf-moon-fever/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-06-26</news:publication_date>
+      <news:title>Ny utgivelse - The Keeper of the Lighthouse av Wolf Moon Fever</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/new-release-the-keeper-of-the-lighthouse-by-wolf-moon-fever/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-06-26</news:publication_date>
+      <news:title>New release - The Keeper of the Lighthouse by Wolf Moon Fever</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/posts/rhodes-piano-med-sample-and-hold-filter-modulasjon/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
