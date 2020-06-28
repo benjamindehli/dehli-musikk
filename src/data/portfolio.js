@@ -28,11 +28,12 @@ import wildWhensFromTheValley from './releases/data/wildWhens_fromtheValley_3usd
 import wildWhensRebelHeart from './releases/data/wildWhens_rebelHeart_7vIxzySCGMK2MYQESmDXbl.json';
 import wildWhensSailinSarah from './releases/data/wildWhens_sailinSarah_50PONsFQZadgxvPJclRLjv.json';
 import wildWhensTravellinMan from './releases/data/wildWhens_travellinMan_2kO379DWolHqoC4lrlgToK.json';
+import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
+  wolfMoonFeverTheKeeperoftheLighthouse,
   twentyTwentyVisionUnderTheMidnightSun,
-  twentyTwentyVisionCanYouSeeMe,
-  thomasTveitenDaaEDetVerdtDet
+  twentyTwentyVisionCanYouSeeMe
 ];
 
 export {
@@ -69,5 +70,6 @@ export default [
   wildWhensFromTheValley,
   wildWhensRebelHeart,
   wildWhensSailinSarah,
-  wildWhensTravellinMan
+  wildWhensTravellinMan,
+  wolfMoonFeverTheKeeperoftheLighthouse
 ]
