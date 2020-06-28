@@ -1,4 +1,48 @@
 [{
+    "id": "2020062800",
+    "copyright": true,
+    "timestamp": 1593302400000,
+    "title": {
+      "no": "Roland Dimension D SDD-230 med synther og elektriske pianoer",
+      "en": "Roland Dimension D SDD-230 with synthesizers and electric pianos"
+    },
+    "content": {
+      "no": "Testet ut Roland Dimension D på forskjellige tangentinstrumenter 🎹🎛",
+      "en": "Tried out the Roland Dimension D with various keyboard instruments 🎹🎛️"
+    },
+    "thumbnailDescription": "Roland Dimension D, electric pianos and synthesizers",
+    "thumbnailFilename": "2020-06-28-00",
+    "link": {
+      "url": "https://youtu.be/PZhm0VZ20Qc",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020062600",
+    "timestamp": 1593129600000,
+    "title": {
+      "no": "Ny utgivelse - The Keeper of the Lighthouse av Wolf Moon Fever",
+      "en": "New release - The Keeper of the Lighthouse by Wolf Moon Fever"
+    },
+    "content": {
+      "no": "Wolf Moon Fever er ute med en knakande god låt 👍👍 Og jeg har fått æren av å legge på vrengorgel😃 Bare å spille helga inn med The Keeper of the Lighthouse!\nGod helg og god sommer! 🌞",
+      "en": "New release by Wolf Moon Fever 👍👍 I've had the honor to play the Hammond C3 organ on this track😃 Start your weekend with The Keeper of the Lighthouse!\nHave a nice weekend and summer! 🌞"
+    },
+    "thumbnailDescription": "Album cover for the single \"The Keeper of the Lighthouse\" by Wolf Moon Fever",
+    "thumbnailFilename": "2020-06-26-00",
+    "link": {
+      "url": "portfolio/wolf-moon-fever-the-keeper-of-the-lighthouse/",
+      "internal": true,
+      "text": {
+        "en": "Listen to The Keeper of the Lighthouse",
+        "no": "Lytt til The Keeper of the Lighthouse"
+      }
+    }
+  },
+  {
     "id": "2020062000",
     "copyright": true,
     "timestamp": 1592611200000,
@@ -14,43 +58,6 @@
     "thumbnailFilename": "2020-06-20-00",
     "link": {
       "url": "https://www.instagram.com/p/CBq_jiYl5Kw/",
-      "text": {
-        "en": "Show video",
-        "no": "Se video"
-      }
-    }
-  },
-  {
-    "id": "2020061300",
-    "copyright": true,
-    "timestamp": 1592006400000,
-    "title": {
-      "no": "Modifisering av Roland Dimension D",
-      "en": "Roland Dimension D modification"
-    },
-    "content": {
-      "no": "En liten modifisering av Dimension D for å få mono / stereobryteren tilgjengelig fra frontpanelet 🔧",
-      "en": "Doing a small modification to the Dimension D making the mono/stereo switch accessible from the front panel 🔧"
-    },
-    "thumbnailDescription": "Roland Dimension D SDD-320 modified with mono/stereo switch",
-    "thumbnailFilename": "2020-06-13-00"
-  },
-  {
-    "id": "2020061100",
-    "copyright": true,
-    "timestamp": 1591833600000,
-    "title": {
-      "no": "Innspilling av combo-orgel, Clavinet og synth",
-      "en": "Recording combo organ, Clavinet and synthesizers"
-    },
-    "content": {
-      "no": "Yamaha YC-25D gjennom en Fender Twin Reverb og en Vox AC15H1TV 🦄👯‍♂️🎛️🔊🤠",
-      "en": "Yamaha YC-25D through a Fener Twin Reverb and a Vox AC15H1TV 🦄👯‍♂️🎛️🔊🤠"
-    },
-    "thumbnailDescription": "Yamaha YC-25D being played",
-    "thumbnailFilename": "2020-06-11-00",
-    "link": {
-      "url": "https://www.instagram.com/p/CBTYZkxAS_X/",
       "text": {
         "en": "Show video",
         "no": "Se video"
