@@ -14,6 +14,7 @@ import style from 'components/partials/Breadcrumbs.module.scss';
 export class Breadcrumbs extends Component {
 
   renderBreadcrumbJsonLd(breadcrumbs) {
+    const originUrl = 'https://www.dehlimusikk.no';
     const jsonLd = {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -21,10 +22,8 @@ export class Breadcrumbs extends Component {
         {
           "@type": "ListItem",
           "position": 1,
-          "item": {
-            "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`,
-            "name": "Dehli Musikk"
-          }
+          "item": `${originUrl}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`,
+          "name": "Dehli Musikk"
         }
       ]
     }
@@ -32,15 +31,11 @@ export class Breadcrumbs extends Component {
       jsonLd.itemListElement.push({
         "@type": "ListItem",
         "position": index + 2,
-        "item": {
-          "@id": window.location.origin + breadcrumb.path,
-          "name": breadcrumb.name
-        }
+        "item": `${originUrl}${breadcrumb.path}`,
+        "name": breadcrumb.name
       })
     })
-    return (<Helmet>
-      <script type="application/ld+json">{`${JSON.stringify(jsonLd)}`}</script>
-    </Helmet>)
+    return JSON.stringify(jsonLd);
   }
 
   renderBreadcrumbListElements(breadcrumbs) {
@@ -55,20 +50,22 @@ export class Breadcrumbs extends Component {
     })
   }
 
-  renderBreadcrumb() {
-    return (<div className={style.breadcrumbs}>
-      {this.renderBreadcrumbJsonLd(this.props.breadcrumbs)}
-      <ul>
-        <li>
-          <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} title='Dehli Musikk'>Dehli Musikk</Link>
-        </li>
-        {this.renderBreadcrumbListElements(this.props.breadcrumbs)}
-      </ul>
-    </div>)
-  }
-
   render() {
-    return this.renderBreadcrumb()
+    return (<React.Fragment>
+      <Helmet>
+        <script type="application/ld+json">
+          {this.renderBreadcrumbJsonLd(this.props.breadcrumbs)}
+        </script>
+      </Helmet>
+      <div className={style.breadcrumbs}>
+        <ul>
+          <li>
+            <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} title='Dehli Musikk'>Dehli Musikk</Link>
+          </li>
+          {this.renderBreadcrumbListElements(this.props.breadcrumbs)}
+        </ul>
+      </div>
+    </React.Fragment>);
   }
 }
 
