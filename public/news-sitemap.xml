@@ -37,7 +37,7 @@
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
       <news:publication_date>2020-06-20</news:publication_date>
-      <news:title>Rhodes piano med sample & hold filter modulasjon</news:title>
+      <news:title>Rhodes piano med sample &amp; hold filter modulasjon</news:title>
     </news:news>
   </url>
   <url>
@@ -45,7 +45,7 @@
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2020-06-20</news:publication_date>
-      <news:title>Rhodes piano with sample & hold filter modulation</news:title>
+      <news:title>Rhodes piano with sample &amp; hold filter modulation</news:title>
     </news:news>
   </url>
   <url>
@@ -637,7 +637,7 @@
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2020-01-20</news:publication_date>
-      <news:title>Some more '80s rock</news:title>
+      <news:title>Some more &apos;80s rock</news:title>
     </news:news>
   </url>
   <url>
@@ -685,7 +685,7 @@
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2020-01-14</news:publication_date>
-      <news:title>Recording '80s rock</news:title>
+      <news:title>Recording &apos;80s rock</news:title>
     </news:news>
   </url>
   <url>
@@ -1061,7 +1061,7 @@
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
       <news:publication_date>2019-08-05</news:publication_date>
-      <news:title>Fender Rhodes - Direkte/Klang oppsett med "Leslie" og Twin Reverb</news:title>
+      <news:title>Fender Rhodes - Direkte/Klang oppsett med &quot;Leslie&quot; og Twin Reverb</news:title>
     </news:news>
   </url>
   <url>

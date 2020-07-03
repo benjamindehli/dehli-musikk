@@ -32,7 +32,7 @@ class Sitemap extends Component {
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>${languageKey}</news:language></news:publication>
       <news:publication_date>${dateString}</news:publication_date>
-      <news:title>${post.title[languageKey]}</news:title>
+      <news:title>${convertToXmlFriendlyString(post.title[languageKey])}</news:title>
     </news:news>
   </url>\n`;
   }
