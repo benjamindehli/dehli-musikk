@@ -53,14 +53,15 @@ class SearchField extends Component {
   }
 
   handleSubmitSearch(event){
-    console.log(event.key);
     if (event.key === 'Enter'){
       let searchString = event.target.value.replace(/[^a-å0-9- ]+/ig, ""); // Removes unwanted characters
       searchString = searchString.replace(/\s\s+/g, ' '); // Remove redundant whitespace
-      this.setState({
+      if (searchString.length > 1) {
+        this.setState({
           redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}search/?q=${searchString}`,
           showResultsList: false
         });
+      }
     }
   }
 
