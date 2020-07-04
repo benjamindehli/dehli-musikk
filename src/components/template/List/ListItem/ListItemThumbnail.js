@@ -14,7 +14,7 @@ class ListItemThumbnail extends React.Component {
       </figure>
     );
     return this.props.link && !this.props.fullscreen
-      ? (<Link to={link.to} title={link.title}>{childElements}</Link>)
+      ? (<Link to={link.to} title={link.title} tabIndex="-1">{childElements}</Link>)
       : childElements;
 
   }
