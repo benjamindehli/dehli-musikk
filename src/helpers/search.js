@@ -11,6 +11,12 @@ const getLanguageSlug = selectedLanguageKey => {
   return selectedLanguageKey === 'en' ? 'en/' : '';
 };
 
+const convertStringToExcerpt = string => {
+  string = string.replace(/[\s]+/g, " ");
+  var trimmedString = string.length > 158 ? `${string.substring(0, 158)}...` : string;
+  return trimmedString;
+}
+
 
 // Get search point
 const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguageKey) => {
@@ -42,10 +48,21 @@ const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguage
   };
   const thumbnailDescription = selectedLanguageKey === 'en' ? `Cover image for ${release.title} by ${release.artistName}` : `Coverbilde til ${release.title} av ${release.artistName}`;
 
+  const durationString = `${new Date(release.duration).getMinutes()}:${
+    new Date(release.duration).getSeconds() > 9
+      ? new Date(release.duration).getSeconds()
+      : '0' + new Date(release.duration).getSeconds()
+  }`;
+
+  const releaseYearString = `${new Date(release.releaseDate).getFullYear()}`
+
+  const excerpt = `${selectedLanguageKey === 'en' ? 'Released' : 'Utgitt'}: ${releaseYearString}, ${selectedLanguageKey === 'en' ? 'duration' : 'lengde' }: ${durationString}, ${selectedLanguageKey === 'en' ? 'genre' : 'sjanger'}: ${release.genre}`;
+
   return {
     type: 'release',
     text: `${release.artistName} - ${release.title} (${release.genre})`,
     label: selectedLanguageKey === 'en' ? 'Releases' : 'Utgivelser',
+    excerpt,
     thumbnailPaths,
     thumbnailDescription,
     points,
@@ -84,6 +101,7 @@ const getSearchPointsFromPost = (post, searchStringWords, selectedLanguageKey) =
     type: 'post',
     text: post.title[selectedLanguageKey],
     label: selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg',
+    excerpt: convertStringToExcerpt(post.content[selectedLanguageKey]),
     thumbnailPaths,
     thumbnailDescription,
     points,
@@ -122,6 +140,7 @@ const getSearchPointsFromProduct = (product, searchStringWords, selectedLanguage
     type: 'product',
     text: product.title,
     label: selectedLanguageKey === 'en' ? 'Products' : 'Produkter',
+    excerpt: convertStringToExcerpt(product.content[selectedLanguageKey]),
     thumbnailPaths,
     thumbnailDescription,
     points,
