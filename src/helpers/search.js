@@ -200,13 +200,21 @@ const getSearchResultsFromProducts = (products, searchStringWords, selectedLangu
   });
 };
 
-const getSearchResultsFromEquipmentTypes = (equipmentTypes, searchStringWords, selectedLanguageKey) => {
+const getSearchResultsFromEquipmentTypes = (equipmentTypes, searchStringWords, selectedLanguageKey, searchCategory) => {
   let searchResultsFromEquipmentTypes = [];
-  Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
-    const equipmentType = equipmentTypes[equipmentTypeKey];
-    const searchResultsFromEquipmentType = getSearchResultsFromEquipmentType(equipmentType, equipmentTypeKey, searchStringWords, selectedLanguageKey);
+  if (searchCategory === 'all') {
+    Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
+      const equipmentType = equipmentTypes[equipmentTypeKey];
+      const searchResultsFromEquipmentType = getSearchResultsFromEquipmentType(equipmentType, equipmentTypeKey, searchStringWords, selectedLanguageKey);
+      searchResultsFromEquipmentTypes = searchResultsFromEquipmentTypes.concat(searchResultsFromEquipmentType);
+    });
+  }else if (['amplifiers', 'effects', 'instruments'].includes(searchCategory)){
+    const equipmentType = equipmentTypes[searchCategory];
+    const searchResultsFromEquipmentType = getSearchResultsFromEquipmentType(equipmentType, searchCategory, searchStringWords, selectedLanguageKey);
     searchResultsFromEquipmentTypes = searchResultsFromEquipmentTypes.concat(searchResultsFromEquipmentType);
-  });
+  }else {
+    return [];
+  }
   return searchResultsFromEquipmentTypes;
 };
 
@@ -220,17 +228,17 @@ const getSearchResultsFromEquipmentType = (equipmentType, equipmentTypeKey, sear
 }
 
 
-export const getSearchResults = (query, selectedLanguageKey) => {
+export const getSearchResults = (query, selectedLanguageKey, searchCategory = 'all') => {
   let searchString = query.replace(/[^a-å0-9- ]+/ig, ""); // Removes unwanted characters
   searchString = searchString.replace(/\s\s+/g, ' '); // Remove redundant whitespace
   const searchStringWords = searchString.split(" ").filter(searchStringWord => {
     return searchStringWord.length > 1;
   });
   if (searchString.length > 1) {
-    const searchResultsFromReleases = getSearchResultsFromReleases(releases, searchStringWords, selectedLanguageKey);
-    const searchResultsFromPosts = getSearchResultsFromPosts(posts, searchStringWords, selectedLanguageKey);
-    const searchResultsFromProducts = getSearchResultsFromProducts(products, searchStringWords, selectedLanguageKey);
-    const searchResultsFromEquipmentTypes = getSearchResultsFromEquipmentTypes(equipmentTypes, searchStringWords, selectedLanguageKey);
+    const searchResultsFromReleases = searchCategory === 'release' || searchCategory === 'all' ? getSearchResultsFromReleases(releases, searchStringWords, selectedLanguageKey) : [];
+    const searchResultsFromPosts = searchCategory === 'post' || searchCategory === 'all' ? getSearchResultsFromPosts(posts, searchStringWords, selectedLanguageKey) : [];
+    const searchResultsFromProducts = searchCategory === 'product' || searchCategory === 'all' ? getSearchResultsFromProducts(products, searchStringWords, selectedLanguageKey) : [];
+    const searchResultsFromEquipmentTypes = getSearchResultsFromEquipmentTypes(equipmentTypes, searchStringWords, selectedLanguageKey, searchCategory);
     const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromProducts, searchResultsFromEquipmentTypes);
 
     return results.sort((a, b) => b.points - a.points);
