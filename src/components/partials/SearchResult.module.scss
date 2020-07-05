@@ -1,0 +1,67 @@
+@import "../../style/abstracts/all";
+
+:local(.searchResultContent) {
+  @media (min-width: $screen-xs) {
+    display: flex;
+    align-items: center;
+  }
+  :local(.searchResultContentText){
+    flex: 1;
+  }
+  :local(.searchResultContentBadge) {
+    width: 105px;
+    font-weight: bold;
+    margin: 6px 0;
+    @media (min-width: $screen-xs) {
+      text-align: right;
+    }
+
+    > span {
+      background-color: #eee;
+      border-radius: 4px;
+      padding: 6px;
+      color: #fff;
+      font-size: 0.75em;
+
+      svg {
+        margin-right: 2px;
+      }
+    }
+
+    &:local(.release) {
+      > span {
+        background-color: $blue-color;
+      }
+    }
+
+    &:local(.post) {
+      > span {
+        background-color: $primary-color;
+      }
+    }
+
+    &:local(.product) {
+      > span {
+        background-color: $indigo-color;
+      }
+    }
+
+    &:local(.instruments) {
+      > span {
+        background-color: $orange-color;
+      }
+    }
+
+    &:local(.effects) {
+      > span {
+        background-color: $purple-color;
+      }
+    }
+
+    &:local(.amplifiers) {
+      > span {
+        background-color: $green-color;
+      }
+    }
+  }
+}
