@@ -22,6 +22,7 @@ import {
   faChevronDown,
   faChevronLeft,
   faChevronRight,
+  faFilter,
   faGripHorizontal,
   faGuitar,
   faListUl,
@@ -58,6 +59,7 @@ const prerenderedLoadable = dynamicImport => {
 
 
 const Home = prerenderedLoadable(() => import("./components/routes/Home"));
+const Search = prerenderedLoadable(() => import("./components/routes/Search"));
 const Portfolio = prerenderedLoadable(() => import("./components/routes/Portfolio"));
 const Posts = prerenderedLoadable(() => import("./components/routes/Posts"));
 const Products = prerenderedLoadable(() => import("./components/routes/Products"));
@@ -76,6 +78,7 @@ library.add(
   faChevronLeft,
   faChevronRight,
   faFacebookF,
+  faFilter,
   faGripHorizontal,
   faGuitar,
   faInstagram,
@@ -125,7 +128,8 @@ class App extends Component {
         <NavigationBar/>
         <div className={style.container}>
           <Switch>
-
+            <Route exact={true} strict={true} path="/search/" render={(props) => (<Search {...props}/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/search/" render={(props) => (<Search {...props}/>)}/>
             <Route exact={true} strict={true} path="/portfolio/:releaseId/" render={(props) => (<Portfolio {...props}/>)}/>
             <Route exact={true} strict={true} path="/portfolio/" render={() => (<Portfolio/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/portfolio/:releaseId/" render={(props) => (<Portfolio {...props}/>)}/>
