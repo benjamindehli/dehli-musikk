@@ -2,14 +2,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {Redirect} from 'react-router-dom';
 
 // Actions
 import {getLanguageSlug} from 'actions/LanguageActions';
 import {updateSearchResults} from 'actions/SearchResultsActions';
-
-// Helpers
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 
 // Template
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
@@ -20,30 +16,8 @@ import ListItemContentBody from 'components/template/List/ListItem/ListItemConte
 // Stylesheets
 import style from 'components/partials/SearchResult.module.scss';
 
-// Data
-import releases from 'data/portfolio';
-import posts from 'data/posts';
-import products from 'data/products';
-import equipmentTypes from 'data/equipment';
 
 class SearchResult extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
-  }
-
-  componentDidUpdate(prevProps){
-  }
-
-  setResultsListWrapperRef(node) {
-  }
 
   renderThumbnail(thumbnailPaths, alt) {
     return (<picture>
@@ -51,12 +25,6 @@ class SearchResult extends Component {
       <source sizes='55' srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpg"/>
       <img src={thumbnailPaths.jpg} width='55' height='55' alt={alt}/>
     </picture>);
-  }
-
-
-
-  renderResultsList(results, selectedLanguageKey) {
-
   }
 
   render() {
