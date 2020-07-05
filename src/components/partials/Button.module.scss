@@ -68,5 +68,17 @@
     }
   }
 
-  &:local(.default) {}
+}
+
+*:focus > :local(.button) {
+  &:local(.default) {
+    :local(.content) {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+  &:local(.minimal) {
+    :local(.content) {
+      background-color: rgba(195, 42, 34, 0.08);
+    }
+  }
 }

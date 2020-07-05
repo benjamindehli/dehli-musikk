@@ -29,16 +29,19 @@ class NavigationBar extends Component {
     this.setLanguageSelectorListWrapperRef = this.setLanguageSelectorListWrapperRef.bind(this);
     this.handleClickOutsideSidebar = this.handleClickOutsideSidebar.bind(this);
     this.handleClickOutsideLanguageSelectorList = this.handleClickOutsideLanguageSelectorList.bind(this);
+    this.keyDownFunction = this.keyDownFunction.bind(this);
   }
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutsideSidebar);
     document.addEventListener('mousedown', this.handleClickOutsideLanguageSelectorList);
+    document.addEventListener("keydown", this.keyDownFunction, false);
   }
 
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutsideSidebar);
     document.removeEventListener('mousedown', this.handleClickOutsideLanguageSelectorList);
+    document.removeEventListener("keydown", this.keyDownFunction, false);
   }
 
   componentDidUpdate(prevProps){
@@ -55,6 +58,21 @@ class NavigationBar extends Component {
 
   setLanguageSelectorListWrapperRef(node) {
     this.languageSelectorListWrapperRef = node;
+  }
+
+  keyDownFunction(event){
+    switch (event.keyCode) {
+      case 27: // Escape
+        if (this.state.showSidebar){
+          this.hideSidebar();
+        }
+        if (this.state.showLanguageSelectorList){
+          this.hideLanguageSelectorList();
+        }
+        break;
+      default:
+        return null;
+    }
   }
 
   handleShowSidebarClick() {
@@ -96,7 +114,8 @@ class NavigationBar extends Component {
         <span className={style.languageSelectorButton}>
           <FontAwesomeIcon icon={['fas', 'language']}/>
           <span className={style.languageName}>{selectedLanguage && selectedLanguage.name ? selectedLanguage.name : ''}</span>
-          <FontAwesomeIcon icon={['fas', 'chevron-down']}/></span>);
+          <FontAwesomeIcon icon={['fas', 'chevron-down']}/>
+        </span>);
     } else
       return '';
     }
@@ -123,12 +142,14 @@ class NavigationBar extends Component {
 
   render() {
     return (<div className={style.navigationBar}>
-      <span onClick={() => this.handleShowSidebarClick()} className={style.menuButton}>
+      <button onClick={() => this.handleShowSidebarClick()} className={style.menuButton} aria-label={this.props.selectedLanguageKey === 'en' ? 'Show menu' : 'Vis meny'}>
         <MenuIcon className={style.menuIcon}/>
-      </span>
+      </button>
       <SearchField />
       <div className={style.languageSelectorListContainer}>
-        <span onClick={() => this.handleShowLanguageSelectorList()}>{this.renderLanguageSelectorButton(this.props.availableLanguages, this.props.selectedLanguageKey)}</span>
+        <button onClick={() => this.handleShowLanguageSelectorList()} aria-label={this.props.selectedLanguageKey === 'en' ? 'Select language' : 'Velg språk'}>
+          {this.renderLanguageSelectorButton(this.props.availableLanguages, this.props.selectedLanguageKey)}
+        </button>
         <div ref={this.setLanguageSelectorListWrapperRef} className={`${style.languageSelectorList} ${this.state.showLanguageSelectorList
             ? style.active
             : ''}`}>

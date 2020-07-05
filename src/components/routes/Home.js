@@ -118,10 +118,10 @@ class Home extends Component {
             {
               this.props.selectedLanguageKey === 'en'
                 ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} title='See all posts'>
-                  <Button>See all posts</Button>
+                  <Button tabIndex="-1">See all posts</Button>
                 </Link>)
                 : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} title='Se alle innlegg'>
-                  <Button>Se alle innlegg</Button>
+                  <Button tabIndex="-1">Se alle innlegg</Button>
                 </Link>)
             }
           </div>
@@ -139,10 +139,10 @@ class Home extends Component {
             {
               this.props.selectedLanguageKey === 'en'
                 ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} title='See all releases'>
-                  <Button>See all releases</Button>
+                  <Button tabIndex="-1">See all releases</Button>
                 </Link>)
                 : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} title='Se alle utgivelser'>
-                  <Button>Se alle utgivelser</Button>
+                  <Button tabIndex="-1">Se alle utgivelser</Button>
                 </Link>)
             }
           </div>
@@ -160,10 +160,10 @@ class Home extends Component {
             {
               this.props.selectedLanguageKey === 'en'
                 ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} title='See all products'>
-                  <Button>See all products</Button>
+                  <Button tabIndex="-1">See all products</Button>
                 </Link>)
                 : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} title='Se alle produkter'>
-                  <Button>Se alle produkter</Button>
+                  <Button tabIndex="-1">Se alle produkter</Button>
                 </Link>)
             }
           </div>

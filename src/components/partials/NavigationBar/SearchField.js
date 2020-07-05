@@ -24,14 +24,17 @@ class SearchField extends Component {
     };
     this.setResultsListWrapperRef = this.setResultsListWrapperRef.bind(this);
     this.handleClickOutsideResultsList = this.handleClickOutsideResultsList.bind(this);
+    this.keyDownFunction = this.keyDownFunction.bind(this);
   }
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutsideResultsList);
+    document.addEventListener("keydown", this.keyDownFunction, false);
   }
 
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutsideResultsList);
+    document.removeEventListener("keydown", this.keyDownFunction, false);
   }
 
   componentDidUpdate(prevProps){
@@ -42,6 +45,18 @@ class SearchField extends Component {
 
   setResultsListWrapperRef(node) {
     this.resultsListWrapperRef = node;
+  }
+
+  keyDownFunction(event){
+    switch (event.keyCode) {
+      case 27: // Escape
+        if (this.state.showResultsList){
+          this.hideResultsList();
+        }
+        break;
+      default:
+        return null;
+    }
   }
 
   renderReleaseThumbnail(thumbnailPaths, alt) {

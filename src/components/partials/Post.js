@@ -172,12 +172,12 @@ class Post extends Component {
   renderLink(link) {
     return link.internal
     ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url}`} title={link.text[this.props.selectedLanguageKey]}>
-        <Button buttontype='minimal'>
+        <Button tabIndex="-1" buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
         </Button>
       </Link>)
     : (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
-        <Button buttontype='minimal'>
+        <Button tabIndex="-1" buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
         </Button>
       </a>);

@@ -28,15 +28,33 @@ class Modal extends React.Component {
     document.removeEventListener("keydown", this.keyDownFunction, false);
   }
 
+  focusOnLink(){
+    const linkElements = this.wrapperRef.getElementsByTagName("a");
+    if (linkElements.length){
+      console.log(linkElements[0]);
+      linkElements[0].focus();
+    }
+  }
+
   keyDownFunction(event){
+    event.preventDefault()
     switch (event.keyCode) {
+      case 9: // Tab
+        this.focusOnLink();
+        break;
       case 27: // Escape
         if (this.props.onClickOutside) this.props.onClickOutside();
         break;
       case 37: // ArrowLeft
         if (this.props.onClickArrowLeft) this.props.onClickArrowLeft();
         break;
+      case 38: // ArrowUp
+        if (this.props.onClickArrowLeft) this.props.onClickArrowLeft();
+        break;
       case 39: // ArrowRight
+        if (this.props.onClickArrowRight) this.props.onClickArrowRight();
+        break;
+      case 40: // ArrowDown
         if (this.props.onClickArrowRight) this.props.onClickArrowRight();
         break;
       default:
@@ -68,17 +86,17 @@ class Modal extends React.Component {
 
   renderArrowLeftButton(onClickFunction){
     return onClickFunction
-      ? (<div ref={this.setArrowLeftButtonRef} className={style.arrowLeftButton} onClick={() => onClickFunction()}>
+      ? (<button ref={this.setArrowLeftButtonRef} className={style.arrowLeftButton} onClick={() => onClickFunction()}>
           <FontAwesomeIcon icon={['fas', 'chevron-left']} size="2x" />
-        </div>)
+        </button>)
       : (<div className={style.arrowPlaceholderButton}></div>);
   }
 
   renderArrowRightButton(onClickFunction){
     return onClickFunction
-      ? (<div ref={this.setArrowRightButtonRef} className={style.arrowRightButton} onClick={() => onClickFunction()}>
+      ? (<button ref={this.setArrowRightButtonRef} className={style.arrowRightButton} onClick={() => onClickFunction()}>
           <FontAwesomeIcon icon={['fas', 'chevron-right']} size="2x" />
-        </div>)
+        </button>)
       : (<div className={style.arrowPlaceholderButton}></div>);
   }
 

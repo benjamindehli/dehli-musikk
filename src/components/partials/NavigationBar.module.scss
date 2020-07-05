@@ -1,6 +1,8 @@
 @import "../../style/abstracts/all";
 
 :local(.menuButton) {
+  @include appearance(none);
+  background: none;
   line-height: 64px;
   width: 64px;
   text-align: center;
@@ -22,7 +24,12 @@
     }
 
     &:active {
-      background-color: rgba(0, 0, 0, 0.38);
+      background-color: rgba(0, 0, 0, 0.16);
+    }
+  }
+  &:focus {
+    :local(.menuIcon) {
+      background-color: rgba(0, 0, 0, 0.16);
     }
   }
 }
@@ -32,8 +39,17 @@
   @media (min-width: $screen-sm) {
     width: 145px;
   }
-  > span {
+  > button {
+    @include appearance(none);
+    background: none;
+    color: #fff;
+    font-size: 16px;
     float: right;
+    &:focus {
+      :local(.languageSelectorButton) {
+        background-color: rgba(0, 0, 0, 0.16);
+      }
+    }
   }
 }
 
@@ -54,8 +70,6 @@
   &:active {
     background-color: rgba(0, 0, 0, 0.16);
   }
-
-
 
   svg {
     margin: 0 4px;

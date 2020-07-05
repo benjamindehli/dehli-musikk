@@ -19,6 +19,8 @@
 
   :local(.arrowLeftButton),
   :local(.arrowRightButton) {
+    @include appearance(none);
+    background: none;
     align-self: center;
     padding: 22px;
     color: rgba(255,255,255,.5);
