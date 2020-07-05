@@ -8,6 +8,7 @@ import MultilingualRoutesReducer from 'reducers/MultilingualRoutesReducer';
 import SelectedLanguageKeyReducer from 'reducers/SelectedLanguageKeyReducer';
 import HasAcceptedPolicyReducer from 'reducers/HasAcceptedPolicyReducer';
 import SearchResultsReducer from 'reducers/SearchResultsReducer';
+import SearchResultsCountReducer from 'reducers/SearchResultsCountReducer';
 
 export default (history) => combineReducers({
   router: connectRouter(history),
@@ -15,5 +16,6 @@ export default (history) => combineReducers({
   multilingualRoutes: MultilingualRoutesReducer,
   selectedLanguageKey: SelectedLanguageKeyReducer,
   hasAcceptedPolicy: HasAcceptedPolicyReducer,
-  searchResults: SearchResultsReducer
+  searchResults: SearchResultsReducer,
+  searchResultsCount: SearchResultsCountReducer
 });
