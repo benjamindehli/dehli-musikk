@@ -98,7 +98,7 @@ class Modal extends React.Component {
     return (<div className={style.postModalOverlay}>
       {this.renderArrowLeftButton(this.props.onClickArrowLeft)}
       <div ref={this.setWrapperRef} className={style.postModalContent} style={{maxWidth: this.props.maxWidth}}>
-        <input ref={this.setHiddenInputWrapperRef} className={style.hidden} autoFocus />
+        <input type="button" ref={this.setHiddenInputWrapperRef} className={style.hidden} autoFocus />
         {this.props.children}
       </div>
       {this.renderArrowRightButton(this.props.onClickArrowRight)}
