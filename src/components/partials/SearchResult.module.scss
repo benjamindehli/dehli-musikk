@@ -1,9 +1,11 @@
 @import "../../style/abstracts/all";
 
 :local(.searchResultContent) {
-  @media (min-width: $screen-xs) {
+  padding: 8px 0;
+  @media (min-width: $screen-sm) {
     display: flex;
     align-items: center;
+    padding: 0;
   }
   :local(.searchResultContentText){
     flex: 1;
@@ -12,7 +14,7 @@
     width: 105px;
     font-weight: bold;
     margin: 6px 0;
-    @media (min-width: $screen-xs) {
+    @media (min-width: $screen-sm) {
       text-align: right;
     }
 
