@@ -12,6 +12,7 @@ class Modal extends React.Component {
     super(props);
     this.state = {};
     this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.setHiddenInputWrapperRef = this.setHiddenInputWrapperRef.bind(this);
     this.setArrowLeftButtonRef = this.setArrowLeftButtonRef.bind(this);
     this.setArrowRightButtonRef = this.setArrowRightButtonRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
@@ -21,6 +22,7 @@ class Modal extends React.Component {
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
     document.addEventListener("keydown", this.keyDownFunction, false);
+    this.hiddenInputWrapperRef.tabIndex = -1;
   }
 
   componentWillUnmount() {
@@ -28,20 +30,8 @@ class Modal extends React.Component {
     document.removeEventListener("keydown", this.keyDownFunction, false);
   }
 
-  focusOnLink(){
-    const linkElements = this.wrapperRef.getElementsByTagName("a");
-    if (linkElements.length){
-      console.log(linkElements[0]);
-      linkElements[0].focus();
-    }
-  }
-
   keyDownFunction(event){
-    event.preventDefault()
     switch (event.keyCode) {
-      case 9: // Tab
-        this.focusOnLink();
-        break;
       case 27: // Escape
         if (this.props.onClickOutside) this.props.onClickOutside();
         break;
@@ -64,6 +54,10 @@ class Modal extends React.Component {
 
   setWrapperRef(node) {
     this.wrapperRef = node;
+  }
+
+  setHiddenInputWrapperRef(node) {
+    this.hiddenInputWrapperRef = node;
   }
 
   setArrowLeftButtonRef(node){
@@ -104,6 +98,7 @@ class Modal extends React.Component {
     return (<div className={style.postModalOverlay}>
       {this.renderArrowLeftButton(this.props.onClickArrowLeft)}
       <div ref={this.setWrapperRef} className={style.postModalContent} style={{maxWidth: this.props.maxWidth}}>
+        <input ref={this.setHiddenInputWrapperRef} className={style.hidden} autoFocus />
         {this.props.children}
       </div>
       {this.renderArrowRightButton(this.props.onClickArrowRight)}

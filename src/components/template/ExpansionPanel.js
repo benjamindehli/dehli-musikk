@@ -16,10 +16,28 @@ class ExpansionPanel extends React.Component {
     };
   }
 
+  makeLinksNotTabable(linkElements){
+    for (let item of linkElements) {
+        if (item.dataset.tabable){
+          item.tabIndex = -1;
+        }
+    }
+  };
+
+  makeLinksTabable(linkElements){
+    for (let item of linkElements) {
+        if (item.dataset.tabable){
+          item.tabIndex = 0;
+        }
+    }
+  };
+
   toggleExpand() {
     this.setState({
       expanded: !this.state.expanded
     }, () => {
+      const linkElements = this.containerElement.getElementsByTagName('a');
+      this.state.expanded ? this.makeLinksTabable(linkElements) : this.makeLinksNotTabable(linkElements);
       this.setState({
         height: this.state.expanded ? this.state.containerHeight : 0
       })
@@ -34,6 +52,8 @@ class ExpansionPanel extends React.Component {
         height: 0
       })
     });
+    const linkElements = this.containerElement.getElementsByTagName('a');
+    this.makeLinksNotTabable(linkElements);
   }
 
   render() {
@@ -41,10 +61,12 @@ class ExpansionPanel extends React.Component {
       maxHeight: this.state.height
     };
     return (<React.Fragment>
-      <h2 onClick={() => this.toggleExpand()} className={`${style.expansionPanelHeader} ${this.state.expanded ? style.expanded : ''}`}>
-        <span>{this.props.panelTitle}</span>
-        <FontAwesomeIcon icon={['fas', 'chevron-down']} />
-      </h2>
+      <button className={style.expandButton} onClick={() => this.toggleExpand()}>
+        <h2 className={`${style.expansionPanelHeader} ${this.state.expanded ? style.expanded : ''}`}>
+          <span>{this.props.panelTitle}</span>
+          <FontAwesomeIcon icon={['fas', 'chevron-down']} />
+        </h2>
+      </button>
       <div ref={containerElement => { this.containerElement = containerElement }}
            className={`${style.expansionPanelContent} ${this.state.expanded ? style.expanded : ''}`}
            style={containerElementStyle}>

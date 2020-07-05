@@ -104,7 +104,7 @@ class ReleaseLinks extends Component {
     return Object.keys(links).map(linkKey => {
       const url = links[linkKey];
       const linkTitle = `${this.props.selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} ${release.title} ${this.props.selectedLanguageKey === 'en' ? 'on' : 'på'} ${this.getLinkName(linkKey)}`;
-      return <a href={url} key={linkKey} aria-label={linkTitle} title={linkTitle} target='_blank' rel='noopener noreferrer' className={style.link}>{this.getLinkIcon(linkKey)} {this.getLinkName(linkKey)}</a>;
+      return <a href={url} data-tabable={true} key={linkKey} aria-label={linkTitle} title={linkTitle} target='_blank' rel='noopener noreferrer' className={style.link}>{this.getLinkIcon(linkKey)} {this.getLinkName(linkKey)}</a>;
     });
   }
 

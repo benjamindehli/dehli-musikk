@@ -9,7 +9,7 @@ import style from 'components/template/List/ListItem/ListItemContent/ListItemCon
 class ListItemContentHeader extends React.Component {
   renderContent(link, children) {
     return this.props.link && !this.props.fullscreen
-      ? (<Link to={link.to} title={link.title}>{children}</Link>)
+      ? (<Link to={link.to} title={link.title} data-tabable={true}>{children}</Link>)
       : children
   }
   render() {
