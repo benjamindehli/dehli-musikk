@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.dehlimusikk.no/posts/ny-effektboks-fulltone-tube-tape-echo/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-07-06</news:publication_date>
+      <news:title>Ny effektboks - Fulltone Tube Tape Echo</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/new-effects-unit-fulltone-tube-tape-echo/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-07-06</news:publication_date>
+      <news:title>New effects unit - Fulltone Tube Tape Echo</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/posts/roland-dimension-d-sdd-320-med-synther-og-elektriske-pianoer/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
@@ -661,7 +677,7 @@
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
       <news:publication_date>2020-01-15</news:publication_date>
-      <news:title>Ny synth i posten 📦</news:title>
+      <news:title>Ny synth i posten</news:title>
     </news:news>
   </url>
   <url>
@@ -669,7 +685,7 @@
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2020-01-15</news:publication_date>
-      <news:title>New Synth Day 📦</news:title>
+      <news:title>New Synth Day</news:title>
     </news:news>
   </url>
   <url>
