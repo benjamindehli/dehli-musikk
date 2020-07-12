@@ -1,4 +1,40 @@
 [{
+    "id": "2020071200",
+    "copyright": true,
+    "timestamp": 1594512000000,
+    "title": {
+      "no": "Båndekko på synth, Mellotron og trommemaskin",
+      "en": "Tape echo on synthesizer, Mellotron and drum machine"
+    },
+    "content": {
+      "no": "Fulltone Tube Tape Echo med Korg MS-20, Mellotron M4000D og Arturia Drumbrute 📼🎹🎛️🦄",
+      "en": "Fulltone Tube Tape Echo with Korg MS-20, Mellotron M4000D and Arturia Drumbrute 📼🎹🎛️🦄"
+    },
+    "thumbnailDescription": "Arturia Drumbrute, Fulltone Tube Tape Echo, Fostex X-28H, Korg MS-20 and Mellotron M4000D",
+    "thumbnailFilename": "2020-07-12-00",
+    "link": {
+      "url": "https://youtu.be/dMpGEIJH_Wk",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020071100",
+    "timestamp": 1594425600000,
+    "title": {
+      "no": "Nytt band - Kaasin",
+      "en": "New band - Kaasin"
+    },
+    "content": {
+      "no": "14. august kommer det både rockelåt og rockevideo fra denne skumle gjengen her 💪😎🤘🔥\nKaasin består av: Jo Henning Kåsin (Gitar), Jan Thore Grefstad (Vokal), Ståle Kåsin (Bass), Benjamin Dehli (Tangenter) og Rick Hagan (Trommer)",
+      "en": "Debut single and video from the rock band Kaasin will be released on August 14th 💪😎🤘🔥\nKaasin consist of: Jo Henning Kaasin (Guitar), Jan Thore Grefstad (Vocals), Staale Kaasin (Bass), Benjamin Dehli (Keyboards) and Rick Hagan (Drums)"
+    },
+    "thumbnailDescription": "The band Kaasin: Jo Henning Kaasin, Jan Thore Grefstad, Staale Kaasin, Benjamin Dehli and Rick Hagan",
+    "thumbnailFilename": "2020-07-11-00"
+  },
+  {
     "id": "2020070600",
     "copyright": true,
     "timestamp": 1593993600000,
@@ -12,49 +48,5 @@
     },
     "thumbnailDescription": "Fulltone Tube Tape Echo tape delay",
     "thumbnailFilename": "2020-07-06-00"
-  },
-  {
-    "id": "2020062800",
-    "copyright": true,
-    "timestamp": 1593302400000,
-    "title": {
-      "no": "Roland Dimension D SDD-320 med synther og elektriske pianoer",
-      "en": "Roland Dimension D SDD-320 with synthesizers and electric pianos"
-    },
-    "content": {
-      "no": "Testet ut Roland Dimension D på forskjellige tangentinstrumenter 🎹🎛",
-      "en": "Tried out the Roland Dimension D with various keyboard instruments 🎹🎛️"
-    },
-    "thumbnailDescription": "Roland Dimension D, electric pianos and synthesizers",
-    "thumbnailFilename": "2020-06-28-00",
-    "link": {
-      "url": "https://youtu.be/PZhm0VZ20Qc",
-      "text": {
-        "en": "Show video",
-        "no": "Se video"
-      }
-    }
-  },
-  {
-    "id": "2020062600",
-    "timestamp": 1593129600000,
-    "title": {
-      "no": "Ny utgivelse - The Keeper of the Lighthouse av Wolf Moon Fever",
-      "en": "New release - The Keeper of the Lighthouse by Wolf Moon Fever"
-    },
-    "content": {
-      "no": "Wolf Moon Fever er ute med en knakande god låt 👍👍 Og jeg har fått æren av å legge på vrengorgel😃 Bare å spille helga inn med The Keeper of the Lighthouse!\nGod helg og god sommer! 🌞",
-      "en": "New release by Wolf Moon Fever 👍👍 I've had the honor to play the Hammond C3 organ on this track😃 Start your weekend with The Keeper of the Lighthouse!\nHave a nice weekend and summer! 🌞"
-    },
-    "thumbnailDescription": "Album cover for the single \"The Keeper of the Lighthouse\" by Wolf Moon Fever",
-    "thumbnailFilename": "2020-06-26-00",
-    "link": {
-      "url": "portfolio/wolf-moon-fever-the-keeper-of-the-lighthouse/",
-      "internal": true,
-      "text": {
-        "en": "Listen to The Keeper of the Lighthouse",
-        "no": "Lytt til The Keeper of the Lighthouse"
-      }
-    }
   }
 ]
