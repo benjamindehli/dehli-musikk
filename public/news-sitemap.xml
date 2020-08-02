@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.dehlimusikk.no/posts/forsmak-paa-runaway-train-av-kaasin/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-07-30</news:publication_date>
+      <news:title>Forsmak på Runaway Train av Kaasin</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/runaway-train-by-kaasin-teaser-video/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-07-30</news:publication_date>
+      <news:title>Runaway Train by Kaasin (teaser video)</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/innspilling-av-musikkvideo-med-kaasin/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2020-07-12</news:publication_date>
+      <news:title>Innspilling av musikkvideo med Kaasin</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/shooting-music-video-with-kaasin/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2020-07-12</news:publication_date>
+      <news:title>Shooting music video with Kaasin</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/posts/baandekko-paa-synth-mellotron-og-trommemaskin/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
