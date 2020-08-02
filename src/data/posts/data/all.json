@@ -1,4 +1,39 @@
 [{
+    "id": "2020073000",
+    "timestamp": 1596067200000,
+    "title": {
+      "no": "Forsmak på Runaway Train av Kaasin",
+      "en": "Runaway Train by Kaasin (teaser video)"
+    },
+    "content": {
+      "no": "En liten forsmak på musikkvideoen til Runaway Train av Kaasin som kommer 14. august 😎🤘\nFoto: Jon Sandersen 📷",
+      "en": "A short preview of the music video for Runaway Train by Kaasin coming August 14th 😎🤘\nPhoto: Jon Sandersen 📷"
+    },
+    "thumbnailDescription": "Korg MS-20 and Mellotron M4000D being played",
+    "thumbnailFilename": "2020-07-30-00",
+    "link": {
+      "url": "https://www.instagram.com/p/CDQw8xjHndw/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020071201",
+    "timestamp": 1594512000000,
+    "title": {
+      "no": "Innspilling av musikkvideo med Kaasin",
+      "en": "Shooting music video with Kaasin"
+    },
+    "content": {
+      "no": "Inspilling av video for Kaasins debutlåt \"Runaway Train\" 🎬\nFoto: Terje Ottesen 📷",
+      "en": "Shooting video for Kaasin's debut single \"Runaway Train\" 🎬\nPhoto: Terje Ottesen 📷"
+    },
+    "thumbnailDescription": "Benjamin Dehli, Staale Kaasin, Rick Hagan, Jan Thore Grefstad and Jo Henning Kaasin",
+    "thumbnailFilename": "2020-07-12-01"
+  },
+  {
     "id": "2020071200",
     "copyright": true,
     "timestamp": 1594512000000,
