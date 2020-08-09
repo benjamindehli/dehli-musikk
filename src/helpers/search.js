@@ -11,7 +11,7 @@ const getLanguageSlug = selectedLanguageKey => {
   return selectedLanguageKey === 'en' ? 'en/' : '';
 };
 
-const convertStringToExcerpt = string => {
+export const convertStringToExcerpt = string => {
   string = string.replace(/[\s]+/g, " ");
   var trimmedString = string.length > 158 ? `${string.substring(0, 158)}...` : string;
   return trimmedString;
