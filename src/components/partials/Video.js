@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
-import {Link} from 'react-router-dom';
 
 // Actions
 import {getLanguageSlug} from 'actions/LanguageActions';
@@ -12,16 +11,12 @@ import {getPrettyDate} from 'helpers/dateFormatter';
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 import {convertStringToExcerpt} from 'helpers/search';
 
-// Components
-import Button from 'components/partials/Button';
-
 // Template
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
-import ListItemActionButtons from 'components/template/List/ListItem/ListItemActionButtons';
 
 
 class Video extends Component {

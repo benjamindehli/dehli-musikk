@@ -1,7 +1,6 @@
 // Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
 
 // Stylesheets
 import style from 'components/template/List/ListItem/ListItemVideo.module.scss';
