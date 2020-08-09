@@ -63,6 +63,7 @@ const Home = prerenderedLoadable(() => import("./components/routes/Home"));
 const Search = prerenderedLoadable(() => import("./components/routes/Search"));
 const Portfolio = prerenderedLoadable(() => import("./components/routes/Portfolio"));
 const Posts = prerenderedLoadable(() => import("./components/routes/Posts"));
+const Videos = prerenderedLoadable(() => import("./components/routes/Videos"));
 const Products = prerenderedLoadable(() => import("./components/routes/Products"));
 const Equipment = prerenderedLoadable(() => import("./components/routes/Equipment"));
 const NotFound = prerenderedLoadable(() => import("./components/routes/NotFound"));
@@ -141,6 +142,11 @@ class App extends Component {
             <Route exact={true} strict={true} path="/posts/" render={() => (<Posts/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
             <Route exact={true} strict={true} path="/:selectedLanguage/posts/" render={(props) => (<Posts {...props}/>)}/>
+
+            <Route exact={true} strict={true} path="/videos/:videoId/" render={(props) => (<Videos {...props}/>)}/>
+            <Route exact={true} strict={true} path="/videos/" render={() => (<Videos/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/videos/:videoId/" render={(props) => (<Videos {...props}/>)}/>
+            <Route exact={true} strict={true} path="/:selectedLanguage/videos/" render={(props) => (<Videos {...props}/>)}/>
 
             <Route exact={true} strict={true} path="/products/:productId/" render={(props) => (<Products {...props}/>)}/>
             <Route exact={true} strict={true} path="/products/" render={() => (<Products/>)}/>
