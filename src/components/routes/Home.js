@@ -12,6 +12,7 @@ import IntroContent from 'components/partials/IntroContent';
 import Button from 'components/partials/Button';
 import SocialMediaLinks from 'components/partials/SocialMediaLinks';
 import LatestPosts from 'components/partials/LatestPosts';
+import LatestVideos from 'components/partials/LatestVideos';
 import LatestProducts from 'components/partials/LatestProducts';
 import LatestReleases from 'components/partials/LatestReleases';
 
@@ -149,6 +150,27 @@ class Home extends Component {
         </Container>
       </div>
       <div className={style.mutedSection}>
+        <Container>
+          <h2 className={style.sectionHeader}>{
+              this.props.selectedLanguageKey === 'en'
+                ? 'Latest videoe'
+                : 'Siste videoer'
+            }</h2>
+          <LatestVideos/>
+          <div className={style.callToActionButtonContainer}>
+            {
+              this.props.selectedLanguageKey === 'en'
+                ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}videos/`} title='See all videos'>
+                  <Button tabIndex="-1">See all videos</Button>
+                </Link>)
+                : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}videos/`} title='Se alle videoer'>
+                  <Button tabIndex="-1">Se alle videoer</Button>
+                </Link>)
+            }
+          </div>
+        </Container>
+      </div>
+      <div>
         <Container>
           <h2 className={style.sectionHeader}>{
               this.props.selectedLanguageKey === 'en'
