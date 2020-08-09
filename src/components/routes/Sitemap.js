@@ -8,9 +8,11 @@ import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} fr
 // Helpers
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter';
 import {convertToXmlFriendlyString} from 'helpers/xmlStringFormatter';
+import {youTubeTimeToSeconds} from 'helpers/timeFormatter';
 
 // Data
 import posts from 'data/posts';
+import videos from 'data/videos';
 import products from 'data/products';
 import releases from 'data/portfolio';
 import equipmentTypes from 'data/equipment';
@@ -34,6 +36,27 @@ class Sitemap extends Component {
       <news:publication_date>${dateString}</news:publication_date>
       <news:title>${convertToXmlFriendlyString(post.title[languageKey])}</news:title>
     </news:news>
+  </url>\n`;
+  }
+
+  renderVideoUrlElement(url, video, languageKey){
+    const date = new Date(video.timestamp);
+    const dateYear = date.getFullYear();
+    const dateMonth = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1 }` : date.getMonth() + 1;
+    const dateDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    const dateString = `${dateYear}-${dateMonth}-${dateDay}`;
+    const duration = youTubeTimeToSeconds(video.duration);
+    return `  <url>
+    <loc>https://www.dehlimusikk.no/${url}</loc>
+    <video:video>
+      <news:title>${convertToXmlFriendlyString(video.title[languageKey])}</news:title>
+      <news:description>${convertToXmlFriendlyString(video.content[languageKey])}</news:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=${video.youTubeId}</video:player_loc>
+      <video:duration>${duration}</video:duration>
+      <news:publication_date>${dateString}</news:publication_date>
+      <video:uploader info="https://www.youtube.com/${video.youTubeChannelId}">${video.youTubeUser}</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
   </url>\n`;
   }
 
@@ -63,6 +86,12 @@ class Sitemap extends Component {
   renderPostsList(){
     const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/`;
     const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/`;
+    return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
+  }
+
+  renderVideosList(){
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}videos/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}videos/`;
     return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
   }
 
@@ -97,6 +126,16 @@ class Sitemap extends Component {
       ? posts.map(post => {
         const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/${convertToUrlFriendlyString(post.title.no)}/`;
         const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/${convertToUrlFriendlyString(post.title.en)}/`;
+        return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
+      })
+      : '';
+  }
+
+  renderVideosDetails() {
+    return videos && videos.length
+      ? videos.map(video => {
+        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}videos/${convertToUrlFriendlyString(video.title.no)}/`;
+        const urlEnglishPage = `${this.props.getLanguageSlug('en')}videos/${convertToUrlFriendlyString(video.title.en)}/`;
         return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)]
       })
       : '';
@@ -155,6 +194,29 @@ class Sitemap extends Component {
           title: convertToXmlFriendlyString(post.title[languageKey])
         };
         if (post.copyright){
+          image.license = 'https://creativecommons.org/licenses/by-sa/4.0/';
+          image.geoLocation = 'Bø i Telemark, Norway';
+        }
+        images.push(image);
+      })
+    });
+    return images;
+  }
+
+  getImagesFromVideo(video, languageKey) {
+    let images = [];
+    const formats = ['webp', 'jpg'];
+    const sizes = [55, 350, 540];
+    formats.forEach(format => {
+      const imagePath = `data/videos/thumbnails/web/${format}/${video.thumbnailFilename}`;
+      sizes.forEach(size => {
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
+        let image = {
+          loc: imageLoc,
+          caption: convertToXmlFriendlyString(video.thumbnailDescription),
+          title: convertToXmlFriendlyString(video.title[languageKey])
+        };
+        if (video.copyright){
           image.license = 'https://creativecommons.org/licenses/by-sa/4.0/';
           image.geoLocation = 'Bø i Telemark, Norway';
         }
@@ -239,6 +301,20 @@ class Sitemap extends Component {
       posts.forEach(post => {
         norwegianImages = norwegianImages.concat(this.getImagesFromPost(post, 'no'));
         englishImages = englishImages.concat(this.getImagesFromPost(post, 'en'));
+      })
+    }
+    return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)]
+  }
+
+  renderVideosListImages(){
+    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}videos/`;
+    const urlEnglishPage = `${this.props.getLanguageSlug('en')}videos/`;
+    let norwegianImages = [];
+    let englishImages = [];
+    if (videos && videos.length){
+      videos.forEach(video => {
+        norwegianImages = norwegianImages.concat(this.getImagesFromVideo(video, 'no'));
+        englishImages = englishImages.concat(this.getImagesFromVideo(video, 'en'));
       })
     }
     return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)]
@@ -348,6 +424,16 @@ class Sitemap extends Component {
       : '';
   }
 
+  renderVideoSitemapDetails() {
+    return videos && videos.length
+      ? videos.map(video => {
+        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}videos/${convertToUrlFriendlyString(video.title.no)}/`;
+        const urlEnglishPage = `${this.props.getLanguageSlug('en')}videos/${convertToUrlFriendlyString(video.title.en)}/`;
+        return [this.renderVideoUrlElement(urlNorwegianPage, video, 'no'), this.renderVideoUrlElement(urlEnglishPage, video, 'en')]
+      })
+      : '';
+  }
+
 
   render() {
       return (
@@ -359,10 +445,12 @@ class Sitemap extends Component {
           {`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`}
             {this.renderHome()}
             {this.renderPostsList()}
+            {this.renderVideosList()}
             {this.renderProductsList()}
             {this.renderReleasesList()}
             {this.renderEquipmentTypesList()}
             {this.renderPostsDetails()}
+            {this.renderVideosDetails()}
             {this.renderProductsDetails()}
             {this.renderReleasesDetails()}
             {this.renderEquipmentDetails()}
@@ -387,11 +475,20 @@ class Sitemap extends Component {
           {`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n`}
             {this.renderPostsListImages()}
             {this.renderPostsDetailsImages()}
+            {this.renderVideosListImages()}
             {this.renderEquipmentTypesListImages()}
             {this.renderEquipmentListImages()}
             {this.renderEquipmentDetailsImages()}
             {this.renderProductsListImages()}
             {this.renderProductsDetailsImages()}
+          {`</urlset>\n`}
+          </pre>
+
+          <h2>video-sitemap.xml</h2>
+          <pre>
+          {`<?xml version="1.0" encoding="UTF-8"?>\n`}
+          {`<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n`}
+            {this.renderVideoSitemapDetails()}
           {`</urlset>\n`}
           </pre>
 
