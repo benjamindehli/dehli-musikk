@@ -181,6 +181,11 @@ class NavigationBar extends Component {
               </NavLink>
             </li>
             <li>
+              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}videos/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Videos' : 'Videoer'}>
+                <FontAwesomeIcon icon={['fas', 'film']}/> {this.props.selectedLanguageKey === 'en' ? 'Videos' : 'Videoer'}
+              </NavLink>
+            </li>
+            <li>
               <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}>
                 <FontAwesomeIcon icon={['fas', 'shopping-cart']}/> {this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}
               </NavLink>
