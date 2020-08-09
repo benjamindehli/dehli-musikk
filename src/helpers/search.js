@@ -4,6 +4,7 @@ import {convertToUrlFriendlyString} from 'helpers/urlFormatter';
 // Data
 import releases from 'data/portfolio';
 import posts from 'data/posts';
+import videos from 'data/videos';
 import products from 'data/products';
 import equipmentTypes from 'data/equipment';
 
@@ -102,6 +103,45 @@ const getSearchPointsFromPost = (post, searchStringWords, selectedLanguageKey) =
     text: post.title[selectedLanguageKey],
     label: selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg',
     excerpt: convertStringToExcerpt(post.content[selectedLanguageKey]),
+    thumbnailPaths,
+    thumbnailDescription,
+    points,
+    link,
+    linkTitle
+  }
+}
+
+const getSearchPointsFromVideos = (video, searchStringWords, selectedLanguageKey) => {
+  const id = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
+  const link = `/${getLanguageSlug(selectedLanguageKey)}videos/${id}/`;
+  const linkTitle = video.title[selectedLanguageKey];
+
+  let titlePoints = 0;
+  let contentPoints = 0;
+
+  searchStringWords.forEach(searchStringWord => {
+    const regex = new RegExp(searchStringWord, "gi");
+
+    const titleMatch = video.title[selectedLanguageKey].match(regex);
+    const contentMatch = video.content[selectedLanguageKey].match(regex);
+
+    titlePoints += titleMatch ? titleMatch.length * 5 : 0;
+    contentPoints += contentMatch ? contentMatch.length : 0;
+  });
+
+  const points = (titlePoints + contentPoints) / searchStringWords.length;
+
+  const thumbnailPaths = {
+    webp: require(`../data/videos/thumbnails/web/webp/${video.thumbnailFilename}_55.webp`),
+    jpg: require(`../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_55.jpg`)
+  };
+  const thumbnailDescription = video.thumbnailDescription;
+
+  return {
+    type: 'video',
+    text: video.title[selectedLanguageKey],
+    label: selectedLanguageKey === 'en' ? 'Videos' : 'Videoer',
+    excerpt: convertStringToExcerpt(video.content[selectedLanguageKey]),
     thumbnailPaths,
     thumbnailDescription,
     points,
@@ -210,6 +250,15 @@ const getSearchResultsFromPosts = (posts, searchStringWords, selectedLanguageKey
   });
 };
 
+const getSearchResultsFromVideos = (videos, searchStringWords, selectedLanguageKey) => {
+  const searchResultsFromVideos = videos.map(video => {
+    return getSearchPointsFromVideos(video, searchStringWords, selectedLanguageKey);
+  });
+  return searchResultsFromVideos.filter(result => {
+    return result.points && result.points >= 1;
+  });
+};
+
 const getSearchResultsFromProducts = (products, searchStringWords, selectedLanguageKey) => {
   const searchResultsFromProducts = products.map(product => {
     return getSearchPointsFromProduct(product, searchStringWords, selectedLanguageKey);
@@ -256,9 +305,10 @@ export const getSearchResults = (query, selectedLanguageKey, searchCategory = 'a
   if (searchString.length > 1) {
     const searchResultsFromReleases = searchCategory === 'release' || searchCategory === 'all' ? getSearchResultsFromReleases(releases, searchStringWords, selectedLanguageKey) : [];
     const searchResultsFromPosts = searchCategory === 'post' || searchCategory === 'all' ? getSearchResultsFromPosts(posts, searchStringWords, selectedLanguageKey) : [];
+    const searchResultsFromVideos = searchCategory === 'video' || searchCategory === 'all' ? getSearchResultsFromVideos(videos, searchStringWords, selectedLanguageKey) : [];
     const searchResultsFromProducts = searchCategory === 'product' || searchCategory === 'all' ? getSearchResultsFromProducts(products, searchStringWords, selectedLanguageKey) : [];
     const searchResultsFromEquipmentTypes = getSearchResultsFromEquipmentTypes(equipmentTypes, searchStringWords, selectedLanguageKey, searchCategory);
-    const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromProducts, searchResultsFromEquipmentTypes);
+    const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromVideos, searchResultsFromProducts, searchResultsFromEquipmentTypes);
 
     return results.sort((a, b) => b.points - a.points);
   } else {
