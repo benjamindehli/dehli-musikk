@@ -13,9 +13,9 @@
     "thumbnailDescription": "Fulltone Tube Tape Echo",
     "thumbnailFilename": "2020-08-15-00",
     "youTubeId": "-TVfNZvG69w",
-    "youTubeUser": "Benjamin Dehli"
-  },
-  {
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
+  }, {
     "timestamp": 1594512000000,
     "title": {
       "no": "Lene Nevisdal - Give Me A Smile, Joe",
@@ -28,9 +28,9 @@
     "thumbnailDescription": "Lene Nevisdal",
     "thumbnailFilename": "2020-07-12-01",
     "youTubeId": "U21uzVlmHqk",
-    "youTubeUser": "Lene N"
-  },
-  {
+    "youTubeUser": "Lene N",
+    "youTubeChannelId": "channel/UCLzk4_eLaYhCd3j7dluY4zQ"
+  }, {
     "copyright": true,
     "timestamp": 1594512000000,
     "title": {
@@ -44,7 +44,8 @@
     "thumbnailDescription": "Mellotron and Korg MS-20 being played",
     "thumbnailFilename": "2020-07-12-00",
     "youTubeId": "dMpGEIJH_Wk",
-    "youTubeUser": "Benjamin Dehli"
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
   },
   {
     "copyright": true,
@@ -60,7 +61,8 @@
     "thumbnailDescription": "Roland Dimension D, electric pianos and synthesizers",
     "thumbnailFilename": "2020-06-28-00",
     "youTubeId": "PZhm0VZ20Qc",
-    "youTubeUser": "Benjamin Dehli"
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
   },
   {
     "copyright": true,
@@ -76,7 +78,8 @@
     "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
     "thumbnailFilename": "2020-05-24-00",
     "youTubeId": "2k1QpuwCZzk",
-    "youTubeUser": "Benjamin Dehli"
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
   },
   {
     "copyright": true,
@@ -92,7 +95,8 @@
     "thumbnailDescription": "A Korg MS-20 and patch cables with the color of the Norwegian flag",
     "thumbnailFilename": "2020-05-17-00",
     "youTubeId": "ppjbdVeWfdA",
-    "youTubeUser": "Benjamin Dehli"
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
   },
   {
     "copyright": true,
@@ -108,7 +112,8 @@
     "thumbnailDescription": "Roland Dimension D SDD-320",
     "thumbnailFilename": "2020-04-21-00",
     "youTubeId": "01DNzmtdgUs",
-    "youTubeUser": "Benjamin Dehli"
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
   },
   {
     "copyright": true,
@@ -124,7 +129,8 @@
     "thumbnailDescription": "A Dreadbox Erebus v2 being played",
     "thumbnailFilename": "2020-04-16-00",
     "youTubeId": "01DNzmtdgUs",
-    "youTubeUser": "Benjamin Dehli"
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
   },
   {
     "timestamp": 1583798400000,
@@ -140,6 +146,7 @@
     "thumbnailDescription": "Thomas Tveiten",
     "thumbnailFilename": "2020-03-10-00",
     "youTubeId": "UYrtVXf96oI",
-    "youTubeUser": "ThomasTveiten"
+    "youTubeUser": "ThomasTveiten",
+    "youTubeChannelId": "channel/UCo3O6qsMH6v50ZHPjhZKzPQ"
   }
 ]
