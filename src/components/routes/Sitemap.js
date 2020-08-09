@@ -46,12 +46,15 @@ class Sitemap extends Component {
     const dateDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const dateString = `${dateYear}-${dateMonth}-${dateDay}`;
     const duration = youTubeTimeToSeconds(video.duration);
+    const thumbnailLoc = require(`../../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_540.jpg`);
+    const absoluteThumbnailLoc = `https://www.dehlimusikk.no${thumbnailLoc}`;
     return `  <url>
     <loc>https://www.dehlimusikk.no/${url}</loc>
     <video:video>
       <video:title>${convertToXmlFriendlyString(video.title[languageKey])}</video:title>
       <video:description>${convertToXmlFriendlyString(video.content[languageKey])}</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=${video.youTubeId}</video:player_loc>
+      <video:thumbnail_loc>${absoluteThumbnailLoc}</video:thumbnail_loc>
       <video:duration>${duration}</video:duration>
       <video:publication_date>${dateString}</video:publication_date>
       <video:uploader info="https://www.youtube.com/${video.youTubeChannelId}">${video.youTubeUser}</video:uploader>
