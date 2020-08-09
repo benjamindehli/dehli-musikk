@@ -49,11 +49,11 @@ class Sitemap extends Component {
     return `  <url>
     <loc>https://www.dehlimusikk.no/${url}</loc>
     <video:video>
-      <news:title>${convertToXmlFriendlyString(video.title[languageKey])}</news:title>
-      <news:description>${convertToXmlFriendlyString(video.content[languageKey])}</news:description>
+      <video:title>${convertToXmlFriendlyString(video.title[languageKey])}</video:title>
+      <video:description>${convertToXmlFriendlyString(video.content[languageKey])}</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=${video.youTubeId}</video:player_loc>
       <video:duration>${duration}</video:duration>
-      <news:publication_date>${dateString}</news:publication_date>
+      <video:publication_date>${dateString}</video:publication_date>
       <video:uploader info="https://www.youtube.com/${video.youTubeChannelId}">${video.youTubeUser}</video:uploader>
       <video:live>no</video:live>
     </video:video>
