@@ -15,7 +15,8 @@
     "youTubeId": "-TVfNZvG69w",
     "youTubeUser": "Benjamin Dehli",
     "youTubeChannelId": "c/BenjaminDehli"
-  }, {
+  },
+  {
     "timestamp": 1594512000000,
     "title": {
       "no": "Lene Nevisdal - Give Me A Smile, Joe",
@@ -25,12 +26,14 @@
       "no": "Video av Daniel Karlsen og Lene Nevisdal\nSang: Give Me a Smile, Joe\nArtist: Lene Nevisdal\nAlbum: Give Me a Smile, Joe",
       "en": "Video by Daniel Karlsen og Lene Nevisdal\nSong: Give Me a Smile, Joe\nArtist: Lene Nevisdal\nAlbum: Give Me a Smile, Joe"
     },
+    "duration": "PT3M51S",
     "thumbnailDescription": "Lene Nevisdal",
     "thumbnailFilename": "2020-07-12-01",
     "youTubeId": "U21uzVlmHqk",
     "youTubeUser": "Lene N",
     "youTubeChannelId": "channel/UCLzk4_eLaYhCd3j7dluY4zQ"
-  }, {
+  },
+  {
     "copyright": true,
     "timestamp": 1594512000000,
     "title": {
@@ -41,6 +44,7 @@
       "no": "Testing av Fulltone Tube Tape Echo med Korg MS-20, Mellotron M4000D og Arturia Drumbrute.\nFor å lage en stereoeffekt, er alle instrumentene sendt gjennom båndekkoen to ganger og panorert hardt til høyre og venstre. Det er også lagt på litt fjærklang fra en VanAmps Sole-Mate Jr. pedal.\nInstrumenter: Korg MS-20 (MK 1), Mellotron M4000D og Arturia Drumbrute\nEffekter: Fulltone Tube Tape Echo og VanAmps Sole-Mate Jr.\nStep sequencer: Korg SQ-1\nOpptaker: Fostex X-28H",
       "en": "Testing the Fulltone Tube Tape Echo with Korg MS-20, Mellotron M4000D and Arturia Drumbrute. The second VCO on the MS-20 is sequenced by a Korg SQ-1.\nI ran all the instruments through the tape echo two times and panned it hard left and right to create a stereo effect. I also added some spring reverb from the VanAmps Sole-Mate Jr.\nInstruments: Korg MS-20 (MK 1), Mellotron M4000D and Arturia Drumbrute\nEffects: Fulltone Tube Tape Echo and VanAmps Sole-Mate Jr.\nStep sequencer: Korg SQ-1\nRecording equipment: Fostex X-28H"
     },
+    "duration": "PT1M51S",
     "thumbnailDescription": "Mellotron and Korg MS-20 being played",
     "thumbnailFilename": "2020-07-12-00",
     "youTubeId": "dMpGEIJH_Wk",
@@ -58,6 +62,7 @@
       "no": "Tester ut Roland Dimension D med tangentinstrumenter.\nAlle instrumentene er spilt inn direkte med en Whirlwind Direct2 DI-boks, det er ikke brukt noen effekter eller forsterkere bortsett fra Dimension D.\nJeg anbefaler å bruke hodetelefoner eller stereohøytalere for å best høre effekten.\nEffekter: Roland Dimension D SDD-320\nInstrumenter: Hohner Clavinet D6, Korg MS-20, Korg Polysix, Logan String Melody II, Rhodes MK I Stage Piano, Wurlitzer 200A, Yamaha DX7",
       "en": "Testing the Roland Dimension D with keyboard instruments.\nAll instruments are recorded directly with a Whirlwind Direct2 DI box, no other effects or amplifiers are used apart from the Dimension D.\nI recommend using headphones or stereo speakers for best hearing the effect.\nEffects: Roland Dimension D SDD-320\nInstruments: Hohner Clavinet D6, Korg MS-20, Korg Polysix, Logan String Melody II, Rhodes MK I Stage Piano, Wurlitzer 200A, Yamaha DX7"
     },
+    "duration": "PT14M59S",
     "thumbnailDescription": "Roland Dimension D, electric pianos and synthesizers",
     "thumbnailFilename": "2020-06-28-00",
     "youTubeId": "PZhm0VZ20Qc",
@@ -75,6 +80,7 @@
       "no": "Lo-fi Tape Piano fra Dehli Musikk inneholder lyder av en Louis Zwicki Pianette som er spilt inn med kassettopptaker og 3 forskjellige mikrofoner. Forsforsterkerene på kassettopptakeren overstyrer litt og gir ekstra overtoner and kassettbåndet gir kompresjon i tilegg til små endringer i tonehøyde ('wow' og 'flutter').\nOm du vil ha lyden av et perfekt intonert og regulert piano, er nok ikke dette produktet det du er på jakt etter. Dette låter mer som en Mellotron- / Chamberlin-versjon av en Pianette.\nLydpakken inneholder 328 .WAV-filer (637,8 MB) og 3 .EXS-filer (295 KB).\nMikrofoner: Televerket Elektrisk Bureau (Telefon mik), JTS CX-516 (Gooseneck mik) og AKG C451E (Stereo par)\nTape recorder: Fostex X-28H\nDAW: Logic Pro X\nSamples info: Én sample pr. tangent (2 for AKG stereo par) pr. mikrofon (328 samples totalt), Bit depth: 24bit, Sample rate: 48kHz\n Lydeksemplene er laget med kun samples fra denne pakken. Det reverserte pianoet på starten av introen (første 14 sekundene) bruker samples som har blitt behandlet og reversert i ettertid.",
       "en": "Lo-fi Tape Piano from Dehli Musikk includes the sound of a Louis Zwicki Pianette recorded with cassette tape recorder through 3 different microphones. The preamps of the tape recorder are slightly overdriven and the tape adds compression and harmonics as well as wow and flutter (pitch variation).\nIf you want the sound of a perfectly voiced and regulated grand piano, this may not be the samples for you. This is more like a Mellotron / Chamberlin version of the Pianette.\nThe sample pack includes 328 .WAV samples (637.8 MB)  and 3 .EXS files (295 KB).\nMicrophones: Televerket Elektrisk Bureau (Telephone mic), JTS CX-516 (Gooseneck mic inside) andAKG C451E (Stereo pair)\nTape recorder: Fostex X-28H\nDAW: Logic Pro X\nSamples info: Single sample per key (2 for AKG stereo pair) per microphone (328 samples in total), Bit depth: 24bit, Sample rate: 48kHz\nAll the sounds in the examples are made exclusively with samples from this package. The reversed piano in the beginning of the intro (first 14 seconds) uses samples that's reversed and altered in post-processing."
     },
+    "duration": "PT3M44S",
     "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
     "thumbnailFilename": "2020-05-24-00",
     "youTubeId": "2k1QpuwCZzk",
@@ -92,6 +98,7 @@
       "no": "Synthesizere: Dave Smith Instruments Mopho Keyboard, Dave Smith Instruments Tetra, Dreadbox Erebus v2, Korg MS-20 og Moog Minitaur\nEffekter: Electro-Harmonix Deluxe Memory Man, Roland Dimension D SDD-320 og VanAmps Sole-Mate Jr.\nTekst av: Bjørnstjerne Bjørnson\nMelodi av: Rikard Nordraak.",
       "en": "Synthesizers used: Dave Smith Instruments Mopho Keyboard, Dave Smith Instruments Tetra, Dreadbox Erebus v2, Korg MS-20 and Moog Minitaur\nEffects used: Electro-Harmonix Deluxe Memory Man, Roland Dimension D SDD-320 and VanAmps Sole-Mate Jr.\nLyrics by: Bjørnstjerne Bjørnson\nMusic by: Rikard Nordraak."
     },
+    "duration": "PT1M0S",
     "thumbnailDescription": "A Korg MS-20 and patch cables with the color of the Norwegian flag",
     "thumbnailFilename": "2020-05-17-00",
     "youTubeId": "ppjbdVeWfdA",
@@ -109,6 +116,7 @@
       "no": "Kjapp test av Roland Dimension D SDD-320 og Dreadbox Erebus v2 synthesizer",
       "en": "Quick test of the Roland Dimension D SDD-320 processing audio from a Dreadbox Erebus v2 synthesizer"
     },
+    "duration": "PT45S",
     "thumbnailDescription": "Roland Dimension D SDD-320",
     "thumbnailFilename": "2020-04-21-00",
     "youTubeId": "01DNzmtdgUs",
@@ -126,6 +134,7 @@
       "no": "Kjapp test av nyinnkjøpt Dreadbox Erebus v2 Analog Paraphonic Synthesizer",
       "en": "Quick test of my newly purchased Dreadbox Erebus v2 Analog Paraphonic Synthesizer"
     },
+    "duration": "PT45S",
     "thumbnailDescription": "A Dreadbox Erebus v2 being played",
     "thumbnailFilename": "2020-04-16-00",
     "youTubeId": "01DNzmtdgUs",
