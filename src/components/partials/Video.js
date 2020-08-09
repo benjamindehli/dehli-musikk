@@ -95,7 +95,7 @@ class Video extends Component {
         {
           this.props.fullscreen
           ? (
-            <ListItemVideo youTubeId={video.youTubeId}/>
+            <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]}/>
           ) : (
             <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
               {this.renderVideoThumbnail(image, video.thumbnailDescription, this.props.fullscreen, videoPath, video.title[selectedLanguageKey], video.copyright, videoDate)}

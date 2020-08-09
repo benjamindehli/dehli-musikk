@@ -10,7 +10,7 @@ class ListItemThumbnail extends React.Component {
   render() {
     return (
       <div className={style.videoContainer}>
-        <iframe width="945" height="532" src={`https://www.youtube.com/embed/${this.props.youTubeId}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
+        <iframe width="945" height="532" title={this.props.videoTitle} src={`https://www.youtube.com/embed/${this.props.youTubeId}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
         </iframe>
       </div>
     )
@@ -18,7 +18,8 @@ class ListItemThumbnail extends React.Component {
 };
 
 ListItemThumbnail.propTypes = {
-  youTubeId: PropTypes.string
+  youTubeId: PropTypes.string,
+  videoTitle: PropTypes.string
 };
 
 ListItemThumbnail.defaultProps = {
