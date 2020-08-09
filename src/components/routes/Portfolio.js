@@ -176,7 +176,7 @@ class Portfolio extends Component {
         <Container blur={selectedRelease !== null}>
           <Breadcrumbs breadcrumbs={breadcrumbs} />
           <h1>{contentTitle}</h1>
-          <p>{this.props.selectedLanguageKey === 'en' ? 'Recordings where I\'ve contributed' : 'Utgivelser jeg har bidratt på'}</p>
+          <p>{this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'}</p>
         </Container>
         <Container blur={selectedRelease !== null}>
           <List>

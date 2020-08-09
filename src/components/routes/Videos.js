@@ -129,8 +129,8 @@ class Videos extends Component {
         no: 'Videoer'
       },
       description: {
-        en: 'Videos from Dehli Musikk',
-        no: 'Videoer fra Dehli Musikk'
+        en: 'Videos where Dehli Musikk has contributed',
+        no: 'Videoer Dehli Musikk har bidratt på'
       }
     }
 
@@ -231,8 +231,8 @@ class Videos extends Component {
           <h1>{contentTitle}</h1>
           <p>{
               this.props.selectedLanguageKey === 'en'
-                ? 'Videos from Dehli Musikk'
-                : 'Videoer fra Dehli Musikk'
+                ? 'Videos where Dehli Musikk has contributed'
+                : 'Videoer Dehli Musikk har bidratt på'
             }</p>
         </Container>
         {
