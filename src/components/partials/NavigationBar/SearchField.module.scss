@@ -169,6 +169,12 @@
           }
         }
 
+        &:local(.video) {
+          > span {
+            background-color: $yellow-color;
+          }
+        }
+
         &:local(.product) {
           > span {
             background-color: $indigo-color;

@@ -106,6 +106,7 @@ class SearchField extends Component {
     if (results && results.length) {
       const itemTypeIcons = {
         post: ['fas', 'photo-video'],
+        video: ['fas', 'film'],
         product: ['fas', 'shopping-cart'],
         release: ['fas', 'music'],
         instruments: ['fas', 'guitar'],

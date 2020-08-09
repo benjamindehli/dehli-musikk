@@ -33,6 +33,7 @@ class SearchResult extends Component {
     if (searchResult) {
       const itemTypeIcons = {
         post: ['fas', 'photo-video'],
+        video: ['fas', 'film'],
         product: ['fas', 'shopping-cart'],
         release: ['fas', 'music'],
         instruments: ['fas', 'guitar'],
