@@ -90,7 +90,6 @@ class Equipment extends Component {
 
   renderSummarySnippetForEquipmentTypes(equipment){
     const equipmentTypeItems = equipment && Object.keys(equipment).length ? Object.keys(equipment).map((equipmentTypeKey, index) => {
-      const equipmentType = equipment[equipmentTypeKey];
       const selectedLanguageKey = this.props.selectedLanguageKey
         ? this.props.selectedLanguageKey
         : 'no';
