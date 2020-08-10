@@ -209,7 +209,7 @@ class Post extends Component {
 
     return post && post.content && post.content[selectedLanguageKey]
       ? (<React.Fragment>
-        {this.renderPostSnippet(post, postId, image.jpg540)}
+        {this.props.fullscreen ? this.renderPostSnippet(post, postId, image.jpg540) : ''}
         <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
           {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen, postPath, post.title[selectedLanguageKey], post.copyright, postDate)}
         </ListItemThumbnail>

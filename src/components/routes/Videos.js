@@ -62,6 +62,29 @@ class Videos extends Component {
     }
   }
 
+  renderSummarySnippet(videos) {
+    const videoItems = videos.map((video, index) => {
+      const selectedLanguageKey = this.props.selectedLanguageKey
+        ? this.props.selectedLanguageKey
+        : 'no';
+      const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
+      const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
+      return {
+        "@type": "ListItem",
+        "position": index+1,
+        "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
+      };
+    });
+    const snippet = {
+      "@context": "http://schema.org",
+      "@type": "ItemList",
+      "itemListElement": videoItems
+    };
+    return (<Helmet>
+      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+    </Helmet>);
+  }
+
   renderVideos() {
     return videos && videos.length
       ? videos.map(video => {
@@ -236,7 +259,7 @@ class Videos extends Component {
             }</p>
         </Container>
         {
-          selectedVideo ? this.renderSelectedVideo(selectedVideo) : ''
+          selectedVideo ? this.renderSelectedVideo(selectedVideo) : this.renderSummarySnippet(videos)
         }
         <Container blur={selectedVideo !== null}>
           <List>

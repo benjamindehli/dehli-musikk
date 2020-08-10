@@ -62,6 +62,29 @@ class Posts extends Component {
     }
   }
 
+  renderSummarySnippet(posts) {
+    const postItems = posts.map((post, index) => {
+      const selectedLanguageKey = this.props.selectedLanguageKey
+        ? this.props.selectedLanguageKey
+        : 'no';
+      const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
+      const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
+      return {
+        "@type": "ListItem",
+        "position": index+1,
+        "url": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,
+      };
+    });
+    const snippet = {
+      "@context": "http://schema.org",
+      "@type": "ItemList",
+      "itemListElement": postItems
+    };
+    return (<Helmet>
+      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+    </Helmet>);
+  }
+
   renderPosts() {
     return posts && posts.length
       ? posts.map(post => {
@@ -235,7 +258,7 @@ class Posts extends Component {
             }</p>
         </Container>
         {
-          selectedPost ? this.renderSelectedPost(selectedPost) : ''
+          selectedPost ? this.renderSelectedPost(selectedPost) : this.renderSummarySnippet(posts)
         }
         <Container blur={selectedPost !== null}>
           <List>

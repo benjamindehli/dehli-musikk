@@ -21,7 +21,7 @@ import ListItemContentBody from 'components/template/List/ListItem/ListItemConte
 
 class Video extends Component {
 
-  renderVideoSnippet(video, videoId, videoThumbnailSrc) {
+  renderVideoSnippet(video, videoId, videoThumbnailSrc){
     const videoDate = new Date(video.timestamp).toISOString();
     const selectedLanguageKey = this.props.selectedLanguageKey
       ? this.props.selectedLanguageKey
@@ -41,10 +41,10 @@ class Video extends Component {
       "thumbnail": `https://www.dehlimusikk.no${videoThumbnailSrc}`,
       "datePublished": videoDate,
       "uploadDate": videoDate
-    }
+    };
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-    </Helmet>)
+    </Helmet>);
   }
 
   renderVideoThumbnail(image, altText, fullscreen, videoPath, videoTitle, copyright, videoDate) {
@@ -86,11 +86,13 @@ class Video extends Component {
 
     return video && video.content && video.content[selectedLanguageKey]
       ? (<React.Fragment>
-        {this.renderVideoSnippet(video, videoId, image.jpg540)}
         {
           this.props.fullscreen
           ? (
-            <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]}/>
+            <React.Fragment>
+              {this.renderVideoSnippet(video, videoId, image.jpg540)}
+              <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]}/>
+            </React.Fragment>
           ) : (
             <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
               {this.renderVideoThumbnail(image, video.thumbnailDescription, this.props.fullscreen, videoPath, video.title[selectedLanguageKey], video.copyright, videoDate)}

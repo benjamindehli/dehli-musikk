@@ -62,6 +62,29 @@ class Products extends Component {
     }
   }
 
+  renderSummarySnippet(products) {
+    const productItems = products.map((product, index) => {
+      const selectedLanguageKey = this.props.selectedLanguageKey
+        ? this.props.selectedLanguageKey
+        : 'no';
+      const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
+      const productId = convertToUrlFriendlyString(product.title);
+      return {
+        "@type": "ListItem",
+        "position": index+1,
+        "url": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
+      };
+    });
+    const snippet = {
+      "@context": "http://schema.org",
+      "@type": "ItemList",
+      "itemListElement": productItems
+    };
+    return (<Helmet>
+      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+    </Helmet>);
+  }
+
   renderProducts() {
     return products && products.length
       ? products.map(product => {
@@ -236,7 +259,7 @@ class Products extends Component {
             }</p>
         </Container>
         {
-          selectedProduct ? this.renderSelectedProduct(selectedProduct) : ''
+          selectedProduct ? this.renderSelectedProduct(selectedProduct) : this.renderSummarySnippet(products)
         }
         <Container blur={selectedProduct !== null}>
           <List>

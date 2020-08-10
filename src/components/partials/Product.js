@@ -194,7 +194,7 @@ class Product extends Component {
 
     return product && product.content && product.content[selectedLanguageKey]
       ? (<React.Fragment>
-        {this.renderProductSnippet(product, productId, image.jpg540)}
+        {this.props.fullscreen ? this.renderProductSnippet(product, productId, image.jpg540) : ''}
         <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
           {this.renderProductThumbnail(image, product.thumbnailDescription, this.props.fullscreen, productDate)}
         </ListItemThumbnail>

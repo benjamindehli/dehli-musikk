@@ -88,6 +88,54 @@ class Equipment extends Component {
     }
   }
 
+  renderSummarySnippetForEquipmentTypes(equipment){
+    const equipmentTypeItems = equipment && Object.keys(equipment).length ? Object.keys(equipment).map((equipmentTypeKey, index) => {
+      const equipmentType = equipment[equipmentTypeKey];
+      const selectedLanguageKey = this.props.selectedLanguageKey
+        ? this.props.selectedLanguageKey
+        : 'no';
+      const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
+      return {
+        "@type": "ListItem",
+        "position": index+1,
+        "url": `https://www.dehlimusikk.no/${languageSlug}equipment/${equipmentTypeKey}/`
+      };
+    }) : null;
+    const snippet = {
+      "@context": "http://schema.org",
+      "@type": "ItemList",
+      "itemListElement": equipmentTypeItems
+    };
+    return (<Helmet>
+      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+    </Helmet>);
+  }
+
+  renderSummarySnippetForEquipmentItems(equipment, equipmentTypeKey){
+    const equipmentItems = equipment.items && equipment.items.length
+      ? equipment.items.map((item, index) => {
+        const selectedLanguageKey = this.props.selectedLanguageKey
+          ? this.props.selectedLanguageKey
+          : 'no';
+        const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
+        const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
+        return {
+          "@type": "ListItem",
+          "position": index+1,
+          "url": `https://www.dehlimusikk.no/${languageSlug}equipment/${equipmentTypeKey}/${itemId}/`
+        };
+      })
+      : null;
+      const snippet = {
+        "@context": "http://schema.org",
+        "@type": "ItemList",
+        "itemListElement": equipmentItems
+      };
+      return (<Helmet>
+        <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+      </Helmet>);
+  }
+
   renderEquipmentTypeThumbnail(image, itemName) {
     const copyrightString = 'cc-by 2020 Benjamin Dehli dehlimusikk.no';
     return (<React.Fragment>
@@ -334,7 +382,9 @@ class Equipment extends Component {
         {
           selectedEquipment
             ? this.renderSelectedEquipment(selectedEquipment, selectedEquipmentType)
-            : ''
+            : selectedEquipmentType
+              ? this.renderSummarySnippetForEquipmentItems(equipment[selectedEquipmentType], selectedEquipmentType)
+              : this.renderSummarySnippetForEquipmentTypes(equipment)
         }
         <Container blur={selectedEquipment !== null}>
           <List>

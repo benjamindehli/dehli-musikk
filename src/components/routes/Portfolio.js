@@ -50,6 +50,29 @@ class Portfolio extends Component {
     }
   }
 
+  renderSummarySnippet(releases) {
+    const releaseItems = releases.map((release, index) => {
+      const selectedLanguageKey = this.props.selectedLanguageKey
+        ? this.props.selectedLanguageKey
+        : 'no';
+      const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
+      const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
+      return {
+        "@type": "ListItem",
+        "position": index+1,
+        "url": `https://www.dehlimusikk.no/${languageSlug}portfolio/${releaseId}/`,
+      };
+    });
+    const snippet = {
+      "@context": "http://schema.org",
+      "@type": "ItemList",
+      "itemListElement": releaseItems
+    };
+    return (<Helmet>
+      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+    </Helmet>);
+  }
+
   renderReleases() {
     return releases && releases.length
       ? releases.map(release => {
@@ -172,7 +195,7 @@ class Portfolio extends Component {
           <meta property="twitter:title" content={contentTitle} />
           <meta property="twitter:description" content={metaDescription} />
         </Helmet>
-        {selectedRelease ? this.renderSelectedRelease(selectedRelease) : ''}
+        {selectedRelease ? this.renderSelectedRelease(selectedRelease) : this.renderSummarySnippet(releases)}
         <Container blur={selectedRelease !== null}>
           <Breadcrumbs breadcrumbs={breadcrumbs} />
           <h1>{contentTitle}</h1>

@@ -248,7 +248,7 @@ class Release extends Component {
     };
 
     return (<React.Fragment>
-      {this.renderReleaseSnippet(release, image['jpg540'])}
+      {this.props.fullscreen ? this.renderReleaseSnippet(release, image['jpg540']) : ''}
       <ListItemThumbnail fullscreen={this.props.fullscreen} link={link} compact={this.props.compact}>
         {this.renderReleaseThumbnail(image, this.props.fullscreen, release, this.props.compact)}
       </ListItemThumbnail>
