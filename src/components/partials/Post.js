@@ -94,11 +94,15 @@ class Post extends Component {
         },
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png"
+          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+          "contentUrl": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+          "license": "https://creativecommons.org/licenses/by/4.0/legalcode"
         },
         "image": {
           "@type": "ImageObject",
-          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png"
+          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+          "contentUrl": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+          "license": "https://creativecommons.org/licenses/by/4.0/legalcode"
         },
         "email": "superelg(at)gmail.org",
         "founder": {
@@ -130,6 +134,8 @@ class Post extends Component {
       "image": {
         "@type": "ImageObject",
         "url": `https://www.dehlimusikk.no${postThumbnailSrc}`,
+        "contentUrl": `https://www.dehlimusikk.no${postThumbnailSrc}`,
+        "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
         "caption": post.title[selectedLanguageKey],
         "description": post.thumbnailDescription,
         "uploadDate": postDate,
@@ -151,6 +157,9 @@ class Post extends Component {
         "@type": "WebPage",
         "@id": "https://www.dehlimusikk.no"
       }
+    }
+    if (post.copyright){
+      snippet.image.license = "https://creativecommons.org/licenses/by/4.0/legalcode";
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>

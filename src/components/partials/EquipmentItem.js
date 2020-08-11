@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {Helmet} from 'react-helmet';
 
 
 // Actions
@@ -22,6 +23,23 @@ import ListItemContentHeader from 'components/template/List/ListItem/ListItemCon
 import {getInstrumentReleases} from 'helpers/instrumentReleases';
 
 class EquipmentItem extends Component {
+
+  renderEquipmentItemImagesSnippet(images){
+    const snippet = Object.keys(images).map(format => {
+      const imagePath = images[format];
+      return {
+        "@context": "http://schema.org",
+        "@type": "ImageObject",
+        "url": `https://www.dehlimusikk.no${imagePath}`,
+        "contentUrl": `https://www.dehlimusikk.no${imagePath}`,
+        "license": "https://creativecommons.org/licenses/by/4.0/legalcode"
+      }
+    });
+
+    return (<Helmet>
+      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+    </Helmet>);
+  }
 
   renderPostThumbnail(image, itemName, fullscreen, compact) {
     const copyrightString = 'cc-by 2020 Benjamin Dehli dehlimusikk.no';
@@ -86,6 +104,7 @@ class EquipmentItem extends Component {
 
     return item
       ? (<React.Fragment>
+          {this.props.fullscreen ? this.renderEquipmentItemImagesSnippet(image) : ''}
           <ListItemThumbnail fullscreen={this.props.fullscreen} link={link} compact={this.props.compact}>
             {this.renderPostThumbnail(image, itemName, this.props.fullscreen, this.props.compact)}
           </ListItemThumbnail>

@@ -82,11 +82,15 @@ class Product extends Component {
         },
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png"
+          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+          "contentUrl": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+          "license": "https://creativecommons.org/licenses/by/4.0/legalcode"
         },
         "image": {
           "@type": "ImageObject",
-          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png"
+          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+          "contentUrl": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+          "license": "https://creativecommons.org/licenses/by/4.0/legalcode"
         },
         "email": "superelg(at)gmail.org",
         "founder": {
@@ -112,6 +116,8 @@ class Product extends Component {
       "image": {
         "@type": "ImageObject",
         "url": `https://www.dehlimusikk.no${productThumbnailSrc}`,
+        "contentUrl": `https://www.dehlimusikk.no${productThumbnailSrc}`,
+        "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
         "caption": product.title,
         "description": product.thumbnailDescription,
         "uploadDate": productDate,

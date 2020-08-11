@@ -38,10 +38,17 @@ class Video extends Component {
       "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}videos/${videoId}/`,
       "embedURL": `https://www.youtube.com/watch?v=${video.youTubeId}`,
       "thumbnailUrl": `https://www.dehlimusikk.no${videoThumbnailSrc}`,
-      "thumbnail": `https://www.dehlimusikk.no${videoThumbnailSrc}`,
+      "thumbnail": {
+        "@type": "ImageObject",
+        "url": `https://www.dehlimusikk.no${videoThumbnailSrc}`,
+        "contentUrl": `https://www.dehlimusikk.no${videoThumbnailSrc}`
+      },
       "datePublished": videoDate,
       "uploadDate": videoDate
     };
+    if (video.copyright){
+      snippet.thumbnail.license = "https://creativecommons.org/licenses/by/4.0/legalcode";
+    }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
     </Helmet>);
