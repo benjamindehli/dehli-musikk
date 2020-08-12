@@ -12,7 +12,7 @@ import style from 'components/partials/Footer.module.scss';
 class Footer extends Component {
 
   render() {
-    return (<div className={style.footer}>
+    return (<div id="contact" className={style.footer}>
       <div className={style.contentSection}>
         <div className={style.grid}>
           <div className={style.textSection}>

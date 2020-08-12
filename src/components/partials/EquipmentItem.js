@@ -32,7 +32,8 @@ class EquipmentItem extends Component {
         "@type": "ImageObject",
         "url": `https://www.dehlimusikk.no${imagePath}`,
         "contentUrl": `https://www.dehlimusikk.no${imagePath}`,
-        "license": "https://creativecommons.org/licenses/by/4.0/legalcode"
+        "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+        "acquireLicensePage": "https://www.dehlimusikk.no/#contact"
       }
     });
 

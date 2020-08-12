@@ -48,6 +48,7 @@ class Video extends Component {
     };
     if (video.copyright){
       snippet.thumbnail.license = "https://creativecommons.org/licenses/by/4.0/legalcode";
+      snippet.thumbnail.acquireLicensePage = "https://www.dehlimusikk.no/#contact";
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>

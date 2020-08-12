@@ -96,13 +96,15 @@ class Post extends Component {
           "@type": "ImageObject",
           "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
           "contentUrl": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-          "license": "https://creativecommons.org/licenses/by/4.0/legalcode"
+          "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+          "acquireLicensePage": "https://www.dehlimusikk.no/#contact"
         },
         "image": {
           "@type": "ImageObject",
           "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
           "contentUrl": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-          "license": "https://creativecommons.org/licenses/by/4.0/legalcode"
+          "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+          "acquireLicensePage": "https://www.dehlimusikk.no/#contact"
         },
         "email": "superelg(at)gmail.org",
         "founder": {
@@ -160,6 +162,7 @@ class Post extends Component {
     }
     if (post.copyright){
       snippet.image.license = "https://creativecommons.org/licenses/by/4.0/legalcode";
+      snippet.image.acquireLicensePage = "https://www.dehlimusikk.no/#contact";
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
