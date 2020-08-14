@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/kaasin-runaway-train/</loc>
+    <video:video>
+      <video:title>Kaasin - Runaway Train</video:title>
+      <video:description>Debutlåta fra det norske bandet Kaasin grunnlagt av gitarist Jo Henning Kaasin som har samarbeidet med Glenn Hughes, Joe Lynn Turner, Doogie White og flere. Grunnleggende medlem og låtskriver i Come Taste the Band.
+Kaasin: Jo Henning Kaasin (gitar), Jan Thore Grefsted (vokal) og Staale Kaasin (bass).
+Ytterligere musikere: Benjamin Dehli (tangenter) og Rick Hagan (trommer).
+Runaway Train (Kaasin/Heldal)
+Produsert av Halvor Halvorsen/Jo Henning Kaasin i Juke Joint Studio, Notodden, Norway
+Mikset/mastret av Leif Johansen
+Video av Jon Sandersen
+Plateselskap: StreamPeak Music DA</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qSS0_LJveSw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-08-14-00_540.a93e6506.jpg</video:thumbnail_loc>
+      <video:duration>235</video:duration>
+      <video:publication_date>2020-08-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCYN-BFZQIesAVDPYnIARfWw">Streampeak Music DA</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/kaasin-runaway-train/</loc>
+    <video:video>
+      <video:title>Kaasin - Runaway Train</video:title>
+      <video:description>The debutsingle from the Norwegian band Kaasin founded by guitarist Jo Henning Kaasin, collaborator with Glenn Hughes, Joe Lynn Turner, Doogie White and more. Founding member and songwriter in Come Taste the Band.
+Kaasin: Jo Henning Kaasin (guitar), Jan Thore Grefsted (vocals) and Staale Kaasin (bass).
+Additional musicans: Benjamin Dehli (keyboards) and Rick Hagan (drums).
+Runaway Train (Kaasin/Heldal)
+Produced by Halvor Halvorsen/Jo Henning Kaasin at Juke Joint Studio, Notodden, Norway
+Mixed/mastered by Leif Johansen
+Video by Jon Sandersen
+Label: StreamPeak Music DA</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qSS0_LJveSw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-08-14-00_540.a93e6506.jpg</video:thumbnail_loc>
+      <video:duration>235</video:duration>
+      <video:publication_date>2020-08-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCYN-BFZQIesAVDPYnIARfWw">Streampeak Music DA</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/korg-polysix-og-fulltone-tube-tape-echo-med-utslitt-baand/</loc>
     <video:video>
       <video:title>Korg Polysix og Fulltone Tube Tape Echo med utslitt bånd</video:title>
       <video:description>Korg Polysix gjennom en Fulltone Tube Tape Echo med godt slitt bånd. Det utslitte båndet som gav mye &quot;wow og flutter&quot; og forvrengning av lyden.
 Jeg kjørte Korg Polysix&apos;en gjennom båndekkoet to ganger og panorerte det hardt til venstre og høyre for å skape en stereoeffekt og mikset inn det tørre direkte signalet</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=-TVfNZvG69w</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-08-15-00_540.b9ee990e.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-08-05-00_540.b9ee990e.jpg</video:thumbnail_loc>
       <video:duration>64</video:duration>
-      <video:publication_date>2020-08-15</video:publication_date>
+      <video:publication_date>2020-08-05</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
       <video:live>no</video:live>
     </video:video>
@@ -21,9 +61,9 @@ Jeg kjørte Korg Polysix&apos;en gjennom båndekkoet to ganger og panorerte det 
       <video:description>Korg Polysix through a Fulltone Tube Tape Echo with a heavily worn tape. The worn out tape adding a lot of wow and flutter, audio dropouts and distortion.
 I ran the Korg Polysix through the tape echo two times and panned it hard left and right to create a stereo effect and mixed in the dry direct signal.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=-TVfNZvG69w</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-08-15-00_540.b9ee990e.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-08-05-00_540.b9ee990e.jpg</video:thumbnail_loc>
       <video:duration>64</video:duration>
-      <video:publication_date>2020-08-15</video:publication_date>
+      <video:publication_date>2020-08-05</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
       <video:live>no</video:live>
     </video:video>
