@@ -1,6 +1,23 @@
 [{
+    "timestamp": 1597363200000,
+    "title": {
+      "no": "Kaasin - Runaway Train",
+      "en": "Kaasin - Runaway Train"
+    },
+    "content": {
+      "no": "Debutlåta fra det norske bandet Kaasin grunnlagt av gitarist Jo Henning Kaasin som har samarbeidet med Glenn Hughes, Joe Lynn Turner, Doogie White og flere. Grunnleggende medlem og låtskriver i Come Taste the Band.\nKaasin: Jo Henning Kaasin (gitar), Jan Thore Grefsted (vokal) og Staale Kaasin (bass).\nYtterligere musikere: Benjamin Dehli (tangenter) og Rick Hagan (trommer).\nRunaway Train (Kaasin/Heldal)\nProdusert av Halvor Halvorsen/Jo Henning Kaasin i Juke Joint Studio, Notodden, Norway\nMikset/mastret av Leif Johansen\nVideo av Jon Sandersen\nPlateselskap: StreamPeak Music DA",
+      "en": "The debutsingle from the Norwegian band Kaasin founded by guitarist Jo Henning Kaasin, collaborator with Glenn Hughes, Joe Lynn Turner, Doogie White and more. Founding member and songwriter in Come Taste the Band.\nKaasin: Jo Henning Kaasin (guitar), Jan Thore Grefsted (vocals) and Staale Kaasin (bass).\nAdditional musicans: Benjamin Dehli (keyboards) and Rick Hagan (drums).\nRunaway Train (Kaasin/Heldal)\nProduced by Halvor Halvorsen/Jo Henning Kaasin at Juke Joint Studio, Notodden, Norway\nMixed/mastered by Leif Johansen\nVideo by Jon Sandersen\nLabel: StreamPeak Music DA"
+    },
+    "duration": "PT3M55S",
+    "thumbnailDescription": "Snapshot from the music video for \"Runaway Train\" by Kaasin",
+    "thumbnailFilename": "2020-08-14-00",
+    "youTubeId": "qSS0_LJveSw",
+    "youTubeUser": "Streampeak Music DA",
+    "youTubeChannelId": "channel/UCYN-BFZQIesAVDPYnIARfWw"
+  },
+  {
     "copyright": true,
-    "timestamp": 1597449600000,
+    "timestamp": 1596585600000,
     "title": {
       "no": "Korg Polysix og Fulltone Tube Tape Echo med utslitt bånd",
       "en": "Korg Polysix and Fulltone Tube Tape Echo with worn tape"
@@ -11,7 +28,7 @@
     },
     "duration": "PT1M4S",
     "thumbnailDescription": "Fulltone Tube Tape Echo",
-    "thumbnailFilename": "2020-08-15-00",
+    "thumbnailFilename": "2020-08-05-00",
     "youTubeId": "-TVfNZvG69w",
     "youTubeUser": "Benjamin Dehli",
     "youTubeChannelId": "c/BenjaminDehli"
@@ -32,23 +49,5 @@
     "youTubeId": "U21uzVlmHqk",
     "youTubeUser": "Lene N",
     "youTubeChannelId": "channel/UCLzk4_eLaYhCd3j7dluY4zQ"
-  },
-  {
-    "copyright": true,
-    "timestamp": 1594512000000,
-    "title": {
-      "no": "Fulltone Tube Tape Echo med tangentinstrumenter and trommemaskin",
-      "en": "Fulltone Tube Tape Echo with keyboards and drum machine"
-    },
-    "content": {
-      "no": "Testing av Fulltone Tube Tape Echo med Korg MS-20, Mellotron M4000D og Arturia Drumbrute.\nFor å lage en stereoeffekt, er alle instrumentene sendt gjennom båndekkoen to ganger og panorert hardt til høyre og venstre. Det er også lagt på litt fjærklang fra en VanAmps Sole-Mate Jr. pedal.\nInstrumenter: Korg MS-20 (MK 1), Mellotron M4000D og Arturia Drumbrute\nEffekter: Fulltone Tube Tape Echo og VanAmps Sole-Mate Jr.\nStep sequencer: Korg SQ-1\nOpptaker: Fostex X-28H",
-      "en": "Testing the Fulltone Tube Tape Echo with Korg MS-20, Mellotron M4000D and Arturia Drumbrute. The second VCO on the MS-20 is sequenced by a Korg SQ-1.\nI ran all the instruments through the tape echo two times and panned it hard left and right to create a stereo effect. I also added some spring reverb from the VanAmps Sole-Mate Jr.\nInstruments: Korg MS-20 (MK 1), Mellotron M4000D and Arturia Drumbrute\nEffects: Fulltone Tube Tape Echo and VanAmps Sole-Mate Jr.\nStep sequencer: Korg SQ-1\nRecording equipment: Fostex X-28H"
-    },
-    "duration": "PT1M51S",
-    "thumbnailDescription": "Mellotron and Korg MS-20 being played",
-    "thumbnailFilename": "2020-07-12-00",
-    "youTubeId": "dMpGEIJH_Wk",
-    "youTubeUser": "Benjamin Dehli",
-    "youTubeChannelId": "c/BenjaminDehli"
   }
 ]

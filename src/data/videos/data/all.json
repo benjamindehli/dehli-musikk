@@ -1,6 +1,23 @@
 [{
+    "timestamp": 1597363200000,
+    "title": {
+      "no": "Kaasin - Runaway Train",
+      "en": "Kaasin - Runaway Train"
+    },
+    "content": {
+      "no": "Debutlåta fra det norske bandet Kaasin grunnlagt av gitarist Jo Henning Kaasin som har samarbeidet med Glenn Hughes, Joe Lynn Turner, Doogie White og flere. Grunnleggende medlem og låtskriver i Come Taste the Band.\nKaasin: Jo Henning Kaasin (gitar), Jan Thore Grefsted (vokal) og Staale Kaasin (bass).\nYtterligere musikere: Benjamin Dehli (tangenter) og Rick Hagan (trommer).\nRunaway Train (Kaasin/Heldal)\nProdusert av Halvor Halvorsen/Jo Henning Kaasin i Juke Joint Studio, Notodden, Norway\nMikset/mastret av Leif Johansen\nVideo av Jon Sandersen\nPlateselskap: StreamPeak Music DA",
+      "en": "The debutsingle from the Norwegian band Kaasin founded by guitarist Jo Henning Kaasin, collaborator with Glenn Hughes, Joe Lynn Turner, Doogie White and more. Founding member and songwriter in Come Taste the Band.\nKaasin: Jo Henning Kaasin (guitar), Jan Thore Grefsted (vocals) and Staale Kaasin (bass).\nAdditional musicans: Benjamin Dehli (keyboards) and Rick Hagan (drums).\nRunaway Train (Kaasin/Heldal)\nProduced by Halvor Halvorsen/Jo Henning Kaasin at Juke Joint Studio, Notodden, Norway\nMixed/mastered by Leif Johansen\nVideo by Jon Sandersen\nLabel: StreamPeak Music DA"
+    },
+    "duration": "PT3M55S",
+    "thumbnailDescription": "Snapshot from the music video for \"Runaway Train\" by Kaasin",
+    "thumbnailFilename": "2020-08-14-00",
+    "youTubeId": "qSS0_LJveSw",
+    "youTubeUser": "Streampeak Music DA",
+    "youTubeChannelId": "channel/UCYN-BFZQIesAVDPYnIARfWw"
+  },
+  {
     "copyright": true,
-    "timestamp": 1597449600000,
+    "timestamp": 1596585600000,
     "title": {
       "no": "Korg Polysix og Fulltone Tube Tape Echo med utslitt bånd",
       "en": "Korg Polysix and Fulltone Tube Tape Echo with worn tape"
@@ -11,7 +28,7 @@
     },
     "duration": "PT1M4S",
     "thumbnailDescription": "Fulltone Tube Tape Echo",
-    "thumbnailFilename": "2020-08-15-00",
+    "thumbnailFilename": "2020-08-05-00",
     "youTubeId": "-TVfNZvG69w",
     "youTubeUser": "Benjamin Dehli",
     "youTubeChannelId": "c/BenjaminDehli"
