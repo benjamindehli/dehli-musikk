@@ -1,18 +1,22 @@
 [{
-    "id": "2020073000",
-    "timestamp": 1596067200000,
+    "id": "2020081401",
+    "timestamp": 1597363200000,
     "title": {
-      "no": "Forsmak på Runaway Train av Kaasin",
-      "en": "Runaway Train by Kaasin (teaser video)"
+      "no": "Musikkvideo - Runaway Train av Kaasin",
+      "en": "Music video - Runaway Train by Kaasin"
     },
     "content": {
-      "no": "En liten forsmak på musikkvideoen til Runaway Train av Kaasin som kommer 14. august 😎🤘\nFoto: Jon Sandersen 📷",
-      "en": "A short preview of the music video for Runaway Train by Kaasin coming August 14th 😎🤘\nPhoto: Jon Sandersen 📷"
+      "no": "Jon Sandersen har filmet og klippet sammen en helt rå musikkvideo til låta Runaway Train av Kaasin 📼🎬",
+      "en": "Jon Sandersen has shot and edited an awesome music video for Runaway Train by Kaasin 📼🎬"
     },
-    "thumbnailDescription": "Korg MS-20 and Mellotron M4000D being played",
-    "thumbnailFilename": "2020-07-30-00",
+    "thumbnailDescription": "Snapshot from the music video for \"Runaway Train\" by Kaasin",
+    "thumbnailFilename": "2020-08-14-01",
     "link": {
-      "url": "https://www.instagram.com/p/CDQw8xjHndw/",
+      "url": {
+        "en": "videos/kaasin-runaway-train/",
+        "no": "videos/kaasin-runaway-train/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -20,35 +24,50 @@
     }
   },
   {
-    "id": "2020071201",
-    "timestamp": 1594512000000,
+    "id": "2020081400",
+    "timestamp": 1597363200000,
     "title": {
-      "no": "Innspilling av musikkvideo med Kaasin",
-      "en": "Shooting music video with Kaasin"
+      "no": "Ny utgivelse - Runaway Train av Kaasin",
+      "en": "New release - Runaway Train by Kaasin"
     },
     "content": {
-      "no": "Inspilling av video for Kaasins debutlåt \"Runaway Train\" 🎬\nFoto: Terje Ottesen 📷",
-      "en": "Shooting video for Kaasin's debut single \"Runaway Train\" 🎬\nPhoto: Terje Ottesen 📷"
+      "no": "Har vært så heldig å få klimpre på vrengtangenter sammen med gjengen i Kaasin 😃\nLyd-maestro Halvor Halvorsen har gjort sin magi bak spakene 👍👌\nFyr opp anlegget, gjekk deg en pærebrus og kickstart helga med litt råkknråll 😎🤘",
+      "en": "I've had the pleasure to play some rock keyboards with the band Kaasin 😃\nSound wizzard Halvor Halvorsen has done his magic behind the faders 👍👌\nTurn up the volume, grab a beer and kickstart the weekend with some rock'n'roll 😎🤘"
     },
-    "thumbnailDescription": "Benjamin Dehli, Staale Kaasin, Rick Hagan, Jan Thore Grefstad and Jo Henning Kaasin",
-    "thumbnailFilename": "2020-07-12-01"
+    "thumbnailDescription": "Album cover for the single \"Runaway Train\" by Kaasin",
+    "thumbnailFilename": "2020-08-14-00",
+    "link": {
+      "url": {
+        "en": "portfolio/kaasin-runaway-train/",
+        "no": "portfolio/kaasin-runaway-train/"
+      },
+      "internal": true,
+      "text": {
+        "en": "Listen to Runaway Train",
+        "no": "Lytt til Runaway Train"
+      }
+    }
   },
   {
-    "id": "2020071200",
+    "id": "2020080500",
     "copyright": true,
-    "timestamp": 1594512000000,
+    "timestamp": 1596585600000,
     "title": {
-      "no": "Båndekko på synth, Mellotron og trommemaskin",
-      "en": "Tape echo on synthesizer, Mellotron and drum machine"
+      "no": "Analog synth, ekkomaskin og utslitt bånd",
+      "en": "Analog synth, tape echo and worn out tape"
     },
     "content": {
-      "no": "Fulltone Tube Tape Echo med Korg MS-20, Mellotron M4000D og Arturia Drumbrute 📼🎹🎛️🦄",
-      "en": "Fulltone Tube Tape Echo with Korg MS-20, Mellotron M4000D and Arturia Drumbrute 📼🎹🎛️🦄"
+      "no": "Korg Polysix og Fulltone Tube Tape Echo med godt slitt bånd 🎹📼🦄",
+      "en": "Korg Polysix and Fulltone Tube Tape Echo with worn out tape 🎹📼🦄"
     },
-    "thumbnailDescription": "Arturia Drumbrute, Fulltone Tube Tape Echo, Fostex X-28H, Korg MS-20 and Mellotron M4000D",
-    "thumbnailFilename": "2020-07-12-00",
+    "thumbnailDescription": "Close up of a Fulltone Tube Tape Echo",
+    "thumbnailFilename": "2020-08-05-00",
     "link": {
-      "url": "https://youtu.be/dMpGEIJH_Wk",
+      "url": {
+        "en": "videos/korg-polysix-og-fulltone-tube-tape-echo-med-utslitt-baand/",
+        "no": "videos/korg-polysix-and-fulltone-tube-tape-echo-with-worn-tape/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
