@@ -183,7 +183,7 @@ class Post extends Component {
 
   renderLink(link) {
     return link.internal
-    ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url}`} title={link.text[this.props.selectedLanguageKey]}>
+    ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url[this.props.selectedLanguageKey]}`} title={link.text[this.props.selectedLanguageKey]}>
         <Button tabIndex="-1" buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
         </Button>

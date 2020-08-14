@@ -120,7 +120,10 @@
     "thumbnailDescription": "Album cover for the single \"The Keeper of the Lighthouse\" by Wolf Moon Fever",
     "thumbnailFilename": "2020-06-26-00",
     "link": {
-      "url": "portfolio/wolf-moon-fever-the-keeper-of-the-lighthouse/",
+      "url": {
+        "en": "portfolio/wolf-moon-fever-the-keeper-of-the-lighthouse/",
+        "no": "portfolio/wolf-moon-fever-the-keeper-of-the-lighthouse/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to The Keeper of the Lighthouse",
@@ -201,7 +204,10 @@
     "thumbnailDescription": "Album cover for the single \"Under the Midnight Sun\" by 2020 Vision",
     "thumbnailFilename": "2020-05-29-00",
     "link": {
-      "url": "portfolio/2020-vision-under-the-midnight-sun/",
+      "url": {
+        "en": "portfolio/2020-vision-under-the-midnight-sun/",
+        "no": "portfolio/2020-vision-under-the-midnight-sun/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to Under the Midnight Sun",
@@ -224,7 +230,10 @@
     "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
     "thumbnailFilename": "2020-05-25-00",
     "link": {
-      "url": "products/lo-fi-tape-piano/",
+      "url": {
+        "en": "products/lo-fi-tape-piano/",
+        "no": "products/lo-fi-tape-piano/"
+      },
       "internal": true,
       "text": {
         "en": "Read more about Lo-fi Tape Piano",
@@ -393,7 +402,11 @@
     "thumbnailDescription": "Snapshot from the music video for \"Give Me a Smile, Joe\" by Lene Nevisdal",
     "thumbnailFilename": "2020-05-08-00",
     "link": {
-      "url": "https://www.facebook.com/lenenevisdalofficial/videos/1554443811374263/",
+      "url": {
+        "en": "videos/lene-nevisdal-give-me-a-smile-joe/",
+        "no": "videos/lene-nevisdal-give-me-a-smile-joe/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -609,7 +622,10 @@
     "thumbnailDescription": "Album cover for the single \"Can You See Me\" by 2020 Vision",
     "thumbnailFilename": "2020-04-01-00",
     "link": {
-      "url": "portfolio/2020-vision-can-you-see-me/",
+      "url": {
+        "en": "portfolio/2020-vision-can-you-see-me/",
+        "no": "portfolio/2020-vision-can-you-see-me/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to Can You See Me",
@@ -749,7 +765,11 @@
     "thumbnailDescription": "Snapshot from the music video for \"Då E Det Verdt Det\" by Thomas Tveiten",
     "thumbnailFilename": "2020-03-06-01",
     "link": {
-      "url": "https://youtu.be/UYrtVXf96oI",
+      "url": {
+        "en": "videos/thomas-tveiten-daa-e-det-verdt-det/",
+        "no": "videos/thomas-tveiten-daa-e-det-verdt-det/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -770,7 +790,10 @@
     "thumbnailDescription": "Album cover for the single \"Då E Det Verdt Det\" by Thomas Tveiten",
     "thumbnailFilename": "2020-03-06-00",
     "link": {
-      "url": "portfolio/thomas-tveiten-daa-e-det-verdt-det/",
+      "url": {
+        "en": "portfolio/thomas-tveiten-daa-e-det-verdt-det/",
+        "no": "portfolio/thomas-tveiten-daa-e-det-verdt-det/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to Då E Det Verdt Det",
@@ -814,7 +837,10 @@
     "thumbnailDescription": "Album cover for the single \"Tåkemann\" by Esben Meyer",
     "thumbnailFilename": "2020-02-14-00",
     "link": {
-      "url": "portfolio/esben-meyer-taakemann/",
+      "url": {
+        "en": "portfolio/esben-meyer-taakemann/",
+        "no": "portfolio/esben-meyer-taakemann/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to Tåkemann",
@@ -836,7 +862,10 @@
     "thumbnailDescription": "Album cover for the single \"Give Me a Smile, Joe\" by Lene Nevisdal",
     "thumbnailFilename": "2020-02-11-01",
     "link": {
-      "url": "portfolio/lene-nevisdal-give-me-a-smile-joe/",
+      "url": {
+        "en": "portfolio/lene-nevisdal-give-me-a-smile-joe/",
+        "no": "portfolio/lene-nevisdal-give-me-a-smile-joe/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to Give Me a Smile, Joe",
@@ -1042,7 +1071,10 @@
     "thumbnailDescription": "Album cover for the single \"Get Lucky\" by The White Devil",
     "thumbnailFilename": "2019-11-22-00",
     "link": {
-      "url": "portfolio/the-white-devil-get-lucky/",
+      "url": {
+        "en": "portfolio/the-white-devil-get-lucky/",
+        "no": "portfolio/the-white-devil-get-lucky/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to Get Lucky",
@@ -1101,7 +1133,10 @@
     "thumbnailDescription": "Album cover for the single \"Back When\" by Spinning Wheels Band",
     "thumbnailFilename": "2019-11-12-00",
     "link": {
-      "url": "portfolio/spinning-wheels-band-randle-currie-and-justin-williamso-back-when/",
+      "url": {
+        "en": "portfolio/spinning-wheels-band-randle-currie-and-justin-williamso-back-when/",
+        "no": "portfolio/spinning-wheels-band-randle-currie-and-justin-williamso-back-when/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to Back When",
@@ -1382,7 +1417,10 @@
     "thumbnailDescription": "Album cover for the single \"The Last Day on Earth\" by Haunted By Silhouettes",
     "thumbnailFilename": "2019-09-06-00",
     "link": {
-      "url": "portfolio/haunted-by-silhouettes-the-last-day-on-earth/",
+      "url": {
+        "en": "portfolio/haunted-by-silhouettes-the-last-day-on-earth/",
+        "no": "portfolio/haunted-by-silhouettes-the-last-day-on-earth/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to The Last Day on Earth",
@@ -1581,7 +1619,10 @@
     "thumbnailDescription": "Album cover for the single \"Deadlock\" by Haunted By Silhouettes",
     "thumbnailFilename": "2019-06-21-00",
     "link": {
-      "url": "portfolio/haunted-by-silhouettes-deadlock/",
+      "url": {
+        "en": "portfolio/haunted-by-silhouettes-deadlock/",
+        "no": "portfolio/haunted-by-silhouettes-deadlock/"
+      },
       "internal": true,
       "text": {
         "en": "Listen to Deadlock",
