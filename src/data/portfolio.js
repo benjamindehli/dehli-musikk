@@ -11,6 +11,7 @@ import confusionThisTime from './releases/data/confusion_lettheGamesBegin_4XEL4e
 import esbenMeyerTaakemann from './releases/data/esbenMeyer_taakemann_1B1s5wIUS5YacAPFBXmbTU.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock_7fVdrI4oTPXduyZiZNlcCH.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth_5Ea891yomzVe9qs5e2DXMJ.json';
+import kaasinRunawayTrain from './releases/data/kAASIN_runawayTrain_2Z28HmWYkw0tN7ldEjAaYS.json';
 import leneNevisdalGiveMeaSmileJoe from './releases/data/leneNevisdal_giveMeaSmileJoe_3a3EqE5GyONmvpC2LeN0TH.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow_1rTLnAzETljGUZHk7aoetP.json';
 import setOnesCapDontYouWannaKnow from './releases/data/setOnesCap_dontYouWannaKnow_6I5ZjNZ9P7mS56sEuP5QzU.json';
@@ -31,9 +32,9 @@ import wildWhensTravellinMan from './releases/data/wildWhens_travellinMan_2kO379
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
+  kaasinRunawayTrain,
   wolfMoonFeverTheKeeperoftheLighthouse,
-  twentyTwentyVisionUnderTheMidnightSun,
-  twentyTwentyVisionCanYouSeeMe
+  twentyTwentyVisionUnderTheMidnightSun
 ];
 
 export {
@@ -54,6 +55,7 @@ export default [
   esbenMeyerTaakemann,
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesTheLastDayOnEarth,
+  kaasinRunawayTrain,
   hauntedBySilhouettesUndertow,
   leneNevisdalGiveMeaSmileJoe,
   setOnesCapDontYouWannaKnow,
