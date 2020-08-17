@@ -47,6 +47,10 @@ class Search extends Component {
           en: 'Posts',
           no: 'Innlegg'
         },
+        video: {
+          en: 'Videos',
+          no: 'Videoer'
+        },
         product: {
           en: 'Products',
           no: 'Produkter'
