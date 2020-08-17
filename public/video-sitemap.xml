@@ -243,6 +243,32 @@ Music by: Rikard Nordraak.</video:description>
     </video:video>
   </url>
   <url>
+    <loc>https://www.dehlimusikk.no/videos/haunted-by-silhouettes-track-by-track-undertow/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Track By Track - Undertow</video:title>
+      <video:description>Per Kristian Grimsland fra Haunted By Silhouettes viser de forskjellige elementene i låta Undertow</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=muAQ9UGKmcc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-04-25-00_540.c81e835e.jpg</video:thumbnail_loc>
+      <video:duration>333</video:duration>
+      <video:publication_date>2020-04-25</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCCuMY-MGE2mhIT-h6ohL-Ng">Haunted By Silhouettes</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/haunted-by-silhouettes-track-by-track-undertow/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Track By Track - Undertow</video:title>
+      <video:description>Per Kristian Grimsland from Haunted By Silhouettes shows the different elements in the track Undertow</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=muAQ9UGKmcc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-04-25-00_540.c81e835e.jpg</video:thumbnail_loc>
+      <video:duration>333</video:duration>
+      <video:publication_date>2020-04-25</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCCuMY-MGE2mhIT-h6ohL-Ng">Haunted By Silhouettes</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/roland-dimension-d-sdd-320-med-dreadbox-erebus-v2/</loc>
     <video:video>
       <video:title>Roland Dimension D SDD-320 med Dreadbox Erebus v2</video:title>
@@ -269,6 +295,32 @@ Music by: Rikard Nordraak.</video:description>
     </video:video>
   </url>
   <url>
+    <loc>https://www.dehlimusikk.no/videos/haunted-by-silhouettes-track-by-track-deadlock/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Track By Track - Deadlock</video:title>
+      <video:description>Per Kristian Grimsland fra Haunted By Silhouettes viser de forskjellige elementene i låta Deadlock</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=3Tjitgv8QVU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-04-17-00_540.661fa425.jpg</video:thumbnail_loc>
+      <video:duration>409</video:duration>
+      <video:publication_date>2020-04-17</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCCuMY-MGE2mhIT-h6ohL-Ng">Haunted By Silhouettes</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/haunted-by-silhouettes-track-by-track-deadlock/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Track By Track - Deadlock</video:title>
+      <video:description>Per Kristian Grimsland from Haunted By Silhouettes shows the different elements in the track Deadlock</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=3Tjitgv8QVU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-04-17-00_540.661fa425.jpg</video:thumbnail_loc>
+      <video:duration>409</video:duration>
+      <video:publication_date>2020-04-17</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCCuMY-MGE2mhIT-h6ohL-Ng">Haunted By Silhouettes</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/dreadbox-erebus-v2/</loc>
     <video:video>
       <video:title>Dreadbox Erebus v2</video:title>
@@ -290,6 +342,60 @@ Music by: Rikard Nordraak.</video:description>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-04-16-00_540.46ea2cc5.jpg</video:thumbnail_loc>
       <video:duration>45</video:duration>
       <video:publication_date>2020-04-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/haunted-by-silhouettes-track-by-track-the-last-day-on-earth/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Track By Track - The Last Day on Earth</video:title>
+      <video:description>Per Kristian Grimsland fra Haunted By Silhouettes viser de forskjellige elementene i låta The Last Day on Earth</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tM4HW0_tkC0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-04-03-00_540.c81e835e.jpg</video:thumbnail_loc>
+      <video:duration>261</video:duration>
+      <video:publication_date>2020-04-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCCuMY-MGE2mhIT-h6ohL-Ng">Haunted By Silhouettes</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/haunted-by-silhouettes-track-by-track-the-last-day-on-earth/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Track By Track - The Last Day on Earth</video:title>
+      <video:description>Per Kristian Grimsland from Haunted By Silhouettes shows the different elements in the track The Last Day on Earth</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tM4HW0_tkC0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-04-03-00_540.c81e835e.jpg</video:thumbnail_loc>
+      <video:duration>261</video:duration>
+      <video:publication_date>2020-04-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCCuMY-MGE2mhIT-h6ohL-Ng">Haunted By Silhouettes</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/korg-ms-20-arpeggioer-med-logic-og-korg-sq-1/</loc>
+    <video:video>
+      <video:title>Korg MS-20 arpeggioer med Logic og Korg SQ-1</video:title>
+      <video:description>Notene kommer som MIDI signal fra Logic og gjort om til styrespenning med en Korg SQ-1.
+Effekter som er brukt: Electro Harmonix Deluxe Memory Man (analog ekko) and VanAmps Sole-Mate Jr. (fjærklang).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ZsHg94LOXHw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-03-14-00_540.e4beb78c.jpg</video:thumbnail_loc>
+      <video:duration>49</video:duration>
+      <video:publication_date>2020-03-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/korg-ms-20-arpeggios-with-logic-and-korg-sq-1/</loc>
+    <video:video>
+      <video:title>Korg MS-20 arpeggios with Logic and Korg SQ-1</video:title>
+      <video:description>The arpeggios are MIDI notes in Logic and the Korg SQ-1 is used as a MIDI to CV converter.
+Effects used on the Korg MS-20: Electro Harmonix Deluxe Memory Man (analog delay) and VanAmps Sole-Mate Jr. (spring reverb).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ZsHg94LOXHw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-03-14-00_540.e4beb78c.jpg</video:thumbnail_loc>
+      <video:duration>49</video:duration>
+      <video:publication_date>2020-03-14</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
       <video:live>no</video:live>
     </video:video>
@@ -325,6 +431,240 @@ Album: Då E Det Verdt Det</video:description>
       <video:duration>212</video:duration>
       <video:publication_date>2020-03-10</video:publication_date>
       <video:uploader info="https://www.youtube.com/channel/UCo3O6qsMH6v50ZHPjhZKzPQ">ThomasTveiten</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/yamaha-yc-25d-med-effektpedaler/</loc>
+    <video:video>
+      <video:title>Yamaha YC-25D med effektpedaler</video:title>
+      <video:description>Yamaha YC-25D kombo-orgel med Moog Minitaur Ladder Filter, Electro Harmonix Deluxe Memory Man Delay og Boss Chorus Ensemble (CE-1).
+Moog Minitaur filteret er styres av en LFO med Sample&amp;Hold bølgeform.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=-c4KhDYhvPM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-02-23-00_540.530b9001.jpg</video:thumbnail_loc>
+      <video:duration>153</video:duration>
+      <video:publication_date>2020-02-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/yamaha-yc-25d-with-effects-pedals/</loc>
+    <video:video>
+      <video:title>Yamaha YC-25D with effects pedals</video:title>
+      <video:description>Yamaha YC-25D combo organ with Moog Minitaur Ladder Filter, Electro Harmonix Deluxe Memory Man Delay and Boss Chorus Ensemble (CE-1).
+The Minitaur filter is controlled by the LFO with a Sample&amp;Hold waveform.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=-c4KhDYhvPM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-02-23-00_540.530b9001.jpg</video:thumbnail_loc>
+      <video:duration>153</video:duration>
+      <video:publication_date>2020-02-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/piano-som-klang-til-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Piano som klang til Korg MS-20</video:title>
+      <video:description>Bruker Louis Zwicki Pianette som klangeffekt for Korg MS-20.
+MS-20 synthen blir styrt av en Korg SQ-1 step sequencer.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=g1jnNf5ZSzY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-02-02-00_540.4cfb8cb9.jpg</video:thumbnail_loc>
+      <video:duration>187</video:duration>
+      <video:publication_date>2020-02-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/using-a-piano-as-reverb-for-the-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Using a piano as reverb for the Korg MS-20</video:title>
+      <video:description>Using the Louis Zwicki Pianette as a reverb effect for the Korg MS-20.
+The MS-20 is triggered by the Korg SQ-1 step sequencer.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=g1jnNf5ZSzY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-02-02-00_540.4cfb8cb9.jpg</video:thumbnail_loc>
+      <video:duration>187</video:duration>
+      <video:publication_date>2020-02-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/clavinet-d6-solo/</loc>
+    <video:video>
+      <video:title>Clavinet D6 Solo</video:title>
+      <video:description>Innspilling av solo med Hohner Clavinet D6
+Effektpedaler: Real McCoy Custom Picture Wah, Dunlop / Dallas Arbiter &apos;93 Fuzz Face (NKT-275), Hudson Electronics, UK Broadcast, Boss DM-2 (MN3005), VanAmps Sole-Mate Jr.
+Amplifiers: Fender Twin Reverb, Vox AC15H1TV</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cHUEsZwsdTE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-12-22-01_540.a5ac1a8d.jpg</video:thumbnail_loc>
+      <video:duration>19</video:duration>
+      <video:publication_date>2019-12-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/clavinet-d6-solo/</loc>
+    <video:video>
+      <video:title>Clavinet D6 Solo</video:title>
+      <video:description>Recording a solo with the Hohner Clavinet D6.
+Effects pedals: Real McCoy Custom Picture Wah, Dunlop / Dallas Arbiter &apos;93 Fuzz Face (NKT-275), Hudson Electronics, UK Broadcast, Boss DM-2 (MN3005), VanAmps Sole-Mate Jr.
+Amplifiers: Fender Twin Reverb, Vox AC15H1TV</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cHUEsZwsdTE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-12-22-01_540.a5ac1a8d.jpg</video:thumbnail_loc>
+      <video:duration>19</video:duration>
+      <video:publication_date>2019-12-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/korg-ms-20-esp-med-gitar/</loc>
+    <video:video>
+      <video:title>Korg MS-20 ESP med gitar</video:title>
+      <video:description>Korg MS-20 styres av gitar med External Signal Processor (ESP) og kjøres gjennom en Fender Twin Reverb forsterker.
+VCO1: 1 oktav under gitaren.
+VCO2: 1 oktav + 3 halvtoner over gitaren.
+Envelope Generator 1 kontrollerer tonehøyden og får den til å glidd opp til tonen når den trigges og glid ned når volumet fra gitaren er under trigger-terskelen.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=5EG7SBBUJpY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-12-22-00_540.d87ba992.jpg</video:thumbnail_loc>
+      <video:duration>32</video:duration>
+      <video:publication_date>2019-12-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/korg-ms-20-esp-with-guitar/</loc>
+    <video:video>
+      <video:title>Korg MS-20 ESP with guitar</video:title>
+      <video:description>Korg MS-20 controlled by guitar with External Signal Processor (ESP) running through a Fender Twin Reverb Amp.
+VCO1: 1 Octave below guitar.
+VCO2: 1 Octave + 3 semi tones above guitar.
+Envelope Generator 1 controlling the pitch, making it glide up to the note when triggered and glide down when the volume from guitar is below trigger threshold.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=5EG7SBBUJpY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-12-22-00_540.d87ba992.jpg</video:thumbnail_loc>
+      <video:duration>32</video:duration>
+      <video:publication_date>2019-12-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/twin-peaks-theme-cover/</loc>
+    <video:video>
+      <video:title>Twin Peaks Theme (Cover)</video:title>
+      <video:description>Cover-versjon av Twin Peaks Theme komponert av Angelo Badalamenti.
+Instrumenter: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody 2, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur.
+Effekter: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate jr.
+Forsterker: Fender Twin Reverb Amp</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cPS2CXe-ZPk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-11-16-00_540.9e812567.jpg</video:thumbnail_loc>
+      <video:duration>320</video:duration>
+      <video:publication_date>2020-11-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/twin-peaks-theme-cover/</loc>
+    <video:video>
+      <video:title>Twin Peaks Theme (Cover)</video:title>
+      <video:description>Cover version of Twin Peaks Theme composed by Angelo Badalamenti.
+Instruments: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody 2, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur.
+Effects: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate jr.
+Amp: Fender Twin Reverb Amp</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cPS2CXe-ZPk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-11-16-00_540.9e812567.jpg</video:thumbnail_loc>
+      <video:duration>320</video:duration>
+      <video:publication_date>2020-11-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/testkjoering-av-korg-polysix/</loc>
+    <video:video>
+      <video:title>Testkjøring av Korg Polysix</video:title>
+      <video:description>Kjapp testing av Korg Polysix 😊</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ikwXGKd3vks</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-09-18-00_540.2024f7f5.jpg</video:thumbnail_loc>
+      <video:duration>114</video:duration>
+      <video:publication_date>2019-09-18</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/korg-polysix-test-run/</loc>
+    <video:video>
+      <video:title>Korg Polysix test run</video:title>
+      <video:description>Quick test run of the Korg Polysix 😊</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ikwXGKd3vks</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-09-18-00_540.2024f7f5.jpg</video:thumbnail_loc>
+      <video:duration>114</video:duration>
+      <video:publication_date>2019-09-18</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/logan--hohner-string-melody-ii/</loc>
+    <video:video>
+      <video:title>Logan / Hohner String Melody II</video:title>
+      <video:description>Tester ut String Melody&apos;en etter litt vedlikehold. Akkordene er fra &quot;A Saucerful of Secrets&quot; av Pink Floyd.
+Signalkjede: Logan - String Melody II ➡️ TC Electronic - SCF Stereo Chorus Flanger ➡️ Fostex X-28H</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=a7SZGHTse5U</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-09-16-00_540.59c81d02.jpg</video:thumbnail_loc>
+      <video:duration>49</video:duration>
+      <video:publication_date>2019-09-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/logan--hohner-string-melody-ii/</loc>
+    <video:video>
+      <video:title>Logan / Hohner String Melody II</video:title>
+      <video:description>Testing the String Melody after some maintenance. The chords is from &quot;A Saucerful of Secrets&quot; by Pink Floyd.
+Signal path: Logan - String Melody II ➡️ TC Electronic - SCF Stereo Chorus Flanger ➡️ Fostex X-28H</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=a7SZGHTse5U</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-09-16-00_540.59c81d02.jpg</video:thumbnail_loc>
+      <video:duration>49</video:duration>
+      <video:publication_date>2019-09-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/haunted-by-silhouettes-deadlock/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Deadlock</video:title>
+      <video:description>Sang: Deadlock
+Artist: Haunted By Silhouettes
+Album: Deadlock</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=rR7lrmn04qA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-06-20-00_540.1a20f0c7.jpg</video:thumbnail_loc>
+      <video:duration>177</video:duration>
+      <video:publication_date>2019-06-20</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCCuMY-MGE2mhIT-h6ohL-Ng">Haunted By Silhouettes</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/haunted-by-silhouettes-deadlock/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Deadlock</video:title>
+      <video:description>Song: Deadlock
+Artist: Haunted By Silhouettes
+Album: Deadlock</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=rR7lrmn04qA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-06-20-00_540.1a20f0c7.jpg</video:thumbnail_loc>
+      <video:duration>177</video:duration>
+      <video:publication_date>2019-06-20</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCCuMY-MGE2mhIT-h6ohL-Ng">Haunted By Silhouettes</video:uploader>
       <video:live>no</video:live>
     </video:video>
   </url>
