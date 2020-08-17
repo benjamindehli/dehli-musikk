@@ -124,7 +124,11 @@
     "thumbnailDescription": "Arturia Drumbrute, Fulltone Tube Tape Echo, Fostex X-28H, Korg MS-20 and Mellotron M4000D",
     "thumbnailFilename": "2020-07-12-00",
     "link": {
-      "url": "https://youtu.be/dMpGEIJH_Wk",
+      "url": {
+        "en": "videos/fulltone-tube-tape-echo-with-keyboards-and-drum-machine/",
+        "no": "videos/fulltone-tube-tape-echo-med-tangentinstrumenter-and-trommemaskin/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -175,7 +179,11 @@
     "thumbnailDescription": "Roland Dimension D, electric pianos and synthesizers",
     "thumbnailFilename": "2020-06-28-00",
     "link": {
-      "url": "https://youtu.be/PZhm0VZ20Qc",
+      "url": {
+        "en": "videos/roland-dimension-d-sdd-320-with-synthesizers-and-electric-pianos/",
+        "no": "videos/roland-dimension-d-sdd-320-med-synther-og-elektriske-pianoer/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -332,7 +340,11 @@
     "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
     "thumbnailFilename": "2020-05-24-00",
     "link": {
-      "url": "https://youtu.be/2k1QpuwCZzk",
+      "url": {
+        "en": "videos/lo-fi-tape-piano-sample-pack/",
+        "no": "videos/lo-fi-tape-piano-sample-pack/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -398,7 +410,11 @@
     "thumbnailDescription": "A Korg MS-20 and patch cables with the color of the Norwegian flag",
     "thumbnailFilename": "2020-05-17-00",
     "link": {
-      "url": "https://youtu.be/ppjbdVeWfdA",
+      "url": {
+        "en": "videos/ja-vi-elsker-dette-landet-norwegian-national-anthem-with-analog-synthesizers/",
+        "no": "videos/ja-vi-elsker-dette-landet-norges-nasjonalsang-med-analoge-synthesizere/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -503,7 +519,11 @@
     "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
     "thumbnailFilename": "2020-04-25-00",
     "link": {
-      "url": "https://youtu.be/muAQ9UGKmcc",
+      "url": {
+        "en": "videos/haunted-by-silhouettes-track-by-track-undertow/",
+        "no": "videos/haunted-by-silhouettes-track-by-track-undertow/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -569,7 +589,11 @@
     "thumbnailDescription": "Roland Dimension D SDD-320",
     "thumbnailFilename": "2020-04-21-01",
     "link": {
-      "url": "https://youtu.be/01DNzmtdgUs",
+      "url": {
+        "en": "videos/roland-dimension-d-sdd-320-with-dreadbox-erebus-v2/",
+        "no": "videos/roland-dimension-d-sdd-320-med-dreadbox-erebus-v2/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -612,7 +636,11 @@
     "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
     "thumbnailFilename": "2020-04-17-00",
     "link": {
-      "url": "https://youtu.be/3Tjitgv8QVU",
+      "url": {
+        "en": "videos/haunted-by-silhouettes-track-by-track-deadlock/",
+        "no": "videos/haunted-by-silhouettes-track-by-track-deadlock/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -634,7 +662,11 @@
     "thumbnailDescription": "A Dreadbox Erebus synthesizer being played",
     "thumbnailFilename": "2020-04-16-00",
     "link": {
-      "url": "https://youtu.be/rXkcBYeyiBo",
+      "url": {
+        "en": "videos/dreadbox-erebus-v2/",
+        "no": "videos/dreadbox-erebus-v2/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -677,7 +709,11 @@
     "thumbnailDescription": "Per Kristian Grimsland in his recording studio",
     "thumbnailFilename": "2020-04-03-00",
     "link": {
-      "url": "https://youtu.be/ZsHg94LOXHw",
+      "url": {
+        "en": "videos/haunted-by-silhouettes-track-by-track-the-last-day-on-earth/",
+        "no": "videos/haunted-by-silhouettes-track-by-track-the-last-day-on-earth/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -754,7 +790,11 @@
     "thumbnailDescription": "Korg MS-20 synthesizer",
     "thumbnailFilename": "2020-03-14-01",
     "link": {
-      "url": "https://youtu.be/ZsHg94LOXHw",
+      "url": {
+        "en": "videos/korg-ms-20-arpeggios-with-logic-and-korg-sq-1/",
+        "no": "videos/korg-ms-20-arpeggioer-med-logic-og-korg-sq-1/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -892,7 +932,11 @@
     "thumbnailDescription": "Red Yamaha YC-25D combo organ with effects pedals on top",
     "thumbnailFilename": "2020-02-24-00",
     "link": {
-      "url": "https://youtu.be/-c4KhDYhvPM",
+      "url": {
+        "en": "videos/yamaha-yc-25d-with-effects-pedals/",
+        "no": "videos/yamaha-yc-25d-med-effektpedaler/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -978,7 +1022,11 @@
     "thumbnailDescription": "Louis Zwicki Pianette with a loudspeaker inside",
     "thumbnailFilename": "2020-02-02-00",
     "link": {
-      "url": "https://youtu.be/g1jnNf5ZSzY",
+      "url": {
+        "en": "videos/using-a-piano-as-reverb-for-the-korg-ms-20/",
+        "no": "videos/piano-som-klang-til-korg-ms-20/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -1089,7 +1137,11 @@
     "thumbnailDescription": "A red Fender Stratocaster being played",
     "thumbnailFilename": "2019-12-16-00",
     "link": {
-      "url": "https://youtu.be/5EG7SBBUJpY",
+      "url": {
+        "en": "videos/korg-ms-20-esp-with-guitar/",
+        "no": "videos/korg-ms-20-esp-med-gitar/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -1126,7 +1178,11 @@
     "thumbnailDescription": "A Hohner Clavinet D6 instrument being played",
     "thumbnailFilename": "2019-11-30-00",
     "link": {
-      "url": "https://youtu.be/cHUEsZwsdTE",
+      "url": {
+        "en": "videos/clavinet-d6-solo/",
+        "no": "videos/clavinet-d6-solo/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -1188,7 +1244,11 @@
     "thumbnailDescription": "Fender Rhodes piano being played",
     "thumbnailFilename": "2019-11-17-00",
     "link": {
-      "url": "https://youtu.be/cPS2CXe-ZPk",
+      "url": {
+        "en": "videos/twin-peaks-theme-cover/",
+        "no": "videos/twin-peaks-theme-cover/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -1405,7 +1465,11 @@
     "thumbnailDescription": "A Korg Polisix being played",
     "thumbnailFilename": "2019-09-18-01",
     "link": {
-      "url": "https://youtu.be/ikwXGKd3vks",
+      "url": {
+        "en": "videos/korg-polysix-test-run/",
+        "no": "videos/testkjoering-av-korg-polysix/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -1442,7 +1506,11 @@
     "thumbnailDescription": "Close-up shot of the Logan / Hohner String Melody string synthesizer",
     "thumbnailFilename": "2019-09-16-00",
     "link": {
-      "url": "https://youtu.be/a7SZGHTse5U",
+      "url": {
+        "en": "videos/logan--hohner-string-melody-ii/",
+        "no": "videos/logan--hohner-string-melody-ii/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
@@ -1674,7 +1742,11 @@
     "thumbnailDescription": "Snapshot from the music video for \"Deadlock\" by Haunted By Silhouettes",
     "thumbnailFilename": "2019-06-21-01",
     "link": {
-      "url": "https://youtu.be/rR7lrmn04qA",
+      "url": {
+        "en": "videos/haunted-by-silhouettes-deadlock/",
+        "no": "videos/haunted-by-silhouettes-deadlock/"
+      },
+      "internal": true,
       "text": {
         "en": "Show video",
         "no": "Se video"
