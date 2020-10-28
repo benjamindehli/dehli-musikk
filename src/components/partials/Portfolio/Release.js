@@ -234,12 +234,12 @@ class Release extends Component {
     const imagePathWebp = `data/releases/thumbnails/web/webp/${release.thumbnailFilename}`;
     const imagePathJpg = `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}`;
     const image = {
-      webp55: require(`../../../${imagePathWebp}_55.webp`),
-      webp350: require(`../../../${imagePathWebp}_350.webp`),
-      webp540: require(`../../../${imagePathWebp}_540.webp`),
-      jpg55: require(`../../../${imagePathJpg}_55.jpg`),
-      jpg350: require(`../../../${imagePathJpg}_350.jpg`),
-      jpg540: require(`../../../${imagePathJpg}_540.jpg`)
+      webp55: require(`../../../${imagePathWebp}_55.webp`).default,
+      webp350: require(`../../../${imagePathWebp}_350.webp`).default,
+      webp540: require(`../../../${imagePathWebp}_540.webp`).default,
+      jpg55: require(`../../../${imagePathJpg}_55.jpg`).default,
+      jpg350: require(`../../../${imagePathJpg}_350.jpg`).default,
+      jpg540: require(`../../../${imagePathJpg}_540.jpg`).default
     };
 
     const link = {

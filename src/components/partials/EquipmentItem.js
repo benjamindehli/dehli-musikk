@@ -86,14 +86,14 @@ class EquipmentItem extends Component {
     const imagePathWebp = `data/equipment/thumbnails/${itemType}/web/webp/${itemId}`;
     const imagePathJpg = `data/equipment/thumbnails/${itemType}/web/jpg/${itemId}`;
     const image = {
-      webp55: require(`../../${imagePathWebp}_55.webp`),
-      webp350: require(`../../${imagePathWebp}_350.webp`),
-      webp540: require(`../../${imagePathWebp}_540.webp`),
-      webp945: require(`../../${imagePathWebp}_945.webp`),
-      jpg55: require(`../../${imagePathJpg}_55.jpg`),
-      jpg350: require(`../../${imagePathJpg}_350.jpg`),
-      jpg540: require(`../../${imagePathJpg}_540.jpg`),
-      jpg945: require(`../../${imagePathJpg}_945.jpg`)
+      webp55: require(`../../${imagePathWebp}_55.webp`).default,
+      webp350: require(`../../${imagePathWebp}_350.webp`).default,
+      webp540: require(`../../${imagePathWebp}_540.webp`).default,
+      webp945: require(`../../${imagePathWebp}_945.webp`).default,
+      jpg55: require(`../../${imagePathJpg}_55.jpg`).default,
+      jpg350: require(`../../${imagePathJpg}_350.jpg`).default,
+      jpg540: require(`../../${imagePathJpg}_540.jpg`).default,
+      jpg945: require(`../../${imagePathJpg}_945.jpg`).default
     };
     const itemPath = `/${this.props.getLanguageSlug(selectedLanguageKey)}equipment/${itemType}/${itemId}/`;
     const itemName = `${item.brand} ${item.model}`;

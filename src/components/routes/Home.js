@@ -45,22 +45,22 @@ class Home extends Component {
     const imagePath = `assets/images/header`;
     const headerImage = {
       webp: {
-        480: require(`../../${imagePath}_480.webp`),
-        640: require(`../../${imagePath}_640.webp`),
-        800: require(`../../${imagePath}_800.webp`),
-        1024: require(`../../${imagePath}_1024.webp`),
-        1260: require(`../../${imagePath}_1260.webp`),
-        1440: require(`../../${imagePath}_1440.webp`),
-        1680: require(`../../${imagePath}_1680.webp`)
+        480: require(`../../${imagePath}_480.webp`).default,
+        640: require(`../../${imagePath}_640.webp`).default,
+        800: require(`../../${imagePath}_800.webp`).default,
+        1024: require(`../../${imagePath}_1024.webp`).default,
+        1260: require(`../../${imagePath}_1260.webp`).default,
+        1440: require(`../../${imagePath}_1440.webp`).default,
+        1680: require(`../../${imagePath}_1680.webp`).default
       },
       jpg: {
-        480: require(`../../${imagePath}_480.jpg`),
-        640: require(`../../${imagePath}_640.jpg`),
-        800: require(`../../${imagePath}_800.jpg`),
-        1024: require(`../../${imagePath}_1024.jpg`),
-        1260: require(`../../${imagePath}_1260.jpg`),
-        1440: require(`../../${imagePath}_1440.jpg`),
-        1680: require(`../../${imagePath}_1680.jpg`)
+        480: require(`../../${imagePath}_480.jpg`).default,
+        640: require(`../../${imagePath}_640.jpg`).default,
+        800: require(`../../${imagePath}_800.jpg`).default,
+        1024: require(`../../${imagePath}_1024.jpg`).default,
+        1260: require(`../../${imagePath}_1260.jpg`).default,
+        1440: require(`../../${imagePath}_1440.jpg`).default,
+        1680: require(`../../${imagePath}_1680.jpg`).default
       }
     };
     const srcSets = Object.keys(headerImage).map(fileType => {

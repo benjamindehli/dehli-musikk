@@ -152,12 +152,12 @@ class Equipment extends Component {
       const imagePathWebp = `data/equipment/thumbnails/web/webp/${equipmentTypeKey}`;
       const imagePathJpg = `data/equipment/thumbnails/web/jpg/${equipmentTypeKey}`;
       const image = {
-        webp350: require(`../../${imagePathWebp}_350.webp`),
-        webp540: require(`../../${imagePathWebp}_540.webp`),
-        webp945: require(`../../${imagePathWebp}_945.webp`),
-        jpg350: require(`../../${imagePathJpg}_350.jpg`),
-        jpg540: require(`../../${imagePathJpg}_540.jpg`),
-        jpg945: require(`../../${imagePathJpg}_945.jpg`)
+        webp350: require(`../../${imagePathWebp}_350.webp`).default,
+        webp540: require(`../../${imagePathWebp}_540.webp`).default,
+        webp945: require(`../../${imagePathWebp}_945.webp`).default,
+        jpg350: require(`../../${imagePathJpg}_350.jpg`).default,
+        jpg540: require(`../../${imagePathJpg}_540.jpg`).default,
+        jpg945: require(`../../${imagePathJpg}_945.jpg`).default
       };
 
       const link = {
