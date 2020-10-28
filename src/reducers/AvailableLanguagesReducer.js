@@ -7,8 +7,10 @@ const initialState = {
     name: 'english',
     path: 'en/'
   }
-}
+};
 
-export default function(state = initialState) {
-  return state
-}
+const reducer = (state = initialState) => {
+  return state;
+};
+
+export default reducer;

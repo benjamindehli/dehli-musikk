@@ -11,29 +11,28 @@ export const instruments = {
   }
 };
 
-export default {
-  instruments: {
-    equipmentType: 'instruments',
-    items: instrumentItems,
-    name: {
-      en: 'Instruments',
-      no: 'Instrumenter'
-    }
-  },
-  effects: {
-    equipmentType: 'effects',
-    items: effectItems,
-    name: {
-      en: 'Effects',
-      no: 'Effekter'
-    }
-  },
-  amplifiers: {
-    equipmentType: 'amplifiers',
-    items: amplifierItems,
-    name: {
-      en: 'Amplifiers',
-      no: 'Forsterkere'
-    }
+export const effects = {
+  equipmentType: 'effects',
+  items: effectItems,
+  name: {
+    en: 'Effects',
+    no: 'Effekter'
   }
-}
+};
+
+export const amplifiers = {
+  equipmentType: 'amplifiers',
+  items: amplifierItems,
+  name: {
+    en: 'Amplifiers',
+    no: 'Forsterkere'
+  }
+};
+
+const equipment = {
+  instruments,
+  effects,
+  amplifiers
+};
+
+export default equipment;

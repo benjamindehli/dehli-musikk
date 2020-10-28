@@ -1,13 +1,14 @@
-import { UPDATE_SELECTED_LANGUAGE_KEY } from 'constants/types';
+import {UPDATE_SELECTED_LANGUAGE_KEY} from 'constants/types';
 
-const initialState = 'no'
+const initialState = 'no';
 
-export default function(state = initialState, action) {
-	switch(action.type) {
-		case UPDATE_SELECTED_LANGUAGE_KEY:
-			return action.payload;
-		default:
-			return state;
-	}
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case UPDATE_SELECTED_LANGUAGE_KEY:
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
-}
+export default reducer;

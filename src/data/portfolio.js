@@ -37,11 +37,7 @@ const latestReleases = [
   twentyTwentyVisionUnderTheMidnightSun
 ];
 
-export {
-  latestReleases
-}
-
-export default [
+const allReleases = [
   twentyTwentyVisionCanYouSeeMe,
   twentyTwentyVisionUnderTheMidnightSun,
   ainaWassvikDauntless,
@@ -74,4 +70,10 @@ export default [
   wildWhensSailinSarah,
   wildWhensTravellinMan,
   wolfMoonFeverTheKeeperoftheLighthouse
-]
+];
+
+export {
+  latestReleases
+}
+
+export default allReleases;
