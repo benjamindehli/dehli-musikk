@@ -37,7 +37,7 @@ class Footer extends Component {
                 <picture>
                   <source srcSet={`${map930Webp} 930w`} type="image/webp"/>
                   <source srcSet={`${map930Jpg} 930w`} type="image/jpg"/>
-                  <img src={map930Jpg} alt="Location for Dehli Musikk"/>
+                  <img src={map930Jpg} alt="Location for Dehli Musikk" width="779" height="250" />
                 </picture>
               </figure>
             </a>
