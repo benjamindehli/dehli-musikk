@@ -46,7 +46,7 @@ class Sitemap extends Component {
     const dateDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const dateString = `${dateYear}-${dateMonth}-${dateDay}`;
     const duration = youTubeTimeToSeconds(video.duration);
-    const thumbnailLoc = require(`../../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_540.jpg`);
+    const thumbnailLoc = require(`../../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_540.jpg`).default;
     const absoluteThumbnailLoc = `https://www.dehlimusikk.no${thumbnailLoc}`;
     return `  <url>
     <loc>https://www.dehlimusikk.no/${url}</loc>
@@ -190,7 +190,7 @@ class Sitemap extends Component {
     formats.forEach(format => {
       const imagePath = `data/posts/thumbnails/web/${format}/${post.thumbnailFilename}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(post.thumbnailDescription),
@@ -213,7 +213,7 @@ class Sitemap extends Component {
     formats.forEach(format => {
       const imagePath = `data/videos/thumbnails/web/${format}/${video.thumbnailFilename}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(video.thumbnailDescription),
@@ -236,7 +236,7 @@ class Sitemap extends Component {
     formats.forEach(format => {
       const imagePath = `data/products/thumbnails/web/${format}/${convertToUrlFriendlyString(product.title)}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(product.thumbnailDescription),
@@ -258,7 +258,7 @@ class Sitemap extends Component {
     formats.forEach(format => {
       const imagePath = `data/equipment/thumbnails/web/${format}/${equipmentType.equipmentType}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(equipmentType.name[languageKey]),
@@ -281,7 +281,7 @@ class Sitemap extends Component {
     formats.forEach(format => {
       const imagePath = `data/equipment/thumbnails/${equipmentType}/web/${format}/${imageFileName}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(`${equipmentItem.model} by ${equipmentItem.brand}`),
