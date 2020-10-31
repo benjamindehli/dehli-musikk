@@ -44,8 +44,8 @@ const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguage
   const points = (artistNamePoints + titlePoints + genrePoints) / searchStringWords.length;
 
   const thumbnailPaths = {
-    webp: require(`../data/releases/thumbnails/web/webp/${release.thumbnailFilename}_55.webp`),
-    jpg: require(`../data/releases/thumbnails/web/jpg/${release.thumbnailFilename}_55.jpg`)
+    webp: require(`../data/releases/thumbnails/web/webp/${release.thumbnailFilename}_55.webp`).default,
+    jpg: require(`../data/releases/thumbnails/web/jpg/${release.thumbnailFilename}_55.jpg`).default
   };
   const thumbnailDescription = selectedLanguageKey === 'en' ? `Cover image for ${release.title} by ${release.artistName}` : `Coverbilde til ${release.title} av ${release.artistName}`;
 
@@ -93,8 +93,8 @@ const getSearchPointsFromPost = (post, searchStringWords, selectedLanguageKey) =
   const points = (titlePoints + contentPoints) / searchStringWords.length;
 
   const thumbnailPaths = {
-    webp: require(`../data/posts/thumbnails/web/webp/${post.thumbnailFilename}_55.webp`),
-    jpg: require(`../data/posts/thumbnails/web/jpg/${post.thumbnailFilename}_55.jpg`)
+    webp: require(`../data/posts/thumbnails/web/webp/${post.thumbnailFilename}_55.webp`).default,
+    jpg: require(`../data/posts/thumbnails/web/jpg/${post.thumbnailFilename}_55.jpg`).default
   };
   const thumbnailDescription = post.thumbnailDescription;
 
@@ -132,8 +132,8 @@ const getSearchPointsFromVideos = (video, searchStringWords, selectedLanguageKey
   const points = (titlePoints + contentPoints) / searchStringWords.length;
 
   const thumbnailPaths = {
-    webp: require(`../data/videos/thumbnails/web/webp/${video.thumbnailFilename}_55.webp`),
-    jpg: require(`../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_55.jpg`)
+    webp: require(`../data/videos/thumbnails/web/webp/${video.thumbnailFilename}_55.webp`).default,
+    jpg: require(`../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_55.jpg`).default
   };
   const thumbnailDescription = video.thumbnailDescription;
 
@@ -171,8 +171,8 @@ const getSearchPointsFromProduct = (product, searchStringWords, selectedLanguage
   const points = (titlePoints + contentPoints) / searchStringWords.length;
 
   const thumbnailPaths = {
-    webp: require(`../data/products/thumbnails/web/webp/${id}_55.webp`),
-    jpg: require(`../data/products/thumbnails/web/jpg/${id}_55.jpg`)
+    webp: require(`../data/products/thumbnails/web/webp/${id}_55.webp`).default,
+    jpg: require(`../data/products/thumbnails/web/jpg/${id}_55.jpg`).default
   };
   const thumbnailDescription = linkTitle;
 
@@ -213,8 +213,8 @@ const getSearchPointsFromEquipmentItems = (item, equipmentType, equipmentTypeKey
   const points = (brandPoints + modelPoints + equipmentTypePoints) / searchStringWords.length;
 
   const thumbnailPaths = {
-    webp: require(`../data/equipment/thumbnails/${equipmentTypeKey}/web/webp/${id}_55.webp`),
-    jpg: require(`../data/equipment/thumbnails/${equipmentTypeKey}/web/jpg/${id}_55.jpg`)
+    webp: require(`../data/equipment/thumbnails/${equipmentTypeKey}/web/webp/${id}_55.webp`).default,
+    jpg: require(`../data/equipment/thumbnails/${equipmentTypeKey}/web/jpg/${id}_55.jpg`).default
   };
   const thumbnailDescription = `${item.brand} ${item.model}`;
 
