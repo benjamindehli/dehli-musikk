@@ -1,77 +1,62 @@
 [{
-    "id": "2020081401",
-    "timestamp": 1597363200000,
-    "title": {
-      "no": "Musikkvideo - Runaway Train av Kaasin",
-      "en": "Music video - Runaway Train by Kaasin"
-    },
-    "content": {
-      "no": "Jon Sandersen har filmet og klippet sammen en helt rå musikkvideo til låta Runaway Train av Kaasin 📼🎬",
-      "en": "Jon Sandersen has shot and edited an awesome music video for Runaway Train by Kaasin 📼🎬"
-    },
-    "thumbnailDescription": "Snapshot from the music video for \"Runaway Train\" by Kaasin",
-    "thumbnailFilename": "2020-08-14-01",
-    "link": {
-      "url": {
-        "en": "videos/kaasin-runaway-train/",
-        "no": "videos/kaasin-runaway-train/"
-      },
-      "internal": true,
-      "text": {
-        "en": "Show video",
-        "no": "Se video"
-      }
-    }
+  "id": "2020101700",
+  "copyright": true,
+  "timestamp": 1602892800000,
+  "title": {
+    "no": "Ny synth - Sequential Circuits Pro-One",
+    "en": "New synth - Sequential Circuits Pro-One"
   },
-  {
-    "id": "2020081400",
-    "timestamp": 1597363200000,
-    "title": {
-      "no": "Ny utgivelse - Runaway Train av Kaasin",
-      "en": "New release - Runaway Train by Kaasin"
-    },
-    "content": {
-      "no": "Har vært så heldig å få klimpre på vrengtangenter sammen med gjengen i Kaasin 😃\nLyd-maestro Halvor Halvorsen har gjort sin magi bak spakene 👍👌\nFyr opp anlegget, gjekk deg en pærebrus og kickstart helga med litt råkknråll 😎🤘",
-      "en": "I've had the pleasure to play some rock keyboards with the band Kaasin 😃\nSound wizzard Halvor Halvorsen has done his magic behind the faders 👍👌\nTurn up the volume, grab a beer and kickstart the weekend with some rock'n'roll 😎🤘"
-    },
-    "thumbnailDescription": "Album cover for the single \"Runaway Train\" by Kaasin",
-    "thumbnailFilename": "2020-08-14-00",
-    "link": {
-      "url": {
-        "en": "portfolio/kaasin-runaway-train/",
-        "no": "portfolio/kaasin-runaway-train/"
-      },
-      "internal": true,
-      "text": {
-        "en": "Listen to Runaway Train",
-        "no": "Lytt til Runaway Train"
-      }
-    }
+  "content": {
+    "no": "Monofonisk analogsynth fra tidlig 80-tallet 🎹🎛️",
+    "en": "Monophonic analog synthesizer from the early '80s 🎹🎛️"
   },
-  {
-    "id": "2020080500",
-    "copyright": true,
-    "timestamp": 1596585600000,
-    "title": {
-      "no": "Analog synth, ekkomaskin og utslitt bånd",
-      "en": "Analog synth, tape echo and worn out tape"
+  "thumbnailDescription": "Sequential Circuits Pro-One",
+  "thumbnailFilename": "2020-10-17-00"
+},
+{
+  "id": "2020101600",
+  "timestamp": 1602806400000,
+  "title": {
+    "no": "Ny utgivelse - Rocknrolla av Haaker",
+    "en": "New release - Rocknrolla by Haaker"
+  },
+  "content": {
+    "no": "Min gode venn i nord og tidligere bandkollega har gitt ut en heidundrandens go'låt 🕺\nJeg har fått gleden av å legge på plingplong-klaviatur og vreng-keytar 🎹 🎛\nHer er en pangstart på helga fra Haaker 💥",
+    "en": "My good friend in the north and former band colleague has released an awesome track 🕺\nI've had the pleasure to play keyboards and fuzz keytar on this one 🎹 🎛\n Kick start the weekend with \"Rocknrolla\" by Haaker 💥"
+  },
+  "thumbnailDescription": "Album cover for the single \"Rocknrolla\" by Haaker",
+  "thumbnailFilename": "2020-10-16-00",
+  "link": {
+    "url": {
+      "en": "portfolio/haaker-rocknrolla/",
+      "no": "portfolio/haaker-rocknrolla/"
     },
-    "content": {
-      "no": "Korg Polysix og Fulltone Tube Tape Echo med godt slitt bånd 🎹📼🦄",
-      "en": "Korg Polysix and Fulltone Tube Tape Echo with worn out tape 🎹📼🦄"
-    },
-    "thumbnailDescription": "Close up of a Fulltone Tube Tape Echo",
-    "thumbnailFilename": "2020-08-05-00",
-    "link": {
-      "url": {
-        "en": "videos/korg-polysix-and-fulltone-tube-tape-echo-with-worn-tape/",
-        "no": "videos/korg-polysix-og-fulltone-tube-tape-echo-med-utslitt-baand/"
-      },
-      "internal": true,
-      "text": {
-        "en": "Show video",
-        "no": "Se video"
-      }
+    "internal": true,
+    "text": {
+      "en": "Listen to Rocknrolla",
+      "no": "Lytt til Rocknrolla"
     }
   }
+},
+{
+  "id": "2020101000",
+  "timestamp": 1592611200000,
+  "title": {
+    "no": "Innspilling av fuzz-Clavinet til ny Kaasin-låt",
+    "en": "Recording fuzz Clavinet for upcoming Kaasin track"
+  },
+  "content": {
+    "no": "Spiller opp til dans på Clavinet med flanger, fuzz og båndekko 🤠🤘",
+    "en": "Recording Clavinet with flanger, fuzz and tape echo 🤠🤘"
+  },
+  "thumbnailDescription": "A Hohner Clavinet D6 being played",
+  "thumbnailFilename": "2020-10-10-00",
+  "link": {
+    "url": "https://www.instagram.com/p/CGKZ0ZfHakV/",
+    "text": {
+      "en": "Show video",
+      "no": "Se video"
+    }
+  }
+}
 ]

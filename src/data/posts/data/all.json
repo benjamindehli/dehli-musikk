@@ -1,4 +1,117 @@
-[{
+[
+  {
+    "id": "2020101700",
+    "copyright": true,
+    "timestamp": 1602892800000,
+    "title": {
+      "no": "Ny synth - Sequential Circuits Pro-One",
+      "en": "New synth - Sequential Circuits Pro-One"
+    },
+    "content": {
+      "no": "Monofonisk analogsynth fra tidlig 80-tallet 🎹🎛️",
+      "en": "Monophonic analog synthesizer from the early '80s 🎹🎛️"
+    },
+    "thumbnailDescription": "Sequential Circuits Pro-One",
+    "thumbnailFilename": "2020-10-17-00"
+  },
+  {
+    "id": "2020101600",
+    "timestamp": 1602806400000,
+    "title": {
+      "no": "Ny utgivelse - Rocknrolla av Haaker",
+      "en": "New release - Rocknrolla by Haaker"
+    },
+    "content": {
+      "no": "Min gode venn i nord og tidligere bandkollega har gitt ut en heidundrandens go'låt 🕺\nJeg har fått gleden av å legge på plingplong-klaviatur og vreng-keytar 🎹 🎛\nHer er en pangstart på helga fra Haaker 💥",
+      "en": "My good friend in the north and former band colleague has released an awesome track 🕺\nI've had the pleasure to play keyboards and fuzz keytar on this one 🎹 🎛\n Kick start the weekend with \"Rocknrolla\" by Haaker 💥"
+    },
+    "thumbnailDescription": "Album cover for the single \"Rocknrolla\" by Haaker",
+    "thumbnailFilename": "2020-10-16-00",
+    "link": {
+      "url": {
+        "en": "portfolio/haaker-rocknrolla/",
+        "no": "portfolio/haaker-rocknrolla/"
+      },
+      "internal": true,
+      "text": {
+        "en": "Listen to Rocknrolla",
+        "no": "Lytt til Rocknrolla"
+      }
+    }
+  },
+  {
+    "id": "2020101000",
+    "timestamp": 1592611200000,
+    "title": {
+      "no": "Innspilling av fuzz-Clavinet til ny Kaasin-låt",
+      "en": "Recording fuzz Clavinet for upcoming Kaasin track"
+    },
+    "content": {
+      "no": "Spiller opp til dans på Clavinet med flanger, fuzz og båndekko 🤠🤘",
+      "en": "Recording Clavinet with flanger, fuzz and tape echo 🤠🤘"
+    },
+    "thumbnailDescription": "A Hohner Clavinet D6 being played",
+    "thumbnailFilename": "2020-10-10-00",
+    "link": {
+      "url": "https://www.instagram.com/p/CGKZ0ZfHakV/",
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
+    "id": "2020100900",
+    "timestamp": 1602201600000,
+    "title": {
+      "no": "Ny utgivelse - Driving Alone av Audun Haukvik",
+      "en": "New release - Driving Alone by Audun Haukvik"
+    },
+    "content": {
+      "no": "Har hatt æren av å spille Mellotron, synth og orgel på denne fantastiske låta til Audun Haukvik",
+      "en": "I've had the honor to play Mellotron, synthesizer and organ on this amazing song by Audun Haukvik"
+    },
+    "thumbnailDescription": "Album cover for the single \"Driving Alone\" by Audun Haukvik",
+    "thumbnailFilename": "2020-10-09-00",
+    "link": {
+      "url": {
+        "en": "portfolio/audun-haukvik-driving-alone/",
+        "no": "portfolio/audun-haukvik-driving-alone/"
+      },
+      "internal": true,
+      "text": {
+        "en": "Listen to Driving Alone",
+        "no": "Lytt til Driving Alone"
+      }
+    }
+  },
+  {
+    "id": "2020100300",
+    "copyright": true,
+    "timestamp": 1601683200000,
+    "title": {
+      "no": "Clavinet gjennom en Korg MS-20",
+      "en": "Running Clavinet through a Korg MS-20"
+    },
+    "content": {
+      "no": "Korg MS-20 som effektboks til Hohner Clavinet D6.",
+      "en": "Using the Korg MS-20 as an effects unit for the Hohner Clavinet D6."
+    },
+    "thumbnailDescription": "A Hohner Clavinet D6 and a Korg MS-20 being played",
+    "thumbnailFilename": "2020-10-03-00",
+    "link": {
+      "url": {
+        "en": "videos/running-clavinet-through-a-korg-ms-20/",
+        "no": "videos/clavinet-gjennom-en-korg-ms-20/"
+      },
+      "internal": true,
+      "text": {
+        "en": "Show video",
+        "no": "Se video"
+      }
+    }
+  },
+  {
     "id": "2020081401",
     "timestamp": 1597363200000,
     "title": {
