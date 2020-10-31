@@ -1,6 +1,7 @@
 import twentyTwentyVisionCanYouSeeMe from './releases/data/2020Vision_canYouSeeMe_306eApL5c1v3HDGt43W1S5.json';
 import twentyTwentyVisionUnderTheMidnightSun from './releases/data/2020Vision_undertheMidnightSun_4LhjIGVvRYXM21TdgFfGbN?si=4QP0B2RGQR2k67Nn7iYTWw.json';
 import ainaWassvikDauntless from './releases/data/ainaWassvik_dauntless_0u0XnmGmw3WF99J0jMXyP3.json';
+import audunHaukvikDrivingAlone from './releases/data/audunHaukvik_drivingAlone_0GXqPzuquj1tpL7MEWAUom.json';
 import changemakersVeidemannen from './releases/data/changemakers_veidemannen_7brelOFhq6xXGWExXPwcuw.json';
 import confusionConfusion from './releases/data/confusion_confusion_3k9hYBU4jbh2divQo8vauI.json';
 import confusionEscapeAndExplore from './releases/data/confusion_escapeExplore_0CxN1FYtoJD71q3z3jaU3v.json';
@@ -9,6 +10,7 @@ import confusionItsAllToClear from './releases/data/confusion_itsAllTooClear_1Z3
 import confusionLetTheGamesBegin from './releases/data/confusion_thisTime_2Lr467UefH9pjf3KP2deAL.json';
 import confusionThisTime from './releases/data/confusion_lettheGamesBegin_4XEL4eIvtDQ4plgFKtyu1t.json';
 import esbenMeyerTaakemann from './releases/data/esbenMeyer_taakemann_1B1s5wIUS5YacAPFBXmbTU.json';
+import haakerRocknrolla from './releases/data/haaker_rocknrolla_2iToSLHYDsZ4v9ScZ5Y238.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock_7fVdrI4oTPXduyZiZNlcCH.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth_5Ea891yomzVe9qs5e2DXMJ.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow_1rTLnAzETljGUZHk7aoetP.json';
@@ -32,15 +34,16 @@ import wildWhensTravellinMan from './releases/data/wildWhens_travellinMan_2kO379
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
-  kaasinRunawayTrain,
-  wolfMoonFeverTheKeeperoftheLighthouse,
-  twentyTwentyVisionUnderTheMidnightSun
+  haakerRocknrolla,
+  audunHaukvikDrivingAlone,
+  kaasinRunawayTrain
 ];
 
 const allReleases = [
   twentyTwentyVisionCanYouSeeMe,
   twentyTwentyVisionUnderTheMidnightSun,
   ainaWassvikDauntless,
+  audunHaukvikDrivingAlone,
   changemakersVeidemannen,
   confusionConfusion,
   confusionEscapeAndExplore,
@@ -49,6 +52,7 @@ const allReleases = [
   confusionLetTheGamesBegin,
   confusionThisTime,
   esbenMeyerTaakemann,
+  haakerRocknrolla,
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesTheLastDayOnEarth,
   hauntedBySilhouettesUndertow,
