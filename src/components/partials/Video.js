@@ -11,12 +11,12 @@ import {getPrettyDate} from 'helpers/dateFormatter';
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 import {convertStringToExcerpt} from 'helpers/search';
 
-// Template
+// Components
+import ListItemContent from 'components/template/List/ListItem/ListItemContent';
+import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
+import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
-import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
-import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
 
 
 class Video extends Component {

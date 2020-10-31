@@ -7,11 +7,11 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {getLanguageSlug} from 'actions/LanguageActions';
 import {updateSearchResults} from 'actions/SearchResultsActions';
 
-// Template
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+// Components
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
+import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 
 // Stylesheets
 import style from 'components/partials/SearchResult.module.scss';

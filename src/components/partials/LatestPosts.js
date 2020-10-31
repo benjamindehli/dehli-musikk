@@ -3,11 +3,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 // Components
-import Post from 'components/partials/Post';
-
-// Template
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import Post from 'components/partials/Post';
 
 // Data
 import {latestPosts} from 'data/posts';

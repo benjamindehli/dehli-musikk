@@ -3,11 +3,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 // Components
-import Release from 'components/partials/Portfolio/Release';
-
-// Template
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import Release from 'components/partials/Portfolio/Release';
 
 // Data
 import {latestReleases} from 'data/portfolio';

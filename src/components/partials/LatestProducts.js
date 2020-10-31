@@ -3,11 +3,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 // Components
-import Product from 'components/partials/Product';
-
-// Template
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import Product from 'components/partials/Product';
 
 // Helpers
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter'

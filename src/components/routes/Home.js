@@ -8,16 +8,14 @@ import {Link} from 'react-router-dom';
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
 
 // Components
-import IntroContent from 'components/partials/IntroContent';
 import Button from 'components/partials/Button';
-import SocialMediaLinks from 'components/partials/SocialMediaLinks';
+import Container from 'components/template/Container';
+import IntroContent from 'components/partials/IntroContent';
 import LatestPosts from 'components/partials/LatestPosts';
-import LatestVideos from 'components/partials/LatestVideos';
 import LatestProducts from 'components/partials/LatestProducts';
 import LatestReleases from 'components/partials/LatestReleases';
-
-// Template
-import Container from 'components/template/Container';
+import LatestVideos from 'components/partials/LatestVideos';
+import SocialMediaLinks from 'components/partials/SocialMediaLinks';
 
 // Assets
 import DehliMusikkLogo from 'assets/svg/DehliMusikkLogoInverse.svg'

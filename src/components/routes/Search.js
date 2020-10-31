@@ -5,15 +5,12 @@ import {Helmet} from 'react-helmet';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Redirect} from 'react-router-dom';
 
-
 // Components
 import Breadcrumbs from 'components/partials/Breadcrumbs';
-import SearchResult from 'components/partials/SearchResult';
-
-// Template
 import Container from 'components/template/Container';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import SearchResult from 'components/partials/SearchResult';
 
 // Actions
 import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';

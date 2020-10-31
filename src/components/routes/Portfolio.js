@@ -5,14 +5,12 @@ import {Helmet} from 'react-helmet';
 import {Redirect} from 'react-router-dom';
 
 // Components
-import Release from 'components/partials/Portfolio/Release';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
-
-// Template
 import Container from 'components/template/Container';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
 import Modal from 'components/template/Modal';
+import Release from 'components/partials/Portfolio/Release';
 
 // Actions
 import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';

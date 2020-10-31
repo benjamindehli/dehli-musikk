@@ -3,14 +3,12 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 // Components
+import List from 'components/template/List';
+import ListItem from 'components/template/List/ListItem';
 import Video from 'components/partials/Video';
 
 // Helpers
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
-
-// Template
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
 
 // Data
 import {latestVideos} from 'data/videos';

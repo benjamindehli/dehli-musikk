@@ -4,20 +4,17 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
 
-
 // Actions
 import {getLanguageSlug} from 'actions/LanguageActions';
 
 // Components
-import Release from 'components/partials/Portfolio/Release';
-
-// Template
 import ExpansionPanel from 'components/template/ExpansionPanel';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+import Release from 'components/partials/Portfolio/Release';
 
 // Helpers
 import {getInstrumentReleases} from 'helpers/instrumentReleases';

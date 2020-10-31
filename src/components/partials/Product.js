@@ -12,13 +12,11 @@ import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 
 // Components
 import Button from 'components/partials/Button';
-
-// Template
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
-import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
-import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
 import ListItemActionButtons from 'components/template/List/ListItem/ListItemActionButtons';
+import ListItemContent from 'components/template/List/ListItem/ListItemContent';
+import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
+import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 
 
 class Product extends Component {

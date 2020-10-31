@@ -5,17 +5,15 @@ import {Helmet} from 'react-helmet';
 import PropTypes from 'prop-types';
 
 // Components
-import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
 import EquipmentItem from 'components/partials/EquipmentItem';
-
-// Template
 import ExpansionPanel from 'components/template/ExpansionPanel';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
+import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
 
 // Actions
 import {fetchReleasesThumbnail} from 'actions/PortfolioActions';
