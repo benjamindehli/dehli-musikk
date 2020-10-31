@@ -79,9 +79,3 @@ typings/
 
 # Firebase
 .firebase/
-
-# Data
-src/data/**/*.png
-src/data/**/*.jpg
-src/data/**/*.jpeg
-src/data/**/*.webp
