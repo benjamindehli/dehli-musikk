@@ -67,6 +67,7 @@
     "react-app-rewired": "^2.1.5",
     "react-snap": "^1.23.0",
     "redux-devtools-extension": "^2.13.8",
-    "sw-precache": "^5.2.1"
+    "sw-precache": "^5.2.1",
+    "workbox-cli": "^5.1.4"
   }
 }
