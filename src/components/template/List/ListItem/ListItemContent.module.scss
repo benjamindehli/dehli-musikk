@@ -1,7 +1,7 @@
 @import "../../../../style/abstracts/all";
 
 :local(.listItemContent) {
-  @include calc('width', '100% - 55px')
+  @include calc('width', '100% - 55px');
   display: inline-block;
   padding: 6px;
   @media (min-width: $screen-sm) {
