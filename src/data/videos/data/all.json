@@ -1,4 +1,23 @@
-[{
+[
+  {
+    "copyright": true,
+    "timestamp": 1601683200000,
+    "title": {
+      "no": "Clavinet gjennom en Korg MS-20",
+      "en": "Running Clavinet through a Korg MS-20"
+    },
+    "content": {
+      "no": "Korg MS-20 som effektboks til Hohner Clavinet D6.",
+      "en": "Using the Korg MS-20 as an effects unit for the Hohner Clavinet D6."
+    },
+    "duration": "PT11M1S",
+    "thumbnailDescription": "A Hohner Clavinet D6 and a Korg MS-20 being played",
+    "thumbnailFilename": "2020-10-03-00",
+    "youTubeId": "nIvwCPsxCps",
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
+  },
+  {
     "timestamp": 1597363200000,
     "title": {
       "no": "Kaasin - Runaway Train",

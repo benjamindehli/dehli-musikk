@@ -1,4 +1,23 @@
-[{
+[
+  {
+    "copyright": true,
+    "timestamp": 1601683200000,
+    "title": {
+      "no": "Clavinet gjennom en Korg MS-20",
+      "en": "Running Clavinet through a Korg MS-20"
+    },
+    "content": {
+      "no": "Korg MS-20 som effektboks til Hohner Clavinet D6.",
+      "en": "Using the Korg MS-20 as an effects unit for the Hohner Clavinet D6."
+    },
+    "duration": "PT11M1S",
+    "thumbnailDescription": "A Hohner Clavinet D6 and a Korg MS-20 being played",
+    "thumbnailFilename": "2020-10-03-00",
+    "youTubeId": "nIvwCPsxCps",
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
+  },
+  {
     "timestamp": 1597363200000,
     "title": {
       "no": "Kaasin - Runaway Train",
@@ -32,22 +51,5 @@
     "youTubeId": "-TVfNZvG69w",
     "youTubeUser": "Benjamin Dehli",
     "youTubeChannelId": "c/BenjaminDehli"
-  },
-  {
-    "timestamp": 1594512000000,
-    "title": {
-      "no": "Lene Nevisdal - Give Me A Smile, Joe",
-      "en": "Lene Nevisdal - Give Me A Smile, Joe"
-    },
-    "content": {
-      "no": "Video av Daniel Karlsen og Lene Nevisdal\nSang: Give Me a Smile, Joe\nArtist: Lene Nevisdal\nAlbum: Give Me a Smile, Joe",
-      "en": "Video by Daniel Karlsen og Lene Nevisdal\nSong: Give Me a Smile, Joe\nArtist: Lene Nevisdal\nAlbum: Give Me a Smile, Joe"
-    },
-    "duration": "PT3M51S",
-    "thumbnailDescription": "Lene Nevisdal",
-    "thumbnailFilename": "2020-07-12-01",
-    "youTubeId": "U21uzVlmHqk",
-    "youTubeUser": "Lene N",
-    "youTubeChannelId": "channel/UCLzk4_eLaYhCd3j7dluY4zQ"
   }
 ]
