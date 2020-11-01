@@ -5,8 +5,6 @@ module.exports = {
   globPatterns: [
     "static/css/*.css",
     "static/js/*.js",
-    "static/media/*.webp",
-    "static/media/*.jpg",
     "shell.html",
     "index.html"
   ],
