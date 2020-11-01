@@ -138,7 +138,7 @@ class Equipment extends Component {
     return (<React.Fragment>
         <source sizes='175px' srcSet={`${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp"/>
         <source sizes='175px' srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
-        <img loading="lazy" src={image.jpg350} alt={itemName} copyright={copyrightString} />
+        <img loading="lazy" width="350" height="260" src={image.jpg350} alt={itemName} copyright={copyrightString} />
     </React.Fragment>);
   }
 
