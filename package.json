@@ -3,14 +3,12 @@
   "version": "1.0.6",
   "private": true,
   "dependencies": {
-    "@babel/polyfill": "^7.7.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "@loadable/component": "^5.11.0",
     "connected-react-router": "^6.6.0",
-    "firebase": "^8.0.0",
     "history": "^4.10.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -61,13 +59,12 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.0",
     "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "mini-css-extract-plugin": "^1.2.1",
     "react-app-rewired": "^2.1.5",
     "react-snap": "^1.23.0",
     "redux-devtools-extension": "^2.13.8",
     "sass": "^1.28.0",
-    "sw-precache": "^5.2.1",
     "workbox-cli": "^5.1.4"
   }
 }
