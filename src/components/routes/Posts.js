@@ -131,6 +131,22 @@ class Posts extends Component {
     return selectedPost;
   }
 
+  getOpenGraphImageForPost(post) {
+    const imagePath = `data/posts/thumbnails/web/jpg/${post.thumbnailFilename}`;
+    const image = require(`../../${imagePath}_540.jpg`);
+    return image;
+  }
+
+  renderOpenGraphImageForPost(post) {
+    return post
+    ? [
+        <meta key="ogImage" property="og:image" content={`https://www.dehlimusikk.no${this.getOpenGraphImageForPost(post)}`} />,
+        <meta key="ogImageWidth" property="og:image:width" content="540" />,
+        <meta key="ogImageHeight" property="og:image:height" content="400" />,
+        <meta key="twitterImage" name="twitter:image" content={`https://www.dehlimusikk.no${openGraphImage}`} />
+      ] : '';
+  }
+
   render() {
     const selectedPostId = this.props.match && this.props.match.params && this.props.match.params.postId
       ? this.props.match.params.postId
@@ -245,6 +261,7 @@ class Posts extends Component {
               : 'en_US'}/>
           <meta property="twitter:title" content={contentTitle} />
           <meta property="twitter:description" content={metaDescription} />
+          {this.renderOpenGraphImageForPost(selectedPost)}
         </Helmet>
         <Container blur={selectedPost !== null}>
           <Breadcrumbs breadcrumbs={breadcrumbs}/>
