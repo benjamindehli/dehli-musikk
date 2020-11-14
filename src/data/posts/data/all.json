@@ -1,5 +1,67 @@
 [
   {
+    "id": "2020111100",
+    "copyright": true,
+    "timestamp": 1605052800000,
+    "title": {
+      "no": "Ferdig med vedlikehold av Pro-One",
+      "en": "Finished Pro-One maintenence at last"
+    },
+    "content": {
+      "no": "Sequential Circuits Pro-One etter vedlikehold 😁🛠️",
+      "en": "Sequential Circuits Pro-One after maintenance 😁🛠️"
+    },
+    "thumbnailDescription": "Sequential Circuits Pro-One",
+    "thumbnailFilename": "2020-11-11-00"
+  },
+  {
+    "id": "2020110900",
+    "copyright": true,
+    "timestamp": 1604880000000,
+    "title": {
+      "no": "Vedlikehold av Pro-One",
+      "en": "Pro-One maintenance"
+    },
+    "content": {
+      "no": "Rustfjerning, regulering av tangenthøyde og utskifting av gamle tangentforinger med nye fra Syntaur",
+      "en": "Rust removal, adjustment of keyboard action and replacing old key bushings with new ones from Syntaur"
+    },
+    "thumbnailDescription": "Keyboard assembly inside a Sequential Circuits Pro-One, before and after maintenance",
+    "thumbnailFilename": "2020-11-09-00"
+  },
+  {
+    "id": "2020110800",
+    "copyright": true,
+    "timestamp": 1604793600000,
+    "title": {
+      "no": "Renjøring av potmeter og brytere",
+      "en": "Cleaning potmeters and switches"
+    },
+    "content": {
+      "no": "Kretsbrettkunst på innsiden av en Pro-One synthesizer 🍄🧘‍♀️🎨",
+      "en": "PCB art inside the Pro-One synthesizer 🍄🧘‍♀️🎨"
+    },
+    "thumbnailDescription": "PCB board inside a Sequential Circuits Pro-One synthesizer",
+    "thumbnailFilename": "2020-11-08-00"
+  },
+  {
+    "id": "2020110100",
+    "copyright": true,
+    "timestamp": 1604188800000,
+    "title": {
+      "no": "Opptak av tangenter for metal EP",
+      "en": "Recording keyboards for metal EP"
+    },
+    "content": {
+      "no": "Opptak av diverse krydderier med Mellotron, analog synth, trekkspill, tonehjulsorgel og combo-orgel 🎹🎛️🦄",
+      "en": "Adding some different flavours with Mellotron, analog synths, accordion, tonewheel organ and combo organ 🎹🎛️🦄"
+    },
+    "thumbnailDescription": "A Mellotron M4000D being played",
+    "thumbnailFilename": "2020-11-01-00"
+  },
+
+
+  {
     "id": "2020101700",
     "copyright": true,
     "timestamp": 1602892800000,

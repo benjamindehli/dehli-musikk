@@ -1,62 +1,46 @@
 [{
-  "id": "2020101700",
+  "id": "2020111100",
   "copyright": true,
-  "timestamp": 1602892800000,
+  "timestamp": 1605052800000,
   "title": {
-    "no": "Ny synth - Sequential Circuits Pro-One",
-    "en": "New synth - Sequential Circuits Pro-One"
+    "no": "Ferdig med vedlikehold av Pro-One",
+    "en": "Finished Pro-One maintenence at last"
   },
   "content": {
-    "no": "Monofonisk analogsynth fra tidlig 80-tallet 🎹🎛️",
-    "en": "Monophonic analog synthesizer from the early '80s 🎹🎛️"
+    "no": "Sequential Circuits Pro-One etter vedlikehold 😁🛠️",
+    "en": "Sequential Circuits Pro-One after maintenance 😁🛠️"
   },
   "thumbnailDescription": "Sequential Circuits Pro-One",
-  "thumbnailFilename": "2020-10-17-00"
+  "thumbnailFilename": "2020-11-11-00"
 },
 {
-  "id": "2020101600",
-  "timestamp": 1602806400000,
+  "id": "2020110900",
+  "copyright": true,
+  "timestamp": 1604880000000,
   "title": {
-    "no": "Ny utgivelse - Rocknrolla av Haaker",
-    "en": "New release - Rocknrolla by Haaker"
+    "no": "Vedlikehold av Pro-One",
+    "en": "Pro-One maintenance"
   },
   "content": {
-    "no": "Min gode venn i nord og tidligere bandkollega har gitt ut en heidundrandens go'låt 🕺\nJeg har fått gleden av å legge på plingplong-klaviatur og vreng-keytar 🎹 🎛\nHer er en pangstart på helga fra Haaker 💥",
-    "en": "My good friend in the north and former band colleague has released an awesome track 🕺\nI've had the pleasure to play keyboards and fuzz keytar on this one 🎹 🎛\n Kick start the weekend with \"Rocknrolla\" by Haaker 💥"
+    "no": "Rustfjerning, regulering av tangenthøyde og utskifting av gamle tangentforinger med nye fra Syntaur",
+    "en": "Rust removal, adjustment of keyboard action and replacing old key bushings with new ones from Syntaur"
   },
-  "thumbnailDescription": "Album cover for the single \"Rocknrolla\" by Haaker",
-  "thumbnailFilename": "2020-10-16-00",
-  "link": {
-    "url": {
-      "en": "portfolio/haaker-rocknrolla/",
-      "no": "portfolio/haaker-rocknrolla/"
-    },
-    "internal": true,
-    "text": {
-      "en": "Listen to Rocknrolla",
-      "no": "Lytt til Rocknrolla"
-    }
-  }
+  "thumbnailDescription": "Keyboard assembly inside a Sequential Circuits Pro-One, before and after maintenance",
+  "thumbnailFilename": "2020-11-09-00"
 },
 {
-  "id": "2020101000",
-  "timestamp": 1592611200000,
+  "id": "2020110800",
+  "copyright": true,
+  "timestamp": 1604793600000,
   "title": {
-    "no": "Innspilling av fuzz-Clavinet til ny Kaasin-låt",
-    "en": "Recording fuzz Clavinet for upcoming Kaasin track"
+    "no": "Renjøring av potmeter og brytere",
+    "en": "Cleaning potmeters and switches"
   },
   "content": {
-    "no": "Spiller opp til dans på Clavinet med flanger, fuzz og båndekko 🤠🤘",
-    "en": "Recording Clavinet with flanger, fuzz and tape echo 🤠🤘"
+    "no": "Kretsbrettkunst på innsiden av en Pro-One synthesizer 🍄🧘‍♀️🎨",
+    "en": "PCB art inside the Pro-One synthesizer 🍄🧘‍♀️🎨"
   },
-  "thumbnailDescription": "A Hohner Clavinet D6 being played",
-  "thumbnailFilename": "2020-10-10-00",
-  "link": {
-    "url": "https://www.instagram.com/p/CGKZ0ZfHakV/",
-    "text": {
-      "en": "Show video",
-      "no": "Se video"
-    }
-  }
+  "thumbnailDescription": "PCB board inside a Sequential Circuits Pro-One synthesizer",
+  "thumbnailFilename": "2020-11-08-00"
 }
 ]
