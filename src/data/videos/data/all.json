@@ -1,6 +1,24 @@
 [
   {
     "copyright": true,
+    "timestamp": 1605225600000,
+    "title": {
+      "no": "Breakwater - Release the Beast (synth melodi)",
+      "en": "Breakwater - Release the Beast (synth lick)"
+    },
+    "content": {
+      "no": "Synth-melodilinja fra Release the Beast av Breakwater spilt på en Sequential Circuits Pro-One.\nRelease the Beast ble gitt ut i 1980, men var senere samplet i låta Robot Rock av Daft Punk.",
+      "en": "The synth lick from Release the Beast by Breakwater played on a Sequential Circuits Pro-One.\nRelease the Beast came out in 1980 but was later sampled in the song Robot Rock by Daft Punk."
+    },
+    "duration": "PT20S",
+    "thumbnailDescription": "A Sequential Circuits Pro-One played",
+    "thumbnailFilename": "2020-11-13-00",
+    "youTubeId": "UQL8Mp1W2Nw",
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
+  },
+  {
+    "copyright": true,
     "timestamp": 1601683200000,
     "title": {
       "no": "Clavinet gjennom en Korg MS-20",

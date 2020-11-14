@@ -1,6 +1,24 @@
 [
   {
     "copyright": true,
+    "timestamp": 1605225600000,
+    "title": {
+      "no": "Breakwater - Release the Beast (synth melodi)",
+      "en": "Breakwater - Release the Beast (synth lick)"
+    },
+    "content": {
+      "no": "Synth-melodilinja fra Release the Beast av Breakwater spilt på en Sequential Circuits Pro-One.\nRelease the Beast ble gitt ut i 1980, men var senere samplet i låta Robot Rock av Daft Punk.",
+      "en": "The synth lick from Release the Beast by Breakwater played on a Sequential Circuits Pro-One.\nRelease the Beast came out in 1980 but was later sampled in the song Robot Rock by Daft Punk."
+    },
+    "duration": "PT20S",
+    "thumbnailDescription": "A Sequential Circuits Pro-One played",
+    "thumbnailFilename": "2020-11-13-00",
+    "youTubeId": "UQL8Mp1W2Nw",
+    "youTubeUser": "Benjamin Dehli",
+    "youTubeChannelId": "c/BenjaminDehli"
+  },
+  {
+    "copyright": true,
     "timestamp": 1601683200000,
     "title": {
       "no": "Clavinet gjennom en Korg MS-20",
@@ -33,23 +51,5 @@
     "youTubeId": "qSS0_LJveSw",
     "youTubeUser": "Streampeak Music DA",
     "youTubeChannelId": "channel/UCYN-BFZQIesAVDPYnIARfWw"
-  },
-  {
-    "copyright": true,
-    "timestamp": 1596585600000,
-    "title": {
-      "no": "Korg Polysix og Fulltone Tube Tape Echo med utslitt bånd",
-      "en": "Korg Polysix and Fulltone Tube Tape Echo with worn tape"
-    },
-    "content": {
-      "no": "Korg Polysix gjennom en Fulltone Tube Tape Echo med godt slitt bånd. Det utslitte båndet som gav mye \"wow og flutter\" og forvrengning av lyden.\nJeg kjørte Korg Polysix'en gjennom båndekkoet to ganger og panorerte det hardt til venstre og høyre for å skape en stereoeffekt og mikset inn det tørre direkte signalet",
-      "en": "Korg Polysix through a Fulltone Tube Tape Echo with a heavily worn tape. The worn out tape adding a lot of wow and flutter, audio dropouts and distortion.\nI ran the Korg Polysix through the tape echo two times and panned it hard left and right to create a stereo effect and mixed in the dry direct signal."
-    },
-    "duration": "PT1M4S",
-    "thumbnailDescription": "Fulltone Tube Tape Echo",
-    "thumbnailFilename": "2020-08-05-00",
-    "youTubeId": "-TVfNZvG69w",
-    "youTubeUser": "Benjamin Dehli",
-    "youTubeChannelId": "c/BenjaminDehli"
   }
 ]
