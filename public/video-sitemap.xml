@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/breakwater-release-the-beast-synth-melodi/</loc>
+    <video:video>
+      <video:title>Breakwater - Release the Beast (synth melodi)</video:title>
+      <video:description>Synth-melodilinja fra Release the Beast av Breakwater spilt på en Sequential Circuits Pro-One.
+Release the Beast ble gitt ut i 1980, men var senere samplet i låta Robot Rock av Daft Punk.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=UQL8Mp1W2Nw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-11-13-00_540.5f1faa06.jpg</video:thumbnail_loc>
+      <video:duration>20</video:duration>
+      <video:publication_date>2020-11-13</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/breakwater-release-the-beast-synth-lick/</loc>
+    <video:video>
+      <video:title>Breakwater - Release the Beast (synth lick)</video:title>
+      <video:description>The synth lick from Release the Beast by Breakwater played on a Sequential Circuits Pro-One.
+Release the Beast came out in 1980 but was later sampled in the song Robot Rock by Daft Punk.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=UQL8Mp1W2Nw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-11-13-00_540.5f1faa06.jpg</video:thumbnail_loc>
+      <video:duration>20</video:duration>
+      <video:publication_date>2020-11-13</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/clavinet-gjennom-en-korg-ms-20/</loc>
     <video:video>
       <video:title>Clavinet gjennom en Korg MS-20</video:title>
       <video:description>Korg MS-20 som effektboks til Hohner Clavinet D6.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=nIvwCPsxCps</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-10-03-00_540.ef700c0a.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-10-03-00_540.120ad134.jpg</video:thumbnail_loc>
       <video:duration>661</video:duration>
       <video:publication_date>2020-10-03</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
@@ -19,7 +47,7 @@
       <video:title>Running Clavinet through a Korg MS-20</video:title>
       <video:description>Using the Korg MS-20 as an effects unit for the Hohner Clavinet D6.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=nIvwCPsxCps</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-10-03-00_540.ef700c0a.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-10-03-00_540.120ad134.jpg</video:thumbnail_loc>
       <video:duration>661</video:duration>
       <video:publication_date>2020-10-03</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
