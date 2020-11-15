@@ -1,0 +1,48 @@
+@import "../../style/abstracts/all";
+
+:local(.formListElement) {
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    margin: 8px 0;
+    padding: 8px 16px;
+    background-color: #fff;
+    :local(.formElementGroupTitle){
+        font-size: 1.2em;
+        display: block;
+        padding: 4px 8px;
+        margin-top: 8px;
+    }
+    :local(.formElement) {
+        display: flex;
+
+        label {
+            margin: 8px;
+            width: 100%;
+            display: block;
+            > div {
+                display: block;
+            }
+            input[type=text],
+            input[type=number],
+            textarea {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                padding: 4px 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                &:read-only {
+                    border-color: transparent;
+                    padding: 4px 0;
+                }
+            }
+            textarea {
+                resize: vertical;
+                min-height: 100px;
+            }
+            input[type=checkbox]{
+                @include appearance(checkbox)
+            }
+        }
+    }
+}
