@@ -2,6 +2,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Helmet} from 'react-helmet';
+import { Link } from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 // Stylesheets
 import style from 'components/routes/Dashboard.module.scss';
@@ -13,8 +15,15 @@ class Dashboard extends Component {
         <title>Dashboard - Dehli Musikk</title>
       </Helmet>
       <h1>Dashboard</h1>
+      <div>
+      <Link to="/posts/"><FontAwesomeIcon icon={['fas', 'photo-video']}/> Innlegg <span>{this.props.posts.length}</span></Link>
+      </div>
+      <FontAwesomeIcon icon={['fas', 'music']}/>
     </div>)
   }
 }
 
-export default connect(null, null)(Dashboard);
+const mapStateToProps = state => ({ posts: state.posts });
+
+
+export default connect(mapStateToProps, null)(Dashboard);
