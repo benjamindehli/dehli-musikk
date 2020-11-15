@@ -40,6 +40,7 @@ import NavigationBar from 'components/partials/NavigationBar';
 
 // Routes
 import Dashboard from 'components/routes/Dashboard';
+import Posts from 'components/routes/Posts';
 import NotFound from 'components/routes/NotFound';
 
 // Stylesheets
@@ -87,6 +88,7 @@ class App extends Component {
         <div className={style.container}>
           <Switch>
             <Route exact={true} path="/" render={() => (<Dashboard/>)}/>
+            <Route exact={true} path="/posts/" render={() => (<Posts/>)}/>
             <Route render={() => (<NotFound />)}/>
           </Switch>
         </div>
