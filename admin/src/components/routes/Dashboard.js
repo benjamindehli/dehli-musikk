@@ -17,13 +17,20 @@ class Dashboard extends Component {
       <h1>Dashboard</h1>
       <div>
       <Link to="/posts/"><FontAwesomeIcon icon={['fas', 'photo-video']}/> Posts <span>{this.props.posts.length}</span></Link>
+      <Link to="/videos/"><FontAwesomeIcon icon={['fas', 'photo-video']}/> Videos <span>{this.props.videos.length}</span></Link>
+
       </div>
       <FontAwesomeIcon icon={['fas', 'music']}/>
     </div>)
   }
 }
 
-const mapStateToProps = state => ({ posts: state.posts });
+const mapStateToProps = state => (
+  {
+    posts: state.posts,
+    videos: state.videos 
+  }
+  );
 
 
 export default connect(mapStateToProps, null)(Dashboard);
