@@ -154,28 +154,28 @@ class NavigationBar extends Component {
           </div>
           <ul className={style.sidebarLinks}>
             <li>
-              <NavLink to={`/portfolio/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}>
-                <FontAwesomeIcon icon={['fas', 'music']}/> {this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}
+              <NavLink to={`/portfolio/`} activeClassName={style.activeLink} title="Portfolio">
+                <FontAwesomeIcon icon={['fas', 'music']}/> Portfolio
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/posts/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}>
-                <FontAwesomeIcon icon={['fas', 'photo-video']}/> {this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}
+              <NavLink to={`/posts/`} activeClassName={style.activeLink} title="Posts">
+                <FontAwesomeIcon icon={['fas', 'photo-video']}/> Posts
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/videos/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Videos' : 'Videoer'}>
-                <FontAwesomeIcon icon={['fas', 'film']}/> {this.props.selectedLanguageKey === 'en' ? 'Videos' : 'Videoer'}
+              <NavLink to={`/videos/`} activeClassName={style.activeLink} title="Videos">
+                <FontAwesomeIcon icon={['fas', 'film']}/> Videos
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/products/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}>
-                <FontAwesomeIcon icon={['fas', 'shopping-cart']}/> {this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}
+              <NavLink to={`/products/`} activeClassName={style.activeLink} title="Products">
+                <FontAwesomeIcon icon={['fas', 'shopping-cart']}/> Products
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/equipment/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}>
-                <FontAwesomeIcon icon={['fas', 'guitar']}/> {this.props.selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}
+              <NavLink to={`/equipment/`} activeClassName={style.activeLink} title="Equipment">
+                <FontAwesomeIcon icon={['fas', 'guitar']}/> Equipment
               </NavLink>
             </li>
           </ul>

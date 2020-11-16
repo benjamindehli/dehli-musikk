@@ -21,7 +21,7 @@ import "react-datepicker/dist/react-datepicker.css";
 registerLocale('nb', nb)
 
 
-class Dashboard extends Component {
+class Posts extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -198,9 +198,9 @@ class Dashboard extends Component {
   render() {
     return (<div className={style.contentSection}>
       <Helmet>
-        <title>Innlegg - Dashboard - Dehli Musikk</title>
+        <title>Posts - Dashboard - Dehli Musikk</title>
       </Helmet>
-      <h1>Innlegg</h1>
+      <h1>Posts</h1>
       <button onClick={() => this.saveFileContent(this.props.posts)}>Save</button>
       {this.props.posts ? this.renderPostsFields(this.props.posts) : ''}
     </div>)
@@ -213,4 +213,4 @@ const mapDispatchToProps = {
   updatePosts
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);

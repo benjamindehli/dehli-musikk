@@ -16,7 +16,7 @@ class Dashboard extends Component {
       </Helmet>
       <h1>Dashboard</h1>
       <div>
-      <Link to="/posts/"><FontAwesomeIcon icon={['fas', 'photo-video']}/> Innlegg <span>{this.props.posts.length}</span></Link>
+      <Link to="/posts/"><FontAwesomeIcon icon={['fas', 'photo-video']}/> Posts <span>{this.props.posts.length}</span></Link>
       </div>
       <FontAwesomeIcon icon={['fas', 'music']}/>
     </div>)
