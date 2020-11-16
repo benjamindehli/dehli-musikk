@@ -1,1 +1,2 @@
 export const UPDATE_POSTS = 'UPDATE_POSTS';
+export const UPDATE_VIDEOS = 'UPDATE_VIDEOS';
