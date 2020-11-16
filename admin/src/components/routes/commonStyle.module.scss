@@ -6,7 +6,7 @@
     margin: 8px 0;
     padding: 8px 16px;
     background-color: #fff;
-    :local(.formElementGroupTitle){
+    :local(.formElementGroupTitle) {
         font-size: 1.2em;
         display: block;
         padding: 4px 8px;
@@ -19,29 +19,42 @@
             margin: 8px;
             width: 100%;
             display: block;
+            font-weight: bold;
             > div {
                 display: block;
             }
-            input[type=text],
-            input[type=number],
+            input[type="text"],
+            input[type="number"],
             textarea {
                 display: block;
                 width: 100%;
                 max-width: 100%;
-                padding: 4px 8px;
+                font-family: $default-font;
+                font-size: 1em;
+                color: $default-text-color;
+                font-weight: normal;
+                padding: 8px;
                 border: 1px solid #ddd;
                 border-radius: 4px;
-                &:read-only {
-                    border-color: transparent;
-                    padding: 4px 0;
-                }
+            }
+            > span {
+                font-size: 1em;
+                display: block;
+                padding: 8px 0;
+                border: 1px solid transparent;
+                font-family: $default-font;
+                color: $default-text-color;
+                font-weight: normal;
             }
             textarea {
                 resize: vertical;
                 min-height: 100px;
             }
-            input[type=checkbox]{
-                @include appearance(checkbox)
+            input[type="checkbox"] {
+                @include appearance(checkbox);
+                display: block;
+                width: 18px;
+                height: 30px;
             }
         }
     }

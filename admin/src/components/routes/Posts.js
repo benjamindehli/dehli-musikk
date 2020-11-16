@@ -124,6 +124,7 @@ class Dashboard extends Component {
       ? posts.map((post, index) => {
         return (
           <div key={index} className={commonStyle.formListElement}>
+            <span className={commonStyle.formElementGroupTitle}>Identifiers</span>
             <div className={commonStyle.formElement}>
               <label htmlFor={`timestamp-${index}`}>
                 Timestamp
@@ -140,15 +141,19 @@ class Dashboard extends Component {
               </label>
               <label htmlFor={`id-${index}`}>
                 ID
-                <input type="text" readOnly id={`id-${index}`} value={post.id} onChange={event => this.handleIdChange(index, event.target.value)} />
+                <span id={`id-${index}`}>
+                  {post.id}
+                </span>
               </label>
               <label htmlFor={`thumbnailFilename-${index}`}>
                 Image filename
-                <input type="text" readOnly id={`thumbnailFilename-${index}`} value={post.thumbnailFilename} onChange={event => this.handleThumbnailFilenameChange(index, event.target.value)} onBlur={this.updatePostsInStore} />
+                <span id={`thumbnailFilename-${index}`}>
+                  {post.thumbnailFilename}_[filesize].[filetype]
+                </span>
               </label>
             </div>
 
-            <span className={commonStyle.formElementGroupTitle}>Tittel</span>
+            <span className={commonStyle.formElementGroupTitle}>Title</span>
             <div className={commonStyle.formElement}>
               <label htmlFor={`title-no-${index}`}>
                 Norwegian
@@ -160,7 +165,7 @@ class Dashboard extends Component {
               </label>
             </div>
 
-            <span className={commonStyle.formElementGroupTitle}>Beskrivelse</span>
+            <span className={commonStyle.formElementGroupTitle}>Content</span>
             <div className={commonStyle.formElement}>
               <label htmlFor={`content-no-${index}`}>
                 Norwegian
@@ -172,8 +177,9 @@ class Dashboard extends Component {
               </label>
             </div>
 
+
+            <span className={commonStyle.formElementGroupTitle}>Image</span>
             <div className={commonStyle.formElement}>
-              
               <label htmlFor={`thumbnailDescription-${index}`}>
                 Image description
                 <input type="text" id={`thumbnailDescription-${index}`} value={post.thumbnailDescription} onChange={event => this.handleThumbnailDescriptionChange(index, event.target.value)} onBlur={this.updatePostsInStore} />
