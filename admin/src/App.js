@@ -7,18 +7,11 @@ import WebFont from 'webfontloader';
 
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {
-  faFacebookF,
-  faInstagram,
-  faTumblr,
-  faTwitter,
-  faVimeoV,
-  faYoutube
-} from '@fortawesome/free-brands-svg-icons';
-import {
   faBullhorn,
   faChevronDown,
   faChevronLeft,
   faChevronRight,
+  faDownload,
   faFilm,
   faFilter,
   faGripHorizontal,
@@ -27,6 +20,7 @@ import {
   faLanguage,
   faMusic,
   faPhotoVideo,
+  faPlus,
   faSearch,
   faShoppingCart,
   faSlidersH
@@ -41,6 +35,7 @@ import NavigationBar from 'components/partials/NavigationBar';
 // Routes
 import Dashboard from 'components/routes/Dashboard';
 import Posts from 'components/routes/Posts';
+import Portfolio from 'components/routes/Portfolio';
 import Videos from 'components/routes/Videos';
 import NotFound from 'components/routes/NotFound';
 
@@ -58,23 +53,19 @@ library.add(
   faChevronDown,
   faChevronLeft,
   faChevronRight,
-  faFacebookF,
+  faDownload,
   faFilm,
   faFilter,
   faGripHorizontal,
   faGuitar,
-  faInstagram,
   faLanguage,
   faListUl,
   faMusic,
   faPhotoVideo,
+  faPlus,
   faSearch,
   faShoppingCart,
   faSlidersH,
-  faTumblr,
-  faTwitter,
-  faVimeoV,
-  faYoutube
 );
 
 const initialState = {};
@@ -90,6 +81,7 @@ class App extends Component {
           <Switch>
             <Route exact={true} path="/" render={() => (<Dashboard/>)}/>
             <Route exact={true} path="/posts/" render={() => (<Posts/>)}/>
+            <Route exact={true} path="/portfolio/" render={() => (<Portfolio/>)}/>
             <Route exact={true} path="/videos/" render={() => (<Videos/>)}/>
             <Route render={() => (<NotFound />)}/>
           </Switch>
