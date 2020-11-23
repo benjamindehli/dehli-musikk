@@ -4,12 +4,14 @@ import {connectRouter} from 'connected-react-router'
 
 // Reducers
 import PostsReducer from 'reducers/PostsReducer';
+import ReleasesInstrumentsReducer from 'reducers/ReleasesInstrumentsReducer';
 import ReleasesReducer from 'reducers/ReleasesReducer';
 import VideosReducer from 'reducers/VideosReducer';
 
 const state = history => combineReducers({
   router: connectRouter(history),
   posts: PostsReducer,
+  releasesInstruments: ReleasesInstrumentsReducer,
   releases: ReleasesReducer,
   videos: VideosReducer
 });
