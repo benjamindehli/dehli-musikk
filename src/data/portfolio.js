@@ -10,6 +10,7 @@ import confusionItsAllToClear from './releases/data/confusion_itsAllTooClear_1Z3
 import confusionLetTheGamesBegin from './releases/data/confusion_thisTime_2Lr467UefH9pjf3KP2deAL.json';
 import confusionThisTime from './releases/data/confusion_lettheGamesBegin_4XEL4eIvtDQ4plgFKtyu1t.json';
 import esbenMeyerTaakemann from './releases/data/esbenMeyer_taakemann_1B1s5wIUS5YacAPFBXmbTU.json';
+import haakerBrothers from './releases/data/haaker_brothers_7yowbgDvDhE1U1WWLdgx8o.json';
 import haakerRocknrolla from './releases/data/haaker_rocknrolla_2iToSLHYDsZ4v9ScZ5Y238.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock_7fVdrI4oTPXduyZiZNlcCH.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth_5Ea891yomzVe9qs5e2DXMJ.json';
@@ -31,12 +32,13 @@ import wildWhensFromTheValley from './releases/data/wildWhens_fromtheValley_3usd
 import wildWhensRebelHeart from './releases/data/wildWhens_rebelHeart_7vIxzySCGMK2MYQESmDXbl.json';
 import wildWhensSailinSarah from './releases/data/wildWhens_sailinSarah_50PONsFQZadgxvPJclRLjv.json';
 import wildWhensTravellinMan from './releases/data/wildWhens_travellinMan_2kO379DWolHqoC4lrlgToK.json';
+import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggingintoMyPast_1RczdwVVszH1ZSTjIxjr2y.json';
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
-  haakerRocknrolla,
-  audunHaukvikDrivingAlone,
-  kaasinRunawayTrain
+  haakerBrothers,
+  wolfMoonFeverDiggingIntoMyPast,
+  haakerRocknrolla
 ];
 
 const allReleases = [
@@ -52,6 +54,7 @@ const allReleases = [
   confusionLetTheGamesBegin,
   confusionThisTime,
   esbenMeyerTaakemann,
+  haakerBrothers,
   haakerRocknrolla,
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesTheLastDayOnEarth,
@@ -73,6 +76,7 @@ const allReleases = [
   wildWhensRebelHeart,
   wildWhensSailinSarah,
   wildWhensTravellinMan,
+  wolfMoonFeverDiggingIntoMyPast,
   wolfMoonFeverTheKeeperoftheLighthouse
 ];
 
