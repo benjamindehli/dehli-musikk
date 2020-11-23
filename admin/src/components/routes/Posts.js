@@ -6,6 +6,10 @@ import DatePicker from 'react-datepicker';
 import { registerLocale } from "react-datepicker";
 import nb from 'date-fns/locale/nb';
 import { saveAs } from 'file-saver';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+// Components
+import ActionButtonBar from 'components/partials/ActionButtonBar';
 
 // Actions
 import { updatePosts } from 'actions/PostsActions';
@@ -36,8 +40,11 @@ class Posts extends Component {
     });
   }
 
-  saveFileContent(fileContent) {
-    var filename = "latest.json";
+  saveFileContent(fileContent, latest = true) {
+    var filename = latest ? "latest.json" : 'all.json';
+    if (latest) {
+      fileContent = fileContent.slice(0, 3);
+    }
     var contentString = JSON.stringify(fileContent);
     var blob = new Blob([contentString], {
       type: "application/json;charset=utf-8"
@@ -201,8 +208,12 @@ class Posts extends Component {
         <title>Posts - Dashboard - Dehli Musikk</title>
       </Helmet>
       <h1>Posts</h1>
-      <button onClick={() => this.saveFileContent(this.props.posts)}>Save</button>
       {this.props.posts ? this.renderPostsFields(this.props.posts) : ''}
+      <ActionButtonBar>
+        <button onClick={this.createPostInStore} className={commonStyle.bgGreen}><FontAwesomeIcon icon={['fas', 'plus']} /> Add</button>
+        <button onClick={() => this.saveFileContent(this.props.posts, true)} className={commonStyle.bgBlue}><FontAwesomeIcon icon={['fas', 'download']} /> Latest</button>
+        <button onClick={() => this.saveFileContent(this.props.posts, false)} className={commonStyle.bgBlue}><FontAwesomeIcon icon={['fas', 'download']} /> All</button>
+      </ActionButtonBar>
     </div>)
   }
 }
