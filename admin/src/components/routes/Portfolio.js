@@ -51,7 +51,6 @@ class Portfolio extends Component {
     saveAs(blob, filename);
   }
 
-
   handleOrderNumberChange(index, orderNumber) {
     const release = this.props.releases[index];
     const date = new Date(release.timestamp);
@@ -163,7 +162,7 @@ class Portfolio extends Component {
             </div>
             <div className={commonStyle.formElement}>
               <label htmlFor={`releaseDate-${index}`}>
-                Release date - {release.releaseDate}
+                Release date
                 <DatePicker
                   id={`releaseDate-${index}`}
                   locale="nb"
@@ -185,6 +184,13 @@ class Portfolio extends Component {
               </label>
             </div>
             <div className={commonStyle.formElement}>
+            <img loading="lazy" src={release.spotifyThumbnailUrl} width="150" height="150" className={commonStyle.thumbnail} alt='thumbnail'/>
+            <label htmlFor={`spotifyThumbnailUrl-${index}`}>
+                Thumbnail
+                <span id={`spotifyThumbnailUrl-${index}`}>
+                  {release.spotifyThumbnailUrl}
+                </span>
+              </label>
 
             </div>
             <div className={commonStyle.buttonBar}>

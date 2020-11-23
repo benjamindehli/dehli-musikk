@@ -110,3 +110,8 @@
     background-color: $primary-color;
     color: #fff;
 }
+
+:local(.thumbnail){
+    width: 150px;
+    margin: 8px;
+}
