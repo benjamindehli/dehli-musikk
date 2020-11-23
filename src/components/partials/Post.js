@@ -125,7 +125,7 @@ class Post extends Component {
       "headline": post.title[selectedLanguageKey],
       "inLanguage": this.props.selectedLanguageKey,
       "articleBody": post.content[selectedLanguageKey]
-        ? post.content[selectedLanguageKey].replace("\n", " ")
+        ? post.content[selectedLanguageKey].replace(/\n/g, " ")
         : '',
       "dateCreated": postDate,
       "dateModified": postDate,

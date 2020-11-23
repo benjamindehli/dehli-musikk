@@ -32,7 +32,7 @@ class Video extends Component {
       "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}videos/${videoId}/`,
       "name": video.title[selectedLanguageKey],
       "description": video.content[selectedLanguageKey]
-        ? video.content[selectedLanguageKey].replace("\n", " ")
+        ? video.content[selectedLanguageKey].replace(/\n/g, " ")
         : '',
       "duration": video.duration,
       "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}videos/${videoId}/`,
