@@ -3,6 +3,7 @@ import { CREATE_RELEASE, UPDATE_RELEASES } from 'constants/types';
 export const createRelease = (releases = []) => dispatch => {
   releases.unshift({
     id: '',
+    releaseId: '',
     artistName: '',
     title: '',
     duration: 0,

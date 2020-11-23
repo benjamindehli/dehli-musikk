@@ -17,6 +17,7 @@ import { createRelease, updateReleases } from 'actions/ReleasesActions';
 // Helpers
 import { updatePropertyInArray, getOrderNumberString, getGeneratedIdByDate, getGeneratedFilenameByDate } from 'helpers/objectHelpers';
 import { fetchReleaseData } from 'helpers/releaseHelpers';
+import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 
 // Stylesheets
 import style from 'components/routes/Dashboard.module.scss';
@@ -76,15 +77,25 @@ class Portfolio extends Component {
     });
   }
 
-  handleArtistNameChange(index, value) {
+  handleArtistNameChange(index, artistName) {
+    let newReleases = this.props.releases;
+    const release = newReleases[index];
+    const newReleaseId = convertToUrlFriendlyString(`${artistName} ${release.title}`);
+    newReleases = updatePropertyInArray(newReleases, index, artistName, 'artistName');
+    newReleases = updatePropertyInArray(newReleases, index, newReleaseId, 'releaseId');
     this.setState({
-      releases: updatePropertyInArray(this.props.releases, index, value, 'artistName')
+      releases: newReleases
     });
   }
 
-  handleTitleChange(index, value) {
+  handleTitleChange(index, title) {
+    let newReleases = this.props.releases;
+    const release = newReleases[index];
+    const newReleaseId = convertToUrlFriendlyString(`${release.artistName} ${title}`);
+    newReleases = updatePropertyInArray(this.props.releases, index, title, 'title');
+    newReleases = updatePropertyInArray(newReleases, index, newReleaseId, 'releaseId');
     this.setState({
-      releases: updatePropertyInArray(this.props.releases, index, value, 'title')
+      releases: newReleases
     });
   }
 
@@ -132,10 +143,14 @@ class Portfolio extends Component {
           <div key={index} className={commonStyle.formListElement}>
             <span className={commonStyle.formElementGroupTitle}>Identifiers</span>
             <div className={commonStyle.formElement}>
-              <label htmlFor={`id-${index}`} style={{ width: '545px' }}>
+              <label htmlFor={`id-${index}`} style={{ minWidth: '356px' }}>
                 ID
                 <input type="text" id={`id-${index}`} value={release.id} onChange={event => this.handleIdChange(index, event.target.value)} onBlur={this.updateReleasesInStore} />
                 <button onClick={() => this.handleFetchReleaseData(index)}>Fetch data</button>
+              </label>
+              <label htmlFor={`releaseId-${index}`}>
+                Release ID
+                <span id={`releaseId-${index}`}>{release.releaseId}</span>
               </label>
               <label htmlFor={`thumbnailFilename-${index}`}>
                 Image filename
