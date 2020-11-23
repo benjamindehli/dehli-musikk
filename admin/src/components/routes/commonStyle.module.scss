@@ -20,6 +20,7 @@
             width: 100%;
             display: block;
             font-weight: bold;
+            position: relative;
             > div {
                 display: block;
             }
@@ -36,7 +37,23 @@
                 padding: 8px;
                 border: 1px solid #ddd;
                 border-radius: 4px;
+                + button {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    padding: 8px;
+                    font-family: $default-font;
+                    font-size: 1em;
+                    border: 1px solid #ddd;
+                    background-color: #eee;
+                    border-radius: 0 4px 4px 0;
+                    &:hover,
+                    &:focus {
+                        background-color: #e4e4e4;
+                    }
+                }
             }
+
             > span {
                 font-size: 1em;
                 display: block;
@@ -58,4 +75,33 @@
             }
         }
     }
+    :local(.buttonBar) {
+        text-align: right;
+        button {
+            @include appearance(none);
+            text-align: center;
+            display: inline-block;
+            border-radius: 50%;
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            margin: 0 8px 8px 0;
+            svg {
+                font-size: 20px;
+                display: block;
+                margin: auto;
+            }
+        }
+    }
+    
+}
+
+:local(.bgGreen) {
+    background-color: $green-color;
+    color: #fff;
+}
+
+:local(.bgBlue) {
+    background-color: $blue-color;
+    color: #fff;
 }
