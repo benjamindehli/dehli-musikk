@@ -16,14 +16,17 @@ import {
   faFilter,
   faGripHorizontal,
   faGuitar,
-  faListUl,
   faLanguage,
+  faLink,
+  faListUl,
   faMusic,
   faPhotoVideo,
   faPlus,
   faSearch,
   faShoppingCart,
-  faSlidersH
+  faSlidersH,
+  faTrash,
+  faUnlink
 } from '@fortawesome/free-solid-svg-icons';
 
 // Utils
@@ -59,6 +62,7 @@ library.add(
   faGripHorizontal,
   faGuitar,
   faLanguage,
+  faLink,
   faListUl,
   faMusic,
   faPhotoVideo,
@@ -66,6 +70,8 @@ library.add(
   faSearch,
   faShoppingCart,
   faSlidersH,
+  faTrash,
+  faUnlink
 );
 
 const initialState = {};

@@ -105,3 +105,8 @@
     background-color: $blue-color;
     color: #fff;
 }
+
+:local(.bgRed) {
+    background-color: $primary-color;
+    color: #fff;
+}

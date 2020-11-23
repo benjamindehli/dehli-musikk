@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ActionButtonBar from 'components/partials/ActionButtonBar';
 
 // Actions
-import { updatePosts } from 'actions/PostsActions';
+import { createPost, updatePosts } from 'actions/PostsActions';
 
 // Helpers
 import { updatePropertyInArray, updateMultilingualPropertyInArray, getOrderNumberString, getGeneratedIdByDate, getGeneratedFilenameByDate } from 'helpers/objectHelpers';
@@ -31,6 +31,7 @@ class Posts extends Component {
     this.state = {
       posts: null
     }
+    this.createPostInStore = this.createPostInStore.bind(this);
     this.updatePostsInStore = this.updatePostsInStore.bind(this);
   }
 
@@ -41,12 +42,12 @@ class Posts extends Component {
   }
 
   saveFileContent(fileContent, latest = true) {
-    var filename = latest ? "latest.json" : 'all.json';
+    const filename = latest ? "latest.json" : 'all.json';
     if (latest) {
       fileContent = fileContent.slice(0, 3);
     }
-    var contentString = JSON.stringify(fileContent);
-    var blob = new Blob([contentString], {
+    const contentString = JSON.stringify(fileContent);
+    const blob = new Blob([contentString], {
       type: "application/json;charset=utf-8"
     });
     saveAs(blob, filename);
@@ -117,9 +118,42 @@ class Posts extends Component {
     });
   }
 
+  handleLinkInternalChange(index, internal) {
+    let newPosts = this.props.posts;
+    newPosts[index].link.internal = internal;
+    newPosts[index].link.url = internal ? { en: '', no: '' } : '';
+    this.setState({
+      posts: newPosts
+    });
+  }
 
-  generateNewPostId(index, postDate, posts) {
+  addLink(index) {
+    let newPosts = this.props.posts;
+    newPosts[index].link = {
+      url: '',
+      text: {
+        en: '',
+        no: ''
+      }
+    };
+    this.setState({
+      posts: newPosts
+    });
+  }
 
+  removeLink(index) {
+    let newPosts = this.props.posts;
+    delete newPosts[index].link;
+    this.setState({
+      posts: newPosts
+    });
+  }
+
+  createPostInStore() {
+    this.props.createPost(this.state.posts);
+    this.setState({
+      posts: this.props.posts
+    });
   }
 
   updatePostsInStore() {
@@ -191,12 +225,65 @@ class Posts extends Component {
                 Image description
                 <input type="text" id={`thumbnailDescription-${index}`} value={post.thumbnailDescription} onChange={event => this.handleThumbnailDescriptionChange(index, event.target.value)} onBlur={this.updatePostsInStore} />
               </label>
-              <label htmlFor={`thumbnailDescription-${index}`}>
+              <label htmlFor={`copyright-${index}`}>
                 Image copyright
-                <input type="checkbox" id={`copyright-${index}`} checked={post.copyright} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                <input type="checkbox" id={`copyright-${index}`} checked={post.copyright ? true : false} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
               </label>
             </div>
 
+            {
+              post.link && Object.keys(post.link).length
+                ? (
+                  <React.Fragment>
+                    <span className={commonStyle.formElementGroupTitle}>Link</span>
+                    <div className={commonStyle.formElement}>
+                      <label htmlFor={`link-internal-${index}`} style={{ width: '100px' }}>
+                        Internal
+                        <input type="checkbox" id={`link-internal-${index}`} checked={post.link.internal ? true : false} onChange={event => this.handleLinkInternalChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                      </label>
+                      {
+                        post.link.internal
+                          ? (
+                            <React.Fragment>
+                              <label htmlFor={`link-url-no-${index}`}>
+                                Norwegian URL
+                                <input type="text" id={`link-url-no-${index}`} value={post.link.url.no} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                              </label>
+                              <label htmlFor={`link-url-en-${index}`}>
+                                English URL
+                                <input type="text" id={`link-url-en-${index}`} value={post.link.url.en} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                              </label>
+                            </React.Fragment>)
+                          : (
+                            <React.Fragment>
+                              <label htmlFor={`link-url-${index}`}>
+                                URL
+                                <input type="text" id={`link-url-${index}`} value={post.link.url} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                              </label>
+                            </React.Fragment>)
+                      }
+                    </div>
+                    <div className={commonStyle.formElement}>
+                      <label htmlFor={`link-text-no-${index}`}>
+                        Norwegian link text
+                        <input type="text" id={`link-text-no-${index}`} value={post.link.text.no} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                      </label>
+                      <label htmlFor={`link-text-en-${index}`}>
+                        English link text
+                        <input type="text" id={`link-text-en-${index}`} value={post.link.text.en} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                      </label>
+                    </div>
+
+                  </React.Fragment>)
+                : ''
+            }
+            <div className={commonStyle.buttonBar}>
+              {
+                post.link && Object.keys(post.link).length
+                  ? (<button className={commonStyle.bgRed} onClick={() => this.removeLink(index)}><FontAwesomeIcon icon={['fas', 'unlink']} /></button>)
+                  : (<button className={commonStyle.bgGreen} onClick={() => this.addLink(index)}><FontAwesomeIcon icon={['fas', 'link']} /></button>)
+              }
+            </div>
           </div>
         )
       }) : '';
@@ -221,6 +308,7 @@ class Posts extends Component {
 const mapStateToProps = state => ({ posts: state.posts });
 
 const mapDispatchToProps = {
+  createPost,
   updatePosts
 };
 
