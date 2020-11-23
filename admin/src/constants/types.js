@@ -1,2 +1,4 @@
 export const UPDATE_POSTS = 'UPDATE_POSTS';
+export const CREATE_RELEASE = 'CREATE_RELEASE';
+export const UPDATE_RELEASES = 'UPDATE_RELEASES';
 export const UPDATE_VIDEOS = 'UPDATE_VIDEOS';
