@@ -6,13 +6,13 @@ const getInstrument = (instruments, equipmentId) => {
   })
 }
 
-export const getReleaseInstruments = (releasesInstruments, releaseId) => {
+export const getReleaseInstruments = (releasesInstruments, releaseId, instruments) => {
   const releaseInstrumentConnections = releasesInstruments.filter(releaseInstrument => {
     return releaseInstrument.releaseId === releaseId;
   })
   return releaseInstrumentConnections.map(releaseInstrumentConnection => {
     return {
-        ...getInstrument(releaseInstrumentConnection.equipmentId), 
+        ...getInstrument(instruments, releaseInstrumentConnection.equipmentId), 
         equipmentItemId: releaseInstrumentConnection.equipmentId 
     };
   })

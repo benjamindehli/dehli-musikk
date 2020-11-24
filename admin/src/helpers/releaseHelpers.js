@@ -15,7 +15,7 @@ const camelize = string => {
     return '';
 }
 
-const renderFileName = (responseData, releaseId) => {
+export const renderFileName = (responseData, releaseId) => {
   return `${camelize(responseData.artistName)}_${camelize(responseData.title)}_${releaseId}`;
 }
 
