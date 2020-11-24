@@ -136,6 +136,20 @@ class Portfolio extends Component {
     });
   }
 
+  renderLinkList(links){
+    const linkListElements = Object.keys(links).map(linkKey => {
+      const link = links[linkKey];
+      return (<li key={linkKey}>
+        <a href={link}>{linkKey}</a>
+      </li>)
+    });
+    return (
+      <ul>
+        {linkListElements}
+      </ul>
+    )
+  }
+
   renderReleasesFields(releases) {
     return releases && releases.length
       ? releases.map((release, index) => {
@@ -208,6 +222,10 @@ class Portfolio extends Component {
               </label>
 
             </div>
+            <details>
+              <summary>Links {Object.keys(release.links).length}</summary>
+              {this.renderLinkList(release.links)}
+            </details>
             <div className={commonStyle.buttonBar}>
               <button className={commonStyle.bgBlue} onClick={() => this.saveFileContent(release)}><FontAwesomeIcon icon={['fas', 'download']} /></button>
             </div>
@@ -223,6 +241,7 @@ class Portfolio extends Component {
       </Helmet>
       <h1>Portfolio</h1>
       {this.props.releases ? this.renderReleasesFields(this.props.releases) : ''}
+      
       <ActionButtonBar>
         <button onClick={this.createReleaseInStore} className={commonStyle.bgGreen}><FontAwesomeIcon icon={['fas', 'plus']} /> Add</button>
       </ActionButtonBar>
