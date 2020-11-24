@@ -80,9 +80,9 @@ class Portfolio extends Component {
   handleArtistNameChange(index, artistName) {
     let newReleases = this.props.releases;
     const release = newReleases[index];
-    const newReleaseId = convertToUrlFriendlyString(`${artistName} ${release.title}`);
+    const newSlug = convertToUrlFriendlyString(`${artistName} ${release.title}`);
     newReleases = updatePropertyInArray(newReleases, index, artistName, 'artistName');
-    newReleases = updatePropertyInArray(newReleases, index, newReleaseId, 'releaseId');
+    newReleases = updatePropertyInArray(newReleases, index, newSlug, 'slug');
     this.setState({
       releases: newReleases
     });
@@ -91,9 +91,9 @@ class Portfolio extends Component {
   handleTitleChange(index, title) {
     let newReleases = this.props.releases;
     const release = newReleases[index];
-    const newReleaseId = convertToUrlFriendlyString(`${release.artistName} ${title}`);
+    const newSlug = convertToUrlFriendlyString(`${release.artistName} ${title}`);
     newReleases = updatePropertyInArray(this.props.releases, index, title, 'title');
-    newReleases = updatePropertyInArray(newReleases, index, newReleaseId, 'releaseId');
+    newReleases = updatePropertyInArray(newReleases, index, newSlug, 'slug');
     this.setState({
       releases: newReleases
     });
@@ -148,9 +148,9 @@ class Portfolio extends Component {
                 <input type="text" id={`id-${index}`} value={release.id} onChange={event => this.handleIdChange(index, event.target.value)} onBlur={this.updateReleasesInStore} />
                 <button onClick={() => this.handleFetchReleaseData(index)}>Fetch data</button>
               </label>
-              <label htmlFor={`releaseId-${index}`}>
-                Release ID
-                <span id={`releaseId-${index}`}>{release.releaseId}</span>
+              <label htmlFor={`slug-${index}`}>
+                Slug
+                <span id={`slug-${index}`}>{release.slug}</span>
               </label>
               <label htmlFor={`thumbnailFilename-${index}`}>
                 Image filename
