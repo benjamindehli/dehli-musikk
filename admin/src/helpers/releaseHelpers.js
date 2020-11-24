@@ -1,3 +1,5 @@
+import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+
 const camelize = string => {
   if (string && string.length) {
     let camelizedString = string.replace('Æ', 'Ae');
@@ -47,6 +49,7 @@ const convertPageApiData = (apiData, releaseId) => {
     itunesData = itunesData ? itunesData : spotifyData;
     return {
       id: releaseId,
+      slug: convertToUrlFriendlyString(`${itunesData.artistName} ${itunesData.title}`),
       artistName: itunesData.artistName,
       title: itunesData.title,
       duration: itunesData.duration,
