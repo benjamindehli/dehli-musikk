@@ -52,30 +52,6 @@ class Portfolio extends Component {
     saveAs(blob, filename);
   }
 
-  handleOrderNumberChange(index, orderNumber) {
-    const release = this.props.releases[index];
-    const date = new Date(release.timestamp);
-    const orderNumberString = getOrderNumberString(orderNumber);
-    const thumbnailFilename = getGeneratedFilenameByDate(date, orderNumberString);
-    const id = getGeneratedIdByDate(date, orderNumberString);
-    this.setState({
-      releases: updatePropertyInArray(this.props.releases, index, parseInt(orderNumber), 'orderNumber')
-    });
-    this.setState({
-      releases: updatePropertyInArray(this.props.releases, index, thumbnailFilename, 'thumbnailFilename')
-    });
-    this.setState({
-      releases: updatePropertyInArray(this.props.releases, index, id, 'id')
-    });
-  }
-
-
-
-  handleIdChange(index, value) {
-    this.setState({
-      releases: updatePropertyInArray(this.props.releases, index, value, 'id')
-    });
-  }
 
   handleArtistNameChange(index, artistName) {
     let newReleases = this.props.releases;
