@@ -15,8 +15,9 @@ import ActionButtonBar from 'components/partials/ActionButtonBar';
 import { createRelease, updateReleases } from 'actions/ReleasesActions';
 
 // Helpers
-import { updatePropertyInArray, getOrderNumberString, getGeneratedIdByDate, getGeneratedFilenameByDate } from 'helpers/objectHelpers';
-import { fetchReleaseData } from 'helpers/releaseHelpers';
+import { updatePropertyInArray } from 'helpers/objectHelpers';
+import { fetchReleaseData, renderFileName } from 'helpers/releaseHelpers';
+import { getReleaseInstruments } from 'helpers/releaseInstrumentHelpers';
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 
 // Stylesheets
@@ -55,10 +56,12 @@ class Portfolio extends Component {
 
   handleArtistNameChange(index, artistName) {
     let newReleases = this.props.releases;
-    const release = newReleases[index];
+    let release = newReleases[index];
     const newSlug = convertToUrlFriendlyString(`${artistName} ${release.title}`);
     newReleases = updatePropertyInArray(newReleases, index, artistName, 'artistName');
     newReleases = updatePropertyInArray(newReleases, index, newSlug, 'slug');
+    release = newReleases[index];
+    newReleases = updatePropertyInArray(newReleases, index, renderFileName(release, release.id), 'thumbnailFilename');
     this.setState({
       releases: newReleases
     });
@@ -66,10 +69,12 @@ class Portfolio extends Component {
 
   handleTitleChange(index, title) {
     let newReleases = this.props.releases;
-    const release = newReleases[index];
+    let release = newReleases[index];
     const newSlug = convertToUrlFriendlyString(`${release.artistName} ${title}`);
     newReleases = updatePropertyInArray(this.props.releases, index, title, 'title');
     newReleases = updatePropertyInArray(newReleases, index, newSlug, 'slug');
+    release = newReleases[index];
+    newReleases = updatePropertyInArray(newReleases, index, renderFileName(release, release.id), 'thumbnailFilename');
     this.setState({
       releases: newReleases
     });
@@ -126,9 +131,23 @@ class Portfolio extends Component {
     )
   }
 
+  renderInstrumentList(instruments){
+    const instrumentListElements = instruments.map(instrument => {
+      return (<li key={instrument.equipmentItemId}>
+        <a href={`#${instrument.equipmentItemId}`}>{instrument.brand} {instrument.model}</a>
+      </li>)
+    });
+    return (
+      <ul>
+        {instrumentListElements}
+      </ul>
+    )
+  }
+
   renderReleasesFields(releases) {
     return releases && releases.length
       ? releases.map((release, index) => {
+        const releaseInstruments = getReleaseInstruments(this.props.releasesInstruments, release.slug, this.props.instruments);
         return (
           <div key={index} className={commonStyle.formListElement}>
             <span className={commonStyle.formElementGroupTitle}>Identifiers</span>
@@ -196,11 +215,14 @@ class Portfolio extends Component {
                   {release.spotifyThumbnailUrl}
                 </span>
               </label>
-
             </div>
             <details>
               <summary>Links {Object.keys(release.links).length}</summary>
               {this.renderLinkList(release.links)}
+            </details>
+            <details>
+              <summary>Instruments {releaseInstruments.length}</summary>
+              {this.renderInstrumentList(releaseInstruments)}
             </details>
             <div className={commonStyle.buttonBar}>
               <button className={commonStyle.bgBlue} onClick={() => this.saveFileContent(release)}><FontAwesomeIcon icon={['fas', 'download']} /></button>
@@ -225,7 +247,11 @@ class Portfolio extends Component {
   }
 }
 
-const mapStateToProps = state => ({ releases: state.releases });
+const mapStateToProps = state => ({ 
+  instruments: state.instruments,
+  releases: state.releases,
+  releasesInstruments: state.releasesInstruments
+});
 
 const mapDispatchToProps = {
   createRelease,
