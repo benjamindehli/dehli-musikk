@@ -27,7 +27,7 @@ import thomasTveitenDaaEDetVerdtDet from './releases/data/thomasTveiten_daaEDetV
 import wildWhensBacktrackJack from './releases/data/wildWhens_backtrackJack_2qdN2vUuvcryyN9WeT2EP9.json';
 import wildWhensChainsOfYesterday from './releases/data/wildWhens_chainsofYesterday_2gQwPWaqLb7bS7PjNuLppZ.json';
 import wildWhensCrazyToTheBone from './releases/data/wildWhens_crazytotheBone_0iZwHC4UX76xpFv10Dr6i0.json';
-import wildWhensCrazyToTheBoneRemastered from './releases/data/wildWhens_crazytotheBone_3Ix2e8pg7TRiDuKqaQltGh.json';
+import wildWhensCrazyToTheBoneRemastered from './releases/data/wildWhens_crazytotheBoneRemastered_3Ix2e8pg7TRiDuKqaQltGh.json';
 import wildWhensFromTheValley from './releases/data/wildWhens_fromtheValley_3usd6T446qaQiVSVRuHvPQ.json';
 import wildWhensRebelHeart from './releases/data/wildWhens_rebelHeart_7vIxzySCGMK2MYQESmDXbl.json';
 import wildWhensSailinSarah from './releases/data/wildWhens_sailinSarah_50PONsFQZadgxvPJclRLjv.json';
