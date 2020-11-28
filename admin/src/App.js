@@ -4,6 +4,8 @@ import {Provider} from 'react-redux';
 import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'connected-react-router';
 import WebFont from 'webfontloader';
+import { registerLocale } from "react-datepicker";
+import nb from 'date-fns/locale/nb';
 
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {
@@ -44,6 +46,8 @@ import NotFound from 'components/routes/NotFound';
 
 // Stylesheets
 import style from 'App.module.scss';
+import "react-datepicker/dist/react-datepicker.css";
+
 
 WebFont.load({
   google: {
@@ -73,6 +77,8 @@ library.add(
   faTrash,
   faUnlink
 );
+
+registerLocale('nb', nb)
 
 const initialState = {};
 const store = configureStore(initialState);

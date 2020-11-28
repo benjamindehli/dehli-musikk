@@ -2,9 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import DatePicker from 'react-datepicker';
-import { registerLocale } from "react-datepicker";
-import nb from 'date-fns/locale/nb';
 import { saveAs } from 'file-saver';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -23,10 +20,6 @@ import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 // Stylesheets
 import style from 'components/routes/Dashboard.module.scss';
 import commonStyle from 'components/partials/commonStyle.module.scss';
-import "react-datepicker/dist/react-datepicker.css";
-
-registerLocale('nb', nb)
-
 
 class Portfolio extends Component {
   constructor(props) {
