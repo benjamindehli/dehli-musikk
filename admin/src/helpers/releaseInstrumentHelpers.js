@@ -17,3 +17,15 @@ export const getReleaseInstruments = (releasesInstruments, releaseId, instrument
     };
   })
 }
+
+const instrumentIsSelected = (instrument, selectedInstruments) => {
+  return selectedInstruments.some(selectedInstrument => {
+    return selectedInstrument.brand === instrument.brand && selectedInstrument.model === instrument.model;
+  });
+}
+
+export const getNotSelectedReleaseInstruments = (instruments, selectedInstruments) => {
+  return instruments.items.filter(instrument => {
+    return !instrumentIsSelected(instrument, selectedInstruments)
+  })
+}
