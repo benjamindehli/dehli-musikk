@@ -15,8 +15,8 @@ const camelize = string => {
     return '';
 }
 
-export const renderFileName = (responseData, releaseId) => {
-  return `${camelize(responseData.artistName)}_${camelize(responseData.title)}_${releaseId}`;
+export const renderFileName = (artistName, title, releaseId) => {
+  return `${camelize(artistName)}_${camelize(title)}_${releaseId}`;
 }
 
 const convertMillisToIsoDuration = duration => {
@@ -57,7 +57,7 @@ const convertPageApiData = (apiData, releaseId) => {
       genre: itunesData.genre ? itunesData.genre : '',
       releaseDate: convertReleaseDate(itunesData.releaseDate),
       spotifyThumbnailUrl: spotifyData.thumbnailUrl,
-      thumbnailFilename: renderFileName(itunesData, releaseId)
+      thumbnailFilename: renderFileName(itunesData.artistName, itunesData.title, releaseId)
     };
   } else
     return null;
