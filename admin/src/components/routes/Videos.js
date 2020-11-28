@@ -15,7 +15,7 @@ import { updatePropertyInArray, updateMultilingualPropertyInArray, getOrderNumbe
 
 // Stylesheets
 import style from 'components/routes/Dashboard.module.scss';
-import commonStyle from 'components/routes/commonStyle.module.scss';
+import commonStyle from 'components/partials/commonStyle.module.scss';
 import "react-datepicker/dist/react-datepicker.css";
 
 registerLocale('nb', nb)

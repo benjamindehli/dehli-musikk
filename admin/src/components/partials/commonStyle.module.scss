@@ -27,6 +27,12 @@
             }
             input[type="text"],
             input[type="number"],
+            select {
+                height: 37px;
+            }
+            input[type="text"],
+            input[type="number"],
+            select,
             textarea {
                 display: block;
                 width: 100%;
@@ -38,19 +44,26 @@
                 padding: 8px;
                 border: 1px solid #ddd;
                 border-radius: 4px;
-                + button {
+                + :local(.inputAddons) {
                     position: absolute;
                     bottom: 0;
                     right: 0;
-                    padding: 8px;
-                    font-family: $default-font;
-                    font-size: 1em;
-                    border: 1px solid #ddd;
-                    background-color: #eee;
+                    button {
+                        padding: 8px;
+                        font-family: $default-font;
+                        font-size: 1em;
+                        border: 1px solid #ddd;
+                        background-color: #eee;
+                        width: auto;
+                        border-radius: 0;
+                        &:hover,
+                        &:focus {
+                            background-color: #e4e4e4;
+                        }
+                        &:last-child {
                     border-radius: 0 4px 4px 0;
-                    &:hover,
-                    &:focus {
-                        background-color: #e4e4e4;
+
+                        }
                     }
                 }
             }
@@ -76,6 +89,13 @@
             }
         }
     }
+    details {
+        margin: 8px;
+        font-size: 1em;
+        summary {
+            cursor: pointer;
+        }
+    }
     :local(.buttonBar) {
         text-align: right;
         button {
@@ -94,7 +114,6 @@
             }
         }
     }
-    
 }
 
 :local(.bgGreen) {
@@ -112,7 +131,28 @@
     color: #fff;
 }
 
-:local(.thumbnail){
+:local(.thumbnail) {
     width: 150px;
     margin: 8px;
+}
+
+:local(.formList) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+        margin: 0 16px;
+        a {
+            padding: 8px;
+        }
+        button {
+            padding: 8px;
+            border-radius: 50%;
+            width: 31px;
+            &:local(.fullWidthButton) {
+                width: 100%;
+                border-radius: 4px;
+            }
+        }
+    }
 }
