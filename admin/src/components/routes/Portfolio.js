@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Components
 import ActionButtonBar from 'components/partials/ActionButtonBar';
+import Release from 'components/partials/Release';
 
 // Actions
 import { createRelease, updateReleases } from 'actions/ReleasesActions';
@@ -15,7 +16,7 @@ import { createRelease, updateReleases } from 'actions/ReleasesActions';
 import { updatePropertyInArray } from 'helpers/objectHelpers';
 import { fetchReleaseData, renderFileName } from 'helpers/releaseHelpers';
 import { getReleaseInstruments } from 'helpers/releaseInstrumentHelpers';
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
 // Stylesheets
 import style from 'components/routes/Dashboard.module.scss';
@@ -110,7 +111,7 @@ class Portfolio extends Component {
     });
   }
 
-  renderLinkList(links){
+  renderLinkList(links) {
     const linkListElements = Object.keys(links).map(linkKey => {
       const link = links[linkKey];
       return (<li key={linkKey}>
@@ -124,16 +125,20 @@ class Portfolio extends Component {
     )
   }
 
-  renderInstrumentList(instruments){
+  renderInstrumentList(instruments) {
     const instrumentListElements = instruments.map(instrument => {
       return (<li key={instrument.equipmentItemId}>
         <a href={`#${instrument.equipmentItemId}`}>{instrument.brand} {instrument.model}</a>
+        <button>Remove</button>
       </li>)
     });
     return (
-      <ul>
-        {instrumentListElements}
-      </ul>
+      <React.Fragment>
+        <ul className={commonStyle.formList}>
+          {instrumentListElements}
+        </ul>
+        <button>Add</button>
+      </React.Fragment>
     )
   }
 
@@ -141,87 +146,7 @@ class Portfolio extends Component {
     return releases && releases.length
       ? releases.map((release, index) => {
         const releaseInstruments = getReleaseInstruments(this.props.releasesInstruments, release.slug, this.props.instruments);
-        return (
-          <div key={index} className={commonStyle.formListElement}>
-            <span className={commonStyle.formElementGroupTitle}>Identifiers</span>
-            <div className={commonStyle.formElement}>
-              <label htmlFor={`id-${index}`} style={{ minWidth: '356px' }}>
-                ID
-                <input type="text" id={`id-${index}`} value={release.id} onChange={event => this.handleIdChange(index, event.target.value)} onBlur={this.updateReleasesInStore} />
-                <button onClick={() => this.handleFetchReleaseData(index)}>Fetch data</button>
-              </label>
-              <label htmlFor={`slug-${index}`}>
-                Slug
-                <span id={`slug-${index}`}>{release.slug}</span>
-              </label>
-              <label htmlFor={`thumbnailFilename-${index}`}>
-                Image filename
-                <span id={`thumbnailFilename-${index}`}>
-                  {release.thumbnailFilename}_[filesize].[filetype]
-                </span>
-              </label>
-            </div>
-
-            <span className={commonStyle.formElementGroupTitle}>Release info</span>
-            <div className={commonStyle.formElement}>
-              <label htmlFor={`artistName-${index}`}>
-                Artist
-                <input type="text" id={`artistName-${index}`} value={release.artistName} onChange={event => this.handleArtistNameChange(index, event.target.value)} onBlur={this.updateReleasesInStore} />
-              </label>
-              <label htmlFor={`title-${index}`}>
-                Title
-                <input type="text" id={`title-${index}`} value={release.title} onChange={event => this.handleTitleChange(index, event.target.value)} onBlur={this.updateReleasesInStore} />
-              </label>
-              <label htmlFor={`genre-${index}`}>
-                Genre
-                <input type="text" id={`genre-${index}`} value={release.genre} onChange={event => this.handleGenreChange(index, event.target.value)} onBlur={this.updateReleasesInStore} />
-              </label>
-            </div>
-            <div className={commonStyle.formElement}>
-              <label htmlFor={`releaseDate-${index}`}>
-                Release date
-                <DatePicker
-                  id={`releaseDate-${index}`}
-                  locale="nb"
-                  onChange={event => this.handleReleaseDateChange(index, event)}
-                  selected={release.releaseDate}
-                  className={commonStyle.input} />
-              </label>
-              <label htmlFor={`duration-${index}`}>
-                Duration
-                <span id={`id-${index}`}>
-                  {release.duration}
-                </span>
-              </label>
-              <label htmlFor={`duration-${index}`}>
-                Duration ISO
-                <span id={`id-${index}`}>
-                  {release.durationISO}
-                </span>
-              </label>
-            </div>
-            <div className={commonStyle.formElement}>
-            <img loading="lazy" src={release.spotifyThumbnailUrl} width="150" height="150" className={commonStyle.thumbnail} alt='thumbnail'/>
-            <label htmlFor={`spotifyThumbnailUrl-${index}`}>
-                Thumbnail
-                <span id={`spotifyThumbnailUrl-${index}`}>
-                  {release.spotifyThumbnailUrl}
-                </span>
-              </label>
-            </div>
-            <details>
-              <summary>Links {Object.keys(release.links).length}</summary>
-              {this.renderLinkList(release.links)}
-            </details>
-            <details>
-              <summary>Instruments {releaseInstruments.length}</summary>
-              {this.renderInstrumentList(releaseInstruments)}
-            </details>
-            <div className={commonStyle.buttonBar}>
-              <button className={commonStyle.bgBlue} onClick={() => this.saveFileContent(release)}><FontAwesomeIcon icon={['fas', 'download']} /></button>
-            </div>
-          </div>
-        )
+        return <Release release={release} index={index} key={`release-${index}`} />
       }) : '';
   }
 
@@ -232,7 +157,7 @@ class Portfolio extends Component {
       </Helmet>
       <h1>Portfolio</h1>
       {this.props.releases ? this.renderReleasesFields(this.props.releases) : ''}
-      
+
       <ActionButtonBar>
         <button onClick={this.createReleaseInStore} className={commonStyle.bgGreen}><FontAwesomeIcon icon={['fas', 'plus']} /> Add</button>
       </ActionButtonBar>
@@ -240,7 +165,7 @@ class Portfolio extends Component {
   }
 }
 
-const mapStateToProps = state => ({ 
+const mapStateToProps = state => ({
   instruments: state.instruments,
   releases: state.releases,
   releasesInstruments: state.releasesInstruments
