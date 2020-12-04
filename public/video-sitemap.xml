@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/kaasin-revelation/</loc>
+    <video:video>
+      <video:title>Kaasin - Revelation</video:title>
+      <video:description>Kaasin: Jo Henning Kaasin (gitar), Jan Thore Grefsted (vokal) og Staale Kaasin (bass).
+Ytterligere musikere: Benjamin Dehli (tangenter) og Chris Brush (trommer) og André Cosmo Søgnen (trommer i video)
+Revelation (Kaasin/Grefstad/Kaasin)
+Produsert av Halvor Halvorsen/KAASIN
+Mikset/mastret av Leif Johansen
+Video av Jon Sandersen
+Plateselskap: StreamPeak Music</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EDtTvavrRmg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-12-04-00_540.a10378a5.jpg</video:thumbnail_loc>
+      <video:duration>undefined</video:duration>
+      <video:publication_date>2020-12-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCYN-BFZQIesAVDPYnIARfWw">Streampeak Music DA</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/kaasin-revelation/</loc>
+    <video:video>
+      <video:title>Kaasin - Revelation</video:title>
+      <video:description>Kaasin: Jo Henning Kaasin (guitar), Jan Thore Grefsted (vocals) and Staale Kaasin (bass).
+Additional musicans: Benjamin Dehli (keyboards), Chris Brush (drums) and André Cosmo Søgnen (drums in video)
+Revelation (Kaasin/Grefstad/Kaasin)
+Produced by Halvor Halvorsen/KAASIN
+Mixed/mastered by Leif Johansen
+Video by Jon Sandersen
+Label: Streampeak Music</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EDtTvavrRmg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-12-04-00_540.a10378a5.jpg</video:thumbnail_loc>
+      <video:duration>undefined</video:duration>
+      <video:publication_date>2020-12-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UCYN-BFZQIesAVDPYnIARfWw">Streampeak Music DA</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/breakwater-release-the-beast-synth-melodi/</loc>
     <video:video>
       <video:title>Breakwater - Release the Beast (synth melodi)</video:title>
