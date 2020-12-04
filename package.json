@@ -64,6 +64,6 @@
     "react-snap": "^1.23.0",
     "redux-devtools-extension": "^2.13.8",
     "sass": "^1.28.0",
-    "workbox-cli": "^5.1.4"
+    "workbox-cli": "^6.0.2"
   }
 }
