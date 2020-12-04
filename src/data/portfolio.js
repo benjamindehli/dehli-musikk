@@ -15,6 +15,7 @@ import haakerRocknrolla from './releases/data/haaker_rocknrolla_2iToSLHYDsZ4v9Sc
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock_7fVdrI4oTPXduyZiZNlcCH.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth_5Ea891yomzVe9qs5e2DXMJ.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow_1rTLnAzETljGUZHk7aoetP.json';
+import kaasinRevelation from './releases/data/kAASIN_revelation_7n9WtDFLHoCLtPZ6oaEXio.json';
 import kaasinRunawayTrain from './releases/data/kAASIN_runawayTrain_2Z28HmWYkw0tN7ldEjAaYS.json';
 import leneNevisdalGiveMeaSmileJoe from './releases/data/leneNevisdal_giveMeaSmileJoe_3a3EqE5GyONmvpC2LeN0TH.json';
 import setOnesCapDontYouWannaKnow from './releases/data/setOnesCap_dontYouWannaKnow_6I5ZjNZ9P7mS56sEuP5QzU.json';
@@ -36,9 +37,9 @@ import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggin
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
+  kaasinRevelation,
   haakerBrothers,
-  wolfMoonFeverDiggingIntoMyPast,
-  haakerRocknrolla
+  wolfMoonFeverDiggingIntoMyPast
 ];
 
 const allReleases = [
@@ -59,6 +60,7 @@ const allReleases = [
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesTheLastDayOnEarth,
   hauntedBySilhouettesUndertow,
+  kaasinRevelation,
   kaasinRunawayTrain,
   leneNevisdalGiveMeaSmileJoe,
   setOnesCapDontYouWannaKnow,
