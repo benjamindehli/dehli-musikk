@@ -127,6 +127,26 @@ class Posts extends Component {
     });
   }
 
+  handleLinkUrlChange(index, url, language) {
+    let newPosts = this.props.posts;
+    if (language && language.length){
+      newPosts[index].link.url[language] = url;
+    } else {
+      newPosts[index].link.url = url;
+    }
+    this.setState({
+      posts: newPosts
+    });
+  }
+
+  handleLinkTextChange(index, text, language) {
+    let newPosts = this.props.posts;
+    newPosts[index].link.text[language] = text;
+    this.setState({
+      posts: newPosts
+    });
+  }
+
   addLink(index) {
     let newPosts = this.props.posts;
     newPosts[index].link = {
@@ -247,18 +267,18 @@ class Posts extends Component {
                             <React.Fragment>
                               <label htmlFor={`link-url-no-${index}`}>
                                 Norwegian URL
-                                <input type="text" id={`link-url-no-${index}`} value={post.link.url.no} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                                <input type="text" id={`link-url-no-${index}`} value={post.link.url.no} onChange={event => this.handleLinkUrlChange(index, event.target.value, 'no')} onBlur={this.updatePostsInStore} />
                               </label>
                               <label htmlFor={`link-url-en-${index}`}>
                                 English URL
-                                <input type="text" id={`link-url-en-${index}`} value={post.link.url.en} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                                <input type="text" id={`link-url-en-${index}`} value={post.link.url.en} onChange={event => this.handleLinkUrlChange(index, event.target.value, 'en')} onBlur={this.updatePostsInStore} />
                               </label>
                             </React.Fragment>)
                           : (
                             <React.Fragment>
                               <label htmlFor={`link-url-${index}`}>
                                 URL
-                                <input type="text" id={`link-url-${index}`} value={post.link.url} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                                <input type="text" id={`link-url-${index}`} value={post.link.url} onChange={event => this.handleLinkUrlChange(index, event.target.value)} onBlur={this.updatePostsInStore} />
                               </label>
                             </React.Fragment>)
                       }
@@ -266,11 +286,11 @@ class Posts extends Component {
                     <div className={commonStyle.formElement}>
                       <label htmlFor={`link-text-no-${index}`}>
                         Norwegian link text
-                        <input type="text" id={`link-text-no-${index}`} value={post.link.text.no} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                        <input type="text" id={`link-text-no-${index}`} value={post.link.text.no} onChange={event => this.handleLinkTextChange(index, event.target.value, 'no')} onBlur={this.updatePostsInStore} />
                       </label>
                       <label htmlFor={`link-text-en-${index}`}>
                         English link text
-                        <input type="text" id={`link-text-en-${index}`} value={post.link.text.en} onChange={event => this.handleCopyrightChange(index, event.target.checked)} onBlur={this.updatePostsInStore} />
+                        <input type="text" id={`link-text-en-${index}`} value={post.link.text.en} onChange={event => this.handleLinkTextChange(index, event.target.value, 'en')} onBlur={this.updatePostsInStore} />
                       </label>
                     </div>
 
