@@ -6,9 +6,13 @@ import DatePicker from 'react-datepicker';
 import { registerLocale } from "react-datepicker";
 import nb from 'date-fns/locale/nb';
 import { saveAs } from 'file-saver';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+// Components
+import ActionButtonBar from 'components/partials/ActionButtonBar';
 
 // Actions
-import { updateVideos } from 'actions/VideosActions';
+import { createVideo, updateVideos } from 'actions/VideosActions';
 
 // Helpers
 import { updatePropertyInArray, updateMultilingualPropertyInArray, getOrderNumberString, getGeneratedIdByDate, getGeneratedFilenameByDate } from 'helpers/objectHelpers';
@@ -27,6 +31,7 @@ class Videos extends Component {
     this.state = {
       videos: null
     }
+    this.createVideoInStore = this.createVideoInStore.bind(this);
     this.updateVideosInStore = this.updateVideosInStore.bind(this);
   }
 
@@ -36,10 +41,13 @@ class Videos extends Component {
     });
   }
 
-  saveFileContent(fileContent) {
-    var filename = "latest.json";
-    var contentString = JSON.stringify(fileContent);
-    var blob = new Blob([contentString], {
+  saveFileContent(fileContent, latest = true) {
+    const filename = latest ? "latest.json" : 'all.json';
+    if (latest) {
+      fileContent = fileContent.slice(0, 3);
+    }
+    const contentString = JSON.stringify(fileContent);
+    const blob = new Blob([contentString], {
       type: "application/json;charset=utf-8"
     });
     saveAs(blob, filename);
@@ -129,8 +137,11 @@ class Videos extends Component {
   }
 
 
-  generateNewPostId(index, videoDate, videos) {
-
+  createVideoInStore() {
+    this.props.createVideo(this.state.videos);
+    this.setState({
+      videos: this.props.videos
+    });
   }
 
   updateVideosInStore() {
@@ -235,8 +246,12 @@ class Videos extends Component {
         <title>Videos - Dashboard - Dehli Musikk</title>
       </Helmet>
       <h1>Videos</h1>
-      <button onClick={() => this.saveFileContent(this.props.videos)}>Save</button>
       {this.props.videos ? this.renderVideosFields(this.props.videos) : ''}
+      <ActionButtonBar>
+        <button onClick={this.createVideoInStore} className={commonStyle.bgGreen}><FontAwesomeIcon icon={['fas', 'plus']} /> Add</button>
+        <button onClick={() => this.saveFileContent(this.props.videos, true)} className={commonStyle.bgBlue}><FontAwesomeIcon icon={['fas', 'download']} /> Latest</button>
+        <button onClick={() => this.saveFileContent(this.props.videos, false)} className={commonStyle.bgBlue}><FontAwesomeIcon icon={['fas', 'download']} /> All</button>
+      </ActionButtonBar>
     </div>)
   }
 }
@@ -244,6 +259,7 @@ class Videos extends Component {
 const mapStateToProps = state => ({ videos: state.videos });
 
 const mapDispatchToProps = {
+  createVideo,
   updateVideos
 };
 
