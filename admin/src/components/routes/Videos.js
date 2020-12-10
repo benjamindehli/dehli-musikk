@@ -120,20 +120,20 @@ class Videos extends Component {
 
   handleYouTubeChannelIdChange(index, value) {
     this.setState({
-        videos: updatePropertyInArray(this.props.videos, index, value, 'youTubeChannelId')
-      });
+      videos: updatePropertyInArray(this.props.videos, index, value, 'youTubeChannelId')
+    });
   }
 
   handleYouTubeUserChange(index, value) {
     this.setState({
-        videos: updatePropertyInArray(this.props.videos, index, value, 'youTubeUser')
-      });
+      videos: updatePropertyInArray(this.props.videos, index, value, 'youTubeUser')
+    });
   }
 
   handleYouTubeIdChange(index, value) {
     this.setState({
-        videos: updatePropertyInArray(this.props.videos, index, value, 'youTubeId')
-      });
+      videos: updatePropertyInArray(this.props.videos, index, value, 'youTubeId')
+    });
   }
 
 
@@ -147,6 +147,62 @@ class Videos extends Component {
   updateVideosInStore() {
     this.props.updateVideos(this.state.videos);
   }
+
+  getHoursFromDuration(duration) {
+    const regex = /(\d+)(H)/i;
+    const matches = regex.exec(duration);
+    return matches && matches[1] ? matches[1] : '';
+  }
+
+  getMinutesFromDuration(duration) {
+    const regex = /(\d+)(M)/i;
+    const matches = regex.exec(duration);
+    return matches && matches[1] ? matches[1] : '';
+  }
+
+  getSecondsFromDuration(duration) {
+    const regex = /(\d+)(S)/i;
+    const matches = regex.exec(duration);
+    return matches && matches[1] ? matches[1] : '';
+  }
+
+  convertToYoutubeDuration(hours, minutes, seconds) {
+    hours = hours && hours !== '0' ? `${hours}H` : '';
+    minutes = minutes && minutes !== '0' ? `${minutes}M` : '';
+    seconds = seconds && seconds !== '0' ? `${seconds}S` : '';
+    return `PT${hours}${minutes}${seconds}`;
+  }
+
+  handleDurationHoursChange(index, hours) {
+    const minutes = this.getMinutesFromDuration(this.state.videos[index].duration);
+    const seconds = this.getSecondsFromDuration(this.state.videos[index].duration);
+    const duration = this.convertToYoutubeDuration(hours, minutes, seconds);
+
+    this.setState({
+      videos: updatePropertyInArray(this.props.videos, index, duration, 'duration')
+    });
+  }
+
+  handleDurationMinutesChange(index, minutes) {
+    const hours = this.getHoursFromDuration(this.state.videos[index].duration);
+    const seconds = this.getSecondsFromDuration(this.state.videos[index].duration);
+    const duration = this.convertToYoutubeDuration(hours, minutes, seconds);
+
+    this.setState({
+      videos: updatePropertyInArray(this.props.videos, index, duration, 'duration')
+    });
+  }
+
+  handleDurationSecondsChange(index, seconds) {
+    const hours = this.getHoursFromDuration(this.state.videos[index].duration);
+    const minutes = this.getMinutesFromDuration(this.state.videos[index].duration);
+    const duration = this.convertToYoutubeDuration(hours, minutes, seconds);
+
+    this.setState({
+      videos: updatePropertyInArray(this.props.videos, index, duration, 'duration')
+    });
+  }
+
 
   renderVideosFields(videos) {
     return videos && videos.length
@@ -232,6 +288,28 @@ class Videos extends Component {
               <label htmlFor={`youTubeId-${index}`}>
                 Video ID
                 <input type="text" id={`youTubeId-${index}`} value={video.youTubeId} onChange={event => this.handleYouTubeIdChange(index, event.target.value)} onBlur={this.updateVideosInStore} />
+              </label>
+            </div>
+
+            <span className={commonStyle.formElementGroupTitle}>Duration</span>
+            <div className={commonStyle.formElement}>
+              <label htmlFor={`duration-hours${index}`}>
+                Hours
+                <input type="number" min="0" id={`duration-hours-${index}`} value={this.getHoursFromDuration(video.duration)} onChange={event => this.handleDurationHoursChange(index, event.target.value)} onBlur={this.updateVideosInStore} />
+              </label>
+              <label htmlFor={`duration-minutes${index}`}>
+                Minutes
+                <input type="number" min="0" max="60" id={`duration-minutes-${index}`} value={this.getMinutesFromDuration(video.duration)} onChange={event => this.handleDurationMinutesChange(index, event.target.value)} onBlur={this.updateVideosInStore} />
+              </label>
+              <label htmlFor={`duration-seconds${index}`}>
+                Seconds
+                <input type="number" min="0" max="60" id={`duration-seconds-${index}`} value={this.getSecondsFromDuration(video.duration)} onChange={event => this.handleDurationSecondsChange(index, event.target.value)} onBlur={this.updateVideosInStore} />
+              </label>
+              <label htmlFor={`duration-${index}`}>
+                YouTube duration
+                <span id={`duration-${index}`}>
+                  {video.duration}
+                </span>
               </label>
             </div>
 
