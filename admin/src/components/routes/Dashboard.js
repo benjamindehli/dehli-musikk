@@ -1,9 +1,12 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+// Components
+import Sitemaps from 'components/partials/Sitemaps';
 
 // Stylesheets
 import style from 'components/routes/Dashboard.module.scss';
@@ -15,13 +18,33 @@ class Dashboard extends Component {
         <title>Dashboard - Dehli Musikk</title>
       </Helmet>
       <h1>Dashboard</h1>
-      <div>
-      <Link to="/portfolio/"><FontAwesomeIcon icon={['fas', 'music']}/> Portfolio <span>{this.props.releases.length}</span></Link>
-      <Link to="/posts/"><FontAwesomeIcon icon={['fas', 'photo-video']}/> Posts <span>{this.props.posts.length}</span></Link>
-      <Link to="/videos/"><FontAwesomeIcon icon={['fas', 'photo-video']}/> Videos <span>{this.props.videos.length}</span></Link>
+      <h2>Items</h2>
+      <div className={style.grid}>
+        <Link to="/portfolio/" className={style.gridItem}>
+          <span className={style.gridItemIcon}>
+            <FontAwesomeIcon icon={['fas', 'music']} size="3x" />
+            <span className={style.gridItemIconBadge}>{this.props.releases.length}</span>
+          </span>
+          <span className={style.gridItemName}>Portfolio</span>
+        </Link>
+        <Link to="/posts/" className={style.gridItem}>
+          <span className={style.gridItemIcon}>
+            <FontAwesomeIcon icon={['fas', 'photo-video']} size="3x" />
+            <span className={style.gridItemIconBadge}>{this.props.posts.length}</span>
+          </span>
+          <span className={style.gridItemName}>Posts</span>
+        </Link>
+        <Link to="/videos/" className={style.gridItem}>
+          <span className={style.gridItemIcon}>
+            <FontAwesomeIcon icon={['fas', 'film']} size="3x" />
+            <span className={style.gridItemIconBadge}>{this.props.videos.length}</span>
+          </span>
+          <span className={style.gridItemName}>Videos</span>
+        </Link>
 
       </div>
-      <FontAwesomeIcon icon={['fas', 'music']}/>
+      <h2>Sitemaps</h2>
+        <Sitemaps />
     </div>)
   }
 }
@@ -30,9 +53,9 @@ const mapStateToProps = state => (
   {
     releases: state.releases,
     posts: state.posts,
-    videos: state.videos 
+    videos: state.videos
   }
-  );
+);
 
 
 export default connect(mapStateToProps, null)(Dashboard);

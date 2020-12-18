@@ -1,5 +1,45 @@
+@import "../../style/abstracts/all";
+
 :local(.contentSection) {
     max-width: 1200px;
     padding: 64px 24px;
     margin: auto;
+    :local(.grid) {
+        display: flex;
+        :local(.gridItem) {
+            @include appearance(none);
+            display: block;
+            margin: 6px;
+            background: none;
+            :local(.gridItemIcon) {
+                position: relative;
+                display: block;
+                color: $default-text-color;
+                width: 75px;
+                text-align: center;
+                margin: auto;
+                :local(.gridItemIconBadge) {
+                    font-size: 14px;
+                    background-color: $primary-color;
+                    color: #fff;
+                    padding: 0;
+                    border-radius: 50%;
+                    width: 26px;
+                    line-height: 26px;
+                    display: inline-block;
+                    position: absolute;
+                    text-align: center;
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+
+            :local(.gridItemName) {
+                color: $default-text-color;
+                display: block;
+                text-align: center;
+                font-size: 18px;
+            }
+        }
+    }
 }
