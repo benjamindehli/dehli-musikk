@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { saveAs } from 'file-saver';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Components
@@ -15,7 +14,6 @@ import { createRelease, updateReleases } from 'actions/ReleasesActions';
 // Helpers
 import { updatePropertyInArray } from 'helpers/objectHelpers';
 import { fetchReleaseData, renderFileName } from 'helpers/releaseHelpers';
-import { getReleaseInstruments } from 'helpers/releaseInstrumentHelpers';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
 // Stylesheets
@@ -36,15 +34,6 @@ class Portfolio extends Component {
     this.setState({
       releases: this.props.releases
     });
-  }
-
-  saveFileContent(fileContent) {
-    var filename = `${fileContent.thumbnailFilename}.json`;
-    var contentString = JSON.stringify(fileContent);
-    var blob = new Blob([contentString], {
-      type: "application/json;charset=utf-8"
-    });
-    saveAs(blob, filename);
   }
 
 
@@ -125,27 +114,10 @@ class Portfolio extends Component {
     )
   }
 
-  renderInstrumentList(instruments) {
-    const instrumentListElements = instruments.map(instrument => {
-      return (<li key={instrument.equipmentItemId}>
-        <a href={`#${instrument.equipmentItemId}`}>{instrument.brand} {instrument.model}</a>
-        <button>Remove</button>
-      </li>)
-    });
-    return (
-      <React.Fragment>
-        <ul className={commonStyle.formList}>
-          {instrumentListElements}
-        </ul>
-        <button>Add</button>
-      </React.Fragment>
-    )
-  }
 
   renderReleasesFields(releases) {
     return releases && releases.length
       ? releases.map((release, index) => {
-        const releaseInstruments = getReleaseInstruments(this.props.releasesInstruments, release.slug, this.props.instruments);
         return <Release release={release} index={index} key={`release-${index}`} />
       }) : '';
   }
@@ -166,9 +138,7 @@ class Portfolio extends Component {
 }
 
 const mapStateToProps = state => ({
-  instruments: state.instruments,
-  releases: state.releases,
-  releasesInstruments: state.releasesInstruments
+  releases: state.releases
 });
 
 const mapDispatchToProps = {
