@@ -36,7 +36,6 @@ class Portfolio extends Component {
     });
   }
 
-
   handleArtistNameChange(index, artistName) {
     let newReleases = this.props.releases;
     let release = newReleases[index];
@@ -118,7 +117,7 @@ class Portfolio extends Component {
   renderReleasesFields(releases) {
     return releases && releases.length
       ? releases.map((release, index) => {
-        return <Release release={release} index={index} key={`release-${index}`} />
+        return <Release release={release} index={index} key={`release-${release.id}${index}`} />
       }) : '';
   }
 
@@ -128,8 +127,7 @@ class Portfolio extends Component {
         <title>Portfolio - Dashboard - Dehli Musikk</title>
       </Helmet>
       <h1>Portfolio</h1>
-      {this.props.releases ? this.renderReleasesFields(this.props.releases) : ''}
-
+      {this.renderReleasesFields(this.state.releases)}
       <ActionButtonBar>
         <button onClick={this.createReleaseInStore} className={commonStyle.bgGreen}><FontAwesomeIcon icon={['fas', 'plus']} /> Add</button>
       </ActionButtonBar>
