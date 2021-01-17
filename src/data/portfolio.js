@@ -23,6 +23,7 @@ import setOnesCapLikeAStone from './releases/data/setOnesCap_likeaStone_0uiT2eVv
 import setOnesCapWaitForTheOther from './releases/data/setOnesCap_waitfortheOther_7o3Zv2B9uDTLlykNW5EEOC.json';
 import spinningsWheelsBandPowerOfAGrin from './releases/data/spinningWheelsBand_powerofaGrin_3frJWthdoCi4OyLnDUh4j0.json';
 import spinningsWheelsBandBackWhen from './releases/data/spinningWheelsBandRandleCurrieJustinWilliamso_backWhen_7tW3Ik76uWSXsksLoheDrr.json';
+import taxiBearKoreaTown from './releases/data/taxiBear_koreaTown_soundcloud_taxi-bear_korea-town.json';
 import theWhiteDevilGetLucky from './releases/data/theWhiteDevil_getLucky_3WQblBc1s04myN7D7M3x2M.json';
 import thomasTveitenDaaEDetVerdtDet from './releases/data/thomasTveiten_daaEDetVerdtDet_0HOLqowmkcU2MWOFAhxwi5.json';
 import wildWhensBacktrackJack from './releases/data/wildWhens_backtrackJack_2qdN2vUuvcryyN9WeT2EP9.json';
@@ -37,9 +38,9 @@ import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggin
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
+  taxiBearKoreaTown,
   kaasinRevelation,
-  haakerBrothers,
-  wolfMoonFeverDiggingIntoMyPast
+  haakerBrothers
 ];
 
 const allReleases = [
@@ -68,6 +69,7 @@ const allReleases = [
   setOnesCapWaitForTheOther,
   spinningsWheelsBandPowerOfAGrin,
   spinningsWheelsBandBackWhen,
+  taxiBearKoreaTown,
   theWhiteDevilGetLucky,
   thomasTveitenDaaEDetVerdtDet,
   wildWhensBacktrackJack,
