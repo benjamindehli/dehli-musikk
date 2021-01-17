@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/hammond-orgel-med-fuzz-og-gitarforsterker/</loc>
+    <video:video>
+      <video:title>Hammond-orgel med fuzz og gitarforsterker</video:title>
+      <video:description>Hammond C3 med Fuzz Face inn i en Vox AC15H1TV.
+Metallboksen med den store knotten demper det kraftige signalet fra orgelet før det treffer Fuzz Face-pedalen.
+
+
+Effekter:
+- Dehli Musikk Attenuator Box
+- Dunlop / Dallas Arbiter Fuzz Face
+
+Forsterker:
+- Vox AC15H1TV
+
+Instrument:
+- Hammond C3
+
+
+Nettside: https://www.dehlimusikk.no/
+Facebook: https://www.facebook.com/DehliMusikk/
+Instagram: https://www.instagram.com/benjamindehli/</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=yBnz0PAG-iA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-01-08-00_540.8813d0ab.jpg</video:thumbnail_loc>
+      <video:duration>58</video:duration>
+      <video:publication_date>2021-01-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/hammond-organ-with-fuzz-and-guitar-amp/</loc>
+    <video:video>
+      <video:title>Hammond organ with fuzz and guitar amp</video:title>
+      <video:description>Hammond C3 with Fuzz Face into a Vox AC15H1TV.
+The metal box with the big knob attenuates the hot signal from the organ before it hits the Fuzz Face.
+
+
+Effects:
+- Dehli Musikk Attenuator Box
+- Dunlop / Dallas Arbiter Fuzz Face
+
+Amplifier:
+- Vox AC15H1TV
+
+Instrument:
+- Hammond C3
+
+
+Website: https://www.dehlimusikk.no/
+Facebook: https://www.facebook.com/DehliMusikk/
+Instagram: https://www.instagram.com/benjamindehli/</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=yBnz0PAG-iA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-01-08-00_540.8813d0ab.jpg</video:thumbnail_loc>
+      <video:duration>58</video:duration>
+      <video:publication_date>2021-01-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/kaasin-revelation/</loc>
     <video:video>
       <video:title>Kaasin - Revelation</video:title>
@@ -45,7 +105,7 @@ Label: Streampeak Music</video:description>
       <video:description>Synth-melodilinja fra Release the Beast av Breakwater spilt på en Sequential Circuits Pro-One.
 Release the Beast ble gitt ut i 1980, men var senere samplet i låta Robot Rock av Daft Punk.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=UQL8Mp1W2Nw</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-11-13-00_540.5f1faa06.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-11-13-00_540.aafc78ad.jpg</video:thumbnail_loc>
       <video:duration>20</video:duration>
       <video:publication_date>2020-11-13</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
@@ -59,7 +119,7 @@ Release the Beast ble gitt ut i 1980, men var senere samplet i låta Robot Rock 
       <video:description>The synth lick from Release the Beast by Breakwater played on a Sequential Circuits Pro-One.
 Release the Beast came out in 1980 but was later sampled in the song Robot Rock by Daft Punk.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=UQL8Mp1W2Nw</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-11-13-00_540.5f1faa06.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-11-13-00_540.aafc78ad.jpg</video:thumbnail_loc>
       <video:duration>20</video:duration>
       <video:publication_date>2020-11-13</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
@@ -72,7 +132,7 @@ Release the Beast came out in 1980 but was later sampled in the song Robot Rock 
       <video:title>Clavinet gjennom en Korg MS-20</video:title>
       <video:description>Korg MS-20 som effektboks til Hohner Clavinet D6.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=nIvwCPsxCps</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-10-03-00_540.120ad134.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-10-03-00_540.0fa4059e.jpg</video:thumbnail_loc>
       <video:duration>661</video:duration>
       <video:publication_date>2020-10-03</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
@@ -85,7 +145,7 @@ Release the Beast came out in 1980 but was later sampled in the song Robot Rock 
       <video:title>Running Clavinet through a Korg MS-20</video:title>
       <video:description>Using the Korg MS-20 as an effects unit for the Hohner Clavinet D6.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=nIvwCPsxCps</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-10-03-00_540.120ad134.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-10-03-00_540.0fa4059e.jpg</video:thumbnail_loc>
       <video:duration>661</video:duration>
       <video:publication_date>2020-10-03</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
