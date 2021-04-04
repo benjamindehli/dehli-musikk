@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/wurlitzer-200a-med-roger-mayer-voodoo-vibe-plus-vibrato/</loc>
+    <video:video>
+      <video:title>Wurlitzer 200A med Roger Mayer Voodoo-Vibe+ vibrato</video:title>
+      <video:description>Wurlitzer 200A elektrisk piano med vibrato fra en Roger Mayer Voodoo-Vibe+ effekt pedal.
+Signalet er sendt gjennom en Fender Twin Reverb forsterker som er mikket opp med en Shure SM57.
+Instrument: Wurlitzer 200
+Effekt pedal: Roger Mayer Voodoo-Vibe+
+Forsterker: Fender Twin Reverb Amp</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=05mJ7ePz_1c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-04-02-00_540.03527def.jpg</video:thumbnail_loc>
+      <video:duration>385</video:duration>
+      <video:publication_date>2021-04-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/wurlitzer-200a-with-roger-mayer-voodoo-vibe-plus-vibrato/</loc>
+    <video:video>
+      <video:title>Wurlitzer 200A with Roger Mayer Voodoo-Vibe+ vibrato</video:title>
+      <video:description>Wurlitzer 200A electric piano with vibrato from a Roger Mayer Voodoo-Vibe+ effects pedal.
+The signal is going through a Fender Twin Reverb amplifier, mic&apos;d with a Shure SM57.
+Instrument: Wurlitzer 200A
+Effects: Roger Mayer Voodoo-Vibe+
+Amplifier: Fender Twin Reverb Amp</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=05mJ7ePz_1c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-04-02-00_540.03527def.jpg</video:thumbnail_loc>
+      <video:duration>385</video:duration>
+      <video:publication_date>2021-04-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/clavinet-med-whammy-pedal/</loc>
     <video:video>
       <video:title>Clavinet med Whammy pedal</video:title>
