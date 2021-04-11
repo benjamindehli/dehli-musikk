@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/3-tone-parafoni-med-dreadbox-erebus-og-doepfer-dark-energy/</loc>
+    <video:video>
+      <video:title>3-tone-parafoni med Dreadbox Erebus og Doepfer Dark Energy</video:title>
+      <video:description>Dreadbox Erebus v2 og Doepfer Dark Energy (v1) spiller 3-tone parafonisk.
+Doepfer Dark Energy spiller den lysteste tonen og Dreadbox Erebus spiller de 2 laveste tonene.
+Instrumenter: Dreadbox Erebus v2 og Doepfer Dark Energy
+MIDI-kontroller: Doepfer d3m</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=2UthAnSOTfU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-04-11-00_540.0a125a07.jpg</video:thumbnail_loc>
+      <video:duration>980</video:duration>
+      <video:publication_date>2021-04-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/3-note-paraphony-with-dreadbox-erebus-and-doepfer-dark-energy/</loc>
+    <video:video>
+      <video:title>3-note paraphony with Dreadbox Erebus and Doepfer Dark Energy</video:title>
+      <video:description>Dreadbox Erebus v2 and Doepfer Dark Energy (v1) playing 3-note paraphonic.
+Doepfer Dark Energy has highest note priority and Dreadbox Erebus has the 2 lowest note priority.
+Instruments: Dreadbox Erebus v2 and Doepfer Dark Energy
+MIDI controller: Doepfer d3m</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=2UthAnSOTfU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-04-11-00_540.0a125a07.jpg</video:thumbnail_loc>
+      <video:duration>980</video:duration>
+      <video:publication_date>2021-04-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/wurlitzer-200a-med-roger-mayer-voodoo-vibe-plus-vibrato/</loc>
     <video:video>
       <video:title>Wurlitzer 200A med Roger Mayer Voodoo-Vibe+ vibrato</video:title>
