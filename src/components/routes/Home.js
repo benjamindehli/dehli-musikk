@@ -74,7 +74,7 @@ class Home extends Component {
     const metaDescription = this.props.selectedLanguageKey === 'en'
         ? 'Dehli Musikk is a sole proprietorship run by Benjamin Dehli which offers keyboard instrument tracks on recordings for artists and bands'
         : 'Dehli Musikk er et enkeltpersonsforetak drevet av Benjamin Dehli som tilbyr spilling av tangentinstrumenter på låter for artister og band';
-    return (<div>
+    return (<React.Fragment>
       <Helmet htmlAttributes={{ lang : this.props.selectedLanguageKey }}>
         <title>Dehli Musikk</title>
         <meta name='description' content={metaDescription}/>
@@ -199,7 +199,7 @@ class Home extends Component {
           <SocialMediaLinks/>
         </div>
       </div>
-    </div>)
+    </React.Fragment>)
   }
 }
 

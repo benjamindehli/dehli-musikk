@@ -45,9 +45,8 @@ class Footer extends Component {
         </div>
       </div>
       <div className={style.contentSection}>
-        <span>
+        © 2021 Dehli Musikk
           © 2019 Dehli Musikk
-        </span>
       </div>
     </div>)
   }
