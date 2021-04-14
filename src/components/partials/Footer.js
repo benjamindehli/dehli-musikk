@@ -1,6 +1,6 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 // Assets
 import map930Webp from 'assets/images/map_930.webp';
@@ -35,8 +35,8 @@ class Footer extends Component {
             <a href='https://g.page/dehli-musikk?share' title='Location for Dehli Musikk in Google Maps' aria-label='Location for Dehli Musikk in Google Maps' target='_blank' rel="noopener noreferrer">
               <figure className={style.map}>
                 <picture>
-                  <source srcSet={`${map930Webp} 930w`} type="image/webp"/>
-                  <source srcSet={`${map930Jpg} 930w`} type="image/jpg"/>
+                  <source srcSet={`${map930Webp} 930w`} type="image/webp" />
+                  <source srcSet={`${map930Jpg} 930w`} type="image/jpg" />
                   <img src={map930Jpg} alt="Location for Dehli Musikk" width="779" height="250" />
                 </picture>
               </figure>
@@ -46,7 +46,6 @@ class Footer extends Component {
       </div>
       <div className={style.contentSection}>
         © 2021 Dehli Musikk
-          © 2019 Dehli Musikk
       </div>
     </div>)
   }
