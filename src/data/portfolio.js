@@ -1,6 +1,7 @@
 import twentyTwentyVisionCanYouSeeMe from './releases/data/2020Vision_canYouSeeMe_306eApL5c1v3HDGt43W1S5.json';
 import twentyTwentyVisionUnderTheMidnightSun from './releases/data/2020Vision_undertheMidnightSun_4LhjIGVvRYXM21TdgFfGbN?si=4QP0B2RGQR2k67Nn7iYTWw.json';
 import ainaWassvikDauntless from './releases/data/ainaWassvik_dauntless_0u0XnmGmw3WF99J0jMXyP3.json';
+import ainaWassvikHypnotized from './releases/data/ainaWassvik_hypnotized_7q1m79gg4Nbw21v9kb1Afh.json';
 import audunHaukvikDrivingAlone from './releases/data/audunHaukvik_drivingAlone_0GXqPzuquj1tpL7MEWAUom.json';
 import changemakersVeidemannen from './releases/data/changemakers_veidemannen_7brelOFhq6xXGWExXPwcuw.json';
 import confusionConfusion from './releases/data/confusion_confusion_3k9hYBU4jbh2divQo8vauI.json';
@@ -38,15 +39,16 @@ import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggin
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
+  ainaWassvikHypnotized,
   taxiBearKoreaTown,
-  kaasinRevelation,
-  haakerBrothers
+  kaasinRevelation
 ];
 
 const allReleases = [
   twentyTwentyVisionCanYouSeeMe,
   twentyTwentyVisionUnderTheMidnightSun,
   ainaWassvikDauntless,
+  ainaWassvikHypnotized,
   audunHaukvikDrivingAlone,
   changemakersVeidemannen,
   confusionConfusion,
