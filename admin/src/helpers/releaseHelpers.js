@@ -41,23 +41,19 @@ const convertReleaseDate = releaseDate => {
 }
 
 const convertPageApiData = (apiData, releaseId) => {
-  if (apiData && apiData.nodesByUniqueId && apiData.nodesByUniqueId['AUTOMATED_LINK::itunes']) {
-    const itunesKey = apiData.nodesByUniqueId['AUTOMATED_LINK::itunes'].matchNodeUniqueId;
-    let itunesData = apiData.nodesByUniqueId[itunesKey];
-    const spotifyKey = apiData.nodesByUniqueId['AUTOMATED_LINK::spotify'].matchNodeUniqueId;
-    const spotifyData = apiData.nodesByUniqueId[spotifyKey];
-    itunesData = itunesData ? itunesData : spotifyData;
+  const releaseData = apiData?.entityData;
+  if (releaseData) {
     return {
       id: releaseId,
-      slug: convertToUrlFriendlyString(`${itunesData.artistName} ${itunesData.title}`),
-      artistName: itunesData.artistName,
-      title: itunesData.title,
-      duration: itunesData.duration,
-      durationISO: convertMillisToIsoDuration(itunesData.duration),
-      genre: itunesData.genre ? itunesData.genre : '',
-      releaseDate: convertReleaseDate(itunesData.releaseDate),
-      spotifyThumbnailUrl: spotifyData.thumbnailUrl,
-      thumbnailFilename: renderFileName(itunesData.artistName, itunesData.title, releaseId)
+      slug: convertToUrlFriendlyString(`${releaseData.artistName} ${releaseData.title}`),
+      artistName: releaseData.artistName,
+      title: releaseData.title,
+      duration: releaseData.duration,
+      durationISO: convertMillisToIsoDuration(releaseData.duration),
+      genre: releaseData.genre || '',
+      releaseDate: convertReleaseDate(releaseData.releaseDate),
+      spotifyThumbnailUrl: releaseData.thumbnailUrl,
+      thumbnailFilename: renderFileName(releaseData.artistName, releaseData.title, releaseId)
     };
   } else
     return null;
