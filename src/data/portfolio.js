@@ -13,6 +13,7 @@ import confusionThisTime from './releases/data/confusion_lettheGamesBegin_4XEL4e
 import esbenMeyerTaakemann from './releases/data/esbenMeyer_taakemann_1B1s5wIUS5YacAPFBXmbTU.json';
 import haakerBrothers from './releases/data/haaker_brothers_7yowbgDvDhE1U1WWLdgx8o.json';
 import haakerRocknrolla from './releases/data/haaker_rocknrolla_2iToSLHYDsZ4v9ScZ5Y238.json';
+import hanneStaverTheWords from './releases/data/hanneStaver_theWords_19z5DOemtzUXZq8Zn6KykJ.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock_7fVdrI4oTPXduyZiZNlcCH.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth_5Ea891yomzVe9qs5e2DXMJ.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow_1rTLnAzETljGUZHk7aoetP.json';
@@ -39,9 +40,9 @@ import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggin
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
+  hanneStaverTheWords,
   ainaWassvikHypnotized,
-  taxiBearKoreaTown,
-  kaasinRevelation
+  taxiBearKoreaTown
 ];
 
 const allReleases = [
@@ -60,6 +61,7 @@ const allReleases = [
   esbenMeyerTaakemann,
   haakerBrothers,
   haakerRocknrolla,
+  hanneStaverTheWords,
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesTheLastDayOnEarth,
   hauntedBySilhouettesUndertow,
