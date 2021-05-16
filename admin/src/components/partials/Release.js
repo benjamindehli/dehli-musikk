@@ -24,6 +24,7 @@ class Release extends Component {
     super(props);
     this.state = {
       release: null,
+      updatedRelease: null,
       addLinkIsActive: false,
       addInstrumentIsActive: false
     }
@@ -100,13 +101,30 @@ class Release extends Component {
     this.updateReleasesInStore();
   }
 
+  handleLinksReplace(links) {
+    this.setState({
+      release: {
+        ...this.state.release,
+        links
+      }
+    });
+    this.updateReleasesInStore();
+  }
+
   handleFetchReleaseData() {
     fetchReleaseData(this.state.release.id).then(release => {
-      this.setState({
-        release
-      }, () => {
-        this.updateReleasesInStore();
-      })
+      const isPreviouslyFetched = this.state.release?.slug?.length ? true : false;
+      if (isPreviouslyFetched) {
+        this.setState({
+          updatedRelease: release
+        })
+      } else {
+        this.setState({
+          release
+        }, () => {
+          this.updateReleasesInStore();
+        })
+      }
     });
   }
 
@@ -119,8 +137,46 @@ class Release extends Component {
   renderLinkList(links) {
     const linkListElements = Object.keys(links).map(linkKey => {
       const link = links[linkKey];
+      const linkHasChanged = this.state.updatedRelease?.links?.[linkKey] && this.state.updatedRelease.links[linkKey] !== link;
+      const linkIsRemoved = this.state.updatedRelease?.links && !this.state.updatedRelease?.links?.[linkKey];
       return (<li key={linkKey}>
         <a href={link}>{linkKey}</a>
+        {linkIsRemoved ? ' (Removed)' : ''}
+        {linkHasChanged ? (
+          <dl>
+            <dt>Saved link: </dt>
+            <dd>{link}</dd>
+            <dt>Updated link:</dt>
+            <dd>{this.state.updatedRelease.links[linkKey]}</dd>
+          </dl>
+        )
+          : ''}
+      </li>)
+    });
+    return (
+      <ul>
+        {linkListElements}
+      </ul>
+    )
+  }
+
+  renderUpdatedLinkList(links) {
+    const linkListElements = Object.keys(links).map(linkKey => {
+      const link = links[linkKey];
+      const linkHasChanged = this.state.release?.links?.[linkKey] && this.state.release.links[linkKey] !== link;
+      const linkIsNew = !this.state.release.links[linkKey];
+      return (<li key={linkKey}>
+        <a href={link}>{linkKey}</a>
+        {linkIsNew ? ' (New)' : ''}
+        {linkHasChanged ? (
+          <dl>
+            <dt>Saved link: </dt>
+            <dd>{this.state.release.links[linkKey]}</dd>
+            <dt>Updated link:</dt>
+            <dd>{link}</dd>
+          </dl>
+        )
+          : ''}
       </li>)
     });
     return (
@@ -186,6 +242,7 @@ class Release extends Component {
 
   render() {
     const release = this.state.release;
+    const updatedRelease = this.state.updatedRelease;
     const index = this.props.index;
     if (release) {
       const releaseInstruments = getReleaseInstruments(this.props.releasesInstruments, release.slug, this.props.instruments);
@@ -217,14 +274,29 @@ class Release extends Component {
             <label htmlFor={`artistName-${index}`}>
               Artist
                 <input type="text" id={`artistName-${index}`} value={release.artistName} onChange={event => this.handleArtistNameChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              {
+                updatedRelease?.artistName && updatedRelease.artistName !== this.state.release.artistName
+                  ? (<span>{updatedRelease.artistName} <button onClick={() => this.handleArtistNameChange(updatedRelease.artistName)}>Replace</button></span>)
+                  : ''
+              }
             </label>
             <label htmlFor={`title-${index}`}>
               Title
                 <input type="text" id={`title-${index}`} value={release.title} onChange={event => this.handleTitleChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              {
+                updatedRelease?.title && updatedRelease.title !== this.state.release.title
+                  ? (<span>{updatedRelease.title} <button onClick={() => this.handleTitleChange(updatedRelease.title)}>Replace</button></span>)
+                  : ''
+              }
             </label>
             <label htmlFor={`genre-${index}`}>
               Genre
                 <input type="text" id={`genre-${index}`} value={release.genre} onChange={event => this.handleGenreChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              {
+                updatedRelease?.genre && updatedRelease.genre !== this.state.release.genre
+                  ? (<span>{updatedRelease.genre} <button onClick={() => this.handleGenreChange(updatedRelease.genre)}>Replace</button></span>)
+                  : ''
+              }
             </label>
           </div>
           <div className={commonStyle.formElement}>
@@ -236,6 +308,11 @@ class Release extends Component {
                 onChange={value => this.handleReleaseDateChange(value.valueOf())}
                 selected={release.releaseDate}
                 className={commonStyle.input} />
+              {
+                updatedRelease?.releaseDate && updatedRelease.releaseDate !== this.state.release.releaseDate
+                  ? (<span>{updatedRelease.releaseDate} <button onClick={() => this.handleReleaseDateChange(updatedRelease.releaseDate)}>Replace</button></span>)
+                  : ''
+              }
             </label>
             <label htmlFor={`duration-${index}`}>
               Duration
@@ -263,6 +340,15 @@ class Release extends Component {
             <summary>Links {Object.keys(release.links).length}</summary>
             {this.renderLinkList(release.links)}
           </details>
+          {
+            updatedRelease?.links
+              ? (<details>
+                <summary>Updated links {Object.keys(updatedRelease.links).length}</summary>
+                {this.renderUpdatedLinkList(updatedRelease.links)}
+                <button onClick={() => this.handleLinksReplace(updatedRelease.links)}>Replace</button>
+              </details>)
+              : ''
+          }
           <details>
             <summary>Instruments {releaseInstruments.length}</summary>
             {this.renderInstrumentList(releaseInstruments)}
