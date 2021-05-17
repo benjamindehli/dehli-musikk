@@ -24,7 +24,7 @@ import setOnesCapDontYouWannaKnow from './releases/data/setOnesCap_dontYouWannaK
 import setOnesCapLikeAStone from './releases/data/setOnesCap_likeaStone_0uiT2eVvUf9zRDs2Jx6RES.json';
 import setOnesCapWaitForTheOther from './releases/data/setOnesCap_waitfortheOther_7o3Zv2B9uDTLlykNW5EEOC.json';
 import spinningsWheelsBandPowerOfAGrin from './releases/data/spinningWheelsBand_powerofaGrin_3frJWthdoCi4OyLnDUh4j0.json';
-import spinningsWheelsBandBackWhen from './releases/data/spinningWheelsBandRandleCurrieJustinWilliamso_backWhen_7tW3Ik76uWSXsksLoheDrr.json';
+import spinningsWheelsBandBackWhen from './releases/data/spinningWheelsBandRandleCurrieJustinWilliamson_backWhen_7tW3Ik76uWSXsksLoheDrr.json';
 import taxiBearKoreaTown from './releases/data/taxiBear_koreaTown_soundcloud_taxi-bear_korea-town.json';
 import theWhiteDevilGetLucky from './releases/data/theWhiteDevil_getLucky_3WQblBc1s04myN7D7M3x2M.json';
 import thomasTveitenDaaEDetVerdtDet from './releases/data/thomasTveiten_daaEDetVerdtDet_0HOLqowmkcU2MWOFAhxwi5.json';
