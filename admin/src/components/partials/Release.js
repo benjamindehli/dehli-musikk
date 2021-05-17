@@ -173,11 +173,11 @@ class Release extends Component {
             <dl>
               <dt>Saved link: </dt>
               <dd>
-                <a href={link} target="_blank">{link}</a>
+                <a href={link} target="_blank" rel="noreferrer">{link}</a>
               </dd>
               <dt>Updated link:</dt>
               <dd>
-                <a href={this.state.updatedRelease.links[linkKey]} target="_blank">{this.state.updatedRelease.links[linkKey]}</a>
+                <a href={this.state.updatedRelease.links[linkKey]} target="_blank" rel="noreferrer">{this.state.updatedRelease.links[linkKey]}</a>
               </dd>
             </dl>
             <button onClick={() => { this.handleLinkChange(linkKey, this.state.updatedRelease.links[linkKey]) }}>Replace link</button>
@@ -206,11 +206,11 @@ class Release extends Component {
             <dl>
               <dt>Saved link: </dt>
               <dd>
-                <a href={this.state.release.links[linkKey]} target="_blank">{this.state.release.links[linkKey]}</a>
+                <a href={this.state.release.links[linkKey]} target="_blank" rel="noreferrer">{this.state.release.links[linkKey]}</a>
               </dd>
               <dt>Updated link:</dt>
               <dd>
-                <a href={link} target="_blank">{link}</a>
+                <a href={link} target="_blank" rel="noreferrer">{link}</a>
               </dd>
             </dl>
             <button onClick={() => { this.handleLinkChange(linkKey, link) }}>Replace link</button>
