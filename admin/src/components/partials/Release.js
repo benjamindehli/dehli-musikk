@@ -101,6 +101,32 @@ class Release extends Component {
     this.updateReleasesInStore();
   }
 
+
+  handleLinkChange(linkKey, link) {
+    this.setState({
+      release: {
+        ...this.state.release,
+        links: {
+          ...this.state.release.links,
+          [linkKey]: link
+        }
+      }
+    });
+    this.updateReleasesInStore();
+  }
+
+  handleLinkRemove(linkKey) {
+    let newLinks = this.state.release.links;
+    delete newLinks[linkKey];
+    this.setState({
+      release: {
+        ...this.state.release,
+        links: newLinks
+      }
+    });
+    this.updateReleasesInStore();
+  }
+
   handleLinksReplace(links) {
     this.setState({
       release: {
@@ -141,14 +167,17 @@ class Release extends Component {
       const linkIsRemoved = this.state.updatedRelease?.links && !this.state.updatedRelease?.links?.[linkKey];
       return (<li key={linkKey}>
         <a href={link}>{linkKey}</a>
-        {linkIsRemoved ? ' (Removed)' : ''}
+        {linkIsRemoved ? <button onClick={() => { this.handleLinkRemove(linkKey) }}>Remove link</button> : ''}
         {linkHasChanged ? (
+          <div>
           <dl>
             <dt>Saved link: </dt>
             <dd>{link}</dd>
             <dt>Updated link:</dt>
             <dd>{this.state.updatedRelease.links[linkKey]}</dd>
           </dl>
+          <button onClick={() => {this.handleLinkChange(linkKey, this.state.updatedRelease.links[linkKey])}}>Replace link</button>
+          </div>
         )
           : ''}
       </li>)
@@ -167,14 +196,17 @@ class Release extends Component {
       const linkIsNew = !this.state.release.links[linkKey];
       return (<li key={linkKey}>
         <a href={link}>{linkKey}</a>
-        {linkIsNew ? ' (New)' : ''}
+        {linkIsNew ? <button onClick={() => {this.handleLinkChange(linkKey, link)}}>Add link</button> : ''}
         {linkHasChanged ? (
+          <div>
           <dl>
             <dt>Saved link: </dt>
             <dd>{this.state.release.links[linkKey]}</dd>
             <dt>Updated link:</dt>
             <dd>{link}</dd>
           </dl>
+          <button onClick={() => {this.handleLinkChange(linkKey, link)}}>Replace link</button>
+          </div>
         )
           : ''}
       </li>)
