@@ -61,11 +61,14 @@
                             background-color: #e4e4e4;
                         }
                         &:last-child {
-                    border-radius: 0 4px 4px 0;
-
+                            border-radius: 0 4px 4px 0;
                         }
                     }
                 }
+            }
+            input:read-only {
+                padding: 8px 0;
+                border: 1px solid transparent;
             }
 
             > span {
