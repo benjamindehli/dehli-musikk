@@ -170,13 +170,17 @@ class Release extends Component {
         {linkIsRemoved ? <button onClick={() => { this.handleLinkRemove(linkKey) }}>Remove link</button> : ''}
         {linkHasChanged ? (
           <div>
-          <dl>
-            <dt>Saved link: </dt>
-            <dd>{link}</dd>
-            <dt>Updated link:</dt>
-            <dd>{this.state.updatedRelease.links[linkKey]}</dd>
-          </dl>
-          <button onClick={() => {this.handleLinkChange(linkKey, this.state.updatedRelease.links[linkKey])}}>Replace link</button>
+            <dl>
+              <dt>Saved link: </dt>
+              <dd>
+                <a href={link} target="_blank">{link}</a>
+              </dd>
+              <dt>Updated link:</dt>
+              <dd>
+                <a href={this.state.updatedRelease.links[linkKey]} target="_blank">{this.state.updatedRelease.links[linkKey]}</a>
+              </dd>
+            </dl>
+            <button onClick={() => { this.handleLinkChange(linkKey, this.state.updatedRelease.links[linkKey]) }}>Replace link</button>
           </div>
         )
           : ''}
@@ -196,16 +200,20 @@ class Release extends Component {
       const linkIsNew = !this.state.release.links[linkKey];
       return (<li key={linkKey}>
         <a href={link}>{linkKey}</a>
-        {linkIsNew ? <button onClick={() => {this.handleLinkChange(linkKey, link)}}>Add link</button> : ''}
+        {linkIsNew ? <button onClick={() => { this.handleLinkChange(linkKey, link) }}>Add link</button> : ''}
         {linkHasChanged ? (
           <div>
-          <dl>
-            <dt>Saved link: </dt>
-            <dd>{this.state.release.links[linkKey]}</dd>
-            <dt>Updated link:</dt>
-            <dd>{link}</dd>
-          </dl>
-          <button onClick={() => {this.handleLinkChange(linkKey, link)}}>Replace link</button>
+            <dl>
+              <dt>Saved link: </dt>
+              <dd>
+                <a href={this.state.release.links[linkKey]} target="_blank">{this.state.release.links[linkKey]}</a>
+              </dd>
+              <dt>Updated link:</dt>
+              <dd>
+                <a href={link} target="_blank">{link}</a>
+              </dd>
+            </dl>
+            <button onClick={() => { this.handleLinkChange(linkKey, link) }}>Replace link</button>
           </div>
         )
           : ''}
@@ -342,7 +350,17 @@ class Release extends Component {
                 className={commonStyle.input} />
               {
                 updatedRelease?.releaseDate && updatedRelease.releaseDate !== this.state.release.releaseDate
-                  ? (<span>{updatedRelease.releaseDate} <button onClick={() => this.handleReleaseDateChange(updatedRelease.releaseDate)}>Replace</button></span>)
+                  ? (
+                    <div>
+                      <DatePicker
+                        id={`updatedReleaseDate-${index}`}
+                        locale="nb"
+                        selected={updatedRelease.releaseDate}
+                        readOnly
+                        className={commonStyle.input} />
+                      <button onClick={() => this.handleReleaseDateChange(updatedRelease.releaseDate)}>Replace</button>
+                    </div>
+                  )
                   : ''
               }
             </label>
