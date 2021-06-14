@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/inspilling-av-keyboard-paa-kaasin-runaway-train/</loc>
+    <video:video>
+      <video:title>Inspilling av keyboard på &quot;Kaasin - Runaway Train&quot;</video:title>
+      <video:description>Klipp fra innspillingen av tangentinstrumenter på låta Runaway Train av Kaasin.
+Instrumenter som ble brukt: Wurlitzer 200A med Fender Twin Reverb, Mellotron M4000D spilt inn på 4-spors kassett med Fostex X-28H, Hohner Clavinet D6 med Vox AC15H1TV, Korg MS-20 og Hammond C3 med Leslie 122.
+</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ezaXJZUeIFQ</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-06-14-00_540.be2e11c1.jpg</video:thumbnail_loc>
+      <video:duration>163</video:duration>
+      <video:publication_date>2021-06-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/recording-keyboards-for-kaasin-runaway-train/</loc>
+    <video:video>
+      <video:title>Recording keyboards for &quot;Kaasin - Runaway Train&quot;</video:title>
+      <video:description>Clips from recording of the keyboard instruments for the song Runaway Train by Kaasin.
+Instruments used: Wurlitzer 200A with Fender Twin Reverb, Mellotron M4000D recorded to 4-track casette tape with Fostex X-28H, Hohner Clavinet D6 with Vox AC15H1TV, Korg MS-20 and Hammond C3 with Leslie 122.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ezaXJZUeIFQ</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-06-14-00_540.be2e11c1.jpg</video:thumbnail_loc>
+      <video:duration>163</video:duration>
+      <video:publication_date>2021-06-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/3-tone-parafoni-med-dreadbox-erebus-og-doepfer-dark-energy/</loc>
     <video:video>
       <video:title>3-tone-parafoni med Dreadbox Erebus og Doepfer Dark Energy</video:title>
