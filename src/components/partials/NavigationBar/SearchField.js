@@ -137,6 +137,7 @@ class SearchField extends Component {
           <input type="search"
                  autoComplete="off"
                  id="search"
+                 aria-label={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
                  onChange={(event) => this.handleShowResultsList(event)}
                  onKeyUp={(event) => this.handleSubmitSearch(event)}
                  placeholder={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
