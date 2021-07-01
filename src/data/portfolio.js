@@ -17,6 +17,7 @@ import hanneStaverTheWords from './releases/data/hanneStaver_theWords_19z5DOemtz
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock_7fVdrI4oTPXduyZiZNlcCH.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth_5Ea891yomzVe9qs5e2DXMJ.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow_1rTLnAzETljGUZHk7aoetP.json';
+import kaasinHidden from './releases/data/kAASIN_hidden_0Sape5fh1Yv3OdMtiD4T69.json';
 import kaasinRevelation from './releases/data/kAASIN_revelation_7n9WtDFLHoCLtPZ6oaEXio.json';
 import kaasinRunawayTrain from './releases/data/kAASIN_runawayTrain_2Z28HmWYkw0tN7ldEjAaYS.json';
 import leneNevisdalGiveMeaSmileJoe from './releases/data/leneNevisdal_giveMeaSmileJoe_3a3EqE5GyONmvpC2LeN0TH.json';
@@ -40,9 +41,9 @@ import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggin
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
+  kaasinHidden,
   hanneStaverTheWords,
-  ainaWassvikHypnotized,
-  taxiBearKoreaTown
+  ainaWassvikHypnotized
 ];
 
 const allReleases = [
@@ -65,6 +66,7 @@ const allReleases = [
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesTheLastDayOnEarth,
   hauntedBySilhouettesUndertow,
+  kaasinHidden,
   kaasinRevelation,
   kaasinRunawayTrain,
   leneNevisdalGiveMeaSmileJoe,
