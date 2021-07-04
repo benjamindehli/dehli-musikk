@@ -1,7 +1,7 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 
 // Components
@@ -16,12 +16,12 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
 
 // Actions
-import {fetchReleasesThumbnail} from 'actions/PortfolioActions';
-import {getLanguageSlug} from 'actions/LanguageActions';
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import { fetchReleasesThumbnail } from 'actions/PortfolioActions';
+import { getLanguageSlug } from 'actions/LanguageActions';
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
 // Helpers
-import {getReleaseInstruments} from 'helpers/releaseInstruments';
+import { getReleaseInstruments } from 'helpers/releaseInstruments';
 
 class Release extends Component {
   constructor(props) {
@@ -43,12 +43,12 @@ class Release extends Component {
   }
 
   handleShowLinksClick() {
-    this.setState({showLinks: true});
+    this.setState({ showLinks: true });
   }
 
   handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({showLinks: false});
+      this.setState({ showLinks: false });
     }
   }
 
@@ -64,14 +64,14 @@ class Release extends Component {
         : '350px';
 
     return (<React.Fragment>
-      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
-      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
-      <img loading="lazy" src={image.jpg540} width="540" height="540" alt={`Album cover for ${release.title} by ${release.artistName}`}/>
+      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
+      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
+      <img loading="lazy" src={image.jpg540} width="540" height="540" alt={`Album cover for ${release.title} by ${release.artistName}`} />
     </React.Fragment>);
   }
 
   renderReleaseSnippet(release, releaseThumbnailSrc) {
-    const snippet = {
+    let snippet = {
       "@context": "http://schema.org",
       "@type": "MusicRecording",
       "@id": `https://www.dehlimusikk.no/portfolio/#${release.id}`,
@@ -123,9 +123,9 @@ class Release extends Component {
           "naics": "711130",
           "sameAs": [
             "https://www.facebook.com/DehliMusikk/",
-          	"https://twitter.com/BenjaminDehli",
+            "https://twitter.com/BenjaminDehli",
             "https://www.instagram.com/benjamindehli/",
-          	"https://www.youtube.com/c/BenjaminDehli",
+            "https://www.youtube.com/c/BenjaminDehli",
             "https://www.linkedin.com/in/benjamindehli/",
             "https://vimeo.com/benjamindehli",
             "https://flickr.com/photos/projectdehli/",
@@ -190,17 +190,29 @@ class Release extends Component {
         }
       }
     }
+    if (release.composer) {
+      snippet.recordingOf.composer = {
+        "@type": "Person",
+        "name": release.composer,
+      }
+    }
+    if (release.producer) {
+      snippet.producer = {
+        "@type": "Person",
+        "name": release.producer,
+      }
+    }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
     </Helmet>)
   }
 
-  renderInstrumentsList(instruments, selectedLanguageKey){
-    if (instruments && instruments.length){
+  renderInstrumentsList(instruments, selectedLanguageKey) {
+    if (instruments && instruments.length) {
       const listItems = instruments.map(instrument => {
         return (<ListItem key={instrument.equipmentItemId} compact={true}>
-                  <EquipmentItem item={instrument} itemId={instrument.equipmentItemId} itemType='instruments' compact={true}/>
-                </ListItem>)
+          <EquipmentItem item={instrument} itemId={instrument.equipmentItemId} itemType='instruments' compact={true} />
+        </ListItem>)
       });
       return (
         <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? 'Instruments used on the song' : 'Instrumenter som er brukt på låta'}>
@@ -209,7 +221,7 @@ class Release extends Component {
           </List>
         </ExpansionPanel>
       );
-    }else {
+    } else {
       return '';
     }
   }
@@ -217,7 +229,7 @@ class Release extends Component {
   renderLinkList(release, selectedLanguageKey) {
     return (
       <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? `Listen to ${release.title}` : `Lytt til ${release.title}`}>
-        <ReleaseLinks release={release}/>
+        <ReleaseLinks release={release} />
       </ExpansionPanel>
     );
   }
@@ -291,7 +303,7 @@ Release.defaultProps = {
   compact: false
 }
 
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
+const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
 
 const mapDispatchToProps = {
   fetchReleasesThumbnail,

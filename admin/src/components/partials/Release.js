@@ -101,6 +101,24 @@ class Release extends Component {
     this.updateReleasesInStore();
   }
 
+  handleComposerChange(composer) {
+    this.setState({
+      release: {
+        ...this.state.release,
+        composer
+      }
+    });
+  }
+
+  handleProducerChange(producer) {
+    this.setState({
+      release: {
+        ...this.state.release,
+        producer
+      }
+    });
+  }
+
 
   handleLinkChange(linkKey, link) {
     this.setState({
@@ -377,6 +395,30 @@ class Release extends Component {
               </span>
             </label>
           </div>
+
+
+          <div className={commonStyle.formElement}>
+            <label htmlFor={`composer-${index}`}>
+              Composer
+                <input type="text" id={`composer-${index}`} value={release.composer} onChange={event => this.handleComposerChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              {
+                updatedRelease?.composer && updatedRelease.composer !== this.state.release.composer
+                  ? (<span>{updatedRelease.composer} <button onClick={() => this.handleComposerChange(updatedRelease.composer)}>Replace</button></span>)
+                  : ''
+              }
+            </label>
+            <label htmlFor={`producer-${index}`}>
+              Producer
+                <input type="text" id={`producer-${index}`} value={release.producer} onChange={event => this.handleProducerChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              {
+                updatedRelease?.producer && updatedRelease.producer !== this.state.release.producer
+                  ? (<span>{updatedRelease.producer} <button onClick={() => this.handleProducerChange(updatedRelease.producer)}>Replace</button></span>)
+                  : ''
+              }
+            </label>
+          </div>
+
+
           <div className={commonStyle.formElement}>
             <img loading="lazy" src={release.spotifyThumbnailUrl} width="150" height="150" className={commonStyle.thumbnail} alt='thumbnail' />
             <label htmlFor={`spotifyThumbnailUrl-${index}`}>
