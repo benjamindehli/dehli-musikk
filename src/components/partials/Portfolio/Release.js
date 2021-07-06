@@ -190,17 +190,22 @@ class Release extends Component {
         }
       }
     }
-    if (release.composer) {
+    if (release.composedByDehliMusikk) {
       snippet.recordingOf.composer = {
         "@type": "Person",
-        "name": release.composer,
+        "name": "Benjamin Dehli",
+        "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
       }
     }
-    if (release.producer) {
+    if (release.producedByDehliMusikk) {
       snippet.producer = {
         "@type": "Person",
-        "name": release.producer,
+        "name": "Benjamin Dehli",
+        "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
       }
+    }
+    if (release.isrcCode) {
+      snippet.isrcCode = release.isrcCode;
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
