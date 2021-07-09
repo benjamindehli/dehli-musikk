@@ -101,20 +101,29 @@ class Release extends Component {
     this.updateReleasesInStore();
   }
 
-  handleComposerChange(composer) {
+  handleIsrcCodeChange(isrcCode) {
     this.setState({
       release: {
         ...this.state.release,
-        composer
+        isrcCode
       }
     });
   }
 
-  handleProducerChange(producer) {
+  handleComposedByDehliMusikkChange(checked) {
     this.setState({
       release: {
         ...this.state.release,
-        producer
+        composedByDehliMusikk: checked
+      }
+    });
+  }
+
+  handleProducedByDehliMusikkChange(checked) {
+    this.setState({
+      release: {
+        ...this.state.release,
+        producedByDehliMusikk: checked
       }
     });
   }
@@ -396,25 +405,18 @@ class Release extends Component {
             </label>
           </div>
 
-
           <div className={commonStyle.formElement}>
-            <label htmlFor={`composer-${index}`}>
-              Composer
-                <input type="text" id={`composer-${index}`} value={release.composer} onChange={event => this.handleComposerChange(event.target.value)} onBlur={this.updateReleasesInStore} />
-              {
-                updatedRelease?.composer && updatedRelease.composer !== this.state.release.composer
-                  ? (<span>{updatedRelease.composer} <button onClick={() => this.handleComposerChange(updatedRelease.composer)}>Replace</button></span>)
-                  : ''
-              }
+            <label htmlFor={`isrcCode-${index}`}>
+              ISRC Code
+              <input type="text" id={`isrcCode-${index}`} value={release.isrcCode} onChange={event => this.handleIsrcCodeChange(event.target.value)} onBlur={this.updateReleasesInStore} />
             </label>
-            <label htmlFor={`producer-${index}`}>
-              Producer
-                <input type="text" id={`producer-${index}`} value={release.producer} onChange={event => this.handleProducerChange(event.target.value)} onBlur={this.updateReleasesInStore} />
-              {
-                updatedRelease?.producer && updatedRelease.producer !== this.state.release.producer
-                  ? (<span>{updatedRelease.producer} <button onClick={() => this.handleProducerChange(updatedRelease.producer)}>Replace</button></span>)
-                  : ''
-              }
+            <label htmlFor={`composedByDehliMusikk-${index}`}>
+              Composed by Dehli Musikk
+              <input type="checkbox" id={`composedByDehliMusikk-${index}`} checked={release.composedByDehliMusikk ? true : false} onChange={event => this.handleComposedByDehliMusikkChange(event.target.checked)} onBlur={this.updateReleasesInStore} />
+            </label>
+            <label htmlFor={`producedByDehliMusikk-${index}`}>
+              Produced by Dehli Musikk
+              <input type="checkbox" id={`producedByDehliMusikk-${index}`} checked={release.producedByDehliMusikk ? true : false} onChange={event => this.handleProducedByDehliMusikkChange(event.target.checked)} onBlur={this.updateReleasesInStore} />
             </label>
           </div>
 

@@ -136,6 +136,12 @@ class Videos extends Component {
     });
   }
 
+  handleClipsChange(index, value) {
+    this.setState({
+      videos: updatePropertyInArray(this.props.videos, index, value, 'clips')
+    });
+  }
+
 
   createVideoInStore() {
     this.props.createVideo(this.state.videos);
@@ -203,6 +209,138 @@ class Videos extends Component {
     });
   }
 
+  getHoursFromClipOffsetValue(clipOffsetValue) {
+    return Math.floor(clipOffsetValue / 3600);
+  }
+  getMinutesFromClipOffsetValue(clipOffsetValue) {
+    return Math.floor(clipOffsetValue % 3600 / 60);
+  }
+  getSecondsFromClipOffsetValue(clipOffsetValue) {
+    return Math.floor(clipOffsetValue % 60);
+  }
+
+  getOffsetValueFromDuration(duration) {
+    const hours = this.getHoursFromDuration(duration);
+    const minutes = this.getMinutesFromDuration(duration);
+    const seconds = this.getSecondsFromDuration(duration);
+    return (hours * 3600) + (minutes * 60) + (seconds * 1);
+  }
+
+  handleClipNameChange(videoIndex, clipIndex, name, language) {
+    const clips = this.state.videos[videoIndex].clips;
+    clips[clipIndex].name[language] = name;
+    this.setState({
+      videos: updatePropertyInArray(this.props.videos, videoIndex, clips, 'clips')
+    });
+  }
+
+  handleClipOffsetHoursChange(videoIndex, clipIndex, hours) {
+    hours = hours ? parseInt(hours) : 0;
+    const clips = this.state.videos[videoIndex].clips;
+    const prevStartOffset = clips[clipIndex].startOffset;
+    const prevStartOffsetHours = this.getHoursFromClipOffsetValue(prevStartOffset);
+    const newStartOffset = prevStartOffset - (prevStartOffsetHours * 3600) + (hours * 3600);
+    clips[clipIndex].startOffset = newStartOffset;
+    if (clipIndex > 0) {
+      clips[clipIndex - 1].endOffset = newStartOffset;
+    }
+    this.setState({
+      videos: updatePropertyInArray(this.props.videos, videoIndex, clips, 'clips')
+    });
+  }
+
+  handleClipOffsetMinutesChange(videoIndex, clipIndex, minutes) {
+    minutes = minutes ? parseInt(minutes) : 0;
+    const clips = this.state.videos[videoIndex].clips;
+    const prevStartOffset = clips[clipIndex].startOffset;
+    const prevStartOffsetMinutes = this.getMinutesFromClipOffsetValue(prevStartOffset);
+    const newStartOffset = prevStartOffset - (prevStartOffsetMinutes * 60) + (minutes * 60);
+    clips[clipIndex].startOffset = newStartOffset;
+    if (clipIndex > 0) {
+      clips[clipIndex - 1].endOffset = newStartOffset;
+    }
+    this.setState({
+      videos: updatePropertyInArray(this.props.videos, videoIndex, clips, 'clips')
+    });
+  }
+
+  handleClipOffsetSecondsChange(videoIndex, clipIndex, seconds) {
+    seconds = seconds ? parseInt(seconds) : 0;
+    const clips = this.state.videos[videoIndex].clips;
+    const prevStartOffset = clips[clipIndex].startOffset;
+    const prevStartOffsetSeconds = this.getSecondsFromClipOffsetValue(prevStartOffset);
+    const newStartOffset = prevStartOffset - prevStartOffsetSeconds + (seconds);
+    clips[clipIndex].startOffset = newStartOffset;
+    if (clipIndex > 0) {
+      clips[clipIndex - 1].endOffset = newStartOffset;
+    }
+    this.setState({
+      videos: updatePropertyInArray(this.props.videos, videoIndex, clips, 'clips')
+    });
+  }
+
+  handleAddVideoClip(video, videoIndex) {
+    if (!video.clips || !Array.isArray(video.clips)) {
+      video.clips = [];
+    }
+    video.clips.push({
+      name: {
+        no: '',
+        en: ''
+      },
+      startOffset: video.clips.length > 0 ? video.clips[video.clips.length - 1].startOffset : 0,
+      endOffset: this.getOffsetValueFromDuration(video.duration),
+    })
+
+    this.handleClipsChange(videoIndex, video.clips);
+
+  }
+
+  renderVideoClipsList(video, videoIndex) {
+    const videoClipsElements = video.clips?.length
+      ? video.clips.map((clip, clipIndex) => {
+        return (
+          <div key={clipIndex} className={commonStyle.formElement}>
+            <label htmlFor={`clips-name-no-${videoIndex}-${clipIndex}`}>
+              Norwegian name
+              <input type="text" id={`clips-name-no-${videoIndex}-${clipIndex}`} value={clip.name.no} onChange={event => this.handleClipNameChange(videoIndex, clipIndex, event.target.value, 'no')} onBlur={this.updateVideosInStore}/>
+            </label>
+            <label htmlFor={`clips-name-en-${videoIndex}-${clipIndex}`}>
+              English name
+              <input type="text" id={`clips-name-en-${videoIndex}-${clipIndex}`} value={clip.name.en} onChange={event => this.handleClipNameChange(videoIndex, clipIndex, event.target.value, 'en')} onBlur={this.updateVideosInStore}/>
+            </label>
+            <label htmlFor={`clips-startOffset-hours-${videoIndex}-${clipIndex}`} style={{maxWidth: '70px'}}>
+              Hours
+              <input type="number" min="0" id={`clips-startOffset-hours-${videoIndex}-${clipIndex}`} value={this.getHoursFromClipOffsetValue(clip.startOffset)} onChange={event => this.handleClipOffsetHoursChange(videoIndex, clipIndex, event.target.value)} onBlur={this.updateVideosInStore}/>
+            </label>
+            <label htmlFor={`clips-startOffset-minutes-${videoIndex}-${clipIndex}`} style={{maxWidth: '70px'}}>
+              Minutes
+              <input type="number" min="0" max="60" id={`clips-startOffset-minutes-${videoIndex}-${clipIndex}`} value={this.getMinutesFromClipOffsetValue(clip.startOffset)} onChange={event => this.handleClipOffsetMinutesChange(videoIndex, clipIndex, event.target.value)} onBlur={this.updateVideosInStore}/>
+            </label>
+            <label htmlFor={`clips-startOffset-seconds-${videoIndex}-${clipIndex}`} style={{maxWidth: '70px'}}>
+              Seconds
+              <input type="number" min="0" max="60" id={`clips-startOffset-seconds-${videoIndex}-${clipIndex}`} value={this.getSecondsFromClipOffsetValue(clip.startOffset)} onChange={event => this.handleClipOffsetSecondsChange(videoIndex, clipIndex, event.target.value)} onBlur={this.updateVideosInStore}/>
+            </label>
+            <label htmlFor={`duration-${clipIndex}`} style={{maxWidth: '100px'}}>
+              Period
+              <span id={`duration-${clipIndex}`}>
+                {clip.startOffset} - {clip.endOffset}
+              </span>
+            </label>
+          </div>
+        )
+      })
+      : '';
+    return (
+      <details>
+        <summary>Clips {video.clips?.length || ''}</summary>
+        {videoClipsElements}
+        <button onClick={() => this.handleAddVideoClip(video, videoIndex)} className={commonStyle.fullWidthButton}>
+          <FontAwesomeIcon icon={['fas', 'plus']} /> Add clip
+        </button>
+      </details>
+    )
+  }
 
   renderVideosFields(videos) {
     return videos && videos.length
@@ -312,6 +450,8 @@ class Videos extends Component {
                 </span>
               </label>
             </div>
+
+            {this.renderVideoClipsList(video, index)}
 
           </div>
         )
