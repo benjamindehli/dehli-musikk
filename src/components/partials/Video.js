@@ -1,15 +1,15 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 // Actions
-import {getLanguageSlug} from 'actions/LanguageActions';
+import { getLanguageSlug } from 'actions/LanguageActions';
 
 // Helpers
-import {getPrettyDate} from 'helpers/dateFormatter';
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
-import {convertStringToExcerpt} from 'helpers/search';
+import { getPrettyDate } from 'helpers/dateFormatter';
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
+import { convertStringToExcerpt } from 'helpers/search';
 
 // Components
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
@@ -21,7 +21,7 @@ import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
 
 class Video extends Component {
 
-  renderVideoSnippet(video, videoId, videoThumbnailSrc){
+  renderVideoSnippet(video, videoId, videoThumbnailSrc) {
     const videoDate = new Date(video.timestamp).toISOString();
     const selectedLanguageKey = this.props.selectedLanguageKey
       ? this.props.selectedLanguageKey
@@ -46,9 +46,20 @@ class Video extends Component {
       "datePublished": videoDate,
       "uploadDate": videoDate
     };
-    if (video.copyright){
+    if (video.copyright) {
       snippet.thumbnail.license = "https://creativecommons.org/licenses/by/4.0/legalcode";
       snippet.thumbnail.acquireLicensePage = "https://www.dehlimusikk.no/#contact";
+    }
+    if (video.clips) {
+      snippet.hasPart = video.clips.map(clip => {
+        return {
+          "@type": "Clip",
+          "name": clip.name[selectedLanguageKey],
+          "startOffset": clip.startOffset,
+          "endOffset": clip.endOffset,
+          "url": `https://www.youtube.com/watch?v=${video.youTubeId}&t=${clip.startOffset}`
+        }
+      })
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
@@ -61,8 +72,8 @@ class Video extends Component {
       ? '540px'
       : '350px';
     return (<React.Fragment>
-      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
-      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
+      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
+      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
       <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} copyright={copyrightString} />
     </React.Fragment>);
   }
@@ -96,16 +107,16 @@ class Video extends Component {
       ? (<React.Fragment>
         {
           this.props.fullscreen
-          ? (
-            <React.Fragment>
-              {this.renderVideoSnippet(video, videoId, image.jpg540)}
-              <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]}/>
-            </React.Fragment>
-          ) : (
-            <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
-              {this.renderVideoThumbnail(image, video.thumbnailDescription, this.props.fullscreen, videoPath, video.title[selectedLanguageKey], video.copyright, videoDate)}
-            </ListItemThumbnail>
-          )
+            ? (
+              <React.Fragment>
+                {this.renderVideoSnippet(video, videoId, image.jpg540)}
+                <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]} />
+              </React.Fragment>
+            ) : (
+              <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
+                {this.renderVideoThumbnail(image, video.thumbnailDescription, this.props.fullscreen, videoPath, video.title[selectedLanguageKey], video.copyright, videoDate)}
+              </ListItemThumbnail>
+            )
         }
         <ListItemContent fullscreen={this.props.fullscreen}>
           <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
@@ -116,11 +127,11 @@ class Video extends Component {
             <time dateTime={videoDate.toISOString()}>{getPrettyDate(videoDate, selectedLanguageKey)}</time>
           </ListItemContentHeader>
           <ListItemContentBody fullscreen={this.props.fullscreen}>
-              {
-                videoDescription.split('\n').map((paragraph, key) => {
-                  return (<p key={key}>{paragraph}</p>)
-                })
-              }
+            {
+              videoDescription.split('\n').map((paragraph, key) => {
+                return (<p key={key}>{paragraph}</p>)
+              })
+            }
           </ListItemContentBody>
         </ListItemContent>
       </React.Fragment>)
@@ -128,7 +139,7 @@ class Video extends Component {
   }
 }
 
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
+const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
 
 const mapDispatchToProps = {
   getLanguageSlug
