@@ -241,6 +241,38 @@ Label: Streampeak Music</video:description>
     </video:video>
   </url>
   <url>
+    <loc>https://www.dehlimusikk.no/videos/twin-peaks-theme-cover/</loc>
+    <video:video>
+      <video:title>Twin Peaks Theme (Cover)</video:title>
+      <video:description>Cover-versjon av Twin Peaks Theme komponert av Angelo Badalamenti.
+Instrumenter: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody 2, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur.
+Effekter: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate jr.
+Forsterker: Fender Twin Reverb Amp</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cPS2CXe-ZPk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-11-16-00_540.f53ce12d.jpg</video:thumbnail_loc>
+      <video:duration>320</video:duration>
+      <video:publication_date>2020-11-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/twin-peaks-theme-cover/</loc>
+    <video:video>
+      <video:title>Twin Peaks Theme (Cover)</video:title>
+      <video:description>Cover version of Twin Peaks Theme composed by Angelo Badalamenti.
+Instruments: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody 2, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur.
+Effects: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate jr.
+Amp: Fender Twin Reverb Amp</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cPS2CXe-ZPk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-11-16-00_540.f53ce12d.jpg</video:thumbnail_loc>
+      <video:duration>320</video:duration>
+      <video:publication_date>2020-11-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/breakwater-release-the-beast-synth-melodi/</loc>
     <video:video>
       <video:title>Breakwater - Release the Beast (synth melodi)</video:title>
@@ -847,38 +879,6 @@ Envelope Generator 1 controlling the pitch, making it glide up to the note when 
     </video:video>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/videos/twin-peaks-theme-cover/</loc>
-    <video:video>
-      <video:title>Twin Peaks Theme (Cover)</video:title>
-      <video:description>Cover-versjon av Twin Peaks Theme komponert av Angelo Badalamenti.
-Instrumenter: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody 2, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur.
-Effekter: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate jr.
-Forsterker: Fender Twin Reverb Amp</video:description>
-      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cPS2CXe-ZPk</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-11-16-00_540.f53ce12d.jpg</video:thumbnail_loc>
-      <video:duration>320</video:duration>
-      <video:publication_date>2020-11-16</video:publication_date>
-      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
-    <loc>https://www.dehlimusikk.no/en/videos/twin-peaks-theme-cover/</loc>
-    <video:video>
-      <video:title>Twin Peaks Theme (Cover)</video:title>
-      <video:description>Cover version of Twin Peaks Theme composed by Angelo Badalamenti.
-Instruments: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody 2, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur.
-Effects: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate jr.
-Amp: Fender Twin Reverb Amp</video:description>
-      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cPS2CXe-ZPk</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-11-16-00_540.f53ce12d.jpg</video:thumbnail_loc>
-      <video:duration>320</video:duration>
-      <video:publication_date>2020-11-16</video:publication_date>
-      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
-      <video:live>no</video:live>
-    </video:video>
-  </url>
-  <url>
     <loc>https://www.dehlimusikk.no/videos/testkjoering-av-korg-polysix/</loc>
     <video:video>
       <video:title>Testkjøring av Korg Polysix</video:title>
@@ -928,6 +928,72 @@ Signal path: Logan - String Melody II ➡️ TC Electronic - SCF Stereo Chorus F
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-09-16-00_540.ab95da4a.jpg</video:thumbnail_loc>
       <video:duration>49</video:duration>
       <video:publication_date>2019-09-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/fender-rhodes-direkteklang-oppsett-med-leslie-og-twin-reverb/</loc>
+    <video:video>
+      <video:title>Fender Rhodes - Direkte/Klang oppsett med &quot;Leslie&quot; og Twin Reverb</video:title>
+      <video:description>Fender Rhodes med en Fender Twin Reverb som tørr-/direktelyds-forsterker og en Solton Dopplertone som våtsignal/klang-forsterker.
+Krets for direktelyd: Fender Rhodes ➡️ Fulltone - True-Path ABY-ST (A-Out) ➡️ Hudson Electronics UK - Broadcast ➡️ Fender - Twin Reverb
+Krets for klanglyd: Fender Rhodes ➡️ Fulltone - True-Path ABY-ST (B-Out) ➡️ Hughes &amp; Kettner - Tube Factor ➡️ Diamond - Memory Lane 2 (Delay Only) ➡️ VanAmps - Sole-Mate Jr. ➡️ Solton - Dopplertone</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=rZ5D-5CRkZg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-08-04-00_540.699b2386.jpg</video:thumbnail_loc>
+      <video:duration>88</video:duration>
+      <video:publication_date>2019-08-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/fender-rhodes-wetdry-setup-with-rotary-speaker-and-twin-reverb/</loc>
+    <video:video>
+      <video:title>Fender Rhodes - Wet/Dry setup with rotary speaker and Twin Reverb</video:title>
+      <video:description>Fender Rhodes with Fender Twin Reverb as dry/direct amp and Solton Dopplertone as wet/delay amp.
+Dry signal path: Fender Rhodes ➡️ Fulltone - True-Path ABY-ST (A-Out) ➡️ Hudson Electronics UK - Broadcast ➡️ Fender - Twin Reverb
+Wet signal path: Fender Rhodes ➡️ Fulltone - True-Path ABY-ST (B-Out) ➡️ Hughes &amp; Kettner - Tube Factor ➡️ Diamond - Memory Lane 2 (Delay Only) ➡️ VanAmps - Sole-Mate Jr. ➡️ Solton - Dopplertone</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=rZ5D-5CRkZg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-08-04-00_540.699b2386.jpg</video:thumbnail_loc>
+      <video:duration>88</video:duration>
+      <video:publication_date>2019-08-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/fender-rhodes-og-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Fender Rhodes og Korg MS-20</video:title>
+      <video:description>Jeg spilte inn en kort live-jam på kassett med Korg MS-20 og Fender Rhodes MKI.
+VCO 2 på MS-20 blir styrt av en Korg SQ-1mens VCO 1 blir styrt av tangentene.
+Her er mer info om parafonisk oppsett:
+https://www.youtube.com/watch?v=8WhyCtn6j0k
+Begge instrumentene er plugget direkte inn i Fostex X-28H 4-spors båndopptaker.
+I effektsløyfa til båndopptakeren er det en Van-Amps Sole Mate Jr, (fjærklang), Diamond Memory Lane 2 (analog delay) and a Boss Chorus Ensemble (Brukt som mono til &quot;stereo&quot; konverterer).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=bXcYmN3bTME</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-07-21-00_540.1d94ad10.jpg</video:thumbnail_loc>
+      <video:duration>100</video:duration>
+      <video:publication_date>2019-07-21</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/fender-rhodes-and-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Fender Rhodes and Korg MS-20</video:title>
+      <video:description>I recorded a short live jam to tape with Korg MS-20 and Fender Rhodes MKI.
+VCO 2 on the MS-20 is sequenced by the Korg SQ-1 while VCO 1 is triggered by the keyboard.
+Info about the paraphonic setup here:
+https://www.youtube.com/watch?v=8WhyCtn6j0k
+Both instruments are plugged directly to the Fostex X-28H 4-track tape recorder.
+In the tape recorder&apos;s effects loop I added Van-Amps Sole Mate Jr, (spring reverb), Diamond Memory Lane 2 (analog delay) and a Boss Chorus Ensemble (Used as mono to &quot;stereo&quot; converter).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=bXcYmN3bTME</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-07-21-00_540.1d94ad10.jpg</video:thumbnail_loc>
+      <video:duration>100</video:duration>
+      <video:publication_date>2019-07-21</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
       <video:live>no</video:live>
     </video:video>
