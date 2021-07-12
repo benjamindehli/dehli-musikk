@@ -70,7 +70,7 @@ class Release extends Component {
     </React.Fragment>);
   }
 
-  renderReleaseSnippet(release, releaseThumbnailSrc) {
+  renderReleaseSnippet(release, releaseInstruments, releaseThumbnailSrc) {
     let snippet = {
       "@context": "http://schema.org",
       "@type": "MusicRecording",
@@ -88,29 +88,14 @@ class Release extends Component {
       },
       "thumbnailUrl": `https://www.dehlimusikk.no${releaseThumbnailSrc}`,
       "contributor": {
-        "@type": "Person",
-        "name": "Benjamin Dehli",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bø i Telemark",
-          "postalCode": "3804",
-          "streetAddress": "Margretes veg 15",
-          "addressCountry": {
-            "name": "NO"
-          }
-        },
-        "naics": "711130",
-        "jobTitle": {
-          "@context": "http://schema.org/",
-          "@type": "DefinedTerm",
-          "termCode": "711130",
-          "name": "Musical Groups and Artists",
-          "url": "https://www.naics.com/naics-code-description/?code=711130",
-          "inDefinedTermSet": "NAICS (North American Industry Classification System)"
-        },
-        "brand": {
-          "@context": "http://schema.org",
-          "@type": "Organization",
+        "@type": "OrganizationRole",
+        "contributor": {
+          "@type": [
+            "Person",
+            "MusicGroup"
+          ],
+          "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f",
+          "name": "Benjamin Dehli",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Bø i Telemark",
@@ -121,19 +106,17 @@ class Release extends Component {
             }
           },
           "naics": "711130",
-          "sameAs": [
-            "https://www.facebook.com/DehliMusikk/",
-            "https://twitter.com/BenjaminDehli",
-            "https://www.instagram.com/benjamindehli/",
-            "https://www.youtube.com/c/BenjaminDehli",
-            "https://www.linkedin.com/in/benjamindehli/",
-            "https://vimeo.com/benjamindehli",
-            "https://flickr.com/photos/projectdehli/",
-            "https://benjamindehli.tumblr.com/",
-            "https://github.com/benjamindehli"
-          ],
-          "hasPos": {
-            "@type": "Place",
+          "jobTitle": {
+            "@context": "http://schema.org/",
+            "@type": "DefinedTerm",
+            "termCode": "711130",
+            "name": "Musical Groups and Artists",
+            "url": "https://www.naics.com/naics-code-description/?code=711130",
+            "inDefinedTermSet": "NAICS (North American Industry Classification System)"
+          },
+          "brand": {
+            "@context": "http://schema.org",
+            "@type": "Organization",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Bø i Telemark",
@@ -143,21 +126,32 @@ class Release extends Component {
                 "name": "NO"
               }
             },
-            "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
-          },
-          "location": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bø i Telemark",
-            "postalCode": "3804",
-            "streetAddress": "Margretes veg 15",
-            "addressCountry": {
-              "name": "NO"
-            }
-          },
-          "foundingDate": "	2019-10-01",
-          "foundingLocation": {
-            "@type": "Place",
-            "address": {
+            "naics": "711130",
+            "sameAs": [
+              "https://www.facebook.com/DehliMusikk/",
+              "https://twitter.com/BenjaminDehli",
+              "https://www.instagram.com/benjamindehli/",
+              "https://www.youtube.com/c/BenjaminDehli",
+              "https://www.linkedin.com/in/benjamindehli/",
+              "https://vimeo.com/benjamindehli",
+              "https://flickr.com/photos/projectdehli/",
+              "https://benjamindehli.tumblr.com/",
+              "https://github.com/benjamindehli"
+            ],
+            "hasPos": {
+              "@type": "Place",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bø i Telemark",
+                "postalCode": "3804",
+                "streetAddress": "Margretes veg 15",
+                "addressCountry": {
+                  "name": "NO"
+                }
+              },
+              "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
+            },
+            "location": {
               "@type": "PostalAddress",
               "addressLocality": "Bø i Telemark",
               "postalCode": "3804",
@@ -166,46 +160,70 @@ class Release extends Component {
                 "name": "NO"
               }
             },
-            "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
-          },
-          "logo": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-          "image": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-          "email": "superelg(at)gmail.org",
-          "founder": {
-            "@type": "Person",
-            "name": "Benjamin Dehli",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Bø i Telemark",
-              "postalCode": "3804",
-              "streetAddress": "Margretes veg 15",
-              "addressCountry": {
-                "name": "NO"
+            "foundingDate": "	2019-10-01",
+            "foundingLocation": {
+              "@type": "Place",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bø i Telemark",
+                "postalCode": "3804",
+                "streetAddress": "Margretes veg 15",
+                "addressCountry": {
+                  "name": "NO"
+                }
+              },
+              "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
+            },
+            "logo": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+            "image": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
+            "email": "superelg(at)gmail.org",
+            "founder": {
+              "@type": "Person",
+              "name": "Benjamin Dehli",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bø i Telemark",
+                "postalCode": "3804",
+                "streetAddress": "Margretes veg 15",
+                "addressCountry": {
+                  "name": "NO"
+                }
               }
-            }
-          },
-          "name": "Dehli Musikk",
-          "telephone": "+47 92 29 27 19",
-          "url": "https://www.dehlimusikk.no"
+            },
+            "name": "Dehli Musikk",
+            "telephone": "+47 92 29 27 19",
+            "url": "https://www.dehlimusikk.no"
+          }
         }
       }
     }
     if (release.composedByDehliMusikk) {
       snippet.recordingOf.composer = {
-        "@type": "Person",
+        "@type": [
+          "Person",
+          "MusicGroup"
+        ],
         "name": "Benjamin Dehli",
         "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
       }
     }
     if (release.producedByDehliMusikk) {
       snippet.producer = {
-        "@type": "Person",
+        "@type": [
+          "Person",
+          "MusicGroup"
+        ],
         "name": "Benjamin Dehli",
         "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
       }
     }
     if (release.isrcCode) {
       snippet.isrcCode = release.isrcCode;
+    }
+    if (releaseInstruments && releaseInstruments.length) {
+      snippet.contributor.roleName = releaseInstruments.map(instrument => {
+        return `${instrument.brand} ${instrument.model}`;
+      })
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
@@ -245,6 +263,7 @@ class Release extends Component {
       : 'no';
     const release = this.props.release;
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
+    const releaseInstruments = getReleaseInstruments(releaseId);
 
     const imagePathWebp = `data/releases/thumbnails/web/webp/${release.thumbnailFilename}`;
     const imagePathJpg = `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}`;
@@ -263,7 +282,7 @@ class Release extends Component {
     };
 
     return (<React.Fragment>
-      {this.props.fullscreen ? this.renderReleaseSnippet(release, image['jpg540']) : ''}
+      {this.props.fullscreen ? this.renderReleaseSnippet(release, releaseInstruments, image['jpg540']) : ''}
       <ListItemThumbnail fullscreen={this.props.fullscreen} link={link} compact={this.props.compact}>
         {this.renderReleaseThumbnail(image, this.props.fullscreen, release, this.props.compact)}
       </ListItemThumbnail>
@@ -288,7 +307,7 @@ class Release extends Component {
         </ListItemContentBody>
       </ListItemContent>
       {
-        this.props.fullscreen ? this.renderInstrumentsList(getReleaseInstruments(releaseId), selectedLanguageKey) : ''
+        this.props.fullscreen ? this.renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
       }
       {
         this.props.fullscreen ? this.renderLinkList(release, selectedLanguageKey) : ''
