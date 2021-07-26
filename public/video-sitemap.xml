@@ -1028,4 +1028,160 @@ Album: Deadlock</video:description>
       <video:live>no</video:live>
     </video:video>
   </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/gitar-med-synth-ekko/</loc>
+    <video:video>
+      <video:title>Gitar med synth-ekko</video:title>
+      <video:description>Korg MS-20 som kopierer gitaren 🐈
+Signalkjede for direktelyd: Gitar ➡️ Fulltone True-Path ABY-ST (Input) ➡️ Fulltone True-Path ABY-ST (Output A) ➡️ Vox AC15H1TV
+Signalkjede for ekko: Gitar ➡️ Fulltone True-Path ABY-ST (Input) ➡️ Fulltone True-Path ABY-ST (Output B) ➡️ MS-20 ESP (Signal in) ➡️ MS-20 F-V Converter (CV Out) ➡️ Memory Lane (Input) ➡️ Memory Lane (Delay Only Output) ➡️ Roland JC-120</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=xc7kuO_it6g</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-06-01-01_540.751c253a.jpg</video:thumbnail_loc>
+      <video:duration>167</video:duration>
+      <video:publication_date>2019-06-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/guitar-with-synthesized-delay/</loc>
+    <video:video>
+      <video:title>Guitar with synthesized delay</video:title>
+      <video:description>Korg MS-20 copycatting the guitar 🐈
+Dry signal path: Guitar ➡️ Fulltone True-Path ABY-ST (Input) ➡️ Fulltone True-Path ABY-ST (Output A) ➡️ Vox AC15H1TV
+Wet signal path: Guitar ➡️ Fulltone True-Path ABY-ST (Input) ➡️ Fulltone True-Path ABY-ST (Output B) ➡️ MS-20 ESP (Signal in) ➡️ MS-20 F-V Converter (CV Out) ➡️ Memory Lane (Input) ➡️ Memory Lane (Delay Only Output) ➡️ Roland JC-120</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=xc7kuO_it6g</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-06-01-01_540.751c253a.jpg</video:thumbnail_loc>
+      <video:duration>167</video:duration>
+      <video:publication_date>2019-06-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/kontrollerer-ekko-pedal-med-gitar/</loc>
+    <video:video>
+      <video:title>Kontrollerer ekko-pedal med gitar</video:title>
+      <video:description>Kontrollerer ekkotiden til en Diamond Memory Lane med notene som blir spilt på gitaren. Jeg bruker en VCA til en Korg MS-20 som en expression pedal. Frekvens til volt konvertereren blir brukt til å konvertere frekvensen fra gitarsignalet til styrespenningssignal for VCA&apos;en.
+Det viste seg ikke å være så veldig nyttig, men det var et morsomt eksperiment 🙂</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=JbX5wktFvQE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-06-01-00_540.7d4e6125.jpg</video:thumbnail_loc>
+      <video:duration>23</video:duration>
+      <video:publication_date>2019-06-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/controlling-delay-pedal-with-guitar/</loc>
+    <video:video>
+      <video:title>Controlling delay pedal with guitar</video:title>
+      <video:description>Controlling delay time of the Diamond Memory Lane with the the notes being played on the guitar. I&apos;m using the VCA in the Korg MS-20 as an expression pedal. The frequency to volt converter is used to convert the frequency from the guitar signal to a controll voltage signal for the VCA.
+It didn&apos;t turn out to be very useful, but it was a fun experiment 🙂</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=JbX5wktFvQE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-06-01-00_540.7d4e6125.jpg</video:thumbnail_loc>
+      <video:duration>23</video:duration>
+      <video:publication_date>2019-06-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/uendelig-pitch-shifting-ekko/</loc>
+    <video:video>
+      <video:title>Uendelig &apos;pitch shifting&apos; ekko</video:title>
+      <video:description>Bruker en Fostex X-28H, Electro-Harmonix Deluxe Memory Man og en Digitech Whammy for å lage en &quot;uendelig&quot; pitch-justert ekko.
+Signalkjede for instrument, mikser og effektpedaler: Gitar ➡️ Fostex (Input 1) ➡️ Fostex(Send) &amp; Fostex(Out) ➡️ Digitech Whammy ➡️ Memory Man ➡️ Fostex (Input 2) ➡️ Fostex(Send) &amp; Fostex(Out).
+Signalkjede fra mikser til lydkort (interface): Fostex(Out) ➡️ Roland JC120 ➡️ Par med SM57 ➡️ Lydkort.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tewdcO8uCZc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-05-30-00_540.718e0840.jpg</video:thumbnail_loc>
+      <video:duration>174</video:duration>
+      <video:publication_date>2019-05-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/perpetual-pitch-shifting-delay/</loc>
+    <video:video>
+      <video:title>Perpetual Pitch Shifting Delay</video:title>
+      <video:description>Using the Fostex X-28H, Electro-Harmonix Deluxe Memory Man and Digitech Whammy to make an &quot;endless&quot; pitch shifted delay.
+Signal chain for instrument, mixer and effects pedals:
+Guitar ➡️ Fostex (Input 1) ➡️ Fostex(Send) &amp; Fostex(Out) ➡️ Digitech Whammy ➡️ Memory Man ➡️ Fostex (Input 2) ➡️ Fostex(Send) &amp; Fostex(Out).
+Signal chain from mixer to audio interface: Fostex(Out) ➡️ Roland JC120 ➡️ Pair of SM57s ➡️ Audio Interface.
+</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tewdcO8uCZc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-05-30-00_540.718e0840.jpg</video:thumbnail_loc>
+      <video:duration>174</video:duration>
+      <video:publication_date>2019-05-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/clavinet-med-bassballs/</loc>
+    <video:video>
+      <video:title>Clavinet med Bassballs</video:title>
+      <video:description>Hohner Clavinet D6 med Electro-Harmonix Bassballs</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=2ADJJ9-_WSc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-05-27-00_540.dac0b5e5.jpg</video:thumbnail_loc>
+      <video:duration>68</video:duration>
+      <video:publication_date>2019-05-27</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/clavinet-with-bassballs/</loc>
+    <video:video>
+      <video:title>Clavinet with Bassballs</video:title>
+      <video:description>Hohner Clavinet D6 with Electro-Harmonix Bassballs</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=2ADJJ9-_WSc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-05-27-00_540.dac0b5e5.jpg</video:thumbnail_loc>
+      <video:duration>68</video:duration>
+      <video:publication_date>2019-05-27</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/clavinet-d6-sammenligning-av-fuzz-pedaler/</loc>
+    <video:video>
+      <video:title>Clavinet D6 - Sammenligning av fuzz-pedaler</video:title>
+      <video:description>Instrument: Hohner - Clavinet D6.
+Effektpedaler: Dunlop / Dallas Arbiter - &apos;93 Fuzz Face (NKT-275), Fender - Blender (3-knob), Hudson Electronics, UK - Broadcast og Mojo Hand FX - Iron Bell.
+Forsterkerinnstillinger: Forsterkeren er stilt inn slik at den ikke vrenger og satt til pentode mode (15 watts). Signal er sendt gjennom &quot;top boost&quot;-preampen. Volum omtrent klokka 10, Treble omtrent klokka 1, Bass omtrent klokka 3 og Top cut omtrent klokka 8.
+Pedalinnstillinger: Innstillingene for fuzz-pedalene er like i alle eksemplene. Fuzz-potmeterene er satt til maksimum og output er satt til omtrent &apos;unity gain&apos;. Tone og colour potmeteret på Iron Bell er satt til omtrent klokka 12. Selector-bryteren på Fender Blender-pedalen er satt til den første fuzz-innstillingen.
+Fuzz-pedalene tar imot og sender samme volum som hverandre men det interne signalet og forvrengningen i pedalene vil være forskjellige. Som man kan høre har Fender Blender-pedalen en del mindre forvrengning enn de andre.
+Clavinet&apos;en er tatt opp med en Whirlwind Direct2 DI-boks og re-amp&apos;et med en Radial X-Amp inn i en Vox AC15H1TV.
+Forsterkeren er mikket opp med en Shure SM57 og en Sennheiser e 602-II.
+På intro-melodien er det brukt samme oppsett, men det er i tilegg brukt en Diamond - Memory Lane 2 og en VanAmps - Sole-Mate Jr.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=9TS3dg9ckcM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-09-00_540.55295d74.jpg</video:thumbnail_loc>
+      <video:duration>805</video:duration>
+      <video:publication_date>2019-03-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/clavinet-d6-fuzz-pedal-comparison/</loc>
+    <video:video>
+      <video:title>Clavinet D6 - Fuzz Pedal Comparison</video:title>
+      <video:description>Instrument: Hohner - Clavinet D6.
+Effects pedals: Dunlop / Dallas Arbiter - &apos;93 Fuzz Face (NKT-275), Fender - Blender (3-knob), Hudson Electronics, UK - Broadcast and Mojo Hand FX - Iron Bell.
+Amplifier settings: The amplifier is set to very clean and pentode mode (15 watts). The signal is fed through the top boost preamp channel. Volume about 10 o&apos;clock, Treble about 1 o&apos;clock, Bass about 3 o&apos;clock and Top cut about 8 o&apos;clock.
+Pedal settings: The settings for the fuzz pedals is the same in each example. The fuzz amount is set to maximum and output is set to approximately unity gain. The tone and colour pots for the Iron Bell are set to 12 o&apos;clock. The selector switch on the Fender Blender is set to the first fuzz setting.
+The fuzz pedals receive and send the same amount of signal as each other but the gain may vary inside the fuzz circuit. As you may hear the Fender Blender is a lot cleaner although the fuzz amount on each pedal is set to maximum.
+The Clavinet is recorder with Whirlwind Direct2 DI box and re-amped with Radial X-Amp into a Vox AC15H1TV.
+The amplifier is miced up with a Shure SM57 and a Sennheiser e 602-II.
+On the intro I used the same setup, but with a Diamond - Memory Lane 2 and a VanAmps - Sole-Mate Jr. in line.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=9TS3dg9ckcM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-09-00_540.55295d74.jpg</video:thumbnail_loc>
+      <video:duration>805</video:duration>
+      <video:publication_date>2019-03-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
 </urlset>
