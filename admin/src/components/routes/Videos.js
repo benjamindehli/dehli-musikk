@@ -43,7 +43,7 @@ class Videos extends Component {
 
   saveFileContent(fileContent, latest = true) {
     const filename = latest ? "latest.json" : 'all.json';
-    fileContent.sort((a, b) => parseFloat(b.timestamp) - parseFloat(a.timestamp));
+    fileContent.sort((a, b) => (parseFloat(b.timestamp) + parseFloat(b?.orderNumber || 0)) - (parseFloat(a.timestamp) + parseFloat(a?.orderNumber || 0)));
 
     if (latest) {
       fileContent = fileContent.slice(0, 3);
