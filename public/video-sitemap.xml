@@ -1184,4 +1184,272 @@ On the intro I used the same setup, but with a Diamond - Memory Lane 2 and a Van
       <video:live>no</video:live>
     </video:video>
   </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/clavinet-d6-med-4-fuzz-pedaler/</loc>
+    <video:video>
+      <video:title>Clavinet D6 med 4 fuzz-pedaler</video:title>
+      <video:description>Et lite klipp fra en kommende video med sammenligning av fuzz-pedaler på Clavinet.
+Clavinet&apos;en er spilt inn med en DI-boks og så re-amp&apos;et fire ganger med fire forskjellige fuzz-pedaler.
+Fuzz-pedaler: Dunlop Dallas Arbiter - 93&apos; Fuzz Face (NKT-275), Fender - Fender Blender (3-knob), Hudson Electronics, UK - Broadcast og Mojo Hand FX - Iron Bell.
+Instrument: Hohner Clavinet D6.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tgZ_Niael48</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-08-00_540.6fd73e85.jpg</video:thumbnail_loc>
+      <video:duration>20</video:duration>
+      <video:publication_date>2019-03-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/clavinet-d6-with-4-fuzz-pedals/</loc>
+    <video:video>
+      <video:title>Clavinet D6 with 4 fuzz pedals</video:title>
+      <video:description>A short clip from an upcoming Clavinet fuzz comparison video.
+The Clavinet is recorded with a DI box, then re-amped four times with four different fuzz pedals.
+Fuzz pedals used: Dunlop Dallas Arbiter - 93&apos; Fuzz Face (NKT-275), Fender - Fender Blender (3-knob), Hudson Electronics, UK - Broadcast and Mojo Hand FX - Iron Bell.
+Instrument used: Hohner Clavinet D6.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tgZ_Niael48</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-08-00_540.6fd73e85.jpg</video:thumbnail_loc>
+      <video:duration>20</video:duration>
+      <video:publication_date>2019-03-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/analog-delay-som-whammy-pedal/</loc>
+    <video:video>
+      <video:title>Analog delay som &quot;Whammy&quot;-pedal</video:title>
+      <video:description>Utstyr: Fender Stratocaster, Diamond Memory Lane 2, Korg MS-20 og Vox AC15H1TV.
+MS-20 sin VCA blir brukt som en expression-pedal for Diamond Memory Lane sin ekkotid. VCA&apos;en er kontrollert av Envelope Generator 1 og envelope&apos;n er trigget av knappen til venstre for tangentene.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=NUxx5AipOA4</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-07-00_540.779ee0c0.jpg</video:thumbnail_loc>
+      <video:duration>35</video:duration>
+      <video:publication_date>2019-03-07</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/analog-delay-as-whammy-pedal/</loc>
+    <video:video>
+      <video:title>Analog delay as &quot;Whammy&quot; pedal</video:title>
+      <video:description>Equipment used: Fender Stratocaster, Diamond Memory Lane 2, Korg MS-20 and Vox AC15H1TV.
+The MS-20&apos;s VCA is used as an expression pedal for the Diamond Memory Lane&apos;s delay time. The VCA is controlled by Envelope Generator 1 and the envelope is triggered by the push button.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=NUxx5AipOA4</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-07-00_540.779ee0c0.jpg</video:thumbnail_loc>
+      <video:duration>35</video:duration>
+      <video:publication_date>2019-03-07</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/oppsett-for-halvkontrollert-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Oppsett for &quot;halvkontrollert&quot; Korg MS-20</video:title>
+      <video:description>Med dette oppsette kan du spille VCO 1 mens VCO 2 blir styrt av SQ-1. SQ-1 sin klokkehastinghet/tempo blir kontrollert av MS-20 sin Modulation Generator.
+
+Oppsett av SQ-1 for MS-20:
+- Sett CV-A range til 8V (Hz/V):
+- Sett polaritet for GATE OUT til negativ
+
+Tilkobling av SQ-1 til MS-20:
+- Koble SQ-1 sin CV-A OUT eller CV-B OUT ttil MS-20 sin VCO 2 CV IN
+- Koble MS-20 sin Retangle-utgang fra Modulation Generator til SQ-1 sin SYNC IN
+
+Valgfritt:
+- Om du vil at SQ-1 skal styre envelope&apos;n instedenfor keyboardet, koble SQ-1 sin GATE-A OUT eller GATE-B OUT til MS-20 sin TRIG IN</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=8WhyCtn6j0k</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-04-00_540.bde54782.jpg</video:thumbnail_loc>
+      <video:duration>76</video:duration>
+      <video:publication_date>2019-03-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/setup-for-semi-sequenced-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Setup for semi sequenced Korg MS-20</video:title>
+      <video:description>This setup makes you play the VCO 1 while the VCO 2 is sequenced by the SQ-1. The SQ-1&apos;s clock speed is controlled by the MS-20&apos;s Modulation Generator.
+
+Setting up the SQ-1 for MS-20:
+- Set the CV-A range to 8V (Hz/V):
+- Set the polarity of GATE OUT to negative
+
+Connecting the SQ-1 to the MS-20:
+- Connect SQ-1&apos;s CV-A OUT or CV-B OUT to MS-20&apos;s VCO 2 CV IN
+- Connect MS-20&apos;s Rectangle output from Modulation Generator to SQ-1&apos;s SYNC IN
+
+Optional:
+- If you want the SQ-1 to trigger the envelope instead of the keyboard connect SQ-1&apos;s GATE-A OUT or GATE-B OUT to MS-20&apos;s TRIG IN</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=8WhyCtn6j0k</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-04-00_540.bde54782.jpg</video:thumbnail_loc>
+      <video:duration>76</video:duration>
+      <video:publication_date>2019-03-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/synth-og-mellotron-jam/</loc>
+    <video:video>
+      <video:title>Synth og Mellotron jam</video:title>
+      <video:description>En liten jam med Mellotron M4000D, Korg MS-20, Moog Minitaur, DSI Tetra og Korg SQ-1.
+Beklager dårlig filming, det var litt vrient å holde kameraet og skru på knottene samtidig 😜</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=J4Zm1-egPaA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-03-00_540.81eb00ee.jpg</video:thumbnail_loc>
+      <video:duration>195</video:duration>
+      <video:publication_date>2019-03-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/synth-and-mellotron-jam/</loc>
+    <video:video>
+      <video:title>Synth and Mellotron jam</video:title>
+      <video:description>A short jam with Mellotron M4000D, Korg MS-20, Moog Minitaur, DSI Tetra and Korg SQ-1.
+Sorry for the bad camera work. It was difficult to record video and tweak knobs at the same time 😜</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=J4Zm1-egPaA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-03-00_540.81eb00ee.jpg</video:thumbnail_loc>
+      <video:duration>195</video:duration>
+      <video:publication_date>2019-03-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/korg-ms-20-og-korg-sq-1-kontrollerer-hverandre/</loc>
+    <video:video>
+      <video:title>Korg MS-20 og Korg SQ-1 kontrollerer hverandre</video:title>
+      <video:description>MS-20 sin modulation generator sender pulse bølger som synk-signal til SQ-1 og SQ-1 sender gate-signal og styrespenning til MS-20 sin VCO 2.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=gJ0ZIRiiq8U</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-02-01_540.81dfc366.jpg</video:thumbnail_loc>
+      <video:duration>211</video:duration>
+      <video:publication_date>2019-03-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/korg-ms-20-and-korg-sq-1-controlling-each-other/</loc>
+    <video:video>
+      <video:title>Korg MS-20 and Korg SQ-1 controlling each other</video:title>
+      <video:description>The MS-20&apos;s modulation generator sends pulse waves as sync signal to the SQ-1 and the SQ-1 sends gate signal and control voltage to VCO 2 on the MS-20.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=gJ0ZIRiiq8U</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-02-01_540.81dfc366.jpg</video:thumbnail_loc>
+      <video:duration>211</video:duration>
+      <video:publication_date>2019-03-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/parafonisk-korg-ms-20-korg-cx-3-og-solton-dopplertone/</loc>
+    <video:video>
+      <video:title>Parafonisk Korg MS-20, Korg CX-3 og Solton Dopplertone</video:title>
+      <video:description>Korg MS-20 kontrollert av Korg CX-3 med External Signal Processing (ESP) kjørt gjennom en Solton Dopplertone &quot;Leslie&quot;-høytaler.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ycIDYBe_5Pg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-02-00_540.4fdcadc6.jpg</video:thumbnail_loc>
+      <video:duration>147</video:duration>
+      <video:publication_date>2019-03-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/paraphonic-korg-ms-20-korg-cx-3-and-solton-dopplertone/</loc>
+    <video:video>
+      <video:title>Paraphonic Korg MS-20, Korg CX-3 and Solton Dopplertone</video:title>
+      <video:description>Korg MS-20 controlled by Korg CX-3 with External Signal Processing (ESP) running through a Solton Dopplertone rotary speaker.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ycIDYBe_5Pg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-02-00_540.4fdcadc6.jpg</video:thumbnail_loc>
+      <video:duration>147</video:duration>
+      <video:publication_date>2019-03-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/parafonisk-korg-ms-20-og-cx-3-external-signal-processing-esp/</loc>
+    <video:video>
+      <video:title>Parafonisk Korg MS-20 og CX-3 - External Signal Processing (ESP)</video:title>
+      <video:description>Gjør Korg MS-20 parafonisk ved å kontrollere pitch til VCO 2 med lydsignal fra Korg CX-3.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=nX0rxKI1vEY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-01-01_540.441de690.jpg</video:thumbnail_loc>
+      <video:duration>127</video:duration>
+      <video:publication_date>2019-03-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/paraphonic-korg-ms-20-and-cx-3-external-signal-processing-esp/</loc>
+    <video:video>
+      <video:title>Paraphonic Korg MS-20 and CX-3 - External Signal Processing (ESP)</video:title>
+      <video:description>Making the Korg MS-20 paraphonic by controlling the pitch of VCO 2 with the audio signal from the Korg CX-3.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=nX0rxKI1vEY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-01-01_540.441de690.jpg</video:thumbnail_loc>
+      <video:duration>127</video:duration>
+      <video:publication_date>2019-03-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/fostex-x-28h-med-korg-ms-20-og-mellotron-m4000d/</loc>
+    <video:video>
+      <video:title>Fostex X-28H med Korg MS-20 og Mellotron M4000D</video:title>
+      <video:description>Tester ut Fostex X-28H 4-spors båndopptaker med Korg MS-20 og Mellotron M4000D.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=S35MLBj-By0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-01-00_540.0ce79ad2.jpg</video:thumbnail_loc>
+      <video:duration>92</video:duration>
+      <video:publication_date>2019-03-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/fostex-x-28h-with-korg-ms-20-and-mellotron-m4000d/</loc>
+    <video:video>
+      <video:title>Fostex X-28H with Korg MS-20 and Mellotron M4000D</video:title>
+      <video:description>Testing the Fostex X-28H 4-track tape recorder with Korg MS-20 and Mellotron M4000D.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=S35MLBj-By0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-01-00_540.0ce79ad2.jpg</video:thumbnail_loc>
+      <video:duration>92</video:duration>
+      <video:publication_date>2019-03-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/music-for-a-found-harmonium-cover-paa-yamaha-l-20d/</loc>
+    <video:video>
+      <video:title>Music for a Found Harmonium (Cover) på Yamaha L-20D</video:title>
+      <video:description>Music for a Found Harmonium av Penguin Cafe Orchestra spilt på en Yamaha L-20D elektrisk harmonium / reed organ. 
+Alt av lyder er laget med orgelet og tatt opp med et matchet AKG C451E par.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=9PyRNhedkDU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-02-16-00_540.60ff6cc1.jpg</video:thumbnail_loc>
+      <video:duration>228</video:duration>
+      <video:publication_date>2019-02-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/music-for-a-found-harmonium-cover-on-a-yamaha-l-20d/</loc>
+    <video:video>
+      <video:title>Music for a Found Harmonium (Cover) on a Yamaha L-20D</video:title>
+      <video:description>Music for a Found Harmonium by Penguin Cafe Orchestra played on a Yamaha L-20D electric harmonium / reed organ. 
+All the sounds is created with the organ and recorded with a matched pair of AKG C451E.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=9PyRNhedkDU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-02-16-00_540.60ff6cc1.jpg</video:thumbnail_loc>
+      <video:duration>228</video:duration>
+      <video:publication_date>2019-02-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
 </urlset>
