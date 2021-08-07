@@ -1,8 +1,8 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
-import {Redirect} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
+import { Redirect } from 'react-router-dom';
 
 // Components
 import Breadcrumbs from 'components/partials/Breadcrumbs';
@@ -13,10 +13,10 @@ import Modal from 'components/template/Modal';
 import Video from 'components/partials/Video';
 
 // Actions
-import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
+import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';
 
 // Helpers
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter';
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 
 // Data
 import videos from 'data/videos';
@@ -37,8 +37,8 @@ class Videos extends Component {
       : null;
     this.props.updateMultilingualRoutes(
       selectedVideoId
-      ? `videos/${selectedVideoId}/`
-      : 'videos/');
+        ? `videos/${selectedVideoId}/`
+        : 'videos/');
     const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage
       ? this.props.match.params.selectedLanguage
       : 'no';
@@ -53,24 +53,39 @@ class Videos extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.state.redirect) {
-      this.setState({redirect: null});
+      this.setState({ redirect: null });
     }
-    if (this.props.location.pathname !== prevProps.location.pathname){
+    if (this.props.location.pathname !== prevProps.location.pathname) {
       this.initLanguage();
     }
   }
 
   renderSummarySnippet(videos) {
+
     const videoItems = videos.map((video, index) => {
       const selectedLanguageKey = this.props.selectedLanguageKey
         ? this.props.selectedLanguageKey
         : 'no';
       const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
       const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
+
+      const imagePathJpg = `data/videos/thumbnails/web/jpg/${video.thumbnailFilename}`;
+      const videoThumbnailSrc = require(`../../${imagePathJpg}_540.jpg`).default
+      const videoDate = new Date(video.timestamp).toISOString();
+
+
       return {
-        "@type": "ListItem",
-        "position": index+1,
+        "@type": "VideoObject",
+        "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}videos/${videoId}/`,
+        "position": index + 1,
         "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
+        "name": video.title[selectedLanguageKey],
+        "description": video.content[selectedLanguageKey]
+          ? video.content[selectedLanguageKey].replace(/\n/g, " ")
+          : '',
+        "thumbnailUrl": `https://www.dehlimusikk.no${videoThumbnailSrc}`,
+        "embedURL": `https://www.youtube.com/watch?v=${video.youTubeId}`,
+        "uploadDate": videoDate
       };
     });
     const snippet = {
@@ -88,7 +103,7 @@ class Videos extends Component {
       ? videos.map(video => {
         const videoId = convertToUrlFriendlyString(video.title[this.props.selectedLanguageKey]);
         return (<ListItem key={videoId} fullscreen={this.props.fullscreen}>
-          <Video video={video}/>
+          <Video video={video} />
         </ListItem>)
       })
       : '';
@@ -112,7 +127,7 @@ class Videos extends Component {
     } : null;
     return selectedVideo
       ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight}>
-        <Video video={selectedVideo} fullscreen={true}/>
+        <Video video={selectedVideo} fullscreen={true} />
       </Modal>)
       : '';
   }
@@ -124,8 +139,8 @@ class Videos extends Component {
       if (videoId === selectedVideoId) {
         selectedVideo = {
           ...video,
-          previousVideoId: index > 0 ? convertToUrlFriendlyString(videos[index-1].title[selectedLanguageKey]) : null,
-          nextVideoId: index < videos.length-1 ? convertToUrlFriendlyString(videos[index+1].title[selectedLanguageKey]) : null
+          previousVideoId: index > 0 ? convertToUrlFriendlyString(videos[index - 1].title[selectedLanguageKey]) : null,
+          nextVideoId: index < videos.length - 1 ? convertToUrlFriendlyString(videos[index + 1].title[selectedLanguageKey]) : null
         }
       }
     });
@@ -196,7 +211,7 @@ class Videos extends Component {
     }
 
     if (this.state.redirect) {
-      return <Redirect to={this.state.redirect}/>;
+      return <Redirect to={this.state.redirect} />;
     } else {
       const selectedVideoMultilingualIds = {
         en: selectedVideo
@@ -217,44 +232,44 @@ class Videos extends Component {
         : listPage.description[this.props.selectedLanguageKey];
       return (<React.Fragment>
         <Helmet htmlAttributes={{
-            lang: this.props.selectedLanguageKey
-          }}>
+          lang: this.props.selectedLanguageKey
+        }}>
           <title>{metaTitle}</title>
-          <meta name='description' content={metaDescription}/>
+          <meta name='description' content={metaDescription} />
           <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}videos/${selectedVideo
-              ? selectedVideoId + '/'
-              : ''}`}/>
+            ? selectedVideoId + '/'
+            : ''}`} />
           <link rel="alternate" href={`https://www.dehlimusikk.no/videos/${selectedVideo
-              ? selectedVideoMultilingualIds.no + '/'
-              : ''}`} hreflang="no"/>
+            ? selectedVideoMultilingualIds.no + '/'
+            : ''}`} hreflang="no" />
           <link rel="alternate" href={`https://www.dehlimusikk.no/en/videos/${selectedVideo
-              ? selectedVideoMultilingualIds.en + '/'
-              : ''}`} hreflang="en"/>
+            ? selectedVideoMultilingualIds.en + '/'
+            : ''}`} hreflang="en" />
           <link rel="alternate" href={`https://www.dehlimusikk.no/videos/${selectedVideo
-              ? selectedVideoMultilingualIds.no + '/'
-              : ''}`} hreflang="x-default"/>
-          <meta property="og:title" content={contentTitle}/>
+            ? selectedVideoMultilingualIds.no + '/'
+            : ''}`} hreflang="x-default" />
+          <meta property="og:title" content={contentTitle} />
           <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}videos/${selectedVideo
-              ? selectedVideoId + '/'
-              : ''}`}/>
-          <meta property="og:description" content={metaDescription}/>
+            ? selectedVideoId + '/'
+            : ''}`} />
+          <meta property="og:description" content={metaDescription} />
           <meta property="og:locale" content={this.props.selectedLanguageKey === 'en'
-              ? 'en_US'
-              : 'no_NO'}/>
+            ? 'en_US'
+            : 'no_NO'} />
           <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en'
-              ? 'nb_NO'
-              : 'en_US'}/>
+            ? 'nb_NO'
+            : 'en_US'} />
           <meta property="twitter:title" content={contentTitle} />
           <meta property="twitter:description" content={metaDescription} />
         </Helmet>
         <Container blur={selectedVideo !== null}>
-          <Breadcrumbs breadcrumbs={breadcrumbs}/>
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
           <h1>{contentTitle}</h1>
           <p>{
-              this.props.selectedLanguageKey === 'en'
-                ? 'Videos Dehli Musikk has created or contributed in'
-                : 'Videoer Dehli Musikk har har laget eller bidratt på'
-            }</p>
+            this.props.selectedLanguageKey === 'en'
+              ? 'Videos Dehli Musikk has created or contributed in'
+              : 'Videoer Dehli Musikk har har laget eller bidratt på'
+          }</p>
         </Container>
         {
           selectedVideo ? this.renderSelectedVideo(selectedVideo) : this.renderSummarySnippet(videos)
@@ -269,7 +284,7 @@ class Videos extends Component {
   }
 }
 
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey, location: state.router.location});
+const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey, location: state.router.location });
 
 const mapDispatchToProps = {
   getLanguageSlug,
