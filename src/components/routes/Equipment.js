@@ -207,7 +207,7 @@ class Equipment extends Component {
 
     const itemId = convertToUrlFriendlyString(`${selectedEquipment.brand} ${selectedEquipment.model}`);
     return selectedEquipment
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight}>
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={this.props.selectedLanguageKey}>
           <EquipmentItem key={itemId} item={selectedEquipment} itemType={selectedEquipmentType} itemId={itemId} fullscreen={true}/>
         </Modal>)
       : '';

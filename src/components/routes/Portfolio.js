@@ -98,7 +98,7 @@ class Portfolio extends Component {
       });
     } : null;
     return selectedRelease
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight}>
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={this.props.selectedLanguageKey}>
         <Release release={selectedRelease} fullscreen={true} />
       </Modal>)
       : '';

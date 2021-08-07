@@ -1,7 +1,7 @@
 // Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Stylesheets
 import style from 'components/template/Modal.module.scss';
@@ -30,7 +30,7 @@ class Modal extends React.Component {
     document.removeEventListener("keydown", this.keyDownFunction, false);
   }
 
-  keyDownFunction(event){
+  keyDownFunction(event) {
     switch (event.keyCode) {
       case 27: // Escape
         if (this.props.onClickOutside) this.props.onClickOutside();
@@ -60,11 +60,11 @@ class Modal extends React.Component {
     this.hiddenInputWrapperRef = node;
   }
 
-  setArrowLeftButtonRef(node){
+  setArrowLeftButtonRef(node) {
     this.arrowLeftButtonRef = node;
   }
 
-  setArrowRightButtonRef(node){
+  setArrowRightButtonRef(node) {
     this.arrowRightButtonRef = node;
   }
 
@@ -78,26 +78,26 @@ class Modal extends React.Component {
     }
   }
 
-  renderArrowLeftButton(onClickFunction){
+  renderArrowLeftButton(onClickFunction) {
     return onClickFunction
-      ? (<button ref={this.setArrowLeftButtonRef} className={style.arrowLeftButton} onClick={() => onClickFunction()}>
-          <FontAwesomeIcon icon={['fas', 'chevron-left']} size="2x" />
-        </button>)
+      ? (<button ref={this.setArrowLeftButtonRef} aria-label={this.props.selectedLanguageKey === 'en' ? 'Previous' : 'Forrige'} className={style.arrowLeftButton} onClick={() => onClickFunction()}>
+        <FontAwesomeIcon icon={['fas', 'chevron-left']} size="2x" />
+      </button>)
       : (<div className={style.arrowPlaceholderButton}></div>);
   }
 
-  renderArrowRightButton(onClickFunction){
+  renderArrowRightButton(onClickFunction) {
     return onClickFunction
-      ? (<button ref={this.setArrowRightButtonRef} className={style.arrowRightButton} onClick={() => onClickFunction()}>
-          <FontAwesomeIcon icon={['fas', 'chevron-right']} size="2x" />
-        </button>)
+      ? (<button ref={this.setArrowRightButtonRef} aria-label={this.props.selectedLanguageKey === 'en' ? 'Next' : 'Neste'} className={style.arrowRightButton} onClick={() => onClickFunction()}>
+        <FontAwesomeIcon icon={['fas', 'chevron-right']} size="2x" />
+      </button>)
       : (<div className={style.arrowPlaceholderButton}></div>);
   }
 
   render() {
     return (<div className={style.postModalOverlay}>
       {this.renderArrowLeftButton(this.props.onClickArrowLeft)}
-      <div ref={this.setWrapperRef} className={style.postModalContent} style={{maxWidth: this.props.maxWidth}}>
+      <div ref={this.setWrapperRef} className={style.postModalContent} style={{ maxWidth: this.props.maxWidth }}>
         <input type="button" ref={this.setHiddenInputWrapperRef} className={style.hidden} autoFocus />
         {this.props.children}
       </div>
@@ -108,13 +108,15 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
   maxWidth: PropTypes.string,
+  selectedLanguageKey: PropTypes.string,
   onClickOutside: PropTypes.func.isRequired,
   onClickArrowLeft: PropTypes.func,
   onClickArrowRight: PropTypes.func
 };
 
 Modal.defaultProps = {
-  maxWidth: 'none'
+  maxWidth: 'none',
+  selectedLanguageKey: 'no'
 };
 
 export default Modal;

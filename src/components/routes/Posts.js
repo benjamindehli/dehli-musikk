@@ -110,7 +110,7 @@ class Posts extends Component {
       });
     } : null;
     return selectedPost
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight}>
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={this.props.selectedLanguageKey}>
         <Post post={selectedPost} fullscreen={true}/>
       </Modal>)
       : '';

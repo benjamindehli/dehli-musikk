@@ -111,7 +111,7 @@ class Products extends Component {
       });
     } : null;
     return selectedProduct
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight}>
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={this.props.selectedLanguageKey}>
         <Product product={selectedProduct} fullscreen={true}/>
       </Modal>)
       : '';

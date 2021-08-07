@@ -126,7 +126,7 @@ class Videos extends Component {
       });
     } : null;
     return selectedVideo
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight}>
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={this.props.selectedLanguageKey}>
         <Video video={selectedVideo} fullscreen={true} />
       </Modal>)
       : '';
