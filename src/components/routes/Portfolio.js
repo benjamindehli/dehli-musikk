@@ -1,8 +1,8 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
-import {Redirect} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
+import { Redirect } from 'react-router-dom';
 
 // Components
 import Breadcrumbs from 'components/partials/Breadcrumbs';
@@ -16,7 +16,7 @@ import Release from 'components/partials/Portfolio/Release';
 import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';
 
 // Helpers
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
 // Data
 import releases from 'data/portfolio';
@@ -30,10 +30,10 @@ class Portfolio extends Component {
     };
   }
 
-  initLanguage(){
+  initLanguage() {
     this.props.updateMultilingualRoutes('portfolio/');
     const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage ? this.props.match.params.selectedLanguage : 'no';
-    if (selectedLanguageKey !== this.props.selectedLanguageKey){
+    if (selectedLanguageKey !== this.props.selectedLanguageKey) {
       this.props.updateSelectedLanguageKey(selectedLanguageKey);
     }
   }
@@ -42,9 +42,9 @@ class Portfolio extends Component {
     this.initLanguage();
   }
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     if (this.state.redirect) {
-      this.setState({redirect: null});
+      this.setState({ redirect: null });
     }
   }
 
@@ -56,8 +56,9 @@ class Portfolio extends Component {
       const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
       const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
       return {
-        "@type": "ListItem",
-        "position": index+1,
+        "@type": "MusicRecording",
+        "@id": `https://www.dehlimusikk.no/portfolio/${release.id}`,
+        "position": index + 1,
         "url": `https://www.dehlimusikk.no/${languageSlug}portfolio/${releaseId}/`,
       };
     });
@@ -75,8 +76,8 @@ class Portfolio extends Component {
     return releases && releases.length
       ? releases.map(release => {
         return (<ListItem key={release.id} fullscreen={this.props.fullscreen}>
-            <Release release={release} />
-          </ListItem>)
+          <Release release={release} />
+        </ListItem>)
       })
       : '';
   }
@@ -104,15 +105,15 @@ class Portfolio extends Component {
       : '';
   }
 
-  getSelectedRelease(selectedReleaseId, selectedLanguageKey){
+  getSelectedRelease(selectedReleaseId, selectedLanguageKey) {
     let selectedRelease = null;
     releases.forEach((release, index) => {
       const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
       if (releaseId === selectedReleaseId) {
         selectedRelease = {
           ...release,
-          previousReleaseId: index > 0 ? convertToUrlFriendlyString(`${releases[index-1].artistName} ${releases[index-1].title}`) : null,
-          nextReleaseId: index < releases.length-1 ? convertToUrlFriendlyString(`${releases[index+1].artistName} ${releases[index+1].title}`) : null
+          previousReleaseId: index > 0 ? convertToUrlFriendlyString(`${releases[index - 1].artistName} ${releases[index - 1].title}`) : null,
+          nextReleaseId: index < releases.length - 1 ? convertToUrlFriendlyString(`${releases[index + 1].artistName} ${releases[index + 1].title}`) : null
         }
       }
     });
@@ -161,7 +162,7 @@ class Portfolio extends Component {
         path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`
       }
     ];
-    if (selectedRelease){
+    if (selectedRelease) {
       breadcrumbs.push({
         name: detailsPage.heading[this.props.selectedLanguageKey],
         path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedReleaseId}/`
@@ -169,7 +170,7 @@ class Portfolio extends Component {
     }
 
     if (this.state.redirect) {
-      return <Redirect to={this.state.redirect}/>;
+      return <Redirect to={this.state.redirect} />;
     }
     else {
 
@@ -178,13 +179,13 @@ class Portfolio extends Component {
       const metaDescription = selectedRelease ? detailsPage.description[this.props.selectedLanguageKey] : listPage.description[this.props.selectedLanguageKey];
 
       return (<React.Fragment>
-        <Helmet htmlAttributes={{ lang : this.props.selectedLanguageKey }}>
+        <Helmet htmlAttributes={{ lang: this.props.selectedLanguageKey }}>
           <title>{metaTitle}</title>
           <meta name='description' content={metaDescription} />
-          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`}/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="no"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/en/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="en"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="x-default"/>
+          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} />
+          <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="no" />
+          <link rel="alternate" href={`https://www.dehlimusikk.no/en/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="en" />
+          <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="x-default" />
           <meta property="og:title" content={contentTitle} />
           <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} />
           <meta property="og:description" content={metaDescription} />
@@ -201,7 +202,7 @@ class Portfolio extends Component {
         </Container>
         <Container blur={selectedRelease !== null}>
           <List>
-             {this.renderReleases()}
+            {this.renderReleases()}
           </List>
         </Container>
       </React.Fragment>)
