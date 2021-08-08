@@ -74,7 +74,7 @@ class Release extends Component {
     let snippet = {
       "@context": "http://schema.org",
       "@type": "MusicRecording",
-      "@id": `https://www.dehlimusikk.no/portfolio/#${release.id}`,
+      "@id": `https://www.dehlimusikk.no/portfolio/${release.id}`,
       "name": release.title,
       "duration": release.durationISO,
       "genre": release.genre,
@@ -224,6 +224,9 @@ class Release extends Component {
       snippet.contributor.roleName = releaseInstruments.map(instrument => {
         return `${instrument.brand} ${instrument.model}`;
       })
+    }
+    if (Object.values(release.links)?.length){
+      snippet.sameAs = Object.values(release.links);
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
