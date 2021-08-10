@@ -1,15 +1,15 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 // Actions
-import {getLanguageSlug} from 'actions/LanguageActions';
+import { getLanguageSlug } from 'actions/LanguageActions';
 
 // Helpers
-import {getPrettyDate} from 'helpers/dateFormatter';
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import { getPrettyDate } from 'helpers/dateFormatter';
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
 // Components
 import Button from 'components/partials/Button';
@@ -158,7 +158,7 @@ class Post extends Component {
         "@id": "https://www.dehlimusikk.no"
       }
     }
-    if (post.copyright){
+    if (post.copyright) {
       snippet.image.license = "https://creativecommons.org/licenses/by/4.0/legalcode";
       snippet.image.acquireLicensePage = "https://www.dehlimusikk.no/#contact";
     }
@@ -173,20 +173,20 @@ class Post extends Component {
       ? '540px'
       : '350px';
     return (<React.Fragment>
-      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
-      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
+      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
+      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
       <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} copyright={copyrightString} />
     </React.Fragment>);
   }
 
   renderLink(link) {
     return link.internal
-    ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url[this.props.selectedLanguageKey]}`} title={link.text[this.props.selectedLanguageKey]}>
+      ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url[this.props.selectedLanguageKey]}`} title={link.text[this.props.selectedLanguageKey]}>
         <Button tabIndex="-1" buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
         </Button>
       </Link>)
-    : (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
+      : (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
         <Button tabIndex="-1" buttontype='minimal'>
           {link.text[this.props.selectedLanguageKey]}
         </Button>
@@ -229,26 +229,27 @@ class Post extends Component {
             <time dateTime={postDate.toISOString()}>{getPrettyDate(postDate, selectedLanguageKey)}</time>
           </ListItemContentHeader>
           <ListItemContentBody fullscreen={this.props.fullscreen}>
-              {
-                post.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
-                  return (<p key={key}>{paragraph}</p>)
-                })
-              }
+            {
+              post.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
+                return (<p key={key}>{paragraph}</p>)
+              })
+            }
           </ListItemContentBody>
-          <ListItemActionButtons fullscreen={this.props.fullscreen}>
           {
             post.link && this.props.fullscreen
-              ? this.renderLink(post.link)
+              ? (
+                <ListItemActionButtons fullscreen={this.props.fullscreen}>
+                  {this.renderLink(post.link)}
+                </ListItemActionButtons>)
               : ''
           }
-          </ListItemActionButtons>
         </ListItemContent>
       </React.Fragment>)
       : '';
   }
 }
 
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
+const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
 
 const mapDispatchToProps = {
   getLanguageSlug

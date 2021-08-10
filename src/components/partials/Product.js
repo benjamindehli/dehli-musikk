@@ -1,14 +1,14 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 // Actions
-import {getLanguageSlug} from 'actions/LanguageActions';
+import { getLanguageSlug } from 'actions/LanguageActions';
 
 // Helpers
-import {getPrettyDate} from 'helpers/dateFormatter';
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import { getPrettyDate } from 'helpers/dateFormatter';
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
 // Components
 import Button from 'components/partials/Button';
@@ -160,18 +160,18 @@ class Product extends Component {
       ? '540px'
       : '350px';
     return (<React.Fragment>
-      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp"/>
-      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg"/>
+      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
+      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
       <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} copyright={copyrightString} />
     </React.Fragment>);
   }
 
   renderShopLink(link) {
     return (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
-        <Button tabIndex="-1" buttontype='minimal'>
-          {link.text[this.props.selectedLanguageKey]}
-        </Button>
-      </a>);
+      <Button tabIndex="-1" buttontype='minimal'>
+        {link.text[this.props.selectedLanguageKey]}
+      </Button>
+    </a>);
   }
 
   render() {
@@ -206,33 +206,36 @@ class Product extends Component {
           {this.renderProductThumbnail(image, product.thumbnailDescription, this.props.fullscreen, productDate)}
         </ListItemThumbnail>
         <ListItemContent fullscreen={this.props.fullscreen}>
-            <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
-              <h2>{product.title}</h2>
-              <time dateTime={productDate.toISOString()}>
-                {getPrettyDate(productDate, selectedLanguageKey)}
-              </time>
-            </ListItemContentHeader>
-            <ListItemContentBody fullscreen={this.props.fullscreen}>
-              {
-                product.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
-                  return (<p key={key}>{paragraph}</p>)
-                })
-              }
-            </ListItemContentBody>
-            <ListItemActionButtons fullscreen={this.props.fullscreen}>
+          <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
+            <h2>{product.title}</h2>
+            <time dateTime={productDate.toISOString()}>
+              {getPrettyDate(productDate, selectedLanguageKey)}
+            </time>
+          </ListItemContentHeader>
+          <ListItemContentBody fullscreen={this.props.fullscreen}>
             {
-              product.link && this.props.fullscreen
-                ? this.renderShopLink(product.link)
-                : ''
+              product.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
+                return (<p key={key}>{paragraph}</p>)
+              })
             }
-          </ListItemActionButtons>
+          </ListItemContentBody>
+          {
+            product.link && this.props.fullscreen
+              ? (
+                <ListItemActionButtons fullscreen={this.props.fullscreen}>
+                  {this.renderShopLink(product.link)}
+                </ListItemActionButtons>
+              )
+              : ''
+          }
+
         </ListItemContent>
       </React.Fragment>)
       : '';
   }
 }
 
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
+const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
 
 const mapDispatchToProps = {
   getLanguageSlug
