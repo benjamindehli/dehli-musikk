@@ -16,7 +16,7 @@ module.exports = {
   // configuration specific to this experiment
   runtimeCaching: [
     {
-      urlPattern: /\.(?:png|jpg|jpeg|svg|webp)$/,
+      urlPattern: /\.(?:png|jpg|jpeg|svg|webp|avif)$/,
       handler: 'StaleWhileRevalidate',
       options: {
         cacheName: 'images'
