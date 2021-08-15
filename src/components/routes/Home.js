@@ -42,6 +42,15 @@ class Home extends Component {
   renderHeaderImage() {
     const imagePath = `assets/images/header`;
     const headerImage = {
+      avif: {
+        480: require(`../../${imagePath}_480.avif`).default,
+        640: require(`../../${imagePath}_640.avif`).default,
+        800: require(`../../${imagePath}_800.avif`).default,
+        1024: require(`../../${imagePath}_1024.avif`).default,
+        1260: require(`../../${imagePath}_1260.avif`).default,
+        1440: require(`../../${imagePath}_1440.avif`).default,
+        1680: require(`../../${imagePath}_1680.avif`).default
+      },
       webp: {
         480: require(`../../${imagePath}_480.webp`).default,
         640: require(`../../${imagePath}_640.webp`).default,
