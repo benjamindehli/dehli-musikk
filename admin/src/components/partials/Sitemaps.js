@@ -190,7 +190,7 @@ class Sitemaps extends Component {
 
   getImagesFromPost(post, languageKey) {
     let images = [];
-    const formats = ['webp', 'jpg'];
+    const formats = ['avif', 'webp', 'jpg'];
     const sizes = [55, 350, 540];
     formats.forEach(format => {
       const imagePath = `data/posts/thumbnails/web/${format}/${post.thumbnailFilename}`;
@@ -213,7 +213,7 @@ class Sitemaps extends Component {
 
   getImagesFromVideo(video, languageKey) {
     let images = [];
-    const formats = ['webp', 'jpg'];
+    const formats = ['avif', 'webp', 'jpg'];
     const sizes = [55, 350, 540];
     formats.forEach(format => {
       const imagePath = `data/videos/thumbnails/web/${format}/${video.thumbnailFilename}`;
@@ -236,7 +236,7 @@ class Sitemaps extends Component {
 
   getImagesFromProduct(product, languageKey) {
     let images = [];
-    const formats = ['webp', 'jpg'];
+    const formats = ['avif', 'webp', 'jpg'];
     const sizes = [55, 350, 540];
     formats.forEach(format => {
       const imagePath = `data/products/thumbnails/web/${format}/${convertToUrlFriendlyString(product.title)}`;
@@ -257,7 +257,7 @@ class Sitemaps extends Component {
 
   getImagesFromEquipmentType(equipmentType, languageKey) {
     let images = [];
-    const formats = ['webp', 'jpg'];
+    const formats = ['avif', 'webp', 'jpg'];
     const sizes = [350, 540, 945];
 
     formats.forEach(format => {
@@ -279,7 +279,7 @@ class Sitemaps extends Component {
 
   getImagesFromEquipmentItem(equipmentItem, equipmentType) {
     let images = [];
-    const formats = ['webp', 'jpg'];
+    const formats = ['avif', 'webp', 'jpg'];
     const sizes = [55, 350, 540, 945];
 
     const imageFileName = convertToUrlFriendlyString(`${equipmentItem.brand} ${equipmentItem.model}`);
