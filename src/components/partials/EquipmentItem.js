@@ -47,6 +47,7 @@ class EquipmentItem extends Component {
         ? '945px'
         : '350px';
     return (<React.Fragment>
+        <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`} type="image/avif"/>
         <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp"/>
         <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
         <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} copyright={copyrightString} />
@@ -80,9 +81,14 @@ class EquipmentItem extends Component {
     const itemId = this.props.itemId;
     const itemType = this.props.itemType;
 
+    const imagePathAvif = `data/equipment/thumbnails/${itemType}/web/avif/${itemId}`;
     const imagePathWebp = `data/equipment/thumbnails/${itemType}/web/webp/${itemId}`;
     const imagePathJpg = `data/equipment/thumbnails/${itemType}/web/jpg/${itemId}`;
     const image = {
+      avif55: require(`../../${imagePathAvif}_55.avif`).default,
+      avif350: require(`../../${imagePathAvif}_350.avif`).default,
+      avif540: require(`../../${imagePathAvif}_540.avif`).default,
+      avif945: require(`../../${imagePathAvif}_945.avif`).default,
       webp55: require(`../../${imagePathWebp}_55.webp`).default,
       webp350: require(`../../${imagePathWebp}_350.webp`).default,
       webp540: require(`../../${imagePathWebp}_540.webp`).default,

@@ -64,6 +64,7 @@ class Release extends Component {
         : '350px';
 
     return (<React.Fragment>
+      <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w`} type="image/avif" />
       <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
       <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
       <img loading="lazy" src={image.jpg540} width="540" height="540" alt={`Album cover for ${release.title} by ${release.artistName}`} />
@@ -267,10 +268,13 @@ class Release extends Component {
     const release = this.props.release;
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
     const releaseInstruments = getReleaseInstruments(releaseId);
-
+    const imagePathAvif = `data/releases/thumbnails/web/avif/${release.thumbnailFilename}`;
     const imagePathWebp = `data/releases/thumbnails/web/webp/${release.thumbnailFilename}`;
     const imagePathJpg = `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}`;
     const image = {
+      avif55: require(`../../../${imagePathAvif}_55.avif`).default,
+      avif350: require(`../../../${imagePathAvif}_350.avif`).default,
+      avif540: require(`../../../${imagePathAvif}_540.avif`).default,
       webp55: require(`../../../${imagePathWebp}_55.webp`).default,
       webp350: require(`../../../${imagePathWebp}_350.webp`).default,
       webp540: require(`../../../${imagePathWebp}_540.webp`).default,

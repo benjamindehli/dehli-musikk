@@ -173,6 +173,7 @@ class Post extends Component {
       ? '540px'
       : '350px';
     return (<React.Fragment>
+      <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w`} type="image/avif" />
       <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
       <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
       <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} copyright={copyrightString} />
@@ -198,9 +199,13 @@ class Post extends Component {
       ? this.props.selectedLanguageKey
       : 'no';
     const post = this.props.post;
+    const imagePathAvif = `data/posts/thumbnails/web/avif/${post.thumbnailFilename}`;
     const imagePathWebp = `data/posts/thumbnails/web/webp/${post.thumbnailFilename}`;
     const imagePathJpg = `data/posts/thumbnails/web/jpg/${post.thumbnailFilename}`;
     const image = {
+      avif55: require(`../../${imagePathAvif}_55.avif`).default,
+      avif350: require(`../../${imagePathAvif}_350.avif`).default,
+      avif540: require(`../../${imagePathAvif}_540.avif`).default,
       webp55: require(`../../${imagePathWebp}_55.webp`).default,
       webp350: require(`../../${imagePathWebp}_350.webp`).default,
       webp540: require(`../../${imagePathWebp}_540.webp`).default,
