@@ -2,8 +2,6 @@
 <html lang="no">
 
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -163,6 +161,17 @@
       "url": "https://www.dehlimusikk.no"
     }
   </script>
+
+    <!-- connect to domain of font files -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <!-- async CSS -->
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <!-- no-JS fallback -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    </noscript>
 </head>
 
 <body>

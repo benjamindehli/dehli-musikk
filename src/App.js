@@ -6,7 +6,6 @@ import {ConnectedRouter} from 'connected-react-router';
 import loadable from "@loadable/component";
 import { PrerenderedComponent } from "react-prerendered-component";
 import {Helmet} from 'react-helmet';
-import WebFont from 'webfontloader';
 
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {
@@ -67,12 +66,6 @@ const Videos = prerenderedLoadable(() => import("./components/routes/Videos"));
 const Products = prerenderedLoadable(() => import("./components/routes/Products"));
 const Equipment = prerenderedLoadable(() => import("./components/routes/Equipment"));
 const NotFound = prerenderedLoadable(() => import("./components/routes/NotFound"));
-
-WebFont.load({
-  google: {
-    families: ['Roboto:400,700&display=swap']
-  }
-});
 
 library.add(
   faBullhorn,

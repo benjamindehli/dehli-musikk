@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import {Route, Switch} from 'react-router';
 import {ConnectedRouter} from 'connected-react-router';
-import WebFont from 'webfontloader';
 import { registerLocale } from "react-datepicker";
 import nb from 'date-fns/locale/nb';
 
@@ -48,12 +47,6 @@ import NotFound from 'components/routes/NotFound';
 import style from 'App.module.scss';
 import "react-datepicker/dist/react-datepicker.css";
 
-
-WebFont.load({
-  google: {
-    families: ['Roboto:400,700&display=swap']
-  }
-});
 
 library.add(
   faBullhorn,
