@@ -42,7 +42,8 @@
     "cacheAjaxRequests": true,
     "http2PushManifest": true,
     "include": [
-      "/shell.html"
+      "/shell.html",
+      "/search/"
     ]
   },
   "browserslist": {
