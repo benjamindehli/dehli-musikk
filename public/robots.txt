@@ -2,4 +2,5 @@
 Sitemap: https://www.dehlimusikk.no/sitemap.xml
 Sitemap: https://www.dehlimusikk.no/news-sitemap.xml
 Sitemap: https://www.dehlimusikk.no/image-sitemap.xml
+Sitemap: https://www.dehlimusikk.no/video-sitemap.xml
 User-agent: *
