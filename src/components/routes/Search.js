@@ -1,9 +1,9 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {Redirect} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Redirect } from 'react-router-dom';
 
 // Components
 import Breadcrumbs from 'components/partials/Breadcrumbs';
@@ -13,11 +13,11 @@ import ListItem from 'components/template/List/ListItem';
 import SearchResult from 'components/partials/SearchResult';
 
 // Actions
-import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
-import {updateSearchResults, updateSearchResultsCount} from 'actions/SearchResultsActions';
+import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';
+import { updateSearchResults, updateSearchResultsCount } from 'actions/SearchResultsActions';
 
 // Helpers
-import {getSearchResults} from 'helpers/search';
+import { getSearchResults } from 'helpers/search';
 
 // Stylesheets
 import style from 'components/routes/Search.module.scss';
@@ -74,10 +74,10 @@ class Search extends Component {
     const searchCategory = this.props.location && this.props.location.query && this.props.location.query.category ? this.props.location.query.category : null;
     this.props.updateMultilingualRoutes(
       searchQuery
-      ? searchCategory
-        ? `search/?q=${searchQuery}&category=${searchCategory}`
-        : `search/?q=${searchQuery}`
-      : 'search/');
+        ? searchCategory
+          ? `search/?q=${searchQuery}&category=${searchCategory}`
+          : `search/?q=${searchQuery}`
+        : 'search/');
 
     this.props.updateSelectedLanguageKey(this.state.selectedLanguageKey);
   }
@@ -86,10 +86,10 @@ class Search extends Component {
     this.initLanguage();
     const searchQuery = this.state.searchQuery;
     const searchCategory = this.state.searchCategory;
-    if (searchQuery){
+    if (searchQuery) {
       const searchResults = getSearchResults(searchQuery, this.state.selectedLanguageKey, searchCategory);
       this.props.updateSearchResults(searchResults);
-      if (this.state.searchCategory === 'all'){
+      if (this.state.searchCategory === 'all') {
         this.props.updateSearchResultsCount(searchResults);
       }
     }
@@ -97,9 +97,9 @@ class Search extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.state.redirect) {
-      this.setState({redirect: null});
+      this.setState({ redirect: null });
     }
-    if (this.props.location.pathname !== prevProps.location.pathname){
+    if (this.props.location.pathname !== prevProps.location.pathname) {
       this.initLanguage();
     }
     const prevSearchQuery = prevProps.location && prevProps.location.query && prevProps.location.query.q ? prevProps.location.query.q : null;
@@ -110,10 +110,10 @@ class Search extends Component {
       this.setState({
         searchQuery,
         searchCategory
-      },() => {
+      }, () => {
         const searchResults = getSearchResults(searchQuery, this.props.selectedLanguageKey, this.state.searchCategory);
         this.props.updateSearchResults(searchResults);
-        if (this.state.searchCategory === 'all'){
+        if (this.state.searchCategory === 'all') {
           this.props.updateSearchResultsCount(searchResults);
         }
         this.initLanguage()
@@ -130,7 +130,7 @@ class Search extends Component {
     })
   }
 
-  renderSearchCategoryOptions(searchCategoryNames, searchResultsCount){
+  renderSearchCategoryOptions(searchCategoryNames, searchResultsCount) {
     return Object.keys(searchCategoryNames).map(categoryKey => {
       const category = searchCategoryNames[categoryKey];
       const hasSearchResultsCount = Object.keys(searchResultsCount).length;
@@ -140,19 +140,19 @@ class Search extends Component {
     })
   }
 
-  handleSearchCategoryChange(value){
+  handleSearchCategoryChange(value) {
     const urlParameters = value !== 'all'
-        ? `?q=${this.state.searchQuery}&category=${value}`
-        : `?q=${this.state.searchQuery}`
+      ? `?q=${this.state.searchQuery}&category=${value}`
+      : `?q=${this.state.searchQuery}`
     this.setState({
       redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}search/${urlParameters}`
     })
   }
 
-  getMetaDescriptionFromSearchresults(searchResults, description = ''){
+  getMetaDescriptionFromSearchresults(searchResults, description = '') {
     if (searchResults && searchResults.length) {
       searchResults.forEach(result => {
-        if (description.length < 160){
+        if (description.length < 160) {
           description += `${result.text}${result.excerpt ? ' ' + result.excerpt + ', ' : ', '}`;
         }
       });
@@ -172,30 +172,42 @@ class Search extends Component {
       : '';
 
     const listPage = {
-      title: {
-        en: searchCategory !== 'all'
-          ? `Results for ${this.state.searchCategoryNames[searchCategory]['en'].toLowerCase()} with the search term "${searchQuery}" | Dehli Musikk`
-          : `All results with the search term "${searchQuery}" | Dehli Musikk`,
-        no: searchCategory !== 'all'
-          ? `Resultat for ${this.state.searchCategoryNames[searchCategory]['no'].toLowerCase()} med søkeordet "${searchQuery}" | Dehli Musikk`
-          : `Alle resultater med søkeordet "${searchQuery}" | Dehli Musikk`
-      },
-      heading: {
-        en: searchCategory !== 'all'
-          ? `Results for ${this.state.searchCategoryNames[searchCategory]['en'].toLowerCase()} with the search term "${searchQuery}"`
-          : `All results with the search term "${searchQuery}"`,
-        no: searchCategory !== 'all'
-          ? `Resultat for ${this.state.searchCategoryNames[searchCategory]['no'].toLowerCase()} med søkeordet "${searchQuery}"`
-          : `Alle resultater med søkeordet "${searchQuery}"`
-      },
-      description: {
-        en: searchCategory !== 'all'
-          ? this.getMetaDescriptionFromSearchresults(this.props.searchResults, `Results for ${this.state.searchCategoryNames[searchCategory]['en'].toLowerCase()} with the search term "${searchQuery}": `)
-          : this.getMetaDescriptionFromSearchresults(this.props.searchResults, `Results with the search term "${searchQuery}": `),
-        no: searchCategory !== 'all'
-          ? this.getMetaDescriptionFromSearchresults(this.props.searchResults, `Resultat for ${this.state.searchCategoryNames[searchCategory]['no'].toLowerCase()} med søkeordet "${searchQuery}": `)
-          : this.getMetaDescriptionFromSearchresults(this.props.searchResults, `Resultater med søkeordet "${searchQuery}": `)
-      }
+      title: searchQuery?.length
+        ? {
+          en: searchCategory !== 'all'
+            ? `Results for ${this.state.searchCategoryNames[searchCategory]['en'].toLowerCase()} with the search term "${searchQuery}" | Dehli Musikk`
+            : `All results with the search term "${searchQuery}" | Dehli Musikk`,
+          no: searchCategory !== 'all'
+            ? `Resultat for ${this.state.searchCategoryNames[searchCategory]['no'].toLowerCase()} med søkeordet "${searchQuery}" | Dehli Musikk`
+            : `Alle resultater med søkeordet "${searchQuery}" | Dehli Musikk`
+        } : {
+          en: 'Search for content | Dehli Musikk',
+          no: 'Søk etter innhold  | Dehli Musikk'
+        },
+      heading: searchQuery?.length
+        ? {
+          en: searchCategory !== 'all'
+            ? `Results for ${this.state.searchCategoryNames[searchCategory]['en'].toLowerCase()} with the search term "${searchQuery}"`
+            : `All results with the search term "${searchQuery}"`,
+          no: searchCategory !== 'all'
+            ? `Resultat for ${this.state.searchCategoryNames[searchCategory]['no'].toLowerCase()} med søkeordet "${searchQuery}"`
+            : `Alle resultater med søkeordet "${searchQuery}"`
+        } : {
+          en: 'Search for content',
+          no: 'Søk etter innhold'
+        },
+      description: searchQuery?.length
+        ? {
+          en: searchCategory !== 'all'
+            ? this.getMetaDescriptionFromSearchresults(this.props.searchResults, `Results for ${this.state.searchCategoryNames[searchCategory]['en'].toLowerCase()} with the search term "${searchQuery}": `)
+            : this.getMetaDescriptionFromSearchresults(this.props.searchResults, `Results with the search term "${searchQuery}": `),
+          no: searchCategory !== 'all'
+            ? this.getMetaDescriptionFromSearchresults(this.props.searchResults, `Resultat for ${this.state.searchCategoryNames[searchCategory]['no'].toLowerCase()} med søkeordet "${searchQuery}": `)
+            : this.getMetaDescriptionFromSearchresults(this.props.searchResults, `Resultater med søkeordet "${searchQuery}": `)
+        } : {
+          en: 'Search for releases, videos, posts, products and equipment.Type in the word or phrase you\'re looking for in the search bar',
+          no: 'Søk etter utgivelser, videoer, innlegg, produkter og utstyr. Skriv inn det du leter etter i søkefeltet'
+        }
     }
 
     let breadcrumbs = [
@@ -206,63 +218,63 @@ class Search extends Component {
     ];
 
 
-      const metaTitle = listPage.title[this.props.selectedLanguageKey];
-      const contentTitle = listPage.heading[this.props.selectedLanguageKey];
-      const metaDescription = listPage.description[this.props.selectedLanguageKey];
-      if (this.state.redirect) {
-        return <Redirect to={this.state.redirect}/>;
-      } else {
-        return (<React.Fragment>
-          <Helmet htmlAttributes={{
-              lang: this.props.selectedLanguageKey
-            }}>
-            <title>{metaTitle}</title>
-            <meta name='description' content={metaDescription}/>
-            <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}search/${urlParameters}`}/>
-            <link rel="alternate" href={`https://www.dehlimusikk.no/search/${urlParameters}`} hreflang="no"/>
-            <link rel="alternate" href={`https://www.dehlimusikk.no/en/search/${urlParameters}`} hreflang="en"/>
-            <link rel="alternate" href={`https://www.dehlimusikk.no/search/${urlParameters}`} hreflang="x-default"/>
-            <meta property="og:title" content={contentTitle}/>
-            <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}search/${urlParameters}`}/>
-            <meta property="og:description" content={metaDescription}/>
-            <meta property="og:locale" content={this.props.selectedLanguageKey === 'en'
-                ? 'en_US'
-                : 'no_NO'}/>
-            <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en'
-                ? 'nb_NO'
-                : 'en_US'}/>
-            <meta property="twitter:title" content={contentTitle} />
-            <meta property="twitter:description" content={metaDescription} />
-          </Helmet>
-          <Container>
-            <Breadcrumbs breadcrumbs={breadcrumbs}/>
-            <h1>{contentTitle}</h1>
-            <p>{
-                this.props.selectedLanguageKey === 'en'
-                  ? hasSearchResultsCount
-                    ? `Shows ${this.props.searchResults.length} of ${this.props.searchResultsCount.all} results`
-                    : `${this.props.searchResults.length} results`
-                  : hasSearchResultsCount
-                    ? `Viser ${this.props.searchResults.length} av ${this.props.searchResultsCount.all} treff`
-                    : `${this.props.searchResults.length} treff`
-              }</p>
-          </Container>
-          <Container>
+    const metaTitle = listPage.title[this.props.selectedLanguageKey];
+    const contentTitle = listPage.heading[this.props.selectedLanguageKey];
+    const metaDescription = listPage.description[this.props.selectedLanguageKey];
+    if (this.state.redirect) {
+      return <Redirect to={this.state.redirect} />;
+    } else {
+      return (<React.Fragment>
+        <Helmet htmlAttributes={{
+          lang: this.props.selectedLanguageKey
+        }}>
+          <title>{metaTitle}</title>
+          <meta name='description' content={metaDescription} />
+          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}search/${urlParameters}`} />
+          <link rel="alternate" href={`https://www.dehlimusikk.no/search/${urlParameters}`} hreflang="no" />
+          <link rel="alternate" href={`https://www.dehlimusikk.no/en/search/${urlParameters}`} hreflang="en" />
+          <link rel="alternate" href={`https://www.dehlimusikk.no/search/${urlParameters}`} hreflang="x-default" />
+          <meta property="og:title" content={contentTitle} />
+          <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}search/${urlParameters}`} />
+          <meta property="og:description" content={metaDescription} />
+          <meta property="og:locale" content={this.props.selectedLanguageKey === 'en'
+            ? 'en_US'
+            : 'no_NO'} />
+          <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en'
+            ? 'nb_NO'
+            : 'en_US'} />
+          <meta property="twitter:title" content={contentTitle} />
+          <meta property="twitter:description" content={metaDescription} />
+        </Helmet>
+        <Container>
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
+          <h1>{contentTitle}</h1>
+          <p>{
+            this.props.selectedLanguageKey === 'en'
+              ? hasSearchResultsCount
+                ? `Shows ${this.props.searchResults.length} of ${this.props.searchResultsCount.all} results`
+                : `${this.props.searchResults.length} results`
+              : hasSearchResultsCount
+                ? `Viser ${this.props.searchResults.length} av ${this.props.searchResultsCount.all} treff`
+                : `${this.props.searchResults.length} treff`
+          }</p>
+        </Container>
+        <Container>
           <label className={style.selectListLabel} htmlFor="searchCategory">{this.props.selectedLanguageKey === 'en' ? 'Filter results by category' : 'Filtrer resultat på kategori'}</label>
           <div className={style.selectListContainer}>
-            <FontAwesomeIcon icon={['fas', 'filter']}/>
+            <FontAwesomeIcon icon={['fas', 'filter']} />
             <select id="searchCategory" name="searchCategory" value={this.state.searchCategory} onChange={(event) => this.handleSearchCategoryChange(event.target.value)}>
               {this.renderSearchCategoryOptions(this.state.searchCategoryNames, this.props.searchResultsCount)}
             </select>
-            <FontAwesomeIcon icon={['fas', 'chevron-down']}/>
+            <FontAwesomeIcon icon={['fas', 'chevron-down']} />
           </div>
           <div className={style.listContainer}>
             <List compact={true}>
               {this.renderSearchResults(this.props.searchResults)}
             </List>
-            </div>
-          </Container>
-        </React.Fragment>)
+          </div>
+        </Container>
+      </React.Fragment>)
     }
   }
 }
