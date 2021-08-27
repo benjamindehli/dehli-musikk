@@ -12,6 +12,7 @@ import confusionLetTheGamesBegin from './releases/data/confusion_thisTime_2Lr467
 import confusionThisTime from './releases/data/confusion_lettheGamesBegin_4XEL4eIvtDQ4plgFKtyu1t.json';
 import esbenMeyerTaakemann from './releases/data/esbenMeyer_taakemann_1B1s5wIUS5YacAPFBXmbTU.json';
 import haakerBrothers from './releases/data/haaker_brothers_7yowbgDvDhE1U1WWLdgx8o.json';
+import haakerGuardianAngels from './releases/data/haaker_guardianAngels_6E4JUTIv31iqVhnm5ipL2I.json'
 import haakerRocknrolla from './releases/data/haaker_rocknrolla_2iToSLHYDsZ4v9ScZ5Y238.json';
 import hanneStaverTheWords from './releases/data/hanneStaver_theWords_19z5DOemtzUXZq8Zn6KykJ.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock_7fVdrI4oTPXduyZiZNlcCH.json';
@@ -41,9 +42,9 @@ import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggin
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse_1WSKL3XOUKamD2GV8stJ16.json';
 
 const latestReleases = [
+  haakerGuardianAngels,
   kaasinHidden,
-  hanneStaverTheWords,
-  ainaWassvikHypnotized
+  hanneStaverTheWords
 ];
 
 const allReleases = [
@@ -61,6 +62,7 @@ const allReleases = [
   confusionThisTime,
   esbenMeyerTaakemann,
   haakerBrothers,
+  haakerGuardianAngels,
   haakerRocknrolla,
   hanneStaverTheWords,
   hauntedBySilhouettesDeadlock,
