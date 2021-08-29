@@ -104,7 +104,7 @@ class Home extends Component {
         {this.renderHeaderImage()}
         <div className={style.overlay}>
           <span className={style.logo}>
-            <img src={DehliMusikkLogo} width="350" height="207" />
+            <img src={DehliMusikkLogo} alt='Logo for Dehli Musikk' width="350" height="207" />
           </span>
         </div>
       </div>
