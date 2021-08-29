@@ -36,9 +36,9 @@ class Footer extends Component {
             <a href='https://g.page/dehli-musikk?share' title='Location for Dehli Musikk in Google Maps' aria-label='Location for Dehli Musikk in Google Maps' target='_blank' rel="noopener noreferrer">
               <figure className={style.map}>
                 <picture>
-                  <source srcSet={`${map930Avif} 930w`} type="image/avif" />
-                  <source srcSet={`${map930Webp} 930w`} type="image/webp" />
-                  <source srcSet={`${map930Jpg} 930w`} type="image/jpg" />
+                  <source sizes="100vw" srcSet={`${map930Avif} 930w`} type="image/avif" />
+                  <source sizes="100vw" srcSet={`${map930Webp} 930w`} type="image/webp" />
+                  <source sizes="100vw" srcSet={`${map930Jpg} 930w`} type="image/jpg" />
                   <img loading="lazy" src={map930Jpg} alt="Location for Dehli Musikk" width="779" height="250" />
                 </picture>
               </figure>
