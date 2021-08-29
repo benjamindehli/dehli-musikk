@@ -126,10 +126,10 @@ class Home extends Component {
             {
               this.props.selectedLanguageKey === 'en'
                 ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} title='See all posts'>
-                  <Button tabIndex="-1">See all posts</Button>
+                  <Button>See all posts</Button>
                 </Link>)
                 : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} title='Se alle innlegg'>
-                  <Button tabIndex="-1">Se alle innlegg</Button>
+                  <Button>Se alle innlegg</Button>
                 </Link>)
             }
           </div>
@@ -147,10 +147,10 @@ class Home extends Component {
             {
               this.props.selectedLanguageKey === 'en'
                 ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} title='See all releases'>
-                  <Button tabIndex="-1">See all releases</Button>
+                  <Button>See all releases</Button>
                 </Link>)
                 : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} title='Se alle utgivelser'>
-                  <Button tabIndex="-1">Se alle utgivelser</Button>
+                  <Button>Se alle utgivelser</Button>
                 </Link>)
             }
           </div>
@@ -168,10 +168,10 @@ class Home extends Component {
             {
               this.props.selectedLanguageKey === 'en'
                 ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}videos/`} title='See all videos'>
-                  <Button tabIndex="-1">See all videos</Button>
+                  <Button>See all videos</Button>
                 </Link>)
                 : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}videos/`} title='Se alle videoer'>
-                  <Button tabIndex="-1">Se alle videoer</Button>
+                  <Button>Se alle videoer</Button>
                 </Link>)
             }
           </div>
@@ -189,10 +189,10 @@ class Home extends Component {
             {
               this.props.selectedLanguageKey === 'en'
                 ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} title='See all products'>
-                  <Button tabIndex="-1">See all products</Button>
+                  <Button>See all products</Button>
                 </Link>)
                 : (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} title='Se alle produkter'>
-                  <Button tabIndex="-1">Se alle produkter</Button>
+                  <Button>Se alle produkter</Button>
                 </Link>)
             }
           </div>

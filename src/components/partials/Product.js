@@ -168,7 +168,7 @@ class Product extends Component {
 
   renderShopLink(link) {
     return (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
-      <Button tabIndex="-1" buttontype='minimal'>
+      <Button buttontype='minimal'>
         {link.text[this.props.selectedLanguageKey]}
       </Button>
     </a>);
