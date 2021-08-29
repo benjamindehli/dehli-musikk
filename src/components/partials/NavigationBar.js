@@ -165,7 +165,7 @@ class NavigationBar extends Component {
           <div className={style.sidebarContentHeader}>
             <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} aria-label='Link to Dehli Musikk home page' title='Link to Dehli Musikk home page'>
               <span className={style.appLogo}>
-                <DehliMusikkLogo alt="Dehli Musikk logo"/>
+                <DehliMusikkLogo />
               </span>
             </Link>
           </div>
