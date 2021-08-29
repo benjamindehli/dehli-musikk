@@ -40,7 +40,6 @@ class EquipmentItem extends Component {
   }
 
   renderPostThumbnail(image, itemName, fullscreen, compact) {
-    const copyrightString = 'cc-by 2020 Benjamin Dehli dehlimusikk.no';
     const imageSize = compact
       ? '55px'
       : fullscreen
@@ -50,7 +49,7 @@ class EquipmentItem extends Component {
         <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`} type="image/avif"/>
         <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp"/>
         <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
-        <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} copyright={copyrightString} />
+        <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} />
     </React.Fragment>);
   }
 

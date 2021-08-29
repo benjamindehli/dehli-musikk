@@ -154,8 +154,7 @@ class Product extends Component {
     </Helmet>)
   }
 
-  renderProductThumbnail(image, altText, fullscreen, productDate) {
-    const copyrightString = `cc-by ${productDate.getFullYear()} Benjamin Dehli dehlimusikk.no`;
+  renderProductThumbnail(image, altText, fullscreen) {
     const imageSize = fullscreen
       ? '540px'
       : '350px';
@@ -163,7 +162,7 @@ class Product extends Component {
       <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w`} type="image/avif" />
       <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
       <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
-      <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} copyright={copyrightString} />
+      <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} />
     </React.Fragment>);
   }
 
@@ -207,7 +206,7 @@ class Product extends Component {
       ? (<React.Fragment>
         {this.props.fullscreen ? this.renderProductSnippet(product, productId, image.jpg540) : ''}
         <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
-          {this.renderProductThumbnail(image, product.thumbnailDescription, this.props.fullscreen, productDate)}
+          {this.renderProductThumbnail(image, product.thumbnailDescription, this.props.fullscreen)}
         </ListItemThumbnail>
         <ListItemContent fullscreen={this.props.fullscreen}>
           <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
