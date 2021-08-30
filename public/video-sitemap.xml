@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/flat-beat-paa-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Flat Beat på Korg MS-20</video:title>
+      <video:description>Synth-bassen fra Flat Beat av Mr. Oizo spilt på en Korg MS-20.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ZebtBVDVvRk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-08-30-00_540.cdae1b5b.jpg</video:thumbnail_loc>
+      <video:duration>54</video:duration>
+      <video:publication_date>2021-08-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/flat-beat-on-a-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Flat Beat on a Korg MS-20</video:title>
+      <video:description>The synth bass from Flat Beat by Mr. Oizo played on a Korg MS-20.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ZebtBVDVvRk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-08-30-00_540.cdae1b5b.jpg</video:thumbnail_loc>
+      <video:duration>54</video:duration>
+      <video:publication_date>2021-08-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/innspilling-av-keyboard-paa-kaasin-runaway-train/</loc>
     <video:video>
       <video:title>Innspilling av keyboard på &quot;Kaasin - Runaway Train&quot;</video:title>
