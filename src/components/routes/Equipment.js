@@ -141,7 +141,7 @@ class Equipment extends Component {
     </React.Fragment>);
   }
 
-  renderEquipmentTypes(listEquipmentTypesPage){
+  renderEquipmentTypes(){
     return equipment && Object.keys(equipment).length ? Object.keys(equipment).map(equipmentTypeKey => {
       const equipmentType = equipment[equipmentTypeKey];
       const itemPath = `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${equipmentTypeKey}/`;
@@ -175,7 +175,7 @@ class Equipment extends Component {
     }): null;
   }
 
-  renderEquipmentItems(equipment, selectedEquipment){
+  renderEquipmentItems(equipment){
     return equipment.items && equipment.items.length
       ? equipment.items.map(item => {
         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
