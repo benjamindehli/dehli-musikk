@@ -39,6 +39,27 @@ class EquipmentItem extends Component {
     </Helmet>);
   }
 
+  renderEquipmentItemSnippet(item, images){
+    const itemId = this.props.itemId;
+    const itemType = this.props.itemType;
+
+    const imagePath = images['jpg945'];
+    const itemName = `${item.brand} ${item.model}`;
+
+    const snippet = {
+      "@context": "http://schema.org",
+      "@type": "Thing",
+      "@id": `https://www.dehlimusikk.no/equipment/${itemType}/${itemId}/`,
+      "name": itemName,
+      "image": `https://www.dehlimusikk.no${imagePath}`,
+      "description": itemName
+    }
+
+    return (<Helmet>
+      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+    </Helmet>);
+  }
+
   renderPostThumbnail(image, itemName, fullscreen, compact) {
     const imageSize = compact
       ? '55px'
@@ -108,6 +129,7 @@ class EquipmentItem extends Component {
     return item
       ? (<React.Fragment>
           {this.props.fullscreen ? this.renderEquipmentItemImagesSnippet(image) : ''}
+          {this.props.fullscreen ? this.renderEquipmentItemSnippet(item, image) : ''}
           <ListItemThumbnail fullscreen={this.props.fullscreen} link={link} compact={this.props.compact}>
             {this.renderPostThumbnail(image, itemName, this.props.fullscreen, this.props.compact)}
           </ListItemThumbnail>
