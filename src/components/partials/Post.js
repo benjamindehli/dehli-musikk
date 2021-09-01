@@ -33,94 +33,10 @@ class Post extends Component {
       "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${postId}/`,
       "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${postId}/`,
       "author": {
-        "@type": "Person",
-        "name": "Benjamin Dehli",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bø i Telemark",
-          "postalCode": "3804",
-          "streetAddress": "Margretes veg 15",
-          "addressCountry": {
-            "name": "NO"
-          }
-        }
+        "@id": "#BenjaminDehli"
       },
       "publisher": {
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bø i Telemark",
-          "postalCode": "3804",
-          "streetAddress": "Margretes veg 15",
-          "addressCountry": {
-            "name": "NO"
-          }
-        },
-        "hasPos": {
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bø i Telemark",
-            "postalCode": "3804",
-            "streetAddress": "Margretes veg 15",
-            "addressCountry": {
-              "name": "NO"
-            }
-          },
-          "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
-        },
-        "location": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bø i Telemark, Norway",
-          "postalCode": "3804",
-          "streetAddress": "Margretes veg 15"
-        },
-        "foundingDate": "	2019-10-01",
-        "foundingLocation": {
-          "@type": "Place",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bø i Telemark",
-            "postalCode": "3804",
-            "streetAddress": "Margretes veg 15",
-            "addressCountry": {
-              "name": "NO"
-            }
-          },
-          "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
-        },
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-          "contentUrl": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-          "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
-          "acquireLicensePage": "https://www.dehlimusikk.no/#contact"
-        },
-        "image": {
-          "@type": "ImageObject",
-          "url": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-          "contentUrl": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-          "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
-          "acquireLicensePage": "https://www.dehlimusikk.no/#contact"
-        },
-        "email": "superelg(at)gmail.org",
-        "founder": {
-          "@type": "Person",
-          "name": "Benjamin Dehli",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bø i Telemark",
-            "postalCode": "3804",
-            "streetAddress": "Margretes veg 15",
-            "addressCountry": {
-              "name": "NO"
-            }
-          }
-        },
-        "name": "Dehli Musikk",
-        "telephone": "+47 92 29 27 19",
-        "url": "https://www.dehlimusikk.no"
+        "@id": "#DehliMusikk",
       },
       "headline": post.title[selectedLanguageKey],
       "inLanguage": this.props.selectedLanguageKey,

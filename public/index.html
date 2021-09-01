@@ -4,7 +4,7 @@
 <head>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'UA-39868123-3');
   </script>
@@ -20,45 +20,12 @@
 
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>Dehli Musikk</title>
-  <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": "Dehli Musikk",
-      "url": "https://www.dehlimusikk.no",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.dehlimusikk.no/search/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Benjamin Dehli",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bø i Telemark",
-          "postalCode": "3804",
-          "streetAddress": "Margretes veg 15",
-          "addressCountry": {
-            "name": "NO"
-          }
-        },
-        "naics": "711130",
-        "jobTitle": {
-          "@context": "http://schema.org/",
-          "@type": "DefinedTerm",
-          "termCode": "711130",
-          "name": "Musical Groups and Artists",
-          "url": "https://www.naics.com/naics-code-description/?code=711130",
-          "inDefinedTermSet": "NAICS (North American Industry Classification System)"
-        }
-      }
-    }
-  </script>
+
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
       "@type": "Organization",
+      "@id": "#DehliMusikk",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Bø i Telemark",
@@ -78,7 +45,8 @@
         "https://vimeo.com/benjamindehli",
         "https://flickr.com/photos/projectdehli/",
         "https://benjamindehli.tumblr.com/",
-        "https://github.com/benjamindehli"
+        "https://github.com/benjamindehli",
+        "https://musicbrainz.org/place/43eb9590-7bc3-44f0-a92e-bb2a3f5e4466"
       ],
       "review": {
         "@type": "Review",
@@ -144,17 +112,7 @@
       },
       "email": "superelg(at)gmail.org",
       "founder": {
-        "@type": "Person",
-        "name": "Benjamin Dehli",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bø i Telemark",
-          "postalCode": "3804",
-          "streetAddress": "Margretes veg 15",
-          "addressCountry": {
-            "name": "NO"
-          }
-        }
+        "@id": "#BenjaminDehli"
       },
       "name": "Dehli Musikk",
       "telephone": "+47 92 29 27 19",
@@ -162,16 +120,80 @@
     }
   </script>
 
-    <!-- connect to domain of font files -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- optionally increase loading priority -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
-    <!-- async CSS -->
-    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
-    <!-- no-JS fallback -->
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
-    </noscript>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": [
+        "Person",
+        "MusicGroup"
+      ],
+      "@id": "#BenjaminDehli",
+      "name": "Benjamin Dehli",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bø i Telemark",
+        "postalCode": "3804",
+        "streetAddress": "Margretes veg 15",
+        "addressCountry": {
+          "name": "NO"
+        }
+      },
+      "naics": "711130",
+      "sameAs": [
+        "https://www.facebook.com/DehliMusikk/",
+      	"https://twitter.com/BenjaminDehli",
+        "https://www.instagram.com/benjamindehli/",
+      	"https://www.youtube.com/c/BenjaminDehli",
+        "https://www.linkedin.com/in/benjamindehli/",
+        "https://vimeo.com/benjamindehli",
+        "https://flickr.com/photos/projectdehli/",
+        "https://benjamindehli.tumblr.com/",
+        "https://github.com/benjamindehli",
+        "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
+      ],
+      "brand": {
+        "@id": "#DehliMusikk"
+      },
+      "jobTitle": {
+        "@context": "http://schema.org/",
+        "@type": "DefinedTerm",
+        "termCode": "711130",
+        "name": "Musical Groups and Artists",
+        "url": "https://www.naics.com/naics-code-description/?code=711130",
+        "inDefinedTermSet": "NAICS (North American Industry Classification System)"
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "Dehli Musikk",
+      "url": "https://www.dehlimusikk.no",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.dehlimusikk.no/search/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "#BenjaminDehli"
+      }
+    }
+  </script>
+
+  <!-- connect to domain of font files -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- optionally increase loading priority -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <!-- async CSS -->
+  <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');"
+    href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <!-- no-JS fallback -->
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  </noscript>
 </head>
 
 <body>

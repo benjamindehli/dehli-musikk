@@ -91,131 +91,18 @@ class Release extends Component {
       "contributor": {
         "@type": "OrganizationRole",
         "contributor": {
-          "@type": [
-            "Person",
-            "MusicGroup"
-          ],
-          "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f",
-          "name": "Benjamin Dehli",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bø i Telemark",
-            "postalCode": "3804",
-            "streetAddress": "Margretes veg 15",
-            "addressCountry": {
-              "name": "NO"
-            }
-          },
-          "naics": "711130",
-          "jobTitle": {
-            "@context": "http://schema.org/",
-            "@type": "DefinedTerm",
-            "termCode": "711130",
-            "name": "Musical Groups and Artists",
-            "url": "https://www.naics.com/naics-code-description/?code=711130",
-            "inDefinedTermSet": "NAICS (North American Industry Classification System)"
-          },
-          "brand": {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Bø i Telemark",
-              "postalCode": "3804",
-              "streetAddress": "Margretes veg 15",
-              "addressCountry": {
-                "name": "NO"
-              }
-            },
-            "naics": "711130",
-            "sameAs": [
-              "https://www.facebook.com/DehliMusikk/",
-              "https://twitter.com/BenjaminDehli",
-              "https://www.instagram.com/benjamindehli/",
-              "https://www.youtube.com/c/BenjaminDehli",
-              "https://www.linkedin.com/in/benjamindehli/",
-              "https://vimeo.com/benjamindehli",
-              "https://flickr.com/photos/projectdehli/",
-              "https://benjamindehli.tumblr.com/",
-              "https://github.com/benjamindehli"
-            ],
-            "hasPos": {
-              "@type": "Place",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Bø i Telemark",
-                "postalCode": "3804",
-                "streetAddress": "Margretes veg 15",
-                "addressCountry": {
-                  "name": "NO"
-                }
-              },
-              "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
-            },
-            "location": {
-              "@type": "PostalAddress",
-              "addressLocality": "Bø i Telemark",
-              "postalCode": "3804",
-              "streetAddress": "Margretes veg 15",
-              "addressCountry": {
-                "name": "NO"
-              }
-            },
-            "foundingDate": "	2019-10-01",
-            "foundingLocation": {
-              "@type": "Place",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Bø i Telemark",
-                "postalCode": "3804",
-                "streetAddress": "Margretes veg 15",
-                "addressCountry": {
-                  "name": "NO"
-                }
-              },
-              "hasMap": "https://www.google.com/maps?cid=13331960642102658320"
-            },
-            "logo": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-            "image": "https://www.dehlimusikk.no/DehliMusikkLogo.png",
-            "email": "superelg(at)gmail.org",
-            "founder": {
-              "@type": "Person",
-              "name": "Benjamin Dehli",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Bø i Telemark",
-                "postalCode": "3804",
-                "streetAddress": "Margretes veg 15",
-                "addressCountry": {
-                  "name": "NO"
-                }
-              }
-            },
-            "name": "Dehli Musikk",
-            "telephone": "+47 92 29 27 19",
-            "url": "https://www.dehlimusikk.no"
-          }
+          "@id": "#BenjaminDehli",
         }
       }
     }
     if (release.composedByDehliMusikk) {
       snippet.recordingOf.composer = {
-        "@type": [
-          "Person",
-          "MusicGroup"
-        ],
-        "name": "Benjamin Dehli",
-        "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
+        "@id": "#BenjaminDehli"
       }
     }
     if (release.producedByDehliMusikk) {
       snippet.producer = {
-        "@type": [
-          "Person",
-          "MusicGroup"
-        ],
-        "name": "Benjamin Dehli",
-        "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
+        "@id": "#BenjaminDehli"
       }
     }
     if (release.isrcCode) {
@@ -226,7 +113,7 @@ class Release extends Component {
         return `${instrument.brand} ${instrument.model}`;
       })
     }
-    if (Object.values(release.links)?.length){
+    if (Object.values(release.links)?.length) {
       snippet.sameAs = Object.values(release.links);
     }
     return (<Helmet>
