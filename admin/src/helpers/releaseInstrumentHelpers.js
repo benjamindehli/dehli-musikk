@@ -1,5 +1,12 @@
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
 
+export const getReleasesInstrumentsWithInstrument = (releasesInstruments, instrument) => {
+  return releasesInstruments?.length
+  ?  releasesInstruments.filter(releasesInstrument => {
+    return convertToUrlFriendlyString(`${instrument.brand} ${instrument.model}`) === releasesInstrument.equipmentId;
+  }) : [];
+}
+
 const getInstrument = (instruments, equipmentId) => {
   return instruments.items.find(instrument => {
     return convertToUrlFriendlyString(`${instrument.brand} ${instrument.model}`) === equipmentId;
