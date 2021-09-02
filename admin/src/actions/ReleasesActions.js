@@ -8,6 +8,7 @@ export const createRelease = (releases = []) => dispatch => {
     title: '',
     duration: 0,
     durationISO: '',
+    isrcCode: '',
     genre: '',
     releaseDate: 0,
     spotifyThumbnailUrl: '',

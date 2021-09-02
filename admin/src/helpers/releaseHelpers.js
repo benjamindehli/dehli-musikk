@@ -50,6 +50,7 @@ const convertPageApiData = (apiData, releaseId) => {
       title: releaseData.title,
       duration: releaseData.duration,
       durationISO: convertMillisToIsoDuration(releaseData.duration),
+      isrcCode: releaseData.isrc,
       genre: releaseData.genre || '',
       releaseDate: convertReleaseDate(releaseData.releaseDate),
       spotifyThumbnailUrl: releaseData.thumbnailUrl,

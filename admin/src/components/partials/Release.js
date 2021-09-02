@@ -284,10 +284,10 @@ class Release extends Component {
                       <div className={commonStyle.inputAddons}>
                         <button onClick={() => this.setState({ addInstrumentIsActive: false })}>
                           Cancel
-                    </button>
+                        </button>
                         <button onClick={() => this.setState({ addInstrumentIsActive: true })}>
                           Confirm
-                    </button>
+                        </button>
                       </div>
                     </label>
 
@@ -319,20 +319,20 @@ class Release extends Component {
           <div className={commonStyle.formElement}>
             <label htmlFor={`id-${index}`} style={{ minWidth: '356px' }}>
               ID
-            <input type="text" id={`id-${index}`} value={release.id} onChange={event => this.handleIdChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              <input type="text" id={`id-${index}`} value={release.id} onChange={event => this.handleIdChange(event.target.value)} onBlur={this.updateReleasesInStore} />
               <div className={commonStyle.inputAddons}>
                 <button onClick={() => this.handleFetchReleaseData()}>Fetch data</button>
               </div>
             </label>
             <label htmlFor={`slug-${index}`}>
               Slug
-            <span id={`slug-${index}`}>{release.slug}</span>
+              <span id={`slug-${index}`}>{release.slug}</span>
             </label>
             <label htmlFor={`thumbnailFilename-${index}`}>
               Image filename
-            <span id={`thumbnailFilename-${index}`}>
+              <span id={`thumbnailFilename-${index}`}>
                 {release.thumbnailFilename}_[filesize].[filetype]
-            </span>
+              </span>
             </label>
           </div>
 
@@ -340,7 +340,7 @@ class Release extends Component {
           <div className={commonStyle.formElement}>
             <label htmlFor={`artistName-${index}`}>
               Artist
-                <input type="text" id={`artistName-${index}`} value={release.artistName} onChange={event => this.handleArtistNameChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              <input type="text" id={`artistName-${index}`} value={release.artistName} onChange={event => this.handleArtistNameChange(event.target.value)} onBlur={this.updateReleasesInStore} />
               {
                 updatedRelease?.artistName && updatedRelease.artistName !== this.state.release.artistName
                   ? (<span>{updatedRelease.artistName} <button onClick={() => this.handleArtistNameChange(updatedRelease.artistName)}>Replace</button></span>)
@@ -349,7 +349,7 @@ class Release extends Component {
             </label>
             <label htmlFor={`title-${index}`}>
               Title
-                <input type="text" id={`title-${index}`} value={release.title} onChange={event => this.handleTitleChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              <input type="text" id={`title-${index}`} value={release.title} onChange={event => this.handleTitleChange(event.target.value)} onBlur={this.updateReleasesInStore} />
               {
                 updatedRelease?.title && updatedRelease.title !== this.state.release.title
                   ? (<span>{updatedRelease.title} <button onClick={() => this.handleTitleChange(updatedRelease.title)}>Replace</button></span>)
@@ -358,7 +358,7 @@ class Release extends Component {
             </label>
             <label htmlFor={`genre-${index}`}>
               Genre
-                <input type="text" id={`genre-${index}`} value={release.genre} onChange={event => this.handleGenreChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              <input type="text" id={`genre-${index}`} value={release.genre} onChange={event => this.handleGenreChange(event.target.value)} onBlur={this.updateReleasesInStore} />
               {
                 updatedRelease?.genre && updatedRelease.genre !== this.state.release.genre
                   ? (<span>{updatedRelease.genre} <button onClick={() => this.handleGenreChange(updatedRelease.genre)}>Replace</button></span>)
@@ -369,7 +369,7 @@ class Release extends Component {
           <div className={commonStyle.formElement}>
             <label htmlFor={`releaseDate-${index}`}>
               Release date
-                <DatePicker
+              <DatePicker
                 id={`releaseDate-${index}`}
                 locale="nb"
                 onChange={value => this.handleReleaseDateChange(value.valueOf())}
@@ -393,13 +393,13 @@ class Release extends Component {
             </label>
             <label htmlFor={`duration-${index}`}>
               Duration
-                <span id={`duration-${index}`}>
+              <span id={`duration-${index}`}>
                 {release.duration}
               </span>
             </label>
             <label htmlFor={`duration-iso-${index}`}>
               Duration ISO
-                <span id={`duration-iso-${index}`}>
+              <span id={`duration-iso-${index}`}>
                 {release.durationISO}
               </span>
             </label>
@@ -409,6 +409,11 @@ class Release extends Component {
             <label htmlFor={`isrcCode-${index}`}>
               ISRC Code
               <input type="text" id={`isrcCode-${index}`} value={release.isrcCode} onChange={event => this.handleIsrcCodeChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              {
+                updatedRelease?.isrcCode && updatedRelease.isrcCode !== this.state.release.isrcCode
+                  ? (<span>{updatedRelease.isrcCode} <button onClick={() => this.handleIsrcCodeChange(updatedRelease.isrcCode)}>Replace</button></span>)
+                  : ''
+              }
             </label>
             <label htmlFor={`composedByDehliMusikk-${index}`}>
               Composed by Dehli Musikk
@@ -425,7 +430,7 @@ class Release extends Component {
             <img loading="lazy" src={release.spotifyThumbnailUrl} width="150" height="150" className={commonStyle.thumbnail} alt='thumbnail' />
             <label htmlFor={`spotifyThumbnailUrl-${index}`}>
               Thumbnail
-                <span id={`spotifyThumbnailUrl-${index}`}>
+              <span id={`spotifyThumbnailUrl-${index}`}>
                 {release.spotifyThumbnailUrl}
               </span>
             </label>
