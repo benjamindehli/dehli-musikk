@@ -41,6 +41,7 @@ import Dashboard from 'components/routes/Dashboard';
 import Posts from 'components/routes/Posts';
 import Portfolio from 'components/routes/Portfolio';
 import Videos from 'components/routes/Videos';
+import Statistics from 'components/routes/Statistics';
 import NotFound from 'components/routes/NotFound';
 
 // Stylesheets
@@ -88,6 +89,7 @@ class App extends Component {
             <Route exact={true} path="/posts/" render={() => (<Posts/>)}/>
             <Route exact={true} path="/portfolio/" render={() => (<Portfolio/>)}/>
             <Route exact={true} path="/videos/" render={() => (<Videos/>)}/>
+            <Route exact={true} path="/statistics/" render={() => (<Statistics/>)}/>
             <Route render={() => (<NotFound />)}/>
           </Switch>
         </div>
