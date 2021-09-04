@@ -124,45 +124,120 @@
     {
       "@context": "http://schema.org",
       "@type": [
-        "Person",
-        "MusicGroup"
+          "Person",
+          "MusicGroup"
       ],
       "@id": "#BenjaminDehli",
       "name": "Benjamin Dehli",
       "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bø i Telemark",
-        "postalCode": "3804",
-        "streetAddress": "Margretes veg 15",
-        "addressCountry": {
-          "name": "NO"
-        }
+          "@type": "PostalAddress",
+          "addressLocality": "Bø i Telemark",
+          "postalCode": "3804",
+          "streetAddress": "Margretes veg 15",
+          "addressCountry": {
+              "name": "NO"
+          }
       },
+      "email": "superelg(at)gmail.org",
+      "telephone": "+47 92 29 27 19",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.dehlimusikk.no/benjamin-dehli.jpg",
+        "contentUrl": "https://www.dehlimusikk.no/benjamin-dehli.jpg",
+        "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
+        "acquireLicensePage": "https://www.dehlimusikk.no/#contact"
+      },
+      "birthPlace": {
+          "@type": "City",
+          "name": "Langesund",
+          "containedIn": {
+              "@type": "AdministrativeArea",
+              "containedIn": {
+                  "name": "Norway",
+                  "@type": "Country"
+              },
+              "name": "Telemark"
+          }
+      },
+      "birthDate": "1989-09-11",
       "naics": "711130",
       "sameAs": [
-        "https://www.facebook.com/DehliMusikk/",
-      	"https://twitter.com/BenjaminDehli",
-        "https://www.instagram.com/benjamindehli/",
-      	"https://www.youtube.com/c/BenjaminDehli",
-        "https://www.linkedin.com/in/benjamindehli/",
-        "https://vimeo.com/benjamindehli",
-        "https://flickr.com/photos/projectdehli/",
-        "https://benjamindehli.tumblr.com/",
-        "https://github.com/benjamindehli",
-        "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
+          "https://www.dehlimusikk.no/",
+          "https://www.facebook.com/DehliMusikk/",
+          "https://twitter.com/BenjaminDehli",
+          "https://www.instagram.com/benjamindehli/",
+          "https://www.youtube.com/c/BenjaminDehli",
+          "https://www.linkedin.com/in/benjamindehli/",
+          "https://vimeo.com/benjamindehli",
+          "https://flickr.com/photos/projectdehli/",
+          "https://benjamindehli.tumblr.com/",
+          "https://github.com/benjamindehli",
+          "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
       ],
       "brand": {
-        "@id": "#DehliMusikk"
+          "@id": "#DehliMusikk"
       },
       "jobTitle": {
-        "@context": "http://schema.org/",
-        "@type": "DefinedTerm",
-        "termCode": "711130",
-        "name": "Musical Groups and Artists",
-        "url": "https://www.naics.com/naics-code-description/?code=711130",
-        "inDefinedTermSet": "NAICS (North American Industry Classification System)"
-      }
-    }
+          "@context": "http://schema.org/",
+          "@type": "DefinedTerm",
+          "termCode": "711130",
+          "name": "Musical Groups and Artists",
+          "url": "https://www.naics.com/naics-code-description/?code=711130",
+          "inDefinedTermSet": "NAICS (North American Industry Classification System)"
+      },
+      "memberOf": [
+          {
+              "@type": "OrganizationRole",
+              "memberOf": {
+                  "@type": "MusicGroup",
+                  "name": "KAASIN"
+              },
+              "roleName": [
+                  "Mellotron",
+                  "Organ",
+                  "Piano",
+                  "Electric Piano",
+                  "Synthesizer",
+                  "Keyboards",
+                  "Glass"
+              ],
+              "startDate": "2020"
+          },
+          {
+              "@type": "OrganizationRole",
+              "memberOf": {
+                  "name": "Set One's Cap",
+                  "@type": "MusicGroup"
+              },
+              "roleName": [
+                  "Organ",
+                  "Piano",
+                  "Electric Piano",
+                  "Synthesizer",
+                  "Vocoder",
+                  "Keytar",
+                  "Keyboards"
+              ],
+              "startDate": "2014"
+          },
+          {
+              "@type": "OrganizationRole",
+              "memberOf": {
+                  "name": "Confusion",
+                  "@type": "MusicGroup"
+              },
+              "roleName": [
+                  "Organ",
+                  "Piano",
+                  "Electric Piano",
+                  "Synthesizer",
+                  "Keyboards",
+                  "Accordion"
+              ],
+              "startDate": "2011"
+          }
+      ]
+  }
   </script>
 
   <script type="application/ld+json">
@@ -177,7 +252,6 @@
         "query-input": "required name=search_term_string"
       },
       "author": {
-        "@type": "Person",
         "@id": "#BenjaminDehli"
       }
     }
