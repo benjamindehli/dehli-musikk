@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/warszawa-utdrag-paa-mellotron-og-pro-one/</loc>
+    <video:video>
+      <video:title>Warszawa (utdrag) på Mellotron og Pro-One</video:title>
+      <video:description>Et utdrag fra Warszawa av David Bowie og Brian Eno spilt på en Mellotron M4000D og en Sequential Circuits Pro-One.
+Instrumenter: Sequential Circuits Pro-One og Mellotron M4000D.
+Effekter: VanAmps - Sole-Mate Jr. og Chase Bliss Audio &amp; Meris - CXM 1978.
+Innspillingsutstyr: Fostex X-28H.
+</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=jLwKBCm6-3c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-09-09-00_540.2d8c54e7.jpg</video:thumbnail_loc>
+      <video:duration>122</video:duration>
+      <video:publication_date>2021-09-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/warszawa-excerpt-on-mellotron-and-pro-one/</loc>
+    <video:video>
+      <video:title>Warszawa (excerpt) on Mellotron and Pro-One</video:title>
+      <video:description>An excerpt from Warszawa by David Bowie and Brian Eno played on a Mellotron M4000D and a Sequential Circuits Pro-One.
+Instruments: Sequential Circuits Pro-One and Mellotron M4000D.
+Effects: VanAmps - Sole-Mate Jr. and Chase Bliss Audio &amp; Meris - CXM 1978.
+Recording equipment: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=jLwKBCm6-3c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-09-09-00_540.2d8c54e7.jpg</video:thumbnail_loc>
+      <video:duration>122</video:duration>
+      <video:publication_date>2021-09-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/flat-beat-paa-korg-ms-20/</loc>
     <video:video>
       <video:title>Flat Beat på Korg MS-20</video:title>
