@@ -1,8 +1,8 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
-import { Redirect} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
+import { Redirect } from 'react-router-dom';
 
 // Components
 import Breadcrumbs from 'components/partials/Breadcrumbs';
@@ -16,10 +16,10 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import Modal from 'components/template/Modal';
 
 // Actions
-import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
+import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';
 
 // Helpers
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
 // Data
 import equipment from 'data/equipment';
@@ -66,9 +66,9 @@ class Equipment extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.state.redirect) {
-      this.setState({redirect: null});
+      this.setState({ redirect: null });
     }
-    if (this.props.location.pathname !== prevProps.location.pathname){
+    if (this.props.location.pathname !== prevProps.location.pathname) {
       this.initLanguage();
     }
   }
@@ -82,11 +82,11 @@ class Equipment extends Component {
       ? this.props.match.params.equipmentType
       : null;
     if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({redirect: `/equipment/${selectedEquipmentType ? selectedEquipmentType + '/' : ''}`});
+      this.setState({ redirect: `/equipment/${selectedEquipmentType ? selectedEquipmentType + '/' : ''}` });
     }
   }
 
-  renderSummarySnippetForEquipmentTypes(equipment){
+  renderSummarySnippetForEquipmentTypes(equipment) {
     const equipmentTypeItems = equipment && Object.keys(equipment).length ? Object.keys(equipment).map((equipmentTypeKey, index) => {
       const selectedLanguageKey = this.props.selectedLanguageKey
         ? this.props.selectedLanguageKey
@@ -94,7 +94,7 @@ class Equipment extends Component {
       const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
       return {
         "@type": "ListItem",
-        "position": index+1,
+        "position": index + 1,
         "url": `https://www.dehlimusikk.no/${languageSlug}equipment/${equipmentTypeKey}/`
       };
     }) : null;
@@ -108,7 +108,7 @@ class Equipment extends Component {
     </Helmet>);
   }
 
-  renderSummarySnippetForEquipmentItems(equipment, equipmentTypeKey){
+  renderSummarySnippetForEquipmentItems(equipment, equipmentTypeKey) {
     const equipmentItems = equipment.items && equipment.items.length
       ? equipment.items.map((item, index) => {
         const selectedLanguageKey = this.props.selectedLanguageKey
@@ -118,40 +118,48 @@ class Equipment extends Component {
         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
         return {
           "@type": "ListItem",
-          "position": index+1,
+          "position": index + 1,
           "url": `https://www.dehlimusikk.no/${languageSlug}equipment/${equipmentTypeKey}/${itemId}/`
         };
       })
       : null;
-      const snippet = {
-        "@context": "http://schema.org",
-        "@type": "ItemList",
-        "itemListElement": equipmentItems
-      };
-      return (<Helmet>
-        <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-      </Helmet>);
+    const snippet = {
+      "@context": "http://schema.org",
+      "@type": "ItemList",
+      "itemListElement": equipmentItems
+    };
+    return (<Helmet>
+      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+    </Helmet>);
   }
 
   renderEquipmentTypeThumbnail(image, itemName) {
     return (<React.Fragment>
-        <source sizes='175px' srcSet={`${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp"/>
-        <source sizes='175px' srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
-        <img loading="lazy" width="350" height="260" src={image.jpg350} alt={itemName} />
+      <source sizes='175px' srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`} type="image/avif" />
+      <source sizes='175px' srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp" />
+      <source sizes='175px' srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg" />
+      <img loading="lazy" width="350" height="260" src={image.jpg350} alt={itemName} />
     </React.Fragment>);
   }
 
-  renderEquipmentTypes(){
+  renderEquipmentTypes() {
     return equipment && Object.keys(equipment).length ? Object.keys(equipment).map(equipmentTypeKey => {
       const equipmentType = equipment[equipmentTypeKey];
       const itemPath = `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${equipmentTypeKey}/`;
 
+      const imagePathAvif = `data/equipment/thumbnails/web/avif/${equipmentTypeKey}`;
       const imagePathWebp = `data/equipment/thumbnails/web/webp/${equipmentTypeKey}`;
       const imagePathJpg = `data/equipment/thumbnails/web/jpg/${equipmentTypeKey}`;
       const image = {
+        avif55: require(`../../${imagePathAvif}_55.avif`).default,
+        avif350: require(`../../${imagePathAvif}_350.avif`).default,
+        avif540: require(`../../${imagePathAvif}_540.avif`).default,
+        avif945: require(`../../${imagePathAvif}_945.avif`).default,
+        webp55: require(`../../${imagePathWebp}_55.webp`).default,
         webp350: require(`../../${imagePathWebp}_350.webp`).default,
         webp540: require(`../../${imagePathWebp}_540.webp`).default,
         webp945: require(`../../${imagePathWebp}_945.webp`).default,
+        jpg55: require(`../../${imagePathJpg}_55.jpg`).default,
         jpg350: require(`../../${imagePathJpg}_350.jpg`).default,
         jpg540: require(`../../${imagePathJpg}_540.jpg`).default,
         jpg945: require(`../../${imagePathJpg}_945.jpg`).default
@@ -163,19 +171,19 @@ class Equipment extends Component {
       };
 
       return (<ListItem key={equipmentTypeKey}>
-          <ListItemThumbnail link={link}>
-            {this.renderEquipmentTypeThumbnail(image, equipmentType.name[this.props.selectedLanguageKey])}
-          </ListItemThumbnail>
-          <ListItemContent>
-            <ListItemContentHeader link={link}>
-              <h2>{equipmentType.name[this.props.selectedLanguageKey]}</h2>
-            </ListItemContentHeader>
-          </ListItemContent>
-        </ListItem>)
-    }): null;
+        <ListItemThumbnail link={link}>
+          {this.renderEquipmentTypeThumbnail(image, equipmentType.name[this.props.selectedLanguageKey])}
+        </ListItemThumbnail>
+        <ListItemContent>
+          <ListItemContentHeader link={link}>
+            <h2>{equipmentType.name[this.props.selectedLanguageKey]}</h2>
+          </ListItemContentHeader>
+        </ListItemContent>
+      </ListItem>)
+    }) : null;
   }
 
-  renderEquipmentItems(equipment){
+  renderEquipmentItems(equipment) {
     return equipment.items && equipment.items.length
       ? equipment.items.map(item => {
         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
@@ -207,8 +215,8 @@ class Equipment extends Component {
     const itemId = convertToUrlFriendlyString(`${selectedEquipment.brand} ${selectedEquipment.model}`);
     return selectedEquipment
       ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={this.props.selectedLanguageKey}>
-          <EquipmentItem key={itemId} item={selectedEquipment} itemType={selectedEquipmentType} itemId={itemId} fullscreen={true}/>
-        </Modal>)
+        <EquipmentItem key={itemId} item={selectedEquipment} itemType={selectedEquipmentType} itemId={itemId} fullscreen={true} />
+      </Modal>)
       : '';
   }
 
@@ -220,8 +228,8 @@ class Equipment extends Component {
         selectedEquipment = {
           ...equipmentItem,
           equipmentItemId,
-          previousEquipmentItemId: index > 0 ? convertToUrlFriendlyString(`${equipment[index-1].brand} ${equipment[index-1].model}`) : null,
-          nextEquipmentItemId: index < equipment.length-1 ? convertToUrlFriendlyString(`${equipment[index+1].brand} ${equipment[index+1].model}`) : null
+          previousEquipmentItemId: index > 0 ? convertToUrlFriendlyString(`${equipment[index - 1].brand} ${equipment[index - 1].model}`) : null,
+          nextEquipmentItemId: index < equipment.length - 1 ? convertToUrlFriendlyString(`${equipment[index + 1].brand} ${equipment[index + 1].model}`) : null
         }
       }
     });
@@ -292,8 +300,8 @@ class Equipment extends Component {
         : '',
       description:  // TODO Add description
         selectedEquipment
-        ? `${selectedEquipment.brand} ${selectedEquipment.model}`
-        : ''
+          ? `${selectedEquipment.brand} ${selectedEquipment.model}`
+          : ''
     }
     let breadcrumbs = [
       {
@@ -315,65 +323,65 @@ class Equipment extends Component {
     }
 
     if (this.state.redirect) {
-      return <Redirect to={this.state.redirect}/>;
+      return <Redirect to={this.state.redirect} />;
     } else {
       return (<React.Fragment>
         <Helmet htmlAttributes={{
-            lang: this.props.selectedLanguageKey
-          }}>
+          lang: this.props.selectedLanguageKey
+        }}>
           <title>{
-              selectedEquipment
-                ? detailsPage.title[this.props.selectedLanguageKey]
-                : selectedEquipmentType
-                  ? listPage.title[this.props.selectedLanguageKey]
-                  : listEquipmentTypesPage.title[this.props.selectedLanguageKey]
-            }</title>
+            selectedEquipment
+              ? detailsPage.title[this.props.selectedLanguageKey]
+              : selectedEquipmentType
+                ? listPage.title[this.props.selectedLanguageKey]
+                : listEquipmentTypesPage.title[this.props.selectedLanguageKey]
+          }</title>
           <meta name='description' content={selectedEquipment
+            ? detailsPage.description
+            : selectedEquipmentType
+              ? listPage.description[this.props.selectedLanguageKey]
+              : listEquipmentTypesPage.description[this.props.selectedLanguageKey]} />
+          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${selectedEquipment
+            ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
+            : selectedEquipmentType
+              ? selectedEquipmentType + '/'
+              : ''
+            }`} />
+          <link rel="alternate" href={`https://www.dehlimusikk.no/equipment/${selectedEquipment
+            ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
+            : selectedEquipmentType
+              ? selectedEquipmentType + '/'
+              : ''
+            }`} hreflang="no" />
+          <link rel="alternate" href={`https://www.dehlimusikk.no/en/equipment/${selectedEquipment
+            ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
+            : selectedEquipmentType
+              ? selectedEquipmentType + '/'
+              : ''
+            }`} hreflang="en" />
+          <link rel="alternate" href={`https://www.dehlimusikk.no/equipment/${selectedEquipment
+            ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
+            : selectedEquipmentType
+              ? selectedEquipmentType + '/'
+              : ''
+            }`} hreflang="x-default" />
+        </Helmet>
+        <Container blur={selectedEquipment !== null}>
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
+          <h1>{
+            selectedEquipment
+              ? detailsPage.heading
+              : selectedEquipmentType
+                ? listPage.heading[this.props.selectedLanguageKey]
+                : listEquipmentTypesPage.heading[this.props.selectedLanguageKey]
+          }</h1>
+          <p>{
+            selectedEquipment
               ? detailsPage.description
               : selectedEquipmentType
                 ? listPage.description[this.props.selectedLanguageKey]
-                : listEquipmentTypesPage.description[this.props.selectedLanguageKey]}/>
-          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/${selectedEquipment
-              ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
-              : selectedEquipmentType
-                ? selectedEquipmentType + '/'
-                : ''
-            }`}/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/equipment/${selectedEquipment
-              ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
-              : selectedEquipmentType
-                ? selectedEquipmentType + '/'
-                : ''
-            }`} hreflang="no"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/en/equipment/${selectedEquipment
-              ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
-              : selectedEquipmentType
-                ? selectedEquipmentType + '/'
-                : ''
-            }`} hreflang="en"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/equipment/${selectedEquipment
-              ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
-              : selectedEquipmentType
-                ? selectedEquipmentType + '/'
-                : ''
-            }`} hreflang="x-default"/>
-        </Helmet>
-        <Container blur={selectedEquipment !== null}>
-          <Breadcrumbs breadcrumbs={breadcrumbs}/>
-          <h1>{
-              selectedEquipment
-                ? detailsPage.heading
-                : selectedEquipmentType
-                  ? listPage.heading[this.props.selectedLanguageKey]
-                  : listEquipmentTypesPage.heading[this.props.selectedLanguageKey]
-            }</h1>
-          <p>{
-              selectedEquipment
-                ? detailsPage.description
-                : selectedEquipmentType
-                  ? listPage.description[this.props.selectedLanguageKey]
-                  : listEquipmentTypesPage.description[this.props.selectedLanguageKey]
-            }</p>
+                : listEquipmentTypesPage.description[this.props.selectedLanguageKey]
+          }</p>
         </Container>
         {
           selectedEquipment
@@ -384,11 +392,11 @@ class Equipment extends Component {
         }
         <Container blur={selectedEquipment !== null}>
           <List>
-          {
-            selectedEquipmentType
-              ? this.renderEquipmentItems(equipment[selectedEquipmentType], selectedEquipment)
-              : this.renderEquipmentTypes(listEquipmentTypesPage)
-          }
+            {
+              selectedEquipmentType
+                ? this.renderEquipmentItems(equipment[selectedEquipmentType], selectedEquipment)
+                : this.renderEquipmentTypes(listEquipmentTypesPage)
+            }
           </List>
         </Container>
       </React.Fragment>)
@@ -396,7 +404,7 @@ class Equipment extends Component {
   }
 }
 
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey, location: state.router.location});
+const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey, location: state.router.location });
 
 const mapDispatchToProps = {
   getLanguageSlug,

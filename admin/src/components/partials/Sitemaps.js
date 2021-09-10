@@ -258,7 +258,7 @@ class Sitemaps extends Component {
   getImagesFromEquipmentType(equipmentType, languageKey) {
     let images = [];
     const formats = ['avif', 'webp', 'jpg'];
-    const sizes = [350, 540, 945];
+    const sizes = [55, 350, 540, 945];
 
     formats.forEach(format => {
       const imagePath = `data/equipment/thumbnails/web/${format}/${equipmentType.equipmentType}`;
