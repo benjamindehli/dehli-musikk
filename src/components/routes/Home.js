@@ -161,7 +161,7 @@ class Home extends Component {
         <Container>
           <h2 className={style.sectionHeader}>{
               this.props.selectedLanguageKey === 'en'
-                ? 'Latest videoe'
+                ? 'Latest videos'
                 : 'Siste videoer'
             }</h2>
           <LatestVideos/>
