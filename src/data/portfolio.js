@@ -18,9 +18,17 @@ import hanneStaverTheWords from './releases/data/hanneStaver_theWords.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow.json';
+import kaasinCarryOn from './releases/data/kAASIN_carryOn.json';
+import kaasinChainOfLove from './releases/data/kAASIN_chainofLove.json';
 import kaasinHidden from './releases/data/kAASIN_hidden.json';
+import kaasinInsideOut from './releases/data/kAASIN_insideOut.json';
 import kaasinRevelation from './releases/data/kAASIN_revelation.json';
 import kaasinRunawayTrain from './releases/data/kAASIN_runawayTrain.json';
+import kaasinShadesOfYesterday from './releases/data/kAASIN_shadesofYesterday.json';
+import kaasinTheSmokingGun from './releases/data/kAASIN_theSmokingGun.json';
+import kaasinWalkingDownwards from './releases/data/kAASIN_walkingDownwards.json';
+import kaasinWeAreOne from './releases/data/kAASIN_weAreOne.json';
+import kaasinWrong from './releases/data/kAASIN_wrong.json';
 import leneNevisdalGiveMeaSmileJoe from './releases/data/leneNevisdal_giveMeaSmileJoe.json';
 import setOnesCapDontYouWannaKnow from './releases/data/setOnesCap_dontYouWannaKnow.json';
 import setOnesCapLikeAStone from './releases/data/setOnesCap_likeaStone.json';
@@ -68,9 +76,17 @@ const allReleases = [
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesTheLastDayOnEarth,
   hauntedBySilhouettesUndertow,
+  kaasinCarryOn,
+  kaasinChainOfLove,
   kaasinHidden,
+  kaasinInsideOut,
   kaasinRevelation,
   kaasinRunawayTrain,
+  kaasinShadesOfYesterday,
+  kaasinTheSmokingGun,
+  kaasinWalkingDownwards,
+  kaasinWeAreOne,
+  kaasinWrong,
   leneNevisdalGiveMeaSmileJoe,
   setOnesCapDontYouWannaKnow,
   setOnesCapLikeAStone,
