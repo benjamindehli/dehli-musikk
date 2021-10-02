@@ -1,11 +1,11 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Actions
-import {getLanguageSlug} from 'actions/LanguageActions';
-import {updateSearchResults} from 'actions/SearchResultsActions';
+import { getLanguageSlug } from 'actions/LanguageActions';
+import { updateSearchResults } from 'actions/SearchResultsActions';
 
 // Components
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
@@ -21,9 +21,10 @@ class SearchResult extends Component {
 
   renderThumbnail(thumbnailPaths, alt) {
     return (<picture>
-      <source sizes='55' srcSet={`${thumbnailPaths.webp} 55w`} type="image/webp"/>
-      <source sizes='55' srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpg"/>
-      <img src={thumbnailPaths.jpg} width='55' height='55' alt={alt}/>
+      <source sizes='55' srcSet={`${thumbnailPaths.webp} 55w`} type="image/webp" />
+      {thumbnailPaths.jpg ? <source sizes='55' srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpg" /> : ''}
+      {thumbnailPaths.png ? <source sizes='55' srcSet={`${thumbnailPaths.png} 55w`} type="image/png" /> : ''}
+      <img src={thumbnailPaths.jpg ? thumbnailPaths.jpg : thumbnailPaths.png} width='55' height='55' alt={alt} />
     </picture>);
   }
 
@@ -61,7 +62,7 @@ class SearchResult extends Component {
               </ListItemContentBody>
             </div>
             <div className={`${style.searchResultContentBadge} ${style[searchResult.type]}`}>
-              <span><FontAwesomeIcon icon={itemTypeIcons[searchResult.type]}/> {searchResult.label}</span>
+              <span><FontAwesomeIcon icon={itemTypeIcons[searchResult.type]} /> {searchResult.label}</span>
             </div>
           </div>
         </ListItemContent>

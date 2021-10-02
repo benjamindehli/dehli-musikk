@@ -43,9 +43,14 @@ const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguage
 
   const points = (artistNamePoints + titlePoints + genrePoints) / searchStringWords.length;
 
-  const thumbnailPaths = {
+  const thumbnailPaths = !release.unreleased 
+  ? {
     webp: require(`../data/releases/thumbnails/web/webp/${release.thumbnailFilename}_55.webp`).default,
     jpg: require(`../data/releases/thumbnails/web/jpg/${release.thumbnailFilename}_55.jpg`).default
+  }
+  : {
+    webp: require(`../assets/images/comingSoon_${selectedLanguageKey}_55.webp`).default,
+    png: require(`../assets/images/comingSoon_${selectedLanguageKey}_55.png`).default
   };
   const thumbnailDescription = selectedLanguageKey === 'en' ? `Cover image for ${release.title} by ${release.artistName}` : `Coverbilde til ${release.title} av ${release.artistName}`;
 

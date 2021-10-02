@@ -57,7 +57,7 @@ class Portfolio extends Component {
       const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
       return {
         "@type": "MusicRecording",
-        "@id": `https://www.dehlimusikk.no/portfolio/${release.id}`,
+        "@id": `https://www.dehlimusikk.no/portfolio/${releaseId}/`,
         "position": index + 1,
         "url": `https://www.dehlimusikk.no/${languageSlug}portfolio/${releaseId}/`,
       };
@@ -75,7 +75,8 @@ class Portfolio extends Component {
   renderReleases() {
     return releases && releases.length
       ? releases.map(release => {
-        return (<ListItem key={release.id} fullscreen={this.props.fullscreen}>
+        const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
+        return (<ListItem key={releaseId} fullscreen={this.props.fullscreen}>
           <Release release={release} />
         </ListItem>)
       })
@@ -105,7 +106,7 @@ class Portfolio extends Component {
       : '';
   }
 
-  getSelectedRelease(selectedReleaseId, selectedLanguageKey) {
+  getSelectedRelease(selectedReleaseId) {
     let selectedRelease = null;
     releases.forEach((release, index) => {
       const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)

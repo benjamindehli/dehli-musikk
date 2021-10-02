@@ -1,15 +1,15 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {Redirect} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Redirect } from 'react-router-dom';
 
 // Actions
-import {getLanguageSlug} from 'actions/LanguageActions';
-import {updateSearchResults} from 'actions/SearchResultsActions';
+import { getLanguageSlug } from 'actions/LanguageActions';
+import { updateSearchResults } from 'actions/SearchResultsActions';
 
 // Helpers
-import {getSearchResults} from 'helpers/search';
+import { getSearchResults } from 'helpers/search';
 
 // Stylesheets
 import style from 'components/partials/NavigationBar/SearchField.module.scss';
@@ -37,9 +37,9 @@ class SearchField extends Component {
     document.removeEventListener("keydown", this.keyDownFunction, false);
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps) {
     if (this.state.redirect) {
-      this.setState({redirect: null});
+      this.setState({ redirect: null });
     }
   }
 
@@ -47,10 +47,10 @@ class SearchField extends Component {
     this.resultsListWrapperRef = node;
   }
 
-  keyDownFunction(event){
+  keyDownFunction(event) {
     switch (event.keyCode) {
       case 27: // Escape
-        if (this.state.showResultsList){
+        if (this.state.showResultsList) {
           this.hideResultsList();
         }
         break;
@@ -61,14 +61,15 @@ class SearchField extends Component {
 
   renderReleaseThumbnail(thumbnailPaths, alt) {
     return (<picture>
-      <source sizes='55' srcSet={`${thumbnailPaths.webp} 55w`} type="image/webp"/>
-      <source sizes='55' srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpg"/>
-      <img src={thumbnailPaths.jpg} width='55' height='55' alt={alt}/>
+      <source sizes='55' srcSet={`${thumbnailPaths.webp} 55w`} type="image/webp" />
+      {thumbnailPaths.jpg ? <source sizes='55' srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpg" /> : ''}
+      {thumbnailPaths.png ? <source sizes='55' srcSet={`${thumbnailPaths.png} 55w`} type="image/png" /> : ''}
+      <img src={thumbnailPaths.jpg ? thumbnailPaths.jpg : thumbnailPaths.png} width='55' height='55' alt={alt} />
     </picture>);
   }
 
-  handleSubmitSearch(event){
-    if (event.key === 'Enter'){
+  handleSubmitSearch(event) {
+    if (event.key === 'Enter') {
       let searchString = event.target.value.replace(/[^a-å0-9- ]+/ig, ""); // Removes unwanted characters
       searchString = searchString.replace(/\s\s+/g, ' '); // Remove redundant whitespace
       if (searchString.length > 1 && this.state.results.length) {
@@ -99,7 +100,7 @@ class SearchField extends Component {
   }
 
   hideResultsList() {
-    this.setState({showResultsList: false});
+    this.setState({ showResultsList: false });
   }
 
   renderResultsList(results, selectedLanguageKey) {
@@ -117,7 +118,7 @@ class SearchField extends Component {
         return (<a href={result.link} title={result.linkTitle} key={resultKey} className={style.resultsListItem}>
           {result.thumbnailPaths && result.thumbnailDescription ? this.renderReleaseThumbnail(result.thumbnailPaths, result.thumbnailDescription) : ''}
           <span className={style.resultsListItemText}>{result.text}</span>
-          <span className={`${style.resultsListItemTypeLabel} ${style[result.type]}`}><span><FontAwesomeIcon icon={itemTypeIcons[result.type]}/> {result.label}</span></span>
+          <span className={`${style.resultsListItemTypeLabel} ${style[result.type]}`}><span><FontAwesomeIcon icon={itemTypeIcons[result.type]} /> {result.label}</span></span>
         </a>)
       });
       return resultsElements;
@@ -128,24 +129,24 @@ class SearchField extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to={this.state.redirect}/>;
+      return <Redirect to={this.state.redirect} />;
     } else {
       return (<React.Fragment>
         <div className={style.searchFieldContainer}>
-          <FontAwesomeIcon icon={['fas', 'search']}/>
+          <FontAwesomeIcon icon={['fas', 'search']} />
           <label htmlFor="search" className={style.hidden}>{this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}</label>
           <input type="search"
-                 autoComplete="off"
-                 id="search"
-                 aria-label={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
-                 onChange={(event) => this.handleShowResultsList(event)}
-                 onKeyUp={(event) => this.handleSubmitSearch(event)}
-                 placeholder={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
-                 className={style.searchField} />
+            autoComplete="off"
+            id="search"
+            aria-label={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
+            onChange={(event) => this.handleShowResultsList(event)}
+            onKeyUp={(event) => this.handleSubmitSearch(event)}
+            placeholder={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
+            className={style.searchField} />
         </div>
         <div className={`${style.resultsListContainer} ${this.state.showResultsList
-            ? style.active
-            : ''}`}>
+          ? style.active
+          : ''}`}>
           <div ref={this.setResultsListWrapperRef} className={style.resultsList}>
             {this.renderResultsList(this.state.results, this.props.selectedLanguageKey)}
           </div>
