@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createRelease, updateReleases } from 'actions/ReleasesActions';
 
 // Helpers
-import { fetchReleaseData, renderFileName } from 'helpers/releaseHelpers';
+import { fetchReleaseData, renderFileName, convertMillisToIsoDuration } from 'helpers/releaseHelpers';
 import { getReleaseInstruments, getNotSelectedReleaseInstruments } from 'helpers/releaseInstrumentHelpers';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
@@ -58,7 +58,7 @@ class Release extends Component {
 
   handleArtistNameChange(artistName) {
     const slug = convertToUrlFriendlyString(`${artistName} ${this.state.release.title}`);
-    const thumbnailFilename = renderFileName(artistName, this.state.release.title, this.state.release.id);
+    const thumbnailFilename = renderFileName(artistName, this.state.release.title);
     this.setState({
       release: {
         ...this.state.release,
@@ -71,7 +71,7 @@ class Release extends Component {
 
   handleTitleChange(title) {
     const slug = convertToUrlFriendlyString(`${this.state.release.artistName} ${title}`);
-    const thumbnailFilename = renderFileName(this.state.release.artistName, title, this.state.release.id);
+    const thumbnailFilename = renderFileName(this.state.release.artistName, title);
     this.setState({
       release: {
         ...this.state.release,
@@ -101,6 +101,19 @@ class Release extends Component {
     this.updateReleasesInStore();
   }
 
+  handleDurationChange(duration) {
+    duration = parseInt(duration);
+    const durationISO = convertMillisToIsoDuration(duration);
+    this.setState({
+      release: {
+        ...this.state.release,
+        duration,
+        durationISO
+      }
+    });
+    this.updateReleasesInStore();
+  }
+
   handleIsrcCodeChange(isrcCode) {
     this.setState({
       release: {
@@ -124,6 +137,15 @@ class Release extends Component {
       release: {
         ...this.state.release,
         producedByDehliMusikk: checked
+      }
+    });
+  }
+
+  handleUnreleasedChange(checked) {
+    this.setState({
+      release: {
+        ...this.state.release,
+        unreleased: checked
       }
     });
   }
@@ -393,10 +415,14 @@ class Release extends Component {
             </label>
             <label htmlFor={`duration-${index}`}>
               Duration
-              <span id={`duration-${index}`}>
-                {release.duration}
-              </span>
+              <input type="number" id={`duration-${index}`} value={release.duration} onChange={event => this.handleDurationChange(event.target.value)} onBlur={this.updateReleasesInStore} />
+              {
+                updatedRelease?.duration && updatedRelease.duration !== this.state.release.duration
+                  ? (<span>{updatedRelease.duration} <button onClick={() => this.handleDurationChange(updatedRelease.duration)}>Replace</button></span>)
+                  : ''
+              }
             </label>
+
             <label htmlFor={`duration-iso-${index}`}>
               Duration ISO
               <span id={`duration-iso-${index}`}>
@@ -422,6 +448,13 @@ class Release extends Component {
             <label htmlFor={`producedByDehliMusikk-${index}`}>
               Produced by Dehli Musikk
               <input type="checkbox" id={`producedByDehliMusikk-${index}`} checked={release.producedByDehliMusikk ? true : false} onChange={event => this.handleProducedByDehliMusikkChange(event.target.checked)} onBlur={this.updateReleasesInStore} />
+            </label>
+          </div>
+
+          <div className={commonStyle.formElement}>
+            <label htmlFor={`unreleased-${index}`}>
+              Unreleased
+              <input type="checkbox" id={`unreleased-${index}`} checked={release.unreleased ? true : false} onChange={event => this.handleUnreleasedChange(event.target.checked)} onBlur={this.updateReleasesInStore} />
             </label>
           </div>
 

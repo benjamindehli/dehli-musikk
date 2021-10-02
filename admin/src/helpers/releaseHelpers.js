@@ -15,11 +15,11 @@ const camelize = string => {
     return '';
 }
 
-export const renderFileName = (artistName, title, releaseId) => {
-  return `${camelize(artistName)}_${camelize(title)}_${releaseId}`;
+export const renderFileName = (artistName, title) => {
+  return `${camelize(artistName)}_${camelize(title)}`;
 }
 
-const convertMillisToIsoDuration = duration => {
+export const convertMillisToIsoDuration = duration => {
   const dateObject = new Date(duration);
   const hours = dateObject.getHours() - 1 > 0
     ? dateObject.getHours() - 1
