@@ -93,13 +93,15 @@ class Release extends Component {
         "@type": "MusicComposition",
         "name": release.title
       },
-      "thumbnailUrl": `https://www.dehlimusikk.no${releaseThumbnailSrc}`,
       "contributor": {
         "@type": "OrganizationRole",
         "contributor": {
           "@id": "#BenjaminDehli",
         }
       }
+    }
+    if (!release.unreleased && releaseThumbnailSrc) {
+      snippet.thumbnailUrl = `https://www.dehlimusikk.no${releaseThumbnailSrc}`
     }
     if (release.composedByDehliMusikk) {
       snippet.recordingOf.composer = {
