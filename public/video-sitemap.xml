@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/sequential-circuits-pro-one-gjennom-en-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Sequential Circuits Pro-One gjennom en Korg MS-20</video:title>
+      <video:description>Kjører lyden fra en Sequential Circuits Pro-One gjennom en Korg MS-20 og styrer dens tonehøyde. Lyden fra synthene er uprosessert  bortsett fra litt klang fra en Chase Bliss Audio &amp; Meris CXM 1978 som er lagt på.
+Instrumenter: Sequential Circuits Pro-One og Korg MS-20.
+Effekter: Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=1w-6ia1ClUU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-03-00_540.3595092b.jpg</video:thumbnail_loc>
+      <video:duration>605</video:duration>
+      <video:publication_date>2021-10-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/running-sequential-circuits-pro-one-through-a-korg-ms-20/</loc>
+    <video:video>
+      <video:title>Running Sequential Circuits Pro-One through a Korg MS-20</video:title>
+      <video:description>Running a Sequential Circuits Pro-One through the Korg MS-20 and controlling its pitch with the audio.
+The audio from the synthesizers is unprocessed except a small amount of reverb is added from the Chase Bliss Audio &amp; Meris CXM 1978.
+Instruments: Sequential Circuits Pro-One and Korg MS-20
+Effects: Chase Bliss Audio &amp; Meris CXM 1978</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=1w-6ia1ClUU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-03-00_540.3595092b.jpg</video:thumbnail_loc>
+      <video:duration>605</video:duration>
+      <video:publication_date>2021-10-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/warszawa-utdrag-paa-mellotron-og-pro-one/</loc>
     <video:video>
       <video:title>Warszawa (utdrag) på Mellotron og Pro-One</video:title>
