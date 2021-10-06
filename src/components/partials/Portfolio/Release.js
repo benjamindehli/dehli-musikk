@@ -234,6 +234,9 @@ class Release extends Component {
               </h2>
             </ListItemContentHeader>
           </ListItemContent>
+          {
+            this.props.fullscreen ? this.renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
+          }
         </React.Fragment>
       );
   }
