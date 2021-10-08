@@ -150,6 +150,15 @@ class Release extends Component {
     });
   }
 
+  handleSpotifyThumbnailUrlChange(spotifyThumbnailUrl) {
+    this.setState({
+      release: {
+        ...this.state.release,
+        spotifyThumbnailUrl
+      }
+    });
+  }
+
 
   handleLinkChange(linkKey, link) {
     this.setState({
@@ -467,6 +476,20 @@ class Release extends Component {
                 {release.spotifyThumbnailUrl}
               </span>
             </label>
+            {
+              updatedRelease?.spotifyThumbnailUrl && updatedRelease.spotifyThumbnailUrl !== this.state.release.spotifyThumbnailUrl
+                ? (
+                  <React.Fragment>
+                    <img loading="lazy" src={updatedRelease.spotifyThumbnailUrl} width="150" height="150" className={commonStyle.thumbnail} alt='thumbnail' />
+                    <label>
+                      New thumbnail
+                      <span>
+                        {updatedRelease.spotifyThumbnailUrl} <button onClick={() => this.handleSpotifyThumbnailUrlChange(updatedRelease.spotifyThumbnailUrl)}>Replace</button>
+                      </span>
+                    </label>
+                  </React.Fragment>)
+                : ''
+            }
           </div>
           <details>
             <summary>Links {Object.keys(release.links).length}</summary>
