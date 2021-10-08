@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/kaasin-we-are-one/</loc>
+    <video:video>
+      <video:title>Kaasin - We Are One</video:title>
+      <video:description>&quot;We Are One&quot; er en låt hentet fra det norske rockebandet Kaasin&apos;s debut album &quot;Fired Up&quot; (utgitt: 19. November 2021)!
+Kaasin har sluppet two singler &quot;Runaway Train&quot; og &quot;Revelation&quot; på Streampeak Music in 2020.
+Kaasin gav ut sin tredje singel, &quot;Hidden&quot; på Pride &amp; Joy Music i July 2021, som er den første singelen fra det kommende albumet &quot;Fired Up&quot;.
+Spilt inn hos Dehli Musikk, Bø i Telemark og Juke Joint Studio, Notodden.
+Produsert av Benjamin Dehli, Halvor Halvorsen &amp; KAASIN
+Mixet/mastret av Leif Johansen
+Video av Jon Sandersen
+Plateselskap: Pride &amp; Joy Music
+Musikere: Jan Thore Grefsted (vokal), Staale Kaasin (bass), Jo Henning Kaasin (gitar), Benjamin Dehli (tangenter), Chris Brush (trommer) og Per-Morten Bergseth (trommer i video)</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Aabqxt9rg1E</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-08-00_540.42fa72ff.jpg</video:thumbnail_loc>
+      <video:duration>317</video:duration>
+      <video:publication_date>2021-10-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/prideandjoymusic">prideandjoy</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/kaasin-we-are-one/</loc>
+    <video:video>
+      <video:title>Kaasin - We Are One</video:title>
+      <video:description>&quot;We Are One&quot; is a track taken from Norwegian Classic Rock act Kaasin&apos;s debut album &quot;Fired Up&quot; (released: November 19th, 2021)!
+Kaasin released two singles &quot;Runaway Train&quot; and &quot;Revelation&quot; on Streampeak Music in 2020. 
+Kaasin released a third single, &quot;Hidden&quot; on Pride &amp; Joy Music in July 2021, i.e.the first single from the upcoming album, &quot;Fired Up&quot;.
+Recorded and engineered at Dehli Musikk, Bø in Telemark and Juke Joint Studio, Notodden.
+Produced by Benjamin Dehli, Halvor Halvorsen &amp; KAASIN
+Mixed/mastered by Leif Johansen
+Video by Jon Sandersen
+Label: Pride &amp; Joy Music
+Musicians: Jan Thore Grefsted (vocals), Staale Kaasin (bass), Jo Henning Kaasin (guitar), Benjamin Dehli (keyboards), Chris Brush (drums) and Per-Morten Bergseth (drums in video)
+Kaasin - Melodic hardrock in the tradition of the great bands from the seventies and early eighties.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Aabqxt9rg1E</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-08-00_540.42fa72ff.jpg</video:thumbnail_loc>
+      <video:duration>317</video:duration>
+      <video:publication_date>2021-10-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/prideandjoymusic">prideandjoy</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/sequential-circuits-pro-one-gjennom-en-korg-ms-20/</loc>
     <video:video>
       <video:title>Sequential Circuits Pro-One gjennom en Korg MS-20</video:title>
