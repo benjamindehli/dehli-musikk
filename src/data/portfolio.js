@@ -50,9 +50,9 @@ import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggin
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  kaasinWeAreOne,
   haakerGuardianAngels,
-  kaasinHidden,
-  hanneStaverTheWords
+  kaasinHidden
 ];
 
 const allReleases = [
