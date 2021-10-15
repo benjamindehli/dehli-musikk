@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/sammenligning-av-synther-oscillatorer-og-filtre/</loc>
+    <video:video>
+      <video:title>Sammenligning av synther (oscillatorer og filtre)</video:title>
+      <video:description>Lydsammenligning av oscillatorene og filtrene fra åtte forskjellige synthesizere.
+Instrumenter: Doepfer Dark Energy (v1), Dreadbox Erebus v2, Dave Smith Instruments Mopho Keyboard, Sequential Circuits Pro-One, Korg microKORG XL+, Korg MS-20 (Mark 1 med Korg 35 filter), Korg Polysix og Moog Minitaur.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=zzRciuUpMSc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-14-00_540.bd866a79.jpg</video:thumbnail_loc>
+      <video:duration>1197</video:duration>
+      <video:publication_date>2021-10-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/synth-comparison-oscillators-and-filters/</loc>
+    <video:video>
+      <video:title>Synth comparison (oscillators and filters)</video:title>
+      <video:description>Sound comparison of the oscillators and filters from eight different synthesizers.
+Instruments: Doepfer Dark Energy (v1), Dreadbox Erebus v2, Dave Smith Instruments Mopho Keyboard, Sequential Circuits Pro-One, Korg microKORG XL+, Korg MS-20 (Mark 1 with Korg 35 filter), Korg Polysix and Moog Minitaur.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=zzRciuUpMSc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-14-00_540.bd866a79.jpg</video:thumbnail_loc>
+      <video:duration>1197</video:duration>
+      <video:publication_date>2021-10-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/kaasin-we-are-one/</loc>
     <video:video>
       <video:title>Kaasin - We Are One</video:title>
