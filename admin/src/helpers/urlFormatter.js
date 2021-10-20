@@ -25,6 +25,7 @@ const replaceAndAddSpace = (string, replace, replaceWith) => {
   
       // Unwated character replace
       string = string.replace(/[^a-z0-9-]+/ig, "");
+      string = string.replace(/-{2,}/g, "-");
   
       // Remove any character before first and after last A-Z or 0-9
       string = string.replace(/^[^A-Z0-9]*|[^a-z0-9]*$/ig, "");
