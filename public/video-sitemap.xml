@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/en-annen-type-ducking-pumpeeffekt/</loc>
+    <video:video>
+      <video:title>En annen type ducking- / pumpeeffekt</video:title>
+      <video:description>En alternativ og tungvint måte å lage ducking- / pumpeeffekten ved å bruke vekslende mikrofonavstand i stedet for side-chain-komprimering.
+Instrumenter: Korg MS-20 (Mark 1 med Korg 35 filter).
+Forsterker: Vox AC15H1TV.
+Mikrofoner: Par med Shure SM57.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=SyGtYXraEIA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-17-00_540.0441c46a.jpg</video:thumbnail_loc>
+      <video:duration>220</video:duration>
+      <video:publication_date>2021-10-17</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/a-different-kind-of-the-ducking-pumping-effect/</loc>
+    <video:video>
+      <video:title>A different kind of the ducking / pumping effect</video:title>
+      <video:description>An alternative and cumbersome way to create the ducking / pumping effect using alternating mic distance instead of side-chain compression.
+Instruments: Korg MS-20 (Mark 1 with Korg 35 filter).
+Amplifier: Vox AC15H1TV.
+Microphones: Pair of Shure SM57.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=SyGtYXraEIA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-17-00_540.0441c46a.jpg</video:thumbnail_loc>
+      <video:duration>220</video:duration>
+      <video:publication_date>2021-10-17</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/eier-sony-music-noten-c/</loc>
+    <video:video>
+      <video:title>Eier Sony Music noten C?</video:title>
+      <video:description>Tilsynelatende er dette min coverversjon av Escape 700 av The Chemical Brothers 🤔Sony Music Entertainment (SME) eier tydeligvis opphavsretten til noten C 🙃</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=KRfDWDJ_OVE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-15-00_540.57601ff9.jpg</video:thumbnail_loc>
+      <video:duration>34</video:duration>
+      <video:publication_date>2021-10-15</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/does-sony-music-own-the-note-c/</loc>
+    <video:video>
+      <video:title>Does Sony Music own the note C?</video:title>
+      <video:description>Apparently this is my cover version of Escape 700 by The Chemical Brothers 🤔I&apos;ll guess Sony Music Entertainment (SME) owns the copyright to the note C 🙃</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=KRfDWDJ_OVE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-15-00_540.57601ff9.jpg</video:thumbnail_loc>
+      <video:duration>34</video:duration>
+      <video:publication_date>2021-10-15</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/sammenligning-av-synther-oscillatorer-og-filtre/</loc>
     <video:video>
       <video:title>Sammenligning av synther (oscillatorer og filtre)</video:title>
@@ -1066,7 +1124,7 @@ Envelope Generator 1 controlling the pitch, making it glide up to the note when 
     </video:video>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/videos/logan--hohner-string-melody-ii/</loc>
+    <loc>https://www.dehlimusikk.no/videos/logan-hohner-string-melody-ii/</loc>
     <video:video>
       <video:title>Logan / Hohner String Melody II</video:title>
       <video:description>Tester ut String Melody&apos;en etter litt vedlikehold. Akkordene er fra &quot;A Saucerful of Secrets&quot; av Pink Floyd.
@@ -1080,7 +1138,7 @@ Signalkjede: Logan - String Melody II ➡️ TC Electronic - SCF Stereo Chorus F
     </video:video>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/en/videos/logan--hohner-string-melody-ii/</loc>
+    <loc>https://www.dehlimusikk.no/en/videos/logan-hohner-string-melody-ii/</loc>
     <video:video>
       <video:title>Logan / Hohner String Melody II</video:title>
       <video:description>Testing the String Melody after some maintenance. The chords is from &quot;A Saucerful of Secrets&quot; by Pink Floyd.
