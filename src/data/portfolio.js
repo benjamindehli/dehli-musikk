@@ -50,9 +50,9 @@ import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggin
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  kaasinWrong,
   kaasinWeAreOne,
-  haakerGuardianAngels,
-  kaasinHidden
+  haakerGuardianAngels
 ];
 
 const allReleases = [
