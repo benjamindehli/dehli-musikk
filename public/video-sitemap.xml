@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/keyboardlydene-fra-kaasin-wrong/</loc>
+    <video:video>
+      <video:title>Keyboardlydene fra &quot;Kaasin - Wrong&quot;</video:title>
+      <video:description>Noen av de forskjellige keyboarddelene fra låta Wrong av Kaasin.
+Trommene spilles av Chris Brush.
+Lydene i videoen har blitt editert etter opptak.
+F.eks. Den reverserte båndekkoen og de doblede Erebus spora.
+Signalkjede for orgel: Hammond C3, Dunlop / Dallas Arbiter &apos;93 Fuzz Face (NKT-275), VanAmps Sole-Mate Jr., Vox AC15H1TV og Shure SM57.
+Signalkjede for synth på mellomspill, vers og refreng: Korg MS-20, Boss DM-2 Delay, VanAmps Sole-Mate Jr. og Roland Dimension D SDD-320.
+Signalkjede for piano: Louis Zwicki Pianette, AKG C451E (Stereo par) og Fulltone Tube Tape Echo.
+Signalkjede for synth på bridge: Dreadbox Erebus v2, Electro-Harmonix Deluxe Memory Man, VanAmps Sole-Mate Jr. og Roland Dimension D SDD-320.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=-sFgiPfSRu8</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-11-07-00_540.5e9bfeda.jpg</video:thumbnail_loc>
+      <video:duration>516</video:duration>
+      <video:publication_date>2021-11-07</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/the-keyboard-sounds-of-kaasin-wrong/</loc>
+    <video:video>
+      <video:title>The keyboard sounds of &quot;Kaasin - Wrong&quot;</video:title>
+      <video:description>Some of the different keyboard parts from the song Wrong by Kaasin.
+The drums are played and recorded by Chris Brush.
+The sounds in the video has been edited and altered after recording.
+E.g. The reversed tape echoes and the double tracked Erebus.
+Signal chain for organ: Hammond C3, Dunlop / Dallas Arbiter &apos;93 Fuzz Face (NKT-275), VanAmps Sole-Mate Jr., Vox AC15H1TV and Shure SM57.
+Signal chain for synthesizer on interlude, verse and chorus: Korg MS-20, Boss DM-2 Delay, VanAmps Sole-Mate Jr. and Roland Dimension D SDD-320.
+Signal chain for piano: Louis Zwicki Pianette, AKG C451E (Stereo pair) and Fulltone Tube Tape Echo.
+Signal chain for synthesizer on bridge: Dreadbox Erebus v2, Electro-Harmonix Deluxe Memory Man, VanAmps Sole-Mate Jr., Roland Dimension D SDD-320.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=-sFgiPfSRu8</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-11-07-00_540.5e9bfeda.jpg</video:thumbnail_loc>
+      <video:duration>516</video:duration>
+      <video:publication_date>2021-11-07</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/en-annen-type-ducking-pumpeeffekt/</loc>
     <video:video>
       <video:title>En annen type ducking- / pumpeeffekt</video:title>
