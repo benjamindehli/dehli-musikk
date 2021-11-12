@@ -47,12 +47,13 @@ import wildWhensRebelHeart from './releases/data/wildWhens_rebelHeart.json';
 import wildWhensSailinSarah from './releases/data/wildWhens_sailinSarah.json';
 import wildWhensTravellinMan from './releases/data/wildWhens_travellinMan.json';
 import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggingintoMyPast.json';
+import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.json';
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  wolfMoonFeverSeaOfGreen,
   kaasinWrong,
-  kaasinWeAreOne,
-  haakerGuardianAngels
+  kaasinWeAreOne
 ];
 
 const allReleases = [
@@ -105,6 +106,7 @@ const allReleases = [
   wildWhensSailinSarah,
   wildWhensTravellinMan,
   wolfMoonFeverDiggingIntoMyPast,
+  wolfMoonFeverSeaOfGreen,
   wolfMoonFeverTheKeeperoftheLighthouse
 ];
 
