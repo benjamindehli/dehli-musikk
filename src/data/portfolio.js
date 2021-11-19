@@ -51,9 +51,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
-  wolfMoonFeverSeaOfGreen,
-  kaasinWrong,
-  kaasinWeAreOne
+  kaasinChainOfLove,
+  kaasinShadesOfYesterday,
+  kaasinCarryOn
 ];
 
 const allReleases = [
