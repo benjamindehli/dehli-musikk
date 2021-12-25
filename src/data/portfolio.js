@@ -1,3 +1,4 @@
+import twentyTwentyVisionAbyssWithinMe from './releases/data/2020Vision_abyssWithinMe.json';
 import twentyTwentyVisionCanYouSeeMe from './releases/data/2020Vision_canYouSeeMe.json';
 import twentyTwentyVisionUnderTheMidnightSun from './releases/data/2020Vision_undertheMidnightSun.json';
 import ainaWassvikDauntless from './releases/data/ainaWassvik_dauntless.json';
@@ -51,12 +52,13 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  twentyTwentyVisionAbyssWithinMe,
   kaasinChainOfLove,
-  kaasinShadesOfYesterday,
-  kaasinCarryOn
+  kaasinShadesOfYesterday
 ];
 
 const allReleases = [
+  twentyTwentyVisionAbyssWithinMe,
   twentyTwentyVisionCanYouSeeMe,
   twentyTwentyVisionUnderTheMidnightSun,
   ainaWassvikDauntless,
