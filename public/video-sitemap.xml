@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/clavinet-sololyden-fra-kaasin-hidden/</loc>
+    <video:video>
+      <video:title>Clavinet-sololyden fra &quot;Kaasin - Hidden&quot;</video:title>
+      <video:description>De forskjellige sporene som tilsammen utgjør Clavinet-sololyden i låta Hidden av Kaasin.
+Trommene spilles av Chris Brush.
+Clavinet&apos;en er spilt inn med en DI-boks én gang og så re-amp&apos;et flere ganger for de forskjellige sporene. Den eneste effekten som er brukt ved innspilling av DI-signalet er en Real McCoy Custom Picture Wah på den siste delen av soloen.
+Clavinet-sololyden består av 6 spor.
+Spor 1 &amp; 2 (Fuzz): DI-signalet er re-amp&apos;et to ganger med forskjellig fuzz-pedaler. En Fuzz Face og en Iron Bell. Begge fuzz-pedalene er kjørt gjennom en VanAmps Sole-Mate Jr. inn i en Vox AC15H1TV, mikket opp med en Shure SM57. De to fuzz-sporene er panorert litt(25%) til hver sin side.
+Spor 3 (Punch): DI-signalet er kjørt gjennom en VanAmps Sole-Mate Jr. inn i en Vox AC15H1TV mikket opp med en Shure SM57. Det innspilte sporet er så kraftig komprimert med en CLA-76 (1176 plugin) og en CLA-2A (LA-2A plugin). CLA-76-kompressoren har en ganske sein attack-tid for å fremheve transientene og gi mer &quot;punch&quot;.
+Spor 4, 5 &amp; 6 (Rotary effect): DI-signalet er kjørt gjennom en Electro-Harmonix English Muff&apos;n og en VanAmps Sole-Mate Jr. inn i en Solton Dopplertone forsterker. Det øvre hornet er mikket opp med et stereopar Shure SM57 og panorert hardt til hver side, mens den nedre rotoren er mikket opp med en Sennheiser e 602-II.
+
+Instrument: Hohner Clavinet D6.
+Effekter: Real McCoy Custom Picture Wah, Dunlop / Dallas Arbiter &apos;93 Fuzz Face, Mojo Hand FX Iron Bell, Electro-Harmonix English Muff&apos;n og VanAmps Sole-Mate Jr.
+Forsterkere: Vox AC15H1TV og Solton Dopplertone.
+Plugins: Waves Audio CLA-76 og Waves Audio CLA-2A.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-01-01-00_540.c02e8db1.jpg</video:thumbnail_loc>
+      <video:duration>163</video:duration>
+      <video:publication_date>2022-01-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/the-clavinet-solo-sound-of-kaasin-hidden/</loc>
+    <video:video>
+      <video:title>The Clavinet solo sound of &quot;Kaasin - Hidden&quot;</video:title>
+      <video:description>The different tracks that make up the Clavinet solo sound on the song Hidden.
+The drums are played and recorded by Chris Brush.
+The Clavinet is recorded with a DI-box once and then re-amped multiple times for the different tracks. The only effects used on the DI signal is a Real McCoy Custom Picture Wah on the last part of the solo.
+The Clavinet solo sound consists of 6 tracks.
+Track 1 &amp; 2 (Fuzz): The DI-signal is re-amped two times with different fuzz pedals. A Fuzz Face and an Iron Bell. Both fuzz pedals is ran through a VanAmps Sole-Mate Jr. into a Vox AC15H1TV mic&apos;d up with a Shure SM57. The two fuzz tracks is panned slightly(25%) to each side.
+Track 3 (Punch): The DI-signal is ran through a VanAmps Sole-Mate Jr. into a Vox AC15H1TV mic&apos;d up with a Shure SM57. The recorded track is then heavily compressed with CLA-76 (1176 plugin) and CLA-2A (LA-2A plugin). The CLA-76 has a pretty slow attack to accentuate the transients for more punch.
+Track 4, 5 &amp; 6 (Rotary effect): The DI-signal is ran through an Electro-Harmonix English Muff&apos;n and a VanAmps Sole-Mate Jr. into a Solton Dopplertone rotary speaker. The upper horn is mic&apos;d up with a stereo pair of Shure SM57 panned hard to each side and the lower rotor is mic&apos;d up with a Sennheiser e 602-II.
+
+Instrument: Hohner Clavinet D6.
+Effects: Real McCoy Custom Picture Wah, Dunlop / Dallas Arbiter &apos;93 Fuzz Face, Mojo Hand FX Iron Bell, Electro-Harmonix English Muff&apos;n and VanAmps Sole-Mate Jr.
+Amplifiers: Vox AC15H1TV and Solton Dopplertone.
+Plugins: Waves Audio CLA-76 and Waves Audio CLA-2A.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-01-01-00_540.c02e8db1.jpg</video:thumbnail_loc>
+      <video:duration>163</video:duration>
+      <video:publication_date>2022-01-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/kaasin-shades-of-yesterday/</loc>
     <video:video>
       <video:title>Kaasin - Shades of Yesterday</video:title>
