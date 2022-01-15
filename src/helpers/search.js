@@ -13,6 +13,9 @@ const getLanguageSlug = selectedLanguageKey => {
 };
 
 export const convertStringToExcerpt = string => {
+  if (!string?.trim().length) {
+    return ''
+  }
   string = string.replace(/[\s]+/g, " ");
   var trimmedString = string.length > 158 ? `${string.substring(0, 158)}...` : string;
   return trimmedString;
@@ -55,8 +58,8 @@ const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguage
   const thumbnailDescription = selectedLanguageKey === 'en' ? `Cover image for ${release.title} by ${release.artistName}` : `Coverbilde til ${release.title} av ${release.artistName}`;
 
   const durationString = `${new Date(release.duration).getMinutes()}:${new Date(release.duration).getSeconds() > 9
-      ? new Date(release.duration).getSeconds()
-      : '0' + new Date(release.duration).getSeconds()
+    ? new Date(release.duration).getSeconds()
+    : '0' + new Date(release.duration).getSeconds()
     }`;
 
   const releaseYearString = `${new Date(release.releaseDate).getFullYear()}`

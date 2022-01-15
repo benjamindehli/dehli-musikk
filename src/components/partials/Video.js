@@ -96,7 +96,8 @@ const Video = ({ video, fullscreen }) => {
   const videoDate = new Date(video.timestamp);
   const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
   const videoPath = `/${languageSlug}videos/${videoId}/`;
-  const videoDescription = fullscreen ? video.content[selectedLanguageKey] : convertStringToExcerpt(video.content[selectedLanguageKey]);
+  const videoContentString = video?.content?.[selectedLanguageKey] || '';
+  const videoDescription = fullscreen ? videoContentString : convertStringToExcerpt(videoContentString);
 
   const link = {
     to: videoPath,
