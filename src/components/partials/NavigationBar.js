@@ -122,8 +122,8 @@ const NavigationBar = () => {
   }
 
   useEffect(() => {
-    dispatch(updateMultilingualRoutes(location, availableLanguages, languageSlug))
-  }, [dispatch, location, availableLanguages, languageSlug])
+    dispatch(updateMultilingualRoutes(location, availableLanguages))
+  }, [dispatch, location, availableLanguages])
 
 
   return (

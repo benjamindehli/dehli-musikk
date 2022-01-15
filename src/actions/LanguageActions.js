@@ -1,6 +1,6 @@
 import { UPDATE_MULTILINGUAL_ROUTES, UPDATE_SELECTED_LANGUAGE_KEY } from 'constants/types';
 
-export const updateMultilingualRoutes = (location, availableLanguages, selectedLanguageSlug) => {
+export const updateMultilingualRoutes = (location, availableLanguages) => {
   if (location.pathname) {
     const appDomain = window.location.origin;
     let multilingualRoutes = {};
@@ -8,10 +8,8 @@ export const updateMultilingualRoutes = (location, availableLanguages, selectedL
       Object.keys(availableLanguages).forEach(languageKey => {
         const availableLanguage = availableLanguages[languageKey];
         let pathnameWithoutLanguageSlug = location.pathname;
-        if (selectedLanguageSlug) {
-          const languageSlugRegExp = new RegExp(`^/${selectedLanguageSlug}`);
-          pathnameWithoutLanguageSlug = pathnameWithoutLanguageSlug.replace(languageSlugRegExp, '/');
-        }
+        const languageSlugRegExp = new RegExp(`^/en/`);
+        pathnameWithoutLanguageSlug = pathnameWithoutLanguageSlug.replace(languageSlugRegExp, '/');
         pathnameWithoutLanguageSlug = pathnameWithoutLanguageSlug.replace(/^\//, '');
         multilingualRoutes[languageKey] = {
           url: `${appDomain}/${availableLanguage.path}${pathnameWithoutLanguageSlug}${location.search}`,
