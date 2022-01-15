@@ -1,68 +1,69 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 // Assets
-import {ReactComponent as AmazonStoreIcon} from 'assets/svg/amazonStore.svg'
-import {ReactComponent as AmazonMusicIcon} from 'assets/svg/amazonMusic.svg'
-import {ReactComponent as AppleMusicIcon} from 'assets/svg/appleMusic.svg'
-import {ReactComponent as DeezerIcon} from 'assets/svg/deezer.svg'
-import {ReactComponent as GoogleIcon} from 'assets/svg/google.svg'
-import {ReactComponent as GoogleStoreIcon} from 'assets/svg/googleStore.svg'
-import {ReactComponent as ItunesIcon} from 'assets/svg/itunes.svg'
-import {ReactComponent as NapsterIcon} from 'assets/svg/napster.svg'
-import {ReactComponent as PandoraIcon} from 'assets/svg/pandora.svg'
-import {ReactComponent as SoundcloudIcon} from 'assets/svg/soundcloud.svg'
-import {ReactComponent as SpotifyIcon} from 'assets/svg/spotify.svg'
-import {ReactComponent as TidalIcon} from 'assets/svg/tidal.svg'
-import {ReactComponent as YandexIcon} from 'assets/svg/yandex.svg'
-import {ReactComponent as YoutubeIcon} from 'assets/svg/youtube.svg'
-import {ReactComponent as YoutubeMusicIcon} from 'assets/svg/youtubeMusic.svg'
+import { ReactComponent as AmazonStoreIcon } from 'assets/svg/amazonStore.svg'
+import { ReactComponent as AmazonMusicIcon } from 'assets/svg/amazonMusic.svg'
+import { ReactComponent as AppleMusicIcon } from 'assets/svg/appleMusic.svg'
+import { ReactComponent as DeezerIcon } from 'assets/svg/deezer.svg'
+import { ReactComponent as GoogleIcon } from 'assets/svg/google.svg'
+import { ReactComponent as GoogleStoreIcon } from 'assets/svg/googleStore.svg'
+import { ReactComponent as ItunesIcon } from 'assets/svg/itunes.svg'
+import { ReactComponent as NapsterIcon } from 'assets/svg/napster.svg'
+import { ReactComponent as PandoraIcon } from 'assets/svg/pandora.svg'
+import { ReactComponent as SoundcloudIcon } from 'assets/svg/soundcloud.svg'
+import { ReactComponent as SpotifyIcon } from 'assets/svg/spotify.svg'
+import { ReactComponent as TidalIcon } from 'assets/svg/tidal.svg'
+import { ReactComponent as YandexIcon } from 'assets/svg/yandex.svg'
+import { ReactComponent as YoutubeIcon } from 'assets/svg/youtube.svg'
+import { ReactComponent as YoutubeMusicIcon } from 'assets/svg/youtubeMusic.svg'
 
 // Stylesheets
 import style from 'components/partials/Portfolio/ReleaseLinks.module.scss';
 
-class ReleaseLinks extends Component {
+const ReleaseLinks = ({ release }) => {
 
-  getLinkIcon(linkKey) {
+  // Redux store
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+
+  const getLinkIcon = (linkKey) => {
     switch (linkKey) {
       case 'amazonStore':
-        return <AmazonStoreIcon/>
+        return <AmazonStoreIcon />
       case 'amazonMusic':
-        return <AmazonMusicIcon/>
+        return <AmazonMusicIcon />
       case 'appleMusic':
-        return <AppleMusicIcon/>
+        return <AppleMusicIcon />
       case 'deezer':
-        return <DeezerIcon/>
+        return <DeezerIcon />
       case 'google':
-        return <GoogleIcon/>
+        return <GoogleIcon />
       case 'googleStore':
-        return <GoogleStoreIcon/>
+        return <GoogleStoreIcon />
       case 'itunes':
-        return <ItunesIcon/>
+        return <ItunesIcon />
       case 'napster':
-        return <NapsterIcon/>
+        return <NapsterIcon />
       case 'pandora':
-        return <PandoraIcon/>
+        return <PandoraIcon />
       case 'soundcloud':
-        return <SoundcloudIcon/>
+        return <SoundcloudIcon />
       case 'spotify':
-        return <SpotifyIcon/>
+        return <SpotifyIcon />
       case 'tidal':
-        return <TidalIcon/>
+        return <TidalIcon />
       case 'yandex':
-        return <YandexIcon/>
+        return <YandexIcon />
       case 'youtube':
-        return <YoutubeIcon/>
+        return <YoutubeIcon />
       case 'youtubeMusic':
-        return <YoutubeMusicIcon/>
+        return <YoutubeMusicIcon />
       default:
         return 'Missing icon'
     }
   }
 
-  getLinkName(linkKey) {
+  const getLinkName = (linkKey) => {
     switch (linkKey) {
       case 'amazonStore':
         return 'Amazon'
@@ -99,30 +100,18 @@ class ReleaseLinks extends Component {
     }
   }
 
-  renderReleaseLinks(release) {
+  const renderReleaseLinks = (release) => {
     const links = release.links;
     return Object.keys(links).map(linkKey => {
       const url = links[linkKey];
-      const linkTitle = `${this.props.selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} ${release.title} ${this.props.selectedLanguageKey === 'en' ? 'on' : 'på'} ${this.getLinkName(linkKey)}`;
-      return <a href={url} data-tabable={true} key={linkKey} aria-label={linkTitle} title={linkTitle} target='_blank' rel='noopener noreferrer' className={style.link}>{this.getLinkIcon(linkKey)} {this.getLinkName(linkKey)}</a>;
+      const linkTitle = `${selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} ${release.title} ${selectedLanguageKey === 'en' ? 'on' : 'på'} ${getLinkName(linkKey)}`;
+      return <a href={url} data-tabable={true} key={linkKey} aria-label={linkTitle} title={linkTitle} target='_blank' rel='noopener noreferrer' className={style.link}>{getLinkIcon(linkKey)} {getLinkName(linkKey)}</a>;
     });
   }
 
-  render() {
-    return (<div className={style.releaseLinks}>
-      {this.renderReleaseLinks(this.props.release)}
-    </div>);
-  }
+  return (<div className={style.releaseLinks}>
+    {renderReleaseLinks(release)}
+  </div>);
 }
 
-ReleaseLinks.propTypes = {
-  release: PropTypes.object.isRequired
-};
-
-const mapStateToProps = state => ({
-  selectedLanguageKey: state.selectedLanguageKey
-});
-
-const mapDispatchToProps = null;
-
-export default connect(mapStateToProps, mapDispatchToProps)(ReleaseLinks);
+export default ReleaseLinks;

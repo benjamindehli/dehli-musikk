@@ -1,65 +1,92 @@
 // Dependencies
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Redirect } from 'react-router-dom';
 
-// Actions
-import { getLanguageSlug } from 'actions/LanguageActions';
-import { updateSearchResults } from 'actions/SearchResultsActions';
+// Selectors
+import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
 
 // Helpers
-import { getSearchResults } from 'helpers/search';
+import { getSearchResults } from "helpers/search";
 
 // Stylesheets
 import style from 'components/partials/NavigationBar/SearchField.module.scss';
 
-class SearchField extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showResultsList: false,
-      results: null,
-      redirect: null
+
+const SearchField = () => {
+
+  const navigate = useNavigate();
+
+  // Redux store
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+  const languageSlug = useSelector(state => getLanguageSlug(state));
+
+  // State
+  const [showResultsList, setShowResultsList] = useState();
+  const [results, setResults] = useState();
+
+  // Refs
+  const resultsListWrapperRef = useRef();
+
+
+  const handleShowResultsList = (event) => {
+    const searchResults = getSearchResults(event.target.value, selectedLanguageKey);
+    if (searchResults) {
+      setShowResultsList(true);
+      setResults(searchResults);
+    } else {
+      setShowResultsList(false);
+    }
+  }
+
+  const hideResultsList = () => {
+    setShowResultsList(false);
+  }
+
+  useEffect(() => {
+    const handleClickOutsideResultsList = (event) => {
+      if (resultsListWrapperRef.current && !resultsListWrapperRef.current.contains(event.target) && showResultsList) {
+        hideResultsList();
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutsideResultsList);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideResultsList);
     };
-    this.setResultsListWrapperRef = this.setResultsListWrapperRef.bind(this);
-    this.handleClickOutsideResultsList = this.handleClickOutsideResultsList.bind(this);
-    this.keyDownFunction = this.keyDownFunction.bind(this);
-  }
+  }, [resultsListWrapperRef, showResultsList]);
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutsideResultsList);
-    document.addEventListener("keydown", this.keyDownFunction, false);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutsideResultsList);
-    document.removeEventListener("keydown", this.keyDownFunction, false);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.state.redirect) {
-      this.setState({ redirect: null });
+  const handleSubmitSearch = (event) => {
+    if (event.key === 'Enter') {
+      let searchString = event.target.value.replace(/[^a-å0-9- ]+/ig, ""); // Removes unwanted characters
+      searchString = searchString.replace(/\s\s+/g, ' '); // Remove redundant whitespace
+      if (searchString.length > 1 && results.length) {
+        navigate(`/${languageSlug}search/?q=${searchString}`);
+        setShowResultsList(false);
+      }
     }
   }
 
-  setResultsListWrapperRef(node) {
-    this.resultsListWrapperRef = node;
-  }
-
-  keyDownFunction(event) {
-    switch (event.keyCode) {
-      case 27: // Escape
-        if (this.state.showResultsList) {
-          this.hideResultsList();
-        }
-        break;
-      default:
-        return null;
+  useEffect(() => {
+    const keyDownFunction = (event) => {
+      switch (event.keyCode) {
+        case 27: // Escape
+          if (showResultsList) {
+            this.hideResultsList();
+          }
+          break;
+        default:
+          return null;
+      }
     }
-  }
+    document.addEventListener("mousedown", keyDownFunction);
+    return () => {
+      document.removeEventListener("mousedown", keyDownFunction);
+    };
+  }, [showResultsList])
 
-  renderReleaseThumbnail(thumbnailPaths, alt) {
+
+  const renderReleaseThumbnail = (thumbnailPaths, alt) => {
     return (<picture>
       <source sizes='55' srcSet={`${thumbnailPaths.webp} 55w`} type="image/webp" />
       {thumbnailPaths.jpg ? <source sizes='55' srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpg" /> : ''}
@@ -68,42 +95,8 @@ class SearchField extends Component {
     </picture>);
   }
 
-  handleSubmitSearch(event) {
-    if (event.key === 'Enter') {
-      let searchString = event.target.value.replace(/[^a-å0-9- ]+/ig, ""); // Removes unwanted characters
-      searchString = searchString.replace(/\s\s+/g, ' '); // Remove redundant whitespace
-      if (searchString.length > 1 && this.state.results.length) {
-        this.setState({
-          redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}search/?q=${searchString}`,
-          showResultsList: false
-        });
-      }
-    }
-  }
 
-  handleShowResultsList(event) {
-    const searchResults = getSearchResults(event.target.value, this.props.selectedLanguageKey);
-    if (searchResults) {
-      this.setState({
-        showResultsList: true,
-        results: searchResults
-      });
-    } else {
-      this.hideResultsList();
-    }
-  }
-
-  handleClickOutsideResultsList(event) {
-    if (this.resultsListWrapperRef && !this.resultsListWrapperRef.contains(event.target) && this.state.showResultsList) {
-      this.hideResultsList();
-    }
-  }
-
-  hideResultsList() {
-    this.setState({ showResultsList: false });
-  }
-
-  renderResultsList(results, selectedLanguageKey) {
+  const renderResultsList = (results, selectedLanguageKey) => {
     if (results && results.length) {
       const itemTypeIcons = {
         post: ['fas', 'photo-video'],
@@ -116,7 +109,7 @@ class SearchField extends Component {
       };
       const resultsElements = results.map((result, resultKey) => {
         return (<a href={result.link} title={result.linkTitle} key={resultKey} className={style.resultsListItem}>
-          {result.thumbnailPaths && result.thumbnailDescription ? this.renderReleaseThumbnail(result.thumbnailPaths, result.thumbnailDescription) : ''}
+          {result.thumbnailPaths && result.thumbnailDescription ? renderReleaseThumbnail(result.thumbnailPaths, result.thumbnailDescription) : ''}
           <span className={style.resultsListItemText}>{result.text}</span>
           <span className={`${style.resultsListItemTypeLabel} ${style[result.type]}`}><span><FontAwesomeIcon icon={itemTypeIcons[result.type]} /> {result.label}</span></span>
         </a>)
@@ -127,43 +120,29 @@ class SearchField extends Component {
     }
   }
 
-  render() {
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />;
-    } else {
-      return (<React.Fragment>
-        <div className={style.searchFieldContainer}>
-          <FontAwesomeIcon icon={['fas', 'search']} />
-          <label htmlFor="search" className={style.hidden}>{this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}</label>
-          <input type="search"
-            autoComplete="off"
-            id="search"
-            aria-label={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
-            onChange={(event) => this.handleShowResultsList(event)}
-            onKeyUp={(event) => this.handleSubmitSearch(event)}
-            placeholder={this.props.selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
-            className={style.searchField} />
-        </div>
-        <div className={`${style.resultsListContainer} ${this.state.showResultsList
-          ? style.active
-          : ''}`}>
-          <div ref={this.setResultsListWrapperRef} className={style.resultsList}>
-            {this.renderResultsList(this.state.results, this.props.selectedLanguageKey)}
-          </div>
-        </div>
-      </React.Fragment>)
-    }
-  }
+
+  return (<React.Fragment>
+    <div className={style.searchFieldContainer}>
+      <FontAwesomeIcon icon={['fas', 'search']} />
+      <label htmlFor="search" className={style.hidden}>{selectedLanguageKey === 'en' ? 'Search' : 'Søk'}</label>
+      <input type="search"
+        autoComplete="off"
+        id="search"
+        aria-label={selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
+        onChange={handleShowResultsList}
+        onKeyUp={handleSubmitSearch}
+        placeholder={selectedLanguageKey === 'en' ? 'Search' : 'Søk'}
+        className={style.searchField} />
+    </div>
+    <div className={`${style.resultsListContainer} ${showResultsList
+      ? style.active
+      : ''}`}>
+      <div ref={resultsListWrapperRef} className={style.resultsList}>
+        {renderResultsList(results, selectedLanguageKey)}
+      </div>
+    </div>
+  </React.Fragment>)
 }
 
-const mapStateToProps = state => ({
-  selectedLanguageKey: state.selectedLanguageKey,
-  location: state.router.location
-});
 
-const mapDispatchToProps = {
-  getLanguageSlug,
-  updateSearchResults
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchField);
+export default SearchField

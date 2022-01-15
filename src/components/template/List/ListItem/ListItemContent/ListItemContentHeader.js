@@ -1,34 +1,22 @@
 // Dependencies
-import React from 'react';
-import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Stylesheets
 import style from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader.module.scss';
 
-class ListItemContentHeader extends React.Component {
-  renderContent(link, children) {
-    return this.props.link && !this.props.fullscreen
+const ListItemContentHeader = ({ fullscreen, link, children }) => {
+
+  const renderContent = (link, children) => {
+    return link && !fullscreen
       ? (<Link to={link.to} title={link.title} data-tabable={true}>{children}</Link>)
       : children
   }
-  render() {
-    return (<header className={`${style.listItemContentHeader} ${this.props.fullscreen ? style.fullscreen : ''}`}>
-      {this.renderContent(this.props.link, this.props.children)}
-    </header>)
-  }
-};
 
-ListItemContentHeader.propTypes = {
-  fullscreen: PropTypes.bool,
-  link: PropTypes.exact({
-    to: PropTypes.string,
-    title: PropTypes.string
-  })
-};
-
-ListItemContentHeader.defaultProps = {
-  fullscreen: false
+  return (
+    <header className={`${style.listItemContentHeader} ${fullscreen ? style.fullscreen : ''}`}>
+      {renderContent(link, children)}
+    </header>
+  )
 };
 
 export default ListItemContentHeader;

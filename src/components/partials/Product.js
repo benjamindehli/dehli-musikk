@@ -1,14 +1,7 @@
 // Dependencies
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
-
-// Actions
-import { getLanguageSlug } from 'actions/LanguageActions';
-
-// Helpers
-import { getPrettyDate } from 'helpers/dateFormatter';
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
 
 // Components
 import Button from 'components/partials/Button';
@@ -18,20 +11,30 @@ import ListItemContentBody from 'components/template/List/ListItem/ListItemConte
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 
+// Selectors
+import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
-class Product extends Component {
+// Helpers
+import { getPrettyDate } from 'helpers/dateFormatter';
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
-  renderProductSnippet(product, productId, productThumbnailSrc) {
+
+const Product = ({ product, fullscreen }) => {
+
+  // Redux store
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+  const languageSlug = useSelector(state => getLanguageSlug(state));
+
+
+  const renderProductSnippet = (product, productId, productThumbnailSrc) => {
     const productDate = new Date(product.timestamp).toISOString();
     const plusOneYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString();
-    const selectedLanguageKey = this.props.selectedLanguageKey
-      ? this.props.selectedLanguageKey
-      : 'no';
+
     const snippet = {
       "@context": "http://schema.org",
       "@type": "Product",
-      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}products/${productId}/`,
-      "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}products/${productId}/`,
+      "@id": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
+      "url": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
       "description": product.content[selectedLanguageKey],
       "brand": {
         "@id": "#DehliMusikk"
@@ -80,7 +83,7 @@ class Product extends Component {
     </Helmet>)
   }
 
-  renderProductThumbnail(image, altText, fullscreen) {
+  const renderProductThumbnail = (image, altText, fullscreen) => {
     const imageSize = fullscreen
       ? '540px'
       : '350px';
@@ -92,82 +95,72 @@ class Product extends Component {
     </React.Fragment>);
   }
 
-  renderShopLink(link) {
-    return (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
+  const renderShopLink = (link) => {
+    return (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[selectedLanguageKey]}>
       <Button buttontype='minimal'>
-        {link.text[this.props.selectedLanguageKey]}
+        {link.text[selectedLanguageKey]}
       </Button>
     </a>);
   }
 
-  render() {
-    const selectedLanguageKey = this.props.selectedLanguageKey
-      ? this.props.selectedLanguageKey
-      : 'no';
-    const product = this.props.product;
-    const productId = convertToUrlFriendlyString(product.title);
-    const imagePathAvif = `data/products/thumbnails/web/avif/${productId}`;
-    const imagePathWebp = `data/products/thumbnails/web/webp/${productId}`;
-    const imagePathJpg = `data/products/thumbnails/web/jpg/${productId}`;
-    const image = {
-      avif55: require(`../../${imagePathAvif}_55.avif`).default,
-      avif350: require(`../../${imagePathAvif}_350.avif`).default,
-      avif540: require(`../../${imagePathAvif}_540.avif`).default,
-      webp55: require(`../../${imagePathWebp}_55.webp`).default,
-      webp350: require(`../../${imagePathWebp}_350.webp`).default,
-      webp540: require(`../../${imagePathWebp}_540.webp`).default,
-      jpg55: require(`../../${imagePathJpg}_55.jpg`).default,
-      jpg350: require(`../../${imagePathJpg}_350.jpg`).default,
-      jpg540: require(`../../${imagePathJpg}_540.jpg`).default
-    };
-    const productDate = new Date(product.timestamp);
-    const productPath = `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/${productId}/`;
 
-    const link = {
-      to: productPath,
-      title: product.title
-    };
+  const productId = convertToUrlFriendlyString(product.title);
+  const imagePathAvif = `data/products/thumbnails/web/avif/${productId}`;
+  const imagePathWebp = `data/products/thumbnails/web/webp/${productId}`;
+  const imagePathJpg = `data/products/thumbnails/web/jpg/${productId}`;
+  const image = {
+    avif55: require(`../../${imagePathAvif}_55.avif`),
+    avif350: require(`../../${imagePathAvif}_350.avif`),
+    avif540: require(`../../${imagePathAvif}_540.avif`),
+    webp55: require(`../../${imagePathWebp}_55.webp`),
+    webp350: require(`../../${imagePathWebp}_350.webp`),
+    webp540: require(`../../${imagePathWebp}_540.webp`),
+    jpg55: require(`../../${imagePathJpg}_55.jpg`),
+    jpg350: require(`../../${imagePathJpg}_350.jpg`),
+    jpg540: require(`../../${imagePathJpg}_540.jpg`)
+  };
+  const productDate = new Date(product.timestamp);
+  const productPath = `/${languageSlug}products/${productId}/`;
 
-    return product && product.content && product.content[selectedLanguageKey]
-      ? (<React.Fragment>
-        {this.props.fullscreen ? this.renderProductSnippet(product, productId, image.jpg540) : ''}
-        <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
-          {this.renderProductThumbnail(image, product.thumbnailDescription, this.props.fullscreen)}
-        </ListItemThumbnail>
-        <ListItemContent fullscreen={this.props.fullscreen}>
-          <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
-            <h2>{product.title}</h2>
-            <time dateTime={productDate.toISOString()}>
-              {getPrettyDate(productDate, selectedLanguageKey)}
-            </time>
-          </ListItemContentHeader>
-          <ListItemContentBody fullscreen={this.props.fullscreen}>
-            {
-              product.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
-                return (<p key={key}>{paragraph}</p>)
-              })
-            }
-          </ListItemContentBody>
+  const link = {
+    to: productPath,
+    title: product.title
+  };
+
+  return product && product.content && product.content[selectedLanguageKey]
+    ? (<React.Fragment>
+      {fullscreen ? renderProductSnippet(product, productId, image.jpg540) : ''}
+      <ListItemThumbnail fullscreen={fullscreen} link={link}>
+        {renderProductThumbnail(image, product.thumbnailDescription, fullscreen)}
+      </ListItemThumbnail>
+      <ListItemContent fullscreen={fullscreen}>
+        <ListItemContentHeader fullscreen={fullscreen} link={link}>
+          <h2>{product.title}</h2>
+          <time dateTime={productDate.toISOString()}>
+            {getPrettyDate(productDate, selectedLanguageKey)}
+          </time>
+        </ListItemContentHeader>
+        <ListItemContentBody fullscreen={fullscreen}>
           {
-            product.link && this.props.fullscreen
-              ? (
-                <ListItemActionButtons fullscreen={this.props.fullscreen}>
-                  {this.renderShopLink(product.link)}
-                </ListItemActionButtons>
-              )
-              : ''
+            product.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
+              return (<p key={key}>{paragraph}</p>)
+            })
           }
+        </ListItemContentBody>
+        {
+          product.link && fullscreen
+            ? (
+              <ListItemActionButtons fullscreen={fullscreen}>
+                {renderShopLink(product.link)}
+              </ListItemActionButtons>
+            )
+            : ''
+        }
 
-        </ListItemContent>
-      </React.Fragment>)
-      : '';
-  }
+      </ListItemContent>
+    </React.Fragment>)
+    : '';
+
 }
 
-const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
-
-const mapDispatchToProps = {
-  getLanguageSlug
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Product);
+export default Product;

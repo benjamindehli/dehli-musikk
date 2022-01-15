@@ -1,19 +1,21 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
-import {Helmet} from 'react-helmet';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-// Actions
-import {getLanguageSlug} from 'actions/LanguageActions';
+// Selectors
+import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Stylesheets
 import style from 'components/partials/Breadcrumbs.module.scss';
 
-export class Breadcrumbs extends Component {
+const Breadcrumbs = ({ breadcrumbs = [] }) => {
 
-  renderBreadcrumbJsonLd(breadcrumbs) {
+  // Redux store
+  const languageSlug = useSelector(state => getLanguageSlug(state));
+
+  const renderBreadcrumbJsonLd = (breadcrumbs) => {
     const originUrl = 'https://www.dehlimusikk.no';
     const jsonLd = {
       "@context": "https://schema.org",
@@ -22,7 +24,7 @@ export class Breadcrumbs extends Component {
         {
           "@type": "ListItem",
           "position": 1,
-          "item": `${originUrl}/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`,
+          "item": `${originUrl}/${languageSlug}`,
           "name": "Dehli Musikk"
         }
       ]
@@ -38,7 +40,7 @@ export class Breadcrumbs extends Component {
     return JSON.stringify(jsonLd);
   }
 
-  renderBreadcrumbListElements(breadcrumbs) {
+  const renderBreadcrumbListElements = (breadcrumbs) => {
     return breadcrumbs.map((breadcrumb, key) => {
       return key === breadcrumbs.length - 1
         ? (<li key={key}>
@@ -50,37 +52,21 @@ export class Breadcrumbs extends Component {
     })
   }
 
-  render() {
-    return (<React.Fragment>
-      <Helmet>
-        <script type="application/ld+json">
-          {this.renderBreadcrumbJsonLd(this.props.breadcrumbs)}
-        </script>
-      </Helmet>
-      <div className={style.breadcrumbs}>
-        <ul>
-          <li>
-            <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} title='Dehli Musikk'>Dehli Musikk</Link>
-          </li>
-          {this.renderBreadcrumbListElements(this.props.breadcrumbs)}
-        </ul>
-      </div>
-    </React.Fragment>);
-  }
+  return (<React.Fragment>
+    <Helmet>
+      <script type="application/ld+json">
+        {renderBreadcrumbJsonLd(breadcrumbs)}
+      </script>
+    </Helmet>
+    <div className={style.breadcrumbs}>
+      <ul>
+        <li>
+          <Link to={`/${languageSlug}`} title='Dehli Musikk'>Dehli Musikk</Link>
+        </li>
+        {renderBreadcrumbListElements(breadcrumbs)}
+      </ul>
+    </div>
+  </React.Fragment>);
 }
 
-Breadcrumbs.propTypes = {
-  breadcrumbs: PropTypes.array
-};
-
-Breadcrumbs.defaultProps = {
-  breadcrumbs: []
-};
-
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
-
-const mapDispatchToProps = {
-  getLanguageSlug
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Breadcrumbs);
+export default Breadcrumbs;

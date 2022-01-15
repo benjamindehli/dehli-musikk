@@ -1,13 +1,13 @@
 // Dependencies
-import React, {Component} from 'react';
-import {Provider} from 'react-redux';
-import {Route, Switch} from 'react-router';
-import {ConnectedRouter} from 'connected-react-router';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Route, Routes } from 'react-router';
+import { HistoryRouter as Router } from "redux-first-history/rr6";
 import loadable from "@loadable/component";
 import { PrerenderedComponent } from "react-prerendered-component";
-import {Helmet} from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import {library} from '@fortawesome/fontawesome-svg-core';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faFacebookF,
   faInstagram,
@@ -35,7 +35,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 // Utils
-import configureStore, {history} from 'utils/configureStore';
+import configureStore, { history } from 'utils/configureStore';
 
 // Components
 import NavigationBar from 'components/partials/NavigationBar';
@@ -105,10 +105,11 @@ window.snapSaveState = () => ({
   __PRELOADED_STATE__: store.getState()
 });
 
-class App extends Component {
-  render() {
-    return (<Provider store={store}>
-      <ConnectedRouter history={history}>
+const App = () => {
+
+  return (<Provider store={store}>
+    <HelmetProvider>
+      <Router history={history}>
         <Helmet>
           <meta property="og:type" content="website" />
           <meta property="og:image" content={`https://www.dehlimusikk.no${openGraphImage}`} />
@@ -121,55 +122,52 @@ class App extends Component {
           <meta name="twitter:creator" content="@BenjaminDehli" />
           <meta name="twitter:image" content={`https://www.dehlimusikk.no${openGraphImage}`} />
         </Helmet>
-        <NavigationBar/>
+        <NavigationBar />
         <div className={style.container}>
-          <Switch>
-            <Route exact={true} strict={true} path="/search/" render={(props) => (<Search {...props}/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/search/" render={(props) => (<Search {...props}/>)}/>
-            <Route exact={true} strict={true} path="/portfolio/:releaseId/" render={(props) => (<Portfolio {...props}/>)}/>
-            <Route exact={true} strict={true} path="/portfolio/" render={() => (<Portfolio/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/portfolio/:releaseId/" render={(props) => (<Portfolio {...props}/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/portfolio/" render={(props) => (<Portfolio {...props}/>)}/>
+          <Routes>
+            <Route strict={true} path="/search/" element={<Search />} />
+            <Route strict={true} path="/:selectedLanguage/search/" element={<Search />} />
+            <Route strict={true} path="/portfolio/:releaseId/" element={<Portfolio />} />
+            <Route strict={true} path="/portfolio/" element={<Portfolio />} />
+            <Route strict={true} path="/:selectedLanguage/portfolio/:releaseId/" element={<Portfolio />} />
+            <Route strict={true} path="/:selectedLanguage/portfolio/" element={<Portfolio />} />
 
-            <Route exact={true} strict={true} path="/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
-            <Route exact={true} strict={true} path="/posts/" render={() => (<Posts/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/posts/:postId/" render={(props) => (<Posts {...props}/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/posts/" render={(props) => (<Posts {...props}/>)}/>
+            <Route strict={true} path="/posts/:postId/" element={<Posts />} />
+            <Route strict={true} path="/posts/" element={<Posts />} />
+            <Route strict={true} path="/:selectedLanguage/posts/:postId/" element={<Posts />} />
+            <Route strict={true} path="/:selectedLanguage/posts/" element={<Posts />} />
 
-            <Route exact={true} strict={true} path="/videos/:videoId/" render={(props) => (<Videos {...props}/>)}/>
-            <Route exact={true} strict={true} path="/videos/" render={() => (<Videos/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/videos/:videoId/" render={(props) => (<Videos {...props}/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/videos/" render={(props) => (<Videos {...props}/>)}/>
+            <Route strict={true} path="/videos/:videoId/" element={<Videos />} />
+            <Route strict={true} path="/videos/" element={<Videos />} />
+            <Route strict={true} path="/:selectedLanguage/videos/:videoId/" element={<Videos />} />
+            <Route strict={true} path="/:selectedLanguage/videos/" element={<Videos />} />
 
-            <Route exact={true} strict={true} path="/products/:productId/" render={(props) => (<Products {...props}/>)}/>
-            <Route exact={true} strict={true} path="/products/" render={() => (<Products/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/products/:productId/" render={(props) => (<Products {...props}/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/products/" render={(props) => (<Products {...props}/>)}/>
+            <Route strict={true} path="/products/:productId/" element={<Products />} />
+            <Route strict={true} path="/products/" element={<Products />} />
+            <Route strict={true} path="/:selectedLanguage/products/:productId/" element={<Products />} />
+            <Route strict={true} path="/:selectedLanguage/products/" element={<Products />} />
 
-            <Route exact={true} strict={true} path="/equipment/:equipmentType/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
-            <Route exact={true} strict={true} path="/equipment/:equipmentType/" render={(props) => (<Equipment {...props}/>)}/>
-            <Route exact={true} strict={true} path="/equipment/" render={() => (<Equipment/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/equipment/:equipmentType/:equipmentId/" render={(props) => (<Equipment {...props}/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/equipment/:equipmentType/" render={(props) => (<Equipment {...props}/>)}/>
-            <Route exact={true} strict={true} path="/:selectedLanguage/equipment/" render={(props) => (<Equipment {...props}/>)}/>
+            <Route strict={true} path="/equipment/:equipmentType/:equipmentId/" element={<Equipment />} />
+            <Route strict={true} path="/equipment/:equipmentType/" element={<Equipment />} />
+            <Route strict={true} path="/equipment/" element={<Equipment />} />
+            <Route strict={true} path="/:selectedLanguage/equipment/:equipmentType/:equipmentId/" element={<Equipment />} />
+            <Route strict={true} path="/:selectedLanguage/equipment/:equipmentType/" element={<Equipment />} />
+            <Route strict={true} path="/:selectedLanguage/equipment/" element={<Equipment />} />
 
+            <Route strict={true} path="/:selectedLanguage/" element={<Home />} />
+            <Route path="/" element={<Home />} />
 
+            <Route key={"/shell.html"} path="/shell.html" element={() => null} />
+            <Route key={"/404.html"} element={NotFound} />
+            <Route element={<NotFound />} />
 
-
-            <Route exact={true} strict={true} path="/:selectedLanguage/" render={(props) => (<Home {...props}/>)}/>
-
-
-            <Route exact={true} path="/" render={() => (<Home/>)}/>
-            <Route key={"/shell.html"} path="/shell.html" component={() => null} />
-            <Route key={"/404.html"} component={NotFound} />
-            <Route render={() => (<NotFound />)}/>
-
-          </Switch>
-          <Footer/>
+          </Routes>
+          <Footer />
         </div>
-      </ConnectedRouter>
-    </Provider>);
-  }
+      </Router>
+    </HelmetProvider>
+  </Provider>);
 }
+
 
 export default App;

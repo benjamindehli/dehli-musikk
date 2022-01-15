@@ -1,10 +1,10 @@
 // Dependencies
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
 
-// Actions
-import { getLanguageSlug } from 'actions/LanguageActions';
+// Selectors
+import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { getPrettyDate } from 'helpers/dateFormatter';
@@ -19,23 +19,24 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
 
 
-class Video extends Component {
+const Video = ({ video, fullscreen }) => {
 
-  renderVideoSnippet(video, videoId, videoThumbnailSrc) {
+  // Redux store
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+  const languageSlug = useSelector(state => getLanguageSlug(state));
+
+  const renderVideoSnippet = (video, videoId, videoThumbnailSrc) => {
     const videoDate = new Date(video.timestamp).toISOString();
-    const selectedLanguageKey = this.props.selectedLanguageKey
-      ? this.props.selectedLanguageKey
-      : 'no';
     const snippet = {
       "@context": "http://schema.org",
       "@type": "VideoObject",
-      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}videos/${videoId}/`,
+      "@id": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
       "name": video.title[selectedLanguageKey],
       "description": video.content[selectedLanguageKey]
         ? video.content[selectedLanguageKey].replace(/\n/g, " ")
         : '',
       "duration": video.duration,
-      "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}videos/${videoId}/`,
+      "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
       "embedURL": `https://www.youtube.com/watch?v=${video.youTubeId}`,
       "thumbnailUrl": `https://www.dehlimusikk.no${videoThumbnailSrc}`,
       "thumbnail": {
@@ -66,7 +67,7 @@ class Video extends Component {
     </Helmet>);
   }
 
-  renderVideoThumbnail(image, altText, fullscreen) {
+  const renderVideoThumbnail = (image, altText, fullscreen) => {
     const imageSize = fullscreen
       ? '540px'
       : '350px';
@@ -78,75 +79,65 @@ class Video extends Component {
     </React.Fragment>);
   }
 
-  render() {
-    const selectedLanguageKey = this.props.selectedLanguageKey
-      ? this.props.selectedLanguageKey
-      : 'no';
-    const video = this.props.video;
-    const imagePathAvif = `data/videos/thumbnails/web/avif/${video.thumbnailFilename}`;
-    const imagePathWebp = `data/videos/thumbnails/web/webp/${video.thumbnailFilename}`;
-    const imagePathJpg = `data/videos/thumbnails/web/jpg/${video.thumbnailFilename}`;
-    const image = {
-      avif55: require(`../../${imagePathAvif}_55.avif`).default,
-      avif350: require(`../../${imagePathAvif}_350.avif`).default,
-      avif540: require(`../../${imagePathAvif}_540.avif`).default,
-      webp55: require(`../../${imagePathWebp}_55.webp`).default,
-      webp350: require(`../../${imagePathWebp}_350.webp`).default,
-      webp540: require(`../../${imagePathWebp}_540.webp`).default,
-      jpg55: require(`../../${imagePathJpg}_55.jpg`).default,
-      jpg350: require(`../../${imagePathJpg}_350.jpg`).default,
-      jpg540: require(`../../${imagePathJpg}_540.jpg`).default
-    };
-    const videoDate = new Date(video.timestamp);
-    const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
-    const videoPath = `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}videos/${videoId}/`;
-    const videoDescription = this.props.fullscreen ? video.content[selectedLanguageKey] : convertStringToExcerpt(video.content[selectedLanguageKey]);
+  const imagePathAvif = `data/videos/thumbnails/web/avif/${video.thumbnailFilename}`;
+  const imagePathWebp = `data/videos/thumbnails/web/webp/${video.thumbnailFilename}`;
+  const imagePathJpg = `data/videos/thumbnails/web/jpg/${video.thumbnailFilename}`;
+  const image = {
+    avif55: require(`../../${imagePathAvif}_55.avif`),
+    avif350: require(`../../${imagePathAvif}_350.avif`),
+    avif540: require(`../../${imagePathAvif}_540.avif`),
+    webp55: require(`../../${imagePathWebp}_55.webp`),
+    webp350: require(`../../${imagePathWebp}_350.webp`),
+    webp540: require(`../../${imagePathWebp}_540.webp`),
+    jpg55: require(`../../${imagePathJpg}_55.jpg`),
+    jpg350: require(`../../${imagePathJpg}_350.jpg`),
+    jpg540: require(`../../${imagePathJpg}_540.jpg`)
+  };
+  const videoDate = new Date(video.timestamp);
+  const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
+  const videoPath = `/${languageSlug}videos/${videoId}/`;
+  const videoDescription = fullscreen ? video.content[selectedLanguageKey] : convertStringToExcerpt(video.content[selectedLanguageKey]);
 
-    const link = {
-      to: videoPath,
-      title: video.title[selectedLanguageKey]
-    };
+  const link = {
+    to: videoPath,
+    title: video.title[selectedLanguageKey]
+  };
 
-    return video && video.content && video.content[selectedLanguageKey]
-      ? (<React.Fragment>
-        {
-          this.props.fullscreen
-            ? (
-              <React.Fragment>
-                {this.renderVideoSnippet(video, videoId, image.jpg540)}
-                <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]} />
-              </React.Fragment>
-            ) : (
-              <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
-                {this.renderVideoThumbnail(image, video.thumbnailDescription, this.props.fullscreen)}
-              </ListItemThumbnail>
-            )
-        }
-        <ListItemContent fullscreen={this.props.fullscreen}>
-          <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
-            <h2>
-              {video.title[selectedLanguageKey]}
-              <span>{video.youTubeUser}</span>
-            </h2>
-            <time dateTime={videoDate.toISOString()}>{getPrettyDate(videoDate, selectedLanguageKey)}</time>
-          </ListItemContentHeader>
-          <ListItemContentBody fullscreen={this.props.fullscreen}>
-            {
-              videoDescription.split('\n').map((paragraph, key) => {
-                return (<p key={key}>{paragraph}</p>)
-              })
-            }
-          </ListItemContentBody>
-        </ListItemContent>
-      </React.Fragment>)
-      : '';
-  }
+  return video && video.content && video.content[selectedLanguageKey]
+    ? (<React.Fragment>
+      {
+        fullscreen
+          ? (
+            <React.Fragment>
+              {renderVideoSnippet(video, videoId, image.jpg540)}
+              <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]} />
+            </React.Fragment>
+          ) : (
+            <ListItemThumbnail fullscreen={fullscreen} link={link}>
+              {renderVideoThumbnail(image, video.thumbnailDescription, fullscreen)}
+            </ListItemThumbnail>
+          )
+      }
+      <ListItemContent fullscreen={fullscreen}>
+        <ListItemContentHeader fullscreen={fullscreen} link={link}>
+          <h2>
+            {video.title[selectedLanguageKey]}
+            <span>{video.youTubeUser}</span>
+          </h2>
+          <time dateTime={videoDate.toISOString()}>{getPrettyDate(videoDate, selectedLanguageKey)}</time>
+        </ListItemContentHeader>
+        <ListItemContentBody fullscreen={fullscreen}>
+          {
+            videoDescription.split('\n').map((paragraph, key) => {
+              return (<p key={key}>{paragraph}</p>)
+            })
+          }
+        </ListItemContentBody>
+      </ListItemContent>
+    </React.Fragment>)
+    : '';
 }
 
-const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
 
-const mapDispatchToProps = {
-  getLanguageSlug
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Video);
+export default Video;

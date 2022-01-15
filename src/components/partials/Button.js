@@ -1,24 +1,10 @@
-// Dependencies
-import React from 'react';
-import PropTypes from 'prop-types';
-
 // Stylesheets
 import style from 'components/partials/Button.module.scss';
 
-class Button extends React.Component {
-  render() {
-    return (<span className={`${style.button} ${style[this.props.buttontype]}`}>
-      <span className={style.content}>{this.props.children}</span>
-    </span>)
-  }
-};
-
-Button.propTypes = {
-  buttontype: PropTypes.oneOf(['minimal', 'default'])
-};
-
-Button.defaultProps = {
-  buttontype: 'default'
+const Button = ({ buttontype = 'default', children }) => {
+  return (<span className={`${style.button} ${style[buttontype]}`}>
+    <span className={style.content}>{children}</span>
+  </span>)
 };
 
 export default Button;

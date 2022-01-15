@@ -6,11 +6,12 @@ import App from 'App';
 
 import 'style/styles.scss';
 
+
 const rootElement = document.getElementById("root");
 if (rootElement.hasChildNodes()) {
   hydrate(<App />, rootElement);
 } else {
-  render(<App />, rootElement);
+  render(<React.StrictMode><App /></React.StrictMode>, rootElement);
 }
 
 // If you want your app to work offline and load faster, you can change

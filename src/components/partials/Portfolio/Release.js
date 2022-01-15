@@ -1,8 +1,6 @@
 // Dependencies
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 // Components
 import EquipmentItem from 'components/partials/EquipmentItem';
@@ -16,48 +14,24 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
 
 // Actions
-import { fetchReleasesThumbnail } from 'actions/PortfolioActions';
-import { getLanguageSlug } from 'actions/LanguageActions';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
+
+// Selectors
+import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { getReleaseInstruments } from 'helpers/releaseInstruments';
+import { useSelector } from 'react-redux';
 
 
-class Release extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showLinks: false,
-      isLoaded: false
-    };
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
-  }
+const Release = ({ release, fullscreen, compact }) => {
 
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
-  }
+  // Redux store
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+  const languageSlug = useSelector(state => getLanguageSlug(state));
 
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
 
-  handleShowLinksClick() {
-    this.setState({ showLinks: true });
-  }
-
-  handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      this.setState({ showLinks: false });
-    }
-  }
-
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside);
-  }
-
-  renderReleaseThumbnail(image, fullscreen, release, compact) {
+  const renderReleaseThumbnail = (image, fullscreen, release, compact) => {
     const imageSize = compact
       ? '55px'
       : fullscreen
@@ -76,7 +50,7 @@ class Release extends Component {
     </React.Fragment>);
   }
 
-  renderReleaseSnippet(release, releaseInstruments, releaseThumbnailSrc) {
+  const renderReleaseSnippet = (release, releaseInstruments, releaseThumbnailSrc) => {
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
     let snippet = {
       "@context": "http://schema.org",
@@ -129,7 +103,7 @@ class Release extends Component {
     </Helmet>)
   }
 
-  renderInstrumentsList(instruments, selectedLanguageKey) {
+  const renderInstrumentsList = (instruments, selectedLanguageKey) => {
     if (instruments && instruments.length) {
       const listItems = instruments.map(instrument => {
         return (<ListItem key={instrument.equipmentItemId} compact={true}>
@@ -148,7 +122,7 @@ class Release extends Component {
     }
   }
 
-  renderLinkList(release, selectedLanguageKey) {
+  const renderLinkList = (release, selectedLanguageKey) => {
     return (
       <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? `Listen to ${release.title}` : `Lytt til ${release.title}`}>
         <ReleaseLinks release={release} />
@@ -156,108 +130,84 @@ class Release extends Component {
     );
   }
 
-  render() {
-    const selectedLanguageKey = this.props.selectedLanguageKey
-      ? this.props.selectedLanguageKey
-      : 'no';
-    const release = this.props.release;
-    const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
-    const releaseInstruments = getReleaseInstruments(releaseId);
+  const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
+  const releaseInstruments = getReleaseInstruments(releaseId);
 
-    const imagePathAvif = !release.unreleased ? `data/releases/thumbnails/web/avif/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
-    const imagePathWebp = !release.unreleased ? `data/releases/thumbnails/web/webp/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
-    const imagePathJpg = !release.unreleased ? `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}` : null;
-    const imagePathPng = !release.unreleased ? null : `assets/images/comingSoon_${selectedLanguageKey}`;
-    const image = {
-      avif55: require(`../../../${imagePathAvif}_55.avif`).default,
-      avif350: require(`../../../${imagePathAvif}_350.avif`).default,
-      avif540: require(`../../../${imagePathAvif}_540.avif`).default,
-      webp55: require(`../../../${imagePathWebp}_55.webp`).default,
-      webp350: require(`../../../${imagePathWebp}_350.webp`).default,
-      webp540: require(`../../../${imagePathWebp}_540.webp`).default,
-      jpg55: !release.unreleased ? require(`../../../${imagePathJpg}_55.jpg`).default : null,
-      jpg350: !release.unreleased ? require(`../../../${imagePathJpg}_350.jpg`).default : null,
-      jpg540: !release.unreleased ? require(`../../../${imagePathJpg}_540.jpg`).default : null,
-      png55: release.unreleased ? require(`../../../${imagePathPng}_55.png`).default : null,
-      png350: release.unreleased ? require(`../../../${imagePathPng}_350.png`).default : null,
-      png540: release.unreleased ? require(`../../../${imagePathPng}_540.png`).default : null,
-    };
+  const imagePathAvif = !release.unreleased ? `data/releases/thumbnails/web/avif/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
+  const imagePathWebp = !release.unreleased ? `data/releases/thumbnails/web/webp/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
+  const imagePathJpg = !release.unreleased ? `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}` : null;
+  const imagePathPng = !release.unreleased ? null : `assets/images/comingSoon_${selectedLanguageKey}`;
+  const image = {
+    avif55: require(`../../../${imagePathAvif}_55.avif`),
+    avif350: require(`../../../${imagePathAvif}_350.avif`),
+    avif540: require(`../../../${imagePathAvif}_540.avif`),
+    webp55: require(`../../../${imagePathWebp}_55.webp`),
+    webp350: require(`../../../${imagePathWebp}_350.webp`),
+    webp540: require(`../../../${imagePathWebp}_540.webp`),
+    jpg55: !release.unreleased ? require(`../../../${imagePathJpg}_55.jpg`) : null,
+    jpg350: !release.unreleased ? require(`../../../${imagePathJpg}_350.jpg`) : null,
+    jpg540: !release.unreleased ? require(`../../../${imagePathJpg}_540.jpg`) : null,
+    png55: release.unreleased ? require(`../../../${imagePathPng}_55.png`) : null,
+    png350: release.unreleased ? require(`../../../${imagePathPng}_350.png`) : null,
+    png540: release.unreleased ? require(`../../../${imagePathPng}_540.png`) : null,
+  };
 
-    const link = {
-      to: `/${this.props.getLanguageSlug(selectedLanguageKey)}portfolio/${releaseId}/`,
-      title: `${selectedLanguageKey === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`
-    };
+  const link = {
+    to: `/${languageSlug}portfolio/${releaseId}/`,
+    title: `${selectedLanguageKey === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`
+  };
 
-    return !release.unreleased
-      ? (<React.Fragment>
-        {this.props.fullscreen ? this.renderReleaseSnippet(release, releaseInstruments, image['jpg540']) : ''}
-        <ListItemThumbnail fullscreen={this.props.fullscreen} link={link} compact={this.props.compact}>
-          {this.renderReleaseThumbnail(image, this.props.fullscreen, release, this.props.compact)}
+  return !release.unreleased
+    ? (<React.Fragment>
+      {fullscreen ? renderReleaseSnippet(release, releaseInstruments, image['jpg540']) : ''}
+      <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
+        {renderReleaseThumbnail(image, fullscreen, release, compact)}
+      </ListItemThumbnail>
+      <ListItemContent fullscreen={fullscreen}>
+        <ListItemContentHeader fullscreen={fullscreen} link={link}>
+          <h2>{release.title}
+            <span>{release.artistName}</span>
+          </h2>
+        </ListItemContentHeader>
+        <ListItemContentBody fullscreen={fullscreen}>
+          <ul>
+            <li>{release.genre}</li>
+            <li><time dateTime={release.durationISO}>
+              {new Date(release.duration).getMinutes()}:{
+                new Date(release.duration).getSeconds() > 9
+                  ? new Date(release.duration).getSeconds()
+                  : '0' + new Date(release.duration).getSeconds()
+              }</time></li>
+            <li><time dateTime={new Date(release.releaseDate).toISOString()}>{new Date(release.releaseDate).getFullYear()}</time></li>
+          </ul>
+
+        </ListItemContentBody>
+      </ListItemContent>
+      {
+        fullscreen ? renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
+      }
+      {
+        fullscreen ? renderLinkList(release, selectedLanguageKey) : ''
+      }
+    </React.Fragment>)
+    : (
+      <React.Fragment>
+        {fullscreen ? renderReleaseSnippet(release, releaseInstruments) : ''}
+        <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
+          {renderReleaseThumbnail(image, fullscreen, release, compact)}
         </ListItemThumbnail>
-        <ListItemContent fullscreen={this.props.fullscreen}>
-          <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
+        <ListItemContent fullscreen={fullscreen}>
+          <ListItemContentHeader fullscreen={fullscreen} link={link}>
             <h2>{release.title}
               <span>{release.artistName}</span>
             </h2>
           </ListItemContentHeader>
-          <ListItemContentBody fullscreen={this.props.fullscreen}>
-            <ul>
-              <li>{release.genre}</li>
-              <li><time dateTime={release.durationISO}>
-                {new Date(release.duration).getMinutes()}:{
-                  new Date(release.duration).getSeconds() > 9
-                    ? new Date(release.duration).getSeconds()
-                    : '0' + new Date(release.duration).getSeconds()
-                }</time></li>
-              <li><time dateTime={new Date(release.releaseDate).toISOString()}>{new Date(release.releaseDate).getFullYear()}</time></li>
-            </ul>
-
-          </ListItemContentBody>
         </ListItemContent>
         {
-          this.props.fullscreen ? this.renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
+          fullscreen ? renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
         }
-        {
-          this.props.fullscreen ? this.renderLinkList(release, selectedLanguageKey) : ''
-        }
-      </React.Fragment>)
-      : (
-        <React.Fragment>
-          {this.props.fullscreen ? this.renderReleaseSnippet(release, releaseInstruments) : ''}
-          <ListItemThumbnail fullscreen={this.props.fullscreen} link={link} compact={this.props.compact}>
-            {this.renderReleaseThumbnail(image, this.props.fullscreen, release, this.props.compact)}
-          </ListItemThumbnail>
-          <ListItemContent fullscreen={this.props.fullscreen}>
-            <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
-              <h2>{release.title}
-                <span>{release.artistName}</span>
-              </h2>
-            </ListItemContentHeader>
-          </ListItemContent>
-          {
-            this.props.fullscreen ? this.renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
-          }
-        </React.Fragment>
-      );
-  }
+      </React.Fragment>
+    );
 }
 
-Release.propTypes = {
-  release: PropTypes.object.isRequired,
-  fullscreen: PropTypes.bool,
-  compact: PropTypes.bool
-};
-
-Release.defaultProps = {
-  fullscreen: false,
-  compact: false
-}
-
-const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
-
-const mapDispatchToProps = {
-  fetchReleasesThumbnail,
-  getLanguageSlug
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Release);
+export default Release;

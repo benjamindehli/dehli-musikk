@@ -1,33 +1,26 @@
-// Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-
 // Components
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
 import Release from 'components/partials/Portfolio/Release';
 
 // Data
-import {latestReleases} from 'data/portfolio';
+import { latestReleases } from 'data/portfolio';
 
+const LatestReleases = () => {
 
-class LatestReleases extends Component {
-
-  renderReleases() {
+  const renderReleases = () => {
     return latestReleases && latestReleases.length
       ? latestReleases.map(release => {
         return (<ListItem key={release.id}>
-            <Release release={release} />
-          </ListItem>)
+          <Release release={release} />
+        </ListItem>)
       })
       : '';
   }
 
-  render() {
-    return (<List>
-        {this.renderReleases()}
-    </List>)
-  }
+  return (<List>
+    {renderReleases()}
+  </List>)
 }
 
-export default connect(null, null)(LatestReleases);
+export default LatestReleases;

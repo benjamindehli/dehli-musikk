@@ -1,122 +1,92 @@
 // Dependencies
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Stylesheets
 import style from 'components/template/Modal.module.scss';
 
-class Modal extends React.Component {
+const Modal = ({ maxWidth = 'none', selectedLanguageKey = 'no', onClickOutside, onClickArrowLeft, onClickArrowRight, children }) => {
 
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.setHiddenInputWrapperRef = this.setHiddenInputWrapperRef.bind(this);
-    this.setArrowLeftButtonRef = this.setArrowLeftButtonRef.bind(this);
-    this.setArrowRightButtonRef = this.setArrowRightButtonRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
-    this.keyDownFunction = this.keyDownFunction.bind(this);
-  }
+  // Refs
+  const wrapperRef = useRef();
+  const hiddenInputWrapperRef = useRef();
+  const arrowLeftButtonRef = useRef();
+  const arrowRightButtonRef = useRef();
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutside);
-    document.addEventListener("keydown", this.keyDownFunction, false);
-    this.hiddenInputWrapperRef.tabIndex = -1;
-  }
 
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutside);
-    document.removeEventListener("keydown", this.keyDownFunction, false);
-  }
+  useEffect(() => {
+    hiddenInputWrapperRef.current.tabIndex = -1;
+  }, [])
 
-  keyDownFunction(event) {
-    switch (event.keyCode) {
-      case 27: // Escape
-        if (this.props.onClickOutside) this.props.onClickOutside();
-        break;
-      case 37: // ArrowLeft
-        if (this.props.onClickArrowLeft) this.props.onClickArrowLeft();
-        break;
-      case 38: // ArrowUp
-        if (this.props.onClickArrowLeft) this.props.onClickArrowLeft();
-        break;
-      case 39: // ArrowRight
-        if (this.props.onClickArrowRight) this.props.onClickArrowRight();
-        break;
-      case 40: // ArrowDown
-        if (this.props.onClickArrowRight) this.props.onClickArrowRight();
-        break;
-      default:
-        return null;
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const isArrowLeftButtonClick = arrowLeftButtonRef?.current?.contains(event.target);
+      const isArrowRightButtonClick = arrowRightButtonRef?.current?.contains(event.target);
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target) && !isArrowLeftButtonClick && !isArrowRightButtonClick) {
+        onClickOutside();
+      }
     }
-  }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onClickOutside]);
 
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
-
-  setHiddenInputWrapperRef(node) {
-    this.hiddenInputWrapperRef = node;
-  }
-
-  setArrowLeftButtonRef(node) {
-    this.arrowLeftButtonRef = node;
-  }
-
-  setArrowRightButtonRef(node) {
-    this.arrowRightButtonRef = node;
-  }
-
-
-
-  handleClickOutside(event) {
-    const isArrowLeftButtonClick = this.arrowLeftButtonRef && this.arrowLeftButtonRef.contains(event.target);
-    const isArrowRightButtonClick = this.arrowRightButtonRef && this.arrowRightButtonRef.contains(event.target);
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target) && !isArrowLeftButtonClick && !isArrowRightButtonClick) {
-      this.props.onClickOutside();
+  useEffect(() => {
+    const keyDownFunction = (event) => {
+      switch (event.keyCode) {
+        case 27: // Escape
+          if (onClickOutside) onClickOutside();
+          break;
+        case 37: // ArrowLeft
+          if (onClickArrowLeft) onClickArrowLeft();
+          break;
+        case 38: // ArrowUp
+          if (onClickArrowLeft) onClickArrowLeft();
+          break;
+        case 39: // ArrowRight
+          if (onClickArrowRight) onClickArrowRight();
+          break;
+        case 40: // ArrowDown
+          if (onClickArrowRight) onClickArrowRight();
+          break;
+        default:
+          return null;
+      }
     }
-  }
+    document.addEventListener("keydown", keyDownFunction, false);
+    return () => {
+      document.removeEventListener("keydown", keyDownFunction, false);
+    };
+  }, [onClickOutside, onClickArrowLeft, onClickArrowRight]);
 
-  renderArrowLeftButton(onClickFunction) {
+  const renderArrowLeftButton = (onClickFunction) => {
     return onClickFunction
-      ? (<button ref={this.setArrowLeftButtonRef} aria-label={this.props.selectedLanguageKey === 'en' ? 'Previous' : 'Forrige'} className={style.arrowLeftButton} onClick={() => onClickFunction()}>
+      ? (<button ref={arrowLeftButtonRef} aria-label={selectedLanguageKey === 'en' ? 'Previous' : 'Forrige'} className={style.arrowLeftButton} onClick={onClickFunction}>
         <FontAwesomeIcon icon={['fas', 'chevron-left']} size="2x" />
       </button>)
       : (<div className={style.arrowPlaceholderButton}></div>);
   }
 
-  renderArrowRightButton(onClickFunction) {
+  const renderArrowRightButton = (onClickFunction) => {
     return onClickFunction
-      ? (<button ref={this.setArrowRightButtonRef} aria-label={this.props.selectedLanguageKey === 'en' ? 'Next' : 'Neste'} className={style.arrowRightButton} onClick={() => onClickFunction()}>
+      ? (<button ref={arrowRightButtonRef} aria-label={selectedLanguageKey === 'en' ? 'Next' : 'Neste'} className={style.arrowRightButton} onClick={onClickFunction}>
         <FontAwesomeIcon icon={['fas', 'chevron-right']} size="2x" />
       </button>)
       : (<div className={style.arrowPlaceholderButton}></div>);
   }
 
-  render() {
-    return (<div className={style.postModalOverlay}>
-      {this.renderArrowLeftButton(this.props.onClickArrowLeft)}
-      <div ref={this.setWrapperRef} className={style.postModalContent} style={{ maxWidth: this.props.maxWidth }}>
-        <input type="button" ref={this.setHiddenInputWrapperRef} className={style.hidden} autoFocus />
-        {this.props.children}
+  return (
+    <div className={style.postModalOverlay}>
+      {renderArrowLeftButton(onClickArrowLeft)}
+      <div ref={wrapperRef} className={style.postModalContent} style={{ maxWidth: maxWidth }}>
+        <input type="button" ref={hiddenInputWrapperRef} className={style.hidden} autoFocus />
+        {children}
       </div>
-      {this.renderArrowRightButton(this.props.onClickArrowRight)}
-    </div>)
-  }
-};
-
-Modal.propTypes = {
-  maxWidth: PropTypes.string,
-  selectedLanguageKey: PropTypes.string,
-  onClickOutside: PropTypes.func.isRequired,
-  onClickArrowLeft: PropTypes.func,
-  onClickArrowRight: PropTypes.func
-};
-
-Modal.defaultProps = {
-  maxWidth: 'none',
-  selectedLanguageKey: 'no'
+      {renderArrowRightButton(onClickArrowRight)}
+    </div>
+  )
 };
 
 export default Modal;

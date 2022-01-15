@@ -1,126 +1,107 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Link, NavLink} from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router';
+import { Link, NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Components
 import SearchField from 'components/partials/NavigationBar/SearchField';
 
-// Actions
-import {getLanguageSlug} from 'actions/LanguageActions';
-
 // Assets
-import {ReactComponent as DehliMusikkLogo} from 'assets/svg/DehliMusikkLogoHorizontal.svg'
-import {ReactComponent as MenuIcon} from 'assets/svg/menuIcon.svg'
+import { ReactComponent as DehliMusikkLogo } from 'assets/svg/DehliMusikkLogoHorizontal.svg'
+import { ReactComponent as MenuIcon } from 'assets/svg/menuIcon.svg'
+
+// Actions
+import { updateMultilingualRoutes } from 'actions/LanguageActions';
+
+// Selectors
+import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Stylesheets
 import style from 'components/partials/NavigationBar.module.scss';
 
-class NavigationBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showSidebar: false,
-      hidingSidebar: false,
-      showLanguageSelectorList: false
-    };
-    this.setSidebarWrapperRef = this.setSidebarWrapperRef.bind(this);
-    this.setLanguageSelectorListWrapperRef = this.setLanguageSelectorListWrapperRef.bind(this);
-    this.handleClickOutsideSidebar = this.handleClickOutsideSidebar.bind(this);
-    this.handleClickOutsideLanguageSelectorList = this.handleClickOutsideLanguageSelectorList.bind(this);
-    this.keyDownFunction = this.keyDownFunction.bind(this);
+const NavigationBar = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  // Redux store
+  const availableLanguages = useSelector(state => state.availableLanguages);
+  const multilingualRoutes = useSelector(state => state.multilingualRoutes);
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+  const languageSlug = useSelector(state => getLanguageSlug(state));
+
+  // State
+  const [showSidebar, setShowSidebar] = useState();
+  const [hidingSidebar, setHidingSidebar] = useState(false);
+  const [showLanguageSelectorList, setShowLanguageSelectorList] = useState(false);
+
+  // Refs
+  const sidebarWrapperRef = useRef();
+  const languageSelectorListWrapperRef = useRef();
+
+
+  const handleShowSidebarClick = () => {
+    setShowSidebar(true);
   }
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClickOutsideSidebar);
-    document.addEventListener('mousedown', this.handleClickOutsideLanguageSelectorList);
-    document.addEventListener("keydown", this.keyDownFunction, false);
+  const hideSidebar = () => {
+    setHidingSidebar(true);
+    setTimeout(() => {
+      setShowSidebar(false);
+      setHidingSidebar(false);
+    }, 225);
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClickOutsideSidebar);
-    document.removeEventListener('mousedown', this.handleClickOutsideLanguageSelectorList);
-    document.removeEventListener("keydown", this.keyDownFunction, false);
-  }
-
-  componentDidUpdate(prevProps){
-    if (prevProps.location.pathname !== this.props.location.pathname){
-      if (this.state.showSidebar){
-        this.hideSidebar();
+  useEffect(() => {
+    const handleClickOutsideSidebar = (event) => {
+      if (sidebarWrapperRef.current && !sidebarWrapperRef.current.contains(event.target) && showSidebar) {
+        hideSidebar();
       }
     }
+    document.addEventListener("mousedown", handleClickOutsideSidebar);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideSidebar);
+    };
+  }, [sidebarWrapperRef, showSidebar]);
+
+
+  const handleShowLanguageSelectorList = () => {
+    setShowLanguageSelectorList(true);
   }
 
-  setSidebarWrapperRef(node) {
-    this.sidebarWrapperRef = node;
+  const hideLanguageSelectorList = () => {
+    setShowLanguageSelectorList(false);
   }
 
-  setLanguageSelectorListWrapperRef(node) {
-    this.languageSelectorListWrapperRef = node;
-  }
-
-  keyDownFunction(event){
-    switch (event.keyCode) {
-      case 27: // Escape
-        if (this.state.showSidebar){
-          this.hideSidebar();
-        }
-        if (this.state.showLanguageSelectorList){
-          this.hideLanguageSelectorList();
-        }
-        break;
-      default:
-        return null;
+  useEffect(() => {
+    const handleClickOutsideLanguageSelectorList = (event) => {
+      if (languageSelectorListWrapperRef.current && !languageSelectorListWrapperRef.current.contains(event.target) && showLanguageSelectorList) {
+        hideLanguageSelectorList();
+      }
     }
-  }
+    document.addEventListener("mousedown", handleClickOutsideLanguageSelectorList);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutsideLanguageSelectorList);
+    };
+  }, [languageSelectorListWrapperRef, showLanguageSelectorList]);
 
-  handleShowSidebarClick() {
-    this.setState({showSidebar: true});
-  }
 
-  handleShowLanguageSelectorList() {
-    this.setState({showLanguageSelectorList: true});
-  }
-
-  handleClickOutsideSidebar(event) {
-    if (this.sidebarWrapperRef && !this.sidebarWrapperRef.contains(event.target) && this.state.showSidebar) {
-      this.hideSidebar();
-    }
-  }
-
-  handleClickOutsideLanguageSelectorList(event) {
-    if (this.languageSelectorListWrapperRef && !this.languageSelectorListWrapperRef.contains(event.target) && this.state.showLanguageSelectorList) {
-      this.hideLanguageSelectorList();
-    }
-  }
-
-  hideSidebar() {
-    this.setState({hidingSidebar: true});
-    setTimeout(function() {
-      this.setState({showSidebar: false, hidingSidebar: false});
-    }.bind(this), 225);
-  }
-
-  hideLanguageSelectorList() {
-    this.setState({showLanguageSelectorList: false});
-  }
-
-  renderLanguageSelectorButton(availableLanguages, selectedLanguageKey) {
+  const renderLanguageSelectorButton = (availableLanguages, selectedLanguageKey) => {
     const hasAvailableLanguages = availableLanguages && Object.keys(availableLanguages).length;
     if (hasAvailableLanguages) {
       const selectedLanguage = availableLanguages[selectedLanguageKey];
       return (
         <span className={style.languageSelectorButton}>
-          <FontAwesomeIcon icon={['fas', 'language']}/>
+          <FontAwesomeIcon icon={['fas', 'language']} />
           <span className={style.languageName}>{selectedLanguage && selectedLanguage.name ? selectedLanguage.name : ''}</span>
-          <FontAwesomeIcon icon={['fas', 'chevron-down']}/>
+          <FontAwesomeIcon icon={['fas', 'chevron-down']} />
         </span>);
     } else
       return '';
-    }
+  }
 
-  renderLanguageSelectorList(availableLanguages, multilingualRoutes, selectedLanguageKey) {
+  const renderLanguageSelectorList = (availableLanguages, multilingualRoutes, selectedLanguageKey) => {
     const hasAvailableLanguages = availableLanguages && Object.keys(availableLanguages).length;
     const hasMultilingualRoutes = multilingualRoutes && Object.keys(multilingualRoutes).length;
     if (hasAvailableLanguages && hasMultilingualRoutes) {
@@ -130,8 +111,8 @@ class NavigationBar extends Component {
         const isActive = languageKey === selectedLanguageKey;
         return (<li key={languageKey}>
           <a href={path} title={language.name} className={isActive
-              ? style.activeLink
-              : ''}>{language.name}</a>
+            ? style.activeLink
+            : ''}>{language.name}</a>
         </li>)
       });
       return (<ul>{languageElements}</ul>);
@@ -140,30 +121,38 @@ class NavigationBar extends Component {
     }
   }
 
-  render() {
-    return (<div className={style.navigationBar}>
-      <button onClick={() => this.handleShowSidebarClick()} className={style.menuButton} aria-label={this.props.selectedLanguageKey === 'en' ? 'Show menu' : 'Vis meny'}>
-        <MenuIcon className={style.menuIcon}/>
+  useEffect(() => {
+    dispatch(updateMultilingualRoutes(location, availableLanguages, languageSlug))
+  }, [dispatch, location, availableLanguages, languageSlug])
+
+
+  return (
+    <div className={style.navigationBar}>
+      <button onClick={handleShowSidebarClick} className={style.menuButton} aria-label={selectedLanguageKey === 'en' ? 'Show menu' : 'Vis meny'}>
+        <MenuIcon className={style.menuIcon} />
       </button>
+
       <SearchField />
+
       <div className={style.languageSelectorListContainer}>
-        <button onClick={() => this.handleShowLanguageSelectorList()} aria-label={this.props.selectedLanguageKey === 'en' ? 'Select language' : 'Velg språk'}>
-          {this.renderLanguageSelectorButton(this.props.availableLanguages, this.props.selectedLanguageKey)}
+        <button onClick={handleShowLanguageSelectorList} aria-label={selectedLanguageKey === 'en' ? 'Select language' : 'Velg språk'}>
+          {renderLanguageSelectorButton(availableLanguages, selectedLanguageKey)}
         </button>
-        <div ref={this.setLanguageSelectorListWrapperRef} className={`${style.languageSelectorList} ${this.state.showLanguageSelectorList
-            ? style.active
-            : ''}`}>
-          {this.renderLanguageSelectorList(this.props.availableLanguages, this.props.multilingualRoutes, this.props.selectedLanguageKey)}
+        <div ref={languageSelectorListWrapperRef} className={`${style.languageSelectorList} ${showLanguageSelectorList
+          ? style.active
+          : ''}`}>
+          {renderLanguageSelectorList(availableLanguages, multilingualRoutes, selectedLanguageKey)}
         </div>
       </div>
-      <div className={`${style.sidebarOverlay} ${this.state.showSidebar
-          ? style.active
-          : ''} ${this.state.hidingSidebar
-            ? style.hidingSidebar
-            : ''} `}>
-        <div ref={this.setSidebarWrapperRef} className={style.sidebarContent}>
+
+      <div className={`${style.sidebarOverlay} ${showSidebar
+        ? style.active
+        : ''} ${hidingSidebar
+          ? style.hidingSidebar
+          : ''} `}>
+        <div ref={sidebarWrapperRef} className={style.sidebarContent}>
           <div className={style.sidebarContentHeader}>
-            <Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}`} aria-label='Link to Dehli Musikk home page' title='Link to Dehli Musikk home page'>
+            <Link to={`/${languageSlug}`} aria-label='Link to Dehli Musikk home page' title='Link to Dehli Musikk home page'>
               <span className={style.appLogo}>
                 <DehliMusikkLogo />
               </span>
@@ -171,46 +160,35 @@ class NavigationBar extends Component {
           </div>
           <ul className={style.sidebarLinks}>
             <li>
-              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}>
-                <FontAwesomeIcon icon={['fas', 'music']}/> {this.props.selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}
+              <NavLink to={`/${languageSlug}portfolio/`} className={({ isActive }) => isActive ? style.activeLink : undefined} title={selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}>
+                <FontAwesomeIcon icon={['fas', 'music']} /> {selectedLanguageKey === 'en' ? 'Portfolio' : 'Portefølje'}
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}>
-                <FontAwesomeIcon icon={['fas', 'photo-video']}/> {this.props.selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}
+              <NavLink to={`/${languageSlug}posts/`} className={({ isActive }) => isActive ? style.activeLink : undefined} title={selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}>
+                <FontAwesomeIcon icon={['fas', 'photo-video']} /> {selectedLanguageKey === 'en' ? 'Posts' : 'Innlegg'}
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}videos/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Videos' : 'Videoer'}>
-                <FontAwesomeIcon icon={['fas', 'film']}/> {this.props.selectedLanguageKey === 'en' ? 'Videos' : 'Videoer'}
+              <NavLink to={`/${languageSlug}videos/`} className={({ isActive }) => isActive ? style.activeLink : undefined} title={selectedLanguageKey === 'en' ? 'Videos' : 'Videoer'}>
+                <FontAwesomeIcon icon={['fas', 'film']} /> {selectedLanguageKey === 'en' ? 'Videos' : 'Videoer'}
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}>
-                <FontAwesomeIcon icon={['fas', 'shopping-cart']}/> {this.props.selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}
+              <NavLink to={`/${languageSlug}products/`} className={({ isActive }) => isActive ? style.activeLink : undefined} title={selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}>
+                <FontAwesomeIcon icon={['fas', 'shopping-cart']} /> {selectedLanguageKey === 'en' ? 'Products' : 'Produkter'}
               </NavLink>
             </li>
             <li>
-              <NavLink to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}equipment/`} activeClassName={style.activeLink} title={this.props.selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}>
-                <FontAwesomeIcon icon={['fas', 'guitar']}/> {this.props.selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}
+              <NavLink to={`/${languageSlug}equipment/`} className={({ isActive }) => isActive ? style.activeLink : undefined} title={selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}>
+                <FontAwesomeIcon icon={['fas', 'guitar']} /> {selectedLanguageKey === 'en' ? 'Equipment' : 'Utstyr'}
               </NavLink>
             </li>
           </ul>
         </div>
       </div>
-    </div>)
-  }
+    </div>
+  )
 }
 
-const mapStateToProps = state => ({
-  availableLanguages: state.availableLanguages,
-  multilingualRoutes: state.multilingualRoutes,
-  selectedLanguageKey: state.selectedLanguageKey,
-  location: state.router.location
-});
-
-const mapDispatchToProps = {
-  getLanguageSlug
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationBar);
+export default NavigationBar;

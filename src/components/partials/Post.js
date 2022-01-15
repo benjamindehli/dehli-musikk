@@ -1,11 +1,11 @@
 // Dependencies
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
-// Actions
-import { getLanguageSlug } from 'actions/LanguageActions';
+// Selectors
+import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { getPrettyDate } from 'helpers/dateFormatter';
@@ -20,18 +20,19 @@ import ListItemContentHeader from 'components/template/List/ListItem/ListItemCon
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 
 
-class Post extends Component {
+const Post = ({ post, fullscreen }) => {
 
-  renderPostSnippet(post, postId, postThumbnailSrc) {
+  // Redux store
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+  const languageSlug = useSelector(state => getLanguageSlug(state));
+
+  const renderPostSnippet = (post, postId, postThumbnailSrc) => {
     const postDate = new Date(post.timestamp).toISOString();
-    const selectedLanguageKey = this.props.selectedLanguageKey
-      ? this.props.selectedLanguageKey
-      : 'no';
     const snippet = {
       "@context": "http://schema.org",
       "@type": "NewsArticle",
-      "@id": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${postId}/`,
-      "url": `https://www.dehlimusikk.no/${this.props.getLanguageSlug(selectedLanguageKey)}posts/${postId}/`,
+      "@id": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,
+      "url": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,
       "author": {
         "@id": "#BenjaminDehli"
       },
@@ -39,7 +40,7 @@ class Post extends Component {
         "@id": "#DehliMusikk",
       },
       "headline": post.title[selectedLanguageKey],
-      "inLanguage": this.props.selectedLanguageKey,
+      "inLanguage": selectedLanguageKey,
       "articleBody": post.content[selectedLanguageKey]
         ? post.content[selectedLanguageKey].replace(/\n/g, " ")
         : '',
@@ -83,7 +84,7 @@ class Post extends Component {
     </Helmet>)
   }
 
-  renderPostThumbnail(image, altText, fullscreen) {
+  const renderPostThumbnail = (image, altText, fullscreen) => {
     const imageSize = fullscreen
       ? '540px'
       : '350px';
@@ -95,84 +96,73 @@ class Post extends Component {
     </React.Fragment>);
   }
 
-  renderLink(link) {
+  const renderLink = (link) => {
     return link.internal
-      ? (<Link to={`/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}${link.url[this.props.selectedLanguageKey]}`} title={link.text[this.props.selectedLanguageKey]}>
+      ? (<Link to={`/${languageSlug}${link.url[selectedLanguageKey]}`} title={link.text[selectedLanguageKey]}>
         <Button buttontype='minimal'>
-          {link.text[this.props.selectedLanguageKey]}
+          {link.text[selectedLanguageKey]}
         </Button>
       </Link>)
-      : (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[this.props.selectedLanguageKey]}>
+      : (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[selectedLanguageKey]}>
         <Button buttontype='minimal'>
-          {link.text[this.props.selectedLanguageKey]}
+          {link.text[selectedLanguageKey]}
         </Button>
       </a>);
   }
 
-  render() {
-    const selectedLanguageKey = this.props.selectedLanguageKey
-      ? this.props.selectedLanguageKey
-      : 'no';
-    const post = this.props.post;
-    const imagePathAvif = `data/posts/thumbnails/web/avif/${post.thumbnailFilename}`;
-    const imagePathWebp = `data/posts/thumbnails/web/webp/${post.thumbnailFilename}`;
-    const imagePathJpg = `data/posts/thumbnails/web/jpg/${post.thumbnailFilename}`;
-    const image = {
-      avif55: require(`../../${imagePathAvif}_55.avif`).default,
-      avif350: require(`../../${imagePathAvif}_350.avif`).default,
-      avif540: require(`../../${imagePathAvif}_540.avif`).default,
-      webp55: require(`../../${imagePathWebp}_55.webp`).default,
-      webp350: require(`../../${imagePathWebp}_350.webp`).default,
-      webp540: require(`../../${imagePathWebp}_540.webp`).default,
-      jpg55: require(`../../${imagePathJpg}_55.jpg`).default,
-      jpg350: require(`../../${imagePathJpg}_350.jpg`).default,
-      jpg540: require(`../../${imagePathJpg}_540.jpg`).default
-    };
-    const postDate = new Date(post.timestamp);
-    const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
-    const postPath = `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}posts/${postId}/`;
 
-    const link = {
-      to: postPath,
-      title: post.title[selectedLanguageKey]
-    };
+  const imagePathAvif = `data/posts/thumbnails/web/avif/${post.thumbnailFilename}`;
+  const imagePathWebp = `data/posts/thumbnails/web/webp/${post.thumbnailFilename}`;
+  const imagePathJpg = `data/posts/thumbnails/web/jpg/${post.thumbnailFilename}`;
+  const image = {
+    avif55: require(`../../${imagePathAvif}_55.avif`),
+    avif350: require(`../../${imagePathAvif}_350.avif`),
+    avif540: require(`../../${imagePathAvif}_540.avif`),
+    webp55: require(`../../${imagePathWebp}_55.webp`),
+    webp350: require(`../../${imagePathWebp}_350.webp`),
+    webp540: require(`../../${imagePathWebp}_540.webp`),
+    jpg55: require(`../../${imagePathJpg}_55.jpg`),
+    jpg350: require(`../../${imagePathJpg}_350.jpg`),
+    jpg540: require(`../../${imagePathJpg}_540.jpg`)
+  };
+  const postDate = new Date(post.timestamp);
+  const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
+  const postPath = `/${languageSlug}posts/${postId}/`;
 
-    return post && post.content && post.content[selectedLanguageKey]
-      ? (<React.Fragment>
-        {this.props.fullscreen ? this.renderPostSnippet(post, postId, image.jpg540) : ''}
-        <ListItemThumbnail fullscreen={this.props.fullscreen} link={link}>
-          {this.renderPostThumbnail(image, post.thumbnailDescription, this.props.fullscreen)}
-        </ListItemThumbnail>
-        <ListItemContent fullscreen={this.props.fullscreen}>
-          <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
-            <h2>{post.title[selectedLanguageKey]}</h2>
-            <time dateTime={postDate.toISOString()}>{getPrettyDate(postDate, selectedLanguageKey)}</time>
-          </ListItemContentHeader>
-          <ListItemContentBody fullscreen={this.props.fullscreen}>
-            {
-              post.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
-                return (<p key={key}>{paragraph}</p>)
-              })
-            }
-          </ListItemContentBody>
+  const link = {
+    to: postPath,
+    title: post.title[selectedLanguageKey]
+  };
+
+  return post && post.content && post.content[selectedLanguageKey]
+    ? (<React.Fragment>
+      {fullscreen ? renderPostSnippet(post, postId, image.jpg540) : ''}
+      <ListItemThumbnail fullscreen={fullscreen} link={link}>
+        {renderPostThumbnail(image, post.thumbnailDescription, fullscreen)}
+      </ListItemThumbnail>
+      <ListItemContent fullscreen={fullscreen}>
+        <ListItemContentHeader fullscreen={fullscreen} link={link}>
+          <h2>{post.title[selectedLanguageKey]}</h2>
+          <time dateTime={postDate.toISOString()}>{getPrettyDate(postDate, selectedLanguageKey)}</time>
+        </ListItemContentHeader>
+        <ListItemContentBody fullscreen={fullscreen}>
           {
-            post.link && this.props.fullscreen
-              ? (
-                <ListItemActionButtons fullscreen={this.props.fullscreen}>
-                  {this.renderLink(post.link)}
-                </ListItemActionButtons>)
-              : ''
+            post.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
+              return (<p key={key}>{paragraph}</p>)
+            })
           }
-        </ListItemContent>
-      </React.Fragment>)
-      : '';
-  }
+        </ListItemContentBody>
+        {
+          post.link && fullscreen
+            ? (
+              <ListItemActionButtons fullscreen={fullscreen}>
+                {renderLink(post.link)}
+              </ListItemActionButtons>)
+            : ''
+        }
+      </ListItemContent>
+    </React.Fragment>)
+    : '';
 }
 
-const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
-
-const mapDispatchToProps = {
-  getLanguageSlug
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Post);
+export default Post;

@@ -1,8 +1,8 @@
 // Dependencies
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
-import { Redirect } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useParams } from 'react-router';
+import { Helmet } from 'react-helmet-async';
 
 // Components
 import Breadcrumbs from 'components/partials/Breadcrumbs';
@@ -13,7 +13,10 @@ import Modal from 'components/template/Modal';
 import Release from 'components/partials/Portfolio/Release';
 
 // Actions
-import { getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey } from 'actions/LanguageActions';
+import { updateSelectedLanguageKey } from 'actions/LanguageActions';
+
+// Selectors
+import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
@@ -22,38 +25,25 @@ import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 import releases from 'data/portfolio';
 
 
-class Portfolio extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      redirect: null
-    };
-  }
+const Portfolio = () => {
 
-  initLanguage() {
-    this.props.updateMultilingualRoutes('portfolio/');
-    const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage ? this.props.match.params.selectedLanguage : 'no';
-    if (selectedLanguageKey !== this.props.selectedLanguageKey) {
-      this.props.updateSelectedLanguageKey(selectedLanguageKey);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const params = useParams();
+  const selectedReleaseId = params?.releaseId || null
+
+  // Redux store
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+  const languageSlug = useSelector(state => getLanguageSlug(state));
+
+  useEffect(() => {
+    if (params.selectedLanguage) {
+      dispatch(updateSelectedLanguageKey(params.selectedLanguage))
     }
-  }
+  }, [dispatch, params])
 
-  componentDidMount() {
-    this.initLanguage();
-  }
-
-  componentDidUpdate() {
-    if (this.state.redirect) {
-      this.setState({ redirect: null });
-    }
-  }
-
-  renderSummarySnippet(releases) {
+  const renderSummarySnippet = (releases) => {
     const releaseItems = releases.map((release, index) => {
-      const selectedLanguageKey = this.props.selectedLanguageKey
-        ? this.props.selectedLanguageKey
-        : 'no';
-      const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
       const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
       return {
         "@type": "MusicRecording",
@@ -72,41 +62,35 @@ class Portfolio extends Component {
     </Helmet>);
   }
 
-  renderReleases() {
+  const renderReleases = () => {
     return releases && releases.length
       ? releases.map(release => {
         const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
-        return (<ListItem key={releaseId} fullscreen={this.props.fullscreen}>
+        return (<ListItem key={releaseId}>
           <Release release={release} />
         </ListItem>)
       })
       : '';
   }
 
-  renderSelectedRelease(selectedRelease) {
+  const renderSelectedRelease = (selectedRelease) => {
     const handleClickOutside = () => {
-      this.setState({
-        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`
-      });
+      navigate(`/${languageSlug}portfolio/`);
     };
     const handleClickArrowLeft = selectedRelease && selectedRelease.previousReleaseId ? () => {
-      this.setState({
-        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedRelease.previousReleaseId}/`
-      });
+      navigate(`/${languageSlug}portfolio/${selectedRelease.previousReleaseId}/`);
     } : null;
     const handleClickArrowRight = selectedRelease && selectedRelease.nextReleaseId ? () => {
-      this.setState({
-        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedRelease.nextReleaseId}/`
-      });
+      navigate(`/${languageSlug}portfolio/${selectedRelease.nextReleaseId}/`);
     } : null;
     return selectedRelease
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={this.props.selectedLanguageKey}>
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={selectedLanguageKey}>
         <Release release={selectedRelease} fullscreen={true} />
       </Modal>)
       : '';
   }
 
-  getSelectedRelease(selectedReleaseId) {
+  const getSelectedRelease = (selectedReleaseId) => {
     let selectedRelease = null;
     releases.forEach((release, index) => {
       const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
@@ -121,104 +105,85 @@ class Portfolio extends Component {
     return selectedRelease;
   }
 
-  render() {
-    const selectedReleaseId = this.props.match && this.props.match.params && this.props.match.params.releaseId
-      ? this.props.match.params.releaseId
-      : null;
-    const selectedRelease = selectedReleaseId ? this.getSelectedRelease(selectedReleaseId, this.props.selectedLanguageKey) : null;
+  const selectedRelease = selectedReleaseId ? getSelectedRelease(selectedReleaseId, selectedLanguageKey) : null;
 
-    const listPage = {
-      title: {
-        en: 'Portfolio | Dehli Musikk',
-        no: 'Portefølje | Dehli Musikk'
-      },
-      heading: {
-        en: 'Portfolio',
-        no: 'Portefølje'
-      },
-      description: {
-        en: 'Recordings where Dehli Musikk has contributed',
-        no: 'Utgivelser Dehli Musikk har bidratt på'
-      }
-    }
-
-    const detailsPage = {
-      title: {
-        en: `${selectedRelease ? `${selectedRelease.title} by ${selectedRelease.artistName}` : ''} - Portfolio | Dehli Musikk`,
-        no: `${selectedRelease ? `${selectedRelease.title} av ${selectedRelease.artistName}` : ''} - Portefølje | Dehli Musikk`
-      },
-      heading: {
-        en: selectedRelease ? `${selectedRelease.title} by ${selectedRelease.artistName}` : '',
-        no: selectedRelease ? `${selectedRelease.title} av ${selectedRelease.artistName}` : ''
-      },
-      description: {
-        en: selectedRelease ? `Listen to the track ${selectedRelease.title} by ${selectedRelease.artistName}` : '',
-        no: selectedRelease ? `Lytt til låta ${selectedRelease.title} av ${selectedRelease.artistName}` : ''
-      }
-    }
-
-    let breadcrumbs = [
-      {
-        name: listPage.heading[this.props.selectedLanguageKey],
-        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/`
-      }
-    ];
-    if (selectedRelease) {
-      breadcrumbs.push({
-        name: detailsPage.heading[this.props.selectedLanguageKey],
-        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedReleaseId}/`
-      })
-    }
-
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect} />;
-    }
-    else {
-
-      const metaTitle = selectedRelease ? detailsPage.title[this.props.selectedLanguageKey] : listPage.title[this.props.selectedLanguageKey];
-      const contentTitle = selectedRelease ? detailsPage.heading[this.props.selectedLanguageKey] : listPage.heading[this.props.selectedLanguageKey];
-      const metaDescription = selectedRelease ? detailsPage.description[this.props.selectedLanguageKey] : listPage.description[this.props.selectedLanguageKey];
-
-      return (<React.Fragment>
-        <Helmet htmlAttributes={{ lang: this.props.selectedLanguageKey }}>
-          <title>{metaTitle}</title>
-          <meta name='description' content={metaDescription} />
-          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} />
-          <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="no" />
-          <link rel="alternate" href={`https://www.dehlimusikk.no/en/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="en" />
-          <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="x-default" />
-          <meta property="og:title" content={contentTitle} />
-          <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} />
-          <meta property="og:description" content={metaDescription} />
-          <meta property="og:locale" content={this.props.selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
-          <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
-          <meta property="twitter:title" content={contentTitle} />
-          <meta property="twitter:description" content={metaDescription} />
-        </Helmet>
-        {selectedRelease ? this.renderSelectedRelease(selectedRelease) : this.renderSummarySnippet(releases)}
-        <Container blur={selectedRelease !== null}>
-          <Breadcrumbs breadcrumbs={breadcrumbs} />
-          <h1>{contentTitle}</h1>
-          <p>{this.props.selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'}</p>
-        </Container>
-        <Container blur={selectedRelease !== null}>
-          <List>
-            {this.renderReleases()}
-          </List>
-        </Container>
-      </React.Fragment>)
+  const listPage = {
+    title: {
+      en: 'Portfolio | Dehli Musikk',
+      no: 'Portefølje | Dehli Musikk'
+    },
+    heading: {
+      en: 'Portfolio',
+      no: 'Portefølje'
+    },
+    description: {
+      en: 'Recordings where Dehli Musikk has contributed',
+      no: 'Utgivelser Dehli Musikk har bidratt på'
     }
   }
+
+  const detailsPage = {
+    title: {
+      en: `${selectedRelease ? `${selectedRelease.title} by ${selectedRelease.artistName}` : ''} - Portfolio | Dehli Musikk`,
+      no: `${selectedRelease ? `${selectedRelease.title} av ${selectedRelease.artistName}` : ''} - Portefølje | Dehli Musikk`
+    },
+    heading: {
+      en: selectedRelease ? `${selectedRelease.title} by ${selectedRelease.artistName}` : '',
+      no: selectedRelease ? `${selectedRelease.title} av ${selectedRelease.artistName}` : ''
+    },
+    description: {
+      en: selectedRelease ? `Listen to the track ${selectedRelease.title} by ${selectedRelease.artistName}` : '',
+      no: selectedRelease ? `Lytt til låta ${selectedRelease.title} av ${selectedRelease.artistName}` : ''
+    }
+  }
+
+  let breadcrumbs = [
+    {
+      name: listPage.heading[selectedLanguageKey],
+      path: `/${languageSlug}portfolio/`
+    }
+  ];
+  if (selectedRelease) {
+    breadcrumbs.push({
+      name: detailsPage.heading[selectedLanguageKey],
+      path: `/${languageSlug}portfolio/${selectedReleaseId}/`
+    })
+  }
+
+
+  const metaTitle = selectedRelease ? detailsPage.title[selectedLanguageKey] : listPage.title[selectedLanguageKey];
+  const contentTitle = selectedRelease ? detailsPage.heading[selectedLanguageKey] : listPage.heading[selectedLanguageKey];
+  const metaDescription = selectedRelease ? detailsPage.description[selectedLanguageKey] : listPage.description[selectedLanguageKey];
+
+  return (<React.Fragment>
+    <Helmet htmlAttributes={{ lang: selectedLanguageKey }}>
+      <title>{metaTitle}</title>
+      <meta name='description' content={metaDescription} />
+      <link rel="canonical" href={`https://www.dehlimusikk.no/${languageSlug}portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} />
+      <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="no" />
+      <link rel="alternate" href={`https://www.dehlimusikk.no/en/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="en" />
+      <link rel="alternate" href={`https://www.dehlimusikk.no/portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} hreflang="x-default" />
+      <meta property="og:title" content={contentTitle} />
+      <meta property="og:url" content={`https://www.dehlimusikk.no/${languageSlug}portfolio/${selectedRelease ? selectedReleaseId + '/' : ''}`} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:locale" content={selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
+      <meta property="og:locale:alternate" content={selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
+      <meta property="twitter:title" content={contentTitle} />
+      <meta property="twitter:description" content={metaDescription} />
+    </Helmet>
+    {selectedRelease ? renderSelectedRelease(selectedRelease) : renderSummarySnippet(releases)}
+    <Container blur={selectedRelease !== null}>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <h1>{contentTitle}</h1>
+      <p>{selectedLanguageKey === 'en' ? 'Recordings where Dehli Musikk has contributed' : 'Utgivelser Dehli Musikk har bidratt på'}</p>
+    </Container>
+    <Container blur={selectedRelease !== null}>
+      <List>
+        {renderReleases()}
+      </List>
+    </Container>
+  </React.Fragment>)
+
 }
 
-const mapStateToProps = state => ({
-  selectedLanguageKey: state.selectedLanguageKey
-});
-
-const mapDispatchToProps = {
-  getLanguageSlug,
-  updateMultilingualRoutes,
-  updateSelectedLanguageKey
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Portfolio);
+export default Portfolio;

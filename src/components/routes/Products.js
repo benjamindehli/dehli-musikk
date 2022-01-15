@@ -1,8 +1,8 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Helmet} from 'react-helmet';
-import {Redirect} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
+import { useNavigate, useParams } from 'react-router';
 
 // Components
 import Breadcrumbs from 'components/partials/Breadcrumbs';
@@ -13,64 +13,43 @@ import Modal from 'components/template/Modal';
 import Product from 'components/partials/Product';
 
 // Actions
-import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} from 'actions/LanguageActions';
+import { updateSelectedLanguageKey } from 'actions/LanguageActions';
+
+// Selectors
+import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
+
 
 // Helpers
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 
 // Data
 import products from 'data/products';
 
 
-class Products extends Component {
+const Products = () => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      redirect: null
-    };
-  }
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const params = useParams();
+  const selectedProductId = params?.productId || null
 
-  initLanguage() {
-    const selectedProductId = this.props.match && this.props.match.params && this.props.match.params.productId
-      ? this.props.match.params.productId
-      : null;
-    this.props.updateMultilingualRoutes(
-      selectedProductId
-      ? `products/${selectedProductId}/`
-      : 'products/');
-    const selectedLanguageKey = this.props.match && this.props.match.params && this.props.match.params.selectedLanguage
-      ? this.props.match.params.selectedLanguage
-      : 'no';
-    if (selectedLanguageKey !== this.props.selectedLanguageKey) {
-      this.props.updateSelectedLanguageKey(selectedLanguageKey);
+  // Redux store
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+  const languageSlug = useSelector(state => getLanguageSlug(state));
+
+  useEffect(() => {
+    if (params.selectedLanguage) {
+      dispatch(updateSelectedLanguageKey(params.selectedLanguage))
     }
-  }
+  }, [dispatch, params])
 
-  componentDidMount() {
-    this.initLanguage();
-  }
 
-  componentDidUpdate(prevProps) {
-    if (this.state.redirect) {
-      this.setState({redirect: null});
-    }
-    if (this.props.location.pathname !== prevProps.location.pathname){
-      this.initLanguage();
-    }
-  }
-
-  renderSummarySnippet(products) {
+  const renderSummarySnippet = (products) => {
     const productItems = products.map((product, index) => {
-      const selectedLanguageKey = this.props.selectedLanguageKey
-        ? this.props.selectedLanguageKey
-        : 'no';
-      const languageSlug = this.props.getLanguageSlug(selectedLanguageKey);
-      const productId = convertToUrlFriendlyString(product.title);
       return {
         "@type": "ListItem",
-        "position": index+1,
-        "url": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
+        "position": index + 1,
+        "url": `https://www.dehlimusikk.no/${languageSlug}products/${selectedProductId}/`,
       };
     });
     const snippet = {
@@ -83,198 +62,167 @@ class Products extends Component {
     </Helmet>);
   }
 
-  renderProducts() {
+  const renderProducts = () => {
     return products && products.length
       ? products.map(product => {
         const productId = convertToUrlFriendlyString(product.title);
-        return (<ListItem key={productId} fullscreen={this.props.fullscreen}>
-          <Product product={product}/>
+        return (<ListItem key={productId}>
+          <Product product={product} />
         </ListItem>)
       })
       : '';
   }
 
-  renderSelectedProduct(selectedProduct) {
+  const renderSelectedProduct = (selectedProduct) => {
     const handleClickOutside = () => {
-      this.setState({
-        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`
-      });
+      navigate(`/${languageSlug}products/`)
     }
     const handleClickArrowLeft = selectedProduct && selectedProduct.previousProductId ? () => {
-      this.setState({
-        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/${selectedProduct.previousProductId}/`
-      });
+      navigate(`/${languageSlug}products/${selectedProduct.previousProductId}/`);
     } : null;
     const handleClickArrowRight = selectedProduct && selectedProduct.nextProductId ? () => {
-      this.setState({
-        redirect: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/${selectedProduct.nextProductId}/`
-      });
+      navigate(`/${languageSlug}products/${selectedProduct.nextProductId}/`);
     } : null;
     return selectedProduct
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={this.props.selectedLanguageKey}>
-        <Product product={selectedProduct} fullscreen={true}/>
+      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={selectedLanguageKey}>
+        <Product product={selectedProduct} fullscreen={true} />
       </Modal>)
       : '';
   }
 
-  getSelectedProduct(selectedProductId, selectedLanguageKey) {
+  const getSelectedProduct = (selectedProductId, selectedLanguageKey) => {
     let selectedProduct = null;
     products.forEach((product, index) => {
       const productId = convertToUrlFriendlyString(product.title)
       if (productId === selectedProductId) {
         selectedProduct = {
           ...product,
-          previousProductId: index > 0 ? convertToUrlFriendlyString(products[index-1].title[selectedLanguageKey]) : null,
-          nextProductId: index < products.length-1 ? convertToUrlFriendlyString(products[index+1].title[selectedLanguageKey]) : null
+          previousProductId: index > 0 ? convertToUrlFriendlyString(products[index - 1].title[selectedLanguageKey]) : null,
+          nextProductId: index < products.length - 1 ? convertToUrlFriendlyString(products[index + 1].title[selectedLanguageKey]) : null
         }
       }
     });
     return selectedProduct;
   }
 
-  render() {
-    const selectedProductId = this.props.match && this.props.match.params && this.props.match.params.productId
-      ? this.props.match.params.productId
-      : null;
-    const selectedProduct = selectedProductId
-      ? this.getSelectedProduct(selectedProductId, this.props.selectedLanguageKey)
-      : null;
 
-    const listPage = {
-      title: {
-        en: 'Products | Dehli Musikk',
-        no: 'Produkter | Dehli Musikk'
-      },
-      heading: {
-        en: 'Products',
-        no: 'Produkter'
-      },
-      description: {
-        en: 'Products from Dehli Musikk',
-        no: 'Produkter fra Dehli Musikk'
-      }
-    }
+  const selectedProduct = selectedProductId
+    ? getSelectedProduct(selectedProductId, selectedLanguageKey)
+    : null;
 
-    const detailsPage = {
-      title: {
-        en: `${selectedProduct
-          ? selectedProduct.title
-          : ''} - Products | Dehli Musikk`,
-        no: `${selectedProduct
-          ? selectedProduct.title
-          : ''} - Produkter | Dehli Musikk`
-      },
-      heading: {
-        en: selectedProduct
-          ? selectedProduct.title
-          : '',
-        no: selectedProduct
-          ? selectedProduct.title
-          : ''
-      },
-      description: {
-        en: selectedProduct
-          ? selectedProduct.content.en
-          : '',
-        no: selectedProduct
-          ? selectedProduct.content.no
-          : ''
-      }
-    }
-
-    let breadcrumbs = [
-      {
-        name: listPage.heading[this.props.selectedLanguageKey],
-        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/`
-      }
-    ];
-    if (selectedProduct) {
-      breadcrumbs.push({
-        name: detailsPage.heading[this.props.selectedLanguageKey],
-        path: `/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/${selectedProductId}/`
-      })
-    }
-
-    if (this.state.redirect) {
-      return <Redirect to={this.state.redirect}/>;
-    } else {
-      const selectedProductMultilingualIds = {
-        en: selectedProduct
-          ? convertToUrlFriendlyString(selectedProduct.title)
-          : '',
-        no: selectedProduct
-          ? convertToUrlFriendlyString(selectedProduct.title)
-          : ''
-      };
-      const metaTitle = selectedProduct
-        ? detailsPage.title[this.props.selectedLanguageKey]
-        : listPage.title[this.props.selectedLanguageKey];
-      const contentTitle = selectedProduct
-        ? detailsPage.heading[this.props.selectedLanguageKey]
-        : listPage.heading[this.props.selectedLanguageKey];
-      const metaDescription = selectedProduct
-        ? detailsPage.description[this.props.selectedLanguageKey]
-        : listPage.description[this.props.selectedLanguageKey];
-      return (<React.Fragment>
-        <Helmet htmlAttributes={{
-            lang: this.props.selectedLanguageKey
-          }}>
-          <title>{metaTitle}</title>
-          <meta name='description' content={metaDescription}/>
-          <link rel="canonical" href={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/${selectedProduct
-              ? selectedProductId + '/'
-              : ''}`}/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/products/${selectedProduct
-              ? selectedProductMultilingualIds.no + '/'
-              : ''}`} hreflang="no"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/en/products/${selectedProduct
-              ? selectedProductMultilingualIds.en + '/'
-              : ''}`} hreflang="en"/>
-          <link rel="alternate" href={`https://www.dehlimusikk.no/products/${selectedProduct
-              ? selectedProductMultilingualIds.no + '/'
-              : ''}`} hreflang="x-default"/>
-          <meta property="og:title" content={contentTitle}/>
-          <meta property="og:url" content={`https://www.dehlimusikk.no/${this.props.getLanguageSlug(this.props.selectedLanguageKey)}products/${selectedProduct
-              ? selectedProductId + '/'
-              : ''}`}/>
-          <meta property="og:description" content={metaDescription}/>
-          <meta property="og:locale" content={this.props.selectedLanguageKey === 'en'
-              ? 'en_US'
-              : 'no_NO'}/>
-          <meta property="og:locale:alternate" content={this.props.selectedLanguageKey === 'en'
-              ? 'nb_NO'
-              : 'en_US'}/>
-          <meta property="twitter:title" content={contentTitle} />
-          <meta property="twitter:description" content={metaDescription} />
-        </Helmet>
-        <Container blur={selectedProduct !== null}>
-          <Breadcrumbs breadcrumbs={breadcrumbs}/>
-          <h1>{contentTitle}</h1>
-          <p>{
-              this.props.selectedLanguageKey === 'en'
-                ? 'Products from Dehli Musikk'
-                : 'Produkter fra Dehli Musikk'
-            }</p>
-        </Container>
-        {
-          selectedProduct ? this.renderSelectedProduct(selectedProduct) : this.renderSummarySnippet(products)
-        }
-        <Container blur={selectedProduct !== null}>
-          <List>
-            {this.renderProducts()}
-          </List>
-        </Container>
-      </React.Fragment>)
+  const listPage = {
+    title: {
+      en: 'Products | Dehli Musikk',
+      no: 'Produkter | Dehli Musikk'
+    },
+    heading: {
+      en: 'Products',
+      no: 'Produkter'
+    },
+    description: {
+      en: 'Products from Dehli Musikk',
+      no: 'Produkter fra Dehli Musikk'
     }
   }
+
+  const detailsPage = {
+    title: {
+      en: `${selectedProduct
+        ? selectedProduct.title
+        : ''} - Products | Dehli Musikk`,
+      no: `${selectedProduct
+        ? selectedProduct.title
+        : ''} - Produkter | Dehli Musikk`
+    },
+    heading: {
+      en: selectedProduct
+        ? selectedProduct.title
+        : '',
+      no: selectedProduct
+        ? selectedProduct.title
+        : ''
+    },
+    description: {
+      en: selectedProduct
+        ? selectedProduct.content.en
+        : '',
+      no: selectedProduct
+        ? selectedProduct.content.no
+        : ''
+    }
+  }
+
+  let breadcrumbs = [
+    {
+      name: listPage.heading[selectedLanguageKey],
+      path: `/${languageSlug}products/`
+    }
+  ];
+  if (selectedProduct) {
+    breadcrumbs.push({
+      name: detailsPage.heading[selectedLanguageKey],
+      path: `/${languageSlug}products/${selectedProductId}/`
+    })
+  }
+
+  const selectedProductMultilingualIds = {
+    en: selectedProduct
+      ? convertToUrlFriendlyString(selectedProduct.title)
+      : '',
+    no: selectedProduct
+      ? convertToUrlFriendlyString(selectedProduct.title)
+      : ''
+  };
+  const metaTitle = selectedProduct ? detailsPage.title[selectedLanguageKey] : listPage.title[selectedLanguageKey];
+  const contentTitle = selectedProduct ? detailsPage.heading[selectedLanguageKey] : listPage.heading[selectedLanguageKey];
+  const metaDescription = selectedProduct ? detailsPage.description[selectedLanguageKey] : listPage.description[selectedLanguageKey];
+
+  return (<React.Fragment>
+    <Helmet htmlAttributes={{
+      lang: selectedLanguageKey
+    }}>
+      <title>{metaTitle}</title>
+      <meta name='description' content={metaDescription} />
+      <link rel="canonical" href={`https://www.dehlimusikk.no/${languageSlug}products/${selectedProduct
+        ? selectedProductId + '/'
+        : ''}`} />
+      <link rel="alternate" href={`https://www.dehlimusikk.no/products/${selectedProduct
+        ? selectedProductMultilingualIds.no + '/'
+        : ''}`} hreflang="no" />
+      <link rel="alternate" href={`https://www.dehlimusikk.no/en/products/${selectedProduct
+        ? selectedProductMultilingualIds.en + '/'
+        : ''}`} hreflang="en" />
+      <link rel="alternate" href={`https://www.dehlimusikk.no/products/${selectedProduct
+        ? selectedProductMultilingualIds.no + '/'
+        : ''}`} hreflang="x-default" />
+      <meta property="og:title" content={contentTitle} />
+      <meta property="og:url" content={`https://www.dehlimusikk.no/${languageSlug}products/${selectedProduct
+        ? selectedProductId + '/'
+        : ''}`} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:locale" content={selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
+      <meta property="og:locale:alternate" content={selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
+      <meta property="twitter:title" content={contentTitle} />
+      <meta property="twitter:description" content={metaDescription} />
+    </Helmet>
+    <Container blur={selectedProduct !== null}>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <h1>{contentTitle}</h1>
+      <p>
+        {selectedLanguageKey === 'en' ? 'Products from Dehli Musikk' : 'Produkter fra Dehli Musikk'}
+      </p>
+    </Container>
+    {
+      selectedProduct ? renderSelectedProduct(selectedProduct) : renderSummarySnippet(products)
+    }
+    <Container blur={selectedProduct !== null}>
+      <List>
+        {renderProducts()}
+      </List>
+    </Container>
+  </React.Fragment>)
+
+
 }
 
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey, location: state.router.location});
-
-const mapDispatchToProps = {
-  getLanguageSlug,
-  updateMultilingualRoutes,
-  updateSelectedLanguageKey
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default Products;

@@ -1,11 +1,8 @@
 // Dependencies
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
+import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import {Helmet} from 'react-helmet';
-
-// Actions
-import {getLanguageSlug} from 'actions/LanguageActions';
+import { Helmet } from 'react-helmet-async';
 
 // Components
 import ExpansionPanel from 'components/template/ExpansionPanel';
@@ -16,12 +13,21 @@ import ListItemContentHeader from 'components/template/List/ListItem/ListItemCon
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import Release from 'components/partials/Portfolio/Release';
 
+// Selectors
+import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
+
 // Helpers
-import {getInstrumentReleases} from 'helpers/instrumentReleases';
+import { getInstrumentReleases } from 'helpers/instrumentReleases';
 
-class EquipmentItem extends Component {
+const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
 
-  renderEquipmentItemImagesSnippet(images){
+
+  // Redux store
+  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+  const languageSlug = useSelector(state => getLanguageSlug(state));
+
+
+  const renderEquipmentItemImagesSnippet = (images) => {
     const snippet = Object.keys(images).map(format => {
       const imagePath = images[format];
       return {
@@ -33,15 +39,12 @@ class EquipmentItem extends Component {
         "acquireLicensePage": "https://www.dehlimusikk.no/#contact"
       }
     });
-
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
     </Helmet>);
   }
 
-  renderEquipmentItemSnippet(item, images){
-    const itemId = this.props.itemId;
-    const itemType = this.props.itemType;
+  const renderEquipmentItemSnippet = (item, images) => {
 
     const imagePath = images['jpg945'];
     const itemName = `${item.brand} ${item.model}`;
@@ -60,26 +63,26 @@ class EquipmentItem extends Component {
     </Helmet>);
   }
 
-  renderPostThumbnail(image, itemName, fullscreen, compact) {
+  const renderPostThumbnail = (image, itemName, fullscreen, compact) => {
     const imageSize = compact
       ? '55px'
       : fullscreen
         ? '945px'
         : '350px';
     return (<React.Fragment>
-        <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`} type="image/avif"/>
-        <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp"/>
-        <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg"/>
-        <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} />
+      <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`} type="image/avif" />
+      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp" />
+      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg" />
+      <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} />
     </React.Fragment>);
   }
 
-  renderReleasesList(releases, selectedLanguageKey, item) {
-    if (releases && releases.length){
+  const renderReleasesList = (releases, selectedLanguageKey, item) => {
+    if (releases && releases.length) {
       const listItems = releases.map(release => {
         return (<ListItem key={release.releaseId} compact={true}>
-                  <Release release={release} compact={true}/>
-                </ListItem>)
+          <Release release={release} compact={true} />
+        </ListItem>)
       });
       return (
         <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}>
@@ -93,60 +96,52 @@ class EquipmentItem extends Component {
     }
   }
 
-  render() {
-    const selectedLanguageKey = this.props.selectedLanguageKey
-      ? this.props.selectedLanguageKey
-      : 'no';
-    const item = this.props.item;
-    const itemId = this.props.itemId;
-    const itemType = this.props.itemType;
 
-    const imagePathAvif = `data/equipment/thumbnails/${itemType}/web/avif/${itemId}`;
-    const imagePathWebp = `data/equipment/thumbnails/${itemType}/web/webp/${itemId}`;
-    const imagePathJpg = `data/equipment/thumbnails/${itemType}/web/jpg/${itemId}`;
-    const image = {
-      avif55: require(`../../${imagePathAvif}_55.avif`).default,
-      avif350: require(`../../${imagePathAvif}_350.avif`).default,
-      avif540: require(`../../${imagePathAvif}_540.avif`).default,
-      avif945: require(`../../${imagePathAvif}_945.avif`).default,
-      webp55: require(`../../${imagePathWebp}_55.webp`).default,
-      webp350: require(`../../${imagePathWebp}_350.webp`).default,
-      webp540: require(`../../${imagePathWebp}_540.webp`).default,
-      webp945: require(`../../${imagePathWebp}_945.webp`).default,
-      jpg55: require(`../../${imagePathJpg}_55.jpg`).default,
-      jpg350: require(`../../${imagePathJpg}_350.jpg`).default,
-      jpg540: require(`../../${imagePathJpg}_540.jpg`).default,
-      jpg945: require(`../../${imagePathJpg}_945.jpg`).default
-    };
-    const itemPath = `/${this.props.getLanguageSlug(selectedLanguageKey)}equipment/${itemType}/${itemId}/`;
-    const itemName = `${item.brand} ${item.model}`;
+  const imagePathAvif = `data/equipment/thumbnails/${itemType}/web/avif/${itemId}`;
+  const imagePathWebp = `data/equipment/thumbnails/${itemType}/web/webp/${itemId}`;
+  const imagePathJpg = `data/equipment/thumbnails/${itemType}/web/jpg/${itemId}`;
+  const image = {
+    avif55: require(`../../${imagePathAvif}_55.avif`),
+    avif350: require(`../../${imagePathAvif}_350.avif`),
+    avif540: require(`../../${imagePathAvif}_540.avif`),
+    avif945: require(`../../${imagePathAvif}_945.avif`),
+    webp55: require(`../../${imagePathWebp}_55.webp`),
+    webp350: require(`../../${imagePathWebp}_350.webp`),
+    webp540: require(`../../${imagePathWebp}_540.webp`),
+    webp945: require(`../../${imagePathWebp}_945.webp`),
+    jpg55: require(`../../${imagePathJpg}_55.jpg`),
+    jpg350: require(`../../${imagePathJpg}_350.jpg`),
+    jpg540: require(`../../${imagePathJpg}_540.jpg`),
+    jpg945: require(`../../${imagePathJpg}_945.jpg`)
+  };
+  const itemPath = `/${languageSlug}equipment/${itemType}/${itemId}/`;
+  const itemName = `${item.brand} ${item.model}`;
 
-    const link = {
-      to: itemPath,
-      title: itemName
-    };
+  const link = {
+    to: itemPath,
+    title: itemName
+  };
 
-    return item
-      ? (<React.Fragment>
-          {this.props.fullscreen ? this.renderEquipmentItemImagesSnippet(image) : ''}
-          {this.props.fullscreen ? this.renderEquipmentItemSnippet(item, image) : ''}
-          <ListItemThumbnail fullscreen={this.props.fullscreen} link={link} compact={this.props.compact}>
-            {this.renderPostThumbnail(image, itemName, this.props.fullscreen, this.props.compact)}
-          </ListItemThumbnail>
-          <ListItemContent fullscreen={this.props.fullscreen}>
-            <ListItemContentHeader fullscreen={this.props.fullscreen} link={link}>
-                <h2>
-                  {item.model}
-                  <span>{item.brand}</span>
-                </h2>
-            </ListItemContentHeader>
-        </ListItemContent>
-        {
-          this.props.fullscreen && itemType === 'instruments' ? this.renderReleasesList(getInstrumentReleases(itemId), selectedLanguageKey, item) : ''
-        }
-      </React.Fragment>)
-      : '';
-  }
+  return item
+    ? (<React.Fragment>
+      {fullscreen ? renderEquipmentItemImagesSnippet(image) : ''}
+      {fullscreen ? renderEquipmentItemSnippet(item, image) : ''}
+      <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
+        {renderPostThumbnail(image, itemName, fullscreen, compact)}
+      </ListItemThumbnail>
+      <ListItemContent fullscreen={fullscreen}>
+        <ListItemContentHeader fullscreen={fullscreen} link={link}>
+          <h2>
+            {item.model}
+            <span>{item.brand}</span>
+          </h2>
+        </ListItemContentHeader>
+      </ListItemContent>
+      {
+        fullscreen && itemType === 'instruments' ? renderReleasesList(getInstrumentReleases(itemId), selectedLanguageKey, item) : ''
+      }
+    </React.Fragment>)
+    : '';
 }
 
 EquipmentItem.propTypes = {
@@ -166,7 +161,7 @@ EquipmentItem.defaultProps = {
   compact: false
 };
 
-const mapStateToProps = state => ({selectedLanguageKey: state.selectedLanguageKey});
+const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
 
 const mapDispatchToProps = {
   getLanguageSlug
