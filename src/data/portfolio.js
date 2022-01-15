@@ -1,3 +1,4 @@
+import twentyTwentyVisionAbyssWithinMe from './releases/data/2020Vision_abyssWithinMe.json';
 import twentyTwentyVisionCanYouSeeMe from './releases/data/2020Vision_canYouSeeMe.json';
 import twentyTwentyVisionUnderTheMidnightSun from './releases/data/2020Vision_undertheMidnightSun.json';
 import ainaWassvikDauntless from './releases/data/ainaWassvik_dauntless.json';
@@ -47,15 +48,17 @@ import wildWhensRebelHeart from './releases/data/wildWhens_rebelHeart.json';
 import wildWhensSailinSarah from './releases/data/wildWhens_sailinSarah.json';
 import wildWhensTravellinMan from './releases/data/wildWhens_travellinMan.json';
 import wolfMoonFeverDiggingIntoMyPast from './releases/data/wolfMoonFever_diggingintoMyPast.json';
+import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.json';
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
-  kaasinWrong,
-  kaasinWeAreOne,
-  haakerGuardianAngels
+  twentyTwentyVisionAbyssWithinMe,
+  kaasinChainOfLove,
+  kaasinShadesOfYesterday
 ];
 
 const allReleases = [
+  twentyTwentyVisionAbyssWithinMe,
   twentyTwentyVisionCanYouSeeMe,
   twentyTwentyVisionUnderTheMidnightSun,
   ainaWassvikDauntless,
@@ -105,6 +108,7 @@ const allReleases = [
   wildWhensSailinSarah,
   wildWhensTravellinMan,
   wolfMoonFeverDiggingIntoMyPast,
+  wolfMoonFeverSeaOfGreen,
   wolfMoonFeverTheKeeperoftheLighthouse
 ];
 

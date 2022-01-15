@@ -1,4 +1,15 @@
 [
+  {"releaseId": "2020-vision-abyss-within-me", "equipmentId": "doepfer-dark-energy"},
+  {"releaseId": "2020-vision-abyss-within-me", "equipmentId": "korg-ms-20"},
+  {"releaseId": "2020-vision-abyss-within-me", "equipmentId": "korg-polysix"},
+  {"releaseId": "2020-vision-abyss-within-me", "equipmentId": "louis-zwicki-pianette"},
+  {"releaseId": "2020-vision-abyss-within-me", "equipmentId": "mellotron-m4000d"},
+  {"releaseId": "2020-vision-abyss-within-me", "equipmentId": "rhodes-mark-i-stage-piano"},
+  {"releaseId": "2020-vision-abyss-within-me", "equipmentId": "sequential-circuits-pro-one"},
+  {"releaseId": "2020-vision-abyss-within-me", "equipmentId": "yamaha-dx7"},
+
+
+
   {"releaseId": "2020-vision-can-you-see-me", "equipmentId": "dave-smith-instruments-mopho-keyboard"},
   {"releaseId": "2020-vision-can-you-see-me", "equipmentId": "dave-smith-instruments-tetra"},
   {"releaseId": "2020-vision-can-you-see-me", "equipmentId": "hammond-c3"},
@@ -197,5 +208,8 @@
   {"releaseId": "wild-whens-sailin-sarah", "equipmentId": "wurlitzer-200a"},
   {"releaseId": "wild-whens-travellin-man", "equipmentId": "hammond-c3"},
   {"releaseId": "wild-whens-travellin-man", "equipmentId": "wurlitzer-200a"},
+  {"releaseId": "wolf-moon-fever-digging-into-my-past", "equipmentId": "carola-dragspel-3-koerigt"},
+  {"releaseId": "wolf-moon-fever-digging-into-my-past", "equipmentId": "hohner-clavinet-d6"},
+  {"releaseId": "wolf-moon-fever-sea-of-green", "equipmentId": "wurlitzer-200a"},
   {"releaseId": "wolf-moon-fever-the-keeper-of-the-lighthouse", "equipmentId": "hammond-c3"}
 ]
