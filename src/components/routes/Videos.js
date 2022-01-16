@@ -49,7 +49,7 @@ const Videos = () => {
     const videoItems = videos.map((video, index) => {
       const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
       const imagePathJpg = `data/videos/thumbnails/web/jpg/${video.thumbnailFilename}`;
-      const videoThumbnailSrc = require(`../../${imagePathJpg}_540.jpg`).default
+      const videoThumbnailSrc = require(`../../${imagePathJpg}_540.jpg`)
       const videoDate = new Date(video.timestamp).toISOString();
 
 
