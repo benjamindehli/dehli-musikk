@@ -17,6 +17,7 @@ import haakerGuardianAngels from './releases/data/haaker_guardianAngels.json'
 import haakerRocknrolla from './releases/data/haaker_rocknrolla.json';
 import hanneStaverTheWords from './releases/data/hanneStaver_theWords.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock.json';
+import hauntedBySilhouettesFlock from './releases/data/hauntedBySilhouettes_flock.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow.json';
 import kaasinCarryOn from './releases/data/kAASIN_carryOn.json';
@@ -52,9 +53,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  hauntedBySilhouettesFlock,
   twentyTwentyVisionAbyssWithinMe,
-  kaasinChainOfLove,
-  kaasinShadesOfYesterday
+  kaasinChainOfLove
 ];
 
 const allReleases = [
@@ -77,6 +78,7 @@ const allReleases = [
   haakerRocknrolla,
   hanneStaverTheWords,
   hauntedBySilhouettesDeadlock,
+  hauntedBySilhouettesFlock,
   hauntedBySilhouettesTheLastDayOnEarth,
   hauntedBySilhouettesUndertow,
   kaasinCarryOn,
