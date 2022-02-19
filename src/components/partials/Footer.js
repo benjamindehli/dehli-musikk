@@ -42,7 +42,7 @@ const Footer = () => {
       </div>
     </div>
     <div className={style.contentSection}>
-      © 2021 Dehli Musikk
+      © 2022 Dehli Musikk
     </div>
   </div>)
 }
