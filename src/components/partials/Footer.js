@@ -14,15 +14,26 @@ const Footer = () => {
         <div className={style.textSection}>
           <h2>Kontakt</h2>
           <address className={style.addressContent}>
-            <ul>
-              <li>Benjamin Dehli</li>
-              <li>Margretes veg 15</li>
-              <li>3804 Bø i Telemark, Norway</li>
-              <li>
-                <a href="mailto:superelg@gmail.com" title="Send email to Dehli Musikk">superelg@gmail.com</a>
+            <ul id="hcard-Benjamin-Dehli" className="vcard">
+              <li className="fn n">
+                <span className="given-name">Benjamin</span> <span class="family-name">Dehli</span>
               </li>
               <li>
-                <a href="tel:+4792292719" title="Call Dehli Musikk">(47) 922 92 719</a>
+                <a className="url" href="https://www.dehlimusikk.no/">
+                  <span class="org">Dehli Musikk</span>
+                </a>
+              </li>
+              <li>
+                <ul className="adr">
+                  <li className="street-address">Margretes veg 15</li>
+                  <li><span className="postal-code">3804</span> <span className="locality">Bø i Telemark</span>, <span className="country-name">Norway</span></li>
+                </ul>
+              </li>
+              <li>
+                <a className="email" href="mailto:superelg@gmail.com" title="Send email to Dehli Musikk">superelg@gmail.com</a>
+              </li>
+              <li>
+                <a className="tel" href="tel:+4792292719" title="Call Dehli Musikk">(47) 922 92 719</a>
               </li>
             </ul>
           </address>
