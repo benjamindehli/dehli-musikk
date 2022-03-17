@@ -16,11 +16,11 @@ const Footer = () => {
           <address className={style.addressContent}>
             <ul id="hcard-Benjamin-Dehli" className="vcard">
               <li className="fn n">
-                <span className="given-name">Benjamin</span> <span class="family-name">Dehli</span>
+                <span className="given-name">Benjamin</span> <span className="family-name">Dehli</span>
               </li>
               <li>
                 <a className="url" href="https://www.dehlimusikk.no/">
-                  <span class="org">Dehli Musikk</span>
+                  <span className="org">Dehli Musikk</span>
                 </a>
               </li>
               <li>
