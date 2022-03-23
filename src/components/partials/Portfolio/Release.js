@@ -61,6 +61,7 @@ const Release = ({ release, fullscreen, compact }) => {
       "genre": release.genre,
       "byArtist": {
         "@type": "MusicGroup",
+        "@id": `#${convertToUrlFriendlyString(release.artistName)}`,
         "name": release.artistName
       },
       "recordingOf": {
