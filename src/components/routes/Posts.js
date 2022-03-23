@@ -75,17 +75,24 @@ const Posts = () => {
   const renderSelectedPost = (selectedPost) => {
     const handleClickOutside = () => {
       navigate(`/${languageSlug}posts/`);
-    }
-    const handleClickArrowLeft = selectedPost && selectedPost.previousPostId ? () => {
-      navigate(`/${languageSlug}posts/${selectedPost.previousPostId}/`);
-    } : null;
-    const handleClickArrowRight = selectedPost && selectedPost.nextPostId ? () => {
-      navigate(`/${languageSlug}posts/${selectedPost.nextPostId}/`);
-    } : null;
+    };
+    const arrowLeftLink = selectedPost && selectedPost.previousPostId
+      ? `/${languageSlug}posts/${selectedPost.previousPostId}/`
+      : null;
+    const arrowRightLink = selectedPost && selectedPost.nextPostId
+      ? `/${languageSlug}posts/${selectedPost.nextPostId}/`
+      : null;
     return selectedPost
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={selectedLanguageKey}>
-        <Post post={selectedPost} fullscreen={true} />
-      </Modal>)
+      ? (
+        <Modal
+          onClickOutside={handleClickOutside}
+          maxWidth="540px"
+          arrowLeftLink={arrowLeftLink}
+          arrowRightLink={arrowRightLink}
+          selectedLanguageKey={selectedLanguageKey}>
+          <Post post={selectedPost} fullscreen={true} />
+        </Modal>
+      )
       : '';
   }
 

@@ -77,16 +77,23 @@ const Products = () => {
     const handleClickOutside = () => {
       navigate(`/${languageSlug}products/`)
     }
-    const handleClickArrowLeft = selectedProduct && selectedProduct.previousProductId ? () => {
-      navigate(`/${languageSlug}products/${selectedProduct.previousProductId}/`);
-    } : null;
-    const handleClickArrowRight = selectedProduct && selectedProduct.nextProductId ? () => {
-      navigate(`/${languageSlug}products/${selectedProduct.nextProductId}/`);
-    } : null;
+    const arrowLeftLink = selectedProduct && selectedProduct.previousProductId
+      ? `/${languageSlug}products/${selectedProduct.previousProductId}/`
+      : null;
+    const arrowRightLink = selectedProduct && selectedProduct.nextProductId
+      ? `/${languageSlug}products/${selectedProduct.nextProductId}/`
+      : null;
     return selectedProduct
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={selectedLanguageKey}>
-        <Product product={selectedProduct} fullscreen={true} />
-      </Modal>)
+      ? (
+        <Modal
+          onClickOutside={handleClickOutside}
+          maxWidth="540px"
+          arrowLeftLink={arrowLeftLink}
+          arrowRightLink={arrowRightLink}
+          selectedLanguageKey={selectedLanguageKey}>
+          <Product product={selectedProduct} fullscreen={true} />
+        </Modal>
+      )
       : '';
   }
 

@@ -150,19 +150,26 @@ const Equipment = () => {
   const renderSelectedEquipment = (selectedEquipment, selectedEquipmentType) => {
     const handleClickOutside = () => {
       navigate(`/${languageSlug}equipment/${selectedEquipmentType}/`);
-    }
-    const handleClickArrowLeft = selectedEquipment && selectedEquipment.previousEquipmentItemId ? () => {
-      navigate(`/${languageSlug}equipment/${selectedEquipmentType}/${selectedEquipment.previousEquipmentItemId}/`);
-    } : null;
-    const handleClickArrowRight = selectedEquipment && selectedEquipment.nextEquipmentItemId ? () => {
-      navigate(`/${languageSlug}equipment/${selectedEquipmentType}/${selectedEquipment.nextEquipmentItemId}/`);
-    } : null;
+    };
+    const arrowLeftLink = selectedEquipment && selectedEquipment.previousEquipmentItemId
+      ? `/${languageSlug}equipment/${selectedEquipmentType}/${selectedEquipment.previousEquipmentItemId}/`
+      : null;
+    const arrowRightLink = selectedEquipment && selectedEquipment.nextEquipmentItemId
+      ? `/${languageSlug}equipment/${selectedEquipmentType}/${selectedEquipment.nextEquipmentItemId}/`
+      : null;
 
     const itemId = convertToUrlFriendlyString(`${selectedEquipment.brand} ${selectedEquipment.model}`);
     return selectedEquipment
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={selectedLanguageKey}>
-        <EquipmentItem key={itemId} item={selectedEquipment} itemType={selectedEquipmentType} itemId={itemId} fullscreen={true} />
-      </Modal>)
+      ? (
+        <Modal
+          onClickOutside={handleClickOutside}
+          maxWidth="945px"
+          arrowLeftLink={arrowLeftLink}
+          arrowRightLink={arrowRightLink}
+          selectedLanguageKey={selectedLanguageKey}>
+          <EquipmentItem key={itemId} item={selectedEquipment} itemType={selectedEquipmentType} itemId={itemId} fullscreen={true} />
+        </Modal>
+      )
       : '';
   }
 

@@ -77,16 +77,23 @@ const Portfolio = () => {
     const handleClickOutside = () => {
       navigate(`/${languageSlug}portfolio/`);
     };
-    const handleClickArrowLeft = selectedRelease && selectedRelease.previousReleaseId ? () => {
-      navigate(`/${languageSlug}portfolio/${selectedRelease.previousReleaseId}/`);
-    } : null;
-    const handleClickArrowRight = selectedRelease && selectedRelease.nextReleaseId ? () => {
-      navigate(`/${languageSlug}portfolio/${selectedRelease.nextReleaseId}/`);
-    } : null;
+    const arrowLeftLink = selectedRelease && selectedRelease.previousReleaseId
+      ? `/${languageSlug}portfolio/${selectedRelease.previousReleaseId}/`
+      : null;
+    const arrowRightLink = selectedRelease && selectedRelease.nextReleaseId
+      ? `/${languageSlug}portfolio/${selectedRelease.nextReleaseId}/`
+      : null;
     return selectedRelease
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="540px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={selectedLanguageKey}>
-        <Release release={selectedRelease} fullscreen={true} />
-      </Modal>)
+      ? (
+        <Modal
+          onClickOutside={handleClickOutside}
+          maxWidth="540px"
+          arrowLeftLink={arrowLeftLink}
+          arrowRightLink={arrowRightLink}
+          selectedLanguageKey={selectedLanguageKey}>
+          <Release release={selectedRelease} fullscreen={true} />
+        </Modal>
+      )
       : '';
   }
 

@@ -91,17 +91,24 @@ const Videos = () => {
   const renderSelectedVideo = (selectedVideo) => {
     const handleClickOutside = () => {
       navigate(`/${languageSlug}videos/`);
-    }
-    const handleClickArrowLeft = selectedVideo && selectedVideo.previousVideoId ? () => {
-      navigate(`/${languageSlug}videos/${selectedVideo.previousVideoId}/`);
-    } : null;
-    const handleClickArrowRight = selectedVideo && selectedVideo.nextVideoId ? () => {
-      navigate(`/${languageSlug}videos/${selectedVideo.nextVideoId}/`);
-    } : null;
+    };
+    const arrowLeftLink = selectedVideo && selectedVideo.previousVideoId
+      ? `/${languageSlug}videos/${selectedVideo.previousVideoId}/`
+      : null;
+    const arrowRightLink = selectedVideo && selectedVideo.nextVideoId
+      ? `/${languageSlug}videos/${selectedVideo.nextVideoId}/`
+      : null;
     return selectedVideo
-      ? (<Modal onClickOutside={handleClickOutside} maxWidth="945px" onClickArrowLeft={handleClickArrowLeft} onClickArrowRight={handleClickArrowRight} selectedLanguageKey={selectedLanguageKey}>
-        <Video video={selectedVideo} fullscreen={true} />
-      </Modal>)
+      ? (
+        <Modal
+          onClickOutside={handleClickOutside}
+          maxWidth="945px"
+          arrowLeftLink={arrowLeftLink}
+          arrowRightLink={arrowRightLink}
+          selectedLanguageKey={selectedLanguageKey}>
+          <Video video={selectedVideo} fullscreen={true} />
+        </Modal>
+      )
       : '';
   }
 

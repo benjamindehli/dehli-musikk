@@ -1,11 +1,15 @@
 // Dependencies
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Stylesheets
 import style from 'components/template/Modal.module.scss';
 
-const Modal = ({ maxWidth = 'none', selectedLanguageKey = 'no', onClickOutside, onClickArrowLeft, onClickArrowRight, children }) => {
+const Modal = ({ maxWidth = 'none', selectedLanguageKey = 'no', onClickOutside, arrowLeftLink, arrowRightLink, children }) => {
+
+  const navigate = useNavigate();
 
   // Refs
   const wrapperRef = useRef();
@@ -34,6 +38,13 @@ const Modal = ({ maxWidth = 'none', selectedLanguageKey = 'no', onClickOutside, 
   }, [onClickOutside]);
 
   useEffect(() => {
+    const onClickArrowLeft = arrowLeftLink ? () => {
+      navigate(arrowLeftLink);
+    } : null;
+    const onClickArrowRight = arrowRightLink ? () => {
+      navigate(arrowRightLink);
+    } : null;
+
     const keyDownFunction = (event) => {
       switch (event.keyCode) {
         case 27: // Escape
@@ -59,32 +70,35 @@ const Modal = ({ maxWidth = 'none', selectedLanguageKey = 'no', onClickOutside, 
     return () => {
       document.removeEventListener("keydown", keyDownFunction, false);
     };
-  }, [onClickOutside, onClickArrowLeft, onClickArrowRight]);
+  }, [onClickOutside, arrowLeftLink, arrowRightLink, navigate]);
 
-  const renderArrowLeftButton = (onClickFunction) => {
-    return onClickFunction
-      ? (<button ref={arrowLeftButtonRef} aria-label={selectedLanguageKey === 'en' ? 'Previous' : 'Forrige'} className={style.arrowLeftButton} onClick={onClickFunction}>
-        <FontAwesomeIcon icon={['fas', 'chevron-left']} size="2x" />
-      </button>)
+  const renderArrowLeftButton = (link) => {
+    return link?.length
+      ? (
+        <Link to={link} ref={arrowLeftButtonRef} aria-label={selectedLanguageKey === 'en' ? 'Previous' : 'Forrige'} className={style.arrowLeftButton} rel="prev">
+          <FontAwesomeIcon icon={['fas', 'chevron-left']} size="2x" />
+        </Link>)
       : (<div className={style.arrowPlaceholderButton}></div>);
   }
 
-  const renderArrowRightButton = (onClickFunction) => {
-    return onClickFunction
-      ? (<button ref={arrowRightButtonRef} aria-label={selectedLanguageKey === 'en' ? 'Next' : 'Neste'} className={style.arrowRightButton} onClick={onClickFunction}>
-        <FontAwesomeIcon icon={['fas', 'chevron-right']} size="2x" />
-      </button>)
+  const renderArrowRightButton = (link) => {
+    return link?.length
+      ? (
+        <Link to={link} ref={arrowRightButtonRef} aria-label={selectedLanguageKey === 'en' ? 'Next' : 'Neste'} className={style.arrowRightButton} rel="next">
+          <FontAwesomeIcon icon={['fas', 'chevron-right']} size="2x" />
+        </Link>
+      )
       : (<div className={style.arrowPlaceholderButton}></div>);
   }
 
   return (
     <div className={style.postModalOverlay}>
-      {renderArrowLeftButton(onClickArrowLeft)}
+      {renderArrowLeftButton(arrowLeftLink)}
       <div ref={wrapperRef} className={style.postModalContent} style={{ maxWidth: maxWidth }}>
         <input type="button" ref={hiddenInputWrapperRef} className={style.hidden} autoFocus />
         {children}
       </div>
-      {renderArrowRightButton(onClickArrowRight)}
+      {renderArrowRightButton(arrowRightLink)}
     </div>
   )
 };
