@@ -20,6 +20,7 @@ import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_d
 import hauntedBySilhouettesFlock from './releases/data/hauntedBySilhouettes_flock.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow.json';
+import hauntedBySilhouettesSelkie from './releases/data/hauntedBySilhouettesBjornSpeedStrid_selkie.json';
 import kaasinCarryOn from './releases/data/kAASIN_carryOn.json';
 import kaasinChainOfLove from './releases/data/kAASIN_chainofLove.json';
 import kaasinHidden from './releases/data/kAASIN_hidden.json';
@@ -53,9 +54,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  hauntedBySilhouettesSelkie,
   hauntedBySilhouettesFlock,
-  twentyTwentyVisionAbyssWithinMe,
-  kaasinChainOfLove
+  twentyTwentyVisionAbyssWithinMe
 ];
 
 const allReleases = [
@@ -79,6 +80,7 @@ const allReleases = [
   hanneStaverTheWords,
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesFlock,
+  hauntedBySilhouettesSelkie,
   hauntedBySilhouettesTheLastDayOnEarth,
   hauntedBySilhouettesUndertow,
   kaasinCarryOn,
