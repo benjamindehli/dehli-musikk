@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/haunted-by-silhouettes-flock/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Flock</video:title>
+      <video:description>Sang: Flock
+Artist: Haunted By Silhouettes
+Album: No Man Isle</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=BgyU2OZjJhw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-02-14-00_540.bfb2ce8b.jpg</video:thumbnail_loc>
+      <video:duration>180</video:duration>
+      <video:publication_date>2022-02-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UC6Qasp2KPxCeiwDtFrvpOGA">Eclipse Records</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/haunted-by-silhouettes-flock/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Flock</video:title>
+      <video:description>Song: Flock
+Artist: Haunted By Silhouettes
+Album: No Man Isle</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=BgyU2OZjJhw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-02-14-00_540.bfb2ce8b.jpg</video:thumbnail_loc>
+      <video:duration>180</video:duration>
+      <video:publication_date>2022-02-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UC6Qasp2KPxCeiwDtFrvpOGA">Eclipse Records</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/clavinet-sololyden-fra-kaasin-hidden/</loc>
     <video:video>
       <video:title>Clavinet-sololyden fra &quot;Kaasin - Hidden&quot;</video:title>
