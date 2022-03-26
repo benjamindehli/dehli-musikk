@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Components
 import Sitemaps from 'components/partials/Sitemaps';
+import Feeds from 'components/partials/Feeds';
 
 // Stylesheets
 import style from 'components/routes/Dashboard.module.scss';
@@ -44,7 +45,9 @@ class Dashboard extends Component {
 
       </div>
       <h2>Sitemaps</h2>
-        <Sitemaps />
+      <Sitemaps />
+      <h2>Feeds</h2>
+      <Feeds />
     </div>)
   }
 }
