@@ -29,6 +29,7 @@ import {
   faLanguage,
   faMusic,
   faPhotoVideo,
+  faRss,
   faSearch,
   faShoppingCart,
   faSlidersH
@@ -82,6 +83,7 @@ library.add(
   faListUl,
   faMusic,
   faPhotoVideo,
+  faRss,
   faSearch,
   faShoppingCart,
   faSlidersH,
@@ -106,7 +108,7 @@ window.snapSaveState = () => ({
 });
 
 const App = () => {
-
+  const selectedLanguageKey = window?.location?.pathname?.startsWith('/en/') ? 'en' : 'no';
   return (<Provider store={store}>
     <HelmetProvider>
       <Router history={history}>
@@ -121,6 +123,7 @@ const App = () => {
           <meta name="twitter:site" content="@BenjaminDehli" />
           <meta name="twitter:creator" content="@BenjaminDehli" />
           <meta name="twitter:image" content={`https://www.dehlimusikk.no${openGraphImage}`} />
+          <link rel="alternate" type="application/rss-xml" title={selectedLanguageKey === 'en' ? 'Subscribe to Dehli Musikk news' : 'Abonner på Dehli Musikk nyheter'} href={`https://www.dehlimusikk.no/feed-${selectedLanguageKey}.rss`} />
         </Helmet>
         <NavigationBar />
         <div className={style.container}>

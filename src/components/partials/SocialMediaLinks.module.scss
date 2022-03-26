@@ -29,8 +29,8 @@
       &:focus {
         background: #b900b4;
         background: -moz-linear-gradient(left, #b900b4 0%, #f50000 100%);
-        background: -webkit-linear-gradient(left, #b900b4 0%,#f50000 100%);
-        background: linear-gradient(to right, #b900b4 0%,#f50000 100%);
+        background: -webkit-linear-gradient(left, #b900b4 0%, #f50000 100%);
+        background: linear-gradient(to right, #b900b4 0%, #f50000 100%);
       }
     }
 
@@ -59,6 +59,13 @@
       &:hover,
       &:focus {
         background-color: #1da1f2;
+      }
+    }
+
+    &:local(.rss) {
+      &:hover,
+      &:focus {
+        background-color: #f26522;
       }
     }
   }
