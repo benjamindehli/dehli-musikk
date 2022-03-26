@@ -24,8 +24,15 @@ import style from 'components/routes/Dashboard.module.scss';
 
 
 class Sitemaps extends Component {
-  renderUrlElement(url) {
-    return `<url><loc>https://www.dehlimusikk.no/${url}</loc></url>\n`;
+  renderLocElement(loc) {
+    return `<loc>https://www.dehlimusikk.no/${loc?.length ? loc : ''}</loc>\n`;
+  }
+  renderLastModElement(timestamp) {
+    const lastMod = new Date(timestamp).toISOString();
+    return `<lastmod>${lastMod}</lastmod>\n`;
+  }
+  renderUrlElement(url, timestamp) {
+    return `<url>${this.renderLocElement(url)}${timestamp ? this.renderLastModElement(timestamp) : ''}</url>\n`;
   }
 
   renderNewsUrlElement(url, post, languageKey) {
@@ -134,7 +141,8 @@ class Sitemaps extends Component {
       ? posts.map(post => {
         const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/${convertToUrlFriendlyString(post.title.no)}/`;
         const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/${convertToUrlFriendlyString(post.title.en)}/`;
-        return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)].join('')
+        const timestamp = post?.timestamp;
+        return [this.renderUrlElement(urlNorwegianPage, timestamp), this.renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
   }
@@ -144,7 +152,8 @@ class Sitemaps extends Component {
       ? videos.map(video => {
         const urlNorwegianPage = `${this.props.getLanguageSlug('no')}videos/${convertToUrlFriendlyString(video.title.no)}/`;
         const urlEnglishPage = `${this.props.getLanguageSlug('en')}videos/${convertToUrlFriendlyString(video.title.en)}/`;
-        return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)].join('')
+        const timestamp = video?.timestamp;
+        return [this.renderUrlElement(urlNorwegianPage, timestamp), this.renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
   }
@@ -154,7 +163,8 @@ class Sitemaps extends Component {
       ? products.map(product => {
         const urlNorwegianPage = `${this.props.getLanguageSlug('no')}products/${convertToUrlFriendlyString(product.title)}/`;
         const urlEnglishPage = `${this.props.getLanguageSlug('en')}products/${convertToUrlFriendlyString(product.title)}/`;
-        return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)].join('')
+        const timestamp = product?.timestamp;
+        return [this.renderUrlElement(urlNorwegianPage, timestamp), this.renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
   }
@@ -165,7 +175,8 @@ class Sitemaps extends Component {
         const relaseId = `${release.artistName} ${release.title}`;
         const urlNorwegianPage = `${this.props.getLanguageSlug('no')}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
         const urlEnglishPage = `${this.props.getLanguageSlug('en')}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
-        return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)].join('')
+        const timestamp = release?.releaseDate;
+        return [this.renderUrlElement(urlNorwegianPage, timestamp), this.renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
   }
