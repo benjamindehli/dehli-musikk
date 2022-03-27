@@ -11,7 +11,14 @@ module.exports = function override(config, env) {
       }));
     }
   });
-  config.module.rules[1].oneOf[0].options.limit = 0; // Disable base64 on small .avif images
-  config.module.rules[1].oneOf[1].options.limit = 0; // Disable base64 on small other images
+  const oneOfRules = config.module.rules[1].oneOf.map(rule => {
+    if (Array.isArray(rule.test) && rule.test[0].toString() === '/\\.avif$/') { // Disable base64 on small .avif images
+      rule.type = 'asset/resource'
+    } else if (Array.isArray(rule.test) && rule.test[0].toString() === '/\\.bmp$/') { // Disable base64 on small other images
+      rule.type = 'asset/resource'
+    }
+    return rule;
+  });
+  config.module.rules[1].oneOf = oneOfRules;
   return config;
 }
