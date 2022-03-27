@@ -1,12 +1,7 @@
 // Dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// Components
-import ActionButtonBar from 'components/partials/ActionButtonBar';
-import Release from 'components/partials/Release';
 
 // Helpers
 import { fetchReleaseData } from 'helpers/releaseHelpers';
@@ -14,7 +9,6 @@ import { getReleasesInstrumentsWithInstrument } from 'helpers/releaseInstrumentH
 
 // Stylesheets
 import style from 'components/routes/Dashboard.module.scss';
-import commonStyle from 'components/partials/commonStyle.module.scss';
 
 class Statistics extends Component {
   constructor(props) {
@@ -47,7 +41,7 @@ class Statistics extends Component {
     const instrumentListElements = instruments.items.map(instrument => {
       const releasesInstrument = getReleasesInstrumentsWithInstrument(releasesInstruments, instrument);
       return (<li key={`${instrument.brand}-${instrument.model}`}>
-        <a href="">{instrument.brand} {instrument.model} ({releasesInstrument.length})</a>
+        {instrument.brand} {instrument.model} ({releasesInstrument.length})
       </li>)
     });
     return (
@@ -61,9 +55,6 @@ class Statistics extends Component {
   render() {
     return (
       <div className={style.contentSection}>
-        <Helmet>
-          <title>Statistics - Dashboard - Dehli Musikk</title>
-        </Helmet>
         <h1>Statistics</h1>
         {this.renderInstrumentsList(this.props.releasesInstruments, this.props.instruments)}
 

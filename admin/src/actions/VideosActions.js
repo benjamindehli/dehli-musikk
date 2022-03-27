@@ -1,7 +1,8 @@
-import {CREATE_VIDEO, UPDATE_VIDEOS} from 'constants/types';
+import { CREATE_VIDEO, UPDATE_VIDEOS } from 'constants/types';
 
-export const createVideo = (videos = []) => dispatch => {
-  videos.unshift({
+export const createVideo = (videos = []) => {
+  let newVideos = videos.slice()
+  newVideos.splice(0, 0, {
     copyright: false,
     timestamp: 0,
     title: {
@@ -19,9 +20,9 @@ export const createVideo = (videos = []) => dispatch => {
     youTubeUser: '',
     youTubeChannelId: ''
   });
-  dispatch({ type: CREATE_VIDEO, payload: videos });
+  return { type: CREATE_VIDEO, payload: videos };
 }
 
-export const updateVideos = videos => dispatch => {
-  dispatch({type: UPDATE_VIDEOS, payload: videos});
+export const updateVideos = videos => {
+  return { type: UPDATE_VIDEOS, payload: videos };
 }

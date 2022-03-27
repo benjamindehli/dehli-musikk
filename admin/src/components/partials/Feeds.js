@@ -1,11 +1,11 @@
 // Dependencies
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { saveAs } from 'file-saver';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// Actions
-import { getLanguageSlug } from 'actions/LanguageActions';
+// Selectors
+import { getLanguageSlugByKey } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
@@ -20,7 +20,11 @@ import style from 'components/routes/Dashboard.module.scss';
 
 const Feeds = () => {
 
-    const dispatch = useDispatch();
+    // Redux store
+    const languageSlug = {
+        no: useSelector(state => getLanguageSlugByKey(state, 'no')),
+        en: useSelector(state => getLanguageSlugByKey(state, 'en'))
+    }
 
 
     const renderTitleElement = (title) => {
@@ -45,11 +49,10 @@ const Feeds = () => {
     }
 
     const renderPostItemElements = (languageKey) => {
-        const languageSlug = dispatch(getLanguageSlug(languageKey));
         const latestPosts = posts?.slice(0, 20);
         return latestPosts && latestPosts.length
             ? latestPosts.map(post => {
-                const url = `${languageSlug}posts/${convertToUrlFriendlyString(post.title[languageKey])}/`;
+                const url = `${languageSlug[languageKey]}posts/${convertToUrlFriendlyString(post.title[languageKey])}/`;
                 return `<item>
                 ${renderTitleElement(post.title[languageKey])}
                 ${renderDescriptionElement(post.content[languageKey])}

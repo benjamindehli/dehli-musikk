@@ -1,7 +1,8 @@
-import {CREATE_POST, UPDATE_POSTS} from 'constants/types';
+import { CREATE_POST, UPDATE_POSTS } from 'constants/types';
 
-export const createPost = (posts = []) => dispatch => {
-  posts.unshift({
+export const createPost = (posts = []) => {
+  let newPosts = posts.slice()
+  newPosts.splice(0, 0, {
     id: '',
     orderNumber: 0,
     copyright: false,
@@ -17,9 +18,9 @@ export const createPost = (posts = []) => dispatch => {
     thumbnailDescription: '',
     thumbnailFilename: ''
   });
-  dispatch({ type: CREATE_POST, payload: posts });
+  return { type: CREATE_POST, payload: newPosts };
 }
 
-export const updatePosts = posts => dispatch => {
-  dispatch({type: UPDATE_POSTS, payload: posts});
+export const updatePosts = posts => {
+  return { type: UPDATE_POSTS, payload: posts };
 }

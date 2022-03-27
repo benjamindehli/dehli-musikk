@@ -1,11 +1,11 @@
 // Dependencies
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { saveAs } from 'file-saver';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-// Actions
-import { getLanguageSlug } from 'actions/LanguageActions';
+// Selectors
+import { getLanguageSlugByKey } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
@@ -23,19 +23,29 @@ import equipmentTypes from 'data/equipment';
 import style from 'components/routes/Dashboard.module.scss';
 
 
-class Sitemaps extends Component {
-  renderLocElement(loc) {
+const Sitemaps = () => {
+
+
+  // Redux store
+  const languageSlug = {
+    no: useSelector(state => getLanguageSlugByKey(state, 'no')),
+    en: useSelector(state => getLanguageSlugByKey(state, 'en'))
+  }
+
+  const renderLocElement = (loc) => {
     return `<loc>https://www.dehlimusikk.no/${loc?.length ? loc : ''}</loc>\n`;
   }
-  renderLastModElement(timestamp) {
+
+  const renderLastModElement = (timestamp) => {
     const lastMod = new Date(timestamp).toISOString();
     return `<lastmod>${lastMod}</lastmod>\n`;
   }
-  renderUrlElement(url, timestamp) {
-    return `<url>${this.renderLocElement(url)}${timestamp ? this.renderLastModElement(timestamp) : ''}</url>\n`;
+
+  const renderUrlElement = (url, timestamp) => {
+    return `<url>${renderLocElement(url)}${timestamp ? renderLastModElement(timestamp) : ''}</url>\n`;
   }
 
-  renderNewsUrlElement(url, post, languageKey) {
+  const renderNewsUrlElement = (url, post, languageKey) => {
     const date = new Date(post.timestamp);
     const dateYear = date.getFullYear();
     const dateMonth = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
@@ -51,14 +61,14 @@ class Sitemaps extends Component {
   </url>\n`;
   }
 
-  renderVideoUrlElement(url, video, languageKey) {
+  const renderVideoUrlElement = (url, video, languageKey) => {
     const date = new Date(video.timestamp);
     const dateYear = date.getFullYear();
     const dateMonth = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
     const dateDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const dateString = `${dateYear}-${dateMonth}-${dateDay}`;
     const duration = youTubeTimeToSeconds(video.duration);
-    const thumbnailLoc = require(`../../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_540.jpg`).default;
+    const thumbnailLoc = require(`../../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_540.jpg`);
     const absoluteThumbnailLoc = `https://www.dehlimusikk.no${thumbnailLoc}`;
     return `  <url>
     <loc>https://www.dehlimusikk.no/${url}</loc>
@@ -75,16 +85,16 @@ class Sitemaps extends Component {
   </url>\n`;
   }
 
-  renderImageUrlElement(image) {
+  const renderImageUrlElement = (image) => {
     const imageLicense = image.license ? `<image:license>${image.license}</image:license>` : '';
     const imageGeoLocation = image.geoLocation ? `<image:geo_location>${image.geoLocation}</image:geo_location>` : '';
     return `<image:image><image:loc>https://www.dehlimusikk.no${image.loc}</image:loc><image:title>${image.title}</image:title><image:caption>${image.caption}</image:caption>${imageLicense}${imageGeoLocation}</image:image>`;
   }
 
-  renderImagePageUrlElement(url, images) {
+  const renderImagePageUrlElement = (url, images) => {
     let imageUrlElements = ''
     images.forEach(image => {
-      imageUrlElements += this.renderImageUrlElement(image);
+      imageUrlElements += renderImageUrlElement(image);
     })
     return `  <url>
     <loc>https://www.dehlimusikk.no/${url}</loc>
@@ -92,98 +102,98 @@ class Sitemaps extends Component {
   </url>\n`;
   }
 
-  renderHome() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}`;
-    return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)].join('')
+  const renderHome = () => {
+    const urlNorwegianPage = `${languageSlug.no}`;
+    const urlEnglishPage = `${languageSlug.en}`;
+    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
   }
 
-  renderPostsList() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/`;
-    return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)].join('')
+  const renderPostsList = () => {
+    const urlNorwegianPage = `${languageSlug.no}posts/`;
+    const urlEnglishPage = `${languageSlug.en}posts/`;
+    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
   }
 
-  renderVideosList() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}videos/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}videos/`;
-    return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)].join('')
+  const renderVideosList = () => {
+    const urlNorwegianPage = `${languageSlug.no}videos/`;
+    const urlEnglishPage = `${languageSlug.en}videos/`;
+    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
   }
 
-  renderProductsList() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}products/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}products/`;
-    return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)].join('')
+  const renderProductsList = () => {
+    const urlNorwegianPage = `${languageSlug.no}products/`;
+    const urlEnglishPage = `${languageSlug.en}products/`;
+    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
   }
 
-  renderReleasesList() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}portfolio/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}portfolio/`;
-    return [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)].join('')
+  const renderReleasesList = () => {
+    const urlNorwegianPage = `${languageSlug.no}portfolio/`;
+    const urlEnglishPage = `${languageSlug.en}portfolio/`;
+    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
   }
 
-  renderEquipmentTypesList() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+  const renderEquipmentTypesList = () => {
+    const urlNorwegianPage = `${languageSlug.no}equipment/`;
+    const urlEnglishPage = `${languageSlug.en}equipment/`;
 
-    const equipmentTypeElements = [this.renderUrlElement(urlNorwegianPage), this.renderUrlElement(urlEnglishPage)];
+    const equipmentTypeElements = [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
       Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
-        equipmentTypeElements.push(this.renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/`));
-        equipmentTypeElements.push(this.renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/`));
+        equipmentTypeElements.push(renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/`));
+        equipmentTypeElements.push(renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/`));
       })
     }
     return equipmentTypeElements.join('');
   }
 
-  renderPostsDetails() {
+  const renderPostsDetails = () => {
     return posts && posts.length
       ? posts.map(post => {
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/${convertToUrlFriendlyString(post.title.no)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/${convertToUrlFriendlyString(post.title.en)}/`;
+        const urlNorwegianPage = `${languageSlug.no}posts/${convertToUrlFriendlyString(post.title.no)}/`;
+        const urlEnglishPage = `${languageSlug.en}posts/${convertToUrlFriendlyString(post.title.en)}/`;
         const timestamp = post?.timestamp;
-        return [this.renderUrlElement(urlNorwegianPage, timestamp), this.renderUrlElement(urlEnglishPage, timestamp)].join('')
+        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
   }
 
-  renderVideosDetails() {
+  const renderVideosDetails = () => {
     return videos && videos.length
       ? videos.map(video => {
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}videos/${convertToUrlFriendlyString(video.title.no)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}videos/${convertToUrlFriendlyString(video.title.en)}/`;
+        const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/`;
+        const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/`;
         const timestamp = video?.timestamp;
-        return [this.renderUrlElement(urlNorwegianPage, timestamp), this.renderUrlElement(urlEnglishPage, timestamp)].join('')
+        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
   }
 
-  renderProductsDetails() {
+  const renderProductsDetails = () => {
     return products && products.length
       ? products.map(product => {
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}products/${convertToUrlFriendlyString(product.title)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}products/${convertToUrlFriendlyString(product.title)}/`;
+        const urlNorwegianPage = `${languageSlug.no}products/${convertToUrlFriendlyString(product.title)}/`;
+        const urlEnglishPage = `${languageSlug.en}products/${convertToUrlFriendlyString(product.title)}/`;
         const timestamp = product?.timestamp;
-        return [this.renderUrlElement(urlNorwegianPage, timestamp), this.renderUrlElement(urlEnglishPage, timestamp)].join('')
+        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
   }
 
-  renderReleasesDetails() {
+  const renderReleasesDetails = () => {
     return releases && releases.length
       ? releases.map(release => {
         const relaseId = `${release.artistName} ${release.title}`;
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
+        const urlNorwegianPage = `${languageSlug.no}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
+        const urlEnglishPage = `${languageSlug.en}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
         const timestamp = release?.releaseDate;
-        return [this.renderUrlElement(urlNorwegianPage, timestamp), this.renderUrlElement(urlEnglishPage, timestamp)].join('')
+        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
   }
 
-  renderEquipmentDetails() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+  const renderEquipmentDetails = () => {
+    const urlNorwegianPage = `${languageSlug.no}equipment/`;
+    const urlEnglishPage = `${languageSlug.en}equipment/`;
 
     const equipmentDetailsElements = [];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
@@ -191,22 +201,22 @@ class Sitemaps extends Component {
         const equipmentItems = equipmentTypes[equipmentTypeKey].items;
         equipmentItems.forEach(item => {
           const itemId = `${item.brand} ${item.model}`;
-          equipmentDetailsElements.push(this.renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
-          equipmentDetailsElements.push(this.renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
+          equipmentDetailsElements.push(renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
+          equipmentDetailsElements.push(renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
         })
       })
     }
     return equipmentDetailsElements.join('');
   }
 
-  getImagesFromPost(post, languageKey) {
+  const getImagesFromPost = (post, languageKey) => {
     let images = [];
     const formats = ['avif', 'webp', 'jpg'];
     const sizes = [55, 350, 540];
     formats.forEach(format => {
       const imagePath = `data/posts/thumbnails/web/${format}/${post.thumbnailFilename}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(post.thumbnailDescription),
@@ -222,14 +232,14 @@ class Sitemaps extends Component {
     return images;
   }
 
-  getImagesFromVideo(video, languageKey) {
+  const getImagesFromVideo = (video, languageKey) => {
     let images = [];
     const formats = ['avif', 'webp', 'jpg'];
     const sizes = [55, 350, 540];
     formats.forEach(format => {
       const imagePath = `data/videos/thumbnails/web/${format}/${video.thumbnailFilename}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(video.thumbnailDescription),
@@ -245,14 +255,14 @@ class Sitemaps extends Component {
     return images;
   }
 
-  getImagesFromProduct(product, languageKey) {
+  const getImagesFromProduct = (product) => {
     let images = [];
     const formats = ['avif', 'webp', 'jpg'];
     const sizes = [55, 350, 540];
     formats.forEach(format => {
       const imagePath = `data/products/thumbnails/web/${format}/${convertToUrlFriendlyString(product.title)}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(product.thumbnailDescription),
@@ -266,7 +276,7 @@ class Sitemaps extends Component {
     return images;
   }
 
-  getImagesFromEquipmentType(equipmentType, languageKey) {
+  const getImagesFromEquipmentType = (equipmentType, languageKey) => {
     let images = [];
     const formats = ['avif', 'webp', 'jpg'];
     const sizes = [55, 350, 540, 945];
@@ -274,7 +284,7 @@ class Sitemaps extends Component {
     formats.forEach(format => {
       const imagePath = `data/equipment/thumbnails/web/${format}/${equipmentType.equipmentType}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(equipmentType.name[languageKey]),
@@ -288,7 +298,7 @@ class Sitemaps extends Component {
     return images;
   }
 
-  getImagesFromEquipmentItem(equipmentItem, equipmentType) {
+  const getImagesFromEquipmentItem = (equipmentItem, equipmentType) => {
     let images = [];
     const formats = ['avif', 'webp', 'jpg'];
     const sizes = [55, 350, 540, 945];
@@ -297,7 +307,7 @@ class Sitemaps extends Component {
     formats.forEach(format => {
       const imagePath = `data/equipment/thumbnails/${equipmentType}/web/${format}/${imageFileName}`;
       sizes.forEach(size => {
-        const imageLoc = require(`../../${imagePath}_${size}.${format}`).default;
+        const imageLoc = require(`../../${imagePath}_${size}.${format}`);
         let image = {
           loc: imageLoc,
           caption: convertToXmlFriendlyString(`${equipmentItem.model} by ${equipmentItem.brand}`),
@@ -311,66 +321,66 @@ class Sitemaps extends Component {
     return images;
   }
 
-  renderPostsListImages() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/`;
+  const renderPostsListImages = () => {
+    const urlNorwegianPage = `${languageSlug.no}posts/`;
+    const urlEnglishPage = `${languageSlug.en}posts/`;
     let norwegianImages = [];
     let englishImages = [];
     if (posts && posts.length) {
       posts.forEach(post => {
-        norwegianImages = norwegianImages.concat(this.getImagesFromPost(post, 'no'));
-        englishImages = englishImages.concat(this.getImagesFromPost(post, 'en'));
+        norwegianImages = norwegianImages.concat(getImagesFromPost(post, 'no'));
+        englishImages = englishImages.concat(getImagesFromPost(post, 'en'));
       })
     }
-    return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
+    return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
   }
 
-  renderVideosListImages() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}videos/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}videos/`;
+  const renderVideosListImages = () => {
+    const urlNorwegianPage = `${languageSlug.no}videos/`;
+    const urlEnglishPage = `${languageSlug.en}videos/`;
     let norwegianImages = [];
     let englishImages = [];
     if (videos && videos.length) {
       videos.forEach(video => {
-        norwegianImages = norwegianImages.concat(this.getImagesFromVideo(video, 'no'));
-        englishImages = englishImages.concat(this.getImagesFromVideo(video, 'en'));
+        norwegianImages = norwegianImages.concat(getImagesFromVideo(video, 'no'));
+        englishImages = englishImages.concat(getImagesFromVideo(video, 'en'));
       })
     }
-    return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
+    return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
   }
 
-  renderProductsListImages() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}products/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}products/`;
+  const renderProductsListImages = () => {
+    const urlNorwegianPage = `${languageSlug.no}products/`;
+    const urlEnglishPage = `${languageSlug.en}products/`;
     let norwegianImages = [];
     let englishImages = [];
     if (products && products.length) {
       products.forEach(product => {
-        norwegianImages = norwegianImages.concat(this.getImagesFromProduct(product, 'no'));
-        englishImages = englishImages.concat(this.getImagesFromProduct(product, 'en'));
+        norwegianImages = norwegianImages.concat(getImagesFromProduct(product));
+        englishImages = englishImages.concat(getImagesFromProduct(product));
       })
     }
-    return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
+    return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
   }
 
-  renderEquipmentTypesListImages() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+  const renderEquipmentTypesListImages = () => {
+    const urlNorwegianPage = `${languageSlug.no}equipment/`;
+    const urlEnglishPage = `${languageSlug.en}equipment/`;
     let norwegianImages = [];
     let englishImages = [];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
       Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
         const equipmentType = equipmentTypes[equipmentTypeKey];
-        norwegianImages = norwegianImages.concat(this.getImagesFromEquipmentType(equipmentType, 'no'));
-        englishImages = englishImages.concat(this.getImagesFromEquipmentType(equipmentType, 'en'));
+        norwegianImages = norwegianImages.concat(getImagesFromEquipmentType(equipmentType, 'no'));
+        englishImages = englishImages.concat(getImagesFromEquipmentType(equipmentType, 'en'));
       })
     }
-    return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
+    return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
   }
 
-  renderEquipmentListImages() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+  const renderEquipmentListImages = () => {
+    const urlNorwegianPage = `${languageSlug.no}equipment/`;
+    const urlEnglishPage = `${languageSlug.en}equipment/`;
     const equipmentDetailsElements = [];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
       Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
@@ -379,42 +389,42 @@ class Sitemaps extends Component {
         const urlEnglishItemListPage = `${urlEnglishPage}${equipmentTypeKey}/`;
         let images = [];
         equipmentItems.forEach(item => {
-          images = images.concat(this.getImagesFromEquipmentItem(item, equipmentTypeKey));
+          images = images.concat(getImagesFromEquipmentItem(item, equipmentTypeKey));
         });
-        equipmentDetailsElements.push(this.renderImagePageUrlElement(urlNorwegianItemListPage, images));
-        equipmentDetailsElements.push(this.renderImagePageUrlElement(urlEnglishItemListPage, images));
+        equipmentDetailsElements.push(renderImagePageUrlElement(urlNorwegianItemListPage, images));
+        equipmentDetailsElements.push(renderImagePageUrlElement(urlEnglishItemListPage, images));
       })
     }
     return equipmentDetailsElements.join('');
   }
 
-  renderPostsDetailsImages() {
+  const renderPostsDetailsImages = () => {
     return posts && posts.length
       ? posts.map(post => {
-        const norwegianImages = this.getImagesFromPost(post, 'no');
-        const englishImages = this.getImagesFromPost(post, 'en');
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/${convertToUrlFriendlyString(post.title.no)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/${convertToUrlFriendlyString(post.title.en)}/`;
-        return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
+        const norwegianImages = getImagesFromPost(post, 'no');
+        const englishImages = getImagesFromPost(post, 'en');
+        const urlNorwegianPage = `${languageSlug.no}posts/${convertToUrlFriendlyString(post.title.no)}/`;
+        const urlEnglishPage = `${languageSlug.en}posts/${convertToUrlFriendlyString(post.title.en)}/`;
+        return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
       }).join('')
       : '';
   }
 
-  renderProductsDetailsImages() {
+  const renderProductsDetailsImages = () => {
     return products && products.length
       ? products.map(product => {
-        const norwegianImages = this.getImagesFromProduct(product, 'no');
-        const englishImages = this.getImagesFromProduct(product, 'en');
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}products/${convertToUrlFriendlyString(product.title)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}products/${convertToUrlFriendlyString(product.title)}/`;
-        return [this.renderImagePageUrlElement(urlNorwegianPage, norwegianImages), this.renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
+        const norwegianImages = getImagesFromProduct(product);
+        const englishImages = getImagesFromProduct(product);
+        const urlNorwegianPage = `${languageSlug.no}products/${convertToUrlFriendlyString(product.title)}/`;
+        const urlEnglishPage = `${languageSlug.en}products/${convertToUrlFriendlyString(product.title)}/`;
+        return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join('')
       }).join('')
       : '';
   }
 
-  renderEquipmentDetailsImages() {
-    const urlNorwegianPage = `${this.props.getLanguageSlug('no')}equipment/`;
-    const urlEnglishPage = `${this.props.getLanguageSlug('en')}equipment/`;
+  const renderEquipmentDetailsImages = () => {
+    const urlNorwegianPage = `${languageSlug.no}equipment/`;
+    const urlEnglishPage = `${languageSlug.en}equipment/`;
 
     const equipmentDetailsElements = [];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
@@ -424,143 +434,137 @@ class Sitemaps extends Component {
           const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
           const urlNorwegianItemPage = `${urlNorwegianPage}${equipmentTypeKey}/${itemId}/`;
           const urlEnglishItemPage = `${urlEnglishPage}${equipmentTypeKey}/${itemId}/`;
-          const images = this.getImagesFromEquipmentItem(item, equipmentTypeKey);
-          equipmentDetailsElements.push(this.renderImagePageUrlElement(urlNorwegianItemPage, images));
-          equipmentDetailsElements.push(this.renderImagePageUrlElement(urlEnglishItemPage, images));
+          const images = getImagesFromEquipmentItem(item, equipmentTypeKey);
+          equipmentDetailsElements.push(renderImagePageUrlElement(urlNorwegianItemPage, images));
+          equipmentDetailsElements.push(renderImagePageUrlElement(urlEnglishItemPage, images));
         })
       })
     }
     return equipmentDetailsElements.join('');
   }
 
-  renderNewsPostsDetails() {
+  const renderNewsPostsDetails = () => {
     return posts && posts.length
       ? posts.map(post => {
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}posts/${convertToUrlFriendlyString(post.title.no)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}posts/${convertToUrlFriendlyString(post.title.en)}/`;
-        return [this.renderNewsUrlElement(urlNorwegianPage, post, 'no'), this.renderNewsUrlElement(urlEnglishPage, post, 'en')].join('')
+        const urlNorwegianPage = `${languageSlug.no}posts/${convertToUrlFriendlyString(post.title.no)}/`;
+        const urlEnglishPage = `${languageSlug.en}posts/${convertToUrlFriendlyString(post.title.en)}/`;
+        return [renderNewsUrlElement(urlNorwegianPage, post, 'no'), renderNewsUrlElement(urlEnglishPage, post, 'en')].join('')
       }).join('')
       : '';
   }
 
-  renderVideoSitemapDetails() {
+  const renderVideoSitemapDetails = () => {
     return videos && videos.length
       ? videos.map(video => {
-        const urlNorwegianPage = `${this.props.getLanguageSlug('no')}videos/${convertToUrlFriendlyString(video.title.no)}/`;
-        const urlEnglishPage = `${this.props.getLanguageSlug('en')}videos/${convertToUrlFriendlyString(video.title.en)}/`;
-        return [this.renderVideoUrlElement(urlNorwegianPage, video, 'no'), this.renderVideoUrlElement(urlEnglishPage, video, 'en')].join('')
+        const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/`;
+        const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/`;
+        return [renderVideoUrlElement(urlNorwegianPage, video, 'no'), renderVideoUrlElement(urlEnglishPage, video, 'en')].join('')
       }).join('')
       : '';
   }
 
 
-  getSitemapXML() {
+  const getSitemapXML = () => {
     return [
       '<?xml version="1.0" encoding="UTF-8"?>\n',
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n',
-      this.renderHome(),
-      this.renderPostsList(),
-      this.renderVideosList(),
-      this.renderProductsList(),
-      this.renderReleasesList(),
-      this.renderEquipmentTypesList(),
-      this.renderPostsDetails(),
-      this.renderVideosDetails(),
-      this.renderProductsDetails(),
-      this.renderReleasesDetails(),
-      this.renderEquipmentDetails(),
+      renderHome(),
+      renderPostsList(),
+      renderVideosList(),
+      renderProductsList(),
+      renderReleasesList(),
+      renderEquipmentTypesList(),
+      renderPostsDetails(),
+      renderVideosDetails(),
+      renderProductsDetails(),
+      renderReleasesDetails(),
+      renderEquipmentDetails(),
       '</urlset>'
     ].join('');
   }
 
-  getNewsSitemapXML() {
+  const getNewsSitemapXML = () => {
     return [
       '<?xml version="1.0" encoding="UTF-8"?>\n',
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n',
-      this.renderNewsPostsDetails(),
+      renderNewsPostsDetails(),
       '</urlset>'
     ].join('');
   }
 
-  getImageSitemapXML() {
+  const getImageSitemapXML = () => {
     return [
       '<?xml version="1.0" encoding="UTF-8"?>\n',
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n',
-      this.renderPostsListImages(),
-      this.renderPostsDetailsImages(),
-      this.renderVideosListImages(),
-      this.renderEquipmentTypesListImages(),
-      this.renderEquipmentListImages(),
-      this.renderEquipmentDetailsImages(),
-      this.renderProductsListImages(),
-      this.renderProductsDetailsImages(),
+      renderPostsListImages(),
+      renderPostsDetailsImages(),
+      renderVideosListImages(),
+      renderEquipmentTypesListImages(),
+      renderEquipmentListImages(),
+      renderEquipmentDetailsImages(),
+      renderProductsListImages(),
+      renderProductsDetailsImages(),
       '</urlset>'
     ].join('');
   }
 
-  getVideoSitemapXML() {
+  const getVideoSitemapXML = () => {
     return [
       '<?xml version="1.0" encoding="UTF-8"?>\n',
       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n',
-      this.renderVideoSitemapDetails(),
+      renderVideoSitemapDetails(),
       '</urlset>'
     ].join('');
   }
 
-  saveFileContent(fileContent, fileName) {
-    var blob = new Blob([fileContent], {
+  const saveFileContent = (fileContent, fileName) => {
+    const blob = new Blob([fileContent], {
       type: "application/xml;charset=utf-8"
     });
     saveAs(blob, fileName);
   }
 
 
-  render() {
-    return (
-      <div className={style.grid}>
-        <button className={style.gridItem} onClick={() => this.saveFileContent(this.getSitemapXML(), 'sitemap.xml')}>
-          <span className={style.gridItemIcon}>
-            <FontAwesomeIcon icon={['fas', 'music']} size="3x" />
-            <span className={style.gridItemIconBadge}>
-              <FontAwesomeIcon icon={['fas', 'download']} />
-            </span>
+  return (
+    <div className={style.grid}>
+      <button className={style.gridItem} onClick={() => saveFileContent(getSitemapXML(), 'sitemap.xml')}>
+        <span className={style.gridItemIcon}>
+          <FontAwesomeIcon icon={['fas', 'music']} size="3x" />
+          <span className={style.gridItemIconBadge}>
+            <FontAwesomeIcon icon={['fas', 'download']} />
           </span>
-          <span className={style.gridItemName}>sitemap.xml</span>
-        </button>
-        <button className={style.gridItem} onClick={() => this.saveFileContent(this.getNewsSitemapXML(), 'news-sitemap.xml')}>
-          <span className={style.gridItemIcon}>
-            <FontAwesomeIcon icon={['fas', 'music']} size="3x" />
-            <span className={style.gridItemIconBadge}>
-              <FontAwesomeIcon icon={['fas', 'download']} />
-            </span>
+        </span>
+        <span className={style.gridItemName}>sitemap.xml</span>
+      </button>
+      <button className={style.gridItem} onClick={() => saveFileContent(getNewsSitemapXML(), 'news-sitemap.xml')}>
+        <span className={style.gridItemIcon}>
+          <FontAwesomeIcon icon={['fas', 'music']} size="3x" />
+          <span className={style.gridItemIconBadge}>
+            <FontAwesomeIcon icon={['fas', 'download']} />
           </span>
-          <span className={style.gridItemName}>news-sitemap.xml</span>
-        </button>
-        <button className={style.gridItem} onClick={() => this.saveFileContent(this.getImageSitemapXML(), 'image-sitemap.xml')}>
-          <span className={style.gridItemIcon}>
-            <FontAwesomeIcon icon={['fas', 'music']} size="3x" />
-            <span className={style.gridItemIconBadge}>
-              <FontAwesomeIcon icon={['fas', 'download']} />
-            </span>
+        </span>
+        <span className={style.gridItemName}>news-sitemap.xml</span>
+      </button>
+      <button className={style.gridItem} onClick={() => saveFileContent(getImageSitemapXML(), 'image-sitemap.xml')}>
+        <span className={style.gridItemIcon}>
+          <FontAwesomeIcon icon={['fas', 'music']} size="3x" />
+          <span className={style.gridItemIconBadge}>
+            <FontAwesomeIcon icon={['fas', 'download']} />
           </span>
-          <span className={style.gridItemName}>image-sitemap.xml</span>
-        </button>
-        <button className={style.gridItem} onClick={() => this.saveFileContent(this.getVideoSitemapXML(), 'video-sitemap.xml')}>
-          <span className={style.gridItemIcon}>
-            <FontAwesomeIcon icon={['fas', 'music']} size="3x" />
-            <span className={style.gridItemIconBadge}>
-              <FontAwesomeIcon icon={['fas', 'download']} />
-            </span>
+        </span>
+        <span className={style.gridItemName}>image-sitemap.xml</span>
+      </button>
+      <button className={style.gridItem} onClick={() => saveFileContent(getVideoSitemapXML(), 'video-sitemap.xml')}>
+        <span className={style.gridItemIcon}>
+          <FontAwesomeIcon icon={['fas', 'music']} size="3x" />
+          <span className={style.gridItemIconBadge}>
+            <FontAwesomeIcon icon={['fas', 'download']} />
           </span>
-          <span className={style.gridItemName}>video-sitemap.xml</span>
-        </button>
-      </div>)
-  }
+        </span>
+        <span className={style.gridItemName}>video-sitemap.xml</span>
+      </button>
+    </div>)
 }
 
 
-const mapDispatchToProps = {
-  getLanguageSlug
-};
-
-export default connect(null, mapDispatchToProps)(Sitemaps);
+export default Sitemaps;

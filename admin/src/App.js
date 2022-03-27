@@ -1,12 +1,12 @@
 // Dependencies
-import React, {Component} from 'react';
-import {Provider} from 'react-redux';
-import {Route, Switch} from 'react-router';
-import {ConnectedRouter} from 'connected-react-router';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Route, Routes } from 'react-router';
+import { HistoryRouter as Router } from "redux-first-history/rr6";
 import { registerLocale } from "react-datepicker";
 import nb from 'date-fns/locale/nb';
 
-import {library} from '@fortawesome/fontawesome-svg-core';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faBullhorn,
   faChevronDown,
@@ -32,7 +32,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 // Utils
-import configureStore, {history} from 'utils/configureStore';
+import configureStore, { history } from 'utils/configureStore';
 
 // Components
 import NavigationBar from 'components/partials/NavigationBar';
@@ -80,24 +80,22 @@ const initialState = {};
 const store = configureStore(initialState);
 
 
-class App extends Component {
-  render() {
-    return (<Provider store={store}>
-      <ConnectedRouter history={history}>
-        <NavigationBar/>
-        <div className={style.container}>
-          <Switch>
-            <Route exact={true} path="/" render={() => (<Dashboard/>)}/>
-            <Route exact={true} path="/posts/" render={() => (<Posts/>)}/>
-            <Route exact={true} path="/portfolio/" render={() => (<Portfolio/>)}/>
-            <Route exact={true} path="/videos/" render={() => (<Videos/>)}/>
-            <Route exact={true} path="/statistics/" render={() => (<Statistics/>)}/>
-            <Route render={() => (<NotFound />)}/>
-          </Switch>
-        </div>
-      </ConnectedRouter>
-    </Provider>);
-  }
+const App = () => {
+  return (<Provider store={store}>
+    <Router history={history}>
+      <NavigationBar />
+      <div className={style.container}>
+        <Routes>
+          <Route exact={true} path="/" element={<Dashboard />} />
+          <Route exact={true} path="/posts/" element={<Posts />} />
+          <Route exact={true} path="/portfolio/" element={<Portfolio />} />
+          <Route exact={true} path="/videos/" element={<Videos />} />
+          <Route exact={true} path="/statistics/" element={<Statistics />} />
+          <Route element={() => (<NotFound />)} />
+        </Routes>
+      </div>
+    </Router>
+  </Provider>);
 }
 
 export default App;
