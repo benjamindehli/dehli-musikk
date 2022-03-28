@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/haunted-by-silhouettes-selkie-feat-bjoern-strid/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Selkie feat. Björn Strid</video:title>
+      <video:description>Sang: Selkie
+Artist: Haunted By Silhouettes &amp; Björn Strid
+Album: No Man Isle</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=XYDXMLfJlxM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-03-28-00_540.d8b8f4b3ca3f05364d54.jpg</video:thumbnail_loc>
+      <video:duration>203</video:duration>
+      <video:publication_date>2022-03-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UC6Qasp2KPxCeiwDtFrvpOGA">Eclipse Records</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/haunted-by-silhouettes-selkie-feat-bjoern-strid/</loc>
+    <video:video>
+      <video:title>Haunted By Silhouettes - Selkie feat. Björn Strid</video:title>
+      <video:description>Song: Selkie
+Artist: Haunted By Silhouettes &amp; Björn Strid
+Album: No Man Isle</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=XYDXMLfJlxM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-03-28-00_540.d8b8f4b3ca3f05364d54.jpg</video:thumbnail_loc>
+      <video:duration>203</video:duration>
+      <video:publication_date>2022-03-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/channel/UC6Qasp2KPxCeiwDtFrvpOGA">Eclipse Records</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/haunted-by-silhouettes-flock/</loc>
     <video:video>
       <video:title>Haunted By Silhouettes - Flock</video:title>
