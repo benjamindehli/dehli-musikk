@@ -387,7 +387,7 @@ const Video = ({ videoData, index }) => {
                     </label>
                     <label htmlFor={`thumbnailDescription-${index}`}>
                         Image copyright
-                        <input type="checkbox" id={`copyright-${index}`} checked={video.copyright} onChange={event => handleCopyrightChange(event.target.checked)} onBlur={updateVideosInStore} />
+                        <input type="checkbox" id={`copyright-${index}`} checked={video.copyright ? true : false} onChange={event => handleCopyrightChange(event.target.checked)} onBlur={updateVideosInStore} />
                     </label>
                 </div>
 
