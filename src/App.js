@@ -158,10 +158,12 @@ const App = () => {
             <Route strict={true} path="/:selectedLanguage/equipment/" element={<Equipment />} />
 
             <Route strict={true} path="/:selectedLanguage/" element={<Home />} />
-            <Route path="/" element={<Home />} />
 
+            <Route key={"/feed-no.rss"} path="/feed-no.rss" element={() => null} />
+            <Route key={"/feed-en.rss"} path="/feed-en.rss" element={() => null} />
             <Route key={"/shell.html"} path="/shell.html" element={() => null} />
-            <Route key={"/404.html"} element={NotFound} />
+            <Route path="/" element={<Home />} />
+            <Route key={"/404.html"} element={<NotFound />} />
             <Route element={<NotFound />} />
 
           </Routes>
