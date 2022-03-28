@@ -20,7 +20,7 @@ export const createVideo = (videos = []) => {
     youTubeUser: '',
     youTubeChannelId: ''
   });
-  return { type: CREATE_VIDEO, payload: videos };
+  return { type: CREATE_VIDEO, payload: newVideos };
 }
 
 export const updateVideos = videos => {
