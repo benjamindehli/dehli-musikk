@@ -184,50 +184,55 @@ const Products = () => {
   const contentTitle = selectedProduct ? detailsPage.heading[selectedLanguageKey] : listPage.heading[selectedLanguageKey];
   const metaDescription = selectedProduct ? detailsPage.description[selectedLanguageKey] : listPage.description[selectedLanguageKey];
 
-  return (<React.Fragment>
-    <Helmet htmlAttributes={{
-      lang: selectedLanguageKey
-    }}>
-      <title>{metaTitle}</title>
-      <meta name='description' content={metaDescription} />
-      <link rel="canonical" href={`https://www.dehlimusikk.no/${languageSlug}products/${selectedProduct
-        ? selectedProductId + '/'
-        : ''}`} />
-      <link rel="alternate" href={`https://www.dehlimusikk.no/products/${selectedProduct
-        ? selectedProductMultilingualIds.no + '/'
-        : ''}`} hreflang="no" />
-      <link rel="alternate" href={`https://www.dehlimusikk.no/en/products/${selectedProduct
-        ? selectedProductMultilingualIds.en + '/'
-        : ''}`} hreflang="en" />
-      <link rel="alternate" href={`https://www.dehlimusikk.no/products/${selectedProduct
-        ? selectedProductMultilingualIds.no + '/'
-        : ''}`} hreflang="x-default" />
-      <meta property="og:title" content={contentTitle} />
-      <meta property="og:url" content={`https://www.dehlimusikk.no/${languageSlug}products/${selectedProduct
-        ? selectedProductId + '/'
-        : ''}`} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:locale" content={selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
-      <meta property="og:locale:alternate" content={selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
-      <meta property="twitter:title" content={contentTitle} />
-      <meta property="twitter:description" content={metaDescription} />
-    </Helmet>
-    <Container blur={selectedProduct !== null}>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <h1>{contentTitle}</h1>
-      <p>
-        {selectedLanguageKey === 'en' ? 'Products from Dehli Musikk' : 'Produkter fra Dehli Musikk'}
-      </p>
-    </Container>
-    {
-      selectedProduct ? renderSelectedProduct(selectedProduct) : renderSummarySnippet(products)
-    }
-    <Container blur={selectedProduct !== null}>
-      <List>
-        {renderProducts()}
-      </List>
-    </Container>
-  </React.Fragment>)
+  return selectedProductId && !selectedProduct
+    ? (<Helmet>
+      <title>404 - Siden finnes ikke - Dehli Musikk</title>
+      <meta name="prerender-status-code" content="404" />
+    </Helmet>)
+    : (<React.Fragment>
+      <Helmet htmlAttributes={{
+        lang: selectedLanguageKey
+      }}>
+        <title>{metaTitle}</title>
+        <meta name='description' content={metaDescription} />
+        <link rel="canonical" href={`https://www.dehlimusikk.no/${languageSlug}products/${selectedProduct
+          ? selectedProductId + '/'
+          : ''}`} />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/products/${selectedProduct
+          ? selectedProductMultilingualIds.no + '/'
+          : ''}`} hreflang="no" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/en/products/${selectedProduct
+          ? selectedProductMultilingualIds.en + '/'
+          : ''}`} hreflang="en" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/products/${selectedProduct
+          ? selectedProductMultilingualIds.no + '/'
+          : ''}`} hreflang="x-default" />
+        <meta property="og:title" content={contentTitle} />
+        <meta property="og:url" content={`https://www.dehlimusikk.no/${languageSlug}products/${selectedProduct
+          ? selectedProductId + '/'
+          : ''}`} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:locale" content={selectedLanguageKey === 'en' ? 'en_US' : 'no_NO'} />
+        <meta property="og:locale:alternate" content={selectedLanguageKey === 'en' ? 'nb_NO' : 'en_US'} />
+        <meta property="twitter:title" content={contentTitle} />
+        <meta property="twitter:description" content={metaDescription} />
+      </Helmet>
+      <Container blur={selectedProduct !== null}>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <h1>{contentTitle}</h1>
+        <p>
+          {selectedLanguageKey === 'en' ? 'Products from Dehli Musikk' : 'Produkter fra Dehli Musikk'}
+        </p>
+      </Container>
+      {
+        selectedProduct ? renderSelectedProduct(selectedProduct) : renderSummarySnippet(products)
+      }
+      <Container blur={selectedProduct !== null}>
+        <List>
+          {renderProducts()}
+        </List>
+      </Container>
+    </React.Fragment>)
 
 
 }

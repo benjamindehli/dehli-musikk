@@ -185,54 +185,61 @@ const Posts = () => {
   const metaDescription = selectedPost
     ? detailsPage.description[selectedLanguageKey]
     : listPage.description[selectedLanguageKey];
-  return (<React.Fragment>
-    <Helmet htmlAttributes={{
-      lang: selectedLanguageKey
-    }}>
-      <title>{metaTitle}</title>
-      <meta name='description' content={metaDescription} />
-      <link rel="canonical" href={`https://www.dehlimusikk.no/${languageSlug}posts/${selectedPost
-        ? selectedPostId + '/'
-        : ''}`} />
-      <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost
-        ? selectedPostMultilingualIds.no + '/'
-        : ''}`} hreflang="no" />
-      <link rel="alternate" href={`https://www.dehlimusikk.no/en/posts/${selectedPost
-        ? selectedPostMultilingualIds.en + '/'
-        : ''}`} hreflang="en" />
-      <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost
-        ? selectedPostMultilingualIds.no + '/'
-        : ''}`} hreflang="x-default" />
-      <meta property="og:title" content={contentTitle} />
-      <meta property="og:url" content={`https://www.dehlimusikk.no/${languageSlug}posts/${selectedPost
-        ? selectedPostId + '/'
-        : ''}`} />
-      <meta property="og:description" content={metaDescription} />
-      <meta property="og:locale" content={selectedLanguageKey === 'en'
-        ? 'en_US'
-        : 'no_NO'} />
-      <meta property="og:locale:alternate" content={selectedLanguageKey === 'en'
-        ? 'nb_NO'
-        : 'en_US'} />
-      <meta property="twitter:title" content={contentTitle} />
-      <meta property="twitter:description" content={metaDescription} />
-    </Helmet>
-    <Container blur={selectedPost !== null}>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <h1>{contentTitle}</h1>
-      <p>
-        {selectedLanguageKey === 'en' ? 'Updates from Dehli Musikk' : 'Oppdateringer fra Dehli Musikk'}
-      </p>
-    </Container>
-    {
-      selectedPost ? renderSelectedPost(selectedPost) : renderSummarySnippet(posts)
-    }
-    <Container blur={selectedPost !== null}>
-      <List>
-        {renderPosts()}
-      </List>
-    </Container>
-  </React.Fragment>)
+  return selectedPostId && !selectedPost
+    ? (
+      <Helmet>
+        <title>404 - Siden finnes ikke - Dehli Musikk</title>
+        <meta name="prerender-status-code" content="404" />
+      </Helmet>
+    )
+    : (<React.Fragment>
+      <Helmet htmlAttributes={{
+        lang: selectedLanguageKey
+      }}>
+        <title>{metaTitle}</title>
+        <meta name='description' content={metaDescription} />
+        <link rel="canonical" href={`https://www.dehlimusikk.no/${languageSlug}posts/${selectedPost
+          ? selectedPostId + '/'
+          : ''}`} />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost
+          ? selectedPostMultilingualIds.no + '/'
+          : ''}`} hreflang="no" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/en/posts/${selectedPost
+          ? selectedPostMultilingualIds.en + '/'
+          : ''}`} hreflang="en" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/posts/${selectedPost
+          ? selectedPostMultilingualIds.no + '/'
+          : ''}`} hreflang="x-default" />
+        <meta property="og:title" content={contentTitle} />
+        <meta property="og:url" content={`https://www.dehlimusikk.no/${languageSlug}posts/${selectedPost
+          ? selectedPostId + '/'
+          : ''}`} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:locale" content={selectedLanguageKey === 'en'
+          ? 'en_US'
+          : 'no_NO'} />
+        <meta property="og:locale:alternate" content={selectedLanguageKey === 'en'
+          ? 'nb_NO'
+          : 'en_US'} />
+        <meta property="twitter:title" content={contentTitle} />
+        <meta property="twitter:description" content={metaDescription} />
+      </Helmet>
+      <Container blur={selectedPost !== null}>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <h1>{contentTitle}</h1>
+        <p>
+          {selectedLanguageKey === 'en' ? 'Updates from Dehli Musikk' : 'Oppdateringer fra Dehli Musikk'}
+        </p>
+      </Container>
+      {
+        selectedPost ? renderSelectedPost(selectedPost) : renderSummarySnippet(posts)
+      }
+      <Container blur={selectedPost !== null}>
+        <List>
+          {renderPosts()}
+        </List>
+      </Container>
+    </React.Fragment>)
 }
 
 export default Posts;

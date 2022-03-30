@@ -270,81 +270,90 @@ const Equipment = () => {
     })
   }
 
-  return (<React.Fragment>
-    <Helmet htmlAttributes={{
-      lang: selectedLanguageKey
-    }}>
-      <title>{
-        selectedEquipment
-          ? detailsPage.title[selectedLanguageKey]
-          : selectedEquipmentType
-            ? listPage.title[selectedLanguageKey]
-            : listEquipmentTypesPage.title[selectedLanguageKey]
-      }</title>
-      <meta name='description' content={selectedEquipment
-        ? detailsPage.description
-        : selectedEquipmentType
-          ? listPage.description[selectedLanguageKey]
-          : listEquipmentTypesPage.description[selectedLanguageKey]} />
-      <link rel="canonical" href={`https://www.dehlimusikk.no/${languageSlug}equipment/${selectedEquipment
-        ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
-        : selectedEquipmentType
-          ? selectedEquipmentType + '/'
-          : ''
-        }`} />
-      <link rel="alternate" href={`https://www.dehlimusikk.no/equipment/${selectedEquipment
-        ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
-        : selectedEquipmentType
-          ? selectedEquipmentType + '/'
-          : ''
-        }`} hreflang="no" />
-      <link rel="alternate" href={`https://www.dehlimusikk.no/en/equipment/${selectedEquipment
-        ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
-        : selectedEquipmentType
-          ? selectedEquipmentType + '/'
-          : ''
-        }`} hreflang="en" />
-      <link rel="alternate" href={`https://www.dehlimusikk.no/equipment/${selectedEquipment
-        ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
-        : selectedEquipmentType
-          ? selectedEquipmentType + '/'
-          : ''
-        }`} hreflang="x-default" />
-    </Helmet>
-    <Container blur={selectedEquipment !== null}>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <h1>{
-        selectedEquipment
-          ? detailsPage.heading
-          : selectedEquipmentType
-            ? listPage.heading[selectedLanguageKey]
-            : listEquipmentTypesPage.heading[selectedLanguageKey]
-      }</h1>
-      <p>{
-        selectedEquipment
+  const hasInvalidEquipmentType = !['instruments', 'effects', 'amplifiers'].includes(selectedEquipmentType)
+  const hasInvalidEquipmentId = selectedEquipmentId && !selectedEquipment;
+  return hasInvalidEquipmentType || hasInvalidEquipmentId
+    ? (
+      <Helmet>
+        <title>404 - Siden finnes ikke - Dehli Musikk</title>
+        <meta name="prerender-status-code" content="404" />
+      </Helmet>
+    )
+    : (<React.Fragment>
+      <Helmet htmlAttributes={{
+        lang: selectedLanguageKey
+      }}>
+        <title>{
+          selectedEquipment
+            ? detailsPage.title[selectedLanguageKey]
+            : selectedEquipmentType
+              ? listPage.title[selectedLanguageKey]
+              : listEquipmentTypesPage.title[selectedLanguageKey]
+        }</title>
+        <meta name='description' content={selectedEquipment
           ? detailsPage.description
           : selectedEquipmentType
             ? listPage.description[selectedLanguageKey]
-            : listEquipmentTypesPage.description[selectedLanguageKey]
-      }</p>
-    </Container>
-    {
-      selectedEquipment
-        ? renderSelectedEquipment(selectedEquipment, selectedEquipmentType)
-        : selectedEquipmentType
-          ? renderSummarySnippetForEquipmentItems(equipment[selectedEquipmentType], selectedEquipmentType)
-          : renderSummarySnippetForEquipmentTypes(equipment)
-    }
-    <Container blur={selectedEquipment !== null}>
-      <List>
-        {
-          selectedEquipmentType
-            ? renderEquipmentItems(equipment[selectedEquipmentType], selectedEquipment)
-            : renderEquipmentTypes(listEquipmentTypesPage)
-        }
-      </List>
-    </Container>
-  </React.Fragment>)
+            : listEquipmentTypesPage.description[selectedLanguageKey]} />
+        <link rel="canonical" href={`https://www.dehlimusikk.no/${languageSlug}equipment/${selectedEquipment
+          ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
+          : selectedEquipmentType
+            ? selectedEquipmentType + '/'
+            : ''
+          }`} />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/equipment/${selectedEquipment
+          ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
+          : selectedEquipmentType
+            ? selectedEquipmentType + '/'
+            : ''
+          }`} hreflang="no" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/en/equipment/${selectedEquipment
+          ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
+          : selectedEquipmentType
+            ? selectedEquipmentType + '/'
+            : ''
+          }`} hreflang="en" />
+        <link rel="alternate" href={`https://www.dehlimusikk.no/equipment/${selectedEquipment
+          ? selectedEquipmentType + '/' + selectedEquipmentId + '/'
+          : selectedEquipmentType
+            ? selectedEquipmentType + '/'
+            : ''
+          }`} hreflang="x-default" />
+      </Helmet>
+      <Container blur={selectedEquipment !== null}>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+        <h1>{
+          selectedEquipment
+            ? detailsPage.heading
+            : selectedEquipmentType
+              ? listPage.heading[selectedLanguageKey]
+              : listEquipmentTypesPage.heading[selectedLanguageKey]
+        }</h1>
+        <p>{
+          selectedEquipment
+            ? detailsPage.description
+            : selectedEquipmentType
+              ? listPage.description[selectedLanguageKey]
+              : listEquipmentTypesPage.description[selectedLanguageKey]
+        }</p>
+      </Container>
+      {
+        selectedEquipment
+          ? renderSelectedEquipment(selectedEquipment, selectedEquipmentType)
+          : selectedEquipmentType
+            ? renderSummarySnippetForEquipmentItems(equipment[selectedEquipmentType], selectedEquipmentType)
+            : renderSummarySnippetForEquipmentTypes(equipment)
+      }
+      <Container blur={selectedEquipment !== null}>
+        <List>
+          {
+            selectedEquipmentType
+              ? renderEquipmentItems(equipment[selectedEquipmentType], selectedEquipment)
+              : renderEquipmentTypes(listEquipmentTypesPage)
+          }
+        </List>
+      </Container>
+    </React.Fragment>)
 
 }
 

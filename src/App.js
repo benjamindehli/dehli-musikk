@@ -128,6 +128,14 @@ const App = () => {
         <NavigationBar />
         <div className={style.container}>
           <Routes>
+            <Route path="*" key={"/404.html"} element={<NotFound />} />
+            <Route path="/" element={<Home />} />
+            <Route key={"/feed-no.rss"} path="/feed-no.rss" element={() => null} />
+            <Route key={"/feed-en.rss"} path="/feed-en.rss" element={() => null} />
+            <Route key={"/shell.html"} path="/shell.html" element={() => null} />
+            <Route strict={true} path="/:selectedLanguage/" element={<Home />} />
+
+
             <Route strict={true} path="/search/" element={<Search />} />
             <Route strict={true} path="/:selectedLanguage/search/" element={<Search />} />
             <Route strict={true} path="/portfolio/:releaseId/" element={<Portfolio />} />
@@ -157,14 +165,7 @@ const App = () => {
             <Route strict={true} path="/:selectedLanguage/equipment/:equipmentType/" element={<Equipment />} />
             <Route strict={true} path="/:selectedLanguage/equipment/" element={<Equipment />} />
 
-            <Route strict={true} path="/:selectedLanguage/" element={<Home />} />
 
-            <Route key={"/feed-no.rss"} path="/feed-no.rss" element={() => null} />
-            <Route key={"/feed-en.rss"} path="/feed-en.rss" element={() => null} />
-            <Route key={"/shell.html"} path="/shell.html" element={() => null} />
-            <Route path="/" element={<Home />} />
-            <Route key={"/404.html"} element={<NotFound />} />
-            <Route element={<NotFound />} />
 
           </Routes>
           <Footer />
