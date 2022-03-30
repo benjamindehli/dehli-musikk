@@ -65,7 +65,7 @@ const Equipment = () => {
   }
 
   const renderSummarySnippetForEquipmentItems = (equipment, equipmentTypeKey) => {
-    const equipmentItems = equipment.items && equipment.items.length
+    const equipmentItems = equipment?.items?.length
       ? equipment.items.map((item, index) => {
         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
         return {
@@ -136,7 +136,7 @@ const Equipment = () => {
   }
 
   const renderEquipmentItems = (equipment) => {
-    return equipment.items && equipment.items.length
+    return equipment?.items?.length
       ? equipment.items.map(item => {
         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
         return (<ListItem key={itemId}>
@@ -175,7 +175,7 @@ const Equipment = () => {
 
   const getSelectedEquipment = (equipment, selectedEquipmentId) => {
     let selectedEquipment = null;
-    equipment.forEach((equipmentItem, index) => {
+    equipment?.forEach((equipmentItem, index) => {
       const equipmentItemId = convertToUrlFriendlyString(`${equipmentItem.brand} ${equipmentItem.model}`)
       if (equipmentItemId === selectedEquipmentId) {
         selectedEquipment = {
@@ -192,7 +192,7 @@ const Equipment = () => {
 
 
   const selectedEquipment = selectedEquipmentType && selectedEquipmentId
-    ? getSelectedEquipment(equipment[selectedEquipmentType].items, selectedEquipmentId)
+    ? getSelectedEquipment(equipment?.[selectedEquipmentType]?.items, selectedEquipmentId)
     : null;
 
   const listEquipmentTypesPage = {
@@ -213,22 +213,22 @@ const Equipment = () => {
   const listPage = {
     title: {
       en: selectedEquipmentType
-        ? `${equipment[selectedEquipmentType].name['en']} - Equipment | Dehli Musikk`
+        ? `${equipment[selectedEquipmentType]?.name['en']} - Equipment | Dehli Musikk`
         : '',
       no: selectedEquipmentType
-        ? `${equipment[selectedEquipmentType].name['no']} - Utstyr | Dehli Musikk`
+        ? `${equipment[selectedEquipmentType]?.name['no']} - Utstyr | Dehli Musikk`
         : '',
     },
     heading: {
-      en: selectedEquipmentType ? equipment[selectedEquipmentType].name['en'] : '',
-      no: selectedEquipmentType ? equipment[selectedEquipmentType].name['no'] : ''
+      en: selectedEquipmentType ? equipment[selectedEquipmentType]?.name['en'] : '',
+      no: selectedEquipmentType ? equipment[selectedEquipmentType]?.name['no'] : ''
     },
     description: {
       en: selectedEquipmentType
-        ? `${equipment[selectedEquipmentType].name['en']} I use during recording`
+        ? `${equipment[selectedEquipmentType]?.name['en']} I use during recording`
         : '',
       no: selectedEquipmentType
-        ? `${equipment[selectedEquipmentType].name['no']} jeg bruker under innspilling`
+        ? `${equipment[selectedEquipmentType]?.name['no']} jeg bruker under innspilling`
         : '',
 
     }
