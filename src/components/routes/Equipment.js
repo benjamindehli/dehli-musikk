@@ -270,7 +270,7 @@ const Equipment = () => {
     })
   }
 
-  const hasInvalidEquipmentType = !['instruments', 'effects', 'amplifiers'].includes(selectedEquipmentType)
+  const hasInvalidEquipmentType = selectedEquipmentType && !['instruments', 'effects', 'amplifiers'].includes(selectedEquipmentType)
   const hasInvalidEquipmentId = selectedEquipmentId && !selectedEquipment;
   return hasInvalidEquipmentType || hasInvalidEquipmentId
     ? (
