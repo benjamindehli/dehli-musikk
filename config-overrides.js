@@ -7,7 +7,7 @@ module.exports = function override(config, env) {
       config.plugins.splice(i, 1, new MiniCssExtractPlugin({
         filename: 'static/css/[name].[contenthash:8].css',
         chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
-      //  ignoreOrder: true, // Enable to remove warnings about conflicting order
+        ignoreOrder: true, // Enable to remove warnings about conflicting order
       }));
     }
   });
