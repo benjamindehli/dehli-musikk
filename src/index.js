@@ -1,21 +1,17 @@
-// Dependencies
 import React from 'react';
-import { createRoot, hydrateRoot } from 'react-dom/client';
 import * as serviceWorker from 'serviceWorker';
+import { hydrate, render } from "react-dom";
 
-// Components
 import App from 'App';
 
-// Stylesheets
 import 'style/styles.scss';
 
-const container = document.getElementById('root');
 
-if (container.hasChildNodes()) {
-  hydrateRoot(container, <App tab="home" />);
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+  hydrate(<App />, rootElement);
 } else {
-  const root = createRoot(container);
-  root.render(<App />);
+  render(<React.StrictMode><App /></React.StrictMode>, rootElement);
 }
 
 // If you want your app to work offline and load faster, you can change
