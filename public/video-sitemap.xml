@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/hammond-c3-med-plasma-pedal-og-light-pedal/</loc>
+    <video:video>
+      <video:title>Hammond C3 med PLASMA Pedal og LIGHT Pedal</video:title>
+      <video:description>Hammond C3 tonehjulsorgel med PLASMA Pedal og LIGHT Pedal fra Gamechanger Audio
+De to første eksemplene er spilt inn med en DI-boks og de to siste eksemplene er spilt inn med en oppmikket Leslie 122 forsterker.
+Det øvre hornet er mikket opp med et stereopar Shure SM57, mens den nedre rotoren er mikket opp med en Sennheiser e 602-II.
+
+Instrument: Hammond C3.
+Effekter: Gamechanger Audio PLASMA Pedal and Gamechanger Audio LIGHT Pedal.
+Forsterker: Leslie 122.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=sGMcjWSGWrk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-04-08-00_540.dc3842b9e9563f13b704.jpg</video:thumbnail_loc>
+      <video:duration>487</video:duration>
+      <video:publication_date>2022-04-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/hammond-c3-with-plasma-pedal-and-light-pedal/</loc>
+    <video:video>
+      <video:title>Hammond C3 with PLASMA Pedal and LIGHT Pedal</video:title>
+      <video:description>Hammond C3 tonewheel organ with PLASMA Pedal and LIGHT Pedal from Gamechanger Audio.
+The first two examples are recorded with a DI box and the second two examples are recorded with a mic&apos;d up Leslie 122 rotary speaker.
+The upper horn is mic&apos;d up with a stereo pair of Shure SM57 and the lower rotor is mic&apos;d up with a Sennheiser e 602-II.
+
+Instrument: Hammond C3.
+Effects: Gamechanger Audio PLASMA Pedal and Gamechanger Audio LIGHT Pedal.
+Amplifiers: Leslie 122.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=sGMcjWSGWrk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-04-08-00_540.dc3842b9e9563f13b704.jpg</video:thumbnail_loc>
+      <video:duration>487</video:duration>
+      <video:publication_date>2022-04-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/haunted-by-silhouettes-selkie-feat-bjoern-strid/</loc>
     <video:video>
       <video:title>Haunted By Silhouettes - Selkie feat. Björn Strid</video:title>
