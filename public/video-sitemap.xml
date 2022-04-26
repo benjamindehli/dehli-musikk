@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/roland-sh-09/</loc>
+    <video:video>
+      <video:title>Roland SH-09</video:title>
+      <video:description>Lydeksempler av Roland SH-09 🎹🎛️🦄</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=8rCcyuvEy1s</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-04-25-00_540.d0dcc053006a7db0fc2d.jpg</video:thumbnail_loc>
+      <video:duration>405</video:duration>
+      <video:publication_date>2022-04-25</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/roland-sh-09/</loc>
+    <video:video>
+      <video:title>Roland SH-09</video:title>
+      <video:description>Audio examples of the Roland SH-09 🎹🎛️🦄</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=8rCcyuvEy1s</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-04-25-00_540.d0dcc053006a7db0fc2d.jpg</video:thumbnail_loc>
+      <video:duration>405</video:duration>
+      <video:publication_date>2022-04-25</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/hammond-c3-med-plasma-pedal-og-light-pedal/</loc>
     <video:video>
       <video:title>Hammond C3 med PLASMA Pedal og LIGHT Pedal</video:title>
@@ -29,7 +55,7 @@ The upper horn is mic&apos;d up with a stereo pair of Shure SM57 and the lower r
 
 Instrument: Hammond C3.
 Effects: Gamechanger Audio PLASMA Pedal and Gamechanger Audio LIGHT Pedal.
-Amplifiers: Leslie 122.</video:description>
+Amplifier: Leslie 122.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=sGMcjWSGWrk</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-04-08-00_540.dc3842b9e9563f13b704.jpg</video:thumbnail_loc>
       <video:duration>487</video:duration>
