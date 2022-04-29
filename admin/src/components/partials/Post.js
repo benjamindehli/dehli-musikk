@@ -57,7 +57,6 @@ const Post = ({ postData, index }) => {
             thumbnailFilename,
             id
         });
-        updatePostsInStore();
     }
 
     const handleTitleChange = (value, language) => {
@@ -169,6 +168,7 @@ const Post = ({ postData, index }) => {
                             id={`timestamp-${index}`}
                             locale="nb"
                             onChange={event => handleTimestampChange(event)}
+                            onBlur={updatePostsInStore}
                             selected={post.timestamp}
                             className={commonStyle.input} />
                     </label>
