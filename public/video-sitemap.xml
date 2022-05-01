@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/song-of-storms-fra-ocarina-of-time/</loc>
+    <video:video>
+      <video:title>Song of Storms fra Ocarina of Time</video:title>
+      <video:description>Song of Storms (Windmill Hut) av Koji Kondo fra The Legend of Zelda: Ocarina of Time</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=YLGcbtG6rKs</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-01-00_540.ab5a76b6aa79d30cc779.jpg</video:thumbnail_loc>
+      <video:duration>33</video:duration>
+      <video:publication_date>2022-05-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/song-of-storms-from-ocarina-of-time/</loc>
+    <video:video>
+      <video:title>Song of Storms from Ocarina of Time</video:title>
+      <video:description>Song of Storms (Windmill Hut) by Koji Kondo from The Legend of Zelda: Ocarina of Time</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=YLGcbtG6rKs</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-01-00_540.ab5a76b6aa79d30cc779.jpg</video:thumbnail_loc>
+      <video:duration>33</video:duration>
+      <video:publication_date>2022-05-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/roland-sh-09/</loc>
     <video:video>
       <video:title>Roland SH-09</video:title>
