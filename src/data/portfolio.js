@@ -17,7 +17,10 @@ import haakerGuardianAngels from './releases/data/haaker_guardianAngels.json'
 import haakerRocknrolla from './releases/data/haaker_rocknrolla.json';
 import hanneStaverTheWords from './releases/data/hanneStaver_theWords.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock.json';
+import hauntedBySilhouettesDeparture from './releases/data/hauntedBySilhouettes_departure.json';
 import hauntedBySilhouettesFlock from './releases/data/hauntedBySilhouettes_flock.json';
+import hauntedBySilhouettesIcon from './releases/data/hauntedBySilhouettes_icon.json';
+import hauntedBySilhouettesNoManIsle from './releases/data/hauntedBySilhouettes_noManIsle.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow.json';
 import hauntedBySilhouettesSelkie from './releases/data/hauntedBySilhouettesBjornSpeedStrid_selkie.json';
@@ -54,9 +57,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
-  hauntedBySilhouettesSelkie,
-  hauntedBySilhouettesFlock,
-  twentyTwentyVisionAbyssWithinMe
+  hauntedBySilhouettesDeparture,
+  hauntedBySilhouettesIcon,
+  hauntedBySilhouettesNoManIsle
 ];
 
 const allReleases = [
@@ -79,7 +82,10 @@ const allReleases = [
   haakerRocknrolla,
   hanneStaverTheWords,
   hauntedBySilhouettesDeadlock,
+  hauntedBySilhouettesDeparture,
   hauntedBySilhouettesFlock,
+  hauntedBySilhouettesIcon,
+  hauntedBySilhouettesNoManIsle,
   hauntedBySilhouettesSelkie,
   hauntedBySilhouettesTheLastDayOnEarth,
   hauntedBySilhouettesUndertow,
