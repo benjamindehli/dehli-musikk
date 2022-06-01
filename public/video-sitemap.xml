@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/yamaha-dx7-lo-fi-tape-loop/</loc>
+    <video:video>
+      <video:title>Yamaha DX7 Lo-fi Tape Loop</video:title>
+      <video:description>Tape loop med 4 spor av Yamaha DX-7 med plateklang fra CXM 1978.
+Instrument: Yamaha DX7.
+Effekter: Chase Bliss Audio &amp; Meris CXM 1978.
+Båndopptaker: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vFxhK17rj40</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-26-00_540.ad82aa49a09fa81925b8.jpg</video:thumbnail_loc>
+      <video:duration>61</video:duration>
+      <video:publication_date>2022-05-26</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/yamaha-dx7-lo-fi-tape-loop/</loc>
+    <video:video>
+      <video:title>Yamaha DX7 Lo-fi Tape Loop</video:title>
+      <video:description>Tape loop with 4 tracks of Yamaha DX-7 with plate reverb from the CXM 1978.
+Instrument: Yamaha DX7.
+Effects: Chase Bliss Audio &amp; Meris CXM 1978.
+Tape recorder: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vFxhK17rj40</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-26-00_540.ad82aa49a09fa81925b8.jpg</video:thumbnail_loc>
+      <video:duration>61</video:duration>
+      <video:publication_date>2022-05-26</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/blade-runner-med-pro-one/</loc>
     <video:video>
       <video:title>Blade Runner med Pro-One</video:title>
@@ -8,7 +40,7 @@
 Instrument: Sequential Circuits Pro-One.
 Effekter: Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EZAIVaX30S0</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-23-01_540.d0b08c67da11ae3a002f.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-23-01_540.0e44e5fdb9a71bb7743c.jpg</video:thumbnail_loc>
       <video:duration>57</video:duration>
       <video:publication_date>2022-05-23</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
@@ -23,7 +55,7 @@ Effekter: Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978.</vi
 Instrument: Sequential Circuits Pro-One.
 Effects: Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EZAIVaX30S0</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-23-01_540.d0b08c67da11ae3a002f.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-23-01_540.0e44e5fdb9a71bb7743c.jpg</video:thumbnail_loc>
       <video:duration>57</video:duration>
       <video:publication_date>2022-05-23</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
@@ -39,7 +71,7 @@ Instrumenter: Arturia Drumbrute og Sequential Circuits Pro-One.
 Effekter: Fulltone Tube Tape Echo.
 Båndopptaker: Fostex X-28H.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=YdTVeB4l2IU</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-23-00_540.7a17032ab6dd76831461.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-23-00_540.1162d1382b24e3deb127.jpg</video:thumbnail_loc>
       <video:duration>38</video:duration>
       <video:publication_date>2022-05-23</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
@@ -55,7 +87,7 @@ Instruments: Arturia Drumbrute and Sequential Circuits Pro-One.
 Effects: Fulltone Tube Tape Echo.
 Tape recorder: Fostex X-28H.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=YdTVeB4l2IU</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-23-00_540.7a17032ab6dd76831461.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-23-00_540.1162d1382b24e3deb127.jpg</video:thumbnail_loc>
       <video:duration>38</video:duration>
       <video:publication_date>2022-05-23</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
