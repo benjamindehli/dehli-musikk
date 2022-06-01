@@ -1,6 +1,7 @@
 import twentyTwentyVisionAbyssWithinMe from './releases/data/2020Vision_abyssWithinMe.json';
 import twentyTwentyVisionCanYouSeeMe from './releases/data/2020Vision_canYouSeeMe.json';
 import twentyTwentyVisionUnderTheMidnightSun from './releases/data/2020Vision_undertheMidnightSun.json';
+import twentyTwentyVisionWordAndARing from './releases/data/2020Vision_wordandaRing.json';
 import ainaWassvikDauntless from './releases/data/ainaWassvik_dauntless.json';
 import ainaWassvikHypnotized from './releases/data/ainaWassvik_hypnotized.json';
 import audunHaukvikDrivingAlone from './releases/data/audunHaukvik_drivingAlone.json';
@@ -57,15 +58,16 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  twentyTwentyVisionWordAndARing,
   hauntedBySilhouettesDeparture,
-  hauntedBySilhouettesIcon,
-  hauntedBySilhouettesNoManIsle
+  hauntedBySilhouettesIcon
 ];
 
 const allReleases = [
   twentyTwentyVisionAbyssWithinMe,
   twentyTwentyVisionCanYouSeeMe,
   twentyTwentyVisionUnderTheMidnightSun,
+  twentyTwentyVisionWordAndARing,
   ainaWassvikDauntless,
   ainaWassvikHypnotized,
   audunHaukvikDrivingAlone,
