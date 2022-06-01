@@ -2,9 +2,11 @@
 import { useSelector } from 'react-redux';
 
 // Assets
-import { ReactComponent as AmazonStoreIcon } from 'assets/svg/amazonStore.svg'
 import { ReactComponent as AmazonMusicIcon } from 'assets/svg/amazonMusic.svg'
+import { ReactComponent as AmazonStoreIcon } from 'assets/svg/amazonStore.svg'
+import { ReactComponent as AnghamiIcon } from 'assets/svg/anghami.svg'
 import { ReactComponent as AppleMusicIcon } from 'assets/svg/appleMusic.svg'
+import { ReactComponent as BoomplayIcon } from 'assets/svg/boomplay.svg'
 import { ReactComponent as DeezerIcon } from 'assets/svg/deezer.svg'
 import { ReactComponent as GoogleIcon } from 'assets/svg/google.svg'
 import { ReactComponent as GoogleStoreIcon } from 'assets/svg/googleStore.svg'
@@ -28,12 +30,16 @@ const ReleaseLinks = ({ release }) => {
 
   const getLinkIcon = (linkKey) => {
     switch (linkKey) {
-      case 'amazonStore':
-        return <AmazonStoreIcon />
       case 'amazonMusic':
         return <AmazonMusicIcon />
+      case 'amazonStore':
+        return <AmazonStoreIcon />
+      case 'anghami':
+        return <AnghamiIcon />
       case 'appleMusic':
         return <AppleMusicIcon />
+      case 'boomplay':
+        return <BoomplayIcon />
       case 'deezer':
         return <DeezerIcon />
       case 'google':
@@ -65,12 +71,16 @@ const ReleaseLinks = ({ release }) => {
 
   const getLinkName = (linkKey) => {
     switch (linkKey) {
-      case 'amazonStore':
-        return 'Amazon'
       case 'amazonMusic':
         return 'Amazon Music'
+      case 'amazonStore':
+        return 'Amazon'
+      case 'anghami':
+        return 'Anghami'
       case 'appleMusic':
         return 'Apple Music'
+      case 'boomplay':
+        return 'Boomplay'
       case 'deezer':
         return 'Deezer'
       case 'google':
