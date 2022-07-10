@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/korg-ms-20-med-plasma-pedal/</loc>
+    <video:video>
+      <video:title>Korg MS-20 med PLASMA Pedal</video:title>
+      <video:description>Korg MS-20 analog synthesizer med Gamechanger Audio PLASMA Pedal.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=yvJew4xbMQI</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-10-00_540.a4cd1fc3631bc9dd4fe8.jpg</video:thumbnail_loc>
+      <video:duration>47</video:duration>
+      <video:publication_date>2022-07-10</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/korg-ms-20-with-plasma-pedal/</loc>
+    <video:video>
+      <video:title>Korg MS-20 with PLASMA Pedal</video:title>
+      <video:description>Korg MS-20 analog synthesizer with Gamechanger Audio PLASMA Pedal.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=yvJew4xbMQI</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-10-00_540.a4cd1fc3631bc9dd4fe8.jpg</video:thumbnail_loc>
+      <video:duration>47</video:duration>
+      <video:publication_date>2022-07-10</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/27-vaesker-og-et-bonustriks-med-rainger-fx-minibar-og-clavinet/</loc>
+    <video:video>
+      <video:title>27 væsker og et bonustriks med Rainger FX Minibar og Clavinet</video:title>
+      <video:description>Sender en Hohner Clavinet D6 gjennom en Rainger FX Minibar Liquid Analyser med 27 forskjellige væsker.
+Instrument: Hohner Clavinet D6.
+Effekter: Rainger FX Minibar Liquid Analyser og Chase Bliss Audio &amp; Meris CXM 1978.
+Forsterkere: Vox AC15H1TV og Fender Twin Reverb.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ppxyPuBuvLc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-07-00_540.363e73f38e81d3341964.jpg</video:thumbnail_loc>
+      <video:duration>1110</video:duration>
+      <video:publication_date>2022-07-07</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/27-liquids-and-a-bonus-trick-with-the-rainger-fx-minibar-and-a-clavinet/</loc>
+    <video:video>
+      <video:title>27 liquids and a bonus trick with the Rainger FX Minibar and a Clavinet</video:title>
+      <video:description>Running a Hohner Clavinet D6 through a Rainger FX Minibar Liquid Analyser with 27 different liquids.
+Instruments: Hohner Clavinet D6.
+Effects: Rainger FX Minibar Liquid Analyser and Chase Bliss Audio &amp; Meris CXM 1978.
+Amplifiers: Vox AC15H1TV and Fender Twin Reverb.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ppxyPuBuvLc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-07-00_540.363e73f38e81d3341964.jpg</video:thumbnail_loc>
+      <video:duration>1110</video:duration>
+      <video:publication_date>2022-07-07</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/roland-sh-09-og-fender-rhodes-med-baandekko/</loc>
+    <video:video>
+      <video:title>Roland SH-09 og Fender Rhodes med båndekko</video:title>
+      <video:description>Instrumenter: Roland SH-09 og Rhodes Mark I Stage Piano.
+Effekter: Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978.
+Forsterker: Fender Twin Reverb.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=X12dILPPAeE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-06-30-00_540.15ad7143a43d91e8837a.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2022-06-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/roland-sh-09-and-fender-rhodes-with-tape-delay/</loc>
+    <video:video>
+      <video:title>Roland SH-09 and Fender Rhodes with tape delay</video:title>
+      <video:description>Instruments: Roland SH-09 and Rhodes Mark I Stage Piano.
+Effects: Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978.
+Amplifier: Fender Twin Reverb.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=X12dILPPAeE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-06-30-00_540.15ad7143a43d91e8837a.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2022-06-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/yamaha-dx7-lo-fi-tape-loop/</loc>
     <video:video>
       <video:title>Yamaha DX7 Lo-fi Tape Loop</video:title>
