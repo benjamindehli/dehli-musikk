@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/wurlitzer-200a-med-kontaktmikrofon/</loc>
+    <video:video>
+      <video:title>Wurlitzer 200A med kontaktmikrofon</video:title>
+      <video:description>Spiller inn Wurlitzer 200A elektrisk piano med en kontaktmikrofon (piezo pickup) for å fremheve mekanisk støy fra tangentene og sustain-pedalen. Signalet fra kontaktmikrofonen er så mikset inn med direktesignalet.
+Jeg la også på litt romklang fra Chase Bliss Audio &amp; Meris CXM 1978 og spilte det inn på kassett for litt ekstra farging.
+Instrument: Wurlitzer 200A.
+Klang: Chase Bliss Audio &amp; Meris CXM 1978.
+Båndopptaker: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=186C11a97Mg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-11-00_540.3744ab107500bc0d2a97.jpg</video:thumbnail_loc>
+      <video:duration>94</video:duration>
+      <video:publication_date>2022-07-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/wurlitzer-200a-with-contact-mic/</loc>
+    <video:video>
+      <video:title>Wurlitzer 200A with contact mic</video:title>
+      <video:description>Recording the Wurlitzer 200A electric piano with a contact mic (piezo pickup) to capture the mechanical noise from the keys and sustain pedal. The signal from the contact mic is then blended in with the direct signal.
+I also added a bit of room reverb from the Chase Bliss Audio &amp; Meris CXM 1978 and recorded it to a cassette tape for some extra color and saturation.
+Instrument: Wurlitzer 200A.
+Reverb: Chase Bliss Audio &amp; Meris CXM 1978.
+Tape recorder: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=186C11a97Mg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-11-00_540.3744ab107500bc0d2a97.jpg</video:thumbnail_loc>
+      <video:duration>94</video:duration>
+      <video:publication_date>2022-07-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/korg-ms-20-med-plasma-pedal/</loc>
     <video:video>
       <video:title>Korg MS-20 med PLASMA Pedal</video:title>
