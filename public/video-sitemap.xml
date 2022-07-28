@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/keyboardlydene-i-haunted-by-silhouettes-selkie/</loc>
+    <video:video>
+      <video:title>Keyboardlydene i &quot;Haunted By Silhouettes - Selkie&quot;</video:title>
+      <video:description>Keyboardlydene fra bridge-delen i låta Selkie av Haunted By Silhouettes &amp; Bjorn &quot;Speed&quot; Strid.
+Instrumenter som er brukt: Korg MS-20 kontrollert av Korg CX-3 med External Signal Processing (ESP), Louis Zwicki Pianette, Sequential Circuits Pro-One, Mellotron M4000D innspilt på 4-spors kassett med Fostex X-28H og Hammond C3 med Leslie 122.
+Instrumenter som er brukt ellers i låta: Dreadbox Erebus v2 og Korg Polysix.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=0T_kUpRn9MU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-28-00_540.d9188a72fc3e7abaf318.jpg</video:thumbnail_loc>
+      <video:duration>45</video:duration>
+      <video:publication_date>2022-07-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/the-keyboard-sounds-of-haunted-by-silhouettes-selkie/</loc>
+    <video:video>
+      <video:title>The keyboard sounds of &quot;Haunted By Silhouettes - Selkie&quot;</video:title>
+      <video:description>The keyboard sounds from the bridge part of the song Selkie by Haunted By Silhouettes &amp; Bjorn &quot;Speed&quot; Strid.
+Instruments used: Korg MS-20 controlled by Korg CX-3 with External Signal Processing (ESP), Louis Zwicki Pianette, Sequential Circuits Pro-One, Mellotron M4000D recorded to 4-track casette tape with Fostex X-28H and Hammond C3 with Leslie 122.
+Instruments used elsewhere in the track: Dreadbox Erebus v2 and Korg Polysix.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=0T_kUpRn9MU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-28-00_540.d9188a72fc3e7abaf318.jpg</video:thumbnail_loc>
+      <video:duration>45</video:duration>
+      <video:publication_date>2022-07-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/synth-solo-i-54-med-pro-one-gjennom-en-gitarforsterker/</loc>
+    <video:video>
+      <video:title>Synth-solo i 5/4 med Pro-One gjennom en gitarforsterker</video:title>
+      <video:description>Synth solo i 5/4 taktart med Sequential Circuits Pro-One synthesizer gjennom en Vox AC15H1TV forsterker.
+Instrument: Sequential Circuits Pro-One.
+Effekter: Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978.
+Forsterker: Vox AC15H1TV.
+Mikrofon: Shure SM57.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=X3GQ62qvswQ</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-25-00_540.e9572a291be4abe5d978.jpg</video:thumbnail_loc>
+      <video:duration>18</video:duration>
+      <video:publication_date>2022-07-25</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/synth-solo-in-54-with-pro-one-through-a-guitar-amp/</loc>
+    <video:video>
+      <video:title>Synth solo in 5/4 with Pro-One through a guitar amp</video:title>
+      <video:description>Synth solo in 5/4 time signature with Sequential Circuits Pro-One synthesizer through a Vox AC15H1TV amplifier.
+Instrument: Sequential Circuits Pro-One.
+Effects: Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978.
+Amplifier: Vox AC15H1TV.
+Microphone: Shure SM57.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=X3GQ62qvswQ</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-25-00_540.e9572a291be4abe5d978.jpg</video:thumbnail_loc>
+      <video:duration>18</video:duration>
+      <video:publication_date>2022-07-25</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/wurlitzer-200a-med-kontaktmikrofon/</loc>
     <video:video>
       <video:title>Wurlitzer 200A med kontaktmikrofon</video:title>
@@ -10,7 +74,7 @@ Instrument: Wurlitzer 200A.
 Klang: Chase Bliss Audio &amp; Meris CXM 1978.
 Båndopptaker: Fostex X-28H.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=186C11a97Mg</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-11-00_540.3744ab107500bc0d2a97.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-11-00_540.9b76b56ebd8e01ec5e45.jpg</video:thumbnail_loc>
       <video:duration>94</video:duration>
       <video:publication_date>2022-07-11</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
@@ -27,7 +91,7 @@ Instrument: Wurlitzer 200A.
 Reverb: Chase Bliss Audio &amp; Meris CXM 1978.
 Tape recorder: Fostex X-28H.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=186C11a97Mg</video:player_loc>
-      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-11-00_540.3744ab107500bc0d2a97.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-11-00_540.9b76b56ebd8e01ec5e45.jpg</video:thumbnail_loc>
       <video:duration>94</video:duration>
       <video:publication_date>2022-07-11</video:publication_date>
       <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
