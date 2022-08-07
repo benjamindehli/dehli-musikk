@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/sonar-og-morse-lyder-med-korg-ms-20-baandopptaker-and-roterende-hoeyttaler/</loc>
+    <video:video>
+      <video:title>Sonar og morse-lyder med Korg MS-20, båndopptaker and roterende høyttaler</video:title>
+      <video:description>Sonar og morse-lyder for intro-sporet &quot;Departure&quot; på EP-en &quot;No Man Isle&quot; av Haunted By Silhouettes.
+Instrument: Korg MS-20.
+Effekter: Dehli Musikk Fuzz Boost Limiter, Fulltone Tube Tape Echo og VanAmps - Sole-Mate Jr.
+Båndopptaker: Fostex X-28H.
+Forsterker: Solton Dopplertone.
+Mikrofoner: Par med Shure SM57 og Sennheiser e 602-II.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=oiXk5_PQ4LI</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-30-00_540.b7250a7808d466a98315.jpg</video:thumbnail_loc>
+      <video:duration>31</video:duration>
+      <video:publication_date>2022-07-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/sonar-and-morse-sounds-with-korg-ms-20-tape-and-rotary-speaker/</loc>
+    <video:video>
+      <video:title>Sonar and morse sounds with Korg MS-20, tape and rotary speaker</video:title>
+      <video:description>Sonar and morse sounds for the intro track &quot;Departure&quot; on the EP &quot;No Man Isle&quot; by  @Haunted By Silhouettes .
+Instrument: Korg MS-20.
+Effects: Dehli Musikk Fuzz Boost Limiter, Fulltone Tube Tape Echo and VanAmps - Sole-Mate Jr.
+Tape recorder: Fostex X-28H.
+Amplifier: Solton Dopplertone.
+Microphones: Pair of Shure SM57 and Sennheiser e 602-II.
+</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=oiXk5_PQ4LI</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-30-00_540.b7250a7808d466a98315.jpg</video:thumbnail_loc>
+      <video:duration>31</video:duration>
+      <video:publication_date>2022-07-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/keyboardlydene-i-haunted-by-silhouettes-selkie/</loc>
     <video:video>
       <video:title>Keyboardlydene i &quot;Haunted By Silhouettes - Selkie&quot;</video:title>
