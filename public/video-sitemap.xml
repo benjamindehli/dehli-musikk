@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/string-melody-ii-med-light-pedal/</loc>
+    <video:video>
+      <video:title>String Melody II med LIGHT pedal</video:title>
+      <video:description>Hohner / Logan String Melody II sendt gjennom en Gamechanger Audio LIGHT pedal med &quot;reflect&quot;-modusen aktiv.
+Instrument: Logan String Melody II.
+Effektpedal: Gamechanger Audio LIGHT Pedal.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qdJOLYiTYGE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-08-08-00_540.7dd9b6cce99b6df17df9.jpg</video:thumbnail_loc>
+      <video:duration>47</video:duration>
+      <video:publication_date>2022-08-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/string-melody-ii-with-light-pedal/</loc>
+    <video:video>
+      <video:title>String Melody II with LIGHT pedal</video:title>
+      <video:description>Hohner / Logan String Melody II running through a Gamechanger Audio LIGHT pedal with the &quot;reflect&quot; mode active.
+Instrument: Logan String Melody II.
+Effects: Gamechanger Audio LIGHT Pedal.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qdJOLYiTYGE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-08-08-00_540.7dd9b6cce99b6df17df9.jpg</video:thumbnail_loc>
+      <video:duration>47</video:duration>
+      <video:publication_date>2022-08-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/sonar-og-morse-lyder-med-korg-ms-20-baandopptaker-and-roterende-hoeyttaler/</loc>
     <video:video>
       <video:title>Sonar og morse-lyder med Korg MS-20, båndopptaker and roterende høyttaler</video:title>
