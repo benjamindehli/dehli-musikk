@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/rhodes-mark-i-stage-piano-med-kontaktmikrofon/</loc>
+    <video:video>
+      <video:title>Rhodes Mark I Stage Piano med kontaktmikrofon</video:title>
+      <video:description>Spiller inn Rhodes Mark I elektrisk piano med en kontaktmikrofon (piezo pickup) for å fremheve mekanisk støy fra tines og tangenter. Signalet fra kontaktmikrofonen er så mikset inn med direktesignalet.
+Det siste eksempelet er mikset med en Roland PA-120 og jeg brukte den interne fjærklangen samt en båndekko og en digital stereo-klang. Signalet ble så spilt inn på kassett for litt ekstra farging.
+Instrument: Rhodes Mark I Stage Piano.
+Effekter: Roland PA-120 fjærklang, Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978.
+Mikser: Roland PA-120.
+Båndopptaker: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=7bgSW-rG2T0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-09-01-00_540.0284ef074714e98b037e.jpg</video:thumbnail_loc>
+      <video:duration>143</video:duration>
+      <video:publication_date>2022-09-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/rhodes-mark-i-stage-piano-with-contact-mic/</loc>
+    <video:video>
+      <video:title>Rhodes Mark I Stage Piano with contact mic</video:title>
+      <video:description>Recording the Rhodes Mark I electric piano with a contact microphone (piezo pickup) to capture the mechanical noise from the tines and keys. The signal from the contact mic is then blended in with the direct signal.
+The last example is mixed down with Roland PA-120 and I used the internal spring reverb as well as a tape echo and a digital stereo reverb. The signal was then recorded it to a cassette tape for some extra color and saturation.
+Instrument: Rhodes Mark I Stage Piano.
+Effects: Roland PA-120 spring reverb, Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978.
+Mixer: Roland PA-120.
+Tape recorder: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=7bgSW-rG2T0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-09-01-00_540.0284ef074714e98b037e.jpg</video:thumbnail_loc>
+      <video:duration>143</video:duration>
+      <video:publication_date>2022-09-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/kjappe-lydeksempler-av-synth-og-mellotron-oppsettet/</loc>
     <video:video>
       <video:title>Kjappe lydeksempler av synth- og Mellotron-oppsettet</video:title>
