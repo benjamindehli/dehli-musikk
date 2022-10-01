@@ -15,6 +15,7 @@ export const convertToUrlFriendlyString = string => {
     // Character replace
     string = replaceAndAddSpace(string, "&", "and");
     string = replaceAndAddSpace(string, "+", "plus");
+    string = replaceAndAddSpace(string, "/", "-");
     string = string.replace(/[æä]/g, "ae");
     string = string.replace(/[øö]/g, "oe");
     string = string.replace(/å/g, "aa");
