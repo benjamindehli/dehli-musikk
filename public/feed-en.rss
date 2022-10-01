@@ -6,6 +6,22 @@
 <atom:link href="https://www.dehlimusikk.no/feed-en.rss" rel="self" type="application/rss+xml" />
 <description></description>
 <item>
+                <title>Finished build project - Hairball Audio FET/RACK Revision D</title>
+                <description>The final result of the compressor build 🛠️⚡🎛️</description>
+                <pubDate>Sat, 24 Sep 2022 22:00:00 GMT</pubDate>
+                <link>https://www.dehlimusikk.no/en/posts/finished-build-project-hairball-audio-fetrack-revision-d/</link>
+                <guid>https://www.dehlimusikk.no/en/posts/finished-build-project-hairball-audio-fetrack-revision-d/</guid>
+                <dc:creator>Benjamin Dehli</dc:creator>
+                </item>
+<item>
+                <title>New build project - Hairball Audio FET/RACK Revision D</title>
+                <description>Building a FET/RACK (1176) compressor from Hairball Audio 🛠️⚡🎛️</description>
+                <pubDate>Fri, 23 Sep 2022 22:00:00 GMT</pubDate>
+                <link>https://www.dehlimusikk.no/en/posts/new-build-project-hairball-audio-fetrack-revision-d/</link>
+                <guid>https://www.dehlimusikk.no/en/posts/new-build-project-hairball-audio-fetrack-revision-d/</guid>
+                <dc:creator>Benjamin Dehli</dc:creator>
+                </item>
+<item>
                 <title>New mixer - Roland PA-120</title>
                 <description>The Mean Green Machine 💚🎚️🎛️
 Roland PA-120 with built-in spring reverb and effects loop for tape echo 😁</description>
@@ -156,24 +172,6 @@ I&apos;ve had the pleasure of playing keyboard instruments on this one 🎹🎛<
                 <pubDate>Fri, 09 Jul 2021 22:00:00 GMT</pubDate>
                 <link>https://www.dehlimusikk.no/en/posts/clavinet-piano-organ-and-a-54-groove/</link>
                 <guid>https://www.dehlimusikk.no/en/posts/clavinet-piano-organ-and-a-54-groove/</guid>
-                <dc:creator>Benjamin Dehli</dc:creator>
-                </item>
-<item>
-                <title>New release - Hidden by Kaasin</title>
-                <description>New rock music from Kaasin released today 💥🦄🔊
-Perfect music to listen to while weeding the flower bed 👌🌼🌸
-Have a nice weekend and summer! 🌞</description>
-                <pubDate>Thu, 01 Jul 2021 22:00:00 GMT</pubDate>
-                <link>https://www.dehlimusikk.no/en/posts/new-release-hidden-by-kaasin/</link>
-                <guid>https://www.dehlimusikk.no/en/posts/new-release-hidden-by-kaasin/</guid>
-                <dc:creator>Benjamin Dehli</dc:creator>
-                </item>
-<item>
-                <title>Trying out some Clavinet pedal combinations</title>
-                <description>Running the Clavinet through an Electro-Harmonix Bassballs, Pro Co RAT 2 and Roger Mayer Voodoo-Vibe+  🎹🎛️🔊</description>
-                <pubDate>Sat, 12 Jun 2021 22:00:00 GMT</pubDate>
-                <link>https://www.dehlimusikk.no/en/posts/trying-out-some-clavinet-pedal-combinations/</link>
-                <guid>https://www.dehlimusikk.no/en/posts/trying-out-some-clavinet-pedal-combinations/</guid>
                 <dc:creator>Benjamin Dehli</dc:creator>
                 </item>
 </channel>
