@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/synth-jam-med-korg-ms-20-logan-string-melody-ii-og-arturia-drumbrute/</loc>
+    <video:video>
+      <video:title>Synth-jam med Korg MS-20, Logan String Melody II og Arturia DrumBrute</video:title>
+      <video:description>Senkvelds synth-jam spilt inn med en Roland PA-120 mikser og en Fostex X-28H 4-spors kassettopptaker.
+Instruments: Arturia DrumBrute, Korg MS-20 og Hohner / Logan String Melody II.
+Effekter: Roland PA-120 fjærklang, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D og Chase Bliss Audio &amp; Meris CXM 1978.
+Mikser: Roland PA-120.
+Båndopptaker: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=chGP7LZF3ys</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-10-01-00_540.af4196b8492bc1d39dba.jpg</video:thumbnail_loc>
+      <video:duration>483</video:duration>
+      <video:publication_date>2022-10-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/synth-jam-with-korg-ms-20-logan-string-melody-ii-and-arturia-drumbrute/</loc>
+    <video:video>
+      <video:title>Synth jam with Korg MS-20, Logan String Melody II and Arturia DrumBrute</video:title>
+      <video:description>Late night synth jam recorded through a Roland PA-120 mixer to a Fostex X-28H 4-track cassette recorder.
+Instruments: Arturia DrumBrute, Korg MS-20 and Hohner / Logan String Melody II.
+Effects: Roland PA-120 spring reverb, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D and Chase Bliss Audio &amp; Meris CXM 1978.
+Mixer: Roland PA-120.
+Tape recorder: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=chGP7LZF3ys</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-10-01-00_540.af4196b8492bc1d39dba.jpg</video:thumbnail_loc>
+      <video:duration>483</video:duration>
+      <video:publication_date>2022-10-01</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/harmonium-i-138-med-yamaha-l-20d-shorts/</loc>
+    <video:video>
+      <video:title>Harmonium i 13/8 med Yamaha L-20D #shorts</video:title>
+      <video:description>13/8 taktart med Yamaha L-20D elektrisk harmonium / reed organ.
+Instrument: Yamaha L-20D.
+Mikrofoner: Par med AKG C451E.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=h6eKaQo-qto</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-09-08-00_540.c07b529a734fb4969624.jpg</video:thumbnail_loc>
+      <video:duration>20</video:duration>
+      <video:publication_date>2022-09-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/harmonium-in-138-with-yamaha-l-20d/</loc>
+    <video:video>
+      <video:title>Harmonium in 13/8 with Yamaha L-20D</video:title>
+      <video:description>13/8 time signature with Yamaha L-20D electric harmonium / reed organ.
+Instrument: Yamaha L-20D.
+Microphones: Pair of AKG C451E.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=h6eKaQo-qto</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-09-08-00_540.c07b529a734fb4969624.jpg</video:thumbnail_loc>
+      <video:duration>20</video:duration>
+      <video:publication_date>2022-09-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/rhodes-mark-i-stage-piano-med-kontaktmikrofon/</loc>
     <video:video>
       <video:title>Rhodes Mark I Stage Piano med kontaktmikrofon</video:title>
