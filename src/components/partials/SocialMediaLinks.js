@@ -17,7 +17,7 @@ const SocialMediaLinks = () => {
     <a href='https://www.instagram.com/benjamindehli/' title='Link to Instagram page' aria-label='Link to Instagram page' target='_blank' rel="noopener noreferrer" className={style.instagram}>
       <FontAwesomeIcon icon={['fab', 'instagram']} />
     </a>
-    <a href='https://www.youtube.com/c/BenjaminDehli' title='Link to Youtube channel' aria-label='Link to Youtube channel' target='_blank' rel="noopener noreferrer" className={style.youtube}>
+    <a href='https://youtube.com/@BenjaminDehli' title='Link to Youtube channel' aria-label='Link to Youtube channel' target='_blank' rel="noopener noreferrer" className={style.youtube}>
       <FontAwesomeIcon icon={['fab', 'youtube']} />
     </a>
     <a href='https://vimeo.com/benjamindehli' title='Link to Vimeo page' aria-label='Link to Vimeo page' target='_blank' rel="noopener noreferrer" className={style.vimeo}>
