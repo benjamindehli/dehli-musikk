@@ -13,6 +13,7 @@ import confusionItsAllToClear from './releases/data/confusion_itsAllTooClear.jso
 import confusionLetTheGamesBegin from './releases/data/confusion_thisTime.json';
 import confusionThisTime from './releases/data/confusion_lettheGamesBegin.json';
 import esbenMeyerTaakemann from './releases/data/esbenMeyer_taakemann.json';
+import griseneJulIgjen from './releases/data/grisene_julIgjen.json';
 import haakerBrothers from './releases/data/haaker_brothers.json';
 import haakerGuardianAngels from './releases/data/haaker_guardianAngels.json'
 import haakerRocknrolla from './releases/data/haaker_rocknrolla.json';
@@ -79,6 +80,7 @@ const allReleases = [
   confusionLetTheGamesBegin,
   confusionThisTime,
   esbenMeyerTaakemann,
+  griseneJulIgjen,
   haakerBrothers,
   haakerGuardianAngels,
   haakerRocknrolla,
