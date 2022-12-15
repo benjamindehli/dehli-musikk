@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.dehlimusikk.no/posts/ny-synth-suzuki-omnichord-om-84-system-two/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2022-12-09</news:publication_date>
+      <news:title>Ny synth - Suzuki Omnichord OM-84 System Two</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/new-synth-suzuki-omnichord-om-84-system-two/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2022-12-09</news:publication_date>
+      <news:title>New synth - Suzuki Omnichord OM-84 System Two</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/posts/wurlitzer-music-neonskilt/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
@@ -17,7 +33,7 @@
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/posts/ferdig-byggeprosjekt-hairball-audio-fetrack-revision-d/</loc>
+    <loc>https://www.dehlimusikk.no/posts/ferdig-byggeprosjekt-hairball-audio-fet-rack-revision-d/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
       <news:publication_date>2022-09-25</news:publication_date>
@@ -25,7 +41,7 @@
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/en/posts/finished-build-project-hairball-audio-fetrack-revision-d/</loc>
+    <loc>https://www.dehlimusikk.no/en/posts/finished-build-project-hairball-audio-fet-rack-revision-d/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2022-09-25</news:publication_date>
@@ -33,7 +49,7 @@
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/posts/nytt-byggeprosjekt-hairball-audio-fetrack-revision-d/</loc>
+    <loc>https://www.dehlimusikk.no/posts/nytt-byggeprosjekt-hairball-audio-fet-rack-revision-d/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
       <news:publication_date>2022-09-24</news:publication_date>
@@ -41,7 +57,7 @@
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/en/posts/new-build-project-hairball-audio-fetrack-revision-d/</loc>
+    <loc>https://www.dehlimusikk.no/en/posts/new-build-project-hairball-audio-fet-rack-revision-d/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2022-09-24</news:publication_date>
@@ -321,7 +337,7 @@
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/posts/clavinet-piano-orgel-og-54-takt/</loc>
+    <loc>https://www.dehlimusikk.no/posts/clavinet-piano-orgel-og-5-4-takt/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
       <news:publication_date>2021-07-10</news:publication_date>
@@ -329,7 +345,7 @@
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/en/posts/clavinet-piano-organ-and-a-54-groove/</loc>
+    <loc>https://www.dehlimusikk.no/en/posts/clavinet-piano-organ-and-a-5-4-groove/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2021-07-10</news:publication_date>
@@ -1937,7 +1953,7 @@
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/posts/fender-rhodes-direkteklang-oppsett-med-leslie-og-twin-reverb/</loc>
+    <loc>https://www.dehlimusikk.no/posts/fender-rhodes-direkte-klang-oppsett-med-leslie-og-twin-reverb/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
       <news:publication_date>2019-08-05</news:publication_date>
@@ -1945,7 +1961,7 @@
     </news:news>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/en/posts/fender-rhodes-wetdry-setup-with-rotary-speaker-and-twin-reverb/</loc>
+    <loc>https://www.dehlimusikk.no/en/posts/fender-rhodes-wet-dry-setup-with-rotary-speaker-and-twin-reverb/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2019-08-05</news:publication_date>
