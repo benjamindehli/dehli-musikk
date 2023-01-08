@@ -41,6 +41,9 @@ import leneNevisdalGiveMeaSmileJoe from './releases/data/leneNevisdal_giveMeaSmi
 import setOnesCapDontYouWannaKnow from './releases/data/setOnesCap_dontYouWannaKnow.json';
 import setOnesCapLikeAStone from './releases/data/setOnesCap_likeaStone.json';
 import setOnesCapWaitForTheOther from './releases/data/setOnesCap_waitfortheOther.json';
+import southOfJamesonFindMyShelterBonusTrackDemo from './releases/data/southofJameson_findmyshelterBonusTrackDemo.json';
+import southOfJamesonLittleGirlBonusTrackDemo from './releases/data/southofJameson_littlegirlBonusTrackDemo.json';
+import southOfJamesonWomanInMyDreamsBonusTrackDemo from './releases/data/southofJameson_womaninmydreamsBonusTrackDemo.json';
 import spinningsWheelsBandPowerOfAGrin from './releases/data/spinningWheelsBand_powerofaGrin.json';
 import spinningsWheelsBandBackWhen from './releases/data/spinningWheelsBandRandleCurrieJustinWilliamson_backWhen.json';
 import taxiBearKoreaTown from './releases/data/taxiBear_koreaTown.json';
@@ -59,9 +62,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  southOfJamesonLittleGirlBonusTrackDemo,
   hauntedBySilhouettesDeparture,
-  hauntedBySilhouettesIcon,
-  hauntedBySilhouettesNoManIsle
+  hauntedBySilhouettesSelkie
 ];
 
 const allReleases = [
@@ -108,6 +111,9 @@ const allReleases = [
   setOnesCapDontYouWannaKnow,
   setOnesCapLikeAStone,
   setOnesCapWaitForTheOther,
+  southOfJamesonFindMyShelterBonusTrackDemo,
+  southOfJamesonLittleGirlBonusTrackDemo,
+  southOfJamesonWomanInMyDreamsBonusTrackDemo,
   spinningsWheelsBandPowerOfAGrin,
   spinningsWheelsBandBackWhen,
   taxiBearKoreaTown,
