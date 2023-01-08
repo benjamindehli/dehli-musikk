@@ -43,6 +43,7 @@ const ExpansionPanel = ({ panelTitle, children }) => {
 
   useEffect(() => {
     setIsInitiated(false);
+    setExpanded(false);
   }, [children])
 
   useEffect(() => {
