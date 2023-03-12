@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/yamaha-yc-25d-med-baandekko-og-klang/</loc>
+    <video:video>
+      <video:title>Yamaha YC-25D med båndekko og klang</video:title>
+      <video:description>En kort jam i C-moll med Yamaha YC-25D combo-orgel, Fulltone Tube Tape Echo og ChaseBliss &amp; Meris CXM 1978 stereoklang.
+Instrument: Yamaha YC-25D.
+Effekter: Fulltone Tube Tape Echo og Chase Bliss Audio Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Vx09phbnT14</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-03-11-00_540.26983f0d5270c3fcd4f9.jpg</video:thumbnail_loc>
+      <video:duration>224</video:duration>
+      <video:publication_date>2023-03-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/yamaha-yc-25d-with-tape-echo-and-reverb/</loc>
+    <video:video>
+      <video:title>Yamaha YC-25D with tape echo and reverb</video:title>
+      <video:description>A short jam in C minor with the Yamaha YC-25D combo organ, Fulltone Tube Tape Echo and ChaseBliss &amp; Meris CXM 1978 stereo reverb.
+Instrument: Yamaha YC-25D.
+Effects: Fulltone Tube Tape Echo and Chase Bliss Audio Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Vx09phbnT14</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-03-11-00_540.26983f0d5270c3fcd4f9.jpg</video:thumbnail_loc>
+      <video:duration>224</video:duration>
+      <video:publication_date>2023-03-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/omnichord-med-light-pedal/</loc>
+    <video:video>
+      <video:title>Omnichord med LIGHT Pedal</video:title>
+      <video:description>Instrument: Suzuki Omnichord System Two OM-84.
+Effekter: Gamechanger Audio LIGHT Pedal.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=h9S4KWjgspM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-03-09-00_540.009a4e659b69e11e400b.jpg</video:thumbnail_loc>
+      <video:duration>190</video:duration>
+      <video:publication_date>2023-03-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/omnichord-with-light-pedal/</loc>
+    <video:video>
+      <video:title>Omnichord with LIGHT Pedal</video:title>
+      <video:description>Instrument: Suzuki Omnichord System Two OM-84.
+Effects: Gamechanger Audio LIGHT Pedal.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=h9S4KWjgspM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-03-09-00_540.009a4e659b69e11e400b.jpg</video:thumbnail_loc>
+      <video:duration>190</video:duration>
+      <video:publication_date>2023-03-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/suzuki-omnichord-om-84-med-og-uten-effekter/</loc>
     <video:video>
       <video:title>Suzuki Omnichord OM-84 med og uten effekter</video:title>
