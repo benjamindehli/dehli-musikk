@@ -62,6 +62,35 @@
       }
     }
 
+    &:local(.pianobook) {
+      &:hover,
+      &:focus {
+        background-color: #002b2a;
+      }
+      svg {
+        height: 34px;
+        width: 34px;
+        stroke-width: 150;
+        position: relative;
+        top: 2px;
+        left: 2px;
+      }
+    }
+
+    &:local(.kofi) {
+      &:hover,
+      &:focus {
+        background-color: #13c3ff;
+      }
+      svg {
+        height: 32px;
+        width: 49px;
+        position: relative;
+        left: 2px;
+        top: 3px;
+      }
+    }
+
     &:local(.rss) {
       &:hover,
       &:focus {
