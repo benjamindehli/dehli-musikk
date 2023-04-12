@@ -135,7 +135,7 @@ const NavigationBar = () => {
       <SearchField />
 
       <div className={style.languageSelectorListContainer}>
-        <button onClick={handleShowLanguageSelectorList} aria-label={selectedLanguageKey === 'en' ? 'Select language' : 'Velg språk'}>
+        <button onClick={handleShowLanguageSelectorList} aria-label={selectedLanguageKey === 'en' ? 'English language is selected. Click to select a different language' : 'Norsk språk er valgt. Klikk for å velge et annet språk'}>
           {renderLanguageSelectorButton(availableLanguages, selectedLanguageKey)}
         </button>
         <div ref={languageSelectorListWrapperRef} className={`${style.languageSelectorList} ${showLanguageSelectorList
