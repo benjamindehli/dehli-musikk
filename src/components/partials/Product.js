@@ -66,8 +66,8 @@ const Product = ({ product, fullscreen }) => {
       },
       "offers": {
         "@type": "Offer",
-        "price": product.price,
-        "priceCurrency": product.priceCurrency,
+        "price": product.price?.length ? product.price : 0,
+        "priceCurrency": product.priceCurrency?.length ? product.priceCurrency : 'USD',
         "url": product.link.url,
         "availability": "http://schema.org/OnlineOnly",
         "validFrom": productDate,
