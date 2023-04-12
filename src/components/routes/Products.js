@@ -104,8 +104,8 @@ const Products = () => {
       if (productId === selectedProductId) {
         selectedProduct = {
           ...product,
-          previousProductId: index > 0 ? convertToUrlFriendlyString(products[index - 1].title[selectedLanguageKey]) : null,
-          nextProductId: index < products.length - 1 ? convertToUrlFriendlyString(products[index + 1].title[selectedLanguageKey]) : null
+          previousProductId: index > 0 ? convertToUrlFriendlyString(products[index - 1].title) : null,
+          nextProductId: index < products.length - 1 ? convertToUrlFriendlyString(products[index + 1].title) : null
         }
       }
     });
