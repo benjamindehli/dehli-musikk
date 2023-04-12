@@ -10,6 +10,9 @@ body{
 a{
 	color: $primary-color;
 	cursor: pointer;
+	&:link {
+		text-decoration: underline;
+	}
 	&:hover{
 		color: hover-color($primary-color);
 	}
