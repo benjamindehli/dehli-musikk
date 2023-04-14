@@ -1,4 +1,20 @@
 [{
+  "timestamp": 1680811200000,
+  "title": "Omni-84",
+  "content": {
+    "no": "Alle lydene fra Omnichord'en har blitt samplet. Jeg har også lagt til effektene jeg pleier å bruke på Omnichord som en impulsrespons kalt \"space\".\nFor øyeblikket produseres ikke Omnichord og prisene på bruktmarkedet har skutt i været. Dette er mitt forsøk på å gjøre lyden av Omnichord mer tilgjengelig.\nDette lydbiblioteket inneholder 5 presets, én for hver del av Omnichord'en. Trommer, bass, akkorder, keyboard og SonicStrings",
+    "en": "Every sound of the Omnichord has been sampled. I've also added the effects I tend to use when recording and playing the Omnichord as an impulse response called \"space\".\nAt the moment, the Omnichord is no longer produced and prices on the second-hand market have skyrocketed. This is my attempt to make the sound of the Omnichord more accessible.\nThis sample library includes 5 presets, one for each part of the Omnichord. Drums, Bass, Chords, Keyboard and SonicStrings"
+  },
+  "thumbnailDescription": "The Omni-84 user interface and a Suzuki Omnichord OM-84 System Two",
+  "link": {
+    "url": "https://www.pianobook.co.uk/packs/omni-84/",
+    "text": {
+      "en": "Go to download page",
+      "no": "Gå til side for nedlasting"
+    }
+  }
+},
+{
   "timestamp": 1589673600000,
   "title": "Lo-fi Tape Piano",
   "content": {
@@ -9,7 +25,7 @@
   "price": "4.99",
   "priceCurrency": "USD",
   "link": {
-    "url": "https://roqstar.io/item/lo-fi-tape-piano",
+    "url": "https://www.roqstar.io/item/lo-fi-tape-piano",
     "text": {
       "en": "Show in store",
       "no": "Se i butikk"
