@@ -2997,7 +2997,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.58.0, @typescript-eslint/utils@npm:^5.43.0":
+"@typescript-eslint/utils@npm:5.58.0, @typescript-eslint/utils@npm:^5.58.0":
   version: 5.58.0
   resolution: "@typescript-eslint/utils@npm:5.58.0"
   dependencies:
@@ -4490,25 +4490,25 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.25.1":
-  version: 3.30.0
-  resolution: "core-js-compat@npm:3.30.0"
+  version: 3.30.1
+  resolution: "core-js-compat@npm:3.30.1"
   dependencies:
     browserslist: ^4.21.5
-  checksum: 51a34d8a292de51f52ac2d72b18ee94743a905d4570a42214262426ebf8f026c853fee22cf4d6c61c2d95f861749421c4de48e9389f551745c5ac1477a5f929f
+  checksum: e450a9771fc927ce982333929e1c4b32f180f641e4cfff9de6ed44b5930de19be7707cf74f45d1746ca69b8e8ac0698a555cb7244fbfbed6c38ca93844207bf7
   languageName: node
   linkType: hard
 
 "core-js-pure@npm:^3.23.3":
-  version: 3.30.0
-  resolution: "core-js-pure@npm:3.30.0"
-  checksum: 57573b18d8900ad0a34a0806491bb49774dfcbb6d022b61094d6afc9f6c3d833c1b6c1f5afb5e6a7caca235fa4db00b317de80bfd8ac8e2d9a4f738c4bf233ed
+  version: 3.30.1
+  resolution: "core-js-pure@npm:3.30.1"
+  checksum: ea64c72cd68ddde43eddb250033af784cc00251195faaee665163e7d6a69df964c9eba9e931f3adf4cc1e1be0fabc1b59aa54de1c847811583c09bf1737911f9
   languageName: node
   linkType: hard
 
 "core-js@npm:^3.19.2":
-  version: 3.30.0
-  resolution: "core-js@npm:3.30.0"
-  checksum: 276d4444a1261739ea4c350ef3f6aeab4c7ae7f36ac197f02d197a4566b42867c3a9b12c2fcda8a736aeca888d2c4131c8cb58ad17ed02294a10c9c97606df71
+  version: 3.30.1
+  resolution: "core-js@npm:3.30.1"
+  checksum: 6d4a00b488694d4c715c424e15dfef31433ac7aa395c39c518a0cfacec918ada1c716fed74682033197e0164e23bbf38bfd598ee9a239c4aaa590ab1ba862ac8
   languageName: node
   linkType: hard
 
@@ -5257,9 +5257,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.284":
-  version: 1.4.360
-  resolution: "electron-to-chromium@npm:1.4.360"
-  checksum: 2a5bee4f70548ed22f7f013ce2a44b84e633e2be8c712481077ca56dd7f729d4a7454828562b3d46474d30b04da433b1f94f13621fe4dc09ae1e43b5bb7fc953
+  version: 1.4.363
+  resolution: "electron-to-chromium@npm:1.4.363"
+  checksum: e3a84cf652d97b124e0d328688454d6d7b81e533e671edc7c32dc4b18e5d90369001f61ffd503edf11a9d6d35ecb17385e74060b59b4a70b2bd53a71108ff286
   languageName: node
   linkType: hard
 
@@ -5685,13 +5685,13 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-testing-library@npm:^5.0.1":
-  version: 5.10.2
-  resolution: "eslint-plugin-testing-library@npm:5.10.2"
+  version: 5.10.3
+  resolution: "eslint-plugin-testing-library@npm:5.10.3"
   dependencies:
-    "@typescript-eslint/utils": ^5.43.0
+    "@typescript-eslint/utils": ^5.58.0
   peerDependencies:
     eslint: ^7.5.0 || ^8.0.0
-  checksum: 3b2b330e62f4a6dc438050006f0d0c97605f6861828b153271dc6d2fafb1e60f4e86fbaa8166c7afd452e3b6cad39413738fd4c8e2eb2def1915c678154676da
+  checksum: 3033121a0040b98280cd41856273ad1b268f56083759401e7af72ac8a96dcb213892f1248983aa9a18988b44913263e93f0d182dbb0c5b27b00242bfffc9cdcc
   languageName: node
   linkType: hard
 
@@ -5706,12 +5706,12 @@ __metadata:
   linkType: hard
 
 "eslint-scope@npm:^7.1.1":
-  version: 7.1.1
-  resolution: "eslint-scope@npm:7.1.1"
+  version: 7.2.0
+  resolution: "eslint-scope@npm:7.2.0"
   dependencies:
     esrecurse: ^4.3.0
     estraverse: ^5.2.0
-  checksum: 9f6e974ab2db641ca8ab13508c405b7b859e72afe9f254e8131ff154d2f40c99ad4545ce326fd9fde3212ff29707102562a4834f1c48617b35d98c71a97fbf3e
+  checksum: 64591a2d8b244ade9c690b59ef238a11d5c721a98bcee9e9f445454f442d03d3e04eda88e95a4daec558220a99fa384309d9faae3d459bd40e7a81b4063980ae
   languageName: node
   linkType: hard
 
