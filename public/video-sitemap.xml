@@ -1,6 +1,306 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/voltage-controlled-cassette-organ-lydeksempler/</loc>
+    <video:video>
+      <video:title>Voltage Controlled Cassette Organ - Lydeksempler</video:title>
+      <video:description>Med Voltage Controlled Cassette Organ får du den ikoniske lyden av Korg CX-3 sammen med den umiskjennelige sjarmen til kassettopptak. Den fanger essensen av organets analoge oscillatorer så vel som pitch-fluktuasjonen, harmonisk forvrengning og farging forbundet med kassettopptak.
+Hver tone for hver drawbar og &quot;key click&quot;, har blitt samplet som individuelle lydfiler, noe som gir autentisk og detaljrik lyd.
+Innspillingene har blitt gjort to ganger på kassettbånd, noe som resulterer i en &quot;double track&quot;-effekt som tilfører dybde. Takket være ujevnhetene til mekanikken i båndopptakeren og selve båndet, gir hver avspilling et litt annerledes resultat.
+Biblioteket inkluderer også impulsresponser for to typer båndekko og to typer romklang.
+
+Historien bak:
+Jeg oppdaget at når jeg tok opp Korg CX-3 på kassettbånd, dukket det opp noen artefakter som forvandlet lyden. Wow- og flutter-effektene, sammen med de tilfeldige fluktueringene, skapte en bevegelse i lyden som minner om chorus/vibrato-effekt eller dopplereffekten fra en roterende høyttaler. I motsetning til tradisjonelle modulasjonseffektene med jevn hastighet, introduserte kassettbåndet en mer tilfeldig og organisk modulasjon.
+
+Instrument-presets:
+For å sikre optimal ytelse og fleksibilitet tilbyr biblioteket to presets: En ganske ressurskrevende &quot;All Drawbars&quot;-preset med 9 drawbars og en &quot;Single Drawbar&quot;-preset som sparer ressurser ved å spille av færre lydfiler per tangent. Preset&apos;en &quot;Single Drawbar&quot; har imidlertid lydfiler fra forskjellige drawbars for et utvidet oktavspenn.
+- All Drawbars:
+   - Preset&apos;en &quot;All Drawbars&quot; spiller av 20 forskjellige lydfiler per tangent, noe som resulterer i en rik og kompleks lyd. Det krever imidlertid betydelige ressurser, spesielt når du spiller breie akkorder.
+- Single Drawbar:
+   - Som et mer ressursvennlig alternativ spiller preset&apos;en &quot;Single Drawbar&quot; bare fire lydfiler per tangent. Denne preset&apos;en inneholder også ekstra knotter for justering av decay-kurve og release-kurve for envelope&apos;n.
+
+Brukergrensesnitt:
+Utforsk parametere for å stille inn lyden din med kontroll over ni drawbars, &quot;key click&quot;, envelope, amplitudemodulasjon med LFO-er, &quot;double track&quot; og effekter for ekko og romklang.
+- ADSR-envelope:
+  - Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelope&apos;n deg skreddersy dynamikken etter din smak.
+  - Envelope-kurver:
+    - For enda mer kontroll over envelope&apos;n kan du endre kurven for attack-tid. Preset&apos;en &quot;Single Drawbar&quot; har også to ekstra knotter for decay-kurve og release-kurve. Decay-kurven og release-kurven er eksponentielle for preset&apos;en &quot;All Drawbars&quot;.
+- LFO:
+  - LFO Rate og LFO Depth-knappene lar deg modulere amplituden til trekkstengene med ønsket dybde og hastighet.
+- Drawbars:
+  - Hver drawbar kontrollerer amplituden til en spesifikk harmonisk overtone.
+  - Dessverre støtter ikke DecentSampler omvendt vertikal kontroll for drawbars, noe som betyr at du må klikke og dra musepekeren oppover for å få drawbar&apos;en til å gå nedover. Jeg har sendt inn en forespørsel til Decent Sampler ang. dette.
+- Key click:
+  - Key click gir en liten transient i starten av anslaget og kan f.eks brukes til å emulere en stikke som slår på et slaginstrument eller et plekter som plukker en streng.
+- Double track:
+  - Hver lydfil har blitt spilt inn to ganger og kan mikses sammen for en &quot;chorus&quot;-effekt eller panoreres for en stereoeffekt.
+  - På grunn av båndmaskin-mekanikken og selve båndet, vil lyden være litt annerledes for hver gang den tas opp og spilles av.
+- Effekter:
+  - Ekko-effekten er en Fulltone Tube Tape Echo (båndekko) spilt inn to ganger for stereo, mens reverb-effekten er en Chase Bliss Audio &amp; Meris CXM 1978 klang-pedal satt til romklang.
+  - Ekko:
+    - Velg mellom to typer ekko: &quot;Short&quot;, som gir en klassisk slapback-effekt, og &quot;long&quot;, er en langsom ekko med mange repetisjoner.
+  - Reverb:
+    - Du finner også to romklangeffekter: &quot;Short&quot;, som er et lite, intimt rom, og &quot;long&quot;, som er et stort rom med lang etterklangstid.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=0h4CQ6jh6yM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-26-00_540.ab6cb0a7dc19712e7e84.jpg</video:thumbnail_loc>
+      <video:duration>152</video:duration>
+      <video:publication_date>2023-06-26</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/voltage-controlled-cassette-organ-sound-examples/</loc>
+    <video:video>
+      <video:title>Voltage Controlled Cassette Organ - Sound Examples</video:title>
+      <video:description>You&apos;ll get the iconic sound of the Korg CX-3, infused with the unmistakable charm of cassette tape recording, with the Voltage Controlled Cassette Organ. It captures the essence of the organs analog oscillators as well as the pitch fluctuation (wow/flutter), harmonic distortion, and coloration associated with cassette tape recordings.
+Each note for every drawbar, as well as the sound of the key click, has been meticulously sampled as individual audio files, ensuring authenticity and attention to detail.
+To achieve an even richer sound, the organ has been recorded twice onto cassette tape, resulting in a double-track effect that adds depth and character. Thanks to the inherent idiosyncrasies of tape deck mechanics and the tape itself, each playback yields a slightly different result.
+It also includes impulse responses for two tape delay/echo types and two room reverbs.
+
+The Story:
+I discovered that the Korg CX-3, when sampled through cassette tape, introduced some imperfections that transformed the sound. The wow and flutter effects, along with the random warbles, created a fascinating movement reminiscent of a chorus/vibrato or the doppler effect from a rotary speaker. However, unlike traditional modulation effects with fixed speed, the cassette tape introduced a more random and organic quality to the modulation.
+
+Instrument presets:
+To ensure optimal performance and flexibility, the library offers two presets: A quite resource-intensive &quot;All Drawbars&quot; preset with 9 drawbars and a &quot;Single Drawbar&quot; preset which conserves resources by playing back fewer samples per key. The &quot;Single Drawbar&quot; preset does however have samples from different drawbars for an extended key range.
+- All Drawbars:
+  - The &quot;All Drawbars&quot; preset plays back 20 different samples per note, resulting in a rich and complex sound. However, it does demand significant system resources, especially when playing big chords.
+- Single Drawbar:
+  - As a more resource-friendly alternative, the &quot;Single Drawbar&quot; preset plays back only four samples per key. This preset also incorporates additional knobs for adjusting the envelope decay curve and release curve, maximizing your creative control.
+
+User Interface:
+Explore parameters to refine your sound, including control over the nine drawbars, key click volume, envelope, amplitude modulation with LFOs, double track, and the immersive effects of echo and reverb.
+- ADSR Envelope:
+  - Shape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking.
+  - Envelope curves:
+    - For even more control over the envelope, you can change the curve of the attack time. The &quot;Single Drawbar&quot; preset also incorporates two additional knobs for decay curve and release curve. The decay curve and release curve are exponential for the &quot;All Drawbars&quot; preset.
+- LFO:
+  - The LFO Rate and LFO Depth knobs enable you to modulate the amplitude of the drawbars with the desired depth and rate.
+- Drawbars:
+  - Each drawbar controls the amplitude of a specific harmonic overtone, offering you unparalleled control over the instrument&apos;s harmonic richness.
+  - Unfortunately DecentSampler doesn&apos;t support reversed/inverted vertical control for drawbars which means you have to click and drag the mouse upwards to make the drawbar go downwards. I have however submitted a feature request for this.
+- Key click:
+  - The click&apos;s percussive nature, akin to the striking of a mallet on a percussion instrument, provided a lively and vibrant attack to the notes played on the organ.
+- Double track:
+  - Each sample has been recorded twice and can be mixed together for a &quot;chorus&quot; effect or panned for a stereo effect.
+  - Because of the nature of the tape deck mechanics and the tape itself, the sound will be a bit different for every time it&apos;s recorded and played back.
+- Effects:
+  - These effects are achieved using carefully crafted impulse responses. The echo effect employs a Fulltone Tube Tape Echo recorded twice for stereo, while the reverb effect draws from a Chase Bliss Audio &amp; Meris CXM 1978 reverb pedal with a room setting.
+  - Echo:
+    - Select from two distinctive echo options: the short echo, delivering a classic slapback effect, and the long echo, characterized by a slower decay and numerous repeats.
+  - Reverb:
+    - You&apos;ll also find two reverb effects: the short reverb, evoking the intimacy of a small room, and the long reverb, enveloping your sound in the vastness of a spacious environment.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=0h4CQ6jh6yM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-26-00_540.ab6cb0a7dc19712e7e84.jpg</video:thumbnail_loc>
+      <video:duration>152</video:duration>
+      <video:publication_date>2023-06-26</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/pipeorgel-i-boe-kyrkje/</loc>
+    <video:video>
+      <video:title>Pipeorgel i Bø kyrkje</video:title>
+      <video:description>Jeg hadde gleden av å prøve pipeorgelet i Bø kyrkje 🎹 ⛪️
+
+Filmet av: Jørgen Tellnes 🎥</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=HDbsIbMiEZQ</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-21-00_540.61c73be4e3729eb5a478.jpg</video:thumbnail_loc>
+      <video:duration>28</video:duration>
+      <video:publication_date>2023-06-21</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/pipe-organ-in-boe-kyrkje/</loc>
+    <video:video>
+      <video:title>Pipe organ in Bø kyrkje</video:title>
+      <video:description>I was lucky enough to have a go at the pipe organ in Bø kyrkje 🎹 ⛪️
+
+Filmed by: Jørgen Tellnes 🎥</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=HDbsIbMiEZQ</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-21-00_540.61c73be4e3729eb5a478.jpg</video:thumbnail_loc>
+      <video:duration>28</video:duration>
+      <video:publication_date>2023-06-21</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/mellotron-m4000d-med-baand/</loc>
+    <video:video>
+      <video:title>Mellotron M4000D med bånd</video:title>
+      <video:description>Bruker Fulltone Tube Tape Echo som båndvreng-effekt til en Mellotron M4000D.
+Instrument: Mellotron M4000D.
+Effekter: Fulltone Tube Tape Echo</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=1tVaPxUV-dU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-19-00_540.1da63c33139ec11f0fde.jpg</video:thumbnail_loc>
+      <video:duration>35</video:duration>
+      <video:publication_date>2023-06-19</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/mellotron-m4000d-through-tape/</loc>
+    <video:video>
+      <video:title>Mellotron M4000D through tape</video:title>
+      <video:description>Using the Fulltone Tube Tape Echo as an tape saturation effect for the Mellotron M4000D.
+Instrument: Mellotron M4000D.
+Effects: Fulltone Tube Tape Echo.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=1tVaPxUV-dU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-19-00_540.1da63c33139ec11f0fde.jpg</video:thumbnail_loc>
+      <video:duration>35</video:duration>
+      <video:publication_date>2023-06-19</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/long-distance-love-paa-wurlitzer-200a/</loc>
+    <video:video>
+      <video:title>Long Distance Love på Wurlitzer 200A</video:title>
+      <video:description>Liten cover-versjon av Long Distance Love av Little Feat på et Wurlitzer 200A elektrisk piano.
+Instrument: Wurlitzer 200A.
+Effekter: Boss CE-1 Chorus Ensemble, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D og Chase Bliss Audio &amp; Meris CXM 1978.
+Forsterker: Fender Twin Reverb.
+Mikrofoner: Shure SM-57 og Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tGTi7hhpXUw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-11-00_540.c2d540fd19ce91e8a2ae.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2023-06-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/long-distance-love-on-wurlitzer-200a/</loc>
+    <video:video>
+      <video:title>Long Distance Love on Wurlitzer 200A</video:title>
+      <video:description>Short cover version of Long Distance Love by Little Feat on a Wurlitzer 200A electric piano.
+Instrument: Wurlitzer 200A.
+Effects: Boss CE-1 Chorus Ensemble, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D and Chase Bliss Audio &amp; Meris CXM 1978.
+Amplifier: Fender Twin Reverb.
+Microphones: Shure SM-57, Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tGTi7hhpXUw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-11-00_540.c2d540fd19ce91e8a2ae.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2023-06-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/hammond-organ-gjennom-en-synthesizer-og-effektpedaler/</loc>
+    <video:video>
+      <video:title>Hammond organ gjennom en synthesizer og effektpedaler</video:title>
+      <video:description>Hammond C3 gjennom en Roland SH-09 synthesizer, Diamond Memory Lane analog ekko og Chase Bliss Audio &amp; Meris CXM 1978 klang.
+Instrumenter: Hammond C3 og Roland SH-09.
+Effekter: Diamond Memory Lane 2 og Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Sh-AGsg-kvg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-03-00_540.707c43715cff6dc0c0f6.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2023-06-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/hammond-organ-through-a-synthesizer-and-effects-pedals/</loc>
+    <video:video>
+      <video:title>Hammond organ through a synthesizer and effects pedals</video:title>
+      <video:description>Hammond C3 through a Roland SH-09 synthesizer, Diamond Memory Lane analog delay and Chase Bliss Audio &amp; Meris CXM 1978 reverb.
+Instruments: Hammond C3 and Roland SH-09.
+Effects: Diamond Memory Lane 2 and Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Sh-AGsg-kvg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-03-00_540.707c43715cff6dc0c0f6.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2023-06-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/voltage-controlled-cassete-organ-forsmak/</loc>
+    <video:video>
+      <video:title>Voltage Controlled Cassete Organ - Forsmak</video:title>
+      <video:description>Tester ut en ny Decent Sampler preset jeg jobber med.
+Voltage Controlled Cassette Organ er en Korg CX-3 (analog versjon) spilt inn på 4-spors kassett. Båndekkoen og klangen er inkludert som impulsresponser i preset&apos;en.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=AFQ6tbHjmqY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-05-18-00_540.fce18e1a41c1c7bc23aa.jpg</video:thumbnail_loc>
+      <video:duration>65</video:duration>
+      <video:publication_date>2023-05-18</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/voltage-controlled-cassete-organ-teaser/</loc>
+    <video:video>
+      <video:title>Voltage Controlled Cassete Organ - Teaser</video:title>
+      <video:description>Trying out a new Decent Sampler preset I&apos;m currently working on.
+Voltage Controlled Cassette Organ is a Korg CX-3 (analog version) sampled to 4-track cassette tape. The tape echo and reverb is included in the preset as impulse response.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=AFQ6tbHjmqY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-05-18-00_540.fce18e1a41c1c7bc23aa.jpg</video:thumbnail_loc>
+      <video:duration>65</video:duration>
+      <video:publication_date>2023-05-18</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/wurli-med-kontaktmikrofon-whammy-og-baandekko/</loc>
+    <video:video>
+      <video:title>Wurli med kontaktmikrofon, whammy og båndekko</video:title>
+      <video:description>Prøvde å lage en intim og delvis ødelagt pianolyd med Wurlitzer 200A, kontaktmikrofon, whammy-pedal, båndekko og diverse effekter 🛸 🦄
+- Kontaktmikrofonen er mikset sammen med internal pickup
+- De lyse E notene er spilt inn separat 🎹
+- Whammy-signalet er mikset in med direktelyden
+- På de lyse E notene er whammy&apos;en kun brukt på ekkolyden
+- Vrengen kommer fra en Fender Twin Reverb forsterker og en Hudson Broadcast pedal
+- Signalet er sendt gjennom en Hairball Audio FET/RACK (1176) for litt mild kompresjon og farging
+- Forsterkeren er mikket opp med en Shure SM-57 og en Royer R-121
+- Klangen er en kort romklang fra Chase Bliss Audio &amp; Meris CXM 1978
+Instrument: Wurlitzer 200A.
+Effekter: DigiTech Whammy (5th Gen), Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Hudson Electronics, UK Broadcast, Fulltone Supa-Trem og Chase Bliss Audio &amp; Meris CXM 1978.
+Forsterker: Fender Twin Reverb.
+Mikrofoner: Shure SM-57 og Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=rE_ftlYzFFI</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-04-23-00_540.6a7258be91c55d7ac78b.jpg</video:thumbnail_loc>
+      <video:duration>52</video:duration>
+      <video:publication_date>2023-04-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/wurli-with-contact-mic-whammy-and-tape-echo/</loc>
+    <video:video>
+      <video:title>Wurli with contact mic, whammy and tape echo</video:title>
+      <video:description>Tried to make an intimate and kind of broken piano sound with the Wurlitzer 200A, contact mic, whammy pedal, tape echo and different effects 🛸 🦄
+- The contact mic is mixed in with the internal pickup
+- The high E notes is recorded in a separate take 🎹
+- The whammy signal is mixed in with the original signal
+- On the high E notes the whammy is only on the echoes
+- The overdrive comes from a Fender Twin Reverb amp and a Hudson Broadcast pedal
+- It&apos;s recorded through a Hairball Audio FET/RACK (1176) for some mild compression and coloration
+- The amplifier is miced with a Shure SM-57 and a Royer R-121
+- The reverb is a short/small room reverb from a Chase Bliss Audio &amp; Meris CXM 1978
+Instrument: Wurlitzer 200A.
+Effects: DigiTech Whammy (5th Gen), Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Hudson Electronics, UK Broadcast, Fulltone Supa-Trem and Chase Bliss Audio &amp; Meris CXM 1978
+Amplifier: Fender Twin Reverb.
+Microphones: Shure SM-57 and Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=rE_ftlYzFFI</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-04-23-00_540.6a7258be91c55d7ac78b.jpg</video:thumbnail_loc>
+      <video:duration>52</video:duration>
+      <video:publication_date>2023-04-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/c/BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/gratis-omnichord-lydbibliotek-plugin-omni-84/</loc>
     <video:video>
       <video:title>Gratis Omnichord lydbibliotek plugin (Omni-84)</video:title>
