@@ -36,7 +36,12 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
         "url": `https://www.dehlimusikk.no${imagePath}`,
         "contentUrl": `https://www.dehlimusikk.no${imagePath}`,
         "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
-        "acquireLicensePage": "https://www.dehlimusikk.no/#contact"
+        "acquireLicensePage": "https://www.dehlimusikk.no/#contact",
+        "copyrightNotice": "Benjamin Dehli",
+        "creditText": "Dehli Musikk",
+        "creator": {
+          "@id": "#BenjaminDehli"
+        }
       }
     });
     return (<Helmet>

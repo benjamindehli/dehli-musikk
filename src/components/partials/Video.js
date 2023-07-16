@@ -50,6 +50,11 @@ const Video = ({ video, fullscreen }) => {
     if (video.copyright) {
       snippet.thumbnail.license = "https://creativecommons.org/licenses/by/4.0/legalcode";
       snippet.thumbnail.acquireLicensePage = "https://www.dehlimusikk.no/#contact";
+      snippet.thumbnail.copyrightNotice = "Benjamin Dehli";
+      snippet.thumbnail.creditText = "Dehli Musikk";
+      snippet.thumbnail.creator = {
+        "@id": "#BenjaminDehli"
+      };
     }
     if (video.clips) {
       snippet.hasPart = video.clips.map(clip => {

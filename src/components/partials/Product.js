@@ -51,6 +51,11 @@ const Product = ({ product, fullscreen }) => {
         "caption": product.title,
         "description": product.thumbnailDescription,
         "uploadDate": productDate,
+        "copyrightNotice": "Benjamin Dehli",
+        "creditText": "Dehli Musikk",
+        "creator": {
+          "@id": "#BenjaminDehli"
+        },
         "contentLocation": {
           "name": "Dehli Musikk",
           "address": {

@@ -56,6 +56,11 @@ const Post = ({ post, fullscreen }) => {
         "caption": post.title[selectedLanguageKey],
         "description": post.thumbnailDescription,
         "uploadDate": postDate,
+        "copyrightNotice": "Benjamin Dehli",
+        "creditText": "Dehli Musikk",
+        "creator": {
+          "@id": "#BenjaminDehli"
+        },
         "contentLocation": {
           "name": "Dehli Musikk",
           "address": {
