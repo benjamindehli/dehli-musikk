@@ -9,6 +9,7 @@ import {getLanguageSlug, updateMultilingualRoutes, updateSelectedLanguageKey} fr
 import {convertToUrlFriendlyString} from 'helpers/urlFormatter';
 import {convertToXmlFriendlyString} from 'helpers/xmlStringFormatter';
 import {youTubeTimeToSeconds} from 'helpers/timeFormatter';
+import { formatContentAsString } from 'helpers/contentFormatter';
 
 // Data
 import posts from 'data/posts';
@@ -48,11 +49,12 @@ class Sitemap extends Component {
     const duration = youTubeTimeToSeconds(video.duration);
     const thumbnailLoc = require(`../../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_540.jpg`).default;
     const absoluteThumbnailLoc = `https://www.dehlimusikk.no${thumbnailLoc}`;
+    const contentAsString = formatContentAsString(video.content[languageKey]);
     return `  <url>
     <loc>https://www.dehlimusikk.no/${url}</loc>
     <video:video>
       <video:title>${convertToXmlFriendlyString(video.title[languageKey])}</video:title>
-      <video:description>${convertToXmlFriendlyString(video.content[languageKey])}</video:description>
+      <video:description>${convertToXmlFriendlyString(contentAsString)}</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=${video.youTubeId}</video:player_loc>
       <video:thumbnail_loc>${absoluteThumbnailLoc}</video:thumbnail_loc>
       <video:duration>${duration}</video:duration>

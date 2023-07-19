@@ -10,6 +10,7 @@ import { getLanguageSlugByKey } from 'reducers/AvailableLanguagesReducer';
 // Helpers
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { convertToXmlFriendlyString } from 'helpers/xmlStringFormatter';
+import { formatContentAsString } from 'helpers/contentFormatter';
 
 // Data
 import posts from 'data/posts';
@@ -32,7 +33,8 @@ const Feeds = () => {
     }
 
     const renderDescriptionElement = (description) => {
-        return `<description>${convertToXmlFriendlyString(description)}</description>`;
+        const descriptionAsString = formatContentAsString(description);
+        return `<description>${convertToXmlFriendlyString(descriptionAsString)}</description>`;
     }
 
     const renderPubDateElement = (timestamp) => {

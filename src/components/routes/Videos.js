@@ -20,6 +20,7 @@ import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
+import { formatContentAsString } from 'helpers/contentFormatter';
 
 // Data
 import videos from 'data/videos';
@@ -60,7 +61,7 @@ const Videos = () => {
         "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
         "name": video.title[selectedLanguageKey],
         "description": video.content[selectedLanguageKey]
-          ? video.content[selectedLanguageKey].replace(/\n/g, " ")
+          ? formatContentAsString(video.content[selectedLanguageKey])
           : '',
         "thumbnailUrl": `https://www.dehlimusikk.no${videoThumbnailSrc}`,
         "embedURL": `https://www.youtube.com/watch?v=${video.youTubeId}`,
@@ -165,10 +166,10 @@ const Videos = () => {
     },
     description: {
       en: selectedVideo
-        ? selectedVideo.content.en
+        ? formatContentAsString(selectedVideo.content.en)
         : '',
       no: selectedVideo
-        ? selectedVideo.content.no
+        ? formatContentAsString(selectedVideo.content.no)
         : ''
     }
   }

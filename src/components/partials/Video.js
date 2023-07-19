@@ -17,6 +17,7 @@ import ListItemContentBody from 'components/template/List/ListItem/ListItemConte
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
+import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
 
 
 const Video = ({ video, fullscreen }) => {
@@ -33,7 +34,7 @@ const Video = ({ video, fullscreen }) => {
       "@id": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
       "name": video.title[selectedLanguageKey],
       "description": video.content[selectedLanguageKey]
-        ? video.content[selectedLanguageKey].replace(/\n/g, " ")
+        ? formatContentAsString(video.content[selectedLanguageKey])
         : '',
       "duration": video.duration,
       "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
@@ -102,7 +103,7 @@ const Video = ({ video, fullscreen }) => {
   const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
   const videoPath = `/${languageSlug}videos/${videoId}/`;
   const videoContentString = video?.content?.[selectedLanguageKey] || '';
-  const videoDescription = fullscreen ? videoContentString : convertStringToExcerpt(videoContentString);
+  const videoDescription = fullscreen ? formatContentWithReactLinks(videoContentString, languageSlug) : <p>{convertStringToExcerpt(videoContentString)}</p>;
 
   const link = {
     to: videoPath,
@@ -133,10 +134,8 @@ const Video = ({ video, fullscreen }) => {
           <time dateTime={videoDate.toISOString()}>{getPrettyDate(videoDate, selectedLanguageKey)}</time>
         </ListItemContentHeader>
         <ListItemContentBody fullscreen={fullscreen}>
-          {
-            videoDescription.split('\n').map((paragraph, key) => {
-              return (<p key={key}>{paragraph}</p>)
-            })
+          { 
+            videoDescription
           }
         </ListItemContentBody>
       </ListItemContent>

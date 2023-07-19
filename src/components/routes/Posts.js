@@ -20,6 +20,7 @@ import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
+import { formatContentAsString } from 'helpers/contentFormatter';
 
 // Data
 import posts from 'data/posts';
@@ -147,10 +148,10 @@ const Posts = () => {
     },
     description: {
       en: selectedPost
-        ? selectedPost.content.en
+        ? formatContentAsString(selectedPost.content.en)
         : '',
       no: selectedPost
-        ? selectedPost.content.no
+        ? formatContentAsString(selectedPost.content.no)
         : ''
     }
   }

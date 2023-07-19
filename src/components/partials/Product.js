@@ -17,6 +17,7 @@ import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 // Helpers
 import { getPrettyDate } from 'helpers/dateFormatter';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
+import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
 
 
 const Product = ({ product, fullscreen }) => {
@@ -35,7 +36,7 @@ const Product = ({ product, fullscreen }) => {
       "@type": "Product",
       "@id": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
       "url": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
-      "description": product.content[selectedLanguageKey],
+      "description": formatContentAsString(product.content[selectedLanguageKey]),
       "brand": {
         "@id": "#DehliMusikk"
       },
@@ -147,9 +148,7 @@ const Product = ({ product, fullscreen }) => {
         </ListItemContentHeader>
         <ListItemContentBody fullscreen={fullscreen}>
           {
-            product.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
-              return (<p key={key}>{paragraph}</p>)
-            })
+            formatContentWithReactLinks(product.content[selectedLanguageKey], languageSlug)
           }
         </ListItemContentBody>
         {

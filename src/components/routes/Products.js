@@ -21,6 +21,7 @@ import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
+import { formatContentAsString } from 'helpers/contentFormatter';
 
 // Data
 import products from 'data/products';
@@ -151,10 +152,10 @@ const Products = () => {
     },
     description: {
       en: selectedProduct
-        ? selectedProduct.content.en
-        : '',
+      ? formatContentAsString(selectedProduct.content.en)
+      : '',
       no: selectedProduct
-        ? selectedProduct.content.no
+        ? formatContentAsString(selectedProduct.content.no)
         : ''
     }
   }

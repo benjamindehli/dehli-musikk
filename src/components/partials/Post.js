@@ -10,6 +10,7 @@ import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 // Helpers
 import { getPrettyDate } from 'helpers/dateFormatter';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
+import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
 
 // Components
 import Button from 'components/partials/Button';
@@ -42,7 +43,7 @@ const Post = ({ post, fullscreen }) => {
       "headline": post.title[selectedLanguageKey],
       "inLanguage": selectedLanguageKey,
       "articleBody": post.content[selectedLanguageKey]
-        ? post.content[selectedLanguageKey].replace(/\n/g, " ")
+        ? formatContentAsString(post.content[selectedLanguageKey])
         : '',
       "dateCreated": postDate,
       "dateModified": postDate,
@@ -152,9 +153,7 @@ const Post = ({ post, fullscreen }) => {
         </ListItemContentHeader>
         <ListItemContentBody fullscreen={fullscreen}>
           {
-            post.content[selectedLanguageKey].split('\n').map((paragraph, key) => {
-              return (<p key={key}>{paragraph}</p>)
-            })
+            formatContentWithReactLinks(post.content[selectedLanguageKey], languageSlug)
           }
         </ListItemContentBody>
         {

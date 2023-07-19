@@ -1,5 +1,6 @@
 // Helpers
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
+import { formatContentAsString } from './contentFormatter';
 
 // Data
 import releases from 'data/portfolio';
@@ -17,7 +18,8 @@ export const convertStringToExcerpt = string => {
     return ''
   }
   string = string.replace(/[\s]+/g, " ");
-  var trimmedString = string.length > 158 ? `${string.substring(0, 158)}...` : string;
+  string = formatContentAsString(string);
+  const trimmedString = string.length > 158 ? `${string.substring(0, 158)}...` : string;
   return trimmedString;
 }
 
