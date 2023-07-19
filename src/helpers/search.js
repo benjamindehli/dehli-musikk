@@ -17,8 +17,8 @@ export const convertStringToExcerpt = string => {
   if (!string?.trim().length) {
     return ''
   }
-  string = string.replace(/[\s]+/g, " ");
   string = formatContentAsString(string);
+  string = string.replace(/[\s]+/g, " ");
   const trimmedString = string.length > 158 ? `${string.substring(0, 158)}...` : string;
   return trimmedString;
 }
