@@ -38,7 +38,8 @@ const Product = ({ product, fullscreen }) => {
       "url": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
       "description": formatContentAsString(product.content[selectedLanguageKey]),
       "brand": {
-        "@id": "#DehliMusikk"
+        "@type": "Brand",
+        "name": "Dehli Musikk"
       },
       "productionDate": productDate,
       "releaseDate": productDate,
@@ -77,13 +78,33 @@ const Product = ({ product, fullscreen }) => {
         "url": product.link.url,
         "availability": "http://schema.org/OnlineOnly",
         "validFrom": productDate,
-        "priceValidUntil": plusOneYear
+        "priceValidUntil": plusOneYear,
+        "doesNotShip": true
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://www.dehlimusikk.no"
       }
     }
+    if (product.reviews?.length) {
+      snippet.review = product.reviews.map(review => {
+        return {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": review.author
+          },
+          "name": review.title,
+          "reviewBody": review.content,
+          "datePublished": review.date
+        }
+      });
+      snippet.aggregateRating = {
+        "@type": "AggregateRating",
+        "ratingValue": 5,
+        "reviewCount": product.reviews.length
+      };
+    } 
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
     </Helmet>)
