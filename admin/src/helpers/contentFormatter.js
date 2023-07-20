@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const interleave = (arr, thing) => [].concat(...arr.map((n) => [n, thing])).slice(0, -1);
 
 const renderContentLinksAsReactLinks = (content, languageSlug) => {
-    const regex = new RegExp("\\[(?<title>[\\w\\s\\d+'&-]+)\\]\\((?<link>[\\w\\d./?=#-]+)\\)*", "gm");
+    const regex = /\[(?<title>[\w\s\d+'&\-æÆøØåÅ()/]+)\]\((?<link>[\w\d./?=#-]+)\)*/gm;
 
     let match;
     let links = [];
@@ -43,7 +43,7 @@ const renderContentLinksAsReactLinks = (content, languageSlug) => {
 };
 
 const renderContentLinksAsText = (content) => {
-    const regex = new RegExp("\\[(?<title>[\\w\\s\\d+'&-]+)\\]\\((?<link>[\\w\\d./?=#-]+)\\)*", "gm");
+    const regex = /\[(?<title>[\w\s\d+'&\-æÆøØåÅ()/]+)\]\((?<link>[\w\d./?=#-]+)\)*/gm;
 
     let match;
     let links = [];
