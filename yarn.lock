@@ -5932,9 +5932,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.431":
-  version: 1.4.465
-  resolution: "electron-to-chromium@npm:1.4.465"
-  checksum: 1c8509d5bf15004ad88921845386b695744d0ea02beef8e1e8c6abdf673a4d51254395b8cd501a12c1043f732fca18d2981f636aac3cf789673a515424460ccd
+  version: 1.4.466
+  resolution: "electron-to-chromium@npm:1.4.466"
+  checksum: 695af573f8642ed86db6e291b1c102083b1306fff7566b9d8e90bab04f7f330a9073a0487013fa21772625d60d9e2eb193a0518a6e80ef20ece20be8f3cd6e50
   languageName: node
   linkType: hard
 
@@ -6368,8 +6368,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-react@npm:^7.27.1":
-  version: 7.32.2
-  resolution: "eslint-plugin-react@npm:7.32.2"
+  version: 7.33.0
+  resolution: "eslint-plugin-react@npm:7.33.0"
   dependencies:
     array-includes: ^3.1.6
     array.prototype.flatmap: ^1.3.1
@@ -6384,11 +6384,11 @@ __metadata:
     object.values: ^1.1.6
     prop-types: ^15.8.1
     resolve: ^2.0.0-next.4
-    semver: ^6.3.0
+    semver: ^6.3.1
     string.prototype.matchall: ^4.0.8
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: 2232b3b8945aa50b7773919c15cd96892acf35d2f82503667a79e2f55def90f728ed4f0e496f0f157acbe1bd4397c5615b676ae7428fe84488a544ca53feb944
+  checksum: f3ce2978322efd3c698b802dabfad070109dd1935c4e468545992b82b5fb8257ea3ad56732330bb46643182a09560129a259b436952b3e2aa426947d3abd2b1a
   languageName: node
   linkType: hard
 
@@ -12708,15 +12708,15 @@ __metadata:
   linkType: hard
 
 "sass@npm:^1.28.0":
-  version: 1.63.6
-  resolution: "sass@npm:1.63.6"
+  version: 1.64.0
+  resolution: "sass@npm:1.64.0"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 3372319904658eeafaf78a09a6fcb3368a68e6d76fe3c43c2d009f4f72e475ab22b82ef483ef5c00fcda3ab00066846c0bd88c36b42771b855f6ab80c7eda541
+  checksum: b4eb9b1bdeb1c00e76427d7fe3e5f80d831327178cdee657aa4e014edfc64ebbfe43177147403da1e04d76a24f4093f5a9b1c8d9d80c94579937d8adc5a6ef66
   languageName: node
   linkType: hard
 
