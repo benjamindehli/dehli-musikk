@@ -1,7 +1,7 @@
 // Dependencies
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router';
+import { Navigate, useNavigate, useParams } from 'react-router';
 import { Helmet } from 'react-helmet-async';
 
 // Components
@@ -128,9 +128,17 @@ const Videos = () => {
     return selectedVideo;
   }
 
+  if (selectedLanguageKey !== "no" && selectedLanguageKey !== "en") {
+    return <Navigate to="/404" />
+  }
+
   const selectedVideo = selectedVideoId
     ? getSelectedVideo(selectedVideoId, selectedLanguageKey)
     : null;
+  
+  if (selectedVideoId && !selectedVideo){
+    return <Navigate to="/404" />
+  }
 
   const listPage = {
     title: {
@@ -205,14 +213,9 @@ const Videos = () => {
   const metaDescription = selectedVideo
     ? detailsPage.description[selectedLanguageKey]
     : listPage.description[selectedLanguageKey];
-  return selectedVideoId && !selectedVideo
-    ? (
-      <Helmet>
-        <title>404 - Siden finnes ikke - Dehli Musikk</title>
-        <meta name="prerender-status-code" content="404" />
-      </Helmet>
-    )
-    : (<React.Fragment>
+    
+  return (
+    <React.Fragment>
       <Helmet htmlAttributes={{
         lang: selectedLanguageKey
       }}>

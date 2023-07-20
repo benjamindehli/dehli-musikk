@@ -10,6 +10,7 @@ const NotFound = () => {
     <Helmet>
       <title>404 - Siden finnes ikke - Dehli Musikk</title>
       <meta name="prerender-status-code" content="404" />
+      <meta name="robots" content="follow, noarchive, noindex" />
     </Helmet>
     <h1>404 - Siden finnes ikke</h1>
   </div>)

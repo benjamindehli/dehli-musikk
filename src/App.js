@@ -129,6 +129,7 @@ const App = () => {
         <div className={style.container}>
           <Routes>
             <Route path="*" key={"/404.html"} element={<NotFound />} />
+            <Route path="/404" key={"/404.html"} element={<NotFound />} />
             <Route path="/" element={<Home />} />
             <Route key={"/feed-no.rss"} path="/feed-no.rss" element={() => null} />
             <Route key={"/feed-en.rss"} path="/feed-en.rss" element={() => null} />

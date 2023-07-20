@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate, useParams } from 'react-router';
+import { Navigate, useNavigate, useParams } from 'react-router';
 
 // Components
 import Breadcrumbs from 'components/partials/Breadcrumbs';
@@ -113,10 +113,17 @@ const Products = () => {
     return selectedProduct;
   }
 
+  if (selectedLanguageKey !== "no" && selectedLanguageKey !== "en") {
+    return <Navigate to="/404" />
+  }
 
   const selectedProduct = selectedProductId
     ? getSelectedProduct(selectedProductId, selectedLanguageKey)
     : null;
+  
+  if (selectedProductId && !selectedProduct){
+    return <Navigate to="/404" />
+  }
 
   const listPage = {
     title: {
@@ -185,12 +192,9 @@ const Products = () => {
   const contentTitle = selectedProduct ? detailsPage.heading[selectedLanguageKey] : listPage.heading[selectedLanguageKey];
   const metaDescription = selectedProduct ? detailsPage.description[selectedLanguageKey] : listPage.description[selectedLanguageKey];
 
-  return selectedProductId && !selectedProduct
-    ? (<Helmet>
-      <title>404 - Siden finnes ikke - Dehli Musikk</title>
-      <meta name="prerender-status-code" content="404" />
-    </Helmet>)
-    : (<React.Fragment>
+
+  return (
+    <React.Fragment>
       <Helmet htmlAttributes={{
         lang: selectedLanguageKey
       }}>

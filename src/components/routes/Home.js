@@ -1,7 +1,7 @@
 // Dependencies
 import React, { useEffect } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
+import { Navigate, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
@@ -83,6 +83,10 @@ const Home = () => {
       return (<source sizes={sizes} key={fileType} srcSet={srcSet} type={`image/${fileType}`} />)
     })
     return (<picture className={style.backgroundsImage}>{srcSets}<img src={headerImage.jpg[1024]} alt='A Korg MS-20 with a cassette and tape recorder' /></picture>);
+  }
+
+  if (selectedLanguageKey !== "no" && selectedLanguageKey !== "en") {
+    return <Navigate to="/404" />
   }
 
   const metaDescription = selectedLanguageKey === 'en'

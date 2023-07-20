@@ -1,7 +1,7 @@
 // Dependencies
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router';
+import { Navigate, useNavigate, useParams } from 'react-router';
 import { Helmet } from 'react-helmet-async';
 
 // Components
@@ -189,11 +189,20 @@ const Equipment = () => {
     return selectedEquipment;
   }
 
-
+  if (selectedLanguageKey !== "no" && selectedLanguageKey !== "en") {
+    return <Navigate to="/404" />
+  }
 
   const selectedEquipment = selectedEquipmentType && selectedEquipmentId
     ? getSelectedEquipment(equipment?.[selectedEquipmentType]?.items, selectedEquipmentId)
     : null;
+
+  const hasInvalidEquipmentType = selectedEquipmentType && !['instruments', 'effects', 'amplifiers'].includes(selectedEquipmentType)
+  const hasInvalidEquipmentId = selectedEquipmentId && !selectedEquipment;
+  if(hasInvalidEquipmentType || hasInvalidEquipmentId) {
+    return <Navigate to="/404" />
+  }
+    
 
   const listEquipmentTypesPage = {
     title: {
@@ -270,16 +279,8 @@ const Equipment = () => {
     })
   }
 
-  const hasInvalidEquipmentType = selectedEquipmentType && !['instruments', 'effects', 'amplifiers'].includes(selectedEquipmentType)
-  const hasInvalidEquipmentId = selectedEquipmentId && !selectedEquipment;
-  return hasInvalidEquipmentType || hasInvalidEquipmentId
-    ? (
-      <Helmet>
-        <title>404 - Siden finnes ikke - Dehli Musikk</title>
-        <meta name="prerender-status-code" content="404" />
-      </Helmet>
-    )
-    : (<React.Fragment>
+  return (
+    <React.Fragment>
       <Helmet htmlAttributes={{
         lang: selectedLanguageKey
       }}>
