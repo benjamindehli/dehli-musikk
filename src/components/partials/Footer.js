@@ -1,3 +1,6 @@
+// Dependencies
+import React from 'react';
+
 // Assets
 import map930Avif from 'assets/images/map_930.avif';
 import map930Webp from 'assets/images/map_930.webp';
@@ -6,13 +9,15 @@ import map930Jpg from 'assets/images/map_930.jpg';
 // Stylesheets
 import style from 'components/partials/Footer.module.scss';
 
-const Footer = () => {
+// Redux store
+const selectedLanguageKey = window?.location?.pathname?.startsWith('/en/') ? 'en' : 'no';
 
+const Footer = () => {
   return (<div id="contact" className={style.footer}>
     <div className={style.contentSection}>
       <div className={style.grid}>
         <div className={style.textSection}>
-          <h2>Kontakt</h2>
+          <h2>{selectedLanguageKey === "en" ? "Contact" : "Kontakt"}</h2>
           <address className={style.addressContent}>
             <ul id="hcard-Benjamin-Dehli" className="vcard">
               <li className="fn n">
@@ -53,7 +58,7 @@ const Footer = () => {
       </div>
     </div>
     <div className={style.contentSection}>
-      © 2022 Dehli Musikk
+      © 2023 Dehli Musikk
     </div>
   </div>)
 }
