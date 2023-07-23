@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router";
 import { Helmet } from "react-helmet-async";
@@ -13,7 +13,7 @@ import Modal from "components/template/Modal";
 import Video from "components/partials/Video";
 
 // Actions
-import { updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
 
 // Selectors
 import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
@@ -31,15 +31,41 @@ const Videos = () => {
     const params = useParams();
     const selectedVideoId = params?.videoId || null;
 
+    // State
+    const [selectedVideo, setSelectedVideo] = useState();
+
     // Redux store
     const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
     const languageSlug = useSelector((state) => getLanguageSlug(state));
+    const availableLanguages = useSelector((state) => state.availableLanguages);
+    const multilingualRoutes = useSelector((state) => state.multilingualRoutes);
 
     useEffect(() => {
         if (params.selectedLanguage) {
             dispatch(updateSelectedLanguageKey(params.selectedLanguage));
         }
     }, [dispatch, params]);
+
+    useEffect(() => {
+        const languageIsInitialized = !params.selectedLanguage || params.selectedLanguage === selectedLanguageKey;
+        setSelectedVideo(
+            !!languageIsInitialized && !!selectedVideoId
+                ? getSelectedVideo(selectedVideoId, selectedLanguageKey)
+                : undefined
+        );
+    }, [params.selectedLanguage, selectedLanguageKey, selectedVideoId]);
+
+    useEffect(() => {
+        const multilingualIds = {
+            en: selectedVideo ? convertToUrlFriendlyString(selectedVideo.title.en) : "",
+            no: selectedVideo ? convertToUrlFriendlyString(selectedVideo.title.no) : ""
+        };
+        const multilingualPaths = {
+            no: `videos/${selectedVideo ? multilingualIds.no + "/" : ""}`,
+            en: `videos/${selectedVideo ? multilingualIds.en + "/" : ""}`
+        };
+        dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
+    }, [availableLanguages, dispatch, selectedVideo]);
 
     const renderSummarySnippet = (videos) => {
         const videoItems = videos.map((video, index) => {
@@ -140,9 +166,7 @@ const Videos = () => {
         if (!languageIsValid) {
             return <Navigate to="/404" />;
         } else {
-            const selectedVideo = selectedVideoId ? getSelectedVideo(selectedVideoId, selectedLanguageKey) : null;
-
-            if (selectedVideoId && !selectedVideo) {
+            if (selectedVideoId && selectedVideo === null) {
                 return <Navigate to="/404" />;
             }
 
@@ -189,10 +213,6 @@ const Videos = () => {
                 });
             }
 
-            const selectedVideoMultilingualIds = {
-                en: selectedVideo ? convertToUrlFriendlyString(selectedVideo.title.en) : "",
-                no: selectedVideo ? convertToUrlFriendlyString(selectedVideo.title.no) : ""
-            };
             const metaTitle = selectedVideo
                 ? detailsPage.title[selectedLanguageKey]
                 : listPage.title[selectedLanguageKey];
@@ -214,29 +234,21 @@ const Videos = () => {
                         <meta name="description" content={metaDescription} />
                         <link
                             rel="canonical"
-                            href={`https://www.dehlimusikk.no/${languageSlug}videos/${
-                                selectedVideo ? selectedVideoId + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.[selectedLanguageKey]?.path}`}
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/videos/${
-                                selectedVideo ? selectedVideoMultilingualIds.no + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
                             hreflang="no"
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/en/videos/${
-                                selectedVideo ? selectedVideoMultilingualIds.en + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.en?.path}`}
                             hreflang="en"
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/videos/${
-                                selectedVideo ? selectedVideoMultilingualIds.no + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
                             hreflang="x-default"
                         />
                         <meta property="og:title" content={contentTitle} />
@@ -255,7 +267,7 @@ const Videos = () => {
                         <meta property="twitter:title" content={contentTitle} />
                         <meta property="twitter:description" content={metaDescription} />
                     </Helmet>
-                    <Container blur={selectedVideo !== null}>
+                    <Container blur={!!selectedVideo}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
                         <h1>{contentTitle}</h1>
                         <p>
@@ -265,7 +277,7 @@ const Videos = () => {
                         </p>
                     </Container>
                     {selectedVideo ? renderSelectedVideo(selectedVideo) : renderSummarySnippet(videos)}
-                    <Container blur={selectedVideo !== null}>
+                    <Container blur={!!selectedVideo}>
                         <List>{renderVideos()}</List>
                     </Container>
                 </React.Fragment>

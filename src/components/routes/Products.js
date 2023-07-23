@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Helmet } from "react-helmet-async";
 import { Navigate, useNavigate, useParams } from "react-router";
@@ -13,7 +13,7 @@ import Modal from "components/template/Modal";
 import Product from "components/partials/Product";
 
 // Actions
-import { updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
 
 // Selectors
 import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
@@ -31,15 +31,41 @@ const Products = () => {
     const params = useParams();
     const selectedProductId = params?.productId || null;
 
+    // State
+    const [selectedProduct, setSelectedProduct] = useState();
+
     // Redux store
     const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
     const languageSlug = useSelector((state) => getLanguageSlug(state));
+    const availableLanguages = useSelector((state) => state.availableLanguages);
+    const multilingualRoutes = useSelector((state) => state.multilingualRoutes);
 
     useEffect(() => {
         if (params.selectedLanguage) {
             dispatch(updateSelectedLanguageKey(params.selectedLanguage));
         }
     }, [dispatch, params]);
+
+    useEffect(() => {
+        const languageIsInitialized = !params.selectedLanguage || params.selectedLanguage === selectedLanguageKey;
+        setSelectedProduct(
+            !!languageIsInitialized && !!selectedProductId
+                ? getSelectedProduct(selectedProductId, selectedLanguageKey)
+                : undefined
+        );
+    }, [params.selectedLanguage, selectedLanguageKey, selectedProductId]);
+
+    useEffect(() => {
+        const multilingualIds = {
+            en: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title.en) : "",
+            no: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title.no) : ""
+        };
+        const multilingualPaths = {
+            no: `products/${selectedProduct ? multilingualIds.no + "/" : ""}`,
+            en: `products/${selectedProduct ? multilingualIds.en + "/" : ""}`
+        };
+        dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
+    }, [availableLanguages, dispatch, selectedProduct]);
 
     const renderSummarySnippet = (products) => {
         const productItems = products.map((product, index) => {
@@ -126,11 +152,7 @@ const Products = () => {
         if (!languageIsValid) {
             return <Navigate to="/404" />;
         } else {
-            const selectedProduct = selectedProductId
-                ? getSelectedProduct(selectedProductId, selectedLanguageKey)
-                : null;
-
-            if (selectedProductId && !selectedProduct) {
+            if (selectedProductId && selectedProduct === null) {
                 return <Navigate to="/404" />;
             }
 
@@ -177,10 +199,6 @@ const Products = () => {
                 });
             }
 
-            const selectedProductMultilingualIds = {
-                en: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title) : "",
-                no: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title) : ""
-            };
             const metaTitle = selectedProduct
                 ? detailsPage.title[selectedLanguageKey]
                 : listPage.title[selectedLanguageKey];
@@ -202,29 +220,21 @@ const Products = () => {
                         <meta name="description" content={metaDescription} />
                         <link
                             rel="canonical"
-                            href={`https://www.dehlimusikk.no/${languageSlug}products/${
-                                selectedProduct ? selectedProductId + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.[selectedLanguageKey]?.path}`}
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/products/${
-                                selectedProduct ? selectedProductMultilingualIds.no + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
                             hreflang="no"
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/en/products/${
-                                selectedProduct ? selectedProductMultilingualIds.en + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.en?.path}`}
                             hreflang="en"
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/products/${
-                                selectedProduct ? selectedProductMultilingualIds.no + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
                             hreflang="x-default"
                         />
                         <meta property="og:title" content={contentTitle} />
@@ -243,7 +253,7 @@ const Products = () => {
                         <meta property="twitter:title" content={contentTitle} />
                         <meta property="twitter:description" content={metaDescription} />
                     </Helmet>
-                    <Container blur={selectedProduct !== null}>
+                    <Container blur={!!selectedProduct}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
                         <h1>{contentTitle}</h1>
                         <p>
@@ -251,7 +261,7 @@ const Products = () => {
                         </p>
                     </Container>
                     {selectedProduct ? renderSelectedProduct(selectedProduct) : renderSummarySnippet(products)}
-                    <Container blur={selectedProduct !== null}>
+                    <Container blur={!!selectedProduct}>
                         <List>{renderProducts()}</List>
                     </Container>
                 </React.Fragment>

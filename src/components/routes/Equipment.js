@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router";
 import { Helmet } from "react-helmet-async";
@@ -16,7 +16,7 @@ import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbna
 import Modal from "components/template/Modal";
 
 // Actions
-import { updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
 
 // Selectors
 import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
@@ -34,15 +34,42 @@ const Equipment = () => {
     const selectedEquipmentType = params?.equipmentType || null;
     const selectedEquipmentId = params?.equipmentId || null;
 
+    // State
+    const [selectedEquipment, setSelectedEquipment] = useState();
+
     // Redux store
     const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
     const languageSlug = useSelector((state) => getLanguageSlug(state));
+    const availableLanguages = useSelector((state) => state.availableLanguages);
+    const multilingualRoutes = useSelector((state) => state.multilingualRoutes);
 
     useEffect(() => {
         if (params.selectedLanguage) {
             dispatch(updateSelectedLanguageKey(params.selectedLanguage));
         }
     }, [dispatch, params]);
+
+    useEffect(() => {
+        setSelectedEquipment(
+            !!selectedEquipmentType && !!selectedEquipmentId
+                ? getSelectedEquipment(equipment?.[selectedEquipmentType]?.items, selectedEquipmentId)
+                : undefined
+        );
+    }, [selectedEquipmentId, selectedEquipmentType]);
+
+    useEffect(() => {
+        const equipmentPath =
+            selectedEquipment && selectedEquipmentId
+                ? `${selectedEquipmentType}/${selectedEquipmentId}/`
+                : selectedEquipmentType
+                ? `${selectedEquipmentType}/`
+                : "";
+        const multilingualPaths = {
+            no: `equipment/${equipmentPath}`,
+            en: `equipment/${equipmentPath}`
+        };
+        dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
+    }, [availableLanguages, dispatch, selectedEquipment, selectedEquipmentId, selectedEquipmentType]);
 
     const renderSummarySnippetForEquipmentTypes = (equipment) => {
         const equipmentTypeItems =
@@ -237,14 +264,10 @@ const Equipment = () => {
         if (!languageIsValid) {
             return <Navigate to="/404" />;
         } else {
-            const selectedEquipment =
-                selectedEquipmentType && selectedEquipmentId
-                    ? getSelectedEquipment(equipment?.[selectedEquipmentType]?.items, selectedEquipmentId)
-                    : null;
-
             const hasInvalidEquipmentType =
                 selectedEquipmentType && !["instruments", "effects", "amplifiers"].includes(selectedEquipmentType);
-            const hasInvalidEquipmentId = selectedEquipmentId && !selectedEquipment;
+
+            const hasInvalidEquipmentId = selectedEquipmentId && selectedEquipment === null;
             if (hasInvalidEquipmentType || hasInvalidEquipmentId) {
                 return <Navigate to="/404" />;
             }
@@ -345,49 +368,25 @@ const Equipment = () => {
                         />
                         <link
                             rel="canonical"
-                            href={`https://www.dehlimusikk.no/${languageSlug}equipment/${
-                                selectedEquipment
-                                    ? selectedEquipmentType + "/" + selectedEquipmentId + "/"
-                                    : selectedEquipmentType
-                                    ? selectedEquipmentType + "/"
-                                    : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.[selectedLanguageKey]?.path}`}
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/equipment/${
-                                selectedEquipment
-                                    ? selectedEquipmentType + "/" + selectedEquipmentId + "/"
-                                    : selectedEquipmentType
-                                    ? selectedEquipmentType + "/"
-                                    : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
                             hreflang="no"
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/en/equipment/${
-                                selectedEquipment
-                                    ? selectedEquipmentType + "/" + selectedEquipmentId + "/"
-                                    : selectedEquipmentType
-                                    ? selectedEquipmentType + "/"
-                                    : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.en?.path}`}
                             hreflang="en"
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/equipment/${
-                                selectedEquipment
-                                    ? selectedEquipmentType + "/" + selectedEquipmentId + "/"
-                                    : selectedEquipmentType
-                                    ? selectedEquipmentType + "/"
-                                    : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
                             hreflang="x-default"
                         />
                     </Helmet>
-                    <Container blur={selectedEquipment !== null}>
+                    <Container blur={!!selectedEquipment}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
                         <h1>
                             {selectedEquipment
@@ -409,7 +408,7 @@ const Equipment = () => {
                         : selectedEquipmentType
                         ? renderSummarySnippetForEquipmentItems(equipment[selectedEquipmentType], selectedEquipmentType)
                         : renderSummarySnippetForEquipmentTypes(equipment)}
-                    <Container blur={selectedEquipment !== null}>
+                    <Container blur={!!selectedEquipment}>
                         <List>
                             {selectedEquipmentType
                                 ? renderEquipmentItems(equipment[selectedEquipmentType], selectedEquipment)

@@ -82,6 +82,10 @@ const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguage
 }
 
 const getSearchPointsFromPost = (post, searchStringWords, selectedLanguageKey) => {
+  if (!post){
+    return null;
+  }
+
   const id = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
   const link = `/${getLanguageSlug(selectedLanguageKey)}posts/${id}/`;
   const linkTitle = post.title[selectedLanguageKey];
@@ -92,8 +96,8 @@ const getSearchPointsFromPost = (post, searchStringWords, selectedLanguageKey) =
   searchStringWords.forEach(searchStringWord => {
     const regex = new RegExp(searchStringWord, "gi");
 
-    const titleMatch = post.title[selectedLanguageKey].match(regex);
-    const contentMatch = post.content[selectedLanguageKey].match(regex);
+    const titleMatch = post.title[selectedLanguageKey]?.match(regex);
+    const contentMatch = post.content[selectedLanguageKey]?.match(regex);
 
     titlePoints += titleMatch ? titleMatch.length * 5 : 0;
     contentPoints += contentMatch ? contentMatch.length : 0;
@@ -131,8 +135,8 @@ const getSearchPointsFromVideos = (video, searchStringWords, selectedLanguageKey
   searchStringWords.forEach(searchStringWord => {
     const regex = new RegExp(searchStringWord, "gi");
 
-    const titleMatch = video.title[selectedLanguageKey].match(regex);
-    const contentMatch = video.content[selectedLanguageKey].match(regex);
+    const titleMatch = video.title[selectedLanguageKey]?.match(regex);
+    const contentMatch = video.content[selectedLanguageKey]?.match(regex);
 
     titlePoints += titleMatch ? titleMatch.length * 5 : 0;
     contentPoints += contentMatch ? contentMatch.length : 0;
@@ -171,7 +175,7 @@ const getSearchPointsFromProduct = (product, searchStringWords, selectedLanguage
     const regex = new RegExp(searchStringWord, "gi");
 
     const titleMatch = product.title.match(regex);
-    const contentMatch = product.content[selectedLanguageKey].match(regex);
+    const contentMatch = product.content[selectedLanguageKey]?.match(regex);
 
     titlePoints += titleMatch ? titleMatch.length * 10 : 0;
     contentPoints += contentMatch ? contentMatch.length * 2 : 0;
@@ -212,7 +216,7 @@ const getSearchPointsFromEquipmentItems = (item, equipmentType, equipmentTypeKey
 
     const brandMatch = item.brand.match(regex);
     const modelMatch = item.model.match(regex);
-    const equipmentTypeMatch = equipmentType.name[selectedLanguageKey].match(regex);
+    const equipmentTypeMatch = equipmentType.name[selectedLanguageKey]?.match(regex);
 
     brandPoints += brandMatch ? brandMatch.length * 7 : 0;
     modelPoints += modelMatch ? modelMatch.length * 7 : 0;

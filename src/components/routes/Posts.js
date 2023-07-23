@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Helmet } from "react-helmet-async";
 import { Navigate, useNavigate, useParams } from "react-router";
@@ -13,7 +13,7 @@ import Modal from "components/template/Modal";
 import Post from "components/partials/Post";
 
 // Actions
-import { updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
 
 // Selectors
 import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
@@ -31,15 +31,41 @@ const Posts = () => {
     const params = useParams();
     const selectedPostId = params?.postId || null;
 
+    // State
+    const [selectedPost, setSelectedPost] = useState();
+
     // Redux store
     const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
     const languageSlug = useSelector((state) => getLanguageSlug(state));
+    const availableLanguages = useSelector((state) => state.availableLanguages);
+    const multilingualRoutes = useSelector((state) => state.multilingualRoutes);
 
     useEffect(() => {
         if (params.selectedLanguage) {
             dispatch(updateSelectedLanguageKey(params.selectedLanguage));
         }
     }, [dispatch, params]);
+
+    useEffect(() => {
+        const languageIsInitialized = !params.selectedLanguage || params.selectedLanguage === selectedLanguageKey;
+        setSelectedPost(
+            !!languageIsInitialized && !!selectedPostId
+                ? getSelectedPost(selectedPostId, selectedLanguageKey)
+                : undefined
+        );
+    }, [params.selectedLanguage, selectedLanguageKey, selectedPostId]);
+
+    useEffect(() => {
+        const multilingualIds = {
+            en: selectedPost ? convertToUrlFriendlyString(selectedPost.title.en) : "",
+            no: selectedPost ? convertToUrlFriendlyString(selectedPost.title.no) : ""
+        };
+        const multilingualPaths = {
+            no: `posts/${selectedPost ? multilingualIds.no + "/" : ""}`,
+            en: `posts/${selectedPost ? multilingualIds.en + "/" : ""}`
+        };
+        dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
+    }, [availableLanguages, dispatch, selectedPost]);
 
     const renderSummarySnippet = (posts) => {
         const postItems = posts.map((post, index) => {
@@ -127,9 +153,7 @@ const Posts = () => {
         if (!languageIsValid) {
             return <Navigate to="/404" />;
         } else {
-            const selectedPost = selectedPostId ? getSelectedPost(selectedPostId, selectedLanguageKey) : null;
-
-            if (selectedPostId && !selectedPost) {
+            if (selectedPostId && selectedPost === null) {
                 return <Navigate to="/404" />;
             }
 
@@ -176,10 +200,6 @@ const Posts = () => {
                 });
             }
 
-            const selectedPostMultilingualIds = {
-                en: selectedPost ? convertToUrlFriendlyString(selectedPost.title.en) : "",
-                no: selectedPost ? convertToUrlFriendlyString(selectedPost.title.no) : ""
-            };
             const metaTitle = selectedPost
                 ? detailsPage.title[selectedLanguageKey]
                 : listPage.title[selectedLanguageKey];
@@ -201,29 +221,21 @@ const Posts = () => {
                         <meta name="description" content={metaDescription} />
                         <link
                             rel="canonical"
-                            href={`https://www.dehlimusikk.no/${languageSlug}posts/${
-                                selectedPost ? selectedPostId + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.[selectedLanguageKey]?.path}`}
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/posts/${
-                                selectedPost ? selectedPostMultilingualIds.no + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
                             hreflang="no"
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/en/posts/${
-                                selectedPost ? selectedPostMultilingualIds.en + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.en?.path}`}
                             hreflang="en"
                         />
                         <link
                             rel="alternate"
-                            href={`https://www.dehlimusikk.no/posts/${
-                                selectedPost ? selectedPostMultilingualIds.no + "/" : ""
-                            }`}
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
                             hreflang="x-default"
                         />
                         <meta property="og:title" content={contentTitle} />
@@ -242,7 +254,7 @@ const Posts = () => {
                         <meta property="twitter:title" content={contentTitle} />
                         <meta property="twitter:description" content={metaDescription} />
                     </Helmet>
-                    <Container blur={selectedPost !== null}>
+                    <Container blur={!!selectedPost}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
                         <h1>{contentTitle}</h1>
                         <p>
@@ -252,7 +264,7 @@ const Posts = () => {
                         </p>
                     </Container>
                     {selectedPost ? renderSelectedPost(selectedPost) : renderSummarySnippet(posts)}
-                    <Container blur={selectedPost !== null}>
+                    <Container blur={!!selectedPost}>
                         <List>{renderPosts()}</List>
                     </Container>
                 </React.Fragment>

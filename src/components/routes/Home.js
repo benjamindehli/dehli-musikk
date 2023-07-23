@@ -16,7 +16,7 @@ import LatestVideos from "components/partials/LatestVideos";
 import SocialMediaLinks from "components/partials/SocialMediaLinks";
 
 // Actions
-import { updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
 
 // Selectors
 import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
@@ -34,12 +34,22 @@ const Home = () => {
     // Redux store
     const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
     const languageSlug = useSelector((state) => getLanguageSlug(state));
+    const availableLanguages = useSelector((state) => state.availableLanguages);
+    const multilingualRoutes = useSelector((state) => state.multilingualRoutes);
 
     useEffect(() => {
         if (params.selectedLanguage) {
             dispatch(updateSelectedLanguageKey(params.selectedLanguage));
         }
     }, [dispatch, params]);
+
+    useEffect(() => {
+        const multilingualPaths = {
+            no: ``,
+            en: ``
+        };
+        dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
+    }, [availableLanguages, dispatch]);
 
     const renderHeaderImage = () => {
         const imagePath = `assets/images/header`;
@@ -106,10 +116,25 @@ const Home = () => {
                     <Helmet htmlAttributes={{ lang: selectedLanguageKey }}>
                         <title>Dehli Musikk</title>
                         <meta name="description" content={metaDescription} />
-                        <link rel="canonical" href={`https://www.dehlimusikk.no/${languageSlug}`} />
-                        <link rel="alternate" href={`https://www.dehlimusikk.no/`} hreflang="no" />
-                        <link rel="alternate" href={`https://www.dehlimusikk.no/en/`} hreflang="en" />
-                        <link rel="alternate" href={`https://www.dehlimusikk.no/`} hreflang="x-default" />
+                        <link
+                            rel="canonical"
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.[selectedLanguageKey]?.path}`}
+                        />
+                        <link
+                            rel="alternate"
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
+                            hreflang="no"
+                        />
+                        <link
+                            rel="alternate"
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.en?.path}`}
+                            hreflang="en"
+                        />
+                        <link
+                            rel="alternate"
+                            href={`https://www.dehlimusikk.no${multilingualRoutes?.no?.path}`}
+                            hreflang="x-default"
+                        />
                         <meta property="og:title" content="Dehli Musikk" />
                         <meta property="og:url" content={`https://www.dehlimusikk.no/${languageSlug}`} />
                         <meta property="og:description" content={metaDescription} />
