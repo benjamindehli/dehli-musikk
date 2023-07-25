@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/roland-sh-09-og-sequential-circuits-pro-one-koblet-sammen/</loc>
+    <video:video>
+      <video:title>Roland SH-09 og Sequential Circuits Pro-One koblet sammen</video:title>
+      <video:description>Sender lyden av Roland SH-09 gjennom en Sequential Circuits Pro-One og kontrollerer den med styrespenning og gate-signal. Instrumenter: Roland SH-09 og Sequential Circuits Pro-One. Effekter: Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=PVtv4N4BKuo</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-07-23-00_540.0209c983a3e6a844de6a.jpg</video:thumbnail_loc>
+      <video:duration>342</video:duration>
+      <video:publication_date>2023-07-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/roland-sh-09-and-sequential-circuits-pro-one-connected-together/</loc>
+    <video:video>
+      <video:title>Roland SH-09 and Sequential Circuits Pro-One connected together</video:title>
+      <video:description>Running a Roland SH-09 through a Sequential Circuits Pro-One and controlling it with CV and Gate. Instruments: Roland SH-09 and Sequential Circuits Pro-One. Effects: Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=PVtv4N4BKuo</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-07-23-00_540.0209c983a3e6a844de6a.jpg</video:thumbnail_loc>
+      <video:duration>342</video:duration>
+      <video:publication_date>2023-07-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/casio-cz-101-med-shallow-water-tube-tape-echo-og-cxm-1978/</loc>
     <video:video>
       <video:title>Casio CZ-101 med Shallow Water, Tube Tape Echo og CXM 1978</video:title>
@@ -264,7 +290,7 @@
     <loc>https://www.dehlimusikk.no/videos/yamaha-yc-25d-med-baandekko-og-klang/</loc>
     <video:video>
       <video:title>Yamaha YC-25D med båndekko og klang</video:title>
-      <video:description>En kort jam i C-moll med Yamaha YC-25D combo-orgel, Fulltone Tube Tape Echo og ChaseBliss &amp; Meris CXM 1978 stereoklang. Instrument: Yamaha YC-25D. Effekter: Fulltone Tube Tape Echo og Chase Bliss Audio Audio &amp; Meris CXM 1978.</video:description>
+      <video:description>En kort jam i C-moll med Yamaha YC-25D combo-orgel, Fulltone Tube Tape Echo og Chase Bliss &amp; Meris CXM 1978 stereoklang. Instrument: Yamaha YC-25D. Effekter: Fulltone Tube Tape Echo og Chase Bliss Audio Audio &amp; Meris CXM 1978.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Vx09phbnT14</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-03-11-00_540.26983f0d5270c3fcd4f9.jpg</video:thumbnail_loc>
       <video:duration>224</video:duration>
@@ -277,7 +303,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/yamaha-yc-25d-with-tape-echo-and-reverb/</loc>
     <video:video>
       <video:title>Yamaha YC-25D with tape echo and reverb</video:title>
-      <video:description>A short jam in C minor with the Yamaha YC-25D combo organ, Fulltone Tube Tape Echo and ChaseBliss &amp; Meris CXM 1978 stereo reverb. Instrument: Yamaha YC-25D. Effects: Fulltone Tube Tape Echo and Chase Bliss Audio Audio &amp; Meris CXM 1978.</video:description>
+      <video:description>A short jam in C minor with the Yamaha YC-25D combo organ, Fulltone Tube Tape Echo and Chase Bliss &amp; Meris CXM 1978 stereo reverb. Instrument: Yamaha YC-25D. Effects: Fulltone Tube Tape Echo and Chase Bliss Audio Audio &amp; Meris CXM 1978.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Vx09phbnT14</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-03-11-00_540.26983f0d5270c3fcd4f9.jpg</video:thumbnail_loc>
       <video:duration>224</video:duration>
@@ -417,9 +443,9 @@
     </video:video>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/videos/harmonium-i-13-8-med-yamaha-l-20d-shorts/</loc>
+    <loc>https://www.dehlimusikk.no/videos/harmonium-i-13-8-med-yamaha-l-20d/</loc>
     <video:video>
-      <video:title>Harmonium i 13/8 med Yamaha L-20D #shorts</video:title>
+      <video:title>Harmonium i 13/8 med Yamaha L-20D</video:title>
       <video:description>13/8 taktart med Yamaha L-20D elektrisk harmonium / reed organ. Instrument: Yamaha L-20D. Mikrofoner: Par med AKG C451E.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=h6eKaQo-qto</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-09-08-00_540.59ece640db2f92346377.jpg</video:thumbnail_loc>
@@ -758,7 +784,7 @@
     <loc>https://www.dehlimusikk.no/videos/yamaha-dx7-lo-fi-tape-loop/</loc>
     <video:video>
       <video:title>Yamaha DX7 Lo-fi Tape Loop</video:title>
-      <video:description>Tape loop med 4 spor av Yamaha DX-7 med plateklang fra CXM 1978. Instrument: Yamaha DX7. Effekter: Chase Bliss Audio &amp; Meris CXM 1978. Båndopptaker: Fostex X-28H.</video:description>
+      <video:description>Tape loop med 4 spor av Yamaha DX7 med plateklang fra CXM 1978. Instrument: Yamaha DX7. Effekter: Chase Bliss Audio &amp; Meris CXM 1978. Båndopptaker: Fostex X-28H.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vFxhK17rj40</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-26-00_540.ad82aa49a09fa81925b8.jpg</video:thumbnail_loc>
       <video:duration>61</video:duration>
@@ -771,7 +797,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/yamaha-dx7-lo-fi-tape-loop/</loc>
     <video:video>
       <video:title>Yamaha DX7 Lo-fi Tape Loop</video:title>
-      <video:description>Tape loop with 4 tracks of Yamaha DX-7 with plate reverb from the CXM 1978. Instrument: Yamaha DX7. Effects: Chase Bliss Audio &amp; Meris CXM 1978. Tape recorder: Fostex X-28H.</video:description>
+      <video:description>Tape loop with 4 tracks of Yamaha DX7 with plate reverb from the CXM 1978. Instrument: Yamaha DX7. Effects: Chase Bliss Audio &amp; Meris CXM 1978. Tape recorder: Fostex X-28H.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vFxhK17rj40</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-05-26-00_540.ad82aa49a09fa81925b8.jpg</video:thumbnail_loc>
       <video:duration>61</video:duration>
@@ -1278,7 +1304,7 @@
     <loc>https://www.dehlimusikk.no/videos/wurlitzer-200a-med-roger-mayer-voodoo-vibe-plus-vibrato/</loc>
     <video:video>
       <video:title>Wurlitzer 200A med Roger Mayer Voodoo-Vibe+ vibrato</video:title>
-      <video:description>Wurlitzer 200A elektrisk piano med vibrato fra en Roger Mayer Voodoo-Vibe+ effekt pedal. Signalet er sendt gjennom en Fender Twin Reverb forsterker som er mikket opp med en Shure SM57. Instrument: Wurlitzer 200 Effekt pedal: Roger Mayer Voodoo-Vibe+ Forsterker: Fender Twin Reverb Amp</video:description>
+      <video:description>Wurlitzer 200A elektrisk piano med vibrato fra en Roger Mayer Voodoo-Vibe+ effekt pedal. Signalet er sendt gjennom en Fender Twin Reverb forsterker som er mikket opp med en Shure SM57. Instrument: Wurlitzer 200A Effekt pedal: Roger Mayer Voodoo-Vibe+ Forsterker: Fender Twin Reverb Amp</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=05mJ7ePz_1c</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-04-02-00_540.91009526e3af2d20e0e7.jpg</video:thumbnail_loc>
       <video:duration>385</video:duration>
@@ -1408,7 +1434,7 @@
     <loc>https://www.dehlimusikk.no/videos/twin-peaks-theme-cover/</loc>
     <video:video>
       <video:title>Twin Peaks Theme (Cover)</video:title>
-      <video:description>Cover-versjon av Twin Peaks Theme komponert av Angelo Badalamenti. Instrumenter: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody 2, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur. Effekter: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate jr. Forsterker: Fender Twin Reverb Amp</video:description>
+      <video:description>Cover-versjon av Twin Peaks Theme komponert av Angelo Badalamenti. Instrumenter: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody II, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur. Effekter: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate Jr. Forsterker: Fender Twin Reverb Amp</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cPS2CXe-ZPk</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-11-16-00_540.f53ce12d97daa62c56a5.jpg</video:thumbnail_loc>
       <video:duration>320</video:duration>
@@ -1421,7 +1447,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/twin-peaks-theme-cover/</loc>
     <video:video>
       <video:title>Twin Peaks Theme (Cover)</video:title>
-      <video:description>Cover version of Twin Peaks Theme composed by Angelo Badalamenti. Instruments: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody 2, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur. Effects: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate jr. Amp: Fender Twin Reverb Amp</video:description>
+      <video:description>Cover version of Twin Peaks Theme composed by Angelo Badalamenti. Instruments: Rhodes: Fender Rhodes MK1 Stage, Baritone Guitar: Hohner Clavinet D6, Synth Rhodes: Korg Polysix, Synth Pad: Korg Polysix, Synth Brass: Korg Polysix, Strings: Logan String Melody II, Kick Drum: Doepfer Dark Energy, Bass: Moog Minitaur. Effects: Boss Chorus Ensemble (CE-1), Electro Harmonix Deluxe Memory Man, Diamond Memory Lane 2, Boss DM-2, VanAmps Sole-Mate Jr. Amp: Fender Twin Reverb Amp</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cPS2CXe-ZPk</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-11-16-00_540.f53ce12d97daa62c56a5.jpg</video:thumbnail_loc>
       <video:duration>320</video:duration>
@@ -1590,7 +1616,7 @@
     <loc>https://www.dehlimusikk.no/videos/roland-dimension-d-sdd-320-med-synther-og-elektriske-pianoer/</loc>
     <video:video>
       <video:title>Roland Dimension D SDD-320 med synther og elektriske pianoer</video:title>
-      <video:description>Tester ut Roland Dimension D med tangentinstrumenter. Alle instrumentene er spilt inn direkte med en Whirlwind Direct2 DI-boks, det er ikke brukt noen effekter eller forsterkere bortsett fra Dimension D. Jeg anbefaler å bruke hodetelefoner eller stereohøytalere for å best høre effekten. Effekter: Roland Dimension D SDD-320 Instrumenter: Hohner Clavinet D6, Korg MS-20, Korg Polysix, Logan String Melody II, Rhodes MK I Stage Piano, Wurlitzer 200A, Yamaha DX7</video:description>
+      <video:description>Tester ut Roland Dimension D med tangentinstrumenter. Alle instrumentene er spilt inn direkte med en Whirlwind Direct2 DI-boks, det er ikke brukt noen effekter eller forsterkere bortsett fra Dimension D. Jeg anbefaler å bruke hodetelefoner eller stereohøytalere for å best høre effekten. Effekter: Roland Dimension D SDD-320. Instrumenter: Hohner Clavinet D6, Korg MS-20, Korg Polysix, Logan String Melody II, Rhodes MK I Stage Piano, Wurlitzer 200A, Yamaha DX7.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=PZhm0VZ20Qc</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-06-28-00_540.84f5517af9f931cc8bb2.jpg</video:thumbnail_loc>
       <video:duration>899</video:duration>
@@ -1603,7 +1629,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/roland-dimension-d-sdd-320-with-synthesizers-and-electric-pianos/</loc>
     <video:video>
       <video:title>Roland Dimension D SDD-320 with synthesizers and electric pianos</video:title>
-      <video:description>Testing the Roland Dimension D with keyboard instruments. All instruments are recorded directly with a Whirlwind Direct2 DI box, no other effects or amplifiers are used apart from the Dimension D. I recommend using headphones or stereo speakers for best hearing the effect. Effects: Roland Dimension D SDD-320 Instruments: Hohner Clavinet D6, Korg MS-20, Korg Polysix, Logan String Melody II, Rhodes MK I Stage Piano, Wurlitzer 200A, Yamaha DX7</video:description>
+      <video:description>Testing the Roland Dimension D with keyboard instruments. All instruments are recorded directly with a Whirlwind Direct2 DI box, no other effects or amplifiers are used apart from the Dimension D. I recommend using headphones or stereo speakers for best hearing the effect. Effects: Roland Dimension D SDD-320. Instruments: Hohner Clavinet D6, Korg MS-20, Korg Polysix, Logan String Melody II, Rhodes MK I Stage Piano, Wurlitzer 200A, Yamaha DX7.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=PZhm0VZ20Qc</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-06-28-00_540.84f5517af9f931cc8bb2.jpg</video:thumbnail_loc>
       <video:duration>899</video:duration>
@@ -1850,7 +1876,7 @@
     <loc>https://www.dehlimusikk.no/videos/yamaha-yc-25d-med-effektpedaler/</loc>
     <video:video>
       <video:title>Yamaha YC-25D med effektpedaler</video:title>
-      <video:description>Yamaha YC-25D kombo-orgel med Moog Minitaur Ladder Filter, Electro Harmonix Deluxe Memory Man Delay og Boss Chorus Ensemble (CE-1). Moog Minitaur filteret er styres av en LFO med Sample&amp;Hold bølgeform.</video:description>
+      <video:description>Yamaha YC-25D combo-orgel med Moog Minitaur Ladder Filter, Electro Harmonix Deluxe Memory Man Delay og Boss Chorus Ensemble (CE-1). Moog Minitaur filteret er styres av en LFO med Sample&amp;Hold bølgeform.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=-c4KhDYhvPM</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-02-23-00_540.7a3715519e8fbaf29e6f.jpg</video:thumbnail_loc>
       <video:duration>153</video:duration>
@@ -1902,7 +1928,7 @@
     <loc>https://www.dehlimusikk.no/videos/clavinet-d6-solo/</loc>
     <video:video>
       <video:title>Clavinet D6 Solo</video:title>
-      <video:description>Innspilling av solo med Hohner Clavinet D6 Effektpedaler: Real McCoy Custom Picture Wah, Dunlop / Dallas Arbiter &apos;93 Fuzz Face (NKT-275), Hudson Electronics, UK Broadcast, Boss DM-2 (MN3005), VanAmps Sole-Mate Jr. Amplifiers: Fender Twin Reverb, Vox AC15H1TV</video:description>
+      <video:description>Innspilling av solo med Hohner Clavinet D6 Effektpedaler: Real McCoy Custom Picture Wah, Dunlop / Dallas Arbiter &apos;93 Fuzz Face (NKT-275), Hudson Electronics, UK Broadcast, Boss DM-2 (MN3005), VanAmps Sole-Mate Jr. Forsterkere: Fender Twin Reverb, Vox AC15H1TV</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=cHUEsZwsdTE</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-12-22-01_540.5df09185423cc3c34492.jpg</video:thumbnail_loc>
       <video:duration>19</video:duration>
@@ -2032,7 +2058,7 @@
     <loc>https://www.dehlimusikk.no/videos/fender-rhodes-og-korg-ms-20/</loc>
     <video:video>
       <video:title>Fender Rhodes og Korg MS-20</video:title>
-      <video:description>Jeg spilte inn en kort live-jam på kassett med Korg MS-20 og Fender Rhodes MKI. VCO 2 på MS-20 blir styrt av en Korg SQ-1mens VCO 1 blir styrt av tangentene. Her er mer info om parafonisk oppsett: https://www.youtube.com/watch?v=8WhyCtn6j0k Begge instrumentene er plugget direkte inn i Fostex X-28H 4-spors båndopptaker. I effektsløyfa til båndopptakeren er det en Van-Amps Sole Mate Jr, (fjærklang), Diamond Memory Lane 2 (analog delay) and a Boss Chorus Ensemble (Brukt som mono til &quot;stereo&quot; konverterer).</video:description>
+      <video:description>Jeg spilte inn en kort live-jam på kassett med Korg MS-20 og Fender Rhodes MKI. VCO 2 på MS-20 blir styrt av en Korg SQ-1 mens VCO 1 blir styrt av tangentene. Begge instrumentene er plugget direkte inn i Fostex X-28H 4-spors båndopptaker. I effektsløyfa til båndopptakeren er det en Van-Amps Sole-Mate Jr. (fjærklang), Diamond Memory Lane 2 (analog delay) and a Boss Chorus Ensemble (Brukt som mono til &quot;stereo&quot; konverterer).</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=bXcYmN3bTME</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-07-21-00_540.1d94ad1089d9b9c11d4f.jpg</video:thumbnail_loc>
       <video:duration>100</video:duration>
@@ -2045,7 +2071,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/fender-rhodes-and-korg-ms-20/</loc>
     <video:video>
       <video:title>Fender Rhodes and Korg MS-20</video:title>
-      <video:description>I recorded a short live jam to tape with Korg MS-20 and Fender Rhodes MKI. VCO 2 on the MS-20 is sequenced by the Korg SQ-1 while VCO 1 is triggered by the keyboard. Info about the paraphonic setup here: https://www.youtube.com/watch?v=8WhyCtn6j0k Both instruments are plugged directly to the Fostex X-28H 4-track tape recorder. In the tape recorder&apos;s effects loop I added Van-Amps Sole Mate Jr, (spring reverb), Diamond Memory Lane 2 (analog delay) and a Boss Chorus Ensemble (Used as mono to &quot;stereo&quot; converter).</video:description>
+      <video:description>I recorded a short live jam to tape with Korg MS-20 and Fender Rhodes MKI. VCO 2 on the MS-20 is sequenced by the Korg SQ-1 while VCO 1 is triggered by the keyboard. Both instruments are plugged directly to the Fostex X-28H 4-track tape recorder. In the tape recorder&apos;s effects loop I added Van-Amps Sole-Mate Jr. (spring reverb), Diamond Memory Lane 2 (analog delay) and a Boss Chorus Ensemble (Used as mono to &quot;stereo&quot; converter).</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=bXcYmN3bTME</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-07-21-00_540.1d94ad1089d9b9c11d4f.jpg</video:thumbnail_loc>
       <video:duration>100</video:duration>
@@ -2136,7 +2162,7 @@
     <loc>https://www.dehlimusikk.no/videos/uendelig-pitch-shifting-ekko/</loc>
     <video:video>
       <video:title>Uendelig &apos;pitch shifting&apos; ekko</video:title>
-      <video:description>Bruker en Fostex X-28H, Electro-Harmonix Deluxe Memory Man og en Digitech Whammy for å lage en &quot;uendelig&quot; pitch-justert ekko. Signalkjede for instrument, mikser og effektpedaler: Gitar ➡️ Fostex (Input 1) ➡️ Fostex(Send) &amp; Fostex(Out) ➡️ Digitech Whammy ➡️ Memory Man ➡️ Fostex (Input 2) ➡️ Fostex(Send) &amp; Fostex(Out). Signalkjede fra mikser til lydkort (interface): Fostex(Out) ➡️ Roland JC120 ➡️ Par med SM57 ➡️ Lydkort.</video:description>
+      <video:description>Bruker en Fostex X-28H, Electro-Harmonix Deluxe Memory Man og en Digitech Whammy for å lage en &quot;uendelig&quot; pitch-justert ekko. Signalkjede for instrument, mikser og effektpedaler: Gitar ➡️ Fostex (Input 1) ➡️ Fostex(Send) &amp; Fostex(Out) ➡️ Digitech Whammy ➡️ Memory Man ➡️ Fostex (Input 2) ➡️ Fostex(Send) &amp; Fostex(Out). Signalkjede fra mikser til lydkort (interface): Fostex(Out) ➡️ Roland JC-120 ➡️ Par med SM57 ➡️ Lydkort.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tewdcO8uCZc</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-05-30-00_540.718e08407e2075060dba.jpg</video:thumbnail_loc>
       <video:duration>174</video:duration>
@@ -2149,7 +2175,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/perpetual-pitch-shifting-delay/</loc>
     <video:video>
       <video:title>Perpetual Pitch Shifting Delay</video:title>
-      <video:description>Using the Fostex X-28H, Electro-Harmonix Deluxe Memory Man and Digitech Whammy to make an &quot;endless&quot; pitch shifted delay. Signal chain for instrument, mixer and effects pedals: Guitar ➡️ Fostex (Input 1) ➡️ Fostex(Send) &amp; Fostex(Out) ➡️ Digitech Whammy ➡️ Memory Man ➡️ Fostex (Input 2) ➡️ Fostex(Send) &amp; Fostex(Out). Signal chain from mixer to audio interface: Fostex(Out) ➡️ Roland JC120 ➡️ Pair of SM57s ➡️ Audio Interface. </video:description>
+      <video:description>Using the Fostex X-28H, Electro-Harmonix Deluxe Memory Man and Digitech Whammy to make an &quot;endless&quot; pitch shifted delay. Signal chain for instrument, mixer and effects pedals: Guitar ➡️ Fostex (Input 1) ➡️ Fostex(Send) &amp; Fostex(Out) ➡️ Digitech Whammy ➡️ Memory Man ➡️ Fostex (Input 2) ➡️ Fostex(Send) &amp; Fostex(Out). Signal chain from mixer to audio interface: Fostex(Out) ➡️ Roland JC-120 ➡️ Pair of SM57s ➡️ Audio Interface. </video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tewdcO8uCZc</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-05-30-00_540.718e08407e2075060dba.jpg</video:thumbnail_loc>
       <video:duration>174</video:duration>
@@ -2214,7 +2240,7 @@
     <loc>https://www.dehlimusikk.no/videos/clavinet-d6-med-4-fuzz-pedaler/</loc>
     <video:video>
       <video:title>Clavinet D6 med 4 fuzz-pedaler</video:title>
-      <video:description>Et lite klipp fra en kommende video med sammenligning av fuzz-pedaler på Clavinet. Clavinet&apos;en er spilt inn med en DI-boks og så re-amp&apos;et fire ganger med fire forskjellige fuzz-pedaler. Fuzz-pedaler: Dunlop Dallas Arbiter - 93&apos; Fuzz Face (NKT-275), Fender - Fender Blender (3-knob), Hudson Electronics, UK - Broadcast og Mojo Hand FX - Iron Bell. Instrument: Hohner Clavinet D6.</video:description>
+      <video:description>Et lite klipp fra en kommende video med sammenligning av fuzz-pedaler på Clavinet. Clavinet&apos;en er spilt inn med en DI-boks og så re-amp&apos;et fire ganger med fire forskjellige fuzz-pedaler. Fuzz-pedaler: Dunlop / Dallas Arbiter - 93&apos; Fuzz Face (NKT-275), Fender - Fender Blender (3-knob), Hudson Electronics, UK - Broadcast og Mojo Hand FX - Iron Bell. Instrument: Hohner Clavinet D6.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tgZ_Niael48</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-08-00_540.ef57b15c91304d0deea1.jpg</video:thumbnail_loc>
       <video:duration>20</video:duration>
@@ -2227,7 +2253,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/clavinet-d6-with-4-fuzz-pedals/</loc>
     <video:video>
       <video:title>Clavinet D6 with 4 fuzz pedals</video:title>
-      <video:description>A short clip from an upcoming Clavinet fuzz comparison video. The Clavinet is recorded with a DI box, then re-amped four times with four different fuzz pedals. Fuzz pedals used: Dunlop Dallas Arbiter - 93&apos; Fuzz Face (NKT-275), Fender - Fender Blender (3-knob), Hudson Electronics, UK - Broadcast and Mojo Hand FX - Iron Bell. Instrument used: Hohner Clavinet D6.</video:description>
+      <video:description>A short clip from an upcoming Clavinet fuzz comparison video. The Clavinet is recorded with a DI box, then re-amped four times with four different fuzz pedals. Fuzz pedals used: Dunlop / Dallas Arbiter - 93&apos; Fuzz Face (NKT-275), Fender - Fender Blender (3-knob), Hudson Electronics, UK - Broadcast and Mojo Hand FX - Iron Bell. Instrument used: Hohner Clavinet D6.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tgZ_Niael48</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-08-00_540.ef57b15c91304d0deea1.jpg</video:thumbnail_loc>
       <video:duration>20</video:duration>
@@ -2318,7 +2344,7 @@
     <loc>https://www.dehlimusikk.no/videos/korg-ms-20-og-korg-sq-1-kontrollerer-hverandre/</loc>
     <video:video>
       <video:title>Korg MS-20 og Korg SQ-1 kontrollerer hverandre</video:title>
-      <video:description>MS-20 sin modulation generator sender pulse bølger som synk-signal til SQ-1 og SQ-1 sender gate-signal og styrespenning til MS-20 sin VCO 2.</video:description>
+      <video:description>Korg MS-20 sin modulation generator sender pulse bølger som synk-signal til SQ-1 og SQ-1 sender gate-signal og styrespenning til MS-20 sin VCO 2.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=gJ0ZIRiiq8U</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2019-03-02-01_540.47eb12f8af0c55ad64ab.jpg</video:thumbnail_loc>
       <video:duration>211</video:duration>
@@ -2474,7 +2500,7 @@
     <loc>https://www.dehlimusikk.no/videos/clavinet-solo/</loc>
     <video:video>
       <video:title>Clavinet-solo</video:title>
-      <video:description>Clavinet-solo på &quot;Don&apos;t You Wanna Know?&quot; med Set One&apos;s Cap live på Wrightegaarden i Langesund. Clavinet D6 med Real McCoy Picture Wah gjennom en Vox AC15 H1TV. Set One&apos;s Cap: Kasper Waag (Trommer), Sondre Gautefald (Bass og koring), Benjamin Dehli (Orgel, Rhodes og Clavinet), Martin Torgersen (Synth), Joakim Juul (Vokal) og Carl-Viktor Guttormsen (Gitar).</video:description>
+      <video:description>Clavinet-solo på &quot;Don&apos;t You Wanna Know?&quot; med Set One&apos;s Cap live på Wrightegaarden i Langesund. Clavinet D6 med Real McCoy Picture Wah gjennom en Vox AC15H1TV. Set One&apos;s Cap: Kasper Waag (Trommer), Sondre Gautefald (Bass og koring), Benjamin Dehli (Orgel, Rhodes og Clavinet, Martin Torgersen (Synth), Joakim Juul (Vokal) og Carl-Viktor Guttormsen (Gitar).</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=HRbLCUEe354</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2015-07-31-00_540.69ebe2d01af8433edbaf.jpg</video:thumbnail_loc>
       <video:duration>68</video:duration>
@@ -2487,7 +2513,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/clavinet-solo/</loc>
     <video:video>
       <video:title>Clavinet solo</video:title>
-      <video:description>Clavinet solo on &quot;Don&apos;t You Wanna Know?&quot; with Set One&apos;s Cap live at Wrightegaarden in Langesund. Clavinet D6 with Real McCoy Picture Wah through a Vox AC15 H1TV. Set One&apos;s Cap: Kasper Waag (Drums), Sondre Gautefald (Bass and backing vocals), Benjamin Dehli (Organ, Rhodes and Clavinet), Martin Torgersen (Synth), Joakim Juul (Vocals) and Carl-Viktor Guttormsen (Guitar).</video:description>
+      <video:description>Clavinet solo on &quot;Don&apos;t You Wanna Know?&quot; with Set One&apos;s Cap live at Wrightegaarden in Langesund. Clavinet D6 with Real McCoy Picture Wah through a Vox AC15H1TV. Set One&apos;s Cap: Kasper Waag (Drums), Sondre Gautefald (Bass and backing vocals), Benjamin Dehli (Organ, Rhodes and Clavinet, Martin Torgersen (Synth), Joakim Juul (Vocals) and Carl-Viktor Guttormsen (Guitar).</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=HRbLCUEe354</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2015-07-31-00_540.69ebe2d01af8433edbaf.jpg</video:thumbnail_loc>
       <video:duration>68</video:duration>
@@ -2500,7 +2526,7 @@
     <loc>https://www.dehlimusikk.no/videos/korg-cx-3-analog-med-effektpedaler/</loc>
     <video:video>
       <video:title>Korg CX-3 (analog) med effektpedaler</video:title>
-      <video:description>Her er noen lyder man kan lage med Korg CX-3 og effektpedaler. Videoen er laget for å demonstrere allsidigheten til instrumentet når man kombinerer det med effektpedaler. Håper du liker det og legg gjerne igjen en kommentar. Signalkjeden er: Goodrich Volume Pedal → EHX English Muff&apos;n → Diamond Memory Lane 2 → VanAmps SoleMate → Neo Ventilator → HardWire RV-7.</video:description>
+      <video:description>Her er noen lyder man kan lage med Korg CX-3 og effektpedaler. Videoen er laget for å demonstrere allsidigheten til instrumentet når man kombinerer det med effektpedaler. Håper du liker det og legg gjerne igjen en kommentar. Signalkjeden er: Goodrich Volume Pedal → EHX English Muff&apos;n → Diamond Memory Lane 2 → VanAmps Sole-Mate Jr. → Neo Ventilator → HardWire RV-7.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=mPecjYXGkag</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2014-04-30-00_540.394056e914274cb63b2a.jpg</video:thumbnail_loc>
       <video:duration>572</video:duration>
@@ -2513,7 +2539,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/korg-cx-3-analog-with-effects-pedals/</loc>
     <video:video>
       <video:title>Korg CX-3 (analog) with effects pedals</video:title>
-      <video:description>Here are sounds you can make with a Korg CX-3 and effects pedals. This video only demonstrate the versatility of the instrument in conjunction with effects pedals, so don&apos;t worry about my sloppy playing. Hope you like it, and feel free to leave a comment. The signal chain is: Goodrich Volume Pedal → EHX English Muff&apos;n → Diamond Memory Lane 2 → VanAmps SoleMate → Neo Ventilator → HardWire RV-7. </video:description>
+      <video:description>Here are sounds you can make with a Korg CX-3 and effects pedals. This video only demonstrate the versatility of the instrument in conjunction with effects pedals, so don&apos;t worry about my sloppy playing. Hope you like it, and feel free to leave a comment. The signal chain is: Goodrich Volume Pedal → EHX English Muff&apos;n → Diamond Memory Lane 2 → VanAmps Sole-Mate Jr. → Neo Ventilator → HardWire RV-7. </video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=mPecjYXGkag</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2014-04-30-00_540.394056e914274cb63b2a.jpg</video:thumbnail_loc>
       <video:duration>572</video:duration>
