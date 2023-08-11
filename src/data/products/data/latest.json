@@ -1,5 +1,21 @@
 [
     {
+        "timestamp": 1691712000000,
+        "title": "4-track Music Box",
+        "content": {
+            "no": "En spilledåse spilt inn på kassett og spilt av på halv hastighet og normal/original hastighet.\nBiblioteket inkluderer også impulsresponser for to typer båndekko og to typer romklang.",
+            "en": "A music box recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch.\nIt also includes impulse responses for two tape delay/echo types and two room reverbs."
+        },
+        "thumbnailDescription": "The 4-track Music Box user interface and a music box",
+        "link": {
+            "url": "https://www.pianobook.co.uk/packs/4-track-music-box/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        }
+    },
+    {
         "timestamp": 1687737600000,
         "title": "Voltage Controlled Cassette Organ",
         "content": {
@@ -94,23 +110,5 @@
                 "date:": "2023-04-15"
             }
         ]
-    },
-    {
-        "timestamp": 1589673600000,
-        "title": "Lo-fi Tape Piano",
-        "content": {
-            "no": "Lo-fi Tape Piano fra Dehli Musikk inneholder lyder av en [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) som er spilt inn med kassettopptaker og 3 forskjellige mikrofoner. Forsforsterkerene på kassettopptakeren overstyrer litt og gir ekstra overtoner and kassettbåndet gir kompresjon i tilegg til små endringer i tonehøyde ('wow' og 'flutter').\nOm du vil ha lyden av et perfekt intonert og regulert piano, er nok ikke dette produktet det du er på jakt etter. Dette låter mer som en Mellotron- / Chamberlin-versjon av en Pianette.\nLydpakken inneholder 328 .WAV-filer (637,8 MB) og 3 .EXS-filer (295 KB).",
-            "en": "Lo-fi Tape Piano from Dehli Musikk includes the sound of a [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) recorded with cassette tape recorder through 3 different microphones. The preamps of the tape recorder are slightly overdriven and the tape adds compression and harmonics as well as wow and flutter (pitch variation).\nIf you want the sound of a perfectly voiced and regulated grand piano, this may not be the samples for you. This is more like a Mellotron / Chamberlin version of the Pianette.\nThe sample pack includes 328 .WAV samples (637.8 MB)  and 3 .EXS files (295 KB)."
-        },
-        "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
-        "price": "4.99",
-        "priceCurrency": "USD",
-        "link": {
-            "url": "https://www.roqstar.io/item/lo-fi-tape-piano",
-            "text": {
-                "en": "Show in store",
-                "no": "Se i butikk"
-            }
-        }
     }
 ]
