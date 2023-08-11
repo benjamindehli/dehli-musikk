@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/masquerade-spilledaase-versjon-fra-the-phantom-of-the-opera/</loc>
+    <video:video>
+      <video:title>Masquerade (spilledåse-versjon) fra The Phantom of the Opera</video:title>
+      <video:description>Kjapp demo av 4-track Music Box biblioteket for Decent Sampler. Stykket er et utdrag av Masquerade fra The Phantom of the Opera.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=uBB4RNMrEXc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-07-30-00_540.4d3da88067ebeacf4d76.jpg</video:thumbnail_loc>
+      <video:duration>36</video:duration>
+      <video:publication_date>2023-07-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/masquerade-music-box-version-from-the-phantom-of-the-opera/</loc>
+    <video:video>
+      <video:title>Masquerade (music box version) from The Phantom of the Opera</video:title>
+      <video:description>Quick demo of the 4-track Music Box sample library for Decent Sampler. The tune is an excerpt of Masquerade from The Phantom of the Opera.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=uBB4RNMrEXc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-07-30-00_540.4d3da88067ebeacf4d76.jpg</video:thumbnail_loc>
+      <video:duration>36</video:duration>
+      <video:publication_date>2023-07-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/roland-sh-09-og-sequential-circuits-pro-one-koblet-sammen/</loc>
     <video:video>
       <video:title>Roland SH-09 og Sequential Circuits Pro-One koblet sammen</video:title>
