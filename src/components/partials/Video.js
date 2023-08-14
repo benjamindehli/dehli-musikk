@@ -77,10 +77,17 @@ const Video = ({ video, fullscreen }) => {
     const imageSize = fullscreen
       ? '540px'
       : '350px';
+    
+    const srcSets = {
+      avif: `${image.avif55} 55w, ${image.avif350} 350w ${fullscreen ? `, ${image.avif540} 540w` : ""}`,
+      webp: `${image.webp55} 55w, ${image.webp350} 350w ${fullscreen ? `, ${image.webp540} 540w` : ""}`,
+      jpg: `${image.jpg55} 55w, ${image.jpg350} 350w ${fullscreen ? `, ${image.jpg540} 540w` : ""}`
+    };
+
     return (<React.Fragment>
-      <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w`} type="image/avif" />
-      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
-      <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
+      <source sizes={imageSize} srcSet={srcSets.avif} type="image/avif" />
+      <source sizes={imageSize} srcSet={srcSets.webp} type="image/webp" />
+      <source sizes={imageSize} srcSet={srcSets.jpg} type="image/jpg" />
       <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} />
     </React.Fragment>);
   }
