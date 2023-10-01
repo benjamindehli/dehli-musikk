@@ -1,5 +1,21 @@
 [
     {
+        "timestamp": 1692474773000,
+        "title": "4-track Glockenspiel",
+        "content": {
+            "no": "Klokkespill spilt inn på kassett og spilt av på halv hastighet og normal/original hastighet.\nBiblioteket inkluderer også impulsresponser for to typer båndekko og to typer romklang.",
+            "en": "A glockenspiel recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch.\nIt also includes impulse responses for two tape delay/echo types and two room reverbs."
+        },
+        "thumbnailDescription": "The 4-track Glockenspiel user interface and a glockenspiel",
+        "link": {
+            "url": "https://www.pianobook.co.uk/packs/4-track-glockenspiel/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        }
+    },
+    {
         "timestamp": 1691539200000,
         "title": "4-track Music Box",
         "content": {
@@ -29,86 +45,6 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
-        },
-        "reviews": [
-            {
-                "author": "Sanie",
-                "title:": "All in one",
-                "content": "Amazing is what this is and the fact that you get a bit of everything at once is just wow.\nThank you",
-                "date:": "2023-07-12"
-            },
-            {
-                "author": "t7",
-                "title": "masterpeice",
-                "content": "superb in every way, thank you!! really impressive",
-                "date:": "2023-06-29"
-            },
-            {
-                "author": "Gavinski",
-                "title": "Gorgeous",
-                "content": "I think this sounds incredible. I can't run more than 1 instance at a time on my top of the range iPad Pro, which is a pity because it definitely can't handle large amounts of polyphony, but I'm not going to let that affect my rating because not only does this sound magical, the UI is one of the most gorgeous DS UIs I have seen. Thank you!",
-                "date:": "2023-07-01"
-            },
-            {
-                "author": "roberg",
-                "title": "Everything I could wish for from an organ",
-                "content": "With this organ Dehli Musikk gives us a Decent Sampler instrument that not only has a very appealing GUI, but also offers the possibility to create many different sounds with great sounding samples.\nJust the work that was put into this instrument from sampling to GUI design including custom knobs and drawbars(!) to the very complex XML creation for the Decent Sampler already deserves the highest respect!\nI personally like instruments that offer a wide variety of sound manipulation and here you even have the possibility to control the Amp Env ADSR curves (from log. to linear to exp.)!\nI also like that a CPU friendly version of the instrument is included (\"Single Drawbar\" - preset).\nDehli Musikk has managed that despite the many possibilities to change the sound of the organ, the GUI is still quickly understood and without much training time can be started immediately with the sound design. I have no criticism, because this instrument delivers everything I could wish for from an organ!",
-                "date:": "2023-07-01"
-            },
-            {
-                "author": "Jaime's Tone",
-                "title": "Excellent!",
-                "content": "I went immediately to the multiple drawbars instrument, and when I started to play with the drawbars, I could not believe how good this sounds!!! Thanks a lot for this great instrument!",
-                "date:": "2023-06-30"
-            },
-            {
-                "author": "Josiah Szobody",
-                "title": "Slick GUI!",
-                "content": "As good as the sound is, the GUI is impressive! The control given to the user is insane. The sound is clean, with a plethora of options to tweak it and make it yours.\nMy only complaint is that too many notes cause the sound to cut for a sec. But I'm pretty sure this is DecentSamplers fault. Awesome work Dehli!",
-                "date:": "2023-06-30"
-            }
-        ]
-    },
-    {
-        "timestamp": 1680811200000,
-        "title": "Omni-84",
-        "content": {
-            "no": "Alle lydene fra [Omnichord'en](equipment/instruments/suzuki-omnichord-om-84-system-two/) har blitt samplet. Jeg har også lagt til effektene jeg pleier å bruke på [Omnichord](equipment/instruments/suzuki-omnichord-om-84-system-two/) som en impulsrespons kalt \"space\".\nFor øyeblikket produseres ikke [Omnichord](equipment/instruments/suzuki-omnichord-om-84-system-two/) og prisene på bruktmarkedet har skutt i været. Dette er mitt forsøk på å gjøre lyden av [Omnichord](equipment/instruments/suzuki-omnichord-om-84-system-two/) mer tilgjengelig.\nDette lydbiblioteket inneholder 5 presets, én for hver del av [Omnichord'en](equipment/instruments/suzuki-omnichord-om-84-system-two/). Trommer, bass, akkorder, keyboard og SonicStrings",
-            "en": "Every sound of the [Omnichord](equipment/instruments/suzuki-omnichord-om-84-system-two/) has been sampled. I've also added the effects I tend to use when recording and playing the [Omnichord](equipment/instruments/suzuki-omnichord-om-84-system-two/) as an impulse response called \"space\".\nAt the moment, the [Omnichord](equipment/instruments/suzuki-omnichord-om-84-system-two/) is no longer produced and prices on the second-hand market have skyrocketed. This is my attempt to make the sound of the [Omnichord](equipment/instruments/suzuki-omnichord-om-84-system-two/) more accessible.\nThis sample library includes 5 presets, one for each part of the [Omnichord](equipment/instruments/suzuki-omnichord-om-84-system-two/). Drums, Bass, Chords, Keyboard and SonicStrings"
-        },
-        "thumbnailDescription": "The Omni-84 user interface and a Suzuki Omnichord OM-84 System Two",
-        "link": {
-            "url": "https://www.pianobook.co.uk/packs/omni-84/",
-            "text": {
-                "en": "Go to download page",
-                "no": "Gå til side for nedlasting"
-            }
-        },
-        "reviews": [
-            {
-                "author": "vitaming1",
-                "title": "Nailed it!",
-                "content": "Nailed the omni chord. Sounds great! The effects are also a nice touch!",
-                "date:": "2023-04-14"
-            },
-            {
-                "author": "Ignacio S",
-                "title": "Just amazing",
-                "content": "This is what I was exactly looking for when searching for a virtual omnichord. All the sounds are greatly recorded and it's amazing being able to have different tracks with each of the sounds of an Omnichord, such as the chords, bass, drums... 10/10 sample pack",
-                "date:": "2023-04-15"
-            },
-            {
-                "author": "TheGreatOz",
-                "title": "Wild Harmonics!",
-                "content": "It has wild harmonics, so when you experiment with different intervals you discover harmonies where you least expect them! Quite unique.",
-                "date:": "2023-04-15"
-            },
-            {
-                "author": "martiman",
-                "title": "Lovingly recreated Omnichord",
-                "content": "I only played one of these for a few minutes back in the day but this sampled version has caught the vibe terrifically well. Very clean and balanced sound and the GUI does a great job of allowing access to the sounds. This cannot have been easy so the end result is very impressive and the sounds themselves are sure to spark a creative response.",
-                "date:": "2023-04-15"
-            }
-        ]
+        }
     }
 ]
