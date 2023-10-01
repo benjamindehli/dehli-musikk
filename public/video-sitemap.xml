@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/4-track-glockenspiel-lydeksempler/</loc>
+    <video:video>
+      <video:title>4-track Glockenspiel - Lydeksempler</video:title>
+      <video:description>Kjapp demo av 4-track Glockenspiel biblioteket for Decent Sampler.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=8g-XCw91hSc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-08-19-00_540.f87ba9952569936270fb.jpg</video:thumbnail_loc>
+      <video:duration>57</video:duration>
+      <video:publication_date>2023-08-19</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/4-track-glockenspiel-sound-examples/</loc>
+    <video:video>
+      <video:title>4-track Glockenspiel - Sound Examples</video:title>
+      <video:description>Quick demo of the 4-track Glockenspiel sample library for Decent Sampler.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=8g-XCw91hSc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-08-19-00_540.f87ba9952569936270fb.jpg</video:thumbnail_loc>
+      <video:duration>57</video:duration>
+      <video:publication_date>2023-08-19</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/masquerade-spilledaase-versjon-fra-the-phantom-of-the-opera/</loc>
     <video:video>
       <video:title>Masquerade (spilledåse-versjon) fra The Phantom of the Opera</video:title>
@@ -173,7 +199,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/mellotron-m4000d-through-tape/</loc>
     <video:video>
       <video:title>Mellotron M4000D through tape</video:title>
-      <video:description>Using the Fulltone Tube Tape Echo as an tape saturation effect for the Mellotron M4000D. Instrument: Mellotron M4000D. Effects: Fulltone Tube Tape Echo.</video:description>
+      <video:description>Using the Fulltone Tube Tape Echo as an tape saturation effect for the Mellotron M4000D. Instrument: Mellotron M4000D with custom cabinet. Effects: Fulltone Tube Tape Echo.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=1tVaPxUV-dU</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-06-19-00_540.1da63c33139ec11f0fde.jpg</video:thumbnail_loc>
       <video:duration>35</video:duration>
@@ -667,7 +693,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/the-keyboard-sounds-of-haunted-by-silhouettes-selkie/</loc>
     <video:video>
       <video:title>The keyboard sounds of &quot;Haunted By Silhouettes - Selkie&quot;</video:title>
-      <video:description>The keyboard sounds from the bridge part of the song Selkie by Haunted By Silhouettes &amp; Bjorn &quot;Speed&quot; Strid. Instruments used: Korg MS-20 controlled by Korg CX-3 with External Signal Processing (ESP), Louis Zwicki Pianette, Sequential Circuits Pro-One, Mellotron M4000D recorded to 4-track casette tape with Fostex X-28H and Hammond C3 with Leslie 122. Instruments used elsewhere in the track: Dreadbox Erebus v2 and Korg Polysix.</video:description>
+      <video:description>The keyboard sounds from the bridge part of the song Selkie by Haunted By Silhouettes &amp; Bjorn &quot;Speed&quot; Strid. Instruments used: Korg MS-20 controlled by Korg CX-3 with External Signal Processing (ESP), Louis Zwicki Pianette, Sequential Circuits Pro-One, Mellotron M4000D with custom cabinet, recorded to 4-track casette tape with Fostex X-28H and Hammond C3 with Leslie 122. Instruments used elsewhere in the track: Dreadbox Erebus v2 and Korg Polysix.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=0T_kUpRn9MU</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-07-28-00_540.d9188a72fc3e7abaf318.jpg</video:thumbnail_loc>
       <video:duration>45</video:duration>
@@ -1223,9 +1249,9 @@
     </video:video>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/videos/warszawa-utdrag-paa-mellotron-og-pro-one/</loc>
+    <loc>https://www.dehlimusikk.no/videos/warszawa-paa-mellotron-med-chamberlin-lyd-og-pro-one/</loc>
     <video:video>
-      <video:title>Warszawa (utdrag) på Mellotron og Pro-One</video:title>
+      <video:title>Warszawa på Mellotron (med Chamberlin-lyd) og Pro-One</video:title>
       <video:description>Et utdrag fra Warszawa av David Bowie og Brian Eno spilt på en Mellotron M4000D og en Sequential Circuits Pro-One. Instrumenter: Sequential Circuits Pro-One og Mellotron M4000D. Effekter: VanAmps - Sole-Mate Jr. og Chase Bliss Audio &amp; Meris - CXM 1978. Innspillingsutstyr: Fostex X-28H. </video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=jLwKBCm6-3c</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-09-09-00_540.2d8c54e7b13f9fa01591.jpg</video:thumbnail_loc>
@@ -1236,10 +1262,10 @@
     </video:video>
   </url>
   <url>
-    <loc>https://www.dehlimusikk.no/en/videos/warszawa-excerpt-on-mellotron-and-pro-one/</loc>
+    <loc>https://www.dehlimusikk.no/en/videos/warszawa-on-mellotron-with-chamberlin-sound-and-pro-one/</loc>
     <video:video>
-      <video:title>Warszawa (excerpt) on Mellotron and Pro-One</video:title>
-      <video:description>An excerpt from Warszawa by David Bowie and Brian Eno played on a Mellotron M4000D and a Sequential Circuits Pro-One. Instruments: Sequential Circuits Pro-One and Mellotron M4000D. Effects: VanAmps - Sole-Mate Jr. and Chase Bliss Audio &amp; Meris - CXM 1978. Recording equipment: Fostex X-28H.</video:description>
+      <video:title>Warszawa on Mellotron (with Chamberlin sound) and Pro-One</video:title>
+      <video:description>An excerpt from Warszawa by David Bowie and Brian Eno played on a Mellotron M4000D and a Sequential Circuits Pro-One. Instruments: Sequential Circuits Pro-One and Mellotron M4000D with custom cabinet. Effects: VanAmps - Sole-Mate Jr. and Chase Bliss Audio &amp; Meris - CXM 1978. Recording equipment: Fostex X-28H.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=jLwKBCm6-3c</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-09-09-00_540.2d8c54e7b13f9fa01591.jpg</video:thumbnail_loc>
       <video:duration>122</video:duration>
@@ -1629,7 +1655,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/fulltone-tube-tape-echo-with-keyboards-and-drum-machine/</loc>
     <video:video>
       <video:title>Fulltone Tube Tape Echo with keyboards and drum machine</video:title>
-      <video:description>Testing the Fulltone Tube Tape Echo with Korg MS-20, Mellotron M4000D and Arturia Drumbrute. The second VCO on the MS-20 is sequenced by a Korg SQ-1. I ran all the instruments through the tape echo two times and panned it hard left and right to create a stereo effect. I also added some spring reverb from the VanAmps Sole-Mate Jr. Instruments: Korg MS-20 (MK 1), Mellotron M4000D and Arturia Drumbrute Effects: Fulltone Tube Tape Echo and VanAmps Sole-Mate Jr. Step sequencer: Korg SQ-1 Recording equipment: Fostex X-28H</video:description>
+      <video:description>Testing the Fulltone Tube Tape Echo with Korg MS-20, Mellotron M4000D and Arturia Drumbrute. The second VCO on the MS-20 is sequenced by a Korg SQ-1. I ran all the instruments through the tape echo two times and panned it hard left and right to create a stereo effect. I also added some spring reverb from the VanAmps Sole-Mate Jr. Instruments: Korg MS-20 (MK 1), Mellotron M4000D with custom cabinet and Arturia Drumbrute Effects: Fulltone Tube Tape Echo and VanAmps Sole-Mate Jr. Step sequencer: Korg SQ-1 Recording equipment: Fostex X-28H</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=dMpGEIJH_Wk</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-07-12-00_540.eb2b77d857b79a0366e5.jpg</video:thumbnail_loc>
       <video:duration>111</video:duration>

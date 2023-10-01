@@ -2144,4 +2144,52 @@
       <news:title>Happy Pride Month</news:title>
     </news:news>
   </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/hjemmelaget-kabinett-for-mellotron-m4000d/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2018-12-21</news:publication_date>
+      <news:title>Hjemmelaget kabinett for Mellotron M4000D</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/custom-cabinet-for-the-mellotron-m4000d/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2018-12-21</news:publication_date>
+      <news:title>Custom cabinet for the Mellotron M4000D</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/hjemmelaget-kabinett-for-mellotron-m4000d-begynner-aa-ta-form/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2018-11-29</news:publication_date>
+      <news:title>Hjemmelaget kabinett for Mellotron M4000D begynner å ta form</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/custom-cabinet-for-the-mellotron-m4000d-takes-shape/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2018-11-29</news:publication_date>
+      <news:title>Custom cabinet for the Mellotron M4000D takes shape</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/bygging-av-kabinett-for-mellotron-m4000d/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2018-11-10</news:publication_date>
+      <news:title>Bygging av kabinett for Mellotron M4000D</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/building-a-custom-cabinet-for-the-mellotron-m4000d/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2018-11-10</news:publication_date>
+      <news:title>Building a custom cabinet for the Mellotron M4000D</news:title>
+    </news:news>
+  </url>
 </urlset>
