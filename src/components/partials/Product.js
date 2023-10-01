@@ -86,25 +86,6 @@ const Product = ({ product, fullscreen }) => {
         "@id": "https://www.dehlimusikk.no"
       }
     }
-    if (product.reviews?.length) {
-      snippet.review = product.reviews.map(review => {
-        return {
-          "@type": "Review",
-          "author": {
-            "@type": "Person",
-            "name": review.author
-          },
-          "name": review.title,
-          "reviewBody": review.content,
-          "datePublished": review.date
-        }
-      });
-      snippet.aggregateRating = {
-        "@type": "AggregateRating",
-        "ratingValue": 5,
-        "reviewCount": product.reviews.length
-      };
-    } 
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
     </Helmet>)
