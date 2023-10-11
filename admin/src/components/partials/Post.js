@@ -59,6 +59,13 @@ const Post = ({ postData, index }) => {
         });
     }
 
+    const handleLastmodChange = (value) => {
+        setPost({
+            ...post,
+            lastmod: value.valueOf()
+        });
+    }
+
     const handleTitleChange = (value, language) => {
         setPost({
             ...post,
@@ -170,6 +177,16 @@ const Post = ({ postData, index }) => {
                             onChange={event => handleTimestampChange(event)}
                             onBlur={updatePostsInStore}
                             selected={post.timestamp}
+                            className={commonStyle.input} />
+                    </label>
+                    <label htmlFor={`lastmod-${index}`}>
+                        Modified
+                        <DatePicker
+                            id={`lastmod-${index}`}
+                            locale="nb"
+                            onChange={event => handleLastmodChange(event)}
+                            onBlur={updatePostsInStore}
+                            selected={post.lastmod}
                             className={commonStyle.input} />
                     </label>
                     <label htmlFor={`orderNumber-${index}`}>

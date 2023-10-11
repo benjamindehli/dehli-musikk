@@ -61,8 +61,15 @@ const Video = ({ videoData, index }) => {
             thumbnailFilename,
             id
         });
-        updateVideosInStore();
     }
+
+    const handleLastmodChange = (value) => {
+        setVideo({
+            ...video,
+            lastmod: value.valueOf()
+        });
+    }
+
 
     const handleTitleChange = (value, language) => {
         setVideo({
@@ -333,7 +340,18 @@ const Video = ({ videoData, index }) => {
                             id={`timestamp-${index}`}
                             locale="nb"
                             onChange={event => handleTimestampChange(event)}
+                            onBlur={updateVideosInStore}
                             selected={video.timestamp}
+                            className={commonStyle.input} />
+                    </label>
+                    <label htmlFor={`lastmod-${index}`}>
+                        Modified
+                        <DatePicker
+                            id={`lastmod-${index}`}
+                            locale="nb"
+                            onChange={event => handleLastmodChange(event)}
+                            onBlur={updateVideosInStore}
+                            selected={video.lastmod}
                             className={commonStyle.input} />
                     </label>
                     <label htmlFor={`orderNumber-${index}`}>
