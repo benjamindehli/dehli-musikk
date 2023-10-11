@@ -153,7 +153,7 @@ const Sitemaps = () => {
       ? posts.map(post => {
         const urlNorwegianPage = `${languageSlug.no}posts/${convertToUrlFriendlyString(post.title.no)}/`;
         const urlEnglishPage = `${languageSlug.en}posts/${convertToUrlFriendlyString(post.title.en)}/`;
-        const timestamp = post?.timestamp;
+        const timestamp = !!post?.lastmod ? post.lastmod : post?.timestamp;
         return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
@@ -164,7 +164,7 @@ const Sitemaps = () => {
       ? videos.map(video => {
         const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/`;
         const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/`;
-        const timestamp = video?.timestamp;
+        const timestamp = !!video?.lastmod ? video.lastmod : video?.timestamp;
         return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
@@ -175,7 +175,7 @@ const Sitemaps = () => {
       ? products.map(product => {
         const urlNorwegianPage = `${languageSlug.no}products/${convertToUrlFriendlyString(product.title)}/`;
         const urlEnglishPage = `${languageSlug.en}products/${convertToUrlFriendlyString(product.title)}/`;
-        const timestamp = product?.timestamp;
+        const timestamp = !!product?.lastmod ? product.lastmod : product?.timestamp;
         return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
@@ -187,7 +187,7 @@ const Sitemaps = () => {
         const relaseId = `${release.artistName} ${release.title}`;
         const urlNorwegianPage = `${languageSlug.no}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
         const urlEnglishPage = `${languageSlug.en}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
-        const timestamp = release?.releaseDate;
+        const timestamp = !!release?.lastmod ? release.lastmod : release?.releaseDate;
         return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
       }).join('')
       : '';
