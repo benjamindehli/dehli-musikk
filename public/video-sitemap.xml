@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/omnichord-omni-84-strumplate-script-for-logic-pro-x/</loc>
+    <video:video>
+      <video:title>Omnichord (Omni-84) strumplate script for Logic Pro X</video:title>
+      <video:description>Omni-84 Strumplate konverterer en enkelt note til en strummet/klimpret akkord. Notene blir gjengitt i samme rekkefølge som på en ekte Omnichord, men du har muligheten til å få dem spilt i ordinær stigende rekkefølge også. Scriptet inneholder klimpremønstre for alle akkordene fra Suzuki Omnichord OM-84. Den har de samme noteverdiene for akkordene som Omni-84 &apos;Chords&apos;-preset&apos;en, som betyr at du kan sende MIDI til begge på likt å få en klimpret &apos;SonicStrings&apos; sammen med akkordlyden fra &apos;Chords&apos;-preset&apos;en. For å få til dette legger du kun &apos;Omni-84 Strumplate&apos; script plugin&apos;en på &apos;SonicStrings&apos; sporet.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=_z1LOPGpIvw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-10-13-00_540.df4c5a8cff2b03659332.jpg</video:thumbnail_loc>
+      <video:duration>55</video:duration>
+      <video:publication_date>2023-10-13</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/omnichord-omni-84-strumplate-script-for-logic-pro-x/</loc>
+    <video:video>
+      <video:title>Omnichord (Omni-84) strumplate script for Logic Pro X</video:title>
+      <video:description>Omni-84 Strumplate converts a single note to a strummed chord. The notes are strummed in the same order as the original Omnichord, but you have the possibility to make it strum in regular ascending order as well.  The script contains strum patterns for all the individual chords from the Suzuki Omnichord OM-84. It has the same notes values for the chords as the Omni-84 &apos;Chords&apos; preset, which means you can send MIDI to both at the same time and get strummed SonicStrings on top of the chord sample. To achieve this you put no script plugin on the &apos;Chords&apos; track and a &apos;Omni-84 Strumplate&apos; script on the &apos;SonicStrings&apos; track.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=_z1LOPGpIvw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-10-13-00_540.df4c5a8cff2b03659332.jpg</video:thumbnail_loc>
+      <video:duration>55</video:duration>
+      <video:publication_date>2023-10-13</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/elektron-sidstation-uten-effekter/</loc>
+    <video:video>
+      <video:title>Elektron SidStation (uten effekter)</video:title>
+      <video:description>Kjapp test av Elektron SidStation . Lyden av Commodore 64 og dataspill fra 1980-tallet. MOS 6581 SID chip&apos;en kan lage noen ganske grisete lyder med dens 8-bit DAC og analoge filter som fort overstyrer. Dette er direktelyden av SidStation uten noen effekter. Instrument: Elektron SidStation.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=T9QNUDZ6py8</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-09-23-00_540.a1e195eb80bd519646a6.jpg</video:thumbnail_loc>
+      <video:duration>62</video:duration>
+      <video:publication_date>2023-09-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/elektron-sidstation-no-effects/</loc>
+    <video:video>
+      <video:title>Elektron SidStation (no effects)</video:title>
+      <video:description>Quick test of the Elektron SidStation . The sound of Commodore 64 and computer games from the 1980s. The MOS 6581 SID chip is capable of some gritty sounds with its 8-bit DAC and an analog filter that easily distorts. This is the raw direct sound of the SidStation and no effects were added. Instrument: Elektron SidStation.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=T9QNUDZ6py8</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-09-23-00_540.a1e195eb80bd519646a6.jpg</video:thumbnail_loc>
+      <video:duration>62</video:duration>
+      <video:publication_date>2023-09-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/4-track-glockenspiel-lydeksempler/</loc>
     <video:video>
       <video:title>4-track Glockenspiel - Lydeksempler</video:title>
