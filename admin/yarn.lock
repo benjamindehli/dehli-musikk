@@ -2360,10 +2360,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/router@npm:1.9.0":
-  version: 1.9.0
-  resolution: "@remix-run/router@npm:1.9.0"
-  checksum: 0537b0ff29879ac85077cb4c42eaca4a295b9efd71477848984c2f2dfa5741c9b83d3106a7bb72994a51a9adfeeab3b0f5a40f2dee8be3f0750feeeca2a6d513
+"@remix-run/router@npm:1.10.0":
+  version: 1.10.0
+  resolution: "@remix-run/router@npm:1.10.0"
+  checksum: f8f9fcd5f08465a7e0a05378398ff6df2c5c5ef5766df3490a134d64260b3b16f1bd490bb0c3f5925c2671a0c1d8d1fa01dfbdc7ecc3b2447dc6eafe6b73bcc2
   languageName: node
   linkType: hard
 
@@ -2854,11 +2854,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 20.8.5
-  resolution: "@types/node@npm:20.8.5"
+  version: 20.8.6
+  resolution: "@types/node@npm:20.8.6"
   dependencies:
     undici-types: ~5.25.1
-  checksum: 4bca4e4f6307a6f5dc78812015eca9c5a998b35fcf3ba4058c9851d3dde2b22c914fa25a85b804eab5af2ab95375d15943dce8e9ba5e01d15f4bf516ca0d2816
+  checksum: ccfb7ac482c5a96edeb239893c5c099f5257fcc2ed9ae62fefdfbc782b79e16dbc2af9a85b379665237bf759904b44ca2be68e75d239e0297882aad42f61905c
   languageName: node
   linkType: hard
 
@@ -4286,9 +4286,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001538, caniuse-lite@npm:^1.0.30001541":
-  version: 1.0.30001547
-  resolution: "caniuse-lite@npm:1.0.30001547"
-  checksum: ec0fc2b46721887f6f4aca1f3902f03d9a1a07416d16a86b7cd4bfba60e7b6b03ab3969659d3ea0158cc2f298972c80215c06c9457eb15c649d7780e8f5e91a7
+  version: 1.0.30001549
+  resolution: "caniuse-lite@npm:1.0.30001549"
+  checksum: 7f2abeedc8cf8b92cc0613855d71b995ce436068c0bcdd798c5af7d297ccf9f52496b00181beda42d82d25079dd4b6e389c67486156d40d8854e5707a25cb054
   languageName: node
   linkType: hard
 
@@ -5450,9 +5450,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.535":
-  version: 1.4.554
-  resolution: "electron-to-chromium@npm:1.4.554"
-  checksum: cbac43c50b43777327f4a7bf149ee3088c1da8b91bbcd80f78d2cc77bc52763f6d0941574499239d9caefd3430d3093f865e5f1093371418f7d6b70301eeae9b
+  version: 1.4.557
+  resolution: "electron-to-chromium@npm:1.4.557"
+  checksum: 16f24e8d648489f0bfe7c2ffd4ada282bd68465862779f1f2e0afff5357e96536b075731c4b721dd27e2eae72008dc66d79e7bce6315e1c8f02947d41d988b78
   languageName: node
   linkType: hard
 
@@ -9301,9 +9301,9 @@ __metadata:
   linkType: hard
 
 "object-inspect@npm:^1.12.3, object-inspect@npm:^1.9.0":
-  version: 1.12.3
-  resolution: "object-inspect@npm:1.12.3"
-  checksum: dabfd824d97a5f407e6d5d24810d888859f6be394d8b733a77442b277e0808860555176719c5905e765e3743a7cada6b8b0a3b85e5331c530fd418cc8ae991db
+  version: 1.13.0
+  resolution: "object-inspect@npm:1.13.0"
+  checksum: 21353e910a3079466cb44adca71d8bef15bd8b87e518eb68bb33d82c5c70b83193993edce432cc92268f7dd02c4a8ab338663a011844367d0bd0559f6dde1fed
   languageName: node
   linkType: hard
 
@@ -10780,8 +10780,8 @@ __metadata:
   linkType: hard
 
 "react-datepicker@npm:^4.1.1":
-  version: 4.20.0
-  resolution: "react-datepicker@npm:4.20.0"
+  version: 4.21.0
+  resolution: "react-datepicker@npm:4.21.0"
   dependencies:
     "@popperjs/core": ^2.11.8
     classnames: ^2.2.6
@@ -10792,7 +10792,7 @@ __metadata:
   peerDependencies:
     react: ^16.9.0 || ^17 || ^18
     react-dom: ^16.9.0 || ^17 || ^18
-  checksum: 43bb2590a71c4060e646a4a57b1ab4bee6bbdce1bb3ad6731a03272ee666a013282c8b9cf4d8c4eb1cf26dc58013a1ff682b9f025c9bd2889adb859b8ab0d06c
+  checksum: 21fe299e6aa0230873694bf70b770c9e063ba2dc1efc5ea89fc945ad0a12d421d5dea2f07c6fb47ec6fc66a46a0b4950c19e8b503549b92459ed0dee238a3195
   languageName: node
   linkType: hard
 
@@ -10953,26 +10953,26 @@ __metadata:
   linkType: hard
 
 "react-router-dom@npm:^6.2.1":
-  version: 6.16.0
-  resolution: "react-router-dom@npm:6.16.0"
+  version: 6.17.0
+  resolution: "react-router-dom@npm:6.17.0"
   dependencies:
-    "@remix-run/router": 1.9.0
-    react-router: 6.16.0
+    "@remix-run/router": 1.10.0
+    react-router: 6.17.0
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 18b398924bb0f0d97cf2f71dab71d860b960a7a267b2f77388990c662bb6d8738bdc3042d92f713fd63d269ae9ad90df39c8e97661b6ba758bbb7386b9f20ae0
+  checksum: e0ba4f4c507681e2ffdecdf2e67edf7ec0e2bf4be35222e29d013afdb03866a5e6ecacc8b452bd55797b9672785d02f81bd6dbf6b05ac93a59e48e774b0060de
   languageName: node
   linkType: hard
 
-"react-router@npm:6.16.0, react-router@npm:^6.2.1":
-  version: 6.16.0
-  resolution: "react-router@npm:6.16.0"
+"react-router@npm:6.17.0, react-router@npm:^6.2.1":
+  version: 6.17.0
+  resolution: "react-router@npm:6.17.0"
   dependencies:
-    "@remix-run/router": 1.9.0
+    "@remix-run/router": 1.10.0
   peerDependencies:
     react: ">=16.8"
-  checksum: b31c187e3fdcdf7294ffdad6ff834e14d012840c94d8ee8c7fbe451062a8fcb6e31e8bc7827fb1ff45445dd40fad2b8c96a7e98f0ac1c3eb1d716c257a0821c9
+  checksum: 99c30d94fbb34657e4c8c3ef1aaae33b143167d3869b442e06c83b4006f35200fde810029180e209654bef2f47f0b27a928f77cc2d859a358a2722cc9d494f03
   languageName: node
   linkType: hard
 
@@ -12464,8 +12464,8 @@ __metadata:
   linkType: hard
 
 "terser@npm:^5.0.0, terser@npm:^5.10.0, terser@npm:^5.16.8":
-  version: 5.21.0
-  resolution: "terser@npm:5.21.0"
+  version: 5.22.0
+  resolution: "terser@npm:5.22.0"
   dependencies:
     "@jridgewell/source-map": ^0.3.3
     acorn: ^8.8.2
@@ -12473,7 +12473,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-  checksum: 130f1567af1ffa4ddb067651bb284a01b45b5c83e82b3a072a5ff94b0b00ac35090f89c8714631a4a45972f65187bc149fc7144380611f437e1e3d9e174b136b
+  checksum: ee95981c54ebd381e0b7f5872c646e7a05543e53960f8e0c2f240863c368989d43a3ca80b7e9f691683c92ba199eb4b91d61785fef0b9ca4a887eb55866001f4
   languageName: node
   linkType: hard
 
@@ -13149,8 +13149,8 @@ __metadata:
   linkType: hard
 
 "webpack@npm:^5.64.4":
-  version: 5.88.2
-  resolution: "webpack@npm:5.88.2"
+  version: 5.89.0
+  resolution: "webpack@npm:5.89.0"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^1.0.0
@@ -13181,7 +13181,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 79476a782da31a21f6dd38fbbd06b68da93baf6a62f0d08ca99222367f3b8668f5a1f2086b7bb78e23172e31fa6df6fa7ab09b25e827866c4fc4dc2b30443ce2
+  checksum: 43fe0dbc30e168a685ef5a86759d5016a705f6563b39a240aa00826a80637d4a3deeb8062e709d6a4b05c63e796278244c84b04174704dc4a37bedb0f565c5ed
   languageName: node
   linkType: hard
 
@@ -13663,9 +13663,9 @@ __metadata:
   linkType: hard
 
 "yaml@npm:^2.1.1":
-  version: 2.3.2
-  resolution: "yaml@npm:2.3.2"
-  checksum: acd80cc24df12c808c6dec8a0176d404ef9e6f08ad8786f746ecc9d8974968c53c6e8a67fdfabcc5f99f3dc59b6bb0994b95646ff03d18e9b1dcd59eccc02146
+  version: 2.3.3
+  resolution: "yaml@npm:2.3.3"
+  checksum: cdfd132e7e0259f948929efe8835923df05c013c273c02bb7a2de9b46ac3af53c2778a35b32c7c0f877cc355dc9340ed564018c0242bfbb1278c2a3e53a0e99e
   languageName: node
   linkType: hard
 
