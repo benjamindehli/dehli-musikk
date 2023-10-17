@@ -1,5 +1,21 @@
 [
     {
+        "timestamp": 1697407200000,
+        "title": "Strykebrett",
+        "content": {
+            "no": "Strykebrett er et gratis lydbibliotek for Decent Sampler som inneholder lyder fra en [Hohner / Logan String Melody II](equipment/instruments/logan-string-melody-ii/) med noen ekstra funksjoner.",
+            "en": "Strykebrett is a free sample library for Decent Sampler featuring the [Hohner / Logan String Melody II](equipment/instruments/logan-string-melody-ii/) with some added features."
+        },
+        "thumbnailDescription": "Strykebrett user interface inside a Logan String Melody II keyboard case",
+        "link": {
+            "url": "https://www.pianobook.co.uk/packs/strykebrett/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        }
+    },
+    {
         "timestamp": 1692474773000,
         "title": "4-track Glockenspiel",
         "content": {
