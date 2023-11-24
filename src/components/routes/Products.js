@@ -57,8 +57,8 @@ const Products = () => {
 
     useEffect(() => {
         const multilingualIds = {
-            en: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title.en) : "",
-            no: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title.no) : ""
+            en: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title) : "",
+            no: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title) : ""
         };
         const multilingualPaths = {
             no: `products/${selectedProduct ? multilingualIds.no + "/" : ""}`,
