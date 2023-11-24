@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/spiller-inn-korg-polysix-og-sequential-circuits-pro-one/</loc>
+    <video:video>
+      <video:title>Spiller inn Korg Polysix og Sequential Circuits Pro-One</video:title>
+      <video:description>Polysix er spilt med en DI-boks og Pro-One er spilt inn gjennom en oppmikket rørforsterker. Signalkjede for Polysix: Korg Polysix, Hairball Audio FET/RACK Revision D (1176), Boss CE-1 Chorus Ensemble, Roland Dimension D SDD-320, Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978. Signalkjede for Pro-One: Sequential Circuits Pro-One, Hairball Audio FET/RACK Revision D (1176), Fulltone Tube Tape Echo, Vox AC15H1TV, Shure SM57 og Royer R-121 og Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=5KzmqypWM5g</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-11-12-00_540.4b24b1e2d017fcf5c305.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2023-11-12</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/recording-korg-polysix-and-sequential-circuits-pro-one/</loc>
+    <video:video>
+      <video:title>Recording Korg Polysix and Sequential Circuits Pro-One</video:title>
+      <video:description>The Polysix is recorded with a DI box and the Pro-One is recorded through a miced up tube amplifier. Signal chain for Polysix: Korg Polysix, Hairball Audio FET/RACK Revision D (1176), Boss CE-1 Chorus Ensemble, Roland Dimension D SDD-320, Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978. Signal chain for Pro-One: Sequential Circuits Pro-One, Hairball Audio FET/RACK Revision D (1176), Fulltone Tube Tape Echo, Vox AC15H1TV, Shure SM57 and Royer R-121 and Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=5KzmqypWM5g</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-11-12-00_540.4b24b1e2d017fcf5c305.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2023-11-12</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/whammy-pedal-som-en-midi-kontrollert-arpeggiator/</loc>
+    <video:video>
+      <video:title>Whammy pedal som en MIDI-kontrollert arpeggiator</video:title>
+      <video:description>Har laget et script for Logic Pro X som konverterer MIDI noter til Program Change og Control Change data som igjen blir sendt til DigiTech Whammy pedalen. Gitar signalet blir sendt to ganger gjennom effektene og forsterkeren. Én gang med signalet fra den MIDI-kontrollerte Whammy-pedalen og én gang uten Whammy-pedalen. Instrument: Levin Model 27. Effekter: DigiTech Whammy (5th Gen), Ace Tone FM-2 Fuzz Master Professional, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978 og Alex Franklinos Stereo Transformer Saturator. Forsterker: Vox AC15H1TV. Mikrofoner: Shure SM57 og Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=zDWfxunnJbs</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-10-19-00_540.27e8f1db236e60579707.jpg</video:thumbnail_loc>
+      <video:duration>51</video:duration>
+      <video:publication_date>2023-10-19</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/whammy-pedal-as-an-arpeggiator-controlled-by-midi/</loc>
+    <video:video>
+      <video:title>Whammy pedal as an arpeggiator controlled by MIDI</video:title>
+      <video:description>Made a script for Logic Pro X that converts MIDI notes to Program Change and Control Change data which is sent to the DigiTech Whammy pedal. The guitar signal is sent twice through the effects and the amplifier. One time with the signal from a MIDI controlled Whammy pedal and one time with the Whammy pedal bypassed. Instrument: Levin Model 27. Effects: DigiTech Whammy (5th Gen), Ace Tone FM-2 Fuzz Master Professional, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978 and Alex Franklinos Stereo Transformer Saturator. Amplifier: Vox AC15H1TV. Microphones: Shure SM57 and Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=zDWfxunnJbs</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-10-19-00_540.27e8f1db236e60579707.jpg</video:thumbnail_loc>
+      <video:duration>51</video:duration>
+      <video:publication_date>2023-10-19</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/gratis-stryke-synthesizer-lydbibliotek-plugin-strykebrett/</loc>
     <video:video>
       <video:title>Gratis stryke-synthesizer lydbibliotek plugin (Strykebrett)</video:title>
@@ -550,7 +602,7 @@
     <loc>https://www.dehlimusikk.no/videos/synth-jam-med-korg-ms-20-logan-string-melody-ii-og-arturia-drumbrute/</loc>
     <video:video>
       <video:title>Synth-jam med Korg MS-20, Logan String Melody II og Arturia DrumBrute</video:title>
-      <video:description>Senkvelds synth-jam spilt inn med en Roland PA-120 mikser og en Fostex X-28H 4-spors kassettopptaker. Instruments: Arturia DrumBrute, Korg MS-20 og Hohner / Logan String Melody II. Effekter: Roland PA-120 fjærklang, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D og Chase Bliss Audio &amp; Meris CXM 1978. Mikser: Roland PA-120. Båndopptaker: Fostex X-28H.</video:description>
+      <video:description>Senkvelds synth-jam spilt inn med en Roland PA-120 mikser og en Fostex X-28H 4-spors kassettopptaker. Instruments: Arturia DrumBrute, Korg MS-20 med Korg SQ-1 og Hohner / Logan String Melody II. Effekter: Roland PA-120 fjærklang, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D og Chase Bliss Audio &amp; Meris CXM 1978. Mikser: Roland PA-120. Båndopptaker: Fostex X-28H.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=chGP7LZF3ys</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-10-01-00_540.6116f3dd3bd9447eda54.jpg</video:thumbnail_loc>
       <video:duration>483</video:duration>
@@ -563,7 +615,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/synth-jam-with-korg-ms-20-logan-string-melody-ii-and-arturia-drumbrute/</loc>
     <video:video>
       <video:title>Synth jam with Korg MS-20, Logan String Melody II and Arturia DrumBrute</video:title>
-      <video:description>Late night synth jam recorded through a Roland PA-120 mixer to a Fostex X-28H 4-track cassette recorder. Instruments: Arturia DrumBrute, Korg MS-20 and Hohner / Logan String Melody II. Effects: Roland PA-120 spring reverb, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D and Chase Bliss Audio &amp; Meris CXM 1978. Mixer: Roland PA-120. Tape recorder: Fostex X-28H.</video:description>
+      <video:description>Late night synth jam recorded through a Roland PA-120 mixer to a Fostex X-28H 4-track cassette recorder. Instruments: Arturia DrumBrute, Korg MS-20 with Korg SQ-1 and Hohner / Logan String Melody II. Effects: Roland PA-120 spring reverb, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D and Chase Bliss Audio &amp; Meris CXM 1978. Mixer: Roland PA-120. Tape recorder: Fostex X-28H.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=chGP7LZF3ys</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2022-10-01-00_540.6116f3dd3bd9447eda54.jpg</video:thumbnail_loc>
       <video:duration>483</video:duration>
