@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/auld-lang-syne-paa-yamaha-l-20d/</loc>
+    <video:video>
+      <video:title>Auld Lang Syne på Yamaha L-20D</video:title>
+      <video:description>Spiller et utdrag fra Auld Lang Syne på et Yamaha L-20D elektrisk harmonium / reed organ🎹 Instrument: Yamaha L-20D. Mikrofoner: Par med AKG C451E.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=wrzcuzdnhlc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-12-31-00_540.9140e6c9150e101a2f1a.jpg</video:thumbnail_loc>
+      <video:duration>52</video:duration>
+      <video:publication_date>2023-12-31</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/auld-lang-syne-on-a-yamaha-l-20d/</loc>
+    <video:video>
+      <video:title>Auld Lang Syne on a Yamaha L-20D</video:title>
+      <video:description>Playing an excerpt from Auld Lang Syne on a Yamaha L-20D electric harmonium / reed organ🎹 Instrument: Yamaha L-20D. Microphones: Pair of AKG C451E.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=wrzcuzdnhlc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2023-12-31-00_540.9140e6c9150e101a2f1a.jpg</video:thumbnail_loc>
+      <video:duration>52</video:duration>
+      <video:publication_date>2023-12-31</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/ambient-og-fuzzlyder-med-yamaha-yc-25d-og-effektpedaler/</loc>
     <video:video>
       <video:title>Ambient- og fuzzlyder med Yamaha YC-25D og effektpedaler</video:title>
