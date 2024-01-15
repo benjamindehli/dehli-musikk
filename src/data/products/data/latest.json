@@ -1,5 +1,21 @@
 [
     {
+        "timestamp": 1704585600000,
+        "title": "StyloPoly",
+        "content": {
+            "no": "StyloPoly er et gratis lydbibliotek for Decent Sampler som inneholder lyder fra en [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) med noen ekstra funksjoner.",
+            "en": "StyloPoly is a free sample library for Decent Sampler featuring the [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) with some added features."
+        },
+        "thumbnailDescription": "StyloPoly user interface inside a Dubreq Stylophone S-1",
+        "link": {
+            "url": "https://www.pianobook.co.uk/packs/stylopoly/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        }
+    },
+    {
         "timestamp": 1697407200000,
         "title": "Strykebrett",
         "content": {
@@ -25,22 +41,6 @@
         "thumbnailDescription": "The 4-track Glockenspiel user interface and a glockenspiel",
         "link": {
             "url": "https://www.pianobook.co.uk/packs/4-track-glockenspiel/",
-            "text": {
-                "en": "Go to download page",
-                "no": "Gå til side for nedlasting"
-            }
-        }
-    },
-    {
-        "timestamp": 1691539200000,
-        "title": "4-track Music Box",
-        "content": {
-            "no": "En spilledåse spilt inn på kassett og spilt av på halv hastighet og normal/original hastighet.\nBiblioteket inkluderer også impulsresponser for to typer båndekko og to typer romklang.",
-            "en": "A music box recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch.\nIt also includes impulse responses for two tape delay/echo types and two room reverbs."
-        },
-        "thumbnailDescription": "The 4-track Music Box user interface and a music box",
-        "link": {
-            "url": "https://www.pianobook.co.uk/packs/4-track-music-box/",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"

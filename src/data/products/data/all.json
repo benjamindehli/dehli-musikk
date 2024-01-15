@@ -1,5 +1,21 @@
 [
     {
+        "timestamp": 1704585600000,
+        "title": "StyloPoly",
+        "content": {
+            "no": "StyloPoly er et gratis lydbibliotek for Decent Sampler som inneholder lyder fra en [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) med noen ekstra funksjoner.",
+            "en": "StyloPoly is a free sample library for Decent Sampler featuring the [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) with some added features."
+        },
+        "thumbnailDescription": "StyloPoly user interface inside a Dubreq Stylophone S-1",
+        "link": {
+            "url": "https://www.pianobook.co.uk/packs/stylopoly/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        }
+    },
+    {
         "timestamp": 1697407200000,
         "title": "Strykebrett",
         "content": {
