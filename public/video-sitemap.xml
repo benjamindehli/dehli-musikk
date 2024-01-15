@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/yamaha-dx7-elektron-sidstation-og-moog-minitaur/</loc>
+    <video:video>
+      <video:title>Yamaha DX7, Elektron SidStation og Moog Minitaur</video:title>
+      <video:description>Kombinerer lyden av Yamaha DX7, Elektron SidStation og Moog Minitaur koblet sammen med MIDI. Lyden fra DX7 og SidStation er egenlagde patcher og Minitaur&apos;en har en sagtannbølge med en firkantbølge én oktav lavere. Instrumenter: Yamaha DX7, Elektron SidStation med MOS 6581 SID chip og Moog Minitaur. Effekter: Roland Dimension D SDD-320, Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ch9KfwCxh8w</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-13-00_540.691162891b1e14f9031a.jpg</video:thumbnail_loc>
+      <video:duration>75</video:duration>
+      <video:publication_date>2024-01-13</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/yamaha-dx7-elektron-sidstation-and-moog-minitaur/</loc>
+    <video:video>
+      <video:title>Yamaha DX7, Elektron SidStation and Moog Minitaur</video:title>
+      <video:description>Layering sounds with Yamaha DX7, Elektron SidStation and Moog Minitaur connected together with MIDI. The sound from the DX7 and SidStation are custom patches and the Minitaur has a sawtooth wave with a square wave one octave below. Instruments: Yamaha DX7, Elektron SidStation with MOS 6581 SID chip and Moog Minitaur. Effects: Roland Dimension D SDD-320, Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=ch9KfwCxh8w</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-13-00_540.691162891b1e14f9031a.jpg</video:thumbnail_loc>
+      <video:duration>75</video:duration>
+      <video:publication_date>2024-01-13</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/gratis-stylophone-lydbibliotek-plugin-stylopoly/</loc>
+    <video:video>
+      <video:title>Gratis Stylophone lydbibliotek plugin (StyloPoly)</video:title>
+      <video:description>StyloPoly er et gratis lydbibliotek for Decent Sampler som inneholder lyder fra en Dubreq Stylophone S-1 med noen ekstra funksjoner. All lyd i videoen er fra en enkelt instans av plugin&apos;en. Brukergrensesnitt: Brukergrensesnittet lar deg kontrollere alle aspektene ved instrumentet og effektene. Utforsk parametere for å stille inn lyden din med kontroll over lydmikseren, envelope, pitch-modulasjon med LFO-er, høypass- og lavpassfiltre, anslagsfølsomhet, høytalersimulator og effekter for echo and reverb. Keyboard - Mono / Poly: Spill av én tone omgangen, som på en Stylophone eller flere toner på én gang. Keyboard - Static / Dynamic: Bestemmer om anslagsstyrken skal påvirke volumet på lyden. Envelope: Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelope&apos;n deg skreddersy dynamikken etter din smak. Mixer: Den originale Stylophone&apos;n lar deg kun velge én lyd om gangen, men med StyloPoly kan du mikse mellom alle tre lydene på likt. Noise - Attack: Sprakelyder når pennen treffer kontaktflaten. Noise -  Release: Sprakelyder når pennen forlater kontaktflaten. Vibrato: Rate- og Depth-knottene lar deg modulere tonehøyden til lyden med den ønskede dybden og hastigheten ved bruk av en Low-Frequency Oscillator (LFO). Med begge knottene i midtposisjon vil du få omtrent samme vibrato som på en original Stylophone. Output - Line out / Speaker: Velg mellom direktelyden fra linjeutgangen eller lyden av den interne høytaleren mikket opp med en Shure SM57. High Pass Filter and Low Pass Filter: StyloPoly har et høypassfilter og et lavpassfilter. Høypassfilteret kan justeres fra 20 Hz til 2000 Hz, mens lavpassfilteret kan justeres fra 200 Hz til 22000 Hz. Effects: Ekko-effekten er en Fulltone Tube Tape Echo (båndekko) spilt inn to ganger for stereo, mens reverb-effekten er en Chase Bliss Audio &amp; Meris CXM 1978 klang-pedal satt til romklang. Echo: Velg mellom to typer ekko: &quot;Short&quot;, som gir en klassisk slapback-effekt, og &quot;long&quot;, er en langsom ekko med mange repetisjoner. Reverb: Du finner også to romklangeffekter: &quot;Short&quot;, som er et lite, intimt rom, og &quot;long&quot;, som er et stort rom med lang etterklangstid. Preset: Noen av forhåndsinnstillingene er i tro til den originale Stylophone&apos;n og noen av dem utnytter seg av de ekstra funksjonalitetene StyloPoly tilbyr. Forhåndsinnstillingene påvirker kun kontrollelementene som allerede er tilgjengelig i brukergrensesnittet. De er ikke ment til å låte som ekte piano, cembalo, clavinet, osv. Navnene er mer ment som en måte å beskrive klangen i lyden.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=H_-g8gjE0EM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-07-00_540.8559c27ca798ac6199ab.jpg</video:thumbnail_loc>
+      <video:duration>602</video:duration>
+      <video:publication_date>2024-01-07</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/free-stylophone-sample-plugin-stylopoly/</loc>
+    <video:video>
+      <video:title>Free Stylophone sample plugin (StyloPoly)</video:title>
+      <video:description>StyloPoly is a free sample library for Decent Sampler featuring the Dubreq Stylophone S-1 with some added features. All the sounds in the video are from a single instance of the plugin. User Interface: The user interface offers precise control over every aspect of the instrument and effects. Explore parameters to refine your sound, including control over the audio mixer, envelope, pitch modulation with LFOs, high pass and low pass filters, velocity/dynamics, speaker simulator and the immersive effects of echo and reverb. Keyboard - Mono / Poly: Plays only one note at the time, like the original Stylophone or multiple notes at the time. Keyboard - Static / Dynamic: Determines whether the velocity should affect the volume of the samples. Envelope: Shape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking. Mixer: The original Stylophone only lets you select one voice at a time, but with StyloPoly you can blend between all the three voices at the same time. Noise - Attack: Pops and crackles when the stylus hits the &quot;keyboard&quot;. Noise -  Release: Pops and crackles when the stylus releases from the &quot;keyboard&quot;. Vibrato: The depth and rate knobs enable you to modulate the pitch of the sound with the desired depth and rate using a Low-Frequency Oscillator (LFO). With both controls in middle position you have approximately the same vibrato as the original Stylophone. Output - Line out / Speaker: Choose between the direct sound of the line output or the sound of the internal speaker miced with a Shure SM57. High Pass Filter and Low Pass Filter: StyloPoly has a high pass filter and a low pass filter. The high pass filter ranges from 20 Hz to 2000 Hz and the low pass filter ranges from 200 Hz to 22000 Hz. Effects: The echo effect employs a Fulltone Tube Tape Echo recorded twice for stereo, while the reverb effect draws from a Chase Bliss Audio &amp; Meris CXM 1978 reverb pedal with a room setting. Echo: Select from two distinctive echo options: the short echo, delivering a classic slapback effect, and the long echo, characterized by a slower decay and numerous repeats. Reverb: You&apos;ll also find two reverb effects: the short reverb, evoking the intimacy of a small room, and the long reverb, enveloping your sound in the vastness of a spacious environment. Preset: Some presets are true to the original Stylophone and some presets take advantage of the additional features of StyloPoly. The presets only affects the controls already available from the GUI. They are not meant to sound like a real piano, harpsichord, clavinet, etc. The preset names are more of a way to describe the timbre.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=H_-g8gjE0EM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-07-00_540.8559c27ca798ac6199ab.jpg</video:thumbnail_loc>
+      <video:duration>602</video:duration>
+      <video:publication_date>2024-01-07</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/auld-lang-syne-paa-yamaha-l-20d/</loc>
     <video:video>
       <video:title>Auld Lang Syne på Yamaha L-20D</video:title>
