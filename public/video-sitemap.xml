@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/roland-sh-09-og-yamaha-l-20d/</loc>
+    <video:video>
+      <video:title>Roland SH-09 og Yamaha L-20D</video:title>
+      <video:description>Kombinerer lyden av Roland SH-09 synthesizer og Yamaha L-20D elektrisk harmonium / reed organ. Instrumenter: Roland SH-09 og Yamaha L-20D. Mikrofoner: Par med AKG C451E. Effekter: Dehli Musikk Fuzz Boost Limiter, Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=KkNuSvEkaEM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-21-00_540.2cbba8920bb8e38d31f7.jpg</video:thumbnail_loc>
+      <video:duration>443</video:duration>
+      <video:publication_date>2024-01-21</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/roland-sh-09-and-yamaha-l-20d/</loc>
+    <video:video>
+      <video:title>Roland SH-09 and Yamaha L-20D</video:title>
+      <video:description>Layering sounds with a Roland SH-09 synthesizer and Yamaha L-20D electric harmonium / reed organ. Instruments: Roland SH-09 and Yamaha L-20D. Microphones: Pair of AKG C451E. Effects: Dehli Musikk Fuzz Boost Limiter, Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=KkNuSvEkaEM</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-21-00_540.2cbba8920bb8e38d31f7.jpg</video:thumbnail_loc>
+      <video:duration>443</video:duration>
+      <video:publication_date>2024-01-21</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/yamaha-dx7-elektron-sidstation-og-moog-minitaur/</loc>
     <video:video>
       <video:title>Yamaha DX7, Elektron SidStation og Moog Minitaur</video:title>
