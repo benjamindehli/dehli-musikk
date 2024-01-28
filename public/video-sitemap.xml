@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/paa-innsiden-av-min-hjemmelagde-mellotron-kasse/</loc>
+    <video:video>
+      <video:title>På innsiden av min hjemmelagde Mellotron-kasse</video:title>
+      <video:description>Laget en hjemmesnekra kasse til Mellotron M4000D for en stund siden, som fungerer som keyboardstativ og pedalbrett for mine &quot;alltid på&quot;-effekter. All lyd er spilt inn gjennom en Universal Audio Apollo forforsterker og en Hairball Audio FET/RACK Revision D (1176). Instrument: Mellotron M4000D. Effekter: Roger Mayer Voodoo-Vibe+, Hughes &amp; Kettner - Tube Factor og VanAmps Sole-Mate Jr..</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=1CcXZQSRAjQ</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-28-00_540.9d748b53132ef60dd487.jpg</video:thumbnail_loc>
+      <video:duration>180</video:duration>
+      <video:publication_date>2024-01-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/inside-my-homemade-mellotron-cabinet/</loc>
+    <video:video>
+      <video:title>Inside my homemade Mellotron cabinet</video:title>
+      <video:description>Made a custom case for the Mellotron M4000D a while ago as a keyboard stand and a pedal board for my &quot;always on&quot; effects. Everything is recorded through a Universal Audio Apollo preamp and a Hairball Audio FET/RACK Revision D (1176). Instrument: Mellotron M4000D. Effects: Roger Mayer Voodoo-Vibe+, Hughes &amp; Kettner - Tube Factor and VanAmps Sole-Mate Jr..</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=1CcXZQSRAjQ</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-28-00_540.9d748b53132ef60dd487.jpg</video:thumbnail_loc>
+      <video:duration>180</video:duration>
+      <video:publication_date>2024-01-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/jobber-med-et-yamaha-l-20d-lydbibliotek/</loc>
+    <video:video>
+      <video:title>Jobber med et Yamaha L-20D lydbibliotek</video:title>
+      <video:description>Jobber med et nytt prøvebibliotek med Yamaha L-20D elektrisk harmonium / reed organ. Det nedre keyboardet er Yamaha L-20D og det øvre keyboardet er en MIDI-kontroller som trigger samplene. Lyden fra L-20D produseres akustisk fra selve harmoniumet og lyden fra samplene spilles av gjennom noen små høyttalere i rommet, som er hovedårsaken til at det låter litt forskjellig.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=hvvFVJn_y-c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-27-00_540.6a08d7f292abdc61e85c.jpg</video:thumbnail_loc>
+      <video:duration>21</video:duration>
+      <video:publication_date>2024-01-27</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/yamaha-l-20d-sample-library-in-progress/</loc>
+    <video:video>
+      <video:title>Yamaha L-20D sample library in progress</video:title>
+      <video:description>Working on a new sample library featuring the Yamaha L-20D electric harmonium / reed organ. The lower keyboard is the Yamaha L-20D and the upper keyboard is a MIDI controller triggering the samples. The audio from the L-20D is produced acoustically from the harmonium itself and the audio from the samples is played back through some small speakers in the room, which is the prominent cause of the difference in sound.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=hvvFVJn_y-c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-01-27-00_540.6a08d7f292abdc61e85c.jpg</video:thumbnail_loc>
+      <video:duration>21</video:duration>
+      <video:publication_date>2024-01-27</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/roland-sh-09-og-yamaha-l-20d/</loc>
     <video:video>
       <video:title>Roland SH-09 og Yamaha L-20D</video:title>
