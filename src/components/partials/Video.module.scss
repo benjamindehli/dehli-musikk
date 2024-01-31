@@ -1,0 +1,24 @@
+@import "../../style/abstracts/all";
+
+:local(.theaterModeHeader) {
+    display: flex;
+    > h2 {
+        flex: 1;
+    }
+    > a {
+        height: 28px;
+        :local(.label) {
+            margin-right: 6px;
+            display: inline-block;
+            font-size: 1.2em;
+            color: inherit;
+            vertical-align: middle;
+            line-height: 16px;
+        }
+        :local(.icon) {
+            width: 16px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}

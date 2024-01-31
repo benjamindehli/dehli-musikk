@@ -13,16 +13,21 @@
   flex-wrap: wrap;
   position: fixed;
   width: 100%;
-  background: rgba(0,0,0,.75);
+  background: rgba(0, 0, 0, 0.75);
   height: 100%;
   top: 0;
   left: 0;
   align-content: center;
-  padding: 8px 28px;
   z-index: 2;
   justify-content: center;
-  @media (min-width: $screen-sm) {
-    padding: 36px;
+  &:not(:local(.theaterMode)) {
+    padding: 8px 28px;
+    @media (min-width: $screen-sm) {
+      padding: 36px;
+    }
+  }
+  &:local(.theaterMode) {
+    padding: 0;
   }
 
   :local(.arrowLeftButton),
@@ -32,11 +37,11 @@
     background: none;
     align-self: center;
     padding: 22px;
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
 
     &:focus {
-      color: rgba(255,255,255,1);
+      color: rgba(255, 255, 255, 1);
       @include transform(scale(1.5));
     }
 
@@ -53,15 +58,27 @@
   }
 
   :local(.postModalContent) {
-    @include calc('max-height', '100% - 128px');
-    @include box-shadow(0 11px 15px -7px rgba(0,0,0,0.2), 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12));
+    @include calc("max-height", "100% - 128px");
+    @include box-shadow(
+      0 11px 15px -7px rgba(0, 0, 0, 0.2),
+      0 24px 38px 3px rgba(0, 0, 0, 0.14),
+      0 9px 46px 8px rgba(0, 0, 0, 0.12)
+    );
     max-width: 540px;
     width: 100%;
     background-color: #fff;
-    border-radius: 4px;
     overflow: auto;
+    &:not(:local(.theaterMode)) {
+      border-radius: 4px;
+
+      @media (min-width: $screen-sm) {
+        @include calc("width", "100% - 128px");
+      }
+    }
+    &:local(.theaterMode) {
+      border-radius: 0px;
+    }
     @media (min-width: $screen-sm) {
-      @include calc('width', '100% - 128px');
       max-height: 100%;
     }
   }

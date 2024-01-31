@@ -1,7 +1,7 @@
 // Dependencies
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate, useParams } from "react-router";
+import { Navigate, useLocation, useNavigate, useParams } from "react-router";
 import { Helmet } from "react-helmet-async";
 
 // Components
@@ -30,6 +30,14 @@ const Videos = () => {
     const navigate = useNavigate();
     const params = useParams();
     const selectedVideoId = params?.videoId || null;
+
+    const location = useLocation();
+
+    const lastSegment = location.pathname
+        .split("/")
+        .filter((segment) => segment?.length)
+        .pop();
+    const isTheaterMode = lastSegment === "video";
 
     // State
     const [selectedVideo, setSelectedVideo] = useState();
@@ -60,12 +68,13 @@ const Videos = () => {
             en: selectedVideo ? convertToUrlFriendlyString(selectedVideo.title.en) : "",
             no: selectedVideo ? convertToUrlFriendlyString(selectedVideo.title.no) : ""
         };
+        const theaterModePath = isTheaterMode ? "video/" : "";
         const multilingualPaths = {
-            no: `videos/${selectedVideo ? multilingualIds.no + "/" : ""}`,
-            en: `videos/${selectedVideo ? multilingualIds.en + "/" : ""}`
+            no: `videos/${selectedVideo ? multilingualIds.no + "/" + theaterModePath : ""}`,
+            en: `videos/${selectedVideo ? multilingualIds.en + "/" + theaterModePath : ""}`
         };
         dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
-    }, [availableLanguages, dispatch, selectedVideo]);
+    }, [availableLanguages, dispatch, isTheaterMode, selectedVideo]);
 
     const renderSummarySnippet = (videos) => {
         const videoItems = videos.map((video, index) => {
@@ -76,9 +85,9 @@ const Videos = () => {
 
             return {
                 "@type": "VideoObject",
-                "@id": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
+                "@id": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/`,
                 position: index + 1,
-                url: `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
+                url: `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/`,
                 name: video.title[selectedLanguageKey],
                 description: video.content[selectedLanguageKey]
                     ? formatContentAsString(video.content[selectedLanguageKey])
@@ -117,21 +126,25 @@ const Videos = () => {
         const handleClickOutside = () => {
             navigate(`/${languageSlug}videos/`);
         };
+        const theaterModePath = isTheaterMode ? "video/" : "";
         const arrowLeftLink =
             selectedVideo && selectedVideo.previousVideoId
-                ? `/${languageSlug}videos/${selectedVideo.previousVideoId}/`
+                ? `/${languageSlug}videos/${selectedVideo.previousVideoId}/${theaterModePath}`
                 : null;
         const arrowRightLink =
-            selectedVideo && selectedVideo.nextVideoId ? `/${languageSlug}videos/${selectedVideo.nextVideoId}/` : null;
+            selectedVideo && selectedVideo.nextVideoId
+                ? `/${languageSlug}videos/${selectedVideo.nextVideoId}/${theaterModePath}`
+                : null;
         return selectedVideo ? (
             <Modal
                 onClickOutside={handleClickOutside}
-                maxWidth="945px"
+                maxWidth={isTheaterMode ? "none" : "945px"}
                 arrowLeftLink={arrowLeftLink}
                 arrowRightLink={arrowRightLink}
                 selectedLanguageKey={selectedLanguageKey}
+                isTheaterMode={isTheaterMode}
             >
-                <Video video={selectedVideo} fullscreen={true} />
+                <Video video={selectedVideo} fullscreen={true} isTheaterMode={isTheaterMode} />
             </Modal>
         ) : (
             ""
@@ -187,12 +200,16 @@ const Videos = () => {
 
             const detailsPage = {
                 title: {
-                    en: `${selectedVideo ? selectedVideo.title.en : ""} - Videos | Dehli Musikk`,
-                    no: `${selectedVideo ? selectedVideo.title.no : ""} - Videoer | Dehli Musikk`
+                    en: `${isTheaterMode ? "Video: " : ""}${
+                        selectedVideo ? selectedVideo.title.en : ""
+                    } - Videos | Dehli Musikk`,
+                    no: `${isTheaterMode ? "Video: " : ""}${
+                        selectedVideo ? selectedVideo.title.no : ""
+                    } - Videoer | Dehli Musikk`
                 },
                 heading: {
-                    en: selectedVideo ? selectedVideo.title.en : "",
-                    no: selectedVideo ? selectedVideo.title.no : ""
+                    en: `${isTheaterMode ? "Video: " : ""}${selectedVideo ? selectedVideo.title.en : ""}`,
+                    no: `${isTheaterMode ? "Video: " : ""}${selectedVideo ? selectedVideo.title.no : ""}`
                 },
                 description: {
                     en: selectedVideo ? formatContentAsString(selectedVideo.content.en) : "",
@@ -209,7 +226,7 @@ const Videos = () => {
             if (selectedVideo) {
                 breadcrumbs.push({
                     name: detailsPage.heading[selectedLanguageKey],
-                    path: `/${languageSlug}videos/${selectedVideoId}/`
+                    path: `/${languageSlug}videos/${selectedVideoId}/${isTheaterMode ? "video/" : ""}`
                 });
             }
 
@@ -256,7 +273,7 @@ const Videos = () => {
                             property="og:url"
                             content={`https://www.dehlimusikk.no/${languageSlug}videos/${
                                 selectedVideo ? selectedVideoId + "/" : ""
-                            }`}
+                            }${isTheaterMode ? "video/" : ""}`}
                         />
                         <meta property="og:description" content={metaDescription} />
                         <meta property="og:locale" content={selectedLanguageKey === "en" ? "en_US" : "no_NO"} />
@@ -277,9 +294,11 @@ const Videos = () => {
                         </p>
                     </Container>
                     {selectedVideo ? renderSelectedVideo(selectedVideo) : renderSummarySnippet(videos)}
-                    <Container blur={!!selectedVideo}>
-                        <List>{renderVideos()}</List>
-                    </Container>
+                    {!isTheaterMode && (
+                        <Container blur={!!selectedVideo}>
+                            <List>{renderVideos()}</List>
+                        </Container>
+                    )}
                 </React.Fragment>
             );
         }

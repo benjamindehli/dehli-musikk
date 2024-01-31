@@ -3,6 +3,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 
+// Assets
+import { ReactComponent as MaximizeIcon } from "assets/svg/maximize.svg";
+import { ReactComponent as MinimizeIcon } from "assets/svg/minimize.svg";
+
 // Selectors
 import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
@@ -19,8 +23,12 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
 import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
 
+// Stylesheets
+import style from "components/partials/Video.module.scss";
+import Button from './Button';
+import { Link } from 'react-router-dom';
 
-const Video = ({ video, fullscreen }) => {
+const Video = ({ video, fullscreen, isTheaterMode }) => {
 
   // Redux store
   const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
@@ -31,13 +39,13 @@ const Video = ({ video, fullscreen }) => {
     const snippet = {
       "@context": "http://schema.org",
       "@type": "VideoObject",
-      "@id": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
+      "@id": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/`,
       "name": video.title[selectedLanguageKey],
       "description": video.content[selectedLanguageKey]
         ? formatContentAsString(video.content[selectedLanguageKey])
         : '',
       "duration": video.duration,
-      "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/`,
+      "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/`,
       "embedURL": `https://www.youtube.com/watch?v=${video.youTubeId}`,
       "thumbnailUrl": `https://www.dehlimusikk.no${videoThumbnailSrc}`,
       "thumbnail": {
@@ -117,6 +125,19 @@ const Video = ({ video, fullscreen }) => {
     title: video.title[selectedLanguageKey]
   };
 
+  const theaterModeLink = {
+    to: isTheaterMode ? videoPath : `${videoPath}video/`,
+    title: video.title[selectedLanguageKey],
+    label: isTheaterMode
+            ? selectedLanguageKey === "en"
+              ? "Reduce"
+              : "Forminsk"
+            : selectedLanguageKey === "en"
+              ? "Enlarge"
+              : "Forstørr"
+    
+  };
+
   return video && video.content && video.content[selectedLanguageKey]
     ? (<React.Fragment>
       {
@@ -134,10 +155,25 @@ const Video = ({ video, fullscreen }) => {
       }
       <ListItemContent fullscreen={fullscreen}>
         <ListItemContentHeader fullscreen={fullscreen} link={link}>
-          <h2>
-            {video.title[selectedLanguageKey]}
-            <span>{video.youTubeUser}</span>
-          </h2>
+          {fullscreen ? (
+            <div className={style.theaterModeHeader}>
+            <h2>
+              {video.title[selectedLanguageKey]}
+              <span>{video.youTubeUser}</span>
+            </h2>
+              <Link to={theaterModeLink.to} aria-label={theaterModeLink.title}>
+                <Button buttontype="minimal">
+                  <span className={style.label}>{theaterModeLink.label}</span>
+                  {isTheaterMode ? <MinimizeIcon className={style.icon} /> : <MaximizeIcon className={style.icon} />}
+                </Button>
+              </Link>
+          </div>
+          ) : (
+            <h2>
+              {video.title[selectedLanguageKey]}
+              <span>{video.youTubeUser}</span>
+            </h2>
+          )}
           <time dateTime={videoDate.toISOString()}>{getPrettyDate(videoDate, selectedLanguageKey)}</time>
         </ListItemContentHeader>
         <ListItemContentBody fullscreen={fullscreen}>

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Stylesheets
 import style from 'components/template/Modal.module.scss';
 
-const Modal = ({ maxWidth = 'none', selectedLanguageKey = 'no', onClickOutside, arrowLeftLink, arrowRightLink, children }) => {
+const Modal = ({ isTheaterMode, maxWidth = 'none', selectedLanguageKey = 'no', onClickOutside, arrowLeftLink, arrowRightLink, children }) => {
 
   const navigate = useNavigate();
 
@@ -92,13 +92,13 @@ const Modal = ({ maxWidth = 'none', selectedLanguageKey = 'no', onClickOutside, 
   }
 
   return (
-    <div className={style.postModalOverlay}>
-      {renderArrowLeftButton(arrowLeftLink)}
-      <div ref={wrapperRef} className={style.postModalContent} style={{ maxWidth: maxWidth }}>
+    <div className={[style.postModalOverlay, isTheaterMode && style.theaterMode].filter(className => className?.length).join(" ")}>
+      {!isTheaterMode && renderArrowLeftButton(arrowLeftLink)}
+      <div ref={wrapperRef} className={[style.postModalContent, isTheaterMode && style.theaterMode].filter(className => className?.length).join(" ")} style={{ maxWidth: maxWidth }}>
         <input type="button" ref={hiddenInputWrapperRef} className={style.hidden} autoFocus />
         {children}
       </div>
-      {renderArrowRightButton(arrowRightLink)}
+      {!isTheaterMode && renderArrowRightButton(arrowRightLink)}
     </div>
   )
 };

@@ -149,8 +149,10 @@ const App = () => {
             <Route strict={true} path="/:selectedLanguage/posts/:postId/" element={<Posts />} />
             <Route strict={true} path="/:selectedLanguage/posts/" element={<Posts />} />
 
+            <Route strict={true} path="/videos/:videoId/video/" element={<Videos />} />
             <Route strict={true} path="/videos/:videoId/" element={<Videos />} />
             <Route strict={true} path="/videos/" element={<Videos />} />
+            <Route strict={true} path="/:selectedLanguage/videos/:videoId/video/" element={<Videos />} />
             <Route strict={true} path="/:selectedLanguage/videos/:videoId/" element={<Videos />} />
             <Route strict={true} path="/:selectedLanguage/videos/" element={<Videos />} />
 
