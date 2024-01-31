@@ -170,6 +170,17 @@ const Sitemaps = () => {
       : '';
   }
 
+  const renderVideosDetailsVideo = () => {
+    return videos && videos.length
+      ? videos.map(video => {
+        const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/video/`;
+        const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/video/`;
+        const timestamp = !!video?.lastmod ? video.lastmod : video?.timestamp;
+        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
+      }).join('')
+      : '';
+  }
+
   const renderProductsDetails = () => {
     return products && products.length
       ? products.map(product => {
@@ -458,8 +469,8 @@ const Sitemaps = () => {
   const renderVideoSitemapDetails = () => {
     return videos && videos.length
       ? videos.map(video => {
-        const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/`;
-        const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/`;
+        const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/video/`;
+        const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/video/`;
         return [renderVideoUrlElement(urlNorwegianPage, video, 'no'), renderVideoUrlElement(urlEnglishPage, video, 'en')].join('')
       }).join('')
       : '';
@@ -478,6 +489,7 @@ const Sitemaps = () => {
       renderEquipmentTypesList(),
       renderPostsDetails(),
       renderVideosDetails(),
+      renderVideosDetailsVideo(),
       renderProductsDetails(),
       renderReleasesDetails(),
       renderEquipmentDetails(),
