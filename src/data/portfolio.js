@@ -46,6 +46,7 @@ import southOfJamesonLittleGirlBonusTrackDemo from './releases/data/southofJames
 import southOfJamesonWomanInMyDreamsBonusTrackDemo from './releases/data/southofJameson_womaninmydreamsBonusTrackDemo.json';
 import spinningsWheelsBandPowerOfAGrin from './releases/data/spinningWheelsBand_powerofaGrin.json';
 import spinningsWheelsBandBackWhen from './releases/data/spinningWheelsBandRandleCurrieJustinWilliamson_backWhen.json';
+import staaleKaasinTotheTop from './releases/data/staaleKaasin_totheTop.json';
 import taxiBearKoreaTown from './releases/data/taxiBear_koreaTown.json';
 import theWhiteDevilGetLucky from './releases/data/theWhiteDevil_getLucky.json';
 import thomasTveitenDaaEDetVerdtDet from './releases/data/thomasTveiten_daaEDetVerdtDet.json';
@@ -62,9 +63,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  staaleKaasinTotheTop,
   southOfJamesonLittleGirlBonusTrackDemo,
-  hauntedBySilhouettesDeparture,
-  hauntedBySilhouettesSelkie
+  hauntedBySilhouettesNoManIsle
 ];
 
 const allReleases = [
@@ -116,6 +117,7 @@ const allReleases = [
   southOfJamesonWomanInMyDreamsBonusTrackDemo,
   spinningsWheelsBandPowerOfAGrin,
   spinningsWheelsBandBackWhen,
+  staaleKaasinTotheTop,
   taxiBearKoreaTown,
   theWhiteDevilGetLucky,
   thomasTveitenDaaEDetVerdtDet,
