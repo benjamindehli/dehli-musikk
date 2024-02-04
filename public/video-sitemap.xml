@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/to-the-top-keyboard-spor/video/</loc>
+    <video:video>
+      <video:title>To the Top (Keyboard-spor)</video:title>
+      <video:description>Lydsporene for piano, orgel, clavinet and synth fra låta &quot;Ståle Kaasin - To the Top&quot;. Instrumenter: Hammond C3, Hohner Clavinet D6, Korg MS-20, Korg Polysix, Louis Zwicki Pianette, Roland D-50, Sequential Circuits Pro-One, Suzuki Omnichord OM-84 System Two og Yamaha DX7. To the Top: Rudi Remme (vokal), Per-Morten Bergseth (trommer), Ståle Kåsin (bass og elektrisk gitar), Benjamin Dehli / Dehli Musikk (tangenter, produksjon og miksing) og Halvor Halvorsen / Juke Joint Studio (mastering).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=MiZUaOhsEO8</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-02-04-00_540.fb0f4cee1bb0ab88d494.jpg</video:thumbnail_loc>
+      <video:duration>226</video:duration>
+      <video:publication_date>2024-02-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/to-the-top-keyboard-tracks/video/</loc>
+    <video:video>
+      <video:title>To the Top (Keyboard tracks)</video:title>
+      <video:description>The piano, organ, clavinet and synthesizer parts from the song &quot;Ståle Kaasin - To the Top&quot;. Instruments: Hammond C3, Hohner Clavinet D6, Korg MS-20, Korg Polysix, Louis Zwicki Pianette, Roland D-50, Sequential Circuits Pro-One, Suzuki Omnichord OM-84 System Two and Yamaha DX7. To the Top: Rudi Remme (vocals), Per-Morten Bergseth (drums), Ståle Kåsin (bass og electric guitar), Benjamin Dehli / Dehli Musikk (keyboards, production and mixing) and Halvor Halvorsen / Juke Joint Studio (mastering).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=MiZUaOhsEO8</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-02-04-00_540.fb0f4cee1bb0ab88d494.jpg</video:thumbnail_loc>
+      <video:duration>226</video:duration>
+      <video:publication_date>2024-02-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/stylophone-gjennom-en-korg-ms-20/video/</loc>
+    <video:video>
+      <video:title>Stylophone gjennom en Korg MS-20</video:title>
+      <video:description>Sender lyden av en Dubreq Stylophone S-1 gjennom en Korg MS-20 og kontrollere pitch og gate med dens external signal processor. Instrumenter: Dubreq Stylophone S-1 og Korg MS-20. Effekter: Korg MS-20 ESP preamp, Hairball Audio FET/RACK Revision D (1176), Alex Franklinos Stereo Transformer Saturator, Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=zi78G6BHQxY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-02-03-00_540.6705bbd651e5f56b47e4.jpg</video:thumbnail_loc>
+      <video:duration>109</video:duration>
+      <video:publication_date>2024-02-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/stylophone-through-a-korg-ms-20/video/</loc>
+    <video:video>
+      <video:title>Stylophone through a Korg MS-20</video:title>
+      <video:description>Running a Dubreq Stylophone S-1 through the Korg MS-20 and controlling its pitch and gate with the external signal processor. Instruments: Dubreq Stylophone S-1 and Korg MS-20. Effects: Korg MS-20 ESP preamp, Hairball Audio FET/RACK Revision D (1176), Alex Franklinos Stereo Transformer Saturator, Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978. </video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=zi78G6BHQxY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-02-03-00_540.6705bbd651e5f56b47e4.jpg</video:thumbnail_loc>
+      <video:duration>109</video:duration>
+      <video:publication_date>2024-02-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/paa-innsiden-av-min-hjemmelagde-mellotron-kasse/video/</loc>
     <video:video>
       <video:title>På innsiden av min hjemmelagde Mellotron-kasse</video:title>
