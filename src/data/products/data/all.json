@@ -1,5 +1,21 @@
 [
     {
+        "timestamp": 1707685200000,
+        "title": "Elektrisk Salmesykkel",
+        "content": {
+            "no": "Elektrisk Salmesykkel er et gratis lydbibliotek for Decent Sampler som inneholder lyder fra et [Yamaha L-20D elektrisk harmonium / reed organ](equipment/instruments/yamaha-l-20d/) med noen ekstra funksjoner.",
+            "en": "Elektrisk Salmesykkel is a free sample library for Decent Sampler featuring the [Yamaha L-20D electric harmonium / reed organ](equipment/instruments/yamaha-l-20d/) with some added features."
+        },
+        "thumbnailDescription": "Elektrisk Salmesykkel user interface inside a Yamaha L-20D electric harmonium case",
+        "link": {
+            "url": "https://www.pianobook.co.uk/packs/elektrisk-salmesykkel/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        }
+    },
+    {
         "timestamp": 1704585600000,
         "title": "StyloPoly",
         "content": {
