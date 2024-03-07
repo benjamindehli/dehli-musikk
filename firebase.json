@@ -24,6 +24,12 @@
       }, {
         "key" : "X-XSS-Protection",
         "value" : "1; mode=block"
+      }, {
+        "key" : "Referrer-Policy",
+        "value" : "no-referrer-when-downgrade"
+      }, { 
+        "key": "Permissions-Policy",
+        "value": "microphone=(), camera=(), accelerometer=(), gyroscope=(), magnetometer=(), payment=()"
       }]
     },{
       "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
