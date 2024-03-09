@@ -6,6 +6,30 @@
 <atom:link href="https://www.dehlimusikk.no/feed-en.rss" rel="self" type="application/rss+xml" />
 <description></description>
 <item>
+                <title>The sample libraries just reached 10,000 downloads</title>
+                <description>The sample libraries by Dehli Musikk on Pianobook have now been downloaded over ten thousand times 😃</description>
+                <pubDate>Fri, 08 Mar 2024 23:00:00 GMT</pubDate>
+                <link>https://www.dehlimusikk.no/en/posts/the-sample-libraries-just-reached-10000-downloads/</link>
+                <guid>https://www.dehlimusikk.no/en/posts/the-sample-libraries-just-reached-10000-downloads/</guid>
+                <dc:creator>Benjamin Dehli</dc:creator>
+                </item>
+<item>
+                <title>Finished building the bus compressor</title>
+                <description>Finished building and hooking up the G Bus VCA Compressor from DIY Recording Equipment🕺 Here together with the previous build project, Hairball Audio FET/RACK 😃</description>
+                <pubDate>Fri, 01 Mar 2024 23:00:00 GMT</pubDate>
+                <link>https://www.dehlimusikk.no/en/posts/finished-building-the-bus-compressor/</link>
+                <guid>https://www.dehlimusikk.no/en/posts/finished-building-the-bus-compressor/</guid>
+                <dc:creator>Benjamin Dehli</dc:creator>
+                </item>
+<item>
+                <title>Building a bus compressor</title>
+                <description>Building a clone of a SSL G384 bus compressor from DIY Recording Equipment 🎛️🛠️</description>
+                <pubDate>Thu, 29 Feb 2024 23:00:00 GMT</pubDate>
+                <link>https://www.dehlimusikk.no/en/posts/building-a-bus-compressor/</link>
+                <guid>https://www.dehlimusikk.no/en/posts/building-a-bus-compressor/</guid>
+                <dc:creator>Benjamin Dehli</dc:creator>
+                </item>
+<item>
                 <title>Voltage Controlled Cassette Organ under development</title>
                 <description>Working on a new Decent Sampler preset 🎹 🎛️</description>
                 <pubDate>Sat, 13 May 2023 22:00:00 GMT</pubDate>
@@ -139,30 +163,6 @@
                 <pubDate>Sat, 25 Sep 2021 22:00:00 GMT</pubDate>
                 <link>https://www.dehlimusikk.no/en/posts/ms-20-brass/</link>
                 <guid>https://www.dehlimusikk.no/en/posts/ms-20-brass/</guid>
-                <dc:creator>Benjamin Dehli</dc:creator>
-                </item>
-<item>
-                <title>Overdriven Pro-One</title>
-                <description>Sequential Circuits Pro-One synthesizer with slapback tape echo into a Vox AC15 🎹🎛️📼🔊</description>
-                <pubDate>Thu, 23 Sep 2021 22:00:00 GMT</pubDate>
-                <link>https://www.dehlimusikk.no/en/posts/overdriven-pro-one/</link>
-                <guid>https://www.dehlimusikk.no/en/posts/overdriven-pro-one/</guid>
-                <dc:creator>Benjamin Dehli</dc:creator>
-                </item>
-<item>
-                <title>New release - Guardian Angels by Haaker</title>
-                <description>A smoking hot metal song from Pål is now out 🤘 I&apos;ve had the pleasure of playing keyboard instruments on this one 🎹🎛</description>
-                <pubDate>Thu, 26 Aug 2021 22:00:00 GMT</pubDate>
-                <link>https://www.dehlimusikk.no/en/posts/new-release-guardian-angels-by-haaker/</link>
-                <guid>https://www.dehlimusikk.no/en/posts/new-release-guardian-angels-by-haaker/</guid>
-                <dc:creator>Benjamin Dehli</dc:creator>
-                </item>
-<item>
-                <title>Shooting music video for We Are One by Kaasin</title>
-                <description>Recording music video for the next single release from Kaasin with Jon Sandersen behind the camera 🎥🎬</description>
-                <pubDate>Sat, 21 Aug 2021 22:00:00 GMT</pubDate>
-                <link>https://www.dehlimusikk.no/en/posts/shooting-music-video-for-we-are-one-by-kaasin/</link>
-                <guid>https://www.dehlimusikk.no/en/posts/shooting-music-video-for-we-are-one-by-kaasin/</guid>
                 <dc:creator>Benjamin Dehli</dc:creator>
                 </item>
 </channel>
