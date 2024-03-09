@@ -1,6 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://www.dehlimusikk.no/posts/lydbibliotekene-naadde-nettopp-10-000-nedlastinger/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2024-03-09</news:publication_date>
+      <news:title>Lydbibliotekene nådde nettopp 10 000 nedlastinger</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/the-sample-libraries-just-reached-10000-downloads/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2024-03-09</news:publication_date>
+      <news:title>The sample libraries just reached 10,000 downloads</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/ferdig-med-bygging-av-bus-compressor/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2024-03-02</news:publication_date>
+      <news:title>Ferdig med bygging av bus compressor</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/finished-building-the-bus-compressor/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2024-03-02</news:publication_date>
+      <news:title>Finished building the bus compressor</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/posts/bygger-en-bus-compressor/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
+      <news:publication_date>2024-03-01</news:publication_date>
+      <news:title>Bygger en bus compressor</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/posts/building-a-bus-compressor/</loc>
+    <news:news>
+      <news:publication><news:name>Dehli Musikk</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2024-03-01</news:publication_date>
+      <news:title>Building a bus compressor</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/posts/voltage-controlled-cassette-organ-under-utvikling/</loc>
     <news:news>
       <news:publication><news:name>Dehli Musikk</news:name><news:language>no</news:language></news:publication>
