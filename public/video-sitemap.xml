@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/4-track-toy-piano-lydeksempler/video/</loc>
+    <video:video>
+      <video:title>4-track Toy Piano - Lydeksempler</video:title>
+      <video:description>Kjapp demo av 4-track Toy Piano biblioteket for Decent Sampler. 4-track Toy Piano er et Kalikå Leksakspiano (toy piano) tatt opp på kassett og spilt av med halv fart og vanlig/original fart. Avspilling med halv fart resulterer i en oktav lavere tonehøyde.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=igZ9TCwIJpw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-03-17-00_540.c5b28c6aeeeed61d085d.jpg</video:thumbnail_loc>
+      <video:duration>147</video:duration>
+      <video:publication_date>2024-03-17</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/4-track-toy-piano-sound-examples/video/</loc>
+    <video:video>
+      <video:title>4-track Toy Piano - Sound Examples</video:title>
+      <video:description>Quick demo of the 4-track Toy Piano sample library for Decent Sampler. 4-track Toy Piano is a Kalikå Leksakspiano (toy piano) recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=igZ9TCwIJpw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-03-17-00_540.c5b28c6aeeeed61d085d.jpg</video:thumbnail_loc>
+      <video:duration>147</video:duration>
+      <video:publication_date>2024-03-17</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/gratis-elektrisk-harmonium-lydbibliotek-plugin-elektrisk-salmesykkel/video/</loc>
     <video:video>
       <video:title>Gratis elektrisk harmonium lydbibliotek plugin (Elektrisk Salmesykkel)</video:title>
