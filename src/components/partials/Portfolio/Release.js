@@ -22,6 +22,7 @@ import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 // Helpers
 import { getReleaseInstruments } from 'helpers/releaseInstruments';
 import { useSelector } from 'react-redux';
+import { getRichSnippetDateString } from 'helpers/dateFormatter';
 
 
 const Release = ({ release, fullscreen, compact }) => {
@@ -52,6 +53,7 @@ const Release = ({ release, fullscreen, compact }) => {
 
   const renderReleaseSnippet = (release, releaseInstruments, releaseThumbnailSrc) => {
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
+    const releaseDate = new Date(release.releaseDate);
     let snippet = {
       "@context": "http://schema.org",
       "@type": "MusicRecording",
@@ -59,6 +61,7 @@ const Release = ({ release, fullscreen, compact }) => {
       "name": release.title,
       "duration": release.durationISO,
       "genre": release.genre,
+      "description": `This is a music recording made by ${release.artistName}. The song is ${release.duration} long and belongs to the genre ${release.genre}.`,
       "byArtist": {
         "@type": "MusicGroup",
         "@id": `#${convertToUrlFriendlyString(release.artistName)}`,
@@ -76,7 +79,11 @@ const Release = ({ release, fullscreen, compact }) => {
       }
     }
     if (!release.unreleased && releaseThumbnailSrc) {
-      snippet.thumbnailUrl = `https://www.dehlimusikk.no${releaseThumbnailSrc}`
+      snippet.thumbnailUrl = `https://www.dehlimusikk.no${releaseThumbnailSrc}`;
+      snippet.image = `https://www.dehlimusikk.no${releaseThumbnailSrc}`;
+    }
+    if (releaseDate) {
+      snippet.datePublished = getRichSnippetDateString(releaseDate);
     }
     if (release.composedByDehliMusikk) {
       snippet.recordingOf.composer = {
