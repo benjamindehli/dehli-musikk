@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/ny-oppdatert-omni-84-med-autostrum-preset/video/</loc>
+    <video:video>
+      <video:title>Ny oppdatert Omni-84 med AutoStrum preset</video:title>
+      <video:description>En ny oppdatert versjon av Omnichord-biblioteket (Omni-84) har støtte for automatisk &quot;strumming&quot; med mønstre fra en Suzuki Omnichord OM-84 System Two.  Tonene blir spilt av i samme rekkefølge som den originalen Omnichord, men du har muligheten til å få de spilt av i vanlig stigende/synkende rekkefølge også..   Biblioteket inneholder mønstre for alle de individuelle akkordene til en Suzuki Omnichord OM-84. Den har de samme tangentverdiene som Omni-84 &apos;Chords&apos;-preset&apos;en, som betyr at du kan sende MIDI til begge på likt å få en klimpret &apos;SonicStrings&apos; sammen med akkordlyden fra &apos;Chords&apos;-preset&apos;en. AutoStrum (speed): Rask fart vil låte som en akkord mens langsom fart vill låte som enkelttoner. Strum-mønster: Velg mellom stigende/synkende toner og vanlig/Omnichord rekkefølge. Modulasjonshjul: Kontrollerer AutoStrum (speed). Tangentbindinger: C0 er stigende toner i Omnichord rekkefølge, D0 er synkende toner i Omnichord rekkefølge, E0 er stigende toner i vanlig rekkefølge og F0 er synkende toner i vanlig rekkefølge. De andre kontrollerene er de samme som i standard &quot;SonicStrings&quot; preset&apos;en. De andre tangentbindingene er de samme som i &quot;Chords&quot; preset&apos;en.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qGyaNVAG-js</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-03-24-00_540.846a803ddb6bc7d4e909.jpg</video:thumbnail_loc>
+      <video:duration>37</video:duration>
+      <video:publication_date>2024-03-24</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/new-updated-omni-84-with-autostrum-preset/video/</loc>
+    <video:video>
+      <video:title>New updated Omni-84 with AutoStrum preset</video:title>
+      <video:description>A new updated version of the Omnichord library (Omni-84) featuring support for automatic strumming of strum patterns from the Suzuki Omnichord OM-84 System Two. The notes are strummed in the same order as the original Omnichord, but you have the possibility to make it strum in regular ascending/descending order as well. The preset contains strum patterns for all the individual chords from the Suzuki Omnichord OM-84. It has the same notes values for the chords as the Omni-84 &apos;Chords&apos; preset, which means you can send MIDI to both at the same time and get strummed SonicStrings on top of the chord sample. AutoStrum (speed): Fast strum speed will sound like a chord and slow strum speed will sound like plucked notes. Strum pattern: Select between ascending/descending notes and regular/Omnichord order. Modulation Wheel: Controls the AutoStrum (speed). Key bindings: C0 is ascending notes in Omnichord order, D0 is descending notes in Omnichord order, E0 is ascending notes in regular order and F0 is descending notes in regular order. Other controls are the same as on the regular &quot;SonicStrings&quot; preset. Other key bindings are the same as on the &quot;Chords&quot; preset.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qGyaNVAG-js</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-03-24-00_540.846a803ddb6bc7d4e909.jpg</video:thumbnail_loc>
+      <video:duration>37</video:duration>
+      <video:publication_date>2024-03-24</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/4-track-toy-piano-lydeksempler/video/</loc>
     <video:video>
       <video:title>4-track Toy Piano - Lydeksempler</video:title>
