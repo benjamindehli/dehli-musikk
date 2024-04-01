@@ -1,5 +1,21 @@
 [
     {
+        "timestamp": 1711914056000,
+        "title": "SubC",
+        "content": {
+            "no": "SubC er et gratis analog subbass lydbibliotek for Decent Sampler med triangelbølgeoscillator fra en [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) sent gjennom forskjellige forvrengningskretser og effekter.",
+            "en": "SubC is a free analog sub bass sample library for DecentSampler featuring a [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) triangle wave oscillator ran through different saturation circuits and effects."
+        },
+        "thumbnailDescription": "SubC user interface inside a wooden synthesizer case",
+        "link": {
+            "url": "https://www.pianobook.co.uk/packs/subc/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        }
+    },
+    {
         "timestamp": 1710965029000,
         "title": "4-track Toy Piano",
         "content": {
@@ -25,22 +41,6 @@
         "thumbnailDescription": "Elektrisk Salmesykkel user interface inside a Yamaha L-20D electric harmonium case",
         "link": {
             "url": "https://www.pianobook.co.uk/packs/elektrisk-salmesykkel/",
-            "text": {
-                "en": "Go to download page",
-                "no": "Gå til side for nedlasting"
-            }
-        }
-    },
-    {
-        "timestamp": 1704585600000,
-        "title": "StyloPoly",
-        "content": {
-            "no": "StyloPoly er et gratis lydbibliotek for Decent Sampler som inneholder lyder fra en [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) med noen ekstra funksjoner.",
-            "en": "StyloPoly is a free sample library for Decent Sampler featuring the [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) with some added features."
-        },
-        "thumbnailDescription": "StyloPoly user interface inside a Dubreq Stylophone S-1",
-        "link": {
-            "url": "https://www.pianobook.co.uk/packs/stylopoly/",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"

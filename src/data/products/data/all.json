@@ -1,5 +1,21 @@
 [
     {
+        "timestamp": 1711914056000,
+        "title": "SubC",
+        "content": {
+            "no": "SubC er et gratis analog subbass lydbibliotek for Decent Sampler med triangelbølgeoscillator fra en [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) sent gjennom forskjellige forvrengningskretser og effekter.",
+            "en": "SubC is a free analog sub bass sample library for DecentSampler featuring a [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) triangle wave oscillator ran through different saturation circuits and effects."
+        },
+        "thumbnailDescription": "SubC user interface inside a wooden synthesizer case",
+        "link": {
+            "url": "https://www.pianobook.co.uk/packs/subc/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        }
+    },
+    {
         "timestamp": 1710965029000,
         "title": "4-track Toy Piano",
         "content": {
