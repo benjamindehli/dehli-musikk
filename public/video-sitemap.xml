@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/gratis-subbass-lydbibliotek-subc/video/</loc>
+    <video:video>
+      <video:title>Gratis subbass lydbibliotek (SubC)</video:title>
+      <video:description>Analog subbass-lydbibliotek for DecentSampler med triangelbølgeoscillator fra en Dreadbox Erebus v2 sent gjennom forskjellige forvrengningskretser og effekter. All lyd i videoen er fra en enkelt instans av plugin&apos;en. Instrument presets: SubC som er en preset med mono-lydfiler og SubC (Stereo) som er en preset med stereo-lydfiler. Dynamics: Bestemmer om anslaget skal påvirke volumet og forvrengningen. Saturation: Saturation-knotten mikser mellom rent signal og forvrengt signal. De rene lydene er tatt opp med en Roland PA-120 mikser. De forvrengte lydene er i tillegg sent gjennom en Hairball Audio FET/RACK (1176 kompressor) og en transformator- og diodevreng. Stereolydene er de samme som monolydene, men sendt gjennom en TC Electronic SCF Stereo Chorus Flanger i vibratomodus. Dette gir en mye bredere lyd, men med mindre bunn når den summeres til mono. Envelope: Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelope&apos;n deg skreddersy dynamikken etter din smak. Utstyr som er brukt: Dreadbox Erebus v2, Roland PA-120, Hairball Audio FET/RACK Revision D, Alex Franklinos Stereo Transformer Saturator og TC Electronic SCF Stereo Chorus Flanger. Teknisk spesifikasjon for mono-lydfiler: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 1 (mono), antall lydfiler: 108 og filstørrelse: 327.30 MB. Teknisk spesifikasjon for stereo-lydfiler: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 2 (stereo), antall lydfiler: 108 og filstørrelse: 654.20 MB.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=yTpCq-qIIdY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-03-31-00_540.2243dbc9b877057f5a96.jpg</video:thumbnail_loc>
+      <video:duration>266</video:duration>
+      <video:publication_date>2024-03-31</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/free-sub-bass-sample-library-subc/video/</loc>
+    <video:video>
+      <video:title>Free sub bass sample library (SubC)</video:title>
+      <video:description>Analog sub bass sample library for DecentSampler featuring a Dreadbox Erebus v2 triangle wave oscillator ran through different saturation circuits and effects. All the sounds in the video are from a single instance of the plugin with no additional plugins or effects added. Instrument presets: SubC which is a preset with mono samples and SubC (Stereo) which is a preset with stereo samples. Dynamics: Determines whether the velocity should affect the volume and distortion. Saturation: The saturation knob blends between the clean samples and the distorted samples. The clean samples are recorded through a Roland PA-120 mixer. The distorted/saturated samples are additionally sent through a Hairball Audio FET/RACK (1176 compressor) and a transformer and diode saturator. The stereo samples are the same as the mono samples, but sent through a TC Electronic SCF Stereo Chorus Flanger in vibrato mode. This gives a much wider sound, but less bottom end when summed to mono. Envelope: Shape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking. Equipment used: Dreadbox Erebus v2, Roland PA-120, Hairball Audio FET/RACK Revision D, Alex Franklinos Stereo Transformer Saturator and TC Electronic SCF Stereo Chorus Flanger. Technical specification for mono samples: Sample rate: 48 kHz, bit depth: 24 bit, channels: 1 (mono), number of files: 108 and file size: 327.30 MB. Technical specification for  stereo samples: Sample rate: 48 kHz, bit depth: 24 bit, channels: 2 (stereo), number of files: 108 and file size: 654.20 MB.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=yTpCq-qIIdY</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-03-31-00_540.2243dbc9b877057f5a96.jpg</video:thumbnail_loc>
+      <video:duration>266</video:duration>
+      <video:publication_date>2024-03-31</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/ny-oppdatert-omni-84-med-autostrum-preset/video/</loc>
     <video:video>
       <video:title>Ny oppdatert Omni-84 med AutoStrum preset</video:title>
