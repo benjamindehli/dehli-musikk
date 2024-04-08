@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/lo-fi-synth-pad-lyd-med-korg-cx-3-ekkopedaler-og-en-scf/video/</loc>
+    <video:video>
+      <video:title>Lo-fi &quot;synth pad&quot; lyd med Korg CX-3, ekkopedaler og en SCF</video:title>
+      <video:description>Lager noen ambient lo-fi &quot;synth pad&quot;-lyder med Korg CX-3-orgelet, 4 ekko-pedaler og en TC Electronic Stereo Chorus Flanger. Instrument: Korg CX-3. Effekter: Fulltone Tube Tape Echo, Boss DM-2 Delay, TC Electronic SCF Stereo Chorus Flanger, Electro-Harmonix Deluxe Memory Man og Diamond Memory Lane 2.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=CoJN7W-zIGI</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-04-06-00_540.b866a74d8cc9d38fe5f8.jpg</video:thumbnail_loc>
+      <video:duration>542</video:duration>
+      <video:publication_date>2024-04-06</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/lo-fi-synth-pad-sound-with-korg-cx-3-multiple-delay-pedals-and-a-scf/video/</loc>
+    <video:video>
+      <video:title>Lo-fi &quot;synth pad&quot; sound with Korg CX-3, multiple delay pedals and a SCF</video:title>
+      <video:description>Making some ambient lo-fi &quot;synth pad&quot; sounds with the Korg CX-3 organ, 4 delay units and a TC Electronic Stereo Chorus Flanger. Instrument: Korg CX-3. Effects: Fulltone Tube Tape Echo, Boss DM-2 Delay, TC Electronic SCF Stereo Chorus Flanger, Electro-Harmonix Deluxe Memory Man and Diamond Memory Lane 2.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=CoJN7W-zIGI</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-04-06-00_540.b866a74d8cc9d38fe5f8.jpg</video:thumbnail_loc>
+      <video:duration>542</video:duration>
+      <video:publication_date>2024-04-06</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/gratis-subbass-lydbibliotek-subc/video/</loc>
     <video:video>
       <video:title>Gratis subbass lydbibliotek (SubC)</video:title>
