@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/retroflyer-preamp-vs-direktelyd-fra-rhodes-piano/video/</loc>
+    <video:video>
+      <video:title>RetroFlyer Preamp VS direktelyd fra Rhodes-piano</video:title>
+      <video:description>En sammenligning mellom Avion Studios RetroFlyer Preamp og signalet direkte fra phono (RCA)-utgangen på harpen. I denne sammenligningen er innstillingene på RetroFlyer Preamp kun satt i en fast posisjon. Du kan gjøre mye mer toneforming med RetroFlyer, og den har også en stereo tremolo. Jeg prøvde å spille eksemplene på en lignende måte og matchet nivåene så godt som mulig. RetroFlyer-innstillinger: Høypassfilter i midtposisjon (60 Hz), mid boost/cut i midtposisjon og stereo tremolo er slått av. Instrument: Rhodes Mark I Stage Piano.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vt5ZcjxXW40</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-05-11-00_540.d5bfb027f9b1f8d06a89.jpg</video:thumbnail_loc>
+      <video:duration>102</video:duration>
+      <video:publication_date>2024-05-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/retroflyer-preamp-vs-direct-out-on-the-rhodes-piano/video/</loc>
+    <video:video>
+      <video:title>RetroFlyer Preamp VS Direct Out on the Rhodes piano</video:title>
+      <video:description>A comparison between the Avion Studios RetroFlyer Preamp and taking the signal directly from the phono (RCA) output of the harp. In this comparison, the settings on the RetroFlyer Preamp is set in a single position only. You can do a lot more tone shaping with the RetroFlyer, and it has a stereo tremolo as well. I tried to play the examples in a similar way and level match the signals as much as possible. RetroFlyer settings: High pass filter in middle position (60 Hz), mid boost/cut in middle position and stereo tremolo is turned off. Instrument: Rhodes Mark I Stage Piano.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vt5ZcjxXW40</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-05-11-00_540.d5bfb027f9b1f8d06a89.jpg</video:thumbnail_loc>
+      <video:duration>102</video:duration>
+      <video:publication_date>2024-05-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/lo-fi-synth-pad-lyd-med-korg-cx-3-ekkopedaler-og-en-scf/video/</loc>
     <video:video>
       <video:title>Lo-fi &quot;synth pad&quot; lyd med Korg CX-3, ekkopedaler og en SCF</video:title>
