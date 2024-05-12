@@ -6,6 +6,22 @@
 <atom:link href="https://www.dehlimusikk.no/feed-no.rss" rel="self" type="application/rss+xml" />
 <description></description>
 <item>
+                <title>Ny forforsterker - Avion Studios RetroFlyer</title>
+                <description>Ga Rhodes en liten godbit 🎁 Avion Studios RetroFlyer Preamp og stereo tremolo 😃 Det får virkelig frem detaljene i Rhodes-lyden 🎹🔊</description>
+                <pubDate>Fri, 10 May 2024 22:00:00 GMT</pubDate>
+                <link>https://www.dehlimusikk.no/posts/ny-forforsterker-avion-studios-retroflyer/</link>
+                <guid>https://www.dehlimusikk.no/posts/ny-forforsterker-avion-studios-retroflyer/</guid>
+                <dc:creator>Benjamin Dehli</dc:creator>
+                </item>
+<item>
+                <title>EDB-Orgel under utvikling</title>
+                <description>Working on a new sample library &quot;EDB-Orgel&quot; 🖥️💾🎹</description>
+                <pubDate>Wed, 08 May 2024 22:00:00 GMT</pubDate>
+                <link>https://www.dehlimusikk.no/posts/edb-orgel-under-utvikling/</link>
+                <guid>https://www.dehlimusikk.no/posts/edb-orgel-under-utvikling/</guid>
+                <dc:creator>Benjamin Dehli</dc:creator>
+                </item>
+<item>
                 <title>SubC under utvikling</title>
                 <description>Jobber med et nytt Decent Sampler synthbass-bibliotek 🎹 🎛️</description>
                 <pubDate>Sat, 23 Mar 2024 23:00:00 GMT</pubDate>
@@ -147,22 +163,6 @@
                 <pubDate>Thu, 21 Oct 2021 22:00:00 GMT</pubDate>
                 <link>https://www.dehlimusikk.no/posts/ny-effektboks-ace-tone-fm-2-fuzz-master-professional/</link>
                 <guid>https://www.dehlimusikk.no/posts/ny-effektboks-ace-tone-fm-2-fuzz-master-professional/</guid>
-                <dc:creator>Benjamin Dehli</dc:creator>
-                </item>
-<item>
-                <title>Musikkvideo - We Are One av Kaasin</title>
-                <description>Ny låt fra Kaasin med musikkvideo filmet på Systemblokk i Bø 🧱Musikkvideoen er laget av Jon Sandersen 🎥</description>
-                <pubDate>Thu, 07 Oct 2021 22:00:00 GMT</pubDate>
-                <link>https://www.dehlimusikk.no/posts/musikkvideo-we-are-one-av-kaasin/</link>
-                <guid>https://www.dehlimusikk.no/posts/musikkvideo-we-are-one-av-kaasin/</guid>
-                <dc:creator>Benjamin Dehli</dc:creator>
-                </item>
-<item>
-                <title>Kommer snart - Fired Up av Kaasin</title>
-                <description>Debutalbumet Fired Up av Kaasin blir sluppet 19. november 2021 🔥🎶🎵💿</description>
-                <pubDate>Tue, 28 Sep 2021 22:00:00 GMT</pubDate>
-                <link>https://www.dehlimusikk.no/posts/kommer-snart-fired-up-av-kaasin/</link>
-                <guid>https://www.dehlimusikk.no/posts/kommer-snart-fired-up-av-kaasin/</guid>
                 <dc:creator>Benjamin Dehli</dc:creator>
                 </item>
 </channel>
