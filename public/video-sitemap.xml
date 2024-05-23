@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/fender-rhodes-sammenligning-av-forsterkere/video/</loc>
+    <video:video>
+      <video:title>Fender Rhodes - Sammenligning av forsterkere</video:title>
+      <video:description>Sammenligning av forskjellige forsterkere for Fender Rhodes elektrisk piano. Direktesignalet fra Rhodes-pianoet er tatt opp én gang og deretter sendt gjennom de forskjellige forsterkerne med en re-amp-boks. Instrument: Rhodes Mark I Stage Piano. Forsterkere: Fender Twin Reverb, Roland JC-120, Vox AC15H1TV, Tandberg Model 2 T (TB2) og Leslie 122. Mikrofoner: Shure SM57, Royer R-121 og Sennheiser e 602-II (for nedre rotor på Leslie). Signalkjede: Rhodes med Avion Studios RetroFlyer Preamp, Universal Audio Apollo, Hairball Audio FET/RACK Revision D, Radial X-Amp inn i forsterker (unntatt direktelydeksempelet), Chase Bliss Audio &amp; Meris CXM 1978 (nesten uhørlig, legger kun til litt &quot;luft&quot; og stereobredde) og DIYRE G Bus VCA Compressor. RetroFlyer Preamp-innstillinger: Høypassfilter i midtposisjon (60 Hz), mid boost/cut like under midtposisjon og stereo tremolo er slått av (unntatt helt på slutten av hvert eksempel).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=kJARTD5F3Tc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-05-20-00_540.fac31a56d3bfc1fa0617.jpg</video:thumbnail_loc>
+      <video:duration>548</video:duration>
+      <video:publication_date>2024-05-20</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/fender-rhodes-amp-comparison/video/</loc>
+    <video:video>
+      <video:title>Fender Rhodes - Amp Comparison</video:title>
+      <video:description>Comparing different amplifiers for the Fender Rhodes electric piano. The direct signal from the Rhodes is recorded once and then sent through the different amplifiers with a re-amp box. Instrument: Rhodes Mark I Stage Piano. Amplifiers: Fender Twin Reverb, Roland JC-120, Vox AC15H1TV, Tandberg Model 2 T (TB2) and Leslie 122. Microphones: Shure SM57, Royer R-121 and Sennheiser e 602-II (for lower rotor on Leslie). Signal chain: Rhodes with Avion Studios RetroFlyer Preamp, Universal Audio Apollo, Hairball Audio FET/RACK Revision D, Radial X-Amp into amplifier (except for direct out example), Chase Bliss Audio &amp; Meris CXM 1978 (almost inaudible, just adds some &quot;air&quot; and stereo width) and DIYRE G Bus VCA Compressor. RetroFlyer Preamp settings: High pass filter in middle position (60 Hz), mid boost/cut just below middle position and stereo tremolo is turned off (until the very end of each example).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=kJARTD5F3Tc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-05-20-00_540.fac31a56d3bfc1fa0617.jpg</video:thumbnail_loc>
+      <video:duration>548</video:duration>
+      <video:publication_date>2024-05-20</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/retroflyer-preamp-vs-direktelyd-fra-rhodes-piano/video/</loc>
     <video:video>
       <video:title>RetroFlyer Preamp VS direktelyd fra Rhodes-piano</video:title>
