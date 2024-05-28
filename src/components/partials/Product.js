@@ -31,6 +31,32 @@ const Product = ({ product, fullscreen }) => {
     const productDate = new Date(product.timestamp).toISOString();
     const plusOneYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString();
 
+    const applicationJsonLd = {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "@id": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
+      "url": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
+      "name": product.title,
+      "operatingSystem": "All",
+      "applicationCategory": ["EntertainmentApplication", "MultimediaApplication"],
+      "softwareRequirements": "DecentSampler",
+      "offers": {
+        "@type": "Offer",
+        "price": product.price?.length ? product.price : 0,
+        "priceCurrency": product.priceCurrency?.length ? product.priceCurrency : 'USD',
+        "url": product.link.url,
+        "availability": "http://schema.org/OnlineOnly",
+        "validFrom": productDate,
+        "priceValidUntil": plusOneYear,
+        "doesNotShip": true,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": product.link.url
+          },
+        ]
+      },
+    }
     const snippet = {
       "@context": "http://schema.org",
       "@type": "Product",
@@ -79,7 +105,13 @@ const Product = ({ product, fullscreen }) => {
         "availability": "http://schema.org/OnlineOnly",
         "validFrom": productDate,
         "priceValidUntil": plusOneYear,
-        "doesNotShip": true
+        "doesNotShip": true,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": product.link.url
+          },
+        ]
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
@@ -88,6 +120,7 @@ const Product = ({ product, fullscreen }) => {
     }
     return (<Helmet>
       <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
+      <script type="application/ld+json">{`${JSON.stringify(applicationJsonLd)}`}</script>
     </Helmet>)
   }
 
