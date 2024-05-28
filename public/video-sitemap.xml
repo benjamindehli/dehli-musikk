@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/wurlitzer-200a-sammenligning-av-forsterkere/video/</loc>
+    <video:video>
+      <video:title>Wurlitzer 200A - Sammenligning av forsterkere</video:title>
+      <video:description>Sammenligning av forskjellige forsterkere for Wurlitzer 200A. Direktesignalet fra Wurlitzer pianoet er tatt opp én gang og deretter sendt gjennom de forskjellige forsterkerne med en re-amp-boks. Instrument: Wurlitzer 200A. Forsterkere: Fender Twin Reverb, Roland JC-120, Vox AC15H1TV, Tandberg Model 2 T (TB2) og Leslie 122. Mikrofoner: Shure SM57, Royer R-121 og Sennheiser e 602-II (for nedre rotor på Leslie). Signalkjede: Wurlitzer 200A, Universal Audio Apollo, Hairball Audio FET/RACK Revision D, Radial X-Amp inn i forsterker (unntatt direktelydeksempelet), Chase Bliss Audio &amp; Meris CXM 1978 (nesten uhørlig, legger kun til litt &quot;luft&quot; og stereobredde) og DIYRE G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=t_vQUU0S2dA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-05-28-00_540.7ecbc20698bc4671a9f0.jpg</video:thumbnail_loc>
+      <video:duration>439</video:duration>
+      <video:publication_date>2024-05-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/wurlitzer-200a-amp-comparison/video/</loc>
+    <video:video>
+      <video:title>Wurlitzer 200A - Amp Comparison</video:title>
+      <video:description>Comparing different amplifiers for the Wurlitzer 200A. The direct signal from the Wurlitzer is recorded once and then sent through the different amplifiers with a re-amp box. Instrument: Wurlitzer 200A. Amplifiers: Fender Twin Reverb, Roland JC-120, Vox AC15H1TV, Tandberg Model 2 T (TB2) and Leslie 122. Microphones: Shure SM57, Royer R-121 and Sennheiser e 602-II (for lower rotor on Leslie). Signal chain: Wurlitzer 200A, Universal Audio Apollo, Hairball Audio FET/RACK Revision D, Radial X-Amp into amplifier (except for direct out example), Chase Bliss Audio &amp; Meris CXM 1978 (almost inaudible, just adds some &quot;air&quot; and stereo width) and DIYRE G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=t_vQUU0S2dA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-05-28-00_540.7ecbc20698bc4671a9f0.jpg</video:thumbnail_loc>
+      <video:duration>439</video:duration>
+      <video:publication_date>2024-05-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/hohner-clavinet-d6-sammenligning-av-forsterkere/video/</loc>
     <video:video>
       <video:title>Hohner Clavinet D6 - Sammenligning av forsterkere</video:title>
