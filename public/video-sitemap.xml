@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/whammy-pedal-kontrollert-med-midi-keyboard/video/</loc>
+    <video:video>
+      <video:title>Whammy-pedal kontrollert med MIDI-keyboard</video:title>
+      <video:description>Har laget et script for Logic Pro X som konverterer MIDI noter til Program Change og Control Change data som igjen blir sendt til DigiTech Whammy pedalen. Instrument: Fender Stratocaster. MIDI-kontroller: Korg microKORG XL+. Effekter: DigiTech Whammy (5th Gen), Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978 og DIYRE G Bus VCA Compressor. Forsterker: Tandberg Model 2 T (TB2). Mikrofoner: Shure SM57 og Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=rzkZAPbI9Eo</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-06-16-00_540.a08eb7aff9eaf129a7fe.jpg</video:thumbnail_loc>
+      <video:duration>203</video:duration>
+      <video:publication_date>2024-06-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/midi-keyboard-controlled-whammy-pedal/video/</loc>
+    <video:video>
+      <video:title>MIDI keyboard controlled Whammy pedal</video:title>
+      <video:description>Made a script for Logic Pro that converts MIDI notes to Program Change and Control Change data which is sent to the DigiTech Whammy pedal. Instrument: Fender Stratocaster. MIDI controller: Korg microKORG XL+. Effects: DigiTech Whammy (5th Gen), Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978 and DIYRE G Bus VCA Compressor. Amplifier: Tandberg Model 2 T (TB2). Microphones: Shure SM57 and Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=rzkZAPbI9Eo</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-06-16-00_540.a08eb7aff9eaf129a7fe.jpg</video:thumbnail_loc>
+      <video:duration>203</video:duration>
+      <video:publication_date>2024-06-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/robotstoevsuger-og-synthesizer/video/</loc>
+    <video:video>
+      <video:title>Robotstøvsuger og synthesizer</video:title>
+      <video:description>En duet med robotstøvsuger og synth 🧹🎹 Sequential Circuits Pro-One spilt inn flere ganger med forskjellige toner for å lage en polyfonisk synth pad. Instrumenter: Roborock S5 og Sequential Circuits Pro-One. Effekter på synthesizer: Fulltone Tube Tape Echo.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vhRT9YM4wy0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-05-31-00_540.90890583829cd1a3f352.jpg</video:thumbnail_loc>
+      <video:duration>29</video:duration>
+      <video:publication_date>2024-05-31</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/robot-vacuum-and-synthesizer/video/</loc>
+    <video:video>
+      <video:title>Robot vacuum and synthesizer</video:title>
+      <video:description>A duet with robot vacuum and synth 🧹🎹 The Sequential Circuits Pro-One is recorded multiple times and layered to create a polyphonic synth pad. Instruments: Roborock S5 and Sequential Circuits Pro-One. Effects on synthesizer: Fulltone Tube Tape Echo.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vhRT9YM4wy0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-05-31-00_540.90890583829cd1a3f352.jpg</video:thumbnail_loc>
+      <video:duration>29</video:duration>
+      <video:publication_date>2024-05-31</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/wurlitzer-200a-sammenligning-av-forsterkere/video/</loc>
     <video:video>
       <video:title>Wurlitzer 200A - Sammenligning av forsterkere</video:title>
