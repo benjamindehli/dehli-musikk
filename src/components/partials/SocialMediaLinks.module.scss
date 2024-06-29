@@ -77,6 +77,20 @@
       }
     }
 
+    &:local(.gumroad) {
+      &:hover,
+      &:focus {
+        background-color: #ff90e8;
+      }
+      svg {
+        height: 45px;
+        width: 45px;
+        position: relative;
+        top: 10px;
+        left: -1px;
+      }
+    }
+
     &:local(.kofi) {
       &:hover,
       &:focus {

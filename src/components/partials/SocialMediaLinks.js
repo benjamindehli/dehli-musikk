@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // Assets
-import { ReactComponent as PianobookIcon } from 'assets/svg/pianobook.svg'
+import { ReactComponent as GumroadIcon } from 'assets/svg/gumroad.svg'
 import { ReactComponent as KofiIcon } from 'assets/svg/kofi.svg'
 
 
@@ -34,8 +34,8 @@ const SocialMediaLinks = () => {
     <a href='https://twitter.com/BenjaminDehli' title='Link to Twitter page' aria-label='Link to Twitter page' target='_blank' rel="noopener noreferrer" className={style.twitter}>
       <FontAwesomeIcon icon={['fab', 'twitter']} />
     </a>
-    <a href='https://www.pianobook.co.uk/profile/benjamindehli/' title='Link to Pianobook profile' aria-label='Link to Pianobook profile' target='_blank' rel="noopener noreferrer" className={style.pianobook}>
-      <PianobookIcon />
+    <a href='https://dehlimusikk.gumroad.com/' title='Link to Gumroad page' aria-label='Link to Gumroad page' target='_blank' rel="noopener noreferrer" className={style.gumroad}>
+      <GumroadIcon />
     </a>
     <a href='https://ko-fi.com/benjamindehli' title='Link to Ko-fi page' aria-label='Link to Ko-fi page' target='_blank' rel="noopener noreferrer" className={style.kofi}>
       <KofiIcon />

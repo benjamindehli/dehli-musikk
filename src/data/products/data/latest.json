@@ -7,8 +7,10 @@
             "en": "SubC is a free analog sub bass sample library for DecentSampler featuring a [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) triangle wave oscillator ran through different saturation circuits and effects."
         },
         "thumbnailDescription": "SubC user interface inside a wooden synthesizer case",
+        "price": "1.00",
+        "priceCurrency": "USD",
         "link": {
-            "url": "https://www.pianobook.co.uk/packs/subc/",
+            "url": "https://dehlimusikk.gumroad.com/l/subc",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
@@ -24,7 +26,7 @@
         },
         "thumbnailDescription": "The 4-track Toy Piano user interface and a Kalikå Leksakspiano (toy piano)",
         "link": {
-            "url": "https://www.pianobook.co.uk/packs/4-track-toy-piano/",
+            "url": "https://dehlimusikk.gumroad.com/l/4-track-toy-piano",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
@@ -39,8 +41,10 @@
             "en": "Elektrisk Salmesykkel is a free sample library for Decent Sampler featuring the [Yamaha L-20D electric harmonium / reed organ](equipment/instruments/yamaha-l-20d/) with some added features."
         },
         "thumbnailDescription": "Elektrisk Salmesykkel user interface inside a Yamaha L-20D electric harmonium case",
+        "price": "1.00",
+        "priceCurrency": "USD",
         "link": {
-            "url": "https://www.pianobook.co.uk/packs/elektrisk-salmesykkel/",
+            "url": "https://dehlimusikk.gumroad.com/l/elektrisk-salmesykkel",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
