@@ -171,11 +171,11 @@ const Home = () => {
                             <div className={style.callToActionButtonContainer}>
                                 {selectedLanguageKey === "en" ? (
                                     <Link to={`/${languageSlug}posts/`} title="See all posts">
-                                        <Button>See all posts</Button>
+                                        <Button>Show all posts</Button>
                                     </Link>
                                 ) : (
                                     <Link to={`/${languageSlug}posts/`} title="Se alle innlegg">
-                                        <Button>Se alle innlegg</Button>
+                                        <Button>Vis alle innlegg</Button>
                                     </Link>
                                 )}
                             </div>
@@ -191,11 +191,11 @@ const Home = () => {
                             <div className={style.callToActionButtonContainer}>
                                 {selectedLanguageKey === "en" ? (
                                     <Link to={`/${languageSlug}portfolio/`} title="See all releases">
-                                        <Button>See all releases</Button>
+                                        <Button>Show all releases</Button>
                                     </Link>
                                 ) : (
                                     <Link to={`/${languageSlug}portfolio/`} title="Se alle utgivelser">
-                                        <Button>Se alle utgivelser</Button>
+                                        <Button>Vis alle utgivelser</Button>
                                     </Link>
                                 )}
                             </div>
@@ -211,11 +211,11 @@ const Home = () => {
                             <div className={style.callToActionButtonContainer}>
                                 {selectedLanguageKey === "en" ? (
                                     <Link to={`/${languageSlug}videos/`} title="See all videos">
-                                        <Button>See all videos</Button>
+                                        <Button>Show all videos</Button>
                                     </Link>
                                 ) : (
                                     <Link to={`/${languageSlug}videos/`} title="Se alle videoer">
-                                        <Button>Se alle videoer</Button>
+                                        <Button>Vis alle videoer</Button>
                                     </Link>
                                 )}
                             </div>
