@@ -13,7 +13,7 @@ import style from 'components/partials/Footer.module.scss';
 const selectedLanguageKey = window?.location?.pathname?.startsWith('/en/') ? 'en' : 'no';
 
 const Footer = () => {
-  return (<div id="contact" className={style.footer}>
+  return (<footer id="contact" className={style.footer}>
     <div className={style.contentSection}>
       <div className={style.grid}>
         <div className={style.textSection}>
@@ -60,7 +60,7 @@ const Footer = () => {
     <div className={style.contentSection}>
       © 2024 Dehli Musikk
     </div>
-  </div>)
+  </footer>)
 }
 
 export default Footer;

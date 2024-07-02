@@ -127,50 +127,49 @@ const App = () => {
         </Helmet>
         <NavigationBar />
         <div className={style.container}>
-          <Routes>
-            <Route path="*" key={"/404.html"} element={<NotFound />} />
-            <Route path="/404" key={"/404.html"} element={<NotFound />} />
-            <Route path="/" element={<Home />} />
-            <Route key={"/feed-no.rss"} path="/feed-no.rss" element={() => null} />
-            <Route key={"/feed-en.rss"} path="/feed-en.rss" element={() => null} />
-            <Route key={"/shell.html"} path="/shell.html" element={() => null} />
-            <Route strict={true} path="/:selectedLanguage/" element={<Home />} />
+          <main>
+            <Routes>
+              <Route path="*" key={"/404.html"} element={<NotFound />} />
+              <Route path="/404" key={"/404.html"} element={<NotFound />} />
+              <Route path="/" element={<Home />} />
+              <Route key={"/feed-no.rss"} path="/feed-no.rss" element={() => null} />
+              <Route key={"/feed-en.rss"} path="/feed-en.rss" element={() => null} />
+              <Route key={"/shell.html"} path="/shell.html" element={() => null} />
+              <Route strict={true} path="/:selectedLanguage/" element={<Home />} />
 
 
-            <Route strict={true} path="/search/" element={<Search />} />
-            <Route strict={true} path="/:selectedLanguage/search/" element={<Search />} />
-            <Route strict={true} path="/portfolio/:releaseId/" element={<Portfolio />} />
-            <Route strict={true} path="/portfolio/" element={<Portfolio />} />
-            <Route strict={true} path="/:selectedLanguage/portfolio/:releaseId/" element={<Portfolio />} />
-            <Route strict={true} path="/:selectedLanguage/portfolio/" element={<Portfolio />} />
+              <Route strict={true} path="/search/" element={<Search />} />
+              <Route strict={true} path="/:selectedLanguage/search/" element={<Search />} />
+              <Route strict={true} path="/portfolio/:releaseId/" element={<Portfolio />} />
+              <Route strict={true} path="/portfolio/" element={<Portfolio />} />
+              <Route strict={true} path="/:selectedLanguage/portfolio/:releaseId/" element={<Portfolio />} />
+              <Route strict={true} path="/:selectedLanguage/portfolio/" element={<Portfolio />} />
 
-            <Route strict={true} path="/posts/:postId/" element={<Posts />} />
-            <Route strict={true} path="/posts/" element={<Posts />} />
-            <Route strict={true} path="/:selectedLanguage/posts/:postId/" element={<Posts />} />
-            <Route strict={true} path="/:selectedLanguage/posts/" element={<Posts />} />
+              <Route strict={true} path="/posts/:postId/" element={<Posts />} />
+              <Route strict={true} path="/posts/" element={<Posts />} />
+              <Route strict={true} path="/:selectedLanguage/posts/:postId/" element={<Posts />} />
+              <Route strict={true} path="/:selectedLanguage/posts/" element={<Posts />} />
 
-            <Route strict={true} path="/videos/:videoId/video/" element={<Videos />} />
-            <Route strict={true} path="/videos/:videoId/" element={<Videos />} />
-            <Route strict={true} path="/videos/" element={<Videos />} />
-            <Route strict={true} path="/:selectedLanguage/videos/:videoId/video/" element={<Videos />} />
-            <Route strict={true} path="/:selectedLanguage/videos/:videoId/" element={<Videos />} />
-            <Route strict={true} path="/:selectedLanguage/videos/" element={<Videos />} />
+              <Route strict={true} path="/videos/:videoId/video/" element={<Videos />} />
+              <Route strict={true} path="/videos/:videoId/" element={<Videos />} />
+              <Route strict={true} path="/videos/" element={<Videos />} />
+              <Route strict={true} path="/:selectedLanguage/videos/:videoId/video/" element={<Videos />} />
+              <Route strict={true} path="/:selectedLanguage/videos/:videoId/" element={<Videos />} />
+              <Route strict={true} path="/:selectedLanguage/videos/" element={<Videos />} />
 
-            <Route strict={true} path="/products/:productId/" element={<Products />} />
-            <Route strict={true} path="/products/" element={<Products />} />
-            <Route strict={true} path="/:selectedLanguage/products/:productId/" element={<Products />} />
-            <Route strict={true} path="/:selectedLanguage/products/" element={<Products />} />
+              <Route strict={true} path="/products/:productId/" element={<Products />} />
+              <Route strict={true} path="/products/" element={<Products />} />
+              <Route strict={true} path="/:selectedLanguage/products/:productId/" element={<Products />} />
+              <Route strict={true} path="/:selectedLanguage/products/" element={<Products />} />
 
-            <Route strict={true} path="/equipment/:equipmentType/:equipmentId/" element={<Equipment />} />
-            <Route strict={true} path="/equipment/:equipmentType/" element={<Equipment />} />
-            <Route strict={true} path="/equipment/" element={<Equipment />} />
-            <Route strict={true} path="/:selectedLanguage/equipment/:equipmentType/:equipmentId/" element={<Equipment />} />
-            <Route strict={true} path="/:selectedLanguage/equipment/:equipmentType/" element={<Equipment />} />
-            <Route strict={true} path="/:selectedLanguage/equipment/" element={<Equipment />} />
-
-
-
-          </Routes>
+              <Route strict={true} path="/equipment/:equipmentType/:equipmentId/" element={<Equipment />} />
+              <Route strict={true} path="/equipment/:equipmentType/" element={<Equipment />} />
+              <Route strict={true} path="/equipment/" element={<Equipment />} />
+              <Route strict={true} path="/:selectedLanguage/equipment/:equipmentType/:equipmentId/" element={<Equipment />} />
+              <Route strict={true} path="/:selectedLanguage/equipment/:equipmentType/" element={<Equipment />} />
+              <Route strict={true} path="/:selectedLanguage/equipment/" element={<Equipment />} />
+            </Routes>
+          </main>
           <Footer />
         </div>
       </Router>

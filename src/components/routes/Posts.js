@@ -92,7 +92,7 @@ const Posts = () => {
         return posts && posts.length
             ? posts.map((post) => {
                   return (
-                      <ListItem key={post.id}>
+                      <ListItem key={post.id} article>
                           <Post post={post} />
                       </ListItem>
                   );

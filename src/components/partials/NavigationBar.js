@@ -150,12 +150,12 @@ const NavigationBar = () => {
                 </div>
             </div>
 
-            <div
+            <aside
                 className={`${style.sidebarOverlay} ${showSidebar ? style.active : ""} ${
                     hidingSidebar ? style.hidingSidebar : ""
                 } `}
             >
-                <div ref={sidebarWrapperRef} className={style.sidebarContent}>
+                <nav ref={sidebarWrapperRef} className={style.sidebarContent}>
                     <div className={style.sidebarContentHeader}>
                         <Link
                             to={`/${languageSlug}`}
@@ -219,8 +219,8 @@ const NavigationBar = () => {
                             </NavLink>
                         </li>
                     </ul>
-                </div>
-            </div>
+                </nav>
+            </aside>
         </div>
     ) : null;
 };
