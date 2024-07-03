@@ -64,7 +64,7 @@ const Release = ({ release, fullscreen, compact }) => {
       "description": `This is a music recording made by ${release.artistName}. The song is ${release.duration} long and belongs to the genre ${release.genre}.`,
       "byArtist": {
         "@type": "MusicGroup",
-        "@id": `#${convertToUrlFriendlyString(release.artistName)}`,
+        "@id": `https://www.dehlimusikk.no/artists/${convertToUrlFriendlyString(release.artistName)}`,
         "name": release.artistName
       },
       "recordingOf": {
@@ -74,7 +74,7 @@ const Release = ({ release, fullscreen, compact }) => {
       "contributor": {
         "@type": "OrganizationRole",
         "contributor": {
-          "@id": "#BenjaminDehli",
+          "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli",
         }
       }
     }
@@ -87,12 +87,12 @@ const Release = ({ release, fullscreen, compact }) => {
     }
     if (release.composedByDehliMusikk) {
       snippet.recordingOf.composer = {
-        "@id": "#BenjaminDehli"
+        "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
       }
     }
     if (release.producedByDehliMusikk) {
       snippet.producer = {
-        "@id": "#BenjaminDehli"
+        "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
       }
     }
     if (release.isrcCode) {

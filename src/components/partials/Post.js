@@ -35,10 +35,10 @@ const Post = ({ post, fullscreen }) => {
       "@id": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,
       "url": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,
       "author": {
-        "@id": "#BenjaminDehli"
+        "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
       },
       "publisher": {
-        "@id": "#DehliMusikk",
+        "@id": "https://www.dehlimusikk.no/organizations/DehliMusikk",
       },
       "headline": post.title[selectedLanguageKey],
       "inLanguage": selectedLanguageKey,
@@ -60,7 +60,7 @@ const Post = ({ post, fullscreen }) => {
         "copyrightNotice": "Benjamin Dehli",
         "creditText": "Dehli Musikk",
         "creator": {
-          "@id": "#BenjaminDehli"
+          "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
         },
         "contentLocation": {
           "name": "Dehli Musikk",

@@ -62,7 +62,7 @@ const Video = ({ video, fullscreen, isTheaterMode }) => {
       snippet.thumbnail.copyrightNotice = "Benjamin Dehli";
       snippet.thumbnail.creditText = "Dehli Musikk";
       snippet.thumbnail.creator = {
-        "@id": "#BenjaminDehli"
+        "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
       };
     }
     if (video.clips) {

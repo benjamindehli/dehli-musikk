@@ -82,7 +82,7 @@ const Product = ({ product, fullscreen }) => {
         "copyrightNotice": "Benjamin Dehli",
         "creditText": "Dehli Musikk",
         "creator": {
-          "@id": "#BenjaminDehli"
+          "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
         },
         "contentLocation": {
           "name": "Dehli Musikk",
