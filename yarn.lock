@@ -2400,10 +2400,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/router@npm:1.17.0":
-  version: 1.17.0
-  resolution: "@remix-run/router@npm:1.17.0"
-  checksum: a801f605d6ff9fdc53676403cd9441f713251fbc23dcaf65c9337b3846e86db9c1b1fc9eee3c0f7142e3e1f7ed44efd427278138c3be9eeb7dd7e693347c35ab
+"@remix-run/router@npm:1.17.1":
+  version: 1.17.1
+  resolution: "@remix-run/router@npm:1.17.1"
+  checksum: f6ab2498d0b29ea76e3ddf6c6fec78c99f7c8739b2d413217fa569fca3de2256ecfd71385c78ea9d323fd9787614b25fc13db3aaa2e5d5673c9a698d448e710a
   languageName: node
   linkType: hard
 
@@ -3492,11 +3492,11 @@ __metadata:
   linkType: hard
 
 "acorn@npm:^8.2.4, acorn@npm:^8.7.1, acorn@npm:^8.8.2, acorn@npm:^8.9.0":
-  version: 8.12.0
-  resolution: "acorn@npm:8.12.0"
+  version: 8.12.1
+  resolution: "acorn@npm:8.12.1"
   bin:
     acorn: bin/acorn
-  checksum: ae142de8739ef15a5d936c550c1d267fc4dedcdbe62ad1aa2c0009afed1de84dd0a584684a5d200bb55d8db14f3e09a95c6e92a5303973c04b9a7413c36d1df0
+  checksum: 677880034aee5bdf7434cc2d25b641d7bedb0b5ef47868a78dadabedccf58e1c5457526d9d8249cd253f2df087e081c3fe7d903b448d8e19e5131a3065b83c07
   languageName: node
   linkType: hard
 
@@ -4520,9 +4520,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001599, caniuse-lite@npm:^1.0.30001629":
-  version: 1.0.30001639
-  resolution: "caniuse-lite@npm:1.0.30001639"
-  checksum: 0d9291cc47ffaad5806716bff6fef41eec21f86a448370bc30a72823fcaf24ba5ccb4704841e6a60f078ddf2e9987e3d23f4d3ca0fffc51f6cb0400b7411ad28
+  version: 1.0.30001640
+  resolution: "caniuse-lite@npm:1.0.30001640"
+  checksum: ec492d8d1e11d1c55e0f5c0f218229369dc0a4bd1b5d0a579a6435865fe8f4c84bde7e816a844cce1b9cdd97f5a85b6dac5599639fabcdb0c4c5bd039e46cbfd
   languageName: node
   linkType: hard
 
@@ -12383,26 +12383,26 @@ __metadata:
   linkType: hard
 
 "react-router-dom@npm:^6.0.1":
-  version: 6.24.0
-  resolution: "react-router-dom@npm:6.24.0"
+  version: 6.24.1
+  resolution: "react-router-dom@npm:6.24.1"
   dependencies:
-    "@remix-run/router": 1.17.0
-    react-router: 6.24.0
+    "@remix-run/router": 1.17.1
+    react-router: 6.24.1
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 6b40474070661d60b7a237756db7d27e7925546981a2325673519dab7cb15184ad490f092f1f9e947aa414b54be8c1f50f2ecb175e2b57e4c0d7d012a170d48d
+  checksum: 95d9183524075aeec222b8e3181c47a6f58118a82d8d83dd85bf9f94a6cd69856c71f8f5d9788e50f442b9ea694209db7a96727a394de08c828bbc212328dc95
   languageName: node
   linkType: hard
 
-"react-router@npm:6.24.0, react-router@npm:^6.0.1":
-  version: 6.24.0
-  resolution: "react-router@npm:6.24.0"
+"react-router@npm:6.24.1, react-router@npm:^6.0.1":
+  version: 6.24.1
+  resolution: "react-router@npm:6.24.1"
   dependencies:
-    "@remix-run/router": 1.17.0
+    "@remix-run/router": 1.17.1
   peerDependencies:
     react: ">=16.8"
-  checksum: c58073711357500f7b2adb8968f6d160e3f2fbe2f9d9482648e70ea96910438886d4e713d420c548c4a7d1ad30db15bc9a4b952bb1cbc14dd75a209cf286f49b
+  checksum: 18acd84a4fc19ef63316a0ed73a549d1d83b48458ca4c90e14b9f59d259984062928f4427307b68f504452eb30dfd373edda826dd21b7f75a4bc2801b7336489
   languageName: node
   linkType: hard
 
@@ -14671,8 +14671,8 @@ __metadata:
   linkType: hard
 
 "update-browserslist-db@npm:^1.0.16":
-  version: 1.0.16
-  resolution: "update-browserslist-db@npm:1.0.16"
+  version: 1.1.0
+  resolution: "update-browserslist-db@npm:1.1.0"
   dependencies:
     escalade: ^3.1.2
     picocolors: ^1.0.1
@@ -14680,7 +14680,7 @@ __metadata:
     browserslist: ">= 4.21.0"
   bin:
     update-browserslist-db: cli.js
-  checksum: 51b1f7189c9ea5925c80154b0a6fd3ec36106d07858d8f69826427d8edb4735d1801512c69eade38ba0814d7407d11f400d74440bbf3da0309f3d788017f35b2
+  checksum: 7b74694d96f0c360f01b702e72353dc5a49df4fe6663d3ee4e5c628f061576cddf56af35a3a886238c01dd3d8f231b7a86a8ceaa31e7a9220ae31c1c1238e562
   languageName: node
   linkType: hard
 
@@ -15488,8 +15488,8 @@ __metadata:
   linkType: hard
 
 "ws@npm:^8.13.0":
-  version: 8.17.1
-  resolution: "ws@npm:8.17.1"
+  version: 8.18.0
+  resolution: "ws@npm:8.18.0"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ">=5.0.2"
@@ -15498,7 +15498,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 442badcce1f1178ec87a0b5372ae2e9771e07c4929a3180321901f226127f252441e8689d765aa5cfba5f50ac60dd830954afc5aeae81609aefa11d3ddf5cecf
+  checksum: 91d4d35bc99ff6df483bdf029b9ea4bfd7af1f16fc91231a96777a63d263e1eabf486e13a2353970efc534f9faa43bdbf9ee76525af22f4752cbc5ebda333975
   languageName: node
   linkType: hard
 
