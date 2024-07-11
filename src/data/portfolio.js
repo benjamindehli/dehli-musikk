@@ -5,6 +5,7 @@ import twentyTwentyVisionWordAndARing from './releases/data/2020Vision_wordandaR
 import ainaWassvikDauntless from './releases/data/ainaWassvik_dauntless.json';
 import ainaWassvikHypnotized from './releases/data/ainaWassvik_hypnotized.json';
 import audunHaukvikDrivingAlone from './releases/data/audunHaukvik_drivingAlone.json';
+import bjoernEidsvaagYlvaSkyfriHimmel from './releases/data/bjoernEidsvaagYlva_skyfriHimmel.json';
 import changemakersVeidemannen from './releases/data/changemakers_veidemannen.json';
 import confusionConfusion from './releases/data/confusion_confusion.json';
 import confusionEscapeAndExplore from './releases/data/confusion_escapeExplore.json';
@@ -63,9 +64,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  bjoernEidsvaagYlvaSkyfriHimmel,
   staaleKaasinTotheTop,
-  southOfJamesonLittleGirlBonusTrackDemo,
-  hauntedBySilhouettesNoManIsle
+  southOfJamesonLittleGirlBonusTrackDemo
 ];
 
 const allReleases = [
@@ -76,6 +77,7 @@ const allReleases = [
   ainaWassvikDauntless,
   ainaWassvikHypnotized,
   audunHaukvikDrivingAlone,
+  bjoernEidsvaagYlvaSkyfriHimmel,
   changemakersVeidemannen,
   confusionConfusion,
   confusionEscapeAndExplore,
