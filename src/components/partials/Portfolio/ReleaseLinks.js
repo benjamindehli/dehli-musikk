@@ -6,6 +6,7 @@ import { ReactComponent as AmazonMusicIcon } from 'assets/svg/amazonMusic.svg'
 import { ReactComponent as AmazonStoreIcon } from 'assets/svg/amazonStore.svg'
 import { ReactComponent as AnghamiIcon } from 'assets/svg/anghami.svg'
 import { ReactComponent as AppleMusicIcon } from 'assets/svg/appleMusic.svg'
+import { ReactComponent as AudiomackIcon } from 'assets/svg/audiomack.svg'
 import { ReactComponent as BoomplayIcon } from 'assets/svg/boomplay.svg'
 import { ReactComponent as DeezerIcon } from 'assets/svg/deezer.svg'
 import { ReactComponent as GoogleIcon } from 'assets/svg/google.svg'
@@ -38,6 +39,8 @@ const ReleaseLinks = ({ release }) => {
         return <AnghamiIcon />
       case 'appleMusic':
         return <AppleMusicIcon />
+      case 'audiomack':
+        return <AudiomackIcon />
       case 'boomplay':
         return <BoomplayIcon />
       case 'deezer':
@@ -79,6 +82,8 @@ const ReleaseLinks = ({ release }) => {
         return 'Anghami'
       case 'appleMusic':
         return 'Apple Music'
+      case 'audiomack':
+        return 'Audiomack'
       case 'boomplay':
         return 'Boomplay'
       case 'deezer':
