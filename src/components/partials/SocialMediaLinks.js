@@ -34,7 +34,7 @@ const SocialMediaLinks = () => {
     <a href='https://twitter.com/BenjaminDehli' title='Link to Twitter page' aria-label='Link to Twitter page' target='_blank' rel="noopener noreferrer" className={style.twitter}>
       <FontAwesomeIcon icon={['fab', 'twitter']} />
     </a>
-    <a href='https://dehlimusikk.gumroad.com/' title='Link to Gumroad page' aria-label='Link to Gumroad page' target='_blank' rel="noopener noreferrer" className={style.gumroad}>
+    <a href='https://store.dehlimusikk.no/' title='Link to Gumroad page' aria-label='Link to Gumroad page' target='_blank' rel="noopener noreferrer" className={style.gumroad}>
       <GumroadIcon />
     </a>
     <a href='https://ko-fi.com/benjamindehli' title='Link to Ko-fi page' aria-label='Link to Ko-fi page' target='_blank' rel="noopener noreferrer" className={style.kofi}>
