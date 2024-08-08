@@ -34,7 +34,9 @@ const Sitemaps = () => {
   }
 
   const renderLocElement = (loc) => {
-    return `<loc>https://www.dehlimusikk.no/${loc?.length ? loc : ''}</loc>\n`;
+    const origin = loc?.startsWith('http') ? '' : 'https://www.dehlimusikk.no/';
+    const url = `${origin}${loc?.length ? loc : ''}`;
+    return `<loc>${url}</loc>\n`;
   }
 
   const renderLastModElement = (timestamp) => {
@@ -128,6 +130,11 @@ const Sitemaps = () => {
     return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
   }
 
+  const renderGumroadProductsList = () => {
+    const url = 'https://store.dehlimusikk.no/';
+    return renderUrlElement(url);
+  }
+
   const renderReleasesList = () => {
     const urlNorwegianPage = `${languageSlug.no}portfolio/`;
     const urlEnglishPage = `${languageSlug.en}portfolio/`;
@@ -188,6 +195,19 @@ const Sitemaps = () => {
         const urlEnglishPage = `${languageSlug.en}products/${convertToUrlFriendlyString(product.title)}/`;
         const timestamp = !!product?.lastmod ? product.lastmod : product?.timestamp;
         return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
+      }).join('')
+      : '';
+  }
+
+  const renderGumroadProductsDetails = () => {
+    const gumroadProducts = products.filter(product => {
+      return product?.link?.url.includes("store.dehlimusikk.no");
+    });
+    return gumroadProducts && gumroadProducts.length
+      ? gumroadProducts.map(product => {
+        const url = product?.link?.url;
+        const timestamp = !!product?.lastmod ? product.lastmod : product?.timestamp;
+        return renderUrlElement(url, timestamp)
       }).join('')
       : '';
   }
@@ -485,12 +505,14 @@ const Sitemaps = () => {
       renderPostsList(),
       renderVideosList(),
       renderProductsList(),
+      renderGumroadProductsList(),
       renderReleasesList(),
       renderEquipmentTypesList(),
       renderPostsDetails(),
       renderVideosDetails(),
       renderVideosDetailsVideo(),
       renderProductsDetails(),
+      renderGumroadProductsDetails(),
       renderReleasesDetails(),
       renderEquipmentDetails(),
       '</urlset>'
