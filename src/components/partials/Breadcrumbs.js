@@ -58,14 +58,14 @@ const Breadcrumbs = ({ breadcrumbs = [] }) => {
         {renderBreadcrumbJsonLd(breadcrumbs)}
       </script>
     </Helmet>
-    <div className={style.breadcrumbs}>
-      <ul>
+    <nav className={style.breadcrumbs}>
+      <ul aria-label='Breadcrumbs for current page path'>
         <li>
           <Link to={`/${languageSlug}`} title='Dehli Musikk'>Dehli Musikk</Link>
         </li>
         {renderBreadcrumbListElements(breadcrumbs)}
       </ul>
-    </div>
+    </nav>
   </React.Fragment>);
 }
 
