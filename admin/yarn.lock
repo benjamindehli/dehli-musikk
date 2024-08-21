@@ -2875,11 +2875,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 22.4.1
-  resolution: "@types/node@npm:22.4.1"
+  version: 22.5.0
+  resolution: "@types/node@npm:22.5.0"
   dependencies:
     undici-types: ~6.19.2
-  checksum: 341eb54867a3ec8eee7853ff9a9fc92d9f66305b70c9bc5db78492d51f4da3cd81e50c077f5d98eef1835fcbca00c58bb2a229ef56b0e377e48a3284401bf3f6
+  checksum: 3710b6f42416796061cf47cff0a37955f2ca0afc63ab281cc23e46b3ec8dffcabc66b970e4ee34fff5e2082617bed47610b4a1122c7b3880f551d3c673c40f84
   languageName: node
   linkType: hard
 
@@ -2926,12 +2926,12 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*":
-  version: 18.3.3
-  resolution: "@types/react@npm:18.3.3"
+  version: 18.3.4
+  resolution: "@types/react@npm:18.3.4"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
-  checksum: c63d6a78163244e2022b01ef79b0baec4fe4da3475dc4a90bb8accefad35ef0c43560fd0312e5974f92a0f1108aa4d669ac72d73d66396aa060ea03b5d2e3873
+  checksum: 555ccd1af86a23c781dea0360de64b2f7a0708cdcbf9e6496744b77630065868526fd55147c727dc5ef11b7fd712b04f7898757a84c67e2eb9dfd4c4ead10d95
   languageName: node
   linkType: hard
 
@@ -3807,9 +3807,9 @@ __metadata:
   linkType: hard
 
 "async@npm:^3.2.3":
-  version: 3.2.5
-  resolution: "async@npm:3.2.5"
-  checksum: 5ec77f1312301dee02d62140a6b1f7ee0edd2a0f983b6fd2b0849b969f245225b990b47b8243e7b9ad16451a53e7f68e753700385b706198ced888beedba3af4
+  version: 3.2.6
+  resolution: "async@npm:3.2.6"
+  checksum: ee6eb8cd8a0ab1b58bd2a3ed6c415e93e773573a91d31df9d5ef559baafa9dab37d3b096fa7993e84585cac3697b2af6ddb9086f45d3ac8cae821bb2aab65682
   languageName: node
   linkType: hard
 
@@ -4678,25 +4678,25 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.37.1, core-js-compat@npm:^3.38.0":
-  version: 3.38.0
-  resolution: "core-js-compat@npm:3.38.0"
+  version: 3.38.1
+  resolution: "core-js-compat@npm:3.38.1"
   dependencies:
     browserslist: ^4.23.3
-  checksum: bd410be723e3621f7e8c7a4dce91eaefc603d95133da89c042dd961aca368c7281894bd9af14116a455a4473288fb6c121b185cb8a1e8290b8ace15aedb315f2
+  checksum: a0a5673bcd59f588f0cd0b59cdacd4712b82909738a87406d334dd412eb3d273ae72b275bdd8e8fef63fca9ef12b42ed651be139c7c44c8a1acb423c8906992e
   languageName: node
   linkType: hard
 
 "core-js-pure@npm:^3.23.3":
-  version: 3.38.0
-  resolution: "core-js-pure@npm:3.38.0"
-  checksum: 29aac7b56778370523f6a58f713c730975b097fea19838f93705730bd95d2da78b116e561e2cda637dde4cebe0a88baf9a5ce4e391732c39cbc5e55dc95bb38c
+  version: 3.38.1
+  resolution: "core-js-pure@npm:3.38.1"
+  checksum: 95ca2e75df371571b0d41cba81e1f6335a2ba1f080e80f8edfa124ad3041880fe72e10f2144527a700a3d993dbf9f7cada3e04a927a66604bc49d0c4951567fb
   languageName: node
   linkType: hard
 
 "core-js@npm:^3.19.2":
-  version: 3.38.0
-  resolution: "core-js@npm:3.38.0"
-  checksum: 71ef0598da69daee2b46fa1f82f074019981656f7cae26fed2b7f076c611e330a99ba5c70156ae37682f59a8d6ec6486119c70cb283c9fff25bd4f20db7fdc27
+  version: 3.38.1
+  resolution: "core-js@npm:3.38.1"
+  checksum: 55703c2f6fcd537e47a5cc83e9dc9884efef61861bbefb4a96a8c95e87956db980ce314628465dd49f14e626c5e633b9e3433f3e4a1f628404a14da420eb2556
   languageName: node
   linkType: hard
 
@@ -5492,9 +5492,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.4":
-  version: 1.5.11
-  resolution: "electron-to-chromium@npm:1.5.11"
-  checksum: 9dbf480ff39005b3c9657e6b8df534a4597d0747472f2982315cc169024ebfb45f99b16dd57d8be4a51a063f14590f9f585f179e55f68591f870f38b9a5e491a
+  version: 1.5.13
+  resolution: "electron-to-chromium@npm:1.5.13"
+  checksum: f18ac84dd3bf9a200654a6a9292b9ec4bced0cf9bd26cec9941b775f4470c581c9d043e70b37a124d9752dcc0f47fc96613d52b2defd8e59632852730cb418b9
   languageName: node
   linkType: hard
 
