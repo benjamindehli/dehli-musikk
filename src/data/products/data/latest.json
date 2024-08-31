@@ -1,5 +1,23 @@
 [
     {
+        "timestamp": 1725091200000,
+        "title": "DXtraterrestrial 1",
+        "content": {
+            "no": "DXtraterrestrial 1 er en samling av 32 patcher som inneholder varme og myke synth-pads, klare og lyse bjeller og plukkede lyder, digitale og glitchy lyder og alt i mellom. Disse patch'ene er designet for å gi deg et bredt spekter av toner for enhver musikkstil. Enten du er interessert i retro synth-lyder, moderne lyder eller mer eksperimentelle ting.",
+            "en": "DXtraterrestrial 1 is a collection of 32 patches containing warm and lush synth pads, crisp and bright bells and plucked sounds, digital and glitchy sounds and anything in between. These presets are designed to give you a wide range of tones for any music style. Whether you're into retro synth sounds, modern vibes or more experimental stuff."
+        },
+        "thumbnailDescription": "DXtraterrestrial 1 cartrigde with a Yamaha DX7 synthesizer in the background",
+        "price": "1.00",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://store.dehlimusikk.no/l/dxtraterrestrial-1",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        }
+    },
+    {
         "timestamp": 1723136400000,
         "title": "EDB-Orgel",
         "content": {
@@ -29,22 +47,6 @@
         "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/subc",
-            "text": {
-                "en": "Go to download page",
-                "no": "Gå til side for nedlasting"
-            }
-        }
-    },
-    {
-        "timestamp": 1710965029000,
-        "title": "4-track Toy Piano",
-        "content": {
-            "no": "Et [Kalikå Leksakspiano (toy piano)](equipment/instruments/kalikaa-leksakspiano/) spilt inn på kassett og spilt av på halv hastighet og normal/original hastighet.\nBiblioteket inkluderer også impulsresponser for to typer båndekko og to typer romklang.",
-            "en": "A [Kalikå Leksakspiano (toy piano)](equipment/instruments/kalikaa-leksakspiano/) recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch.\nIt also includes impulse responses for two tape delay/echo types and two room reverbs."
-        },
-        "thumbnailDescription": "The 4-track Toy Piano user interface and a Kalikå Leksakspiano (toy piano)",
-        "link": {
-            "url": "https://store.dehlimusikk.no/l/4-track-toy-piano",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
