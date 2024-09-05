@@ -19,6 +19,9 @@ const replaceAndAddSpace = (string, replace, replaceWith) => {
       string = string.replace(/[øö]/g, "oe");
       string = string.replace(/å/g, "aa");
       string = string.replace(/[/]/g, "-");
+
+      // Dot and comma replace
+      string = string.replace(/[.,]/g, "-");
   
       // Whitespace replace
       string = string.replace(/( - )/g, "-");
