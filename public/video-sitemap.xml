@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/solveigs-sang-paa-therevox-og-mellotron/video/</loc>
+    <video:video>
+      <video:title>Solveigs sang på Therevox og Mellotron</video:title>
+      <video:description>Et utdrag fra Solveigs sang av Edvard Grieg spilt på en Therevox ET-4.3 og en Mellotron M4000D. Mellotron-lyder: 3 Violins (Mellotron MK II), Acoust. Nylon Guitar (Mellotron MK I), Cello (Chamberlin M1), Cello (Mellotron M400), Flute (Mellotron MK II) og French Horn (Chamberlin M1). Mellotron signalkjede: Mellotron M4000D, Hairball Audio FET/RACK Revision D, Fostex X-28H (spilt inn på kassett), Roland PA-120 (preamp, EQ og fjærklang), Chase Bliss Audio &amp; Meris CXM 1978 og DIYRE G Bus VCA Compressor. Therevox signalkjede: Therevox ET-4.3, Hairball Audio FET/RACK Revision D, Roland PA-120 (preamp og EQ), Fulltone Tube Tape Echo, Therevox ET-4.3 (fjærklang), Chase Bliss Audio &amp; Meris CXM 1978 and DIYRE G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=E41QZb3-xgg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-09-05-00_540.9529acab8eddbdc817e1.jpg</video:thumbnail_loc>
+      <video:duration>108</video:duration>
+      <video:publication_date>2024-09-05</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/solveigs-song-on-therevox-and-mellotron/video/</loc>
+    <video:video>
+      <video:title>Solveig&apos;s Song on Therevox and Mellotron</video:title>
+      <video:description>An excerpt from Solveig&apos;s Song by Edvard Grieg played on a Therevox ET-4.3 and a Mellotron M4000D. Mellotron sounds: 3 Violins (Mellotron MK II), Acoust. Nylon Guitar (Mellotron MK I), Cello (Chamberlin M1), Cello (Mellotron M400), Flute (Mellotron MK II) and French Horn (Chamberlin M1). Mellotron signal chain: Mellotron M4000D, Hairball Audio FET/RACK Revision D, Fostex X-28H (recorded to cassette tape), Roland PA-120 (preamp, EQ and spring reverb), Chase Bliss Audio &amp; Meris CXM 1978 and DIYRE G Bus VCA Compressor. Therevox signal chain: Therevox ET-4.3, Hairball Audio FET/RACK Revision D, Roland PA-120 (preamp and EQ), Fulltone Tube Tape Echo, Therevox ET-4.3 (spring reverb), Chase Bliss Audio &amp; Meris CXM 1978 and DIYRE G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=E41QZb3-xgg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-09-05-00_540.9529acab8eddbdc817e1.jpg</video:thumbnail_loc>
+      <video:duration>108</video:duration>
+      <video:publication_date>2024-09-05</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/egendefinerte-patcher-for-yamaha-dx7-dxtraterrestrial-1/video/</loc>
     <video:video>
       <video:title>Egendefinerte patcher for Yamaha DX7 (DXtraterrestrial 1)</video:title>
