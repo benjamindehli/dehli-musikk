@@ -1,13 +1,13 @@
 @import "../../style/abstracts/all";
 
-:local(.menuButton) {
+.menuButton {
   @include appearance(none);
   background: none;
   line-height: 64px;
   width: 64px;
   text-align: center;
 
-  :local(.menuIcon) {
+  & .menuIcon {
     @include border-radius(50%);
     @include transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
     cursor: pointer;
@@ -28,13 +28,13 @@
     }
   }
   &:focus {
-    :local(.menuIcon) {
+    & .menuIcon {
       background-color: rgba(0, 0, 0, 0.16);
     }
   }
 }
 
-:local(.languageSelectorListContainer) {
+.languageSelectorListContainer {
   width: 78px;
   @media (min-width: $screen-sm) {
     width: 145px;
@@ -46,14 +46,14 @@
     font-size: 16px;
     float: right;
     &:focus {
-      :local(.languageSelectorButton) {
+      & .languageSelectorButton {
         background-color: rgba(0, 0, 0, 0.16);
       }
     }
   }
 }
 
-:local(.languageSelectorButton) {
+.languageSelectorButton {
   @include border-radius(4px);
   @include transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
   text-transform: uppercase;
@@ -71,11 +71,11 @@
     background-color: rgba(0, 0, 0, 0.16);
   }
 
-  svg {
+  & svg {
     margin: 0 4px;
   }
 
-  :local(.languageName) {
+  & .languageName {
     display: none;
     margin: 0;
     @media (min-width: $screen-sm) {
@@ -84,27 +84,31 @@
   }
 }
 
-:local(.languageSelectorList) {
-  @include box-shadow(0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12));
+.languageSelectorList {
+  @include box-shadow(
+    0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12)
+  );
   display: none;
   position: absolute;
   top: 16px;
   right: 16px;
 
-  &:local(.active) {
+  &.active {
     display: block;
     background-color: #fff;
     border-radius: 4px;
     padding: 8px 0;
     min-width: 150px;
 
-    ul {
+    & ul {
       list-style: none;
       padding: 0;
       margin: 0;
 
-      li {
-        a {
+      & li {
+        & a {
           @include transition(background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
           text-transform: capitalize;
           text-decoration: none;
@@ -122,7 +126,7 @@
             background-color: rgba(0, 0, 0, 0.38);
           }
 
-          &:local(.activeLink) {
+          &.activeLink {
             background-color: rgba(0, 0, 0, 0.14);
           }
         }
@@ -131,9 +135,13 @@
   }
 }
 
-:local(.navigationBar) {
-  @include box-shadow(0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12));
-  background-color: #C32A22;
+.navigationBar {
+  @include box-shadow(
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12)
+  );
+  background-color: #c32a22;
   color: #fff;
   position: relative;
   z-index: 2;
@@ -146,24 +154,28 @@
   }
 }
 
-:local(.sidebarOverlay) {
+.sidebarOverlay {
   position: fixed;
-  background-color: rgba(0,0,0,.0);
+  background-color: rgba(0, 0, 0, 0);
   top: 0;
   left: 0;
   z-index: 2;
   visibility: hidden;
 
-  :local(.sidebarContent) {
-    @include box-shadow(0 11px 15px -7px rgba(0,0,0,0.2), 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12));
+  & .sidebarContent {
+    @include box-shadow(
+      0 11px 15px -7px rgba(0, 0, 0, 0.2),
+      0 24px 38px 3px rgba(0, 0, 0, 0.14),
+      0 9px 46px 8px rgba(0, 0, 0, 0.12)
+    );
     transform: translateX(-240px);
     background-color: #fff;
 
-    :local(.sidebarContentHeader) {
+    & .sidebarContentHeader {
       height: 56px;
       border-bottom: 1px solid #eee;
 
-      :local(.appLogo) {
+      & .appLogo {
         padding: 8px 12px;
         width: 100%;
         display: block;
@@ -171,20 +183,20 @@
       @media (min-width: $screen-sm) {
         height: 64px;
 
-        :local(.appLogo) {
+        & .appLogo {
           padding: 12px;
         }
       }
     }
 
-    :local(.sidebarLinks) {
+    & .sidebarLinks {
       padding: 0;
       margin: 0;
 
-      li {
+      & li {
         display: block;
 
-        a {
+        & a {
           @include transition(background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
           display: block;
           padding: 6px 8px 6px 24px;
@@ -202,10 +214,10 @@
             background-color: rgba(0, 0, 0, 0.38);
           }
 
-          &:local(.activeLink) {
+          &.activeLink {
             background-color: rgba(0, 0, 0, 0.14);
           }
-          svg {
+          & svg {
             margin-right: 4px;
           }
         }
@@ -213,14 +225,14 @@
     }
   }
 
-  &:local(.active) {
+  &.active {
     @include transition(background-color 225ms cubic-bezier(0, 0, 0.2, 1) 0ms);
     width: 100%;
     height: 100%;
     visibility: visible;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, 0.5);
 
-    :local(.sidebarContent) {
+    & .sidebarContent {
       @include transition(transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms);
       max-width: 240px;
       width: 240px;
@@ -230,11 +242,11 @@
     }
   }
 
-  &:local(.hidingSidebar) {
+  &.hidingSidebar {
     @include transition(background-color 225ms cubic-bezier(0, 0, 0.2, 1) 0ms);
-    background-color: rgba(0,0,0,.0);
+    background-color: rgba(0, 0, 0, 0);
 
-    :local(.sidebarContent) {
+    & .sidebarContent {
       @include transition(transform 225ms cubic-bezier(0, 0, 0.2, 1) 0ms);
       transform: translateX(-240px);
     }

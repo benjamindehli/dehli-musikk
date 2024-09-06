@@ -1,18 +1,16 @@
 @import "../../../../style/abstracts/all";
 
-:local(.listItemThumbnail) {
+.listItemThumbnail {
   display: inline-block;
   width: 55px;
   height: 55px;
   margin: 9px 6px;
 
-
-
-  picture {
+  & picture {
     display: block;
     line-height: 0;
 
-    img {
+    & img {
       width: 55px;
       height: 55px;
       border-radius: 50%;
@@ -20,16 +18,16 @@
     }
   }
 
-  &:not(:local(.compact)) {
+  &:not(.compact) {
     @media (min-width: $screen-sm) {
       flex: none;
       display: block;
       width: 100%;
       height: auto;
       margin: 0;
-      &:not(:local(.compact)) {
-        picture {
-          img {
+      &:not(.compact) {
+        & picture {
+          & img {
             width: 100%;
             height: auto;
             border-radius: 0;
@@ -40,13 +38,13 @@
     }
   }
 
-  &:local(.fullscreen) {
+  &.fullscreen {
     width: 100%;
     height: auto;
     margin: 0;
 
-    picture {
-      img {
+    & picture {
+      & img {
         border-radius: 0;
         border: none;
         width: 100%;

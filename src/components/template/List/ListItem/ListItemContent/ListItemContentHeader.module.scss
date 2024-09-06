@@ -1,11 +1,11 @@
 @import "../../../../../style/abstracts/all";
 
-:local(.listItemContentHeader) {
+.listItemContentHeader {
   display: inline-block;
-  a {
+  & a {
     text-decoration: none;
   }
-  h2 {
+  & h2 {
     margin: 0;
     font-size: 19px;
     color: $primary-color;
@@ -14,20 +14,20 @@
       font-size: 22px;
     }
   }
-  span {
+  & span {
     font-size: 0.75em;
     display: block;
     color: $article-text-color;
   }
-  time {
+  & time {
     font-size: 0.75em;
     display: block;
     color: $article-text-color;
     margin-top: 4px;
   }
-  &:local(.fullscreen) {
+  &.fullscreen {
     display: block;
-    h2 {
+    & h2 {
       margin: 0;
       font-size: 22px;
       color: $article-text-color;
@@ -35,10 +35,10 @@
         font-size: 26px;
       }
     }
-    span {
+    & span {
       font-size: 0.8em;
     }
-    time {
+    & time {
       font-size: 0.8em;
     }
   }

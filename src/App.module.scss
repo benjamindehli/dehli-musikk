@@ -1,6 +1,6 @@
 @import "./style/abstracts/_all.scss";
 
-:local(.container) {
+.container {
   position: absolute;
   @include calc('height', '100% - 56px');
   @media (min-width: $screen-sm) {
@@ -8,7 +8,7 @@
   }
   overflow-y: scroll;
   width: 100%;
-  a:focus {
+  & a:focus {
     text-decoration: underline;
   }
 }

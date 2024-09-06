@@ -5,26 +5,26 @@ img {
   height: auto;
 }
 
-:local(.header) {
+.header {
   position: relative;
   overflow: hidden;
 
-  h1 {
+  & h1 {
     font-size: 2.5em;
-    margin: .25em 0;
+    margin: 0.25em 0;
   }
 
-  :local(.backgroundsImage) {
+  & .backgroundsImage {
     position: absolute;
   }
 
-  :local(.overlay) {
-    background-color: rgba(25,25,25,.75);
+  & .overlay {
+    background-color: rgba(25, 25, 25, 0.75);
     display: flex;
     position: relative;
     padding: 16px 24px;
 
-    :local(.logo) {
+    & .logo {
       margin: auto;
       width: 200px;
     }
@@ -34,46 +34,46 @@ img {
     @media (min-width: $screen-sm) {
       height: 350px;
 
-      :local(.logo) {
+      & .logo {
         width: 250px;
       }
     }
     @media (min-width: $screen-md) {
       height: 400px;
 
-      :local(.logo) {
+      & .logo {
         width: 300px;
       }
     }
     @media (min-width: $screen-lg) {
       height: 450px;
 
-      :local(.logo) {
+      & .logo {
         width: 350px;
       }
     }
     @media (min-width: $screen-xl) {
       height: 500px;
 
-      :local(.logo) {
+      & .logo {
         width: 400px;
       }
     }
   }
 }
 
-:local(.sectionHeader) {
+.sectionHeader {
   margin-top: 2em;
   text-align: center;
   font-size: 1.8em;
 }
 
-:local(.contentSection) {
+.contentSection {
   max-width: 1200px;
   padding: 64px 24px;
   margin: auto;
 
-  &:local(.fullWidthSm) {
+  &.fullWidthSm {
     padding: 20px 0;
     @media (min-width: $screen-sm) {
       padding: 64px 24px;
@@ -86,19 +86,19 @@ img {
   }
 }
 
-:local(.socialMediaSection) {
+.socialMediaSection {
   background-color: #202122;
 
-  h2 {
+  & h2 {
     color: #fff;
   }
 }
 
-:local(.mutedSection) {
+.mutedSection {
   background-color: #e6e6e6;
 }
 
-:local(.callToActionButtonContainer) {
+.callToActionButtonContainer {
   text-align: center;
   margin: 16px 0 36px;
 }

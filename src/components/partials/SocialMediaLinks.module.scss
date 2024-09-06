@@ -1,7 +1,7 @@
-:local(.socialMediaLinks) {
+.socialMediaLinks {
   text-align: center;
 
-  a {
+  & a {
     display: inline-block;
     background-color: #555;
     color: #fff;
@@ -17,14 +17,14 @@
       color: #fff;
     }
 
-    &:local(.facebook) {
+    &.facebook {
       &:hover,
       &:focus {
         background-color: #4267b2;
       }
     }
 
-    &:local(.instagram) {
+    &.instagram {
       &:hover,
       &:focus {
         background: #b900b4;
@@ -34,40 +34,40 @@
       }
     }
 
-    &:local(.youtube) {
+    &.youtube {
       &:hover,
       &:focus {
         background-color: #ff0000;
       }
     }
 
-    &:local(.vimeo) {
+    &.vimeo {
       &:hover,
       &:focus {
         background-color: #1ab7ea;
       }
     }
 
-    &:local(.tumblr) {
+    &.tumblr {
       &:hover,
       &:focus {
         background-color: #051933;
       }
     }
 
-    &:local(.twitter) {
+    &.twitter {
       &:hover,
       &:focus {
         background-color: #1da1f2;
       }
     }
 
-    &:local(.pianobook) {
+    &.pianobook {
       &:hover,
       &:focus {
         background-color: #002b2a;
       }
-      svg {
+      & svg {
         height: 34px;
         width: 34px;
         stroke-width: 150;
@@ -77,12 +77,12 @@
       }
     }
 
-    &:local(.gumroad) {
+    &.gumroad {
       &:hover,
       &:focus {
         background-color: #ff90e8;
       }
-      svg {
+      & svg {
         height: 45px;
         width: 45px;
         position: relative;
@@ -91,12 +91,12 @@
       }
     }
 
-    &:local(.kofi) {
+    &.kofi {
       &:hover,
       &:focus {
         background-color: #13c3ff;
       }
-      svg {
+      & svg {
         height: 32px;
         width: 49px;
         position: relative;
@@ -105,7 +105,7 @@
       }
     }
 
-    &:local(.rss) {
+    &.rss {
       &:hover,
       &:focus {
         background-color: #f26522;

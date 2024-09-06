@@ -1,28 +1,28 @@
-:local(.breadcrumbs) {
-  ul {
+.breadcrumbs {
+  & ul {
     list-style: none;
     padding: 0;
     margin: 0;
 
-    li {
+    & li {
       display: inline-block;
 
-      a,
-      span {
+      & a,
+      & span {
         color: rgba(0, 0, 0, 0.54);
         text-decoration: none;
       }
 
       &:last-child {
-        a,
-        span {
+        & a,
+        & span {
           color: rgba(0, 0, 0, 0.87);
         }
       }
 
       &:not(:last-child):after {
         display: inline-block;
-        content: '/';
+        content: "/";
         margin: 0 8px;
         color: rgba(0, 0, 0, 0.54);
       }

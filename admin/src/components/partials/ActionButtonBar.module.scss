@@ -1,11 +1,11 @@
 @import "../../style/abstracts/all";
 
-:local(.actionButtonBar) {
+.actionButtonBar {
     position: fixed;
     bottom: 0;
     right: 0;
 
-    button {
+    & button {
         @include appearance(none);
         @include box-shadow(
             0 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -22,7 +22,7 @@
         width: 75px;
         height: 75px;
         margin: 0 8px 8px 0;
-        svg {
+        & svg {
             font-size: 30px;
             display: block;
             margin: auto;

@@ -1,16 +1,16 @@
 @import "../../style/abstracts/all";
 
-:local(.searchResultContent) {
+.searchResultContent {
   padding: 8px 0;
   @media (min-width: $screen-sm) {
     display: flex;
     align-items: center;
     padding: 0;
   }
-  :local(.searchResultContentText){
+  & .searchResultContentText {
     flex: 1;
   }
-  :local(.searchResultContentBadge) {
+  & .searchResultContentBadge {
     width: 105px;
     font-weight: bold;
     margin: 6px 0;
@@ -25,48 +25,48 @@
       color: #fff;
       font-size: 0.75em;
 
-      svg {
+      & svg {
         margin-right: 2px;
       }
     }
 
-    &:local(.release) {
+    &.release {
       > span {
         background-color: $blue-color;
       }
     }
 
-    &:local(.post) {
+    &.post {
       > span {
         background-color: $primary-color;
       }
     }
 
-    &:local(.video) {
+    &.video {
       > span {
         background-color: $yellow-color;
       }
     }
 
-    &:local(.product) {
+    &.product {
       > span {
         background-color: $indigo-color;
       }
     }
 
-    &:local(.instruments) {
+    &.instruments {
       > span {
         background-color: $orange-color;
       }
     }
 
-    &:local(.effects) {
+    &.effects {
       > span {
         background-color: $purple-color;
       }
     }
 
-    &:local(.amplifiers) {
+    &.amplifiers {
       > span {
         background-color: $green-color;
       }

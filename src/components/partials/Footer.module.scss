@@ -1,35 +1,35 @@
 @import "../../style/abstracts/all";
 
-:local(.footer) {
+.footer {
   background-color: #eee;
 
-  :local(.contentSection) {
+  & .contentSection {
     max-width: 1200px;
     padding: 16px;
     margin: auto;
     flex: 1;
 
-    :local(.map) {
+    & .map {
       margin: 0;
 
-      img {
+      & img {
         width: 100%;
         height: auto;
       }
     }
 
-    :local(.grid) {
+    & .grid {
       @media (min-width: $screen-md) {
         display: flex;
       }
 
-      :local(.textSection) {
+      & .textSection {
         @media (min-width: $screen-md) {
           flex: 1;
         }
       }
 
-      :local(.mapSection) {
+      & .mapSection {
         @media (min-width: $screen-md) {
           flex: 2;
         }
@@ -37,12 +37,12 @@
     }
   }
 
-  :local(.addressContent) {
-    ul {
+  & .addressContent {
+    & ul {
       list-style: none;
       padding: 0;
 
-      li {
+      & li {
         margin: 6px 0;
       }
     }

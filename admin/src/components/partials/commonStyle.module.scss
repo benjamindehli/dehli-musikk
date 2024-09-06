@@ -1,21 +1,21 @@
 @import "../../style/abstracts/all";
 
-:local(.formListElement) {
+.formListElement {
     border: 1px solid #bbb;
     border-radius: 4px;
     margin: 8px 0;
     padding: 8px 16px;
     background-color: #fff;
-    :local(.formElementGroupTitle) {
+    & .formElementGroupTitle {
         font-size: 1.2em;
         display: block;
         padding: 4px 8px;
         margin-top: 8px;
     }
-    :local(.formElement) {
+    & .formElement {
         display: flex;
 
-        label {
+        & label {
             margin: 8px;
             width: 100%;
             height: fit-content;
@@ -25,15 +25,15 @@
             > div {
                 display: block;
             }
-            input[type="text"],
-            input[type="number"],
-            select {
+            & input[type="text"],
+            & input[type="number"],
+            & select {
                 height: 37px;
             }
-            input[type="text"],
-            input[type="number"],
-            select,
-            textarea {
+            & input[type="text"],
+            & input[type="number"],
+            & select,
+            & textarea {
                 display: block;
                 width: 100%;
                 max-width: 100%;
@@ -44,11 +44,11 @@
                 padding: 8px;
                 border: 1px solid #ddd;
                 border-radius: 4px;
-                + :local(.inputAddons) {
+                + .inputAddons {
                     position: absolute;
                     bottom: 0;
                     right: 0;
-                    button {
+                    & button {
                         padding: 8px;
                         font-family: $default-font;
                         font-size: 1em;
@@ -66,7 +66,7 @@
                     }
                 }
             }
-            input:read-only {
+            & input:read-only {
                 padding: 8px 0;
                 border: 1px solid transparent;
             }
@@ -80,11 +80,11 @@
                 color: $default-text-color;
                 font-weight: normal;
             }
-            textarea {
+            & textarea {
                 resize: vertical;
                 min-height: 100px;
             }
-            input[type="checkbox"] {
+            & input[type="checkbox"] {
                 @include appearance(checkbox);
                 display: block;
                 width: 18px;
@@ -92,16 +92,16 @@
             }
         }
     }
-    details {
+    & details {
         margin: 8px;
         font-size: 1em;
-        summary {
+        & summary {
             cursor: pointer;
         }
     }
-    :local(.buttonBar) {
+    & .buttonBar {
         text-align: right;
-        button {
+        & button {
             @include appearance(none);
             text-align: center;
             display: inline-block;
@@ -110,7 +110,7 @@
             width: 40px;
             height: 40px;
             margin: 0 8px 8px 0;
-            svg {
+            & svg {
                 font-size: 20px;
                 display: block;
                 margin: auto;
@@ -119,40 +119,40 @@
     }
 }
 
-:local(.bgGreen) {
+.bgGreen {
     background-color: $green-color;
     color: #fff;
 }
 
-:local(.bgBlue) {
+.bgBlue {
     background-color: $blue-color;
     color: #fff;
 }
 
-:local(.bgRed) {
+.bgRed {
     background-color: $primary-color;
     color: #fff;
 }
 
-:local(.thumbnail) {
+.thumbnail {
     width: 150px;
     margin: 8px;
 }
 
-:local(.formList) {
+.formList {
     list-style: none;
     padding: 0;
     margin: 0;
-    li {
+    & li {
         margin: 0 16px;
-        a {
+        & a {
             padding: 8px;
         }
-        button {
+        & button {
             padding: 8px;
             border-radius: 50%;
             width: 31px;
-            &:local(.fullWidthButton) {
+            &.fullWidthButton {
                 width: 100%;
                 border-radius: 4px;
             }

@@ -1,9 +1,9 @@
 @import "../../../../style/abstracts/all";
 
-:local(.listItemActionButton) {
+.listItemActionButton {
   text-align: right;
   margin: 8px 0;
-  &:local(.fullscreen) {
+  &.fullscreen {
     text-align: right;
     margin: 12px;
   }

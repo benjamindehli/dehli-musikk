@@ -1,6 +1,6 @@
 @import "../../style/abstracts/all";
 
-:local(.expandButton) {
+.expandButton {
   @include appearance(none);
   display: block;
   background: none;
@@ -10,13 +10,13 @@
   margin: 0;
   padding: 0;
   &:focus {
-    :local(.expansionPanelHeader) {
+    & .expansionPanelHeader {
       background-color: rgba(0, 0, 0, 0.08);
     }
   }
 }
 
-:local(.expansionPanelHeader) {
+.expansionPanelHeader {
   @include transition(background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
   display: flex;
   align-items: center;
@@ -38,24 +38,24 @@
     font-size: 20px;
   }
 
-  span {
+  & span {
     display: block;
     flex: 1;
   }
 
-  svg {
+  & svg {
     @include transform(rotate(0deg));
     @include transition(transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
   }
 
-  &:local(.expanded) {
-    svg {
+  &.expanded {
+    & svg {
       @include transform(rotate(180deg));
     }
   }
 }
 
-:local(.expansionPanelContent) {
+.expansionPanelContent {
   @include transition(max-height 222ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
   overflow: hidden;
 }

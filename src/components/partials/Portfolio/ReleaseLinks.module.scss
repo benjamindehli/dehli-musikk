@@ -1,7 +1,7 @@
 @import "../../../style/abstracts/all";
 
-:local(.releaseLinks) {
-  :local(.link) {
+.releaseLinks {
+  & .link {
     padding: 8px 16px;
     border-bottom: 1px solid #eee;
     display: flex;
@@ -11,7 +11,7 @@
     @media (min-width: $screen-sm) {
       font-size: 22px;
     }
-    svg {
+    & svg {
       height: 55px;
       width: 55px;
       margin-right: 10px;

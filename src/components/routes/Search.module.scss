@@ -1,15 +1,18 @@
 @import "../../style/abstracts/all";
 
-:local(.listContainer) {
-  @include box-shadow(0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12));
+.listContainer {
+  @include box-shadow(
+    0 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 1px 3px 0 rgba(0, 0, 0, 0.12)
+  );
 }
 
-:local(.selectListLabel) {
+.selectListLabel {
   font-weight: bold;
 }
 
-:local(.selectListContainer) {
-  //@include border-radius(4px);
+.selectListContainer {
   @include transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
   background-color: transparent;
   width: 100%;
@@ -26,7 +29,7 @@
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
     border-bottom: 2px solid $default-text-color;
-    margin-bottom:18px;
+    margin-bottom: 18px;
   }
   &:focus-within {
     background-color: rgba(0, 0, 0, 0.16);
@@ -34,19 +37,19 @@
     margin-bottom: 18px;
   }
 
-  svg:first-child {
+  & svg:first-child {
     position: relative;
     left: 16px;
     margin-right: -16px;
   }
 
-  svg:last-child {
+  & svg:last-child {
     position: relative;
     right: 16px;
     margin-left: -16px;
   }
 
-  select {
+  & select {
     @include appearance(none);
     @include box-shadow(none);
     border-color: transparent;

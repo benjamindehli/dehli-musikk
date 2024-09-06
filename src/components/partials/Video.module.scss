@@ -1,13 +1,13 @@
 @import "../../style/abstracts/all";
 
-:local(.theaterModeHeader) {
+.theaterModeHeader {
     display: flex;
     > h2 {
         flex: 1;
     }
     > a {
         height: 28px;
-        :local(.label) {
+        & .label {
             margin-right: 6px;
             display: inline-block;
             font-size: 1.2em;
@@ -15,7 +15,7 @@
             vertical-align: middle;
             line-height: 16px;
         }
-        :local(.icon) {
+        & .icon {
             width: 16px;
             display: inline-block;
             vertical-align: middle;
