@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/blade-runner-rachels-song-cover/video/</loc>
+    <video:video>
+      <video:title>Blade Runner: Rachel&apos;s Song (cover)</video:title>
+      <video:description>En coverversjon av Rachael&apos;s Song / Rachel&apos;s Song av Vangelis fra filmen Blade Runner. For å lage vokalsporet brukte jeg en Therevox ET-4.3. Instrumenter: Korg MS-20 (filter og støy for vokal), Korg Polysix (synth pad), Logan / Hohner String Melody II (strykere), Mellotron M4000D (kor og chimes), Moog Minitaur (bass), Rhodes Mark I Stage Piano (elektrisk piano), Roland D-50 (chimes), Roland SH-09 (firedelsnote pip og støy), Sequential Circuits Pro-One (messingblås og solo-synth), Suzuki Omnichord OM-84 System Two (harpe), Therevox ET-4.3 (vokal) and Yamaha DX7 (chimes). Forsterkere: Fender Twin Reverb for Rhodes og Tandberg Model 2 T for Therevox. Mikrofoner: Shure SM57 og Royer R-121. Effekter: Hairball Audio FET/RACK Revision D, Roland PA-120 (preamp, EQ and spring reverb), Roland Dimension D SDD-320, Fulltone Tube Tape Echo, Chase Bliss Audio &amp; Meris CXM 1978 og DIYRE G Bus VCA Compressor. Båndopptaker: Fostex X-28H. Musikk: Rachel&apos;s Song fra Blade Runner filmmusikken av Vangelis.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=JxQQj1ArV9E</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-10-06-00_540.55e42b7c0bbdb99009ae.jpg</video:thumbnail_loc>
+      <video:duration>306</video:duration>
+      <video:publication_date>2024-10-06</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/blade-runner-rachels-song-cover/video/</loc>
+    <video:video>
+      <video:title>Blade Runner: Rachel&apos;s Song (cover)</video:title>
+      <video:description>A cover version of Rachael&apos;s Song / Rachel&apos;s Song by Vangelis from the movie Blade Runner. For the lead vocal part I used a Therevox ET-4.3. Instruments: Korg MS-20 (filter and noise for vocal), Korg Polysix (synth pad), Logan / Hohner String Melody II (strings), Mellotron M4000D (choir and chimes), Moog Minitaur (bass), Rhodes Mark I Stage Piano (electric piano), Roland D-50 (chimes), Roland SH-09 (quarter note beeps and noise), Sequential Circuits Pro-One (brass and lead synth), Suzuki Omnichord OM-84 System Two (harp), Therevox ET-4.3 (vocal) and Yamaha DX7 (chimes). Amplifiers: Fender Twin Reverb for Rhodes and Tandberg Model 2 T for Therevox. Microphones: Shure SM57 and Royer R-121. Effects: Hairball Audio FET/RACK Revision D, Roland PA-120 (preamp, EQ and spring reverb), Roland Dimension D SDD-320, Fulltone Tube Tape Echo, Chase Bliss Audio &amp; Meris CXM 1978 and DIYRE G Bus VCA Compressor. Tape recorder: Fostex X-28H. Music: Rachel&apos;s Song from the Blade Runner soundtrack by Vangelis.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=JxQQj1ArV9E</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-10-06-00_540.55e42b7c0bbdb99009ae.jpg</video:thumbnail_loc>
+      <video:duration>306</video:duration>
+      <video:publication_date>2024-10-06</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/solveigs-sang-paa-therevox-og-mellotron/video/</loc>
     <video:video>
       <video:title>Solveigs sang på Therevox og Mellotron</video:title>
