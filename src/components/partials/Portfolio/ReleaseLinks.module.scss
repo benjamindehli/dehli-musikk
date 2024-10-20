@@ -1,4 +1,4 @@
-@import "../../../style/abstracts/all";
+@use "../../../style/abstracts/variables/breakpoints";
 
 .releaseLinks {
   & .link {
@@ -8,14 +8,14 @@
     align-items: center;
     font-size: 19px;
     text-decoration: none;
-    @media (min-width: $screen-sm) {
+    @media (min-width: breakpoints.$screen-sm) {
       font-size: 22px;
     }
     & svg {
       height: 55px;
       width: 55px;
       margin-right: 10px;
-      @media (min-width: $screen-sm) {
+      @media (min-width: breakpoints.$screen-sm) {
         margin-right: 20px;
       }
     }

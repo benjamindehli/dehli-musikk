@@ -1,4 +1,4 @@
-@import "../../style/abstracts/all";
+@use "../../style/abstracts/variables/breakpoints";
 
 .footer {
   background-color: #eee;
@@ -19,18 +19,18 @@
     }
 
     & .grid {
-      @media (min-width: $screen-md) {
+      @media (min-width: breakpoints.$screen-md) {
         display: flex;
       }
 
       & .textSection {
-        @media (min-width: $screen-md) {
+        @media (min-width: breakpoints.$screen-md) {
           flex: 1;
         }
       }
 
       & .mapSection {
-        @media (min-width: $screen-md) {
+        @media (min-width: breakpoints.$screen-md) {
           flex: 2;
         }
       }

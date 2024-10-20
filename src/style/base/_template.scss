@@ -1,23 +1,25 @@
-@import "../abstracts/_all.scss";
+@use "../abstracts/variables/colors";
+@use "../abstracts/variables/fonts";
+@use "../abstracts/variables/breakpoints";
 
 body{
-	background-color: $body-background;
-	color: $default-text-color;
-	font-family: $default-font;
+	background-color: colors.$body-background;
+	color: colors.$default-text-color;
+	font-family: fonts.$default-font;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 a{
-	color: $primary-color;
+	color: colors.$primary-color;
 	cursor: pointer;
 	&:link {
 		text-decoration: underline;
 	}
 	&:hover{
-		color: hover-color($primary-color);
+		color: hover-color(colors.$primary-color);
 	}
 	&:focus{
-		color: focus-color($primary-color);
+		color: focus-color(colors.$primary-color);
 	}
 }
 
@@ -30,7 +32,7 @@ p {
 }
 
 .padding-sm {
-	@media (min-width: $screen-sm) {
+	@media (min-width: breakpoints.$screen-sm) {
 		padding: 24px;
   }
 }

@@ -1,4 +1,4 @@
-@import "../../../../style/abstracts/all";
+@use "../../../../style/abstracts/variables/breakpoints";
 
 .listItemThumbnail {
   display: inline-block;
@@ -19,7 +19,7 @@
   }
 
   &:not(.compact) {
-    @media (min-width: $screen-sm) {
+    @media (min-width: breakpoints.$screen-sm) {
       flex: none;
       display: block;
       width: 100%;

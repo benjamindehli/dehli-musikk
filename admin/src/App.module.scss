@@ -1,10 +1,11 @@
-@import "style/abstracts/_all.scss";
+@use "style/abstracts/mixins/calc";
+@use "style/abstracts/variables/breakpoints";
 
 .container {
   position: absolute;
-  @include calc('height', '100% - 56px');
-  @media (min-width: $screen-sm) {
-    @include calc('height', '100% - 64px');
+  @include calc.calc("height", "100% - 56px");
+  @media (min-width: breakpoints.$screen-sm) {
+    @include calc.calc("height", "100% - 64px");
   }
   overflow-y: scroll;
   width: 100%;

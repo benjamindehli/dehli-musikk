@@ -1,10 +1,11 @@
-@import "../../../../style/abstracts/all";
+@use "../../../../style/abstracts/mixins/calc";
+@use "../../../../style/abstracts/variables/breakpoints";
 
 .listItemContent {
-  @include calc("width", "100% - 55px");
+  @include calc.calc("width", "100% - 55px");
   display: inline-block;
   padding: 6px;
-  @media (min-width: $screen-sm) {
+  @media (min-width: breakpoints.$screen-sm) {
     padding: 16px;
     width: 100%;
   }

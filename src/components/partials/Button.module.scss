@@ -1,7 +1,9 @@
-@import "../../style/abstracts/all";
+@use "../../style/abstracts/mixins/border-radius";
+@use "../../style/abstracts/mixins/transition";
+@use "../../style/abstracts/variables/colors";
 
 .button {
-  @include border-radius(4px);
+  @include border-radius.border-radius(4px);
   display: inline-block;
   font-size: 1rem;
   line-height: 1.5;
@@ -11,15 +13,15 @@
   background: none;
 
   & .content {
-    @include border-radius(4px);
-    @include transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
+    @include border-radius.border-radius(4px);
+    @include transition.transition(background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
     padding: 8px 12px;
     min-width: 64px;
     display: block;
   }
 
   &.default {
-    background-color: $primary-color;
+    background-color: colors.$primary-color;
     color: #fff;
     & a {
       color: #fff;
@@ -47,10 +49,10 @@
     font-size: 0.81rem;
     & .content {
       padding: 6px 8px;
-      color: $primary-color;
+      color: colors.$primary-color;
       background-color: transparent;
       & a {
-        color: $primary-color;
+        color: colors.$primary-color;
       }
     }
 

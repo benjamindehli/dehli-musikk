@@ -1,4 +1,4 @@
-@import "../../style/abstracts/all";
+@use "../../style/abstracts/variables/breakpoints";
 
 img {
   width: 100%;
@@ -28,31 +28,31 @@ img {
       margin: auto;
       width: 200px;
     }
-    @media (min-width: $screen-xs) {
+    @media (min-width: breakpoints.$screen-xs) {
       height: 200px;
     }
-    @media (min-width: $screen-sm) {
+    @media (min-width: breakpoints.$screen-sm) {
       height: 350px;
 
       & .logo {
         width: 250px;
       }
     }
-    @media (min-width: $screen-md) {
+    @media (min-width: breakpoints.$screen-md) {
       height: 400px;
 
       & .logo {
         width: 300px;
       }
     }
-    @media (min-width: $screen-lg) {
+    @media (min-width: breakpoints.$screen-lg) {
       height: 450px;
 
       & .logo {
         width: 350px;
       }
     }
-    @media (min-width: $screen-xl) {
+    @media (min-width: breakpoints.$screen-xl) {
       height: 500px;
 
       & .logo {
@@ -75,7 +75,7 @@ img {
 
   &.fullWidthSm {
     padding: 20px 0;
-    @media (min-width: $screen-sm) {
+    @media (min-width: breakpoints.$screen-sm) {
       padding: 64px 24px;
     }
   }

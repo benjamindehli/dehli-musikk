@@ -1,4 +1,4 @@
-@import "../../style/abstracts/all";
+@use "../../style/abstracts/variables/breakpoints";
 
 .list {
   background-color: #fff;
@@ -7,7 +7,7 @@
     0 1px 1px 0 rgba(0, 0, 0, 0.14),
     0 1px 3px 0 rgba(0, 0, 0, 0.12);
   &:not(.compact) {
-    @media (min-width: $screen-sm) {
+    @media (min-width: breakpoints.$screen-sm) {
       display: flex;
       justify-content: space-evenly;
       flex-wrap: wrap;

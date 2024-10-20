@@ -1,8 +1,9 @@
-@import "../../style/abstracts/all";
+@use "../../style/abstracts/variables/breakpoints";
+@use "../../style/abstracts/variables/colors";
 
 .searchResultContent {
   padding: 8px 0;
-  @media (min-width: $screen-sm) {
+  @media (min-width: breakpoints.$screen-sm) {
     display: flex;
     align-items: center;
     padding: 0;
@@ -14,7 +15,7 @@
     width: 105px;
     font-weight: bold;
     margin: 6px 0;
-    @media (min-width: $screen-sm) {
+    @media (min-width: breakpoints.$screen-sm) {
       text-align: right;
     }
 
@@ -32,43 +33,43 @@
 
     &.release {
       > span {
-        background-color: $blue-color;
+        background-color: colors.$blue-color;
       }
     }
 
     &.post {
       > span {
-        background-color: $primary-color;
+        background-color: colors.$primary-color;
       }
     }
 
     &.video {
       > span {
-        background-color: $yellow-color;
+        background-color: colors.$yellow-color;
       }
     }
 
     &.product {
       > span {
-        background-color: $indigo-color;
+        background-color: colors.$indigo-color;
       }
     }
 
     &.instruments {
       > span {
-        background-color: $orange-color;
+        background-color: colors.$orange-color;
       }
     }
 
     &.effects {
       > span {
-        background-color: $purple-color;
+        background-color: colors.$purple-color;
       }
     }
 
     &.amplifiers {
       > span {
-        background-color: $green-color;
+        background-color: colors.$green-color;
       }
     }
   }

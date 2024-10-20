@@ -1,4 +1,6 @@
-@import "../../style/abstracts/all";
+@use "../../style/abstracts/mixins/appearance";
+@use "../../style/abstracts/variables/colors";
+@use "../../style/abstracts/variables/fonts";
 
 .formListElement {
     border: 1px solid #bbb;
@@ -37,9 +39,9 @@
                 display: block;
                 width: 100%;
                 max-width: 100%;
-                font-family: $default-font;
+                font-family: fonts.$default-font;
                 font-size: 1em;
-                color: $default-text-color;
+                color: colors.$default-text-color;
                 font-weight: normal;
                 padding: 8px;
                 border: 1px solid #ddd;
@@ -50,7 +52,7 @@
                     right: 0;
                     & button {
                         padding: 8px;
-                        font-family: $default-font;
+                        font-family: fonts.$default-font;
                         font-size: 1em;
                         border: 1px solid #ddd;
                         background-color: #eee;
@@ -76,8 +78,8 @@
                 display: block;
                 padding: 8px 0;
                 border: 1px solid transparent;
-                font-family: $default-font;
-                color: $default-text-color;
+                font-family: fonts.$default-font;
+                color: colors.$default-text-color;
                 font-weight: normal;
             }
             & textarea {
@@ -85,7 +87,7 @@
                 min-height: 100px;
             }
             & input[type="checkbox"] {
-                @include appearance(checkbox);
+                @include appearance.appearance(checkbox);
                 display: block;
                 width: 18px;
                 height: 30px;
@@ -102,7 +104,7 @@
     & .buttonBar {
         text-align: right;
         & button {
-            @include appearance(none);
+            @include appearance.appearance(none);
             text-align: center;
             display: inline-block;
             border-radius: 50%;
@@ -120,17 +122,17 @@
 }
 
 .bgGreen {
-    background-color: $green-color;
+    background-color: colors.$green-color;
     color: #fff;
 }
 
 .bgBlue {
-    background-color: $blue-color;
+    background-color: colors.$blue-color;
     color: #fff;
 }
 
 .bgRed {
-    background-color: $primary-color;
+    background-color: colors.$primary-color;
     color: #fff;
 }
 

@@ -1,4 +1,5 @@
-@import "../../style/abstracts/all";
+@use "../../style/abstracts/mixins/appearance";
+@use "../../style/abstracts/variables/colors";
 
 .contentSection {
     max-width: 1200px;
@@ -7,20 +8,20 @@
     & .grid {
         display: flex;
         & .gridItem {
-            @include appearance(none);
+            @include appearance.appearance(none);
             display: block;
             margin: 6px;
             background: none;
             & .gridItemIcon {
                 position: relative;
                 display: block;
-                color: $default-text-color;
+                color: colors.$default-text-color;
                 width: 75px;
                 text-align: center;
                 margin: auto;
                 & .gridItemIconBadge {
                     font-size: 14px;
-                    background-color: $primary-color;
+                    background-color: colors.$primary-color;
                     color: #fff;
                     padding: 0;
                     border-radius: 50%;
@@ -35,7 +36,7 @@
             }
 
             & .gridItemName {
-                color: $default-text-color;
+                color: colors.$default-text-color;
                 display: block;
                 text-align: center;
                 font-size: 18px;

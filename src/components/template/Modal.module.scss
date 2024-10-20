@@ -1,4 +1,9 @@
-@import "../../style/abstracts/all";
+@use "../../style/abstracts/mixins/appearance";
+@use "../../style/abstracts/mixins/box-shadow";
+@use "../../style/abstracts/mixins/calc";
+@use "../../style/abstracts/mixins/transform";
+@use "../../style/abstracts/mixins/transition";
+@use "../../style/abstracts/variables/breakpoints";
 
 .hidden {
   width: 0;
@@ -22,7 +27,7 @@
   justify-content: center;
   &:not(.theaterMode) {
     padding: 8px 28px;
-    @media (min-width: $screen-sm) {
+    @media (min-width: breakpoints.$screen-sm) {
       padding: 36px;
     }
   }
@@ -32,8 +37,11 @@
 
   .arrowLeftButton,
   .arrowRightButton {
-    @include appearance(none);
-    @include transition(color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
+    @include appearance.appearance(none);
+    @include transition.transition(
+      color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+      transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms
+    );
     background: none;
     align-self: center;
     padding: 22px;
@@ -42,13 +50,13 @@
 
     &:focus {
       color: rgba(255, 255, 255, 1);
-      @include transform(scale(1.5));
+      @include transform.transform(scale(1.5));
     }
 
     & svg {
-      @include transform(rotate(90deg));
-      @media (min-width: $screen-sm) {
-        @include transform(none);
+      @include transform.transform(rotate(90deg));
+      @media (min-width: breakpoints.$screen-sm) {
+        @include transform.transform(none);
       }
     }
   }
@@ -58,8 +66,8 @@
   }
 
   .postModalContent {
-    @include calc("max-height", "100% - 128px");
-    @include box-shadow(
+    @include calc.calc("max-height", "100% - 128px");
+    @include box-shadow.box-shadow(
       0 11px 15px -7px rgba(0, 0, 0, 0.2),
       0 24px 38px 3px rgba(0, 0, 0, 0.14),
       0 9px 46px 8px rgba(0, 0, 0, 0.12)
@@ -71,14 +79,14 @@
     &:not(.theaterMode) {
       border-radius: 4px;
 
-      @media (min-width: $screen-sm) {
-        @include calc("width", "100% - 128px");
+      @media (min-width: breakpoints.$screen-sm) {
+        @include calc.calc("width", "100% - 128px");
       }
     }
     &.theaterMode {
       border-radius: 0px;
     }
-    @media (min-width: $screen-sm) {
+    @media (min-width: breakpoints.$screen-sm) {
       max-height: 100%;
     }
   }

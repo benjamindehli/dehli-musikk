@@ -1,4 +1,5 @@
-@import "../../style/abstracts/all";
+@use "../../style/abstracts/mixins/appearance";
+@use "../../style/abstracts/mixins/box-shadow";
 
 .actionButtonBar {
     position: fixed;
@@ -6,8 +7,8 @@
     right: 0;
 
     & button {
-        @include appearance(none);
-        @include box-shadow(
+        @include appearance.appearance(none);
+        @include box-shadow.box-shadow(
             0 2px 4px -1px rgba(0, 0, 0, 0.2),
             0 4px 5px 0 rgba(0, 0, 0, 0.14),
             0 1px 10px 0 rgba(0, 0, 0, 0.12)
