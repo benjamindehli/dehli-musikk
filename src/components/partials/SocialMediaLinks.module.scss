@@ -48,6 +48,13 @@
       }
     }
 
+    &.soundcloud {
+      &:hover,
+      &:focus {
+        background-color: #ff5500;
+      }
+    }
+
     &.tumblr {
       &:hover,
       &:focus {

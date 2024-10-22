@@ -11,6 +11,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faFacebookF,
   faInstagram,
+  faSoundcloud,
   faTumblr,
   faTwitter,
   faVimeoV,
@@ -87,6 +88,7 @@ library.add(
   faSearch,
   faShoppingCart,
   faSlidersH,
+  faSoundcloud,
   faTumblr,
   faTwitter,
   faVimeoV,

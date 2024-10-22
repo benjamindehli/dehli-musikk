@@ -28,6 +28,9 @@ const SocialMediaLinks = () => {
     <a href='https://vimeo.com/benjamindehli' title='Link to Vimeo page' aria-label='Link to Vimeo page' target='_blank' rel="noopener noreferrer" className={style.vimeo}>
       <FontAwesomeIcon icon={['fab', 'vimeo-v']} />
     </a>
+    <a href='https://soundcloud.com/benjamin-dehli' title='Link to SoundCloud page' aria-label='Link to SoundCloud page' target='_blank' rel="noopener noreferrer" className={style.soundcloud}>
+      <FontAwesomeIcon icon={['fab', 'soundcloud']} />
+    </a>
     <a href='https://benjamindehli.tumblr.com/' title='Link to Tumblr page' aria-label='Link to Tumblr page' target='_blank' rel="noopener noreferrer" className={style.tumblr}>
       <FontAwesomeIcon icon={['fab', 'tumblr']} />
     </a>
