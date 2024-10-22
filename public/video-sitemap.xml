@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/parafonisk-oppsett-med-therevox-erebus-og-dark-energy/video/</loc>
+    <video:video>
+      <video:title>Parafonisk oppsett med Therevox, Erebus og Dark Energy</video:title>
+      <video:description>Koblet en Therevox ET-4.3 og en Dreadbox Erebus v2 sammen for å lage akkorder med 4 toner. Doepfer Dark Energy skaper &quot;tromme&quot;-lydene og trigges av sin egen LFO. Envelope-utgangen på Erebus&apos;en er koblet til Expression-inngangen på [Therevox&apos;en](equipment/instruments/therevox-et-4-3/) og kontrollerer dens VCA. Ring-utgangen på [Therevox&apos;en](equipment/instruments/therevox-et-4-3/) er koblet til CV-inngangen på Erebus&apos;en og kontrollerer tonehøyden. De to oscillatorene på Erebus&apos;en er 2 oktaver fra hverandre og tonehøyden er i forhold til Ring-posisjonen på Therevox&apos;en. Tonehøyden til de to oscillatorene på Therevox&apos;en er stemt 19 halvtoner (1 oktav pluss en kvint) over og 24 halvtoner (2 oktaver) over, i forhold til den laveste C-tangenten. Hvis du for eksempel spiller en D med ringen på Therevox&apos;en og en C og D# på klaviaturet, får du en D-mollakkord med tonene (fra laveste til høyeste): D, A, D og F. &quot;Trommene&quot; fra Dark Energy&apos;en er ett enkelt spor med EQ-automatisering (for det meste høypassfilter) for å emulere forskjellige trommelyder. Alle instrumentene er spilt inn live og ingen andre instrumentspor ble lagt til, bare effekter (ekko, romklang, etc.). Effekter brukt på Therevox ET-4.3: Hairball Audio FET/RACK Revision D, Roland Dimension D SDD-320, Electro-Harmonix Deluxe Memory Man, Chase Bliss Audio &amp; Meris CXM 1978 og DIY Recording Equipment G Bus VCA Compressor. Effekter brukt på Dreadbox Erebus v2: Hairball Audio FET/RACK Revision D, Fulltone Tube Tape Echo, Chase Bliss Audio &amp; Meris CXM 1978 og DIY Recording Equipment G Bus VCA Compressor. Effekter brukt på Doepfer Dark Energy: Hairball Audio FET/RACK Revision D, Electro-Harmonix Deluxe Memory Man, Chase Bliss Audio &amp; Meris CXM 1978 og DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=_xkvguGZVZU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-10-14-00_540.d370facf2c12a69d0296.jpg</video:thumbnail_loc>
+      <video:duration>551</video:duration>
+      <video:publication_date>2024-10-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/paraphonic-setup-with-therevox-erebus-and-dark-energy/video/</loc>
+    <video:video>
+      <video:title>Paraphonic setup with Therevox, Erebus and Dark Energy</video:title>
+      <video:description>Connected the Therevox ET-4.3 and the Dreadbox Erebus v2 together to create 4 note chords. The Doepfer Dark Energy creates the &quot;drum&quot; sounds and is triggered by its own LFO. The Envelope output on the Erebus is connected to the Expression input on the [Therevox](equipment/instruments/therevox-et-4-3/) and controls its VCA. The Ring output on the [Therevox](equipment/instruments/therevox-et-4-3/) is connected to the CV input on the Erebus and controls its pitch. The two oscillators on the Erebus are 2 octaves apart and the pitch is relative to the Ring position on the Therevox. The pitch of the two oscillators on the Therevox is tuned 19 semitones (1 octave plus a 5th) above and 24 semitones (2 octaves) above, relative to the lowest C on the keyboard controller. For example, if you play a D with the ring on the Therevox and a C and D# on the keyboard, you will get a D minor chord with the notes (from lowest to highest): D, A, D and F. The &quot;drums&quot; from the Dark Energy is a single track with EQ automation (mostly high-pass filter) to emulate different drum sounds. All the instruments are recorded live and no other instrument tracks were added, just effects (delay, reverb, etc.). Effects used on Therevox ET-4.3: Hairball Audio FET/RACK Revision D, Roland Dimension D SDD-320, Electro-Harmonix Deluxe Memory Man, Chase Bliss Audio &amp; Meris CXM 1978 and DIY Recording Equipment G Bus VCA Compressor. Effects used on the Dreadbox Erebus v2: Hairball Audio FET/RACK Revision D, Fulltone Tube Tape Echo, Chase Bliss Audio &amp; Meris CXM 1978 and DIY Recording Equipment G Bus VCA Compressor. Effects used on Doepfer Dark Energy: Hairball Audio FET/RACK Revision D, Electro-Harmonix Deluxe Memory Man, Chase Bliss Audio &amp; Meris CXM 1978 and DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=_xkvguGZVZU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-10-14-00_540.d370facf2c12a69d0296.jpg</video:thumbnail_loc>
+      <video:duration>551</video:duration>
+      <video:publication_date>2024-10-14</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/blade-runner-rachels-song-cover/video/</loc>
     <video:video>
       <video:title>Blade Runner: Rachel&apos;s Song (cover)</video:title>
