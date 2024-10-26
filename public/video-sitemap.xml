@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/moog-matriarch-og-roland-sh-09-koblet-sammen/video/</loc>
+    <video:video>
+      <video:title>Moog Matriarch og Roland SH-09 koblet sammen</video:title>
+      <video:description>Jeg gjorde en rask test som koblet Moog Matriarch og Roland SH-09 sammen. Gate-utgangen fra Matriarchs sequencer er koblet til gate-inngangen på SH-09. CV-utgangen på SH-09 er koblet til den første oscillator pitch-inngangen på Matriarch, som er normalisert internt til pitch-inngangen til de andre oscillatorene. Effekter brukt på Roland SH-09: Hairball Audio FET/RACK Revision D, Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978 og DIY Recording Equipment G Bus VCA Compressor. Effekter brukt på Moog Matriarch: Chase Bliss Audio &amp; Meris CXM 1978 og DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Vn4uN-kZtDU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-10-26-00_540.60a881df66b2710163c1.jpg</video:thumbnail_loc>
+      <video:duration>314</video:duration>
+      <video:publication_date>2024-10-26</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/moog-matriarch-and-roland-sh-09-connected-together/video/</loc>
+    <video:video>
+      <video:title>Moog Matriarch and Roland SH-09 connected together</video:title>
+      <video:description>I did a quick test connecting the Moog Matriarch and the Roland SH-09 together. The gate output from Moog Matriarch&apos;s sequencer is connected to the gate input on the SH-09. The CV output on the SH-09 is connected to the first oscillator pitch input on the Matriarch, which is internally normalized to the pitch input of the other oscillators. Effects used on Roland SH-09: Hairball Audio FET/RACK Revision D, Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978 and DIY Recording Equipment G Bus VCA Compressor. Effects used on Moog Matriarch: Chase Bliss Audio &amp; Meris CXM 1978 and DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Vn4uN-kZtDU</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-10-26-00_540.60a881df66b2710163c1.jpg</video:thumbnail_loc>
+      <video:duration>314</video:duration>
+      <video:publication_date>2024-10-26</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/parafonisk-oppsett-med-therevox-erebus-og-dark-energy/video/</loc>
     <video:video>
       <video:title>Parafonisk oppsett med Therevox, Erebus og Dark Energy</video:title>
