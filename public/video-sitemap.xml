@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/kaasin-dead-mans-hand/video/</loc>
+    <video:video>
+      <video:title>Kaasin - Dead Man&apos;s Hand</video:title>
+      <video:description>Video av: Devos Innholdsproduksjon. Mikset av:: Halvor Halvorsen. Masteret av: Maor Appelbaum. Kaasin: Jan Thore Grefstad (vokal), Per-Morten Bergseth (trommer), Ståle Kåsin (bass), Jo Henning Kåsin (gitar) og Benjamin Dehli (tangenter).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=PXr2AsNWN9U</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-11-22-00_540.2d2efaaaea7e1840d9e7.jpg</video:thumbnail_loc>
+      <video:duration>267</video:duration>
+      <video:publication_date>2024-11-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@streampeakmusicda1154"> Streampeak Music DA</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/kaasin-dead-mans-hand/video/</loc>
+    <video:video>
+      <video:title>Kaasin - Dead Man&apos;s Hand</video:title>
+      <video:description>Video by: Devos Innholdsproduksjon Mixed by: Halvor Halvorsen Mastered by: Maor Appelbaum Kaasin: Jan Thore Grefstad (vocals), Per-Morten Bergseth (drums), Ståle Kåsin (bass), Jo Henning Kåsin (guitar) and Benjamin Dehli (keyboards).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=PXr2AsNWN9U</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-11-22-00_540.2d2efaaaea7e1840d9e7.jpg</video:thumbnail_loc>
+      <video:duration>267</video:duration>
+      <video:publication_date>2024-11-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@streampeakmusicda1154"> Streampeak Music DA</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/strykeinstrument-lyd-paa-en-therevox/video/</loc>
+    <video:video>
+      <video:title>&quot;Strykeinstrument&quot;-lyd på en Therevox</video:title>
+      <video:description>Imiterer lyden av strykeinstrumenter med Therevox ET-4.3 Instrument: Therevox ET-4.3. Effekter: Innebygd fjærklang, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978 og DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=pnKbxpN8cbo</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-11-09-00_540.8e2bdfaf169a0820c54c.jpg</video:thumbnail_loc>
+      <video:duration>92</video:duration>
+      <video:publication_date>2024-11-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/strings-sound-on-the-therevox/video/</loc>
+    <video:video>
+      <video:title>&quot;Strings&quot; sound on the Therevox</video:title>
+      <video:description>Imitating the sound of bowed string instruments with the Therevox ET-4.3. Instrument: Therevox ET-4.3. Effects: Internal spring reverb, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978 and DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=pnKbxpN8cbo</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-11-09-00_540.8e2bdfaf169a0820c54c.jpg</video:thumbnail_loc>
+      <video:duration>92</video:duration>
+      <video:publication_date>2024-11-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/moog-matriarch-og-roland-sh-09-koblet-sammen/video/</loc>
     <video:video>
       <video:title>Moog Matriarch og Roland SH-09 koblet sammen</video:title>
@@ -1980,7 +2032,7 @@
     <loc>https://www.dehlimusikk.no/videos/kaasin-shades-of-yesterday/video/</loc>
     <video:video>
       <video:title>Kaasin - Shades of Yesterday</video:title>
-      <video:description>&quot;Shades of Yesterday&quot; er en låt hentet fra det norske rockebandet Kaasin&apos;s debut album &quot;Fired Up&quot;. Spilt inn hos Dehli Musikk, Bø i Telemark og Juke Joint Studio, Notodden. Produsert av Benjamin Dehli, Halvor Halvorsen &amp; Kaasin Mixet/mastret av Leif Johansen Video av Jon Sandersen Plateselskap: Pride &amp; Joy Music Musikere: Jan Thore Grefstad (vokal), Staale Kaasin (bass), Jo Henning Kaasin (gitar), Benjamin Dehli (tangenter), Chris Brush (trommer) og Per-Morten Bergseth (trommer i video)</video:description>
+      <video:description>&quot;Shades of Yesterday&quot; er en låt hentet fra det norske rockebandet Kaasin&apos;s debut album &quot;Fired Up&quot;. Spilt inn hos Dehli Musikk, Bø i Telemark og Juke Joint Studio, Notodden. Produsert av Benjamin Dehli, Halvor Halvorsen &amp; Kaasin Mixet/mastret av Leif Johansen Video av Jon Sandersen Plateselskap: Pride &amp; Joy Music Musikere: Jan Thore Grefstad (vokal), Staale Kåsin (bass), Jo Henning Kåsin (gitar), Benjamin Dehli (tangenter), Chris Brush (trommer) og Per-Morten Bergseth (trommer i video)</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vfV5EorsldI</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-12-03-00_540.5e21a1eb33404465530b.jpg</video:thumbnail_loc>
       <video:duration>250</video:duration>
@@ -1993,7 +2045,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/kaasin-shades-of-yesterday/video/</loc>
     <video:video>
       <video:title>Kaasin - Shades of Yesterday</video:title>
-      <video:description>&quot;Shades of Yesterday&quot; is a track taken from Norwegian Classic Rock act Kaasin&apos;s debut album &quot;Fired Up&quot;. Recorded and engineered at Dehli Musikk, Bø in Telemark and Juke Joint Studio, Notodden. Produced by Benjamin Dehli, Halvor Halvorsen &amp; Kaasin Mixed/mastered by Leif Johansen Video by Jon Sandersen Label: Pride &amp; Joy Music Musicians: Jan Thore Grefstad (vocals), Staale Kaasin (bass), Jo Henning Kaasin (guitar), Benjamin Dehli (keyboards), Chris Brush (drums) and Per-Morten Bergseth (drums in video)</video:description>
+      <video:description>&quot;Shades of Yesterday&quot; is a track taken from Norwegian Classic Rock act Kaasin&apos;s debut album &quot;Fired Up&quot;. Recorded and engineered at Dehli Musikk, Bø in Telemark and Juke Joint Studio, Notodden. Produced by Benjamin Dehli, Halvor Halvorsen &amp; Kaasin Mixed/mastered by Leif Johansen Video by Jon Sandersen Label: Pride &amp; Joy Music Musicians: Jan Thore Grefstad (vocals), Staale Kåsin (bass), Jo Henning Kåsin (guitar), Benjamin Dehli (keyboards), Chris Brush (drums) and Per-Morten Bergseth (drums in video)</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vfV5EorsldI</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-12-03-00_540.5e21a1eb33404465530b.jpg</video:thumbnail_loc>
       <video:duration>250</video:duration>
@@ -2110,7 +2162,7 @@
     <loc>https://www.dehlimusikk.no/videos/kaasin-we-are-one/video/</loc>
     <video:video>
       <video:title>Kaasin - We Are One</video:title>
-      <video:description>&quot;We Are One&quot; er en låt hentet fra det norske rockebandet Kaasin&apos;s debut album &quot;Fired Up&quot; (utgitt: 19. November 2021)! Kaasin har sluppet two singler &quot;Runaway Train&quot; og &quot;Revelation&quot; på Streampeak Music in 2020. Kaasin gav ut sin tredje singel, &quot;Hidden&quot; på Pride &amp; Joy Music i July 2021, som er den første singelen fra det kommende albumet &quot;Fired Up&quot;. Spilt inn hos Dehli Musikk, Bø i Telemark og Juke Joint Studio, Notodden. Produsert av Benjamin Dehli, Halvor Halvorsen &amp; Kaasin Mixet/mastret av Leif Johansen Video av Jon Sandersen Plateselskap: Pride &amp; Joy Music Musikere: Jan Thore Grefstad (vokal), Staale Kaasin (bass), Jo Henning Kaasin (gitar), Benjamin Dehli (tangenter), Chris Brush (trommer) og Per-Morten Bergseth (trommer i video)</video:description>
+      <video:description>&quot;We Are One&quot; er en låt hentet fra det norske rockebandet Kaasin&apos;s debut album &quot;Fired Up&quot; (utgitt: 19. November 2021)! Kaasin har sluppet two singler &quot;Runaway Train&quot; og &quot;Revelation&quot; på Streampeak Music in 2020. Kaasin gav ut sin tredje singel, &quot;Hidden&quot; på Pride &amp; Joy Music i July 2021, som er den første singelen fra det kommende albumet &quot;Fired Up&quot;. Spilt inn hos Dehli Musikk, Bø i Telemark og Juke Joint Studio, Notodden. Produsert av Benjamin Dehli, Halvor Halvorsen &amp; Kaasin Mixet/mastret av Leif Johansen Video av Jon Sandersen Plateselskap: Pride &amp; Joy Music Musikere: Jan Thore Grefstad (vokal), Ståle Kåsin (bass), Jo Henning Kåsin (gitar), Benjamin Dehli (tangenter), Chris Brush (trommer) og Per-Morten Bergseth (trommer i video)</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Aabqxt9rg1E</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-08-00_540.42fa72ff8e841beffd90.jpg</video:thumbnail_loc>
       <video:duration>317</video:duration>
@@ -2123,7 +2175,7 @@
     <loc>https://www.dehlimusikk.no/en/videos/kaasin-we-are-one/video/</loc>
     <video:video>
       <video:title>Kaasin - We Are One</video:title>
-      <video:description>&quot;We Are One&quot; is a track taken from Norwegian Classic Rock act Kaasin&apos;s debut album &quot;Fired Up&quot; (released: November 19th, 2021)! Kaasin released two singles &quot;Runaway Train&quot; and &quot;Revelation&quot; on Streampeak Music in 2020.  Kaasin released a third single, &quot;Hidden&quot; on Pride &amp; Joy Music in July 2021, i.e.the first single from the upcoming album, &quot;Fired Up&quot;. Recorded and engineered at Dehli Musikk, Bø in Telemark and Juke Joint Studio, Notodden. Produced by Benjamin Dehli, Halvor Halvorsen &amp; Kaasin Mixed/mastered by Leif Johansen Video by Jon Sandersen Label: Pride &amp; Joy Music Musicians: Jan Thore Grefstad (vocals), Staale Kaasin (bass), Jo Henning Kaasin (guitar), Benjamin Dehli (keyboards), Chris Brush (drums) and Per-Morten Bergseth (drums in video) Kaasin - Melodic hardrock in the tradition of the great bands from the seventies and early eighties.</video:description>
+      <video:description>&quot;We Are One&quot; is a track taken from Norwegian Classic Rock act Kaasin&apos;s debut album &quot;Fired Up&quot; (released: November 19th, 2021)! Kaasin released two singles &quot;Runaway Train&quot; and &quot;Revelation&quot; on Streampeak Music in 2020.  Kaasin released a third single, &quot;Hidden&quot; on Pride &amp; Joy Music in July 2021, i.e.the first single from the upcoming album, &quot;Fired Up&quot;. Recorded and engineered at Dehli Musikk, Bø in Telemark and Juke Joint Studio, Notodden. Produced by Benjamin Dehli, Halvor Halvorsen &amp; Kaasin Mixed/mastered by Leif Johansen Video by Jon Sandersen Label: Pride &amp; Joy Music Musicians: Jan Thore Grefstad (vocals), Ståle Kåsin (bass), Jo Henning Kåsin (guitar), Benjamin Dehli (keyboards), Chris Brush (drums) and Per-Morten Bergseth (drums in video) Kaasin - Melodic hardrock in the tradition of the great bands from the seventies and early eighties.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Aabqxt9rg1E</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2021-10-08-00_540.42fa72ff8e841beffd90.jpg</video:thumbnail_loc>
       <video:duration>317</video:duration>
@@ -2370,12 +2422,12 @@
     <loc>https://www.dehlimusikk.no/videos/kaasin-revelation/video/</loc>
     <video:video>
       <video:title>Kaasin - Revelation</video:title>
-      <video:description>Kaasin: Jo Henning Kaasin (gitar), Jan Thore Grefstad (vokal) og Staale Kaasin (bass). Ytterligere musikere: Benjamin Dehli (tangenter) og Chris Brush (trommer) og André Cosmo Søgnen (trommer i video) Revelation (Kaasin/Grefstad/Kaasin) Produsert av Halvor Halvorsen/KAASIN Mikset/mastret av Leif Johansen Video av Jon Sandersen Plateselskap: StreamPeak Music</video:description>
+      <video:description>Kaasin: Jan Thore Grefstad (vokal), Ståle Kåsin (bass), Jo Henning Kåsin (gitar) og Benjamin Dehli (tangenter). Ytterligere musikere: Chris Brush (trommer) og André Cosmo Søgnen (trommer i video) Revelation (Kåsin/Grefstad/Kåsin) Produsert av Halvor Halvorsen/Kaasin Mikset/mastret av Leif Johansen Video av Jon Sandersen Plateselskap: StreamPeak Music</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EDtTvavrRmg</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-12-04-00_540.a10378a51e4b8754f838.jpg</video:thumbnail_loc>
       <video:duration>289</video:duration>
       <video:publication_date>2020-12-04</video:publication_date>
-      <video:uploader info="https://www.youtube.com/channel/UCYN-BFZQIesAVDPYnIARfWw">Streampeak Music DA</video:uploader>
+      <video:uploader info="https://www.youtube.com/@streampeakmusicda1154">Streampeak Music DA</video:uploader>
       <video:live>no</video:live>
     </video:video>
   </url>
@@ -2383,12 +2435,12 @@
     <loc>https://www.dehlimusikk.no/en/videos/kaasin-revelation/video/</loc>
     <video:video>
       <video:title>Kaasin - Revelation</video:title>
-      <video:description>Kaasin: Jo Henning Kaasin (guitar), Jan Thore Grefstad (vocals) and Staale Kaasin (bass). Additional musicans: Benjamin Dehli (keyboards), Chris Brush (drums) and André Cosmo Søgnen (drums in video) Revelation (Kaasin/Grefstad/Kaasin) Produced by Halvor Halvorsen/KAASIN Mixed/mastered by Leif Johansen Video by Jon Sandersen Label: Streampeak Music</video:description>
+      <video:description>Kaasin: Jan Thore Grefstad (vocals), Ståle Kåsin (bass), Jo Henning Kåsin (guitar) and Benjamin Dehli (keyboards). Additional musicans: Chris Brush (drums) and André Cosmo Søgnen (drums in video) Revelation (Kåsin/Grefstad/Kåsin) Produced by Halvor Halvorsen/Kaasin Mixed/mastered by Leif Johansen Video by Jon Sandersen Label: Streampeak Music</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EDtTvavrRmg</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-12-04-00_540.a10378a51e4b8754f838.jpg</video:thumbnail_loc>
       <video:duration>289</video:duration>
       <video:publication_date>2020-12-04</video:publication_date>
-      <video:uploader info="https://www.youtube.com/channel/UCYN-BFZQIesAVDPYnIARfWw">Streampeak Music DA</video:uploader>
+      <video:uploader info="https://www.youtube.com/@streampeakmusicda1154">Streampeak Music DA</video:uploader>
       <video:live>no</video:live>
     </video:video>
   </url>
@@ -2474,12 +2526,12 @@
     <loc>https://www.dehlimusikk.no/videos/kaasin-runaway-train/video/</loc>
     <video:video>
       <video:title>Kaasin - Runaway Train</video:title>
-      <video:description>Debutlåta fra det norske bandet Kaasin grunnlagt av gitarist Jo Henning Kaasin som har samarbeidet med Glenn Hughes, Joe Lynn Turner, Doogie White og flere. Grunnleggende medlem og låtskriver i Come Taste the Band. Kaasin: Jo Henning Kaasin (gitar), Jan Thore Grefstad (vokal) og Staale Kaasin (bass). Ytterligere musikere: Benjamin Dehli (tangenter) og Rick Hagan (trommer). Runaway Train (Kaasin/Heldal) Produsert av Halvor Halvorsen/Jo Henning Kaasin i Juke Joint Studio, Notodden, Norway Mikset/mastret av Leif Johansen Video av Jon Sandersen Plateselskap: StreamPeak Music DA</video:description>
+      <video:description>Debutlåta fra det norske bandet Kaasin grunnlagt av gitarist Jo Henning Kåsin som har samarbeidet med Glenn Hughes, Joe Lynn Turner, Doogie White og flere. Grunnleggende medlem og låtskriver i Come Taste the Band. Kaasin: Jan Thore Grefstad (vokal), Ståle Kåsin (bass), Jo Henning Kåsin (gitar) og Benjamin Dehli (tangenter). Ytterligere musikere: Rick Hagan (trommer). Runaway Train (Kåsin/Heldal) Produsert av Halvor Halvorsen/Jo Henning Kåsin i Juke Joint Studio, Notodden, Norway Mikset/mastret av Leif Johansen Video av Jon Sandersen Plateselskap: StreamPeak Music DA</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qSS0_LJveSw</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-08-14-00_540.701f4ed6e5101879e3d0.jpg</video:thumbnail_loc>
       <video:duration>235</video:duration>
       <video:publication_date>2020-08-14</video:publication_date>
-      <video:uploader info="https://www.youtube.com/channel/UCYN-BFZQIesAVDPYnIARfWw">Streampeak Music DA</video:uploader>
+      <video:uploader info="https://www.youtube.com/@streampeakmusicda1154">Streampeak Music DA</video:uploader>
       <video:live>no</video:live>
     </video:video>
   </url>
@@ -2487,12 +2539,12 @@
     <loc>https://www.dehlimusikk.no/en/videos/kaasin-runaway-train/video/</loc>
     <video:video>
       <video:title>Kaasin - Runaway Train</video:title>
-      <video:description>The debutsingle from the Norwegian band Kaasin founded by guitarist Jo Henning Kaasin, collaborator with Glenn Hughes, Joe Lynn Turner, Doogie White and more. Founding member and songwriter in Come Taste the Band. Kaasin: Jo Henning Kaasin (guitar), Jan Thore Grefstad (vocals) and Staale Kaasin (bass). Additional musicans: Benjamin Dehli (keyboards) and Rick Hagan (drums). Runaway Train (Kaasin/Heldal) Produced by Halvor Halvorsen/Jo Henning Kaasin at Juke Joint Studio, Notodden, Norway Mixed/mastered by Leif Johansen Video by Jon Sandersen Label: StreamPeak Music DA</video:description>
+      <video:description>The debutsingle from the Norwegian band Kaasin founded by guitarist Jo Henning Kåsin, collaborator with Glenn Hughes, Joe Lynn Turner, Doogie White and more. Founding member and songwriter in Come Taste the Band. Kaasin: Jan Thore Grefstad (vocals), Ståle Kåsin (bass), Jo Henning Kåsin (guitar) and Benjamin Dehli (keyboards). Additional musicans: Rick Hagan (drums). Runaway Train (Kåsin/Heldal) Produced by Halvor Halvorsen/Jo Henning Kåsin at Juke Joint Studio, Notodden, Norway Mixed/mastered by Leif Johansen Video by Jon Sandersen Label: StreamPeak Music DA</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qSS0_LJveSw</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2020-08-14-00_540.701f4ed6e5101879e3d0.jpg</video:thumbnail_loc>
       <video:duration>235</video:duration>
       <video:publication_date>2020-08-14</video:publication_date>
-      <video:uploader info="https://www.youtube.com/channel/UCYN-BFZQIesAVDPYnIARfWw">Streampeak Music DA</video:uploader>
+      <video:uploader info="https://www.youtube.com/@streampeakmusicda1154">Streampeak Music DA</video:uploader>
       <video:live>no</video:live>
     </video:video>
   </url>
