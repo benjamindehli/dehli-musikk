@@ -32,6 +32,7 @@ import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_u
 import hauntedBySilhouettesSelkie from './releases/data/hauntedBySilhouettesBjornSpeedStrid_selkie.json';
 import kaasinCarryOn from './releases/data/kAASIN_carryOn.json';
 import kaasinChainOfLove from './releases/data/kAASIN_chainofLove.json';
+import kaasinDeadMansHand from './releases/data/kAASIN_deadMansHand.json';
 import kaasinHidden from './releases/data/kAASIN_hidden.json';
 import kaasinInsideOut from './releases/data/kAASIN_insideOut.json';
 import kaasinRevelation from './releases/data/kAASIN_revelation.json';
@@ -67,9 +68,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  kaasinDeadMansHand,
   benjaminDehliRachelsSongCover,
-  bjoernEidsvaagYlvaSkyfriHimmel,
-  staaleKaasinTotheTop
+  bjoernEidsvaagYlvaSkyfriHimmel
 ];
 
 const allReleases = [
@@ -107,6 +108,7 @@ const allReleases = [
   hauntedBySilhouettesUndertow,
   kaasinCarryOn,
   kaasinChainOfLove,
+  kaasinDeadMansHand,
   kaasinHidden,
   kaasinInsideOut,
   kaasinRevelation,
