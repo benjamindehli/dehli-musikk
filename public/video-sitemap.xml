@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/cantique-de-noel-o-helga-natt-klaviatur-og-therevox-versjon/video/</loc>
+    <video:video>
+      <video:title>Cantique de Noël / O helga natt (Klaviatur- og Therevox-versjon)</video:title>
+      <video:description>En synthesizer-/keyboardversjon av julesangen [Cantique de Noël / O helga natt](portfolio/benjamin-dehli-cantique-de-noel/) av Adolphe Adam. For vokalmelodien brukte jeg en Therevox ET-4.3. Denne versjonen er inspirert av innspillingene og liveopptredenene til Bing Crosby, Luciano Pavarotti, Andrea Bocelli, men kanskje mest av alt Céline Dion (spesielt vokalmelodien). Instrumenter: Dehli Musikk 4-track Glockenspiel (Glockenspiel), Dehli Musikk 4-track Music Box (Music Box), Doepfer Dark Energy (Drums and Percussion), Hammond C3 (Organ), Hohner Clavinet D6 (Clavinet / Baritone Guitar), Korg MS-20 (Drums), Korg Polysix (Synth Harp), Logan / Hohner String Melody II (Synth Strings), Louis Zwicki Pianette (Piano), Mellotron M4000D (Violins, Cello, Flute and Choir), Moog Matriarch (Synth Pad), Roland SH-09 (Synth Bass and Drums), Sequential Circuits Pro-One (Synth Brass and Drums), Therevox ET-4.3 (Vocals), Yamaha DX7 (Tubular Bells) og Yamaha L-20D (Harmonium). Amplifiers: Leslie 122, Tandberg Model 2 T and Vox AC15H1TV. Mikrofoner: Royer R-121, Sennheiser e 602-II og Shure SM57. Effekter: Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Fairfield Circuitry Shallow Water, Fulltone Supa-Trem, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Pro Co RAT 2, Roland PA-120 (preamp, EQ og fjærklang) og Roland Dimension D SDD-320. Tape recorder: Fostex X-28H. Cantique de Noël: Komponert av Adolphe Adam, tekst av Placide Cappeau og engelsk tekst av John Sullivan Dwight.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qBjSzgHJg3A</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-12-02-00_540.463ab75afb0e0b061b42.jpg</video:thumbnail_loc>
+      <video:duration>345</video:duration>
+      <video:publication_date>2024-12-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/cantique-de-noel-o-holy-night-keyboards-and-therevox-version/video/</loc>
+    <video:video>
+      <video:title>Cantique de Noël / O Holy Night (Keyboards and Therevox version)</video:title>
+      <video:description>A synthesizer / keyboard version of the Christmas carol [Cantique de Noël / O Holy Night](portfolio/benjamin-dehli-cantique-de-noel/) by Adolphe Adam. For the vocal melody I used a Therevox ET-4.3. This version is inspired by the recordings and live performances of Bing Crosby, Luciano Pavarotti, Andrea Bocelli, but perhaps most of all Céline Dion (especially the vocal melody). Instruments: Dehli Musikk 4-track Glockenspiel (Glockenspiel), Dehli Musikk 4-track Music Box (Music Box), Doepfer Dark Energy (Drums and Percussion), Hammond C3 (Organ), Hohner Clavinet D6 (Clavinet / Baritone Guitar), Korg MS-20 (Drums), Korg Polysix (Synth Harp), Logan / Hohner String Melody II (Synth Strings), Louis Zwicki Pianette (Piano), Mellotron M4000D (Violins, Cello, Flute and Choir), Moog Matriarch (Synth Pad), Roland SH-09 (Synth Bass and Drums), Sequential Circuits Pro-One (Synth Brass and Drums), Therevox ET-4.3 (Vocals), Yamaha DX7 (Tubular Bells) and Yamaha L-20D (Harmonium). Amplifiers: Leslie 122, Tandberg Model 2 T and Vox AC15H1TV. Microphones: Royer R-121, Sennheiser e 602-II and Shure SM57. Effects: Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Fairfield Circuitry Shallow Water, Fulltone Supa-Trem, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Pro Co RAT 2, Roland PA-120 (preamp, EQ and spring reverb) and Roland Dimension D SDD-320. Tape recorder: Fostex X-28H. Cantique de Noël: Composed by Adolphe Adam, text by Placide Cappeau and English text by John Sullivan Dwight.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qBjSzgHJg3A</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-12-02-00_540.463ab75afb0e0b061b42.jpg</video:thumbnail_loc>
+      <video:duration>345</video:duration>
+      <video:publication_date>2024-12-02</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/kaasin-dead-mans-hand/video/</loc>
     <video:video>
       <video:title>Kaasin - Dead Man&apos;s Hand</video:title>
