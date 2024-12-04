@@ -8,6 +8,8 @@ const camelize = string => {
     camelizedString = camelizedString.replace('ø', 'oe');
     camelizedString = camelizedString.replace('Å', 'Aa');
     camelizedString = camelizedString.replace('å', 'aa');
+    camelizedString = camelizedString.replace('Ë', 'E');
+    camelizedString = camelizedString.replace('ë', 'e');
     camelizedString = camelizedString.replace(/[^a-zA-Z0-9]/g, '');
     camelizedString = camelizedString.replace(/^\w/, c => c.toLowerCase());
     return camelizedString.replace(/\s+/g, '');

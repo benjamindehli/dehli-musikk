@@ -18,6 +18,7 @@ export const convertToUrlFriendlyString = string => {
     string = string.replace(/[æä]/g, "ae");
     string = string.replace(/[øö]/g, "oe");
     string = string.replace(/å/g, "aa");
+    string = string.replace(/ë/g, "e");
     string = string.replace(/[/]/g, "-");
 
     // Dot and comma replace
