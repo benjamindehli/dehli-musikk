@@ -5,6 +5,8 @@ import twentyTwentyVisionWordAndARing from './releases/data/2020Vision_wordandaR
 import ainaWassvikDauntless from './releases/data/ainaWassvik_dauntless.json';
 import ainaWassvikHypnotized from './releases/data/ainaWassvik_hypnotized.json';
 import audunHaukvikDrivingAlone from './releases/data/audunHaukvik_drivingAlone.json';
+import benjaminDehliCantiqueDeNoel from './releases/data/benjaminDehli_cantiquedeNoel';
+import benjaminDehliCantiqueDeNoelInstrumental from './releases/data/benjaminDehli_cantiquedeNoelinstrumental';
 import benjaminDehliLauraPalmersThemeCover from './releases/data/benjaminDehli_lauraPalmersThemeCover.json';
 import benjaminDehliRachelsSongCover from './releases/data/benjaminDehli_rachelsSongCover.json';
 import benjaminDehliTwinPeaksThemeCover from './releases/data/benjaminDehli_twinPeaksThemeCover.json';
@@ -68,9 +70,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  benjaminDehliCantiqueDeNoel,
   kaasinDeadMansHand,
-  benjaminDehliRachelsSongCover,
-  bjoernEidsvaagYlvaSkyfriHimmel
+  benjaminDehliRachelsSongCover
 ];
 
 const allReleases = [
@@ -81,6 +83,8 @@ const allReleases = [
   ainaWassvikDauntless,
   ainaWassvikHypnotized,
   audunHaukvikDrivingAlone,
+  benjaminDehliCantiqueDeNoel,
+  benjaminDehliCantiqueDeNoelInstrumental,
   benjaminDehliLauraPalmersThemeCover,
   benjaminDehliRachelsSongCover,
   benjaminDehliTwinPeaksThemeCover,
