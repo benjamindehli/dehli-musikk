@@ -1,10 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/auld-lang-syne-paa-synth/video/</loc>
+    <video:video>
+      <video:title>Auld Lang Syne på synth</video:title>
+      <video:description>Spiller et utdrag av Auld Lang Syne på Therevox, Matriarch og SH-09 🎹 Instrumenter: Therevox ET-4.3, Moog Matriarch and Roland SH-09. Effekter: Chase Bliss Audio &amp; Meris CXM 1978, DIYRE G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man og Hairball Audio FET/RACK Revision D.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=HZqI7fu9lhw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-12-31-00_540.02195cc8746b888dae60.jpg</video:thumbnail_loc>
+      <video:duration>51</video:duration>
+      <video:publication_date>2024-12-31</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/auld-lang-syne-on-synthesizers/video/</loc>
+    <video:video>
+      <video:title>Auld Lang Syne on synthesizers</video:title>
+      <video:description>Playing an excerpt from Auld Lang Syne on Therevox, Matriarch and SH-09 🎹 Instruments: Therevox ET-4.3, Moog Matriarch and Roland SH-09. Effects: Chase Bliss Audio &amp; Meris CXM 1978, DIYRE G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man and Hairball Audio FET/RACK Revision D.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=HZqI7fu9lhw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-12-31-00_540.02195cc8746b888dae60.jpg</video:thumbnail_loc>
+      <video:duration>51</video:duration>
+      <video:publication_date>2024-12-31</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/fender-rhodes-med-pitch-shifting-tremolo/video/</loc>
+    <video:video>
+      <video:title>Fender Rhodes med &quot;pitch-shifting&quot; tremolo</video:title>
+      <video:description>Jeg bruker 2-kanals (stereo) tremolo i Avion Studios RetroFlyer forforsterker som en &quot;dry/wet&quot;-splitter. Den ene kanalen sendes gjennom en Whammy-pedal, analog delay, fjærklang og Dimension D, mens den andre kanalen har direkte lyden fra Rhodes-pianoet. Begge signalene summeres sammen og sendes gjennom en CXM 1978 klang. Instrument: Rhodes Mark I Stage Piano med Avion Studios RetroFlyer forforsterker. Effekter: DigiTech Whammy (5th Gen), Electro-Harmonix Deluxe Memory Man, Hairball Audio FET/RACK Revision D, Gamechanger Audio LIGHT Pedal, Roland Dimension D SDD-320, Chase Bliss Audio &amp; Meris CXM 1978 og DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=heL7g6-6Cv0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-12-30-00_540.34a17fd5eb25567f8fa8.jpg</video:thumbnail_loc>
+      <video:duration>591</video:duration>
+      <video:publication_date>2024-12-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/fender-rhodes-with-pitch-shifting-tremolo/video/</loc>
+    <video:video>
+      <video:title>Fender Rhodes with pitch-shifting tremolo</video:title>
+      <video:description>I&apos;m using the 2 channel (stereo) tremolo in the Avion Studios RetroFlyer preamp as a dry/wet splitter. One channel is sent through a Whammy pedal, analog delay, spring reverb, and Dimension D, while the other channel has the dry, direct sound of the Rhodes. Both signals are summed together and sent through the CXM 1978 reverb. Instrument: Rhodes Mark I Stage Piano with Avion Studios RetroFlyer preamp. Effects: DigiTech Whammy (5th Gen), Electro-Harmonix Deluxe Memory Man, Hairball Audio FET/RACK Revision D, Gamechanger Audio LIGHT Pedal, Roland Dimension D SDD-320, Chase Bliss Audio &amp; Meris CXM 1978 and DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=heL7g6-6Cv0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-12-30-00_540.34a17fd5eb25567f8fa8.jpg</video:thumbnail_loc>
+      <video:duration>591</video:duration>
+      <video:publication_date>2024-12-30</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/cantique-de-noel-o-helga-natt-med-en-korg-ns5r/video/</loc>
+    <video:video>
+      <video:title>Cantique de Noël / O helga natt med en Korg NS5R</video:title>
+      <video:description>General MIDI-versjon av: [Cantique de Noël / O helga natt (Klaviatur- og Therevox-versjon)](videos/cantique-de-noel-o-helga-natt-klaviatur-og-therevox-versjon/) med en Korg NS5R Synthesis Module. Instrument: Korg NS5R Synthesis Module. Effekter: Korg NS5R (internal reverb). Båndopptaker: Fostex X-28H. Cantique de Noël: Komponert av Adolphe Adam, tekst av Placide Cappeau og engelsk tekst av John Sullivan Dwight.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=aRv2JrV2NRw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-12-22-00_540.297f5b5234eabc92fa33.jpg</video:thumbnail_loc>
+      <video:duration>340</video:duration>
+      <video:publication_date>2024-12-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/cantique-de-noel-o-holy-night-on-a-korg-ns5r/video/</loc>
+    <video:video>
+      <video:title>Cantique de Noël / O Holy Night on a Korg NS5R</video:title>
+      <video:description>General MIDI version of: [Cantique de Noël / O Holy Night (Keyboards and Therevox version)](videos/cantique-de-noel-o-holy-night-keyboards-and-therevox-version/) with a Korg NS5R Synthesis Module. Instrument: Korg NS5R Synthesis Module. Effects: Korg NS5R (internal reverb). Tape recorder: Fostex X-28H. Cantique de Noël: Composed by Adolphe Adam, text by Placide Cappeau and English text by John Sullivan Dwight.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=aRv2JrV2NRw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-12-22-00_540.297f5b5234eabc92fa33.jpg</video:thumbnail_loc>
+      <video:duration>340</video:duration>
+      <video:publication_date>2024-12-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/cantique-de-noel-o-helga-natt-klaviatur-og-therevox-versjon/video/</loc>
     <video:video>
       <video:title>Cantique de Noël / O helga natt (Klaviatur- og Therevox-versjon)</video:title>
-      <video:description>En synthesizer-/keyboardversjon av julesangen [Cantique de Noël / O helga natt](portfolio/benjamin-dehli-cantique-de-noel/) av Adolphe Adam. For vokalmelodien brukte jeg en Therevox ET-4.3. Denne versjonen er inspirert av innspillingene og liveopptredenene til Bing Crosby, Luciano Pavarotti, Andrea Bocelli, men kanskje mest av alt Céline Dion (spesielt vokalmelodien). Instrumenter: Dehli Musikk 4-track Glockenspiel (Glockenspiel), Dehli Musikk 4-track Music Box (Music Box), Doepfer Dark Energy (Drums and Percussion), Hammond C3 (Organ), Hohner Clavinet D6 (Clavinet / Baritone Guitar), Korg MS-20 (Drums), Korg Polysix (Synth Harp), Logan / Hohner String Melody II (Synth Strings), Louis Zwicki Pianette (Piano), Mellotron M4000D (Violins, Cello, Flute and Choir), Moog Matriarch (Synth Pad), Roland SH-09 (Synth Bass and Drums), Sequential Circuits Pro-One (Synth Brass and Drums), Therevox ET-4.3 (Vocals), Yamaha DX7 (Tubular Bells) og Yamaha L-20D (Harmonium). Amplifiers: Leslie 122, Tandberg Model 2 T and Vox AC15H1TV. Mikrofoner: Royer R-121, Sennheiser e 602-II og Shure SM57. Effekter: Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Fairfield Circuitry Shallow Water, Fulltone Supa-Trem, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Pro Co RAT 2, Roland PA-120 (preamp, EQ og fjærklang) og Roland Dimension D SDD-320. Tape recorder: Fostex X-28H. Cantique de Noël: Komponert av Adolphe Adam, tekst av Placide Cappeau og engelsk tekst av John Sullivan Dwight.</video:description>
+      <video:description>En synthesizer-/keyboardversjon av julesangen [Cantique de Noël / O helga natt](portfolio/benjamin-dehli-cantique-de-noel/) av Adolphe Adam. For vokalmelodien brukte jeg en Therevox ET-4.3. Denne versjonen er inspirert av innspillingene og liveopptredenene til Bing Crosby, Luciano Pavarotti, Andrea Bocelli, men kanskje mest av alt Céline Dion (spesielt vokalmelodien). Instrumenter: Dehli Musikk 4-track Glockenspiel (Glockenspiel), Dehli Musikk 4-track Music Box (Music Box), Doepfer Dark Energy (Drums and Percussion), Hammond C3 (Organ), Hohner Clavinet D6 (Clavinet / Baritone Guitar), Korg MS-20 (Drums), Korg Polysix (Synth Harp), Logan / Hohner String Melody II (Synth Strings), Louis Zwicki Pianette (Piano), Mellotron M4000D (Violins, Cello, Flute and Choir), Moog Matriarch (Synth Pad), Roland SH-09 (Synth Bass and Drums), Sequential Circuits Pro-One (Synth Brass and Drums), Therevox ET-4.3 (Vocals), Yamaha DX7 (Tubular Bells) og Yamaha L-20D (Harmonium). Amplifiers: Leslie 122, Tandberg Model 2 T and Vox AC15H1TV. Mikrofoner: Royer R-121, Sennheiser e 602-II og Shure SM57. Effekter: Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Fairfield Circuitry Shallow Water, Fulltone Supa-Trem, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Pro Co RAT 2, Roland PA-120 (preamp, EQ og fjærklang) og Roland Dimension D SDD-320. Båndopptaker: Fostex X-28H. Cantique de Noël: Komponert av Adolphe Adam, tekst av Placide Cappeau og engelsk tekst av John Sullivan Dwight.</video:description>
       <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=qBjSzgHJg3A</video:player_loc>
       <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2024-12-02-00_540.463ab75afb0e0b061b42.jpg</video:thumbnail_loc>
       <video:duration>345</video:duration>
