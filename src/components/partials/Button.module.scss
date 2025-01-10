@@ -48,11 +48,11 @@
   &.minimal {
     font-size: 0.81rem;
     & .content {
-      padding: 6px 8px;
-      color: colors.$primary-color;
+      padding: 13px 8px;
+      color: colors.$primary-text-color;
       background-color: transparent;
       & a {
-        color: colors.$primary-color;
+        color: colors.$primary-text-color;
       }
     }
 

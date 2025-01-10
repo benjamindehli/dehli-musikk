@@ -10,7 +10,7 @@ body{
 	-moz-osx-font-smoothing: grayscale;
 }
 a{
-	color: colors.$primary-color;
+	color: colors.$primary-text-color;
 	cursor: pointer;
 	&:link {
 		text-decoration: underline;
@@ -24,7 +24,7 @@ a{
 }
 
 p {
-	line-height: 1.43em;
+	line-height: 1.5em;
 }
 
 .padding {

@@ -4,7 +4,11 @@
   color: colors.$article-text-color;
   font-size: 14px;
   & a {
-    text-decoration: none;
+    &:focus {
+      outline-color: currentColor;
+      outline-offset: 2px;
+      outline: 2px solid;
+    }
   }
   & ul {
     list-style: none;

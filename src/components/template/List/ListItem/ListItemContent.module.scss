@@ -5,6 +5,8 @@
   @include calc.calc("width", "100% - 55px");
   display: inline-block;
   padding: 6px;
+  word-break: normal;
+  hyphens: auto;
   @media (min-width: breakpoints.$screen-sm) {
     padding: 16px;
     width: 100%;
