@@ -62,7 +62,7 @@ const Portfolio = () => {
             en: `portfolio/${selectedReleaseId ? multilingualIds.en + "/" : ""}`
         };
         dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
-    }, [availableLanguages, dispatch, selectedRelease]);
+    }, [availableLanguages, dispatch, selectedRelease, selectedReleaseId]);
 
     const renderSummarySnippet = (releases) => {
         const releaseItems = releases.map((release, index) => {
