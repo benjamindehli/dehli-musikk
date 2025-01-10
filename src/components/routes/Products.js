@@ -20,7 +20,7 @@ import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
 
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { formatContentAsString } from "helpers/contentFormatter";
+import { formatContentAsString, formatContentWithReactLinks } from "helpers/contentFormatter";
 
 // Data
 import products from "data/products";
@@ -256,9 +256,15 @@ const Products = () => {
                     <Container blur={!!selectedProduct}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
                         <h1>{contentTitle}</h1>
-                        <p>
-                            {selectedLanguageKey === "en" ? "Products from Dehli Musikk" : "Produkter fra Dehli Musikk"}
-                        </p>
+                        {selectedProduct ? (
+                            formatContentWithReactLinks(selectedProduct.content[selectedLanguageKey], languageSlug)
+                        ) : (
+                            <p>
+                                {selectedLanguageKey === "en"
+                                    ? "Products from Dehli Musikk"
+                                    : "Produkter fra Dehli Musikk"}
+                            </p>
+                        )}
                     </Container>
                     {selectedProduct ? renderSelectedProduct(selectedProduct) : renderSummarySnippet(products)}
                     <Container blur={!!selectedProduct}>
