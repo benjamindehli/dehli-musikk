@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router";
 import { Helmet } from "react-helmet-async";
@@ -13,7 +13,7 @@ import Modal from "components/template/Modal";
 import Release from "components/partials/Portfolio/Release";
 
 // Actions
-import { updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
 
 // Selectors
 import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
@@ -30,15 +30,38 @@ const Portfolio = () => {
     const params = useParams();
     const selectedReleaseId = params?.releaseId || null;
 
+    // State
+    const [selectedRelease, setSelectedRelease] = useState();
+
     // Redux store
     const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
     const languageSlug = useSelector((state) => getLanguageSlug(state));
+    const availableLanguages = useSelector((state) => state.availableLanguages);
 
     useEffect(() => {
         if (params.selectedLanguage) {
             dispatch(updateSelectedLanguageKey(params.selectedLanguage));
         }
     }, [dispatch, params]);
+
+    useEffect(() => {
+        const languageIsInitialized = !params.selectedLanguage || params.selectedLanguage === selectedLanguageKey;
+        setSelectedRelease(
+            !!languageIsInitialized && !!selectedReleaseId ? getSelectedRelease(selectedReleaseId) : undefined
+        );
+    }, [params.selectedLanguage, selectedLanguageKey, selectedReleaseId]);
+
+    useEffect(() => {
+        const multilingualIds = {
+            en: selectedRelease ? convertToUrlFriendlyString(selectedRelease.title) : "",
+            no: selectedRelease ? convertToUrlFriendlyString(selectedRelease.title) : ""
+        };
+        const multilingualPaths = {
+            no: `portfolio/${selectedReleaseId ? multilingualIds.no + "/" : ""}`,
+            en: `portfolio/${selectedReleaseId ? multilingualIds.en + "/" : ""}`
+        };
+        dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
+    }, [availableLanguages, dispatch, selectedRelease]);
 
     const renderSummarySnippet = (releases) => {
         const releaseItems = releases.map((release, index) => {
