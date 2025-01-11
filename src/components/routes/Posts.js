@@ -4,6 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Helmet } from "react-helmet-async";
 import { Navigate, useNavigate, useParams } from "react-router";
 
+// Components
+import Breadcrumbs from "components/partials/Breadcrumbs";
+import Container from "components/template/Container";
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import Modal from "components/template/Modal";
+import Post from "components/partials/Post";
+
 // Actions
 import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
 
@@ -16,19 +24,6 @@ import { formatContentAsString, formatContentWithReactLinks } from "helpers/cont
 
 // Data
 import posts from "data/posts";
-
-// Utils
-import prerenderedLoadable from "utils/prerenderedLoadable";
-
-// Partials
-const Breadcrumbs = prerenderedLoadable(() => import("components/partials/Breadcrumbs"));
-const Post = prerenderedLoadable(() => import("components/partials/Post"));
-
-// Template
-const Container = prerenderedLoadable(() => import("components/template/Container"));
-const List = prerenderedLoadable(() => import("components/template/List"));
-const ListItem = prerenderedLoadable(() => import("components/template/List/ListItem"));
-const Modal = prerenderedLoadable(() => import("components/template/Modal"));
 
 const Posts = () => {
     const dispatch = useDispatch();
