@@ -7,7 +7,7 @@
             "en": "DXtraterrestrial 1 is a collection of 32 patches containing warm and lush synth pads, crisp and bright bells and plucked sounds, digital and glitchy sounds and anything in between. These presets are designed to give you a wide range of tones for any music style. Whether you're into retro synth sounds, modern vibes or more experimental stuff."
         },
         "thumbnailDescription": "DXtraterrestrial 1 cartrigde with a Yamaha DX7 synthesizer in the background",
-        "price": "1.00",
+        "price": "5.00",
         "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/dxtraterrestrial-1",
@@ -25,7 +25,7 @@
             "en": "EDB-Orgel delivers the sound of four different digital synthesis types with the workflow of a drawbar organ combined with an analog synthesizer."
         },
         "thumbnailDescription": "EDB-Orgel user interface",
-        "price": "1.00",
+        "price": "5.00",
         "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/edb-orgel",
@@ -39,11 +39,11 @@
         "timestamp": 1711914056000,
         "title": "SubC",
         "content": {
-            "no": "SubC er et gratis analog subbass lydbibliotek for Decent Sampler med triangelbølgeoscillator fra en [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) sent gjennom forskjellige forvrengningskretser og effekter.",
-            "en": "SubC is a free analog sub bass sample library for DecentSampler featuring a [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) triangle wave oscillator ran through different saturation circuits and effects."
+            "no": "SubC er et analog subbass lydbibliotek for Decent Sampler med triangelbølgeoscillator fra en [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) sent gjennom forskjellige forvrengningskretser og effekter.",
+            "en": "SubC is a analog sub bass sample library for DecentSampler featuring a [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) triangle wave oscillator ran through different saturation circuits and effects."
         },
         "thumbnailDescription": "SubC user interface inside a wooden synthesizer case",
-        "price": "1.00",
+        "price": "5.00",
         "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/subc",

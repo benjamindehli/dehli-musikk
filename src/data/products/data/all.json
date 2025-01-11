@@ -7,7 +7,7 @@
             "en": "DXtraterrestrial 1 is a collection of 32 patches containing warm and lush synth pads, crisp and bright bells and plucked sounds, digital and glitchy sounds and anything in between. These presets are designed to give you a wide range of tones for any music style. Whether you're into retro synth sounds, modern vibes or more experimental stuff."
         },
         "thumbnailDescription": "DXtraterrestrial 1 cartrigde with a Yamaha DX7 synthesizer in the background",
-        "price": "1.00",
+        "price": "5.00",
         "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/dxtraterrestrial-1",
@@ -25,7 +25,7 @@
             "en": "EDB-Orgel delivers the sound of four different digital synthesis types with the workflow of a drawbar organ combined with an analog synthesizer."
         },
         "thumbnailDescription": "EDB-Orgel user interface",
-        "price": "1.00",
+        "price": "5.00",
         "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/edb-orgel",
@@ -39,11 +39,11 @@
         "timestamp": 1711914056000,
         "title": "SubC",
         "content": {
-            "no": "SubC er et gratis analog subbass lydbibliotek for Decent Sampler med triangelbølgeoscillator fra en [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) sent gjennom forskjellige forvrengningskretser og effekter.",
-            "en": "SubC is a free analog sub bass sample library for DecentSampler featuring a [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) triangle wave oscillator ran through different saturation circuits and effects."
+            "no": "SubC er et analog subbass lydbibliotek for Decent Sampler med triangelbølgeoscillator fra en [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) sent gjennom forskjellige forvrengningskretser og effekter.",
+            "en": "SubC is a analog sub bass sample library for DecentSampler featuring a [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) triangle wave oscillator ran through different saturation circuits and effects."
         },
         "thumbnailDescription": "SubC user interface inside a wooden synthesizer case",
-        "price": "1.00",
+        "price": "5.00",
         "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/subc",
@@ -61,6 +61,8 @@
             "en": "A [Kalikå Leksakspiano (toy piano)](equipment/instruments/kalikaa-leksakspiano/) recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch.\nIt also includes impulse responses for two tape delay/echo types and two room reverbs."
         },
         "thumbnailDescription": "The 4-track Toy Piano user interface and a Kalikå Leksakspiano (toy piano)",
+        "price": "5.00",
+        "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/4-track-toy-piano",
             "text": {
@@ -73,11 +75,11 @@
         "timestamp": 1707685200000,
         "title": "Elektrisk Salmesykkel",
         "content": {
-            "no": "Elektrisk Salmesykkel er et gratis lydbibliotek for Decent Sampler som inneholder lyder fra et [Yamaha L-20D elektrisk harmonium / reed organ](equipment/instruments/yamaha-l-20d/) med noen ekstra funksjoner.",
-            "en": "Elektrisk Salmesykkel is a free sample library for Decent Sampler featuring the [Yamaha L-20D electric harmonium / reed organ](equipment/instruments/yamaha-l-20d/) with some added features."
+            "no": "Elektrisk Salmesykkel er et lydbibliotek for Decent Sampler som inneholder lyder fra et [Yamaha L-20D elektrisk harmonium / reed organ](equipment/instruments/yamaha-l-20d/) med noen ekstra funksjoner.",
+            "en": "Elektrisk Salmesykkel is a sample library for Decent Sampler featuring the [Yamaha L-20D electric harmonium / reed organ](equipment/instruments/yamaha-l-20d/) with some added features."
         },
         "thumbnailDescription": "Elektrisk Salmesykkel user interface inside a Yamaha L-20D electric harmonium case",
-        "price": "1.00",
+        "price": "5.00",
         "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/elektrisk-salmesykkel",
@@ -91,10 +93,12 @@
         "timestamp": 1704585600000,
         "title": "StyloPoly",
         "content": {
-            "no": "StyloPoly er et gratis lydbibliotek for Decent Sampler som inneholder lyder fra en [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) med noen ekstra funksjoner.",
-            "en": "StyloPoly is a free sample library for Decent Sampler featuring the [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) with some added features."
+            "no": "StyloPoly er et lydbibliotek for Decent Sampler som inneholder lyder fra en [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) med noen ekstra funksjoner.",
+            "en": "StyloPoly is a sample library for Decent Sampler featuring the [Dubreq Stylophone S-1](equipment/instruments/dubreq-stylophone-s-1/) with some added features."
         },
         "thumbnailDescription": "StyloPoly user interface inside a Dubreq Stylophone S-1",
+        "price": "5.00",
+        "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/stylopoly",
             "text": {
@@ -107,10 +111,12 @@
         "timestamp": 1697407200000,
         "title": "Strykebrett",
         "content": {
-            "no": "Strykebrett er et gratis lydbibliotek for Decent Sampler som inneholder lyder fra en [Hohner / Logan String Melody II](equipment/instruments/logan-string-melody-ii/) med noen ekstra funksjoner.",
-            "en": "Strykebrett is a free sample library for Decent Sampler featuring the [Hohner / Logan String Melody II](equipment/instruments/logan-string-melody-ii/) with some added features."
+            "no": "Strykebrett er et lydbibliotek for Decent Sampler som inneholder lyder fra en [Hohner / Logan String Melody II](equipment/instruments/logan-string-melody-ii/) med noen ekstra funksjoner.",
+            "en": "Strykebrett is a sample library for Decent Sampler featuring the [Hohner / Logan String Melody II](equipment/instruments/logan-string-melody-ii/) with some added features."
         },
         "thumbnailDescription": "Strykebrett user interface inside a Logan String Melody II keyboard case",
+        "price": "5.00",
+        "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/strykebrett",
             "text": {
@@ -127,6 +133,8 @@
             "en": "A glockenspiel recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch.\nIt also includes impulse responses for two tape delay/echo types and two room reverbs."
         },
         "thumbnailDescription": "The 4-track Glockenspiel user interface and a glockenspiel",
+        "price": "5.00",
+        "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/4-track-glockenspiel",
             "text": {
@@ -143,6 +151,8 @@
             "en": "A music box recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch.\nIt also includes impulse responses for two tape delay/echo types and two room reverbs."
         },
         "thumbnailDescription": "The 4-track Music Box user interface and a music box",
+        "price": "5.00",
+        "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/4-track-music-box",
             "text": {
@@ -159,7 +169,7 @@
             "en": "You'll get the iconic sound of the [Korg CX-3](equipment/instruments/korg-cx-3/), infused with the unmistakable charm of cassette tape recording, with the Voltage Controlled Cassette Organ. It captures the essence of the organs analog oscillators as well as the pitch fluctuation (wow/flutter), harmonic distortion, and coloration associated with cassette tape recordings.\nEach note for every drawbar, as well as the sound of the key click, has been meticulously sampled as individual audio files, ensuring authenticity and attention to detail. To achieve an even richer sound, the organ has been recorded twice onto cassette tape, resulting in a double-track effect that adds depth and character. Thanks to the inherent idiosyncrasies of tape deck mechanics and the tape itself, each playback yields a slightly different result.\nIt also includes impulse responses for two tape delay/echo types and two room reverbs."
         },
         "thumbnailDescription": "The Voltage Controlled Cassette Organ user interface inside a Korg CX-3 organ case",
-        "price": "1.00",
+        "price": "5.00",
         "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/voltage-controlled-cassette-organ",
