@@ -5,27 +5,32 @@ import { Navigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
-// Components
-import Button from "components/partials/Button";
-import Container from "components/template/Container";
-import IntroContent from "components/partials/IntroContent";
-import LatestPosts from "components/partials/LatestPosts";
-import LatestProducts from "components/partials/LatestProducts";
-import LatestReleases from "components/partials/LatestReleases";
-import LatestVideos from "components/partials/LatestVideos";
-import SocialMediaLinks from "components/partials/SocialMediaLinks";
-
 // Actions
 import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
 
 // Selectors
 import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
 
+// Utils
+import prerenderedLoadable from "utils/prerenderedLoadable";
+
 // Assets
 import DehliMusikkLogo from "assets/svg/DehliMusikkLogoInverse.svg";
 
 // Stylesheets
 import style from "components/routes/Home.module.scss";
+
+// Partials
+const Button = prerenderedLoadable(() => import("components/partials/Button"));
+const IntroContent = prerenderedLoadable(() => import("components/partials/IntroContent"));
+const LatestPosts = prerenderedLoadable(() => import("components/partials/LatestPosts"));
+const LatestProducts = prerenderedLoadable(() => import("components/partials/LatestProducts"));
+const LatestReleases = prerenderedLoadable(() => import("components/partials/LatestReleases"));
+const LatestVideos = prerenderedLoadable(() => import("components/partials/LatestVideos"));
+const SocialMediaLinks = prerenderedLoadable(() => import("components/partials/SocialMediaLinks"));
+
+// Template
+const Container = prerenderedLoadable(() => import("components/template/Container"));
 
 const Home = () => {
     const dispatch = useDispatch();
