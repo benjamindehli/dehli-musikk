@@ -54,8 +54,8 @@ const Portfolio = () => {
 
     useEffect(() => {
         const multilingualIds = {
-            en: selectedRelease ? convertToUrlFriendlyString(selectedRelease.title) : "",
-            no: selectedRelease ? convertToUrlFriendlyString(selectedRelease.title) : ""
+            en: selectedRelease ? convertToUrlFriendlyString(`${selectedRelease.artistName} ${selectedRelease.title}`) : "",
+            no: selectedRelease ? convertToUrlFriendlyString(`${selectedRelease.artistName} ${selectedRelease.title}`) : ""
         };
         const multilingualPaths = {
             no: `portfolio/${selectedRelease ? multilingualIds.no + "/" : ""}`,
