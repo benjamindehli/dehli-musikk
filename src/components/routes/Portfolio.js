@@ -58,11 +58,11 @@ const Portfolio = () => {
             no: selectedRelease ? convertToUrlFriendlyString(selectedRelease.title) : ""
         };
         const multilingualPaths = {
-            no: `portfolio/${selectedReleaseId ? multilingualIds.no + "/" : ""}`,
-            en: `portfolio/${selectedReleaseId ? multilingualIds.en + "/" : ""}`
+            no: `portfolio/${selectedRelease ? multilingualIds.no + "/" : ""}`,
+            en: `portfolio/${selectedRelease ? multilingualIds.en + "/" : ""}`
         };
         dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
-    }, [availableLanguages, dispatch, selectedRelease, selectedReleaseId]);
+    }, [availableLanguages, dispatch, selectedRelease]);
 
     const renderSummarySnippet = (releases) => {
         const releaseItems = releases.map((release, index) => {
