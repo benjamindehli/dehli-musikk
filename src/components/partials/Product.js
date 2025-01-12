@@ -18,6 +18,7 @@ import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 import { getPrettyDate } from 'helpers/dateFormatter';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
+import countryCodes from 'data/countryCodes';
 
 
 const Product = ({ product, fullscreen }) => {
@@ -30,6 +31,46 @@ const Product = ({ product, fullscreen }) => {
   const renderProductSnippet = (product, productId, productThumbnailSrc) => {
     const productDate = new Date(product.timestamp).toISOString();
     const plusOneYear = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString();
+
+    const generateShippingDestinations = (countryCodes) => {
+      return countryCodes.map((countryCode) => {
+        return {
+          "@type": "DefinedRegion",
+          "addressCountry": countryCode
+        }
+      });
+    }
+
+    const shippingDetailsSnippet = {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "USD"
+      },
+      "shippingDestination": generateShippingDestinations(countryCodes),
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 0,
+          "maxValue": 0,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 0,
+          "maxValue": 0,
+          "unitCode": "DAY"
+        }
+      }
+    };
+
+    const hasMerchantReturnPolicySnippet = {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": countryCodes,
+      "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+    };
 
     const applicationJsonLd = {
       "@context": "http://schema.org",
@@ -54,7 +95,9 @@ const Product = ({ product, fullscreen }) => {
             "@type": "Offer",
             "url": product.link.url
           },
-        ]
+        ],
+        "shippingDetails": shippingDetailsSnippet,
+        "hasMerchantReturnPolicy": hasMerchantReturnPolicySnippet
       },
     }
     const snippet = {
@@ -111,11 +154,20 @@ const Product = ({ product, fullscreen }) => {
             "@type": "Offer",
             "url": product.link.url
           },
-        ]
+        ],
+        "shippingDetails": shippingDetailsSnippet,
+        "hasMerchantReturnPolicy": hasMerchantReturnPolicySnippet,
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://www.dehlimusikk.no"
+      }
+    }
+    if (product?.ratingValue && product?.reviewCount) {
+      snippet.aggregateRating = {
+        "@type": "AggregateRating",
+        "ratingValue": product.ratingValue,
+        "reviewCount": product.reviewCount
       }
     }
     return (<Helmet>

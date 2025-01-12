@@ -15,7 +15,9 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
-        }
+        },
+        "ratingValue": "5",
+        "reviewCount": "3"
     },
     {
         "timestamp": 1723136400000,
@@ -33,7 +35,9 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
-        }
+        },
+        "ratingValue": "5",
+        "reviewCount": "1"
     },
     {
         "timestamp": 1711914056000,
@@ -51,6 +55,7 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
-        }
+        },
+        "reviewCount": "0"
     }
 ]
