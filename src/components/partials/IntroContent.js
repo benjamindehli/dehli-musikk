@@ -22,8 +22,8 @@ const IntroContent = () => {
   const artistNamesString = getArtistNamesStringFromReleases(releases, selectedLanguageKey);
 
   const norwegianContent = (<React.Fragment>
-    <p>Dehli Musikk er et enkeltpersonsforetak drevet av keyboardist of produsent Benjamin Dehli og tilbyr spilling av tangentinstrumenter på låter for artister og band.</p>
-    <p>Har du en låt som skal spilles inn og mangler tangeter, ta gjerne kontakt på <a href={facebookLink} title="Dehli Musikks Facebook-side" target='_blank' rel="noopener noreferrer">Facebook</a> eller <a href={emailLink} title="Send Dehli Musikk en e-post">e-post</a>.</p>
+    <p>Dehli Musikk er et enkeltpersonsforetak drevet av keyboardist og produsent Benjamin Dehli og tilbyr spilling av tangentinstrumenter på låter for artister og band.</p>
+    <p>Har du en låt som skal spilles inn og mangler tangenter, ta gjerne kontakt på <a href={facebookLink} title="Dehli Musikks Facebook-side" target='_blank' rel="noopener noreferrer">Facebook</a> eller <a href={emailLink} title="Send Dehli Musikk en e-post">e-post</a>.</p>
     <p>Sjekk ut <Link to={`/${languageSlug}portfolio/`} title="Dehli Musikks portefølje">porteføljen</Link> om du vil høre utgivelser Benjamin Dehli (Dehli Musikk) har bidratt på.</p>
     <h2>Artister som Dehli Musikk har samarbeidet med</h2>
     <p>{artistNamesString}.</p>
