@@ -33,6 +33,12 @@ const Sitemaps = () => {
     en: useSelector(state => getLanguageSlugByKey(state, 'en'))
   }
 
+  const renderAlternateLanguageElement = (alternateUrl, languageKey) => {
+    const origin = alternateUrl?.startsWith('http') ? '' : 'https://www.dehlimusikk.no/';
+    const url = `${origin}${alternateUrl?.length ? alternateUrl : ''}`;
+    return `<xhtml:link rel="alternate" hreflang="${languageKey}" href="${url}" />\n`;
+  }
+
   const renderLocElement = (loc) => {
     const origin = loc?.startsWith('http') ? '' : 'https://www.dehlimusikk.no/';
     const url = `${origin}${loc?.length ? loc : ''}`;
@@ -44,8 +50,9 @@ const Sitemaps = () => {
     return `<lastmod>${lastMod}</lastmod>\n`;
   }
 
-  const renderUrlElement = (url, timestamp) => {
-    return `<url>${renderLocElement(url)}${timestamp ? renderLastModElement(timestamp) : ''}</url>\n`;
+  const renderUrlElement = (url, alternateUrl, alternateLanguageKey, timestamp) => {
+    const languageKey = alternateLanguageKey === 'en' ? 'no' : 'en';
+    return `<url>${renderLocElement(url)}${renderAlternateLanguageElement(url, languageKey)}${!!alternateUrl !== null && !!alternateLanguageKey ? renderAlternateLanguageElement(alternateUrl, alternateLanguageKey) : ''}${timestamp ? renderLastModElement(timestamp) : ''}</url>\n`;
   }
 
   const renderNewsUrlElement = (url, post, languageKey) => {
@@ -109,25 +116,25 @@ const Sitemaps = () => {
   const renderHome = () => {
     const urlNorwegianPage = `${languageSlug.no}`;
     const urlEnglishPage = `${languageSlug.en}`;
-    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
+    return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en'), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no')].join('')
   }
 
   const renderPostsList = () => {
     const urlNorwegianPage = `${languageSlug.no}posts/`;
     const urlEnglishPage = `${languageSlug.en}posts/`;
-    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
+    return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en'), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no')].join('')
   }
 
   const renderVideosList = () => {
     const urlNorwegianPage = `${languageSlug.no}videos/`;
     const urlEnglishPage = `${languageSlug.en}videos/`;
-    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
+    return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en'), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no')].join('')
   }
 
   const renderProductsList = () => {
     const urlNorwegianPage = `${languageSlug.no}products/`;
     const urlEnglishPage = `${languageSlug.en}products/`;
-    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
+    return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en'), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no')].join('')
   }
 
   const renderGumroadProductsList = () => {
@@ -138,18 +145,20 @@ const Sitemaps = () => {
   const renderReleasesList = () => {
     const urlNorwegianPage = `${languageSlug.no}portfolio/`;
     const urlEnglishPage = `${languageSlug.en}portfolio/`;
-    return [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)].join('')
+    return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en'), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no')].join('')
   }
 
   const renderEquipmentTypesList = () => {
     const urlNorwegianPage = `${languageSlug.no}equipment/`;
     const urlEnglishPage = `${languageSlug.en}equipment/`;
 
-    const equipmentTypeElements = [renderUrlElement(urlNorwegianPage), renderUrlElement(urlEnglishPage)];
+    const equipmentTypeElements = [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en'), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no')];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
       Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
-        equipmentTypeElements.push(renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/`));
-        equipmentTypeElements.push(renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/`));
+        const urlNorwegianTypePage = `${urlNorwegianPage}${equipmentTypeKey}/`;
+        const urlEnglishTypePage = `${urlEnglishPage}${equipmentTypeKey}/`;
+        equipmentTypeElements.push(renderUrlElement(urlNorwegianTypePage, urlEnglishTypePage, 'en'));
+        equipmentTypeElements.push(renderUrlElement(urlEnglishTypePage, urlNorwegianTypePage, 'no'));
       })
     }
     return equipmentTypeElements.join('');
@@ -161,7 +170,7 @@ const Sitemaps = () => {
         const urlNorwegianPage = `${languageSlug.no}posts/${convertToUrlFriendlyString(post.title.no)}/`;
         const urlEnglishPage = `${languageSlug.en}posts/${convertToUrlFriendlyString(post.title.en)}/`;
         const timestamp = !!post?.lastmod ? post.lastmod : post?.timestamp;
-        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
+        return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en', timestamp), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no', timestamp)].join('')
       }).join('')
       : '';
   }
@@ -172,7 +181,7 @@ const Sitemaps = () => {
         const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/`;
         const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/`;
         const timestamp = !!video?.lastmod ? video.lastmod : video?.timestamp;
-        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
+        return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en', timestamp), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no', timestamp)].join('')
       }).join('')
       : '';
   }
@@ -183,7 +192,7 @@ const Sitemaps = () => {
         const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/video/`;
         const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/video/`;
         const timestamp = !!video?.lastmod ? video.lastmod : video?.timestamp;
-        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
+        return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en', timestamp), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no', timestamp)].join('')
       }).join('')
       : '';
   }
@@ -194,7 +203,7 @@ const Sitemaps = () => {
         const urlNorwegianPage = `${languageSlug.no}products/${convertToUrlFriendlyString(product.title)}/`;
         const urlEnglishPage = `${languageSlug.en}products/${convertToUrlFriendlyString(product.title)}/`;
         const timestamp = !!product?.lastmod ? product.lastmod : product?.timestamp;
-        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
+        return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en', timestamp), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no', timestamp)].join('')
       }).join('')
       : '';
   }
@@ -207,7 +216,7 @@ const Sitemaps = () => {
       ? gumroadProducts.map(product => {
         const url = product?.link?.url;
         const timestamp = !!product?.lastmod ? product.lastmod : product?.timestamp;
-        return renderUrlElement(url, timestamp)
+        return renderUrlElement(url, null, null, timestamp)
       }).join('')
       : '';
   }
@@ -219,7 +228,7 @@ const Sitemaps = () => {
         const urlNorwegianPage = `${languageSlug.no}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
         const urlEnglishPage = `${languageSlug.en}portfolio/${convertToUrlFriendlyString(relaseId)}/`;
         const timestamp = !!release?.lastmod ? release.lastmod : release?.releaseDate;
-        return [renderUrlElement(urlNorwegianPage, timestamp), renderUrlElement(urlEnglishPage, timestamp)].join('')
+        return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en', timestamp), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no', timestamp)].join('')
       }).join('')
       : '';
   }
@@ -234,8 +243,10 @@ const Sitemaps = () => {
         const equipmentItems = equipmentTypes[equipmentTypeKey].items;
         equipmentItems.forEach(item => {
           const itemId = `${item.brand} ${item.model}`;
-          equipmentDetailsElements.push(renderUrlElement(`${urlNorwegianPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
-          equipmentDetailsElements.push(renderUrlElement(`${urlEnglishPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`));
+          const urlNorwegianItemPage = `${urlNorwegianPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`;
+          const urlEnglishItemPage = `${urlEnglishPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`;
+          equipmentDetailsElements.push(renderUrlElement(urlNorwegianItemPage, urlEnglishItemPage, 'en'));
+          equipmentDetailsElements.push(renderUrlElement(urlEnglishItemPage, urlNorwegianItemPage, 'no'));
         })
       })
     }
@@ -500,7 +511,7 @@ const Sitemaps = () => {
   const getSitemapXML = () => {
     return [
       '<?xml version="1.0" encoding="UTF-8"?>\n',
-      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n',
       renderHome(),
       renderPostsList(),
       renderVideosList(),
