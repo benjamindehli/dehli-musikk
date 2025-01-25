@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/clavinet-gjennom-en-moog-matriarch/video/</loc>
+    <video:video>
+      <video:title>Clavinet gjennom en Moog Matriarch</video:title>
+      <video:description>Bruker Moog Matriarch som en effektenhet til Hohner Clavinet D6 samt en drone/bass-synth. Clavinet&apos;en er koblet til mikseren på Matriarch&apos;en og sendt gjennom filtrene og delay-kretsen. Instrumenter: Hohner Clavinet D6 og Moog Matriarch. Effekter: Dehli Musikk Fuzz Boost Limiter (volumforsterker for Clavinet-signalet), Moog Matriarchs innebygde filtre og stereo-delay, Chase Bliss Audio &amp; Meris CXM 1978 og DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=zN35IgmYGVg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-01-25-00_540.f09ed39862e9697749b5.jpg</video:thumbnail_loc>
+      <video:duration>531</video:duration>
+      <video:publication_date>2025-01-25</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/running-clavinet-through-a-moog-matriarch/video/</loc>
+    <video:video>
+      <video:title>Running Clavinet through a Moog Matriarch</video:title>
+      <video:description>Using the Moog Matriarch as an effects unit for the Hohner Clavinet D6 as well as a drone/bass synth. The Clavinet is connected into the mixer section on the Matriarch and processed through its filters and bucket brigade delay. Instruments: Hohner Clavinet D6 and Moog Matriarch. Effects: Dehli Musikk Fuzz Boost Limiter (clean boost for the Clavinet signal), Moog Matriarch&apos;s built-in filters and stereo delay, Chase Bliss Audio &amp; Meris CXM 1978 and DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=zN35IgmYGVg</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-01-25-00_540.f09ed39862e9697749b5.jpg</video:thumbnail_loc>
+      <video:duration>531</video:duration>
+      <video:publication_date>2025-01-25</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/auld-lang-syne-paa-synth/video/</loc>
     <video:video>
       <video:title>Auld Lang Syne på synth</video:title>
