@@ -19,6 +19,7 @@ import { getPrettyDate } from 'helpers/dateFormatter';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
 import countryCodes from 'data/countryCodes';
+import { convertStringToExcerpt } from 'helpers/search';
 
 
 const Product = ({ product, fullscreen }) => {
@@ -221,6 +222,7 @@ const Product = ({ product, fullscreen }) => {
   };
   const productDate = new Date(product.timestamp);
   const productPath = `/${languageSlug}products/${productId}/`;
+  const productDescription = fullscreen ? formatContentWithReactLinks(product.content[selectedLanguageKey], languageSlug) : <p>{convertStringToExcerpt(product.content[selectedLanguageKey])}</p>;
 
   const link = {
     to: productPath,
@@ -241,9 +243,7 @@ const Product = ({ product, fullscreen }) => {
           </time>
         </ListItemContentHeader>
         <ListItemContentBody fullscreen={fullscreen}>
-          {
-            formatContentWithReactLinks(product.content[selectedLanguageKey], languageSlug)
-          }
+          {productDescription}
         </ListItemContentBody>
         {
           product.link && fullscreen
