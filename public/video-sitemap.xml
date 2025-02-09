@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/handsome-audio-zulu-paa-rhodes-med-retroflyer/video/</loc>
+    <video:video>
+      <video:title>Handsome Audio Zulu på Rhodes med RetroFlyer</video:title>
+      <video:description>Kjapp test av forskjellige innstillinger på Handsome Audio Zulu med et RetroFlyer-utstyrt Fender Rhodes MK I piano. Jeg gjorde mitt beste for å matche lydnivået i eksemplene. Instrument: Rhodes Mark I Stage Piano med Avion Studios RetroFlyer Preamp. Effekter: Avion Studios RetroFlyer (stereo tremolo), Handsome Audio Zulu, Chase Bliss Audio &amp; Meris CXM 1978 og DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Mb1H-DFQFlw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-02-09-00_540.886dc0254b40ac306eba.jpg</video:thumbnail_loc>
+      <video:duration>221</video:duration>
+      <video:publication_date>2025-02-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/handsome-audio-zulu-on-rhodes-with-retroflyer/video/</loc>
+    <video:video>
+      <video:title>Handsome Audio Zulu on Rhodes with RetroFlyer</video:title>
+      <video:description>Quick test of different settings on Handsome Audio Zulu with a RetroFlyer equipped Fender Rhodes MK I piano. I made my best effort to level match the examples. Instrument: Rhodes Mark I Stage Piano with Avion Studios RetroFlyer Preamp. Effects: Avion Studios RetroFlyer (stereo tremolo), Handsome Audio Zulu, Chase Bliss Audio &amp; Meris CXM 1978 and DIY Recording Equipment G Bus VCA Compressor.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Mb1H-DFQFlw</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-02-09-00_540.886dc0254b40ac306eba.jpg</video:thumbnail_loc>
+      <video:duration>221</video:duration>
+      <video:publication_date>2025-02-09</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/clavinet-gjennom-en-moog-matriarch/video/</loc>
     <video:video>
       <video:title>Clavinet gjennom en Moog Matriarch</video:title>
