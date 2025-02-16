@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/wurlitzer-200a-gjennom-en-moog-matriarch/video/</loc>
+    <video:video>
+      <video:title>Wurlitzer 200A gjennom en Moog Matriarch</video:title>
+      <video:description>Bruker Moog Matriarch som en effektenhet til Wurlitzer 200A. Wurlitzer pianoet er koblet til mikseren på Matriarch&apos;en og sendt gjennom filtrene og delay-kretsen. Instrumenter: Wurlitzer 200A og Moog Matriarch. Effekter: Moog Matriarch&apos;s innebygde filtre og stereo-delay, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor og Handsome Audio Zulu.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=e00mHLaYnbc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-02-16-00_540.8958dbe922a87068cec6.jpg</video:thumbnail_loc>
+      <video:duration>271</video:duration>
+      <video:publication_date>2025-02-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/running-wurlitzer-200a-through-a-moog-matriarch/video/</loc>
+    <video:video>
+      <video:title>Running Wurlitzer 200A through a Moog Matriarch</video:title>
+      <video:description>Using the Moog Matriarch as an effects unit for the Wurlitzer 200A. The Wurlitzer piano is connected into the mixer section on the Matriarch and processed through its filters and bucket brigade delay. Instruments: Wurlitzer 200A and Moog Matriarch. Effects: Moog Matriarch&apos;s built-in filters and stereo delay, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor and Handsome Audio Zulu.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=e00mHLaYnbc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-02-16-00_540.8958dbe922a87068cec6.jpg</video:thumbnail_loc>
+      <video:duration>271</video:duration>
+      <video:publication_date>2025-02-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/handsome-audio-zulu-paa-rhodes-med-retroflyer/video/</loc>
     <video:video>
       <video:title>Handsome Audio Zulu på Rhodes med RetroFlyer</video:title>
