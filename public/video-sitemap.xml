@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/baandekkolyd-med-en-yamaha-dx7/video/</loc>
+    <video:video>
+      <video:title>Båndekkolyd med en Yamaha DX7</video:title>
+      <video:description>Yamaha DX7 har ingen innebygde effekter, så jeg programmerte en patch designet for å etterligne lyden av en båndekkomaskin. Lyden i videoen er direkte fra mono-utgangen til DX7&apos;en, og ingen ekstern ekko- eller romklangeffekt er lagt til. DX7-patchen vil være tilgjengelig for nedlasting på https://store.dehlimusikk.no/ som en del av min kommende DX7-bank/kassett, DXtraterrestrial 2, som jeg jobber med for tiden.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=DZuZmc5wlk4</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-02-23-00_540.af5db90418970026f6c8.jpg</video:thumbnail_loc>
+      <video:duration>128</video:duration>
+      <video:publication_date>2025-02-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/tape-echo-sound-with-a-yamaha-dx7/video/</loc>
+    <video:video>
+      <video:title>Tape Echo Sound with a Yamaha DX7</video:title>
+      <video:description>The Yamaha DX7 lacks built-in effects, so I programmed a patch designed to mimic the sound of a tape echo. The audio is from the mono output of the DX7 and no external echo or reverb has been added. [The DX7](equipment/instruments/yamaha-dx7/) patch will be available for download at https://store.dehlimusikk.no/ as part of my upcoming DX7 bank/cartridge, DXtraterrestrial 2, which I&apos;m currently working on. Instrument: Yamaha DX7.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=DZuZmc5wlk4</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-02-23-00_540.af5db90418970026f6c8.jpg</video:thumbnail_loc>
+      <video:duration>128</video:duration>
+      <video:publication_date>2025-02-23</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/wurlitzer-200a-gjennom-en-moog-matriarch/video/</loc>
     <video:video>
       <video:title>Wurlitzer 200A gjennom en Moog Matriarch</video:title>
