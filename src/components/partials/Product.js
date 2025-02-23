@@ -98,7 +98,8 @@ const Product = ({ product, fullscreen }) => {
           },
         ],
         "shippingDetails": shippingDetailsSnippet,
-        "hasMerchantReturnPolicy": hasMerchantReturnPolicySnippet
+        "hasMerchantReturnPolicy": hasMerchantReturnPolicySnippet,
+        "sameAs": product.sameAs?.length && product.sameAs
       },
     }
     const snippet = {
@@ -162,7 +163,8 @@ const Product = ({ product, fullscreen }) => {
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://www.dehlimusikk.no"
-      }
+      },
+      "sameAs": product.sameAs?.length && product.sameAs
     }
     if (product?.ratingValue && product?.reviewCount) {
       snippet.aggregateRating = {

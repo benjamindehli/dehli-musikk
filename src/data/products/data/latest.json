@@ -17,7 +17,16 @@
             }
         },
         "ratingValue": "5",
-        "reviewCount": "3"
+        "reviewCount": "3",
+        "sameAs": [
+            "https://store.dehlimusikk.no/l/dxtraterrestrial-1",
+            "https://dehlimusikk.gumroad.com/l/dxtraterrestrial-1",
+            "https://www.cylex.no/bedrift-produkt/dxtraterrestrial+1_223147.html",
+            "https://www.youtube.com/watch?v=dW596gE4lxg",
+            "https://www.amazona.de/community/yamaha-dx-7-imitiert-yamaha-cs-80/",
+            "https://x.com/matrixsynth/status/1829910404991988214",
+            "https://www.matrixsynth.com/2024/08/custom-patches-for-yamaha-dx7.html"
+        ]
     },
     {
         "timestamp": 1723136400000,
@@ -37,7 +46,13 @@
             }
         },
         "ratingValue": "5",
-        "reviewCount": "1"
+        "reviewCount": "1",
+        "sameAs": [
+            "https://store.dehlimusikk.no/l/edb-orgel",
+            "https://dehlimusikk.gumroad.com/l/edb-orgel",
+            "https://www.cylex.no/bedrift-produkt/edb-orgel_223146.html",
+            "https://www.youtube.com/watch?v=hZNESXfthg0"
+        ]
     },
     {
         "timestamp": 1711914056000,
@@ -56,6 +71,13 @@
                 "no": "Gå til side for nedlasting"
             }
         },
-        "reviewCount": "0"
+        "reviewCount": "0",
+        "sameAs": [
+            "https://store.dehlimusikk.no/l/subc",
+            "https://dehlimusikk.gumroad.com/l/subc",
+            "https://www.cylex.no/bedrift-produkt/subc_223145.html",
+            "https://www.youtube.com/watch?v=yTpCq-qIIdY",
+            "https://www.pianobook.co.uk/packs/subc/"
+        ]
     }
 ]
