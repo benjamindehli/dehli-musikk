@@ -10,6 +10,7 @@ import Feeds from 'components/partials/Feeds';
 
 // Stylesheets
 import style from 'components/routes/Dashboard.module.scss';
+import LocalInventory from 'components/partials/LocalInventory';
 
 const Dashboard = () => {
 
@@ -49,6 +50,8 @@ const Dashboard = () => {
     <Sitemaps />
     <h2>Feeds</h2>
     <Feeds />
+    <h2>Local inventory</h2>
+    <LocalInventory />
   </div>)
 }
 
