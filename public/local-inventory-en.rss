@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<channel>
+<title>Products - Dehli Musikk</title>
+<link>https://www.dehlimusikk.no/</link>
+<description></description>
+<item>
+                <g:id>en-dxtraterrestrial-1</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-edb-orgel</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-subc</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-4-track-toy-piano</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-elektrisk-salmesykkel</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-stylopoly</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-strykebrett</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-4-track-glockenspiel</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-4-track-music-box</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-voltage-controlled-cassette-organ</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>5.00 USD</g:price>
+                </item>
+<item>
+                <g:id>en-omni-84</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                
+                </item>
+<item>
+                <g:id>en-lo-fi-tape-piano</g:id>
+                <g:store_code>04516683628261596954</g:store_code>
+                <g:availability>in stock</g:availability>
+                <g:price>4.99 USD</g:price>
+                </item>
+</channel>
+</rss>
