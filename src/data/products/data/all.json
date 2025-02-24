@@ -204,7 +204,13 @@
             }
         },
         "ratingValue": "5",
-        "reviewCount": "3"
+        "reviewCount": "3",
+        "sameAs": [
+            "https://store.dehlimusikk.no/l/4-track-glockenspiel",
+            "https://dehlimusikk.gumroad.com/l/4-track-glockenspiel",
+            "https://www.cylex.no/bedrift-produkt/4-track+glockenspiel_223140.html",
+            "https://www.youtube.com/watch?v=8g-XCw91hSc"
+        ],
     },
     {
         "timestamp": 1691539200000,
