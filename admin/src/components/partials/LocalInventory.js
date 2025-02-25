@@ -82,8 +82,8 @@ const LocalInventory = () => {
     };
 
     const renderIncludedDestinationElement = () => {
-        const includedDestination = "Free listings,Shopping ads,Free local listings";
-        return `<g:included_destination>${includedDestination}</g:included_destination>`;
+        const includedDestination = ["Free listings", "Shopping ads", "Free local listings"];
+        return includedDestination.map((destination) => `<g:included_destination>${destination}</g:included_destination>`).join("");
     };
 
     const renderStoreCodeElement = () => {
