@@ -8,7 +8,7 @@
         <g:id>no-dxtraterrestrial-1</g:id>
         <g:title>DXtraterrestrial 1</g:title>
         <g:description>DXtraterrestrial 1 er en samling av 32 patcher som inneholder varme og myke synth-pads, klare og lyse bjeller og plukkede lyder, digitale og glitchy lyder og alt i mellom. Disse patch&apos;ene er designet for å gi deg et bredt spekter av toner for enhver musikkstil. Enten du er interessert i retro synth-lyder, moderne lyder eller mer eksperimentelle ting.</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/dxtraterrestrial-1</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/dxtraterrestrial-1_540.9c46e70acbd80a6452d5.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -16,14 +16,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Patch library &gt; Yamaha DX7</g:product_type>
         </item>
 <item>
         <g:id>no-edb-orgel</g:id>
         <g:title>EDB-Orgel</g:title>
         <g:description>EDB-Orgel gir deg lyden av fire forskjellige digitale synth-typer med arbeidsflyten til et drawbar-orgel kombinert med en analog synthesizer. Brukergrensesnitt: Brukergrensesnittet gir presis kontroll over alle aspekter av instrumentet og effektene. Utforsk parametere for å justere lyden din, inkludert volumkontroll og valg av lydkilde for ni drawbars, ADSR-envelope, amplitudemodulasjon (tremolo) med LFO-er, anslagsfølsomhet, forskjellige filtertyper, høyttalersimulering, stereoeffekt og vibrato kontrollert av modulasjonshjulet. Faner: For å få plass til alle kontrollene, er de organisert inn i to faner og et dialogvindu. Knappen med et diskettikon åpner et dialogvindu for lasting av forhåndsdefinerte patcher. MIX/MOD-knappen lar deg veksle mellom en mikservisning med drawbars, og en modulasjonsvisning med forskjellige modulasjonskontroller for ytterligere lydtilpasning. Drawbars: Slipp løs kraften til ni drawbars for å forme orgelets tone med presisjon. Hver drawbar kontrollerer amplituden til en spesifikk harmonisk overtone, og gir deg uovertruffen kontroll over instrumentets harmoniske rikdom. Lydkilde 1 (64): MOS Technology 6581 Sound Interface Device (SID) ble brukt i enheter som Commodore 64 og Elektron SidStation. Lydkilde 2 (PD): Phase distortion synthesis er en teknikk som ble brukt i Casio-synthesizere fra CZ-serien, som Casio CZ-1 og Casio CZ-101. Lydkilde 3 (FM): Frequency modulation synthesis er en mye brukt teknikk i forskjellige enheter, inkludert AdLib og Sound Blaster lydkort, Sega Genesis (Mega Drive) videospillkonsoller og synthesizere som New England Digital Synclavier og Yamaha DX7. Lydkilde 4 (LA): Linear arithmetic synthesis er en metode som brukes i synthesizere som Roland MT-32 lydmodul og Roland D-50 synthesizer. ADSR-envelope: Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelopen deg skreddersy dynamikken etter din smak. Tremolo: Hastighets- (SPD) og dybde- (DPT)-kontrollene lar deg modulere amplituden til hver drawbar med ønsket hastighet og dybde ved hjelp av lavfrekvent oscillator (LFO). Anslagsfølsomhet: Bestemmer om anslagsstyrken skal påvirke volumet til hver drawbar. Filtre: EDB-Orgel har de forskjellige filtertypene du får fra SID-chipen. Dette er impulsresponser (IR) til filtrene i MOS Technology 6581-chipen. Cutoff frekvens og resonansmengde for hvert filter er satt til en fast verdi. DIR (direkte): Den direkte lyden fra linjeutgangen. SPK (høyttaler): Lyden av en liten datamaskinhøyttaler mikket opp med en Shure SM57. 1 høyttaler (mono): Stereoeffekten er deaktivert. 2 høyttalere (stereo): Stereoeffekt er aktivert. Utstyr som er brukt: Elektron SidStation, Casio CZ-101, Yamaha DX7 og Roland D-50. Teknisk spesifikasjon lydkilde-filer: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 1 (mono), antall lydfiler: 532 og filstørrelse: 974.80 MB. Teknisk spesifikasjon impulsrespons-filer: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 1 (mono), antall lydfiler: 8 og filstørrelse: 85.00 KB.</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/edb-orgel</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/edb-orgel_540.87589ec36a4187a18f58.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -31,14 +34,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-subc</g:id>
         <g:title>SubC</g:title>
         <g:description>SubC er et analog subbass lydbibliotek for Decent Sampler med triangelbølgeoscillator fra en Dreadbox Erebus v2 sent gjennom forskjellige forvrengningskretser og effekter. Instrument presets: SubC som er en preset med mono-lydfiler og SubC (Stereo) som er en preset med stereo-lydfiler. Dynamics: Bestemmer om anslaget skal påvirke volumet og forvrengningen. Saturation: Saturation-knotten mikser mellom rent signal og forvrengt signal. De rene lydene er tatt opp med en Roland PA-120 mikser. De forvrengte lydene er i tillegg sent gjennom en Hairball Audio FET/RACK (1176 kompressor) og en transformator- og diodevreng. Stereolydene er de samme som monolydene, men sendt gjennom en TC Electronic SCF Stereo Chorus Flanger i vibratomodus. Dette gir en mye bredere lyd, men med mindre bunn når den summeres til mono. Envelope: Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelope&apos;n deg skreddersy dynamikken etter din smak. Utstyr som er brukt: Dreadbox Erebus v2, Roland PA-120, Hairball Audio FET/RACK Revision D, Alex Franklinos Stereo Transformer Saturator og TC Electronic SCF Stereo Chorus Flanger. Teknisk spesifikasjon for mono-lydfiler: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 1 (mono), antall lydfiler: 108 og filstørrelse: 327.30 MB. Teknisk spesifikasjon for stereo-lydfiler: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 2 (stereo), antall lydfiler: 108 og filstørrelse: 654.20 MB.</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/subc</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/subc_540.1e1bc469feaf4f90dc34.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -46,14 +52,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-4-track-toy-piano</g:id>
         <g:title>4-track Toy Piano</g:title>
         <g:description>Et Kalikå Leksakspiano (toy piano) spilt inn på kassett og spilt av på halv hastighet og normal/original hastighet. Biblioteket inkluderer også impulsresponser for to typer båndekko og to typer romklang.</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/4-track-toy-piano</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/4-track-toy-piano_540.ded1e82cc0d3b2c60000.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -61,14 +70,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-elektrisk-salmesykkel</g:id>
         <g:title>Elektrisk Salmesykkel</g:title>
         <g:description>Elektrisk Salmesykkel er et lydbibliotek for Decent Sampler som inneholder lyder fra et Yamaha L-20D elektrisk harmonium / reed organ med noen ekstra funksjoner. Instrument presets: Lydbiblioteket inneholder 2 presets, den ordinære &quot;ElektriskSalmesykkel&quot; (best i de fleste tilfeller) og en loop-basert preset &quot;ElektriskSalmesykkel (Looped)&quot;. Med den ordinære har hver sample omtrent 16 sekunders varighet. For å få best mulig loop-punkt er noen av samplene korte og andre er lengre, i den loop-baserte preset&apos;en. Noen av disse vil også ha artifakter med loop-punktet. For best mulig lydkvalitet bør du alltid bruke den ordinære preset&apos;en ved mindre du trenger toner som varer lengre enn 16 sekunder i strekk. Brukergrensesnitt: Brukergrensesnittet lar deg kontrollere alle aspektene ved instrumentet og effektene. Utforsk parametere for å stille inn lyden din med kontroll over vindforsyning, lydtunger, tremulant, mekanisk støy og romklang. Normal / Full (Swell): Gradvis åpne opp klaffene til kamrene. Styrt med bruk av kneet på det originale instrumentet og med modulasjonshjulet i plugin&apos;en. Soft / Loud (Loudness): Bestemmer hvor mye luft som tilføres lydtungene. Diapason: Åpner kammeret permanent for diapason-lydtungene. Close: Begge kamrene er lukket. Viola: Åpner kammeret permanent for bratsj-lydtungene. Tremulant: Tremulant varierer lufttilførselen til lydtungene. Spakene lar deg justere tremulanten med ønsket styrke og hastighet. Normal / Tremulant (Depth): Juster styrken til tremulanten. Slow / Fast (Rate): Juster hastigheten til tremulanten. Silent / Noisy: Mengden mekanisk støy fra tangentene når man presser dem ned og slipper dem opp. Reverb: Romklangen er fra en Chase Bliss Audio &amp; Meris CXM 1978 klang-pedal. Den korte klangen er som er et lite, intimt rom, og den lange er mer som en kirke med lang etterklangstid. On / Off: Skrur av og på romklang-effekten. Church / Home: Bytter mellom et stort rom (kirke) et lite rom (hjem). Dry / Wet: Miks mellom direktelyd (dry) og romklang (wet).</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/elektrisk-salmesykkel</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/elektrisk-salmesykkel_540.e2defd295569ef67359c.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -76,14 +88,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-stylopoly</g:id>
         <g:title>StyloPoly</g:title>
         <g:description>StyloPoly er et lydbibliotek for Decent Sampler som inneholder lyder fra en Dubreq Stylophone S-1 med noen ekstra funksjoner. Brukergrensesnitt: Brukergrensesnittet lar deg kontrollere alle aspektene ved instrumentet og effektene. Utforsk parametere for å stille inn lyden din med kontroll over lydmikseren, envelope, pitch-modulasjon med LFO-er, høypass- og lavpassfiltre, anslagsfølsomhet, høytalersimulator og effekter for echo and reverb. Keyboard - Mono / Poly: Spill av én tone omgangen, som på en Stylophone eller flere toner på én gang. Keyboard - Static / Dynamic: Bestemmer om anslagsstyrken skal påvirke volumet på lyden. Envelope: Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelope&apos;n deg skreddersy dynamikken etter din smak. Mixer: Den originale Stylophone&apos;n lar deg kun velge én lyd om gangen, men med StyloPoly kan du mikse mellom alle tre lydene på likt. Noise - Attack: Sprakelyder når pennen treffer kontaktflaten. Noise -  Release: Sprakelyder når pennen forlater kontaktflaten. Vibrato: Rate- og Depth-knottene lar deg modulere tonehøyden til lyden med den ønskede dybden og hastigheten ved bruk av en Low-Frequency Oscillator (LFO). Med begge knottene i midtposisjon vil du få omtrent samme vibrato som på en original Stylophone. Output - Line out / Speaker: Velg mellom direktelyden fra linjeutgangen eller lyden av den interne høytaleren mikket opp med en Shure SM57. High Pass Filter and Low Pass Filter: StyloPoly har et høypassfilter og et lavpassfilter. Høypassfilteret kan justeres fra 20 Hz til 2000 Hz, mens lavpassfilteret kan justeres fra 200 Hz til 22000 Hz. Effects: Ekko-effekten er en Fulltone Tube Tape Echo (båndekko) spilt inn to ganger for stereo, mens reverb-effekten er en Chase Bliss Audio &amp; Meris CXM 1978 klang-pedal satt til romklang. Echo: Velg mellom to typer ekko: &quot;Short&quot;, som gir en klassisk slapback-effekt, og &quot;long&quot;, er en langsom ekko med mange repetisjoner. Reverb: Du finner også to romklangeffekter: &quot;Short&quot;, som er et lite, intimt rom, og &quot;long&quot;, som er et stort rom med lang etterklangstid. Preset: Noen av forhåndsinnstillingene er i tro til den originale Stylophone&apos;n og noen av dem utnytter seg av de ekstra funksjonalitetene StyloPoly tilbyr. Forhåndsinnstillingene påvirker kun kontrollelementene som allerede er tilgjengelig i brukergrensesnittet. De er ikke ment til å låte som ekte piano, cembalo, clavinet, osv. Navnene er mer ment som en måte å beskrive klangen i lyden.</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/stylopoly</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/stylopoly_540.1bbfff34813c9de13255.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -91,14 +106,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-strykebrett</g:id>
         <g:title>Strykebrett</g:title>
         <g:description>Strykebrett er et lydbibliotek for Decent Sampler som inneholder lyder fra en Hohner / Logan String Melody II med noen ekstra funksjoner. Brukergrensesnitt: Brukergrensesnittet lar deg kontrollere alle aspektene ved instrumentet og effektene. Utforsk parametere for å stille inn lyden din med kontroll over seks drawbars, envelope, amplitudemodulasjon med LFO-er, høypass- og lavpassfiltre, anslagsfølsomhet, oscillator-ujevnheter og effekter for ensemble, phaser, ekko og romklang. Mixer (Bass / Treble): Hver drawbar kontrollerer amplituden til en spesifikk oktav eller lyd. ADSR-envelope: Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelope&apos;n deg skreddersy dynamikken etter din smak. Low-frequency Oscillator (LFO): Rate- og Depth-knottene lar deg modulere amplituden til fire av drawbars&apos;ene med ønsket dybde og hastighet. LFO&apos;ene for diskant-delen har en sinuskurve for myke overganger. LFO&apos;en for bass-delen har en sagtannkurve for en mer rytmisk effekt. Voltage Controlled Filter (VCF): Strykebrett har et høypassfilter og et lavpassfilter. Høypassfilteret kan justeres fra 20 Hz til 2000 Hz, mens lavpassfilteret kan justeres fra 200 Hz til 8000 Hz. Oscillators - Dyn: Skrur av og på om amplitude skal være styrt av anslagsfølsomhet Oscillators - Drift: Når den er aktivert får får hver sample en liten pitch-ujevnhet. Ujevnhetene for hver sample er individuell. Det er mindre ujevnheter i bass samplene enn i de lyse. Ensemble - O: 3 stereo-choruse&apos;r med forskjellig fart og intensitet. Ensemble - Acc: Skrur av ensemble-effekten. Ensemble - Solo: Rask stereo-vibrato. Ensemble - Organ: En sakte stereo-chorus. Effekter: Phaser-effekten er den innebygde i Decent Sampler, mens ekko og klang er selvlagde impulsresponser. Ekko-effekten er en Fulltone Tube Tape Echo (båndekko) spilt inn to ganger for stereo, mens reverb-effekten er en Chase Bliss Audio &amp; Meris CXM 1978 klang-pedal satt til romklang. Ekko: Velg mellom to typer ekko: &quot;Short&quot;, som gir en klassisk slapback-effekt, og &quot;long&quot;, er en langsom ekko med mange repetisjoner. Reverb: Du finner også to romklangeffekter: &quot;Short&quot;, som er et lite, intimt rom, og &quot;long&quot;, som er et stort rom med lang etterklangstid.</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/strykebrett</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/strykebrett_540.aff293fc2f13aac08a81.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -106,14 +124,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-4-track-glockenspiel</g:id>
         <g:title>4-track Glockenspiel</g:title>
         <g:description>Klokkespill spilt inn på kassett og spilt av på halv hastighet og normal/original hastighet. Biblioteket inkluderer også impulsresponser for to typer båndekko og to typer romklang.</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/4-track-glockenspiel</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/4-track-glockenspiel_540.b6891497db3554b4de57.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -121,14 +142,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-4-track-music-box</g:id>
         <g:title>4-track Music Box</g:title>
         <g:description>En spilledåse spilt inn på kassett og spilt av på halv hastighet og normal/original hastighet. Biblioteket inkluderer også impulsresponser for to typer båndekko og to typer romklang.</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/4-track-music-box</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/4-track-music-box_540.53988b52ccdf44931f75.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -136,14 +160,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-voltage-controlled-cassette-organ</g:id>
         <g:title>Voltage Controlled Cassette Organ</g:title>
         <g:description>Med Voltage Controlled Cassette Organ får du den ikoniske lyden av Korg CX-3 sammen med den umiskjennelige sjarmen til kassettopptak. Den fanger essensen av organets analoge oscillatorer så vel som pitch-fluktuasjonen, harmonisk forvrengning og farging forbundet med kassettopptak. Hver tone for hver drawbar og &quot;key click&quot;, har blitt samplet som individuelle lydfiler, noe som gir autentisk og detaljrik lyd. Innspillingene har blitt gjort to ganger på kassettbånd, noe som resulterer i en &quot;double track&quot;-effekt som tilfører dybde. Takket være ujevnhetene til mekanikken i båndopptakeren og selve båndet, gir hver avspilling et litt annerledes resultat. Biblioteket inkluderer også impulsresponser for to typer båndekko og to typer romklang. Historien bak: Jeg oppdaget at når jeg tok opp Korg CX-3 på kassettbånd, dukket det opp noen artefakter som forvandlet lyden. Wow- og flutter-effektene, sammen med de tilfeldige fluktueringene, skapte en bevegelse i lyden som minner om chorus/vibrato-effekt eller dopplereffekten fra en roterende høyttaler. I motsetning til tradisjonelle modulasjonseffektene med jevn hastighet, introduserte kassettbåndet en mer tilfeldig og organisk modulasjon. Instrument-presets: For å sikre optimal ytelse og fleksibilitet tilbyr biblioteket to presets: En ganske ressurskrevende &quot;All Drawbars&quot;-preset med 9 drawbars og en &quot;Single Drawbar&quot;-preset som sparer ressurser ved å spille av færre lydfiler per tangent. Preset&apos;en &quot;Single Drawbar&quot; har imidlertid lydfiler fra forskjellige drawbars for et utvidet oktavspenn. All Drawbars: Preset&apos;en &quot;All Drawbars&quot; spiller av 20 forskjellige lydfiler per tangent, noe som resulterer i en rik og kompleks lyd. Det krever imidlertid betydelige ressurser, spesielt når du spiller breie akkorder. Single Drawbar: Som et mer ressursvennlig alternativ spiller preset&apos;en &quot;Single Drawbar&quot; bare fire lydfiler per tangent. Denne preset&apos;en inneholder også ekstra knotter for justering av decay-kurve og release-kurve for envelope&apos;n. Brukergrensesnitt: Utforsk parametere for å stille inn lyden din med kontroll over ni drawbars, &quot;key click&quot;, envelope, amplitudemodulasjon med LFO-er, &quot;double track&quot; og effekter for ekko og romklang. ADSR-envelope: Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelope&apos;n deg skreddersy dynamikken etter din smak. Envelope-kurver: For enda mer kontroll over envelope&apos;n kan du endre kurven for attack-tid. Preset&apos;en &quot;Single Drawbar&quot; har også to ekstra knotter for decay-kurve og release-kurve. Decay-kurven og release-kurven er eksponentielle for preset&apos;en &quot;All Drawbars&quot;. LFO: LFO Rate og LFO Depth-knappene lar deg modulere amplituden til drawbars&apos;ene med ønsket dybde og hastighet. Drawbars: Hver drawbar kontrollerer amplituden til en spesifikk harmonisk overtone. Key click: Key click gir en liten transient i starten av anslaget og kan f.eks brukes til å emulere en stikke som slår på et slaginstrument eller et plekter som plukker en streng. Double track: Hver lydfil har blitt spilt inn to ganger og kan mikses sammen for en &quot;chorus&quot;-effekt eller panoreres for en stereoeffekt. På grunn av båndmaskin-mekanikken og selve båndet, vil lyden være litt annerledes for hver gang den tas opp og spilles av. Effekter: Ekko-effekten er en Fulltone Tube Tape Echo (båndekko) spilt inn to ganger for stereo, mens reverb-effekten er en Chase Bliss Audio &amp; Meris CXM 1978 klang-pedal satt til romklang. Ekko: Velg mellom to typer ekko: &quot;Short&quot;, som gir en klassisk slapback-effekt, og &quot;long&quot;, er en langsom ekko med mange repetisjoner. Reverb: Du finner også to romklangeffekter: &quot;Short&quot;, som er et lite, intimt rom, og &quot;long&quot;, som er et stort rom med lang etterklangstid.</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/voltage-controlled-cassette-organ</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_540.92e0c872765155a29b23.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -151,14 +178,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-omni-84</g:id>
         <g:title>Omni-84</g:title>
         <g:description>Alle lydene fra Omnichord&apos;en har blitt samplet. Jeg har også lagt til effektene jeg pleier å bruke på Omnichord som en impulsrespons kalt &quot;space&quot;. For øyeblikket produseres ikke Omnichord og prisene på bruktmarkedet har skutt i været. Dette er mitt forsøk på å gjøre lyden av Omnichord mer tilgjengelig. Dette lydbiblioteket inneholder 5 presets, én for hver del av Omnichord&apos;en. Trommer, bass, akkorder, keyboard og SonicStrings</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/omni-84</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/omni-84_540.27c8d8cdd7855ea65152.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -166,14 +196,17 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
         </item>
 <item>
         <g:id>no-lo-fi-tape-piano</g:id>
         <g:title>Lo-fi Tape Piano</g:title>
         <g:description>Lo-fi Tape Piano fra Dehli Musikk inneholder lyder av en Louis Zwicki Pianette som er spilt inn med kassettopptaker og 3 forskjellige mikrofoner. Forsforsterkerene på kassettopptakeren overstyrer litt og gir ekstra overtoner and kassettbåndet gir kompresjon i tilegg til små endringer i tonehøyde (&apos;wow&apos; og &apos;flutter&apos;). Om du vil ha lyden av et perfekt intonert og regulert piano, er nok ikke dette produktet det du er på jakt etter. Dette låter mer som en Mellotron- / Chamberlin-versjon av en Pianette. Lydpakken inneholder 328 .WAV-filer (637,8 MB) og 3 .EXS-filer (295 KB).</g:description>
-        <g:link>https://www.dehlimusikk.no/products/</g:link>
+        <g:link>https://www.dehlimusikk.no/products/lo-fi-tape-piano</g:link>
         <g:image_link>https://www.dehlimusikk.no/static/media/lo-fi-tape-piano_540.071b4242661ed8e9aecd.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
@@ -181,8 +214,11 @@
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
-        <g:included_destination>Free listings,Shopping ads,Free local listings</g:included_destination>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
         <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; EXS24</g:product_type>
         </item>
 </channel>
 </rss>
