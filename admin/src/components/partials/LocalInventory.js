@@ -66,6 +66,11 @@ const LocalInventory = () => {
         return `<g:brand>${brand}</g:brand>`;
     };
 
+    const renderProductTypeElement = (product) => {
+        const productType = product.productType.join(" &gt; ");
+        return `<g:product_type>${productType}</g:product_type>`;
+    };
+
     const renderGoogleProductCategoryElement = () => {
         const googleProductCategory = "313";
         return `<g:google_product_category>${googleProductCategory}</g:google_product_category>`;
@@ -83,7 +88,9 @@ const LocalInventory = () => {
 
     const renderIncludedDestinationElement = () => {
         const includedDestination = ["Free listings", "Shopping ads", "Free local listings"];
-        return includedDestination.map((destination) => `<g:included_destination>${destination}</g:included_destination>`).join("");
+        return includedDestination
+            .map((destination) => `<g:included_destination>${destination}</g:included_destination>`)
+            .join("\n");
     };
 
     const renderStoreCodeElement = () => {
@@ -119,6 +126,7 @@ const LocalInventory = () => {
         ${renderAdultElement()}
         ${renderIncludedDestinationElement()}
         ${renderBrandElement()}
+        ${renderProductTypeElement(product)}
         </item>\n`;
                   })
                   .join("")
