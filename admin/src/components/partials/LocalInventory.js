@@ -104,9 +104,7 @@ const LocalInventory = () => {
         return products?.length
             ? products
                   .map((product) => {
-                      const url = `${languageSlug[languageKey]}products/${convertToUrlFriendlyString(
-                          product.title[languageKey]
-                      )}`;
+                      const url = `${languageSlug[languageKey]}products/${convertToUrlFriendlyString(product.title)}`;
                       return `<item>
         ${renderIdElement(product, languageKey)}
         ${renderTitleElement(product.title)}
