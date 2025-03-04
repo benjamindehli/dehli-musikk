@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/suzuki-omnichord-gjennom-en-moog-matriarch/video/</loc>
+    <video:video>
+      <video:title>Suzuki Omnichord gjennom en Moog Matriarch</video:title>
+      <video:description>Bruker Moog Matriarch som en effektenhet til Suzuki Omnichord OM-84. Omnichord&apos;en er koblet til mikseren på Matriarch&apos;en og sendt gjennom filtrene og delay-kretsen. Instrumenter:Suzuki Omnichord System Two OM-84 og Moog Matriarch. Effekter: Moog Matriarch&apos;s innebygde filtre og stereo-delay, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor og Handsome Audio Zulu.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tep32jBd1j0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-03-03-00_540.f6db59097c69e4bab475.jpg</video:thumbnail_loc>
+      <video:duration>352</video:duration>
+      <video:publication_date>2025-03-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/running-a-suzuki-omnichord-through-the-moog-matriarch/video/</loc>
+    <video:video>
+      <video:title>Running a Suzuki Omnichord through the Moog Matriarch</video:title>
+      <video:description>Using the Moog Matriarch as an effects unit for a Suzuki Omnichord OM-84. The Omnichord is connected into the mixer section on the Matriarch and processed through its filters and bucket brigade delay. Instruments: Suzuki Omnichord System Two OM-84 and Moog Matriarch. Effects: Moog Matriarch&apos;s built-in filters and stereo delay, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor and Handsome Audio Zulu.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=tep32jBd1j0</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-03-03-00_540.f6db59097c69e4bab475.jpg</video:thumbnail_loc>
+      <video:duration>352</video:duration>
+      <video:publication_date>2025-03-03</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/baandekkolyd-med-en-yamaha-dx7/video/</loc>
     <video:video>
       <video:title>Båndekkolyd med en Yamaha DX7</video:title>
