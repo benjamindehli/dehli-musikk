@@ -283,6 +283,7 @@
         },
         "thumbnailDescription": "The Omni-84 user interface and a Suzuki Omnichord OM-84 System Two",
         "price": "0.01",
+        "priceCurrency": "USD",
         "link": {
             "url": "https://store.dehlimusikk.no/l/omni-84",
             "text": {
