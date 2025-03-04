@@ -192,7 +192,7 @@
         <g:image_link>https://www.dehlimusikk.no/static/media/omni-84_540.27c8d8cdd7855ea65152.jpg</g:image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
-        
+        <g:price>0.01 USD</g:price>
         <g:google_product_category>313</g:google_product_category>
         <g:identifier_exists>no</g:identifier_exists>
         <g:adult>no</g:adult>
