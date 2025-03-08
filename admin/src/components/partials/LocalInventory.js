@@ -25,11 +25,9 @@ const LocalInventory = () => {
         en: useSelector((state) => getLanguageSlugByKey(state, "en"))
     };
 
-    const getImageUrlFromProduct = (product) => {
-        const format = "jpg";
-        const size = 540;
-        const imagePath = `data/products/thumbnails/web/${format}/${convertToUrlFriendlyString(product.title)}`;
-        const imageUrl = require(`../../${imagePath}_${size}.${format}`);
+    const getImageUrlFromProductFileName = (fileName) => {
+        const imagePath = `data/products/thumbnails/merchantCenter/${fileName}`;
+        const imageUrl = require(`../../${imagePath}`);
         return imageUrl;
     };
 
@@ -51,9 +49,21 @@ const LocalInventory = () => {
     };
 
     const renderImageLinkElement = (product) => {
-        const imageUrl = getImageUrlFromProduct(product);
+        const imageUrl = getImageUrlFromProductFileName(product.mainImage);
         const absoluteImageUrl = `https://www.dehlimusikk.no${imageUrl}`;
         return `<g:image_link>${absoluteImageUrl}</g:image_link>`;
+    };
+
+    const renderAdditionalImageLinkElements = (product) => {
+        return product.additionalImages
+            ? product.additionalImages
+                  .map((additionalImage) => {
+                      const imageUrl = getImageUrlFromProductFileName(additionalImage);
+                      const absoluteImageUrl = `https://www.dehlimusikk.no${imageUrl}`;
+                      return `<g:additional_image_link>${absoluteImageUrl}</g:additional_image_link>`;
+                  })
+                  .join("\n")
+            : "";
     };
 
     const renderConditionElement = () => {
@@ -118,6 +128,7 @@ const LocalInventory = () => {
         ${renderDescriptionElement(product.content[languageKey])}
         ${renderLinkElement(url)}
         ${renderImageLinkElement(product)}
+        ${renderAdditionalImageLinkElements(product)}
         ${renderConditionElement()}
         ${renderAvailabilityElement()}
         ${renderPriceElement(product?.price, product?.priceCurrency)}
