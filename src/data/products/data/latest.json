@@ -27,7 +27,9 @@
             "https://x.com/matrixsynth/status/1829910404991988214",
             "https://www.matrixsynth.com/2024/08/custom-patches-for-yamaha-dx7.html"
         ],
-        "productType": ["Patch library", "Yamaha DX7"]
+        "productType": ["Patch library", "Yamaha DX7"],
+        "mainImage": "dxtraterrestrial-1.jpg",
+        "additionalImages": ["dxtraterrestrial-1_01.jpg"]
     },
     {
         "timestamp": 1723136400000,
@@ -54,7 +56,9 @@
             "https://www.cylex.no/bedrift-produkt/edb-orgel_223146.html",
             "https://www.youtube.com/watch?v=hZNESXfthg0"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "edb-orgel.jpg",
+        "additionalImages": ["edb-orgel_01.png", "edb-orgel_02.png", "edb-orgel_03.png"]
     },
     {
         "timestamp": 1711914056000,
@@ -81,6 +85,8 @@
             "https://www.youtube.com/watch?v=yTpCq-qIIdY",
             "https://www.pianobook.co.uk/packs/subc/"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "subc.jpg",
+        "additionalImages": ["subc_01.png", "subc_02.png", "subc_03.png"]
     }
 ]

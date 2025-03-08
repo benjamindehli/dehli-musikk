@@ -27,7 +27,9 @@
             "https://x.com/matrixsynth/status/1829910404991988214",
             "https://www.matrixsynth.com/2024/08/custom-patches-for-yamaha-dx7.html"
         ],
-        "productType": ["Patch library", "Yamaha DX7"]
+        "productType": ["Patch library", "Yamaha DX7"],
+        "mainImage": "dxtraterrestrial-1.jpg",
+        "additionalImages": ["dxtraterrestrial-1_01.jpg"]
     },
     {
         "timestamp": 1723136400000,
@@ -54,7 +56,9 @@
             "https://www.cylex.no/bedrift-produkt/edb-orgel_223146.html",
             "https://www.youtube.com/watch?v=hZNESXfthg0"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "edb-orgel.jpg",
+        "additionalImages": ["edb-orgel_01.png", "edb-orgel_02.png", "edb-orgel_03.png"]
     },
     {
         "timestamp": 1711914056000,
@@ -81,7 +85,9 @@
             "https://www.youtube.com/watch?v=yTpCq-qIIdY",
             "https://www.pianobook.co.uk/packs/subc/"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "subc.jpg",
+        "additionalImages": ["subc_01.png", "subc_02.png", "subc_03.png"]
     },
     {
         "timestamp": 1710965029000,
@@ -108,7 +114,16 @@
             "https://www.cylex.no/bedrift-produkt/4-track-toy-piano_223144.html",
             "https://www.youtube.com/watch?v=igZ9TCwIJpw"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "4-track-toy-piano.jpg",
+        "additionalImages": [
+            "4-track-toy-piano_01.jpg",
+            "4-track_01.png",
+            "4-track_02.png",
+            "4-track_03.png",
+            "4-track_04.png",
+            "4-track_05.png"
+        ]
     },
     {
         "timestamp": 1707685200000,
@@ -135,7 +150,16 @@
             "https://www.cylex.no/bedrift-produkt/elektrisk-salmesykkel_223143.html",
             "https://www.youtube.com/watch?v=MWzlTejTHSw"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "elektrisk-salmesykkel.jpg",
+        "additionalImages": [
+            "elektrisk-salmesykkel_01.png",
+            "elektrisk-salmesykkel_02.png",
+            "elektrisk-salmesykkel_03.png",
+            "elektrisk-salmesykkel_04.png",
+            "elektrisk-salmesykkel_05.png",
+            "elektrisk-salmesykkel_06.png"
+        ]
     },
     {
         "timestamp": 1704585600000,
@@ -163,7 +187,20 @@
             "https://www.youtube.com/watch?v=H_-g8gjE0EM",
             "https://www.pianobook.co.uk/packs/stylopoly/"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "stylopoly.jpg",
+        "additionalImages": [
+            "stylopoly_01.png",
+            "stylopoly_02.png",
+            "stylopoly_03.png",
+            "stylopoly_04.png",
+            "stylopoly_05.png",
+            "stylopoly_06.png",
+            "stylopoly_07.png",
+            "stylopoly_08.png",
+            "stylopoly_09.png",
+            "stylopoly_10.png"
+        ]
     },
     {
         "timestamp": 1697407200000,
@@ -191,7 +228,19 @@
             "https://www.youtube.com/watch?v=GyRbgZarPm4",
             "https://www.pianobook.co.uk/packs/strykebrett/"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "strykebrett.jpg",
+        "additionalImages": [
+            "strykebrett_01.png",
+            "strykebrett_02.png",
+            "strykebrett_03.png",
+            "strykebrett_04.png",
+            "strykebrett_05.png",
+            "strykebrett_06.png",
+            "strykebrett_07.png",
+            "strykebrett_08.png",
+            "strykebrett_09.png"
+        ]
     },
     {
         "timestamp": 1692474773000,
@@ -218,7 +267,16 @@
             "https://www.cylex.no/bedrift-produkt/4-track+glockenspiel_223140.html",
             "https://www.youtube.com/watch?v=8g-XCw91hSc"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "4-track-glockenspiel.jpg",
+        "additionalImages": [
+            "4-track-glockenspiel_01.jpg",
+            "4-track_01.png",
+            "4-track_02.png",
+            "4-track_03.png",
+            "4-track_04.png",
+            "4-track_05.png"
+        ]
     },
     {
         "timestamp": 1691539200000,
@@ -245,7 +303,16 @@
             "https://www.cylex.no/bedrift-produkt/4-track+music+box_223139.html",
             "https://www.youtube.com/watch?v=uBB4RNMrEXc"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "4-track-music-box.jpg",
+        "additionalImages": [
+            "4-track-music-box_01.jpg",
+            "4-track_01.png",
+            "4-track_02.png",
+            "4-track_03.png",
+            "4-track_04.png",
+            "4-track_05.png"
+        ]
     },
     {
         "timestamp": 1687737600000,
@@ -272,7 +339,20 @@
             "https://www.youtube.com/watch?v=0h4CQ6jh6yM",
             "https://www.pianobook.co.uk/packs/voltage-controlled-cassette-organ/"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "voltage-controlled-cassette-organ.jpg",
+        "additionalImages": [
+            "voltage-controlled-cassette-organ_01.png",
+            "voltage-controlled-cassette-organ_02.png",
+            "voltage-controlled-cassette-organ_03.png",
+            "voltage-controlled-cassette-organ_04.png",
+            "voltage-controlled-cassette-organ_05.png",
+            "voltage-controlled-cassette-organ_06.png",
+            "voltage-controlled-cassette-organ_07.png",
+            "voltage-controlled-cassette-organ_08.png",
+            "voltage-controlled-cassette-organ_09.png",
+            "voltage-controlled-cassette-organ_10.png"
+        ]
     },
     {
         "timestamp": 1680811200000,
@@ -301,7 +381,17 @@
             "https://www.youtube.com/watch?v=qGyaNVAG-js",
             "https://www.pianobook.co.uk/packs/omni-84/"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"]
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "omni-84.jpg",
+        "additionalImages": [
+            "omni-84_01.jpg",
+            "omni-84_02.png",
+            "omni-84_03.png",
+            "omni-84_04.png",
+            "omni-84_05.png",
+            "omni-84_06.png",
+            "omni-84_07.png"
+        ]
     },
     {
         "timestamp": 1589673600000,
@@ -326,6 +416,8 @@
             "https://www.cylex.no/bedrift-produkt/lo-fi+tape+piano_223136.html",
             "https://www.youtube.com/watch?v=2k1QpuwCZzk"
         ],
-        "productType": ["Sample instruments", "EXS24"]
+        "productType": ["Sample instruments", "EXS24"],
+        "mainImage": "lo-fi-tape-piano.jpg",
+        "additionalImages": ["lo-fi-tape-piano_01.jpg"]
     }
 ]
