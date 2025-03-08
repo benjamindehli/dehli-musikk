@@ -26,8 +26,7 @@ const LocalInventory = () => {
     };
 
     const getImageUrlFromProductFileName = (fileName) => {
-        const imagePath = `data/products/thumbnails/merchantCenter/${fileName}`;
-        const imageUrl = require(`../../${imagePath}`);
+        const imageUrl = `/product-images/${fileName}`;
         return imageUrl;
     };
 
