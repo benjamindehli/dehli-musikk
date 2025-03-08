@@ -9,7 +9,8 @@
         <g:title>DXtraterrestrial 1</g:title>
         <g:description>DXtraterrestrial 1 is a collection of 32 patches containing warm and lush synth pads, crisp and bright bells and plucked sounds, digital and glitchy sounds and anything in between. These presets are designed to give you a wide range of tones for any music style. Whether you&apos;re into retro synth sounds, modern vibes or more experimental stuff.</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/dxtraterrestrial-1</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/dxtraterrestrial-1_540.9c46e70acbd80a6452d5.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/dxtraterrestrial-1.d6bf8c96b63cd016a244.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/dxtraterrestrial-1_01.a13400bdd16538958a52.jpg</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -27,7 +28,10 @@
         <g:title>EDB-Orgel</g:title>
         <g:description>EDB-Orgel delivers the sound of four different digital synthesis types with the workflow of a drawbar organ combined with an analog synthesizer. User Interface: The user interface offers precise control over every aspect of the instrument and effects. Explore parameters to refine your sound, including volume control and sound source selection for the nine drawbars, ADSR envelope, amplitude modulation (tremolo) with LFOs, velocity sensitivity, different filter types, speaker simulation, stereo widener and vibrato controlled by the modulation wheel. Tabs: To accommodate all the controls, they are organized into two separate tabs and a dialog window. The button with a floppy disk icon, opens a dialog window for loading predefined patches. The MIX/MOD button allows you to toggle between a mixer view with drawbars, and a modulation view with various modulation controls for further sound customization. Drawbars: Unleash the power of the nine drawbars to shape your organ&apos;s tone with precision. Each drawbar controls the amplitude of a specific harmonic overtone, offering you unparalleled control over the instrument&apos;s harmonic richness. Sound source 1 (64): The MOS Technology 6581 Sound Interface Device (SID) was used in devices such as the Commodore 64 and Elektron SidStation. Sound source 2 (PD): Phase distortion synthesis is a technique that was used in Casio synthesizers from the CZ range, such as the Casio CZ-1 and the Casio CZ-101. Sound source 3 (FM): Frequency modulation synthesis is a widely used technique in various devices including AdLib and Sound Blaster sound cards, Sega Genesis (Mega Drive) video game consoles, and synthesizers like the New England Digital Synclavier and the Yamaha DX7. Sound source 4 (LA): Linear arithmetic synthesis is a method used in synthesizers such as the Roland MT-32 sound module and the Roland D-50 synthesizer. ADSR Envelope: Shape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking. Tremolo: The speed (SPD) and depth (DPT) controls enable you to modulate the amplitude of the drawbars with the desired speed and depth using the Low-Frequency Oscillator (LFO). Velocity sensitivity: Determines whether the velocity should affect the volume of the drawbar. Filters: EDB-Orgel features the different filter types you get from the SID chip. These are impulse responses (IR) of the filters in the MOS Technology 6581 chip. Cutoff frequency and resonance amount for each filter is set to a fixed value. DIR (Direct): The direct sound of the line output. SPK (Speaker): The sound of a tiny computer speaker miced with a Shure SM57. 1 speaker (mono): Stereo effect is disabled. 2 speakers (stereo): Stereo effect is enabled. Equipment used: Elektron SidStation, Casio CZ-101, Yamaha DX7 and Roland D-50. Technical specification for samples: Sample rate: 48 kHz, bit depth: 24 bit, channels: 1 (mono), number of files: 532 and file size: 974.80 MB. Technical specification for impulse responses: Sample rate: 48 kHz, bit depth: 24 bit, channels: 1 (mono), number of files: 8 and file size: 85.00 KB.</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/edb-orgel</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/edb-orgel_540.87589ec36a4187a18f58.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/edb-orgel.e4e808488d95acda1ecb.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/edb-orgel_01.fa8805a214b23f5d5bf0.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/edb-orgel_02.7752de9821a1a5374a18.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/edb-orgel_03.549a09b50688dd415bf3.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -45,7 +49,10 @@
         <g:title>SubC</g:title>
         <g:description>SubC is a analog sub bass sample library for DecentSampler featuring a Dreadbox Erebus v2 triangle wave oscillator ran through different saturation circuits and effects. Instrument presets: SubC which is a preset with mono samples and SubC (Stereo) which is a preset with stereo samples. Dynamics: Determines whether the velocity should affect the volume and distortion. Saturation: The saturation knob blends between the clean samples and the distorted samples. The clean samples are recorded through a Roland PA-120 mixer. The distorted/saturated samples are additionally sent through a Hairball Audio FET/RACK (1176 compressor) and a transformer and diode saturator. The stereo samples are the same as the mono samples, but sent through a TC Electronic SCF Stereo Chorus Flanger in vibrato mode. This gives a much wider sound, but less bottom end when summed to mono. Envelope: Shape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking. Equipment used: Dreadbox Erebus v2, Roland PA-120, Hairball Audio FET/RACK Revision D, Alex Franklinos Stereo Transformer Saturator and TC Electronic SCF Stereo Chorus Flanger. Technical specification for mono samples: Sample rate: 48 kHz, bit depth: 24 bit, channels: 1 (mono), number of files: 108 and file size: 327.30 MB. Technical specification for  stereo samples: Sample rate: 48 kHz, bit depth: 24 bit, channels: 2 (stereo), number of files: 108 and file size: 654.20 MB.</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/subc</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/subc_540.1e1bc469feaf4f90dc34.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/subc.38f940b1357a8d0d1454.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/subc_01.7547f7909fd7098d8038.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/subc_02.578f4b5f993ebe02ef31.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/subc_03.7340e9f20267b443ada5.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -63,7 +70,13 @@
         <g:title>4-track Toy Piano</g:title>
         <g:description>A Kalikå Leksakspiano (toy piano) recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch. It also includes impulse responses for two tape delay/echo types and two room reverbs.</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/4-track-toy-piano</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/4-track-toy-piano_540.ded1e82cc0d3b2c60000.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/4-track-toy-piano.a0c2e1f176153495123d.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track-toy-piano_01.8215976121d500ae2f95.jpg</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_01.f65a105138e5ed30c02c.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_02.39522ad177ad0d48e262.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_03.b9adc0e122d7a8210f1a.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_04.f4d896945c5c9a175980.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_05.48be8be97e0a31cdb019.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -81,7 +94,13 @@
         <g:title>Elektrisk Salmesykkel</g:title>
         <g:description>Elektrisk Salmesykkel is a sample library for Decent Sampler featuring the Yamaha L-20D electric harmonium / reed organ with some added features. Instrument presets: This sample library includes 2 presets, the regular preset &quot;ElektriskSalmesykkel&quot; (best in most cases) and the looped preset &quot;ElektriskSalmesykkel (Looped)&quot;. For the regular version, each sample are approximately 16 seconds long. For the looped version, to achieve the best possible loop point, some of the loops are short and some are longer. Some of the loops will however have some minor artifacts. For best audio quality, you should always use the regular version. And only if you have notes held for more than 16 seconds, use the the looped version. User interface: The user interface offers precise control over every aspect of the instrument and effects. Explore parameters to refine your sound, including control over the wind supply, reeds, tremulant, mechanical noise and reverb. Normal / Full (Swell): Gradually open up the swell chambers. Controlled by a knee lever on the original instrument and with the modulation wheel in the plugin. Soft / Loud (Loudness): Determines how much air flows through the reeds. Diapason: Permanently opens the swell chamber for the diapason reeds. Close: Both swell chambers is closed. Diapason: Permanently opens the swell chamber for the viola reeds. Tremulant: Tremulant varies the wind supply to the reeds. The controls enable you to adjust the tremulant with the desired depth and rate. Normal / Tremulant (Depth): Adjust the depth to introduce subtle or pronounced tremulant effect. Slow / Fast (Rate): Determines the speed of the tremulant effect. Silent / Noisy: The amount of mechanical noise from the keys when pressed down and released Reverb: The reverb are achieved using carefully crafted impulse responses of a Chase Bliss Audio &amp; Meris CXM 1978 reverb pedal. The short reverb, evoking the intimacy of a small room (home), and the long reverb (church), enveloping your sound in the vastness of a spacious environment. On / Off: Turns the reverb on and off. Church / Home: Switches between a long/big room (church) reverb and a short/small room (home) reverb. Dry / Wet: Mix between direct signal (dry) and reverb signal (wet).</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/elektrisk-salmesykkel</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/elektrisk-salmesykkel_540.e2defd295569ef67359c.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/elektrisk-salmesykkel.b922eb41497b11e273e8.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/elektrisk-salmesykkel_01.42d32667431bbfd760cb.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/elektrisk-salmesykkel_02.a2dac92332fbd4e119f1.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/elektrisk-salmesykkel_03.4f871c40e4b4800e4918.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/elektrisk-salmesykkel_04.f5cd9792a2b469002100.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/elektrisk-salmesykkel_05.3b369f5200d27fa8624d.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/elektrisk-salmesykkel_06.fcddb9a94114ce806567.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -99,7 +118,17 @@
         <g:title>StyloPoly</g:title>
         <g:description>StyloPoly is a sample library for Decent Sampler featuring the Dubreq Stylophone S-1 with some added features. User Interface: The user interface offers precise control over every aspect of the instrument and effects. Explore parameters to refine your sound, including control over the audio mixer, envelope, pitch modulation with LFOs, high pass and low pass filters, velocity/dynamics, speaker simulator and the immersive effects of echo and reverb. Keyboard - Mono / Poly: Plays only one note at the time, like the original Stylophone or multiple notes at the time. Keyboard - Static / Dynamic: Determines whether the velocity should affect the volume of the samples. Envelope: Shape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking. Mixer: The original Stylophone only lets you select one voice at a time, but with StyloPoly you can blend between all the three voices at the same time. Noise - Attack: Pops and crackles when the stylus hits the &quot;keyboard&quot;. Noise -  Release: Pops and crackles when the stylus releases from the &quot;keyboard&quot;. Vibrato: The depth and rate knobs enable you to modulate the pitch of the sound with the desired depth and rate using a Low-Frequency Oscillator (LFO). With both controls in middle position you have approximately the same vibrato as the original Stylophone. Output - Line out / Speaker: Choose between the direct sound of the line output or the sound of the internal speaker miced with a Shure SM57. High Pass Filter and Low Pass Filter: StyloPoly has a high pass filter and a low pass filter. The high pass filter ranges from 20 Hz to 2000 Hz and the low pass filter ranges from 200 Hz to 22000 Hz. Effects: The echo effect employs a Fulltone Tube Tape Echo recorded twice for stereo, while the reverb effect draws from a Chase Bliss Audio &amp; Meris CXM 1978 reverb pedal with a room setting. Echo: Select from two distinctive echo options: the short echo, delivering a classic slapback effect, and the long echo, characterized by a slower decay and numerous repeats. Reverb: You&apos;ll also find two reverb effects: the short reverb, evoking the intimacy of a small room, and the long reverb, enveloping your sound in the vastness of a spacious environment. Preset: Some presets are true to the original Stylophone and some presets take advantage of the additional features of StyloPoly. The presets only affects the controls already available from the GUI. They are not meant to sound like a real piano, harpsichord, clavinet, etc. The preset names are more of a way to describe the timbre.</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/stylopoly</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/stylopoly_540.1bbfff34813c9de13255.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/stylopoly.1f379723629af12fc0d4.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_01.634e05fa3ff64d54847e.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_02.bc8b70311a7088f2c7fb.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_03.8103db8847435380aad7.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_04.fdb73179c8926843fc99.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_05.bfd825f7b15ebf3b5c9f.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_06.5195ce9c81d35eebece5.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_07.75e2c7aa9754910724a8.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_08.366933b0c075f84b9525.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_09.e34fdf9be19ba67c5f83.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/stylopoly_10.d9f121fe2d6ae2cd428f.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -117,7 +146,16 @@
         <g:title>Strykebrett</g:title>
         <g:description>Strykebrett is a sample library for Decent Sampler featuring the Hohner / Logan String Melody II with some added features. User Interface: The user interface offers precise control over every aspect of the instrument and effects. Explore parameters to refine your sound, including control over the six drawbars, envelope, amplitude modulation with LFOs, highpass and lowpass filters, velocity/dynamics, oscillator drifting, and the immersive effects of ensemble, phaser, echo and reverb. Mixer (Bass / Treble): Unleash the power of the six drawbars to shape your tone with precision. Each drawbar controls the amplitude of a specific octave or sound, offering you unparalleled control over the instrument&apos;s harmonic richness. ADSR Envelope: Shape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking. Low-frequency Oscillator (LFO): The Rate and Depth knobs enable you to modulate the amplitude of four of the drawbars with the desired depth and rate. The LFOs for the treble section has a sine waveform for smooth transitions. The LFO for the bass section has a sawtooth waveform for a rhythmic effect. Voltage Controlled Filter (VCF): Strykebrett has a highpass filter and a lowpass filter. The highpass filter ranges from 20 Hz to 2000 Hz and the lowpass filter ranges from 200 Hz to 8000 Hz. Oscillators - Dyn: Turns on or off the velocity controlled amplitude Oscillators - Drift: When enabled, each sample will have a slight pitch drift. The pitch drift for each sample is unique and independent. It&apos;s less pitch drift in the bass samples than the treble samples. Ensemble - O: 3 stereo choruses with different speed and depth. Ensemble - Acc: Turns the ensemble off. Ensemble - Solo: Fast stereo vibrato. Ensemble - Organ: A slow stereo chorus. Effects: The phaser is the built-in phaser from Decent Sampler. The echo and reverb effects are achieved using carefully crafted impulse responses. The echo effect employs a Fulltone Tube Tape Echo recorded twice for stereo, while the reverb effect draws from a Chase Bliss Audio &amp; Meris CXM 1978 reverb pedal with a room setting. Echo: Select from two distinctive echo options: the short echo, delivering a classic slapback effect, and the long echo, characterized by a slower decay and numerous repeats. Reverb: You&apos;ll also find two reverb effects: the short reverb, evoking the intimacy of a small room, and the long reverb, enveloping your sound in the vastness of a spacious environment.</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/strykebrett</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/strykebrett_540.aff293fc2f13aac08a81.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/strykebrett.f3250b5feebfe1e76b8b.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/strykebrett_01.62d6a3f9706be3195ad3.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/strykebrett_02.d4c0aa054fb14a5d52dd.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/strykebrett_03.f5fc43d10edb09356e93.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/strykebrett_04.10c95136f529e201b144.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/strykebrett_05.252e070e9bf1bfea3167.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/strykebrett_06.f15171ea270c47b02bbd.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/strykebrett_07.f2e597014ebdb4681550.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/strykebrett_08.23e932eb7ba7561cc1e8.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/strykebrett_09.0714546edef0015574ce.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -135,7 +173,13 @@
         <g:title>4-track Glockenspiel</g:title>
         <g:description>A glockenspiel recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch. It also includes impulse responses for two tape delay/echo types and two room reverbs.</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/4-track-glockenspiel</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/4-track-glockenspiel_540.b6891497db3554b4de57.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/4-track-glockenspiel.473af4fad16baec96962.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track-glockenspiel_01.bb72a1cacf68b8468d13.jpg</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_01.f65a105138e5ed30c02c.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_02.39522ad177ad0d48e262.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_03.b9adc0e122d7a8210f1a.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_04.f4d896945c5c9a175980.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_05.48be8be97e0a31cdb019.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -153,7 +197,13 @@
         <g:title>4-track Music Box</g:title>
         <g:description>A music box recorded on to cassette tape and played back at half speed and normal/original speed. Playing back at half speed results in an octave lower pitch. It also includes impulse responses for two tape delay/echo types and two room reverbs.</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/4-track-music-box</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/4-track-music-box_540.53988b52ccdf44931f75.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/4-track-music-box.0d1232576aacad697e10.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track-music-box_01.c571f22bd61d570f286b.jpg</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_01.f65a105138e5ed30c02c.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_02.39522ad177ad0d48e262.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_03.b9adc0e122d7a8210f1a.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_04.f4d896945c5c9a175980.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/4-track_05.48be8be97e0a31cdb019.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -171,7 +221,17 @@
         <g:title>Voltage Controlled Cassette Organ</g:title>
         <g:description>You&apos;ll get the iconic sound of the Korg CX-3, infused with the unmistakable charm of cassette tape recording, with the Voltage Controlled Cassette Organ. It captures the essence of the organs analog oscillators as well as the pitch fluctuation (wow/flutter), harmonic distortion, and coloration associated with cassette tape recordings. Each note for every drawbar, as well as the sound of the key click, has been meticulously sampled as individual audio files, ensuring authenticity and attention to detail. To achieve an even richer sound, the organ has been recorded twice onto cassette tape, resulting in a double-track effect that adds depth and character. Thanks to the inherent idiosyncrasies of tape deck mechanics and the tape itself, each playback yields a slightly different result. It also includes impulse responses for two tape delay/echo types and two room reverbs. The Story: I discovered that the Korg CX-3, when sampled through cassette tape, introduced some imperfections that transformed the sound. The wow and flutter effects, along with the random warbles, created a fascinating movement reminiscent of a chorus/vibrato or the doppler effect from a rotary speaker. However, unlike traditional modulation effects with fixed speed, the cassette tape introduced a more random and organic quality to the modulation. Instrument presets: To ensure optimal performance and flexibility, the library offers two presets: A quite resource-intensive &quot;All Drawbars&quot; preset with 9 drawbars and a &quot;Single Drawbar&quot; preset which conserves resources by playing back fewer samples per key. The &quot;Single Drawbar&quot; preset does however have samples from different drawbars for an extended key range. All Drawbars: The &quot;All Drawbars&quot; preset plays back 20 different samples per note, resulting in a rich and complex sound. However, it does demand significant system resources, especially when playing big chords. Single Drawbar: As a more resource-friendly alternative, the &quot;Single Drawbar&quot; preset plays back only four samples per key. This preset also incorporates additional knobs for adjusting the envelope decay curve and release curve, maximizing your creative control. User Interface: Explore parameters to refine your sound, including control over the nine drawbars, key click volume, envelope, amplitude modulation with LFOs, double track, and the immersive effects of echo and reverb. ADSR Envelope: Shape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking. Envelope curves: For even more control over the envelope, you can change the curve of the attack time. The &quot;Single Drawbar&quot; preset also incorporates two additional knobs for decay curve and release curve. The decay curve and release curve are exponential for the &quot;All Drawbars&quot; preset. LFO: The LFO Rate and LFO Depth knobs enable you to modulate the amplitude of the drawbars with the desired depth and rate. Drawbars: Each drawbar controls the amplitude of a specific harmonic overtone, offering you unparalleled control over the instrument&apos;s harmonic richness. Key click: The click&apos;s percussive nature, akin to the striking of a mallet on a percussion instrument, provided a lively and vibrant attack to the notes played on the organ. Double track: Each sample has been recorded twice and can be mixed together for a &quot;chorus&quot; effect or panned for a stereo effect. Because of the nature of the tape deck mechanics and the tape itself, the sound will be a bit different for every time it&apos;s recorded and played back. Effects: These effects are achieved using carefully crafted impulse responses. The echo effect employs a Fulltone Tube Tape Echo recorded twice for stereo, while the reverb effect draws from a Chase Bliss Audio &amp; Meris CXM 1978 reverb pedal with a room setting. Echo: Select from two distinctive echo options: the short echo, delivering a classic slapback effect, and the long echo, characterized by a slower decay and numerous repeats. Reverb: You&apos;ll also find two reverb effects: the short reverb, evoking the intimacy of a small room, and the long reverb, enveloping your sound in the vastness of a spacious environment.</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/voltage-controlled-cassette-organ</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_540.92e0c872765155a29b23.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ.5d72c20399f7bfa03792.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_01.2968b462c9fbc64fc55d.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_02.9273f5ead6e30db67c75.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_03.29cdd1cc27a84926c3e8.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_04.747fd1f5395814989a3c.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_05.fea5765e302aa5b667a7.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_06.48d9c61b67eb96c30dcb.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_07.60b972c7ec0901d51d32.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_08.df5766f150a05d229c3f.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_09.ed6dc48eda2532beeff2.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/voltage-controlled-cassette-organ_10.2b7afe8f66c0b1c59e62.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>5.00 USD</g:price>
@@ -189,7 +249,14 @@
         <g:title>Omni-84</g:title>
         <g:description>Every sound of the Omnichord has been sampled. I&apos;ve also added the effects I tend to use when recording and playing the Omnichord as an impulse response called &quot;space&quot;. At the moment, the Omnichord is no longer produced and prices on the second-hand market have skyrocketed. This is my attempt to make the sound of the Omnichord more accessible. This sample library includes 5 presets, one for each part of the Omnichord. Drums, Bass, Chords, Keyboard and SonicStrings</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/omni-84</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/omni-84_540.27c8d8cdd7855ea65152.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/omni-84.6cb301a4c4e1f90bf45a.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/omni-84_01.1f39c0eff19bde83862a.jpg</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/omni-84_02.5b5a8298a0367ecf15ab.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/omni-84_03.49b03b6e0ac121e50e67.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/omni-84_04.ecbfc60f72ccbb392f08.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/omni-84_05.89bd239950b33a2e788f.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/omni-84_06.b06b3751d18873645af7.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/static/media/omni-84_07.c294861774ea16de2d65.png</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>0.01 USD</g:price>
@@ -207,7 +274,8 @@
         <g:title>Lo-fi Tape Piano</g:title>
         <g:description>Lo-fi Tape Piano from Dehli Musikk includes the sound of a Louis Zwicki Pianette recorded with cassette tape recorder through 3 different microphones. The preamps of the tape recorder are slightly overdriven and the tape adds compression and harmonics as well as wow and flutter (pitch variation). If you want the sound of a perfectly voiced and regulated grand piano, this may not be the samples for you. This is more like a Mellotron / Chamberlin version of the Pianette. The sample pack includes 328 .WAV samples (637.8 MB)  and 3 .EXS files (295 KB).</g:description>
         <g:link>https://www.dehlimusikk.no/en/products/lo-fi-tape-piano</g:link>
-        <g:image_link>https://www.dehlimusikk.no/static/media/lo-fi-tape-piano_540.071b4242661ed8e9aecd.jpg</g:image_link>
+        <g:image_link>https://www.dehlimusikk.no/static/media/lo-fi-tape-piano.19f2bddf96338baf2f8f.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/static/media/lo-fi-tape-piano_01.da12c5a8d7c5b5bfce0c.jpg</g:additional_image_link>
         <g:condition>new</g:condition>
         <g:availability>in stock</g:availability>
         <g:price>4.99 USD</g:price>
