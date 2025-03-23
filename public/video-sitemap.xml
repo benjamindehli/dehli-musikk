@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/flere-egendefinerte-patcher-for-yamaha-dx7-dxtraterrestrial-2/video/</loc>
+    <video:video>
+      <video:title>Flere egendefinerte patcher for Yamaha DX7 (DXtraterrestrial 2)</video:title>
+      <video:description>Egendefinerte patcher for Yamaha DX7 og andre DX7-kompatible enheter. DXtraterrestrial 2 er det andre patch-biblioteket i DXtraterrestrial-serien. Dette biblioteket har 32 nøye programerte patcher, alt fra varme synthpads til skarpe, lyse bjeller, dynamiske akustiske lyder og glitchy, digitale teksturer - med mye variasjon i mellom. Disse patch&apos;ene er designet for å levere et bredt spekter av toner, og er perfekte for enhver musikalsk stil. Enten du utforsker retro synth-klassikere, moderne lyder eller begir deg ut i eksperimentelle verdener. Den første delen av videoen er et lydeksempel av hver patch med en variabel mengde ekko og romklang. Den andre delen av videoen er de samme lydeksemplene uten noen effekter. Instrument: Yamaha DX7. Effekter: Fulltone Tube Tape Echo og Chase Bliss Audio &amp; Meris CXM 1978. Teknisk spesifikasjon: Format: SysEx, filtype: .syx og patch&apos;er: 32.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EuTsBIUXyJk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-03-22-00_540.6d747fc2f3ea23c5d9b0.jpg</video:thumbnail_loc>
+      <video:duration>3114</video:duration>
+      <video:publication_date>2025-03-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/more-custom-patches-for-yamaha-dx7-dxtraterrestrial-2/video/</loc>
+    <video:video>
+      <video:title>More custom patches for Yamaha DX7 (DXtraterrestrial 2)</video:title>
+      <video:description>Custom patches for the Yamaha DX7 and other DX7-compatible devices. DXtraterrestrial 2 is the second patch library in the DXtraterrestrial series. This library features 32 carefully crafted patches, ranging from warm, lush synth pads to crisp, bright bells, dynamic acoustic sounds, and glitchy, digital textures — with plenty of variety in between. Designed to deliver a broad spectrum of tones, these presets are perfect for any musical style. Whether you&apos;re exploring retro synth classics, contemporary sounds, or venturing into experimental realms. The first part of the video is a sound example of each patch with a variable amount of echo and reverb. The seconds part of the video is the same sound examples without any effects added. Instrument: Yamaha DX7. Effects: Fulltone Tube Tape Echo and Chase Bliss Audio &amp; Meris CXM 1978. Technical specification: Format: SysEx, file type: .syx and patches: 32.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EuTsBIUXyJk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-03-22-00_540.6d747fc2f3ea23c5d9b0.jpg</video:thumbnail_loc>
+      <video:duration>3114</video:duration>
+      <video:publication_date>2025-03-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/suzuki-omnichord-gjennom-en-moog-matriarch/video/</loc>
     <video:video>
       <video:title>Suzuki Omnichord gjennom en Moog Matriarch</video:title>
