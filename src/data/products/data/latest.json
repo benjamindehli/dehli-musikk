@@ -1,5 +1,33 @@
 [
     {
+        "timestamp": 1742677200000,
+        "title": "DXtraterrestrial 2",
+        "content": {
+            "no": "DXtraterrestrial 2 er det andre patch-biblioteket i DXtraterrestrial-serien, og tilbyr en samling av 32 nøye utformede patcher. Den har varme synthpads, lyse og skarpe bjeller, dynamiske akustiske lyder og en rekke digitale, glitchy teksturer - og alt i mellom. Disse patch'ene er designet for å gi en variert palett av toner, egnet for enhver musikalsk stil. Enten du ønsker lyden av retrosynther, moderne lyder eller mer eksperimentelle lydlandskap, har DXtraterrestrial 2 noe å inspirere kreativiteten din med.",
+            "en": "DXtraterrestrial 2 is the second patch library in the DXtraterrestrial series, offering a rich collection of 32 carefully crafted patches. It features lush synth pads, bright and crisp bells, dynamic acoustic sounds, and a variety of digital, glitchy textures — and everything in between. These presets are designed to provide a diverse palette of tones, suitable for any musical style. Whether you're drawn to nostalgic retro synths, contemporary vibes, or more experimental soundscapes, DXtraterrestrial 2 has something to inspire your creativity."
+        },
+        "thumbnailDescription": "DXtraterrestrial 2 cartrigde with a Yamaha DX7 synthesizer in the background",
+        "price": "5.00",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://store.dehlimusikk.no/l/dxtraterrestrial-2",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        },
+        "reviewCount": "0",
+        "sameAs": [
+            "https://store.dehlimusikk.no/l/dxtraterrestrial-2",
+            "https://dehlimusikk.gumroad.com/l/dxtraterrestrial-2",
+            "https://www.cylex.no/bedrift-produkt/dxtraterrestrial+2_238848.html",
+            "https://www.youtube.com/watch?v=EuTsBIUXyJk",
+            "https://www.matrixsynth.com/2025/03/more-custom-patches-for-yamaha-dx7.html"
+        ],
+        "productType": ["Patch library", "Yamaha DX7"],
+        "mainImage": "dxtraterrestrial-2.jpg"
+    },
+    {
         "timestamp": 1725091200000,
         "title": "DXtraterrestrial 1",
         "content": {
@@ -59,34 +87,5 @@
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "edb-orgel.jpg",
         "additionalImages": ["edb-orgel_01.png", "edb-orgel_02.png", "edb-orgel_03.png"]
-    },
-    {
-        "timestamp": 1711914056000,
-        "title": "SubC",
-        "content": {
-            "no": "SubC er et analog subbass lydbibliotek for Decent Sampler med triangelbølgeoscillator fra en [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) sent gjennom forskjellige forvrengningskretser og effekter.\nInstrument presets: SubC som er en preset med mono-lydfiler og SubC (Stereo) som er en preset med stereo-lydfiler.\nDynamics: Bestemmer om anslaget skal påvirke volumet og forvrengningen.\nSaturation: Saturation-knotten mikser mellom rent signal og forvrengt signal. De rene lydene er tatt opp med en Roland PA-120 mikser. De forvrengte lydene er i tillegg sent gjennom en [Hairball Audio FET/RACK (1176 kompressor)](equipment/effects/hairball-audio-fet-rack-revision-d/) og en transformator- og diodevreng. Stereolydene er de samme som monolydene, men sendt gjennom en [TC Electronic SCF Stereo Chorus Flanger](equipment/effects/tc-electronic-scf-stereo-chorus-flanger/) i vibratomodus. Dette gir en mye bredere lyd, men med mindre bunn når den summeres til mono.\nEnvelope: Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelope'n deg skreddersy dynamikken etter din smak.\nUtstyr som er brukt: [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/), Roland PA-120, [Hairball Audio FET/RACK Revision D](equipment/effects/hairball-audio-fet-rack-revision-d/), [Alex Franklinos Stereo Transformer Saturator](equipment/effects/alex-franklinos-stereo-transformer-saturator/) og [TC Electronic SCF Stereo Chorus Flanger](equipment/effects/tc-electronic-scf-stereo-chorus-flanger/).\nTeknisk spesifikasjon for mono-lydfiler: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 1 (mono), antall lydfiler: 108 og filstørrelse: 327.30 MB.\nTeknisk spesifikasjon for stereo-lydfiler: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 2 (stereo), antall lydfiler: 108 og filstørrelse: 654.20 MB.",
-            "en": "SubC is a analog sub bass sample library for DecentSampler featuring a [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/) triangle wave oscillator ran through different saturation circuits and effects.\nInstrument presets: SubC which is a preset with mono samples and SubC (Stereo) which is a preset with stereo samples.\nDynamics: Determines whether the velocity should affect the volume and distortion.\nSaturation: The saturation knob blends between the clean samples and the distorted samples. The clean samples are recorded through a Roland PA-120 mixer. The distorted/saturated samples are additionally sent through a [Hairball Audio FET/RACK (1176 compressor)](equipment/effects/hairball-audio-fet-rack-revision-d/) and a transformer and diode saturator. The stereo samples are the same as the mono samples, but sent through a [TC Electronic SCF Stereo Chorus Flanger](equipment/effects/tc-electronic-scf-stereo-chorus-flanger/) in vibrato mode. This gives a much wider sound, but less bottom end when summed to mono.\nEnvelope: Shape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking.\nEquipment used: [Dreadbox Erebus v2](equipment/instruments/dreadbox-erebus-v2/), Roland PA-120, [Hairball Audio FET/RACK Revision D](equipment/effects/hairball-audio-fet-rack-revision-d/), [Alex Franklinos Stereo Transformer Saturator](equipment/effects/alex-franklinos-stereo-transformer-saturator/) and [TC Electronic SCF Stereo Chorus Flanger](equipment/effects/tc-electronic-scf-stereo-chorus-flanger/).\nTechnical specification for mono samples: Sample rate: 48 kHz, bit depth: 24 bit, channels: 1 (mono), number of files: 108 and file size: 327.30 MB.\nTechnical specification for  stereo samples: Sample rate: 48 kHz, bit depth: 24 bit, channels: 2 (stereo), number of files: 108 and file size: 654.20 MB."
-        },
-        "thumbnailDescription": "SubC user interface inside a wooden synthesizer case",
-        "price": "5.00",
-        "priceCurrency": "USD",
-        "link": {
-            "url": "https://store.dehlimusikk.no/l/subc",
-            "text": {
-                "en": "Go to download page",
-                "no": "Gå til side for nedlasting"
-            }
-        },
-        "reviewCount": "0",
-        "sameAs": [
-            "https://store.dehlimusikk.no/l/subc",
-            "https://dehlimusikk.gumroad.com/l/subc",
-            "https://www.cylex.no/bedrift-produkt/subc_223145.html",
-            "https://www.youtube.com/watch?v=yTpCq-qIIdY",
-            "https://www.pianobook.co.uk/packs/subc/"
-        ],
-        "productType": ["Sample instruments", "Decent Sampler"],
-        "mainImage": "subc.jpg",
-        "additionalImages": ["subc_01.png", "subc_02.png", "subc_03.png"]
     }
 ]

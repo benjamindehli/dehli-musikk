@@ -1,5 +1,33 @@
 [
     {
+        "timestamp": 1742677200000,
+        "title": "DXtraterrestrial 2",
+        "content": {
+            "no": "DXtraterrestrial 2 er det andre patch-biblioteket i DXtraterrestrial-serien, og tilbyr en samling av 32 nøye utformede patcher. Den har varme synthpads, lyse og skarpe bjeller, dynamiske akustiske lyder og en rekke digitale, glitchy teksturer - og alt i mellom. Disse patch'ene er designet for å gi en variert palett av toner, egnet for enhver musikalsk stil. Enten du ønsker lyden av retrosynther, moderne lyder eller mer eksperimentelle lydlandskap, har DXtraterrestrial 2 noe å inspirere kreativiteten din med.",
+            "en": "DXtraterrestrial 2 is the second patch library in the DXtraterrestrial series, offering a rich collection of 32 carefully crafted patches. It features lush synth pads, bright and crisp bells, dynamic acoustic sounds, and a variety of digital, glitchy textures — and everything in between. These presets are designed to provide a diverse palette of tones, suitable for any musical style. Whether you're drawn to nostalgic retro synths, contemporary vibes, or more experimental soundscapes, DXtraterrestrial 2 has something to inspire your creativity."
+        },
+        "thumbnailDescription": "DXtraterrestrial 2 cartrigde with a Yamaha DX7 synthesizer in the background",
+        "price": "5.00",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://store.dehlimusikk.no/l/dxtraterrestrial-2",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        },
+        "reviewCount": "0",
+        "sameAs": [
+            "https://store.dehlimusikk.no/l/dxtraterrestrial-2",
+            "https://dehlimusikk.gumroad.com/l/dxtraterrestrial-2",
+            "https://www.cylex.no/bedrift-produkt/dxtraterrestrial+2_238848.html",
+            "https://www.youtube.com/watch?v=EuTsBIUXyJk",
+            "https://www.matrixsynth.com/2025/03/more-custom-patches-for-yamaha-dx7.html"
+        ],
+        "productType": ["Patch library", "Yamaha DX7"],
+        "mainImage": "dxtraterrestrial-2.jpg"
+    },
+    {
         "timestamp": 1725091200000,
         "title": "DXtraterrestrial 1",
         "content": {
@@ -371,8 +399,8 @@
                 "no": "Gå til side for nedlasting"
             }
         },
-        "ratingValue": "5",
-        "reviewCount": "14",
+        "ratingValue": "4.8",
+        "reviewCount": "16",
         "sameAs": [
             "https://store.dehlimusikk.no/l/omni-84",
             "https://dehlimusikk.gumroad.com/l/omni-84",
