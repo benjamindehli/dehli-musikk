@@ -66,5 +66,6 @@
     "redux-devtools-extension": "^2.13.8",
     "sass": "^1.80.3",
     "workbox-cli": "^6.0.2"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
