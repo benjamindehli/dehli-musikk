@@ -3,12 +3,12 @@
 
 .container {
   position: absolute;
+  overflow-y: scroll;
+  width: 100%;
   @include calc.calc("height", "100% - 56px");
   @media (min-width: breakpoints.$screen-sm) {
     @include calc.calc("height", "100% - 64px");
   }
-  overflow-y: scroll;
-  width: 100%;
   & a:focus {
     text-decoration: underline;
   }
