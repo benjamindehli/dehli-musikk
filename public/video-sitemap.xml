@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/clavinet-med-boss-oc-2-octaver-og-pro-co-rat-distortion/video/</loc>
+    <video:video>
+      <video:title>Clavinet med Boss OC-2 Octaver og Pro Co RAT distortion</video:title>
+      <video:description>Eksperimenterer med en Boss OC-2 Octaver og en Pro Co RAT 2 distortion på en Hohner Clavinet D6. Signalene går gjennom en Vox AC15H1TV, med et snev av båndekko. Høyttalerkabinettet er mikket opp med en Shure SM57 og en Royer R-121 som er mikset sammen. I tillegg er det brukt litt kompresjon og klang i postproduksjon for å tilføre litt ekstra fylde og stereobrede. Instrument: Hohner Clavinet D6. Forsterker: Vox AC15H1TV. Mikrofoner: Shure SM57 og Royer R-121. Effekter: Boss OC-2 Octaver, Pro Co RAT 2, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor og Handsome Audio Zulu.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=gzpCHLGsgrE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-04-08-00_540.7413bf7b4739c3d85b3d.jpg</video:thumbnail_loc>
+      <video:duration>73</video:duration>
+      <video:publication_date>2025-04-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/clavinet-with-boss-oc-2-octaver-and-pro-co-rat-distortion/video/</loc>
+    <video:video>
+      <video:title>Clavinet with Boss OC-2 Octaver and Pro Co RAT distortion</video:title>
+      <video:description>Experimenting with a Boss OC-2 Octaver and a Pro Co RAT 2 distortion on a Hohner Clavinet D6. The signal is routed through a Vox AC15H1TV, with a touch of tape echo. The speaker cabinet is mic’d using a Shure SM57 and a Royer R-121 summed together. Additionally, I&apos;ve applied some compression and reverb in post-production to add extra body and stereo width. Instrument: Hohner Clavinet D6. Amplifier: Vox AC15H1TV. Microphones: Shure SM57 and Royer R-121. Effects: Boss OC-2 Octaver, Pro Co RAT 2, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor and Handsome Audio Zulu.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=gzpCHLGsgrE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-04-08-00_540.7413bf7b4739c3d85b3d.jpg</video:thumbnail_loc>
+      <video:duration>73</video:duration>
+      <video:publication_date>2025-04-08</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/flere-egendefinerte-patcher-for-yamaha-dx7-dxtraterrestrial-2/video/</loc>
     <video:video>
       <video:title>Flere egendefinerte patcher for Yamaha DX7 (DXtraterrestrial 2)</video:title>
