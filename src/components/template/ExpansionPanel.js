@@ -69,7 +69,7 @@ const ExpansionPanel = ({ panelTitle, children, elementId }) => {
         makeLinksNotTabable(linkElements);
       }
     }
-  }, [isInitiated, linkElements])
+  }, [isInitiated, linkElements, elementId])
 
 
 
