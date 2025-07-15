@@ -161,6 +161,7 @@ const NavigationBar = () => {
                             to={`/${languageSlug}`}
                             aria-label="Link to Dehli Musikk home page"
                             title="Link to Dehli Musikk home page"
+                            onClick={hideSidebar}
                         >
                             <span className={style.appLogo}>
                                 <DehliMusikkLogo />
@@ -173,6 +174,7 @@ const NavigationBar = () => {
                                 to={`/${languageSlug}portfolio/`}
                                 className={({ isActive }) => (isActive ? style.activeLink : undefined)}
                                 title={selectedLanguageKey === "en" ? "Portfolio" : "Portefølje"}
+                                onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "music"]} />{" "}
                                 {selectedLanguageKey === "en" ? "Portfolio" : "Portefølje"}
@@ -183,6 +185,7 @@ const NavigationBar = () => {
                                 to={`/${languageSlug}posts/`}
                                 className={({ isActive }) => (isActive ? style.activeLink : undefined)}
                                 title={selectedLanguageKey === "en" ? "Posts" : "Innlegg"}
+                                onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "photo-video"]} />{" "}
                                 {selectedLanguageKey === "en" ? "Posts" : "Innlegg"}
@@ -193,6 +196,7 @@ const NavigationBar = () => {
                                 to={`/${languageSlug}videos/`}
                                 className={({ isActive }) => (isActive ? style.activeLink : undefined)}
                                 title={selectedLanguageKey === "en" ? "Videos" : "Videoer"}
+                                onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "film"]} />{" "}
                                 {selectedLanguageKey === "en" ? "Videos" : "Videoer"}
@@ -203,6 +207,7 @@ const NavigationBar = () => {
                                 to={`/${languageSlug}products/`}
                                 className={({ isActive }) => (isActive ? style.activeLink : undefined)}
                                 title={selectedLanguageKey === "en" ? "Products" : "Produkter"}
+                                onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "shopping-cart"]} />{" "}
                                 {selectedLanguageKey === "en" ? "Products" : "Produkter"}
@@ -213,6 +218,7 @@ const NavigationBar = () => {
                                 to={`/${languageSlug}equipment/`}
                                 className={({ isActive }) => (isActive ? style.activeLink : undefined)}
                                 title={selectedLanguageKey === "en" ? "Equipment" : "Utstyr"}
+                                onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "guitar"]} />{" "}
                                 {selectedLanguageKey === "en" ? "Equipment" : "Utstyr"}
@@ -223,6 +229,7 @@ const NavigationBar = () => {
                                 to={`/${languageSlug}frequently-asked-questions/`}
                                 className={({ isActive }) => (isActive ? style.activeLink : undefined)}
                                 title={selectedLanguageKey === "en" ? "Frequently Asked Questions" : "Ofte stilte spørsmål"}
+                                onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "comments"]} />{" "}
                                 {selectedLanguageKey === "en" ? "FAQ" : "FAQ"}
