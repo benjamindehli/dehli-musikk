@@ -1,0 +1,82 @@
+[
+    {
+        "question": {
+            "en": "Is Dehli Musikk a music store?",
+            "no": "Er Dehli Musikk en musikkbutikk?"
+        },
+        "answer": {
+            "en": "No. Dehli Musikk is not a physical music store and does not sell musical instruments. Dehli Musikk offers keybpoard instrument tracks for artists and bands, and digital products such as sample instruments and synthesizer patches through its [web shop](products/).",
+            "no": "Nei. Dehli Musikk er ikke en fysisk musikkbutikk og selger ikke musikkinstrumenter. Dehli Musikk tilbyr lydspor med tangentinstrumenter for artister og band, samt digitale produkter som sample-instrumenter og synthesizer-patcher gjennom sin [nettbutikk](products/)."
+        }
+    },
+    {
+        "question": {
+            "en": "Who runs Dehli Musikk?",
+            "no": "Hvem driver Dehli Musikk?"
+        },
+        "answer": {
+            "en": "Dehli Musikk is operated by Benjamin Dehli, a Norwegian keyboardist and music producer.",
+            "no": "Dehli Musikk drives av Benjamin Dehli, en norsk keyboardist og musikkprodusent."
+        }
+    },
+    {
+        "question": {
+            "en": "Can I hire Benjamin Dehli to record keyboard tracks for my project?",
+            "no": "Kan jeg leie Benjamin Dehli for å spille inn keyboardspor til mitt prosjekt?"
+        },
+        "answer": {
+            "en": "Yes! Benjamin offers keyboard track recording services for artists and bands. For inquiries about collaboration or recording services, you can reach out via social media or email.",
+            "no": "Ja! Benjamin tilbyr innspilling av keyboardspor for artister og band. For spørsmål angående samarbeid eller innspillingstjenester, kan du ta kontakt via sosiale medier eller e-post."
+        }
+    },
+    {
+        "question": {
+            "en": "Where can I hear music that features Dehli Musikk?",
+            "no": "Hvor kan jeg høre musikk som Dehli Musikk har bidratt på?"
+        },
+        "answer": {
+            "en": "You can listen to music that features Dehli Musikk on the [portfolio page](portfolio/). It showcases various recordings and collaborations.",
+            "no": "Du kan høre musikk der Dehli Musikk har bidratt, på [porteføljesiden](portfolio/). Den viser frem ulike innspillinger og samarbeid."
+        }
+    },
+    {
+        "question": {
+            "en": "Are there any video demos I can check out?",
+            "no": "Er det noen videodemonstrasjoner jeg kan sjekke ut?"
+        },
+        "answer": {
+            "en": "Yes. Visit the [videos page](videos/) to watch demonstrations of sample libraries, synth patches, and other sound explorations.",
+            "no": "Ja. Besøk [videosiden](videos/) for å se demonstrasjoner av samplebiblioteker, synth-patcher og andre lydutforskninger."
+        }
+    },
+    {
+        "question": {
+            "en": "How can I purchase products from Dehli Musikk?",
+            "no": "Hvordan kan jeg kjøpe produkter fra Dehli Musikk?"
+        },
+        "answer": {
+            "en": "You can purchase products from the [web shop](products/). The shop offers a variety of digital products including sample instruments and synthesizer patches.",
+            "no": "Du kan kjøpe produkter fra [nettbutikken](products/). Butikken tilbyr en rekke digitale produkter, inkludert sample-instrumenter og synthesizer-patcher."
+        }
+    },
+    {
+        "question": {
+            "en": "What software or hardware do I need to use the products?",
+            "no": "Jeg trenger programvare eller maskinvare for å bruke produktene?"
+        },
+        "answer": {
+            "en": "The instrument libraries require the DecentSampler plugin, which is free and available for Windows, macOS, and Linux. The DX7 synthesizer patches require a [Yamaha DX7 synthesizer](equipment/instruments/yamaha-dx7/) or a DX7 compatible software or hardware.",
+            "no": "Instrumentbibliotekene krever DecentSampler-pluginen, som er gratis og tilgjengelig for Windows, macOS og Linux. DX7-synthesizer-patcher krever en [Yamaha DX7-synthesizer](equipment/instruments/yamaha-dx7/) eller en DX7-kompatibel programvare eller maskinvare."
+        }
+    },
+    {
+        "question": {
+            "en": "How can I contact Dehli Musikk for inquiries?",
+            "no": "Hvordan kan jeg kontakte Dehli Musikk for henvendelser?"
+        },
+        "answer": {
+            "en": "You can contact Dehli Musikk through email, or reach out via social media platforms.",
+            "no": "Du kan kontakte Dehli Musikk via e-post, eller ta kontakt gjennom sosiale medier."
+        }
+    }
+]
