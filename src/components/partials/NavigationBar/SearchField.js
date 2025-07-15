@@ -107,7 +107,8 @@ const SearchField = () => {
         release: ['fas', 'music'],
         instruments: ['fas', 'guitar'],
         amplifiers: ['fas', 'bullhorn'],
-        effects: ['fas', 'sliders-h']
+        effects: ['fas', 'sliders-h'],
+        faq: ['fas', 'comments']
       };
       const resultsElements = results.map((result, resultKey) => {
         return (<Link onClick={() => hideResultsList()} to={{pathname: result.link, hash: result.hash}} title={result.linkTitle} key={resultKey} className={style.resultsListItem}>

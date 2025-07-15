@@ -42,7 +42,8 @@ const Search = () => {
         product: { en: "Products", no: "Produkter" },
         instruments: { en: "Instruments", no: "Instrumenter" },
         effects: { en: "Effects", no: "Effekter" },
-        amplifiers: { en: "Amplifiers", no: "Forsterkere" }
+        amplifiers: { en: "Amplifiers", no: "Forsterkere" },
+        faq: { en: "Frequently Asked Questions", no: "Ofte stilte spørsmål" }
     };
 
     // Redux store

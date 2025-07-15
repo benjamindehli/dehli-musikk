@@ -72,5 +72,11 @@
         background-color: colors.$green-color;
       }
     }
+
+    &.faq {
+      > span {
+        background-color: colors.$magenta-color;
+      }
+    }
   }
 }

@@ -35,7 +35,8 @@ const SearchResult = ({ searchResult }) => {
       release: ['fas', 'music'],
       instruments: ['fas', 'guitar'],
       amplifiers: ['fas', 'bullhorn'],
-      effects: ['fas', 'sliders-h']
+      effects: ['fas', 'sliders-h'],
+      faq: ['fas', 'comments']
     };
 
     const link = {

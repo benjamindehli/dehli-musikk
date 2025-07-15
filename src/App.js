@@ -22,6 +22,7 @@ import {
   faChevronDown,
   faChevronLeft,
   faChevronRight,
+  faComments, 
   faFilm,
   faFilter,
   faGripHorizontal,
@@ -67,6 +68,7 @@ const Posts = prerenderedLoadable(() => import("./components/routes/Posts"));
 const Videos = prerenderedLoadable(() => import("./components/routes/Videos"));
 const Products = prerenderedLoadable(() => import("./components/routes/Products"));
 const Equipment = prerenderedLoadable(() => import("./components/routes/Equipment"));
+const Faq = prerenderedLoadable(() => import("./components/routes/Faq"));
 const NotFound = prerenderedLoadable(() => import("./components/routes/NotFound"));
 
 library.add(
@@ -74,6 +76,7 @@ library.add(
   faChevronDown,
   faChevronLeft,
   faChevronRight,
+  faComments,
   faFacebookF,
   faFilm,
   faFilter,
@@ -170,6 +173,9 @@ const App = () => {
               <Route strict={true} path="/:selectedLanguage/equipment/:equipmentType/:equipmentId/" element={<Equipment />} />
               <Route strict={true} path="/:selectedLanguage/equipment/:equipmentType/" element={<Equipment />} />
               <Route strict={true} path="/:selectedLanguage/equipment/" element={<Equipment />} />
+
+              <Route strict={true} path="/frequently-asked-questions/" element={<Faq />} />
+              <Route strict={true} path="/:selectedLanguage/frequently-asked-questions/" element={<Faq />} />
             </Routes>
           </main>
           <Footer />

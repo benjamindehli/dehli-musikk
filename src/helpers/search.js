@@ -8,6 +8,7 @@ import posts from 'data/posts';
 import videos from 'data/videos';
 import products from 'data/products';
 import equipmentTypes from 'data/equipment';
+import frequentlyAskedQuestions from 'data/frequentlyAskedQuestions';
 
 const getLanguageSlug = selectedLanguageKey => {
   return selectedLanguageKey === 'en' ? 'en/' : '';
@@ -249,6 +250,49 @@ const getSearchPointsFromEquipmentItems = (item, equipmentType, equipmentTypeKey
   };
 }
 
+const getSearchPointsFromFrequentlyAskedQuestions = (faq, searchStringWords, selectedLanguageKey) => {
+  const question = faq.question[selectedLanguageKey];
+  const answer = faq.answer[selectedLanguageKey];
+  const link = `/${getLanguageSlug(selectedLanguageKey)}frequently-asked-questions/`;
+  const hash = convertToUrlFriendlyString(question);
+  const linkTitle = question;
+
+  let questionPoints = 0;
+  let answerPoints = 0;
+  searchStringWords.forEach(searchStringWord => {
+    const regex = new RegExp(searchStringWord, "gi");
+
+    const questionMatch = question.match(regex);
+    const answerMatch = answer.match(regex);
+
+    questionPoints += questionMatch ? questionMatch.length * 5 : 0;
+    answerPoints += answerMatch ? answerMatch.length * 2 : 0;
+  });
+  const points = (questionPoints + answerPoints) / searchStringWords.length;
+
+  
+  const thumbnailPaths = {
+    avif: require(`../data/frequentlyAskedQuestions/thumbnails/web/avif/thumbnail_55.avif`),
+    webp: require(`../data/frequentlyAskedQuestions/thumbnails/web/webp/thumbnail_55.webp`),
+    jpg: require(`../data/frequentlyAskedQuestions/thumbnails/web/jpg/thumbnail_55.jpg`)
+  };
+  const thumbnailDescription = `Speach bubble icon for frequently asked questions`;
+  
+
+  return {
+    type: 'faq',
+    text: question,
+    label: selectedLanguageKey === 'en' ? 'FAQ' : 'FAQ',
+    excerpt: convertStringToExcerpt(answer),
+    thumbnailPaths,
+    thumbnailDescription,
+    points,
+    link,
+    hash,
+    linkTitle
+  };
+}
+
 
 // Get search results
 const getSearchResultsFromReleases = (releases, searchStringWords, selectedLanguageKey) => {
@@ -314,6 +358,15 @@ const getSearchResultsFromEquipmentType = (equipmentType, equipmentTypeKey, sear
   });
 }
 
+const getSearchResultsFromFrequentlyAskedQuestions = (faqs, searchStringWords, selectedLanguageKey) => {
+  const searchResultsFromFrequentlyAskedQuestions = faqs.map(faq => {
+    return getSearchPointsFromFrequentlyAskedQuestions(faq, searchStringWords, selectedLanguageKey);
+  });
+  return searchResultsFromFrequentlyAskedQuestions.filter(result => {
+    return result.points && result.points >= 1;
+  });
+};
+
 
 export const getSearchResults = (query, selectedLanguageKey, searchCategory = 'all') => {
   let searchString = query.replace(/[^a-å0-9- ]+/ig, ""); // Removes unwanted characters
@@ -327,7 +380,8 @@ export const getSearchResults = (query, selectedLanguageKey, searchCategory = 'a
     const searchResultsFromVideos = searchCategory === 'video' || searchCategory === 'all' ? getSearchResultsFromVideos(videos, searchStringWords, selectedLanguageKey) : [];
     const searchResultsFromProducts = searchCategory === 'product' || searchCategory === 'all' ? getSearchResultsFromProducts(products, searchStringWords, selectedLanguageKey) : [];
     const searchResultsFromEquipmentTypes = getSearchResultsFromEquipmentTypes(equipmentTypes, searchStringWords, selectedLanguageKey, searchCategory);
-    const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromVideos, searchResultsFromProducts, searchResultsFromEquipmentTypes);
+    const searchResultsFromFrequentlyAskedQuestions = searchCategory === 'faq' || searchCategory === 'all' ? getSearchResultsFromFrequentlyAskedQuestions(frequentlyAskedQuestions, searchStringWords, selectedLanguageKey) : [];
+    const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromVideos, searchResultsFromProducts, searchResultsFromEquipmentTypes, searchResultsFromFrequentlyAskedQuestions);
 
     return results.sort((a, b) => b.points - a.points);
   } else {

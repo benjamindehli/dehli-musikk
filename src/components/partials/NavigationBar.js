@@ -218,6 +218,16 @@ const NavigationBar = () => {
                                 {selectedLanguageKey === "en" ? "Equipment" : "Utstyr"}
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink
+                                to={`/${languageSlug}frequently-asked-questions/`}
+                                className={({ isActive }) => (isActive ? style.activeLink : undefined)}
+                                title={selectedLanguageKey === "en" ? "Frequently Asked Questions" : "Ofte stilte spørsmål"}
+                            >
+                                <FontAwesomeIcon icon={["fas", "comments"]} />{" "}
+                                {selectedLanguageKey === "en" ? "FAQ" : "FAQ"}
+                            </NavLink>
+                        </li>
                     </ul>
                 </nav>
             </aside>
