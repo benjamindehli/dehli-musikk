@@ -28,7 +28,6 @@
     "build": "react-app-rewired build",
     "postbuild": "react-snap --disable-dev-shm-usage && yarn run generate-sw",
     "generate-sw": "workbox generateSW --root=build workbox-config.js",
-    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
