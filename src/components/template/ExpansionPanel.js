@@ -36,10 +36,18 @@ const ExpansionPanel = ({ panelTitle, children, elementId }) => {
     }
   };
 
+  const hasSameIdAsHash = (elementId) => {
+    return elementId === window.location?.hash?.substring(1);
+  };
+
   const toggleExpand = () => {
     setExpanded(!expanded)
     !expanded ? makeLinksTabable(linkElements) : makeLinksNotTabable(linkElements);
   }
+
+  const generateRandomId = () => {
+    return `expansion-panel-${Math.random().toString(36).substring(2, 9)}`;
+  };
 
   useEffect(() => {
     setIsInitiated(false);
@@ -53,8 +61,13 @@ const ExpansionPanel = ({ panelTitle, children, elementId }) => {
       setMaxHeight(containerElement.current.clientHeight);
       setIsInitiated(true);
     } else {
-      setExpanded(false);
-      makeLinksNotTabable(linkElements);
+      if (hasSameIdAsHash(elementId)) {
+        setExpanded(true);
+        makeLinksTabable(linkElements);
+      } else {
+        setExpanded(false);
+        makeLinksNotTabable(linkElements);
+      }
     }
   }, [isInitiated, linkElements])
 
@@ -66,14 +79,16 @@ const ExpansionPanel = ({ panelTitle, children, elementId }) => {
       : isInitiated ? 0 : 'none'
   };
 
+  const elementIdWithFallback = elementId || generateRandomId();
+
   return (<React.Fragment>
-    <button id={elementId} className={style.expandButton} onClick={toggleExpand}>
+    <button id={elementIdWithFallback} className={style.expandButton} onClick={toggleExpand} aria-expanded={expanded ? "true" : "false"} aria-controls={`${elementIdWithFallback}-content`}>
       <h2 className={`${style.expansionPanelHeader} ${expanded ? style.expanded : ''}`}>
-        <span>{panelTitle}</span>
+        <span id={`${elementIdWithFallback}-title`}>{panelTitle}</span>
         <FontAwesomeIcon icon={['fas', 'chevron-down']} />
       </h2>
     </button>
-    <div ref={containerElement}
+    <div ref={containerElement} id={`${elementIdWithFallback}-content`} role="region" aria-labelledby={`${elementIdWithFallback}-title`}
       className={`${style.expansionPanelContent} ${expanded ? style.expanded : ''}`}
       style={containerElementStyle}>
       {children}
