@@ -164,6 +164,12 @@ const Sitemaps = () => {
     return equipmentTypeElements.join('');
   }
 
+  const renderFaqList = () => {
+    const urlNorwegianPage = `${languageSlug.no}frequently-asked-questions/`;
+    const urlEnglishPage = `${languageSlug.en}frequently-asked-questions/`;
+    return [renderUrlElement(urlNorwegianPage, urlEnglishPage, 'en'), renderUrlElement(urlEnglishPage, urlNorwegianPage, 'no')].join('')
+  }
+
   const renderPostsDetails = () => {
     return posts && posts.length
       ? posts.map(post => {
@@ -519,6 +525,7 @@ const Sitemaps = () => {
       renderGumroadProductsList(),
       renderReleasesList(),
       renderEquipmentTypesList(),
+      renderFaqList(),
       renderPostsDetails(),
       renderVideosDetails(),
       renderVideosDetailsVideo(),
