@@ -18,7 +18,7 @@ const renderContentLinksAsReactLinks = (content, languageSlug) => {
         const link = `/${languageSlug}${match?.groups?.link}`;
 
         links.push({
-            formatted: <Link to={link}>{title}</Link>,
+            formatted: <Link to={link} data-tabable={true}>{title}</Link>,
             unformatted: unformattedLink
         });
     }
