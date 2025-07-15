@@ -118,8 +118,10 @@ const Release = ({ release, fullscreen, compact }) => {
           <EquipmentItem item={instrument} itemId={instrument.equipmentItemId} itemType='instruments' compact={true} />
         </ListItem>)
       });
+      const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
+      const elementId = `release-instruments-${releaseId}`;
       return (
-        <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? 'Instruments used on the song' : 'Instrumenter som er brukt på låta'}>
+        <ExpansionPanel elementId={elementId} panelTitle={selectedLanguageKey === 'en' ? 'Instruments used on the song' : 'Instrumenter som er brukt på låta'}>
           <List compact={true}>
             {listItems}
           </List>
@@ -131,8 +133,10 @@ const Release = ({ release, fullscreen, compact }) => {
   }
 
   const renderLinkList = (release, selectedLanguageKey) => {
+    const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
+    const elementId = `release-links-${releaseId}`;
     return (
-      <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? `Listen to ${release.title}` : `Lytt til ${release.title}`}>
+      <ExpansionPanel elementId={elementId} panelTitle={selectedLanguageKey === 'en' ? `Listen to ${release.title}` : `Lytt til ${release.title}`}>
         <ReleaseLinks release={release} />
       </ExpansionPanel>
     );

@@ -90,6 +90,7 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
   }
 
   const renderReleasesList = (releases, selectedLanguageKey, item) => {
+    const elementId = `equipment-item-releases-${item.equipmentItemId}`;
     if (releases && releases.length) {
       const listItems = releases.map(release => {
         return (<ListItem key={release.releaseId} compact={true}>
@@ -97,7 +98,7 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
         </ListItem>)
       });
       return (
-        <ExpansionPanel panelTitle={selectedLanguageKey === 'en' ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}>
+        <ExpansionPanel elementId={elementId} panelTitle={selectedLanguageKey === 'en' ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}>
           <List compact={true}>
             {listItems}
           </List>
