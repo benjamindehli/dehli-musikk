@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Stylesheets
 import style from 'components/template/ExpansionPanel.module.scss';
 
-const ExpansionPanel = ({ panelTitle, children }) => {
+const ExpansionPanel = ({ panelTitle, children, elementId }) => {
 
   // State
   const [expanded, setExpanded] = useState();
@@ -67,7 +67,7 @@ const ExpansionPanel = ({ panelTitle, children }) => {
   };
 
   return (<React.Fragment>
-    <button className={style.expandButton} onClick={toggleExpand}>
+    <button id={elementId} className={style.expandButton} onClick={toggleExpand}>
       <h2 className={`${style.expansionPanelHeader} ${expanded ? style.expanded : ''}`}>
         <span>{panelTitle}</span>
         <FontAwesomeIcon icon={['fas', 'chevron-down']} />
