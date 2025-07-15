@@ -88,6 +88,7 @@ const SearchField = () => {
 
   const renderReleaseThumbnail = (thumbnailPaths, alt) => {
     return (<picture>
+      <source sizes='55' srcSet={thumbnailPaths.avif} type="image/avif" />
       <source sizes='55' srcSet={`${thumbnailPaths.webp} 55w`} type="image/webp" />
       {thumbnailPaths.jpg ? <source sizes='55' srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpg" /> : ''}
       {thumbnailPaths.png ? <source sizes='55' srcSet={`${thumbnailPaths.png} 55w`} type="image/png" /> : ''}
