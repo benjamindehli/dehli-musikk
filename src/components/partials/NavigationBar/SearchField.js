@@ -12,6 +12,7 @@ import { getSearchResults } from "helpers/search";
 
 // Stylesheets
 import style from 'components/partials/NavigationBar/SearchField.module.scss';
+import { Link } from "react-router-dom";
 
 
 const SearchField = () => {
@@ -72,7 +73,7 @@ const SearchField = () => {
       switch (event.keyCode) {
         case 27: // Escape
           if (showResultsList) {
-            this.hideResultsList();
+            hideResultsList();
           }
           break;
         default:
@@ -109,11 +110,11 @@ const SearchField = () => {
         effects: ['fas', 'sliders-h']
       };
       const resultsElements = results.map((result, resultKey) => {
-        return (<a href={result.link} title={result.linkTitle} key={resultKey} className={style.resultsListItem}>
+        return (<Link onClick={() => hideResultsList()} to={{pathname: result.link, hash: result.hash}} title={result.linkTitle} key={resultKey} className={style.resultsListItem}>
           {result.thumbnailPaths && result.thumbnailDescription ? renderReleaseThumbnail(result.thumbnailPaths, result.thumbnailDescription) : ''}
           <span className={style.resultsListItemText}>{result.text}</span>
           <span className={`${style.resultsListItemTypeLabel} ${style[result.type]}`}><span><FontAwesomeIcon icon={itemTypeIcons[result.type]} /> {result.label}</span></span>
-        </a>)
+        </Link>)
       });
       return resultsElements;
     } else {
