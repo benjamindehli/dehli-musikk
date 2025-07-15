@@ -1,0 +1,39 @@
+@use "../../style/abstracts/mixins/box-shadow";
+@use "../../style/abstracts/variables/breakpoints";
+
+.listContainer {
+    @include box-shadow.box-shadow(
+        0 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0 1px 1px 0 rgba(0, 0, 0, 0.14),
+        0 1px 3px 0 rgba(0, 0, 0, 0.12)
+    );
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.faqItem {
+    display: block;
+    width: 100%;
+    padding: 8px 12px 8px 18px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    text-decoration: none;
+    @media (min-width: breakpoints.$screen-sm) {
+        font-size: 18px;
+        padding: 8px 16px 8px 30px;
+    }
+    & p {
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    & a {
+        &:focus {
+            outline-color: currentColor;
+            outline-offset: 2px;
+            outline: 2px solid;
+        }
+    }
+}
