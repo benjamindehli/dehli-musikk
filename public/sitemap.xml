@@ -75,6 +75,14 @@
 <xhtml:link rel="alternate" hreflang="en" href="https://www.dehlimusikk.no/en/equipment/amplifiers/" />
 <xhtml:link rel="alternate" hreflang="no" href="https://www.dehlimusikk.no/equipment/amplifiers/" />
 </url>
+<url><loc>https://www.dehlimusikk.no/frequently-asked-questions/</loc>
+<xhtml:link rel="alternate" hreflang="no" href="https://www.dehlimusikk.no/frequently-asked-questions/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://www.dehlimusikk.no/en/frequently-asked-questions/" />
+</url>
+<url><loc>https://www.dehlimusikk.no/en/frequently-asked-questions/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://www.dehlimusikk.no/en/frequently-asked-questions/" />
+<xhtml:link rel="alternate" hreflang="no" href="https://www.dehlimusikk.no/frequently-asked-questions/" />
+</url>
 <url><loc>https://www.dehlimusikk.no/posts/dehli-musikk-omtalt-i-tysk-musikkmagasin/</loc>
 <xhtml:link rel="alternate" hreflang="no" href="https://www.dehlimusikk.no/posts/dehli-musikk-omtalt-i-tysk-musikkmagasin/" />
 <xhtml:link rel="alternate" hreflang="en" href="https://www.dehlimusikk.no/en/posts/dehli-musikk-featured-in-german-music-magazine/" />
