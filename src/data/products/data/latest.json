@@ -1,5 +1,39 @@
 [
     {
+        "timestamp": 1755115200000,
+        "title": "Midnight Wurli",
+        "content": {
+            "no": "Midnight Wurli er et samplet [Wurlitzer 200A elektrisk piano](equipment/instruments/wurlitzer-200a/) som fokuserer på å fange instrumentets karakter når det spilles på med lavt volum. Det bruker to lydkilder: Den direkte linjeutgangen fra Wurlitzeren og en kontaktmikrofon festet til instrumentet. Kontaktmikrofonen fanger opp de mekaniske lydene, som tangentklikk og pedalbevegelser, noe som gir en mer intim og nær lyd.\nInstrumentet inneholder både tonale lyder og lyder av mekanisk støy. Det har også innebygde effekter som tremolo, båndekko, romklang og flere impulsresponser fra forsterkere. Hver tangent har flere lyder som blir påvirket av anslaget for å øke realismen.",
+            "en": "Midnight Wurli is a sampled [Wurlitzer 200A electric piano instrument](equipment/instruments/wurlitzer-200a/) that focuses on capturing the character of the instrument played softly at low volume. It uses two signal sources: the direct line out from the Wurlitzer and a contact microphone attached to the instrument. The contact microphone captures the mechanical noises, such as key clicks, release sounds, and pedal movements which results in a more intimate, close-up sound.\nThe instrument includes both tonal samples and mechanical noise samples. It also features built-in effects including tremolo, tape echo, room reverb, and multiple amplifier impulse responses. Each key includes velocity-based round robins to enhance realism."
+        },
+        "thumbnailDescription": "Logo with the text Midnight Wurli and a Wurlitzer 200A electric piano in the background",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://store.dehlimusikk.no/l/midnight-wurli",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        },
+        "reviewCount": "0",
+        "sameAs": [
+            "https://store.dehlimusikk.no/l/midnight-wurli",
+            "https://dehlimusikk.gumroad.com/l/midnight-wurli",
+            "https://www.cylex.no/bedrift-produkt/midnight+wurli_266062.html",
+            "https://www.youtube.com/watch?v=LB-YDVqQh7s",
+            "https://www.youtube.com/shorts/nCFiLi4mdtE"
+        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "midnight-wurli.jpg",
+        "additionalImages": [
+            "midnight-wurli_01.jpg",
+            "midnight-wurli_02.jpg",
+            "midnight-wurli_03.png",
+            "midnight-wurli_04.png"
+        ]
+    },
+    {
         "timestamp": 1742677200000,
         "title": "DXtraterrestrial 2",
         "content": {
@@ -58,34 +92,5 @@
         "productType": ["Patch library", "Yamaha DX7"],
         "mainImage": "dxtraterrestrial-1.jpg",
         "additionalImages": ["dxtraterrestrial-1_01.jpg"]
-    },
-    {
-        "timestamp": 1723136400000,
-        "title": "EDB-Orgel",
-        "content": {
-            "no": "EDB-Orgel gir deg lyden av fire forskjellige digitale synth-typer med arbeidsflyten til et drawbar-orgel kombinert med en analog synthesizer.\nBrukergrensesnitt: Brukergrensesnittet gir presis kontroll over alle aspekter av instrumentet og effektene.\nUtforsk parametere for å justere lyden din, inkludert volumkontroll og valg av lydkilde for ni drawbars, ADSR-envelope, amplitudemodulasjon (tremolo) med LFO-er, anslagsfølsomhet, forskjellige filtertyper, høyttalersimulering, stereoeffekt og vibrato kontrollert av modulasjonshjulet.\nFaner: For å få plass til alle kontrollene, er de organisert inn i to faner og et dialogvindu. Knappen med et diskettikon åpner et dialogvindu for lasting av forhåndsdefinerte patcher. MIX/MOD-knappen lar deg veksle mellom en mikservisning med drawbars, og en modulasjonsvisning med forskjellige modulasjonskontroller for ytterligere lydtilpasning.\nDrawbars: Slipp løs kraften til ni drawbars for å forme orgelets tone med presisjon. Hver drawbar kontrollerer amplituden til en spesifikk harmonisk overtone, og gir deg uovertruffen kontroll over instrumentets harmoniske rikdom.\nLydkilde 1 (64): MOS Technology 6581 Sound Interface Device (SID) ble brukt i enheter som Commodore 64 og [Elektron SidStation](equipment/instruments/elektron-sidstation/).\nLydkilde 2 (PD): Phase distortion synthesis er en teknikk som ble brukt i Casio-synthesizere fra CZ-serien, som Casio CZ-1 og [Casio CZ-101](equipment/instruments/casio-cz-101/).\nLydkilde 3 (FM): Frequency modulation synthesis er en mye brukt teknikk i forskjellige enheter, inkludert AdLib og Sound Blaster lydkort, Sega Genesis (Mega Drive) videospillkonsoller og synthesizere som New England Digital Synclavier og [Yamaha DX7](equipment/instruments/yamaha-dx7/).\nLydkilde 4 (LA): Linear arithmetic synthesis er en metode som brukes i synthesizere som Roland MT-32 lydmodul og [Roland D-50](equipment/instruments/roland-d-50/) synthesizer.\nADSR-envelope: Form lyden din nøyaktig med parametrene Attack, Decay, Sustain og Release. Enten du ønsker en punchy, staccato-tone eller en jevn, dvelende atmosfære, lar ADSR-envelopen deg skreddersy dynamikken etter din smak.\nTremolo: Hastighets- (SPD) og dybde- (DPT)-kontrollene lar deg modulere amplituden til hver drawbar med ønsket hastighet og dybde ved hjelp av lavfrekvent oscillator (LFO).\nAnslagsfølsomhet: Bestemmer om anslagsstyrken skal påvirke volumet til hver drawbar.\nFiltre: EDB-Orgel har de forskjellige filtertypene du får fra SID-chipen. Dette er impulsresponser (IR) til filtrene i MOS Technology 6581-chipen. Cutoff frekvens og resonansmengde for hvert filter er satt til en fast verdi.\nDIR (direkte): Den direkte lyden fra linjeutgangen.\nSPK (høyttaler): Lyden av en liten datamaskinhøyttaler mikket opp med en Shure SM57.\n1 høyttaler (mono): Stereoeffekten er deaktivert.\n2 høyttalere (stereo): Stereoeffekt er aktivert.\nUtstyr som er brukt: [Elektron SidStation](equipment/instruments/elektron-sidstation/), [Casio CZ-101](equipment/instruments/casio-cz-101/), [Yamaha DX7](equipment/instruments/yamaha-dx7/) og [Roland D-50](equipment/instruments/roland-d-50/).\nTeknisk spesifikasjon lydkilde-filer: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 1 (mono), antall lydfiler: 532 og filstørrelse: 974.80 MB.\nTeknisk spesifikasjon impulsrespons-filer: Samplingsfrekvens: 48 kHz, bitdybde: 24 bit, kanaler: 1 (mono), antall lydfiler: 8 og filstørrelse: 85.00 KB.",
-            "en": "EDB-Orgel delivers the sound of four different digital synthesis types with the workflow of a drawbar organ combined with an analog synthesizer.\nUser Interface: The user interface offers precise control over every aspect of the instrument and effects.\nExplore parameters to refine your sound, including volume control and sound source selection for the nine drawbars, ADSR envelope, amplitude modulation (tremolo) with LFOs, velocity sensitivity, different filter types, speaker simulation, stereo widener and vibrato controlled by the modulation wheel.\nTabs: To accommodate all the controls, they are organized into two separate tabs and a dialog window. The button with a floppy disk icon, opens a dialog window for loading predefined patches. The MIX/MOD button allows you to toggle between a mixer view with drawbars, and a modulation view with various modulation controls for further sound customization.\nDrawbars: Unleash the power of the nine drawbars to shape your organ's tone with precision. Each drawbar controls the amplitude of a specific harmonic overtone, offering you unparalleled control over the instrument's harmonic richness.\nSound source 1 (64): The MOS Technology 6581 Sound Interface Device (SID) was used in devices such as the Commodore 64 and [Elektron SidStation](equipment/instruments/elektron-sidstation/).\nSound source 2 (PD): Phase distortion synthesis is a technique that was used in Casio synthesizers from the CZ range, such as the Casio CZ-1 and the [Casio CZ-101](equipment/instruments/casio-cz-101/).\nSound source 3 (FM): Frequency modulation synthesis is a widely used technique in various devices including AdLib and Sound Blaster sound cards, Sega Genesis (Mega Drive) video game consoles, and synthesizers like the New England Digital Synclavier and the [Yamaha DX7](equipment/instruments/yamaha-dx7/).\nSound source 4 (LA): Linear arithmetic synthesis is a method used in synthesizers such as the Roland MT-32 sound module and the [Roland D-50](equipment/instruments/roland-d-50/) synthesizer.\nADSR Envelope:\nShape your sound precisely with the Attack, Decay, Sustain, and Release parameters. Whether you desire a punchy, staccato tone or a smooth, lingering ambiance, the ADSR envelope allows you to tailor the dynamics to your liking.\nTremolo: The speed (SPD) and depth (DPT) controls enable you to modulate the amplitude of the drawbars with the desired speed and depth using the Low-Frequency Oscillator (LFO).\nVelocity sensitivity: Determines whether the velocity should affect the volume of the drawbar.\nFilters: EDB-Orgel features the different filter types you get from the SID chip. These are impulse responses (IR) of the filters in the MOS Technology 6581 chip. Cutoff frequency and resonance amount for each filter is set to a fixed value.\nDIR (Direct): The direct sound of the line output.\nSPK (Speaker): The sound of a tiny computer speaker miced with a Shure SM57.\n1 speaker (mono): Stereo effect is disabled.\n2 speakers (stereo): Stereo effect is enabled.\nEquipment used: [Elektron SidStation](equipment/instruments/elektron-sidstation/), [Casio CZ-101](equipment/instruments/casio-cz-101/), [Yamaha DX7](equipment/instruments/yamaha-dx7/) and [Roland D-50](equipment/instruments/roland-d-50/).\nTechnical specification for samples: Sample rate: 48 kHz, bit depth: 24 bit, channels: 1 (mono), number of files: 532 and file size: 974.80 MB.\nTechnical specification for impulse responses: Sample rate: 48 kHz, bit depth: 24 bit, channels: 1 (mono), number of files: 8 and file size: 85.00 KB."
-        },
-        "thumbnailDescription": "EDB-Orgel user interface",
-        "price": "9.99",
-        "priceCurrency": "USD",
-        "link": {
-            "url": "https://store.dehlimusikk.no/l/edb-orgel",
-            "text": {
-                "en": "Go to download page",
-                "no": "Gå til side for nedlasting"
-            }
-        },
-        "ratingValue": "5",
-        "reviewCount": "1",
-        "sameAs": [
-            "https://store.dehlimusikk.no/l/edb-orgel",
-            "https://dehlimusikk.gumroad.com/l/edb-orgel",
-            "https://www.cylex.no/bedrift-produkt/edb-orgel_223146.html",
-            "https://www.youtube.com/watch?v=hZNESXfthg0"
-        ],
-        "productType": ["Sample instruments", "Decent Sampler"],
-        "mainImage": "edb-orgel.jpg",
-        "additionalImages": ["edb-orgel_01.png", "edb-orgel_02.png", "edb-orgel_03.png"]
     }
 ]

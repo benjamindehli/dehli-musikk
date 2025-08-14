@@ -1,5 +1,39 @@
 [
     {
+        "timestamp": 1755115200000,
+        "title": "Midnight Wurli",
+        "content": {
+            "no": "Midnight Wurli er et samplet [Wurlitzer 200A elektrisk piano](equipment/instruments/wurlitzer-200a/) som fokuserer på å fange instrumentets karakter når det spilles på med lavt volum. Det bruker to lydkilder: Den direkte linjeutgangen fra Wurlitzeren og en kontaktmikrofon festet til instrumentet. Kontaktmikrofonen fanger opp de mekaniske lydene, som tangentklikk og pedalbevegelser, noe som gir en mer intim og nær lyd.\nInstrumentet inkluderer både tonale lyder og lyder av mekanisk støy. Det har også innebygde effekter som tremolo, båndekko, romklang og flere impulsresponser fra forsterkere. Hver tangent har flere lyder som blir påvirket av anslaget for å øke realismen.",
+            "en": "Midnight Wurli is a sampled [Wurlitzer 200A electric piano instrument](equipment/instruments/wurlitzer-200a/) that focuses on capturing the character of the instrument played softly at low volume. It uses two signal sources: the direct line out from the Wurlitzer and a contact microphone attached to the instrument. The contact microphone captures the mechanical noises, such as key clicks, release sounds, and pedal movements which results in a more intimate, close-up sound.\nThe instrument includes both tonal samples and mechanical noise samples. It also features built-in effects including tremolo, tape echo, room reverb, and multiple amplifier impulse responses. Each key includes velocity-based round robins to enhance realism."
+        },
+        "thumbnailDescription": "Logo with the text Midnight Wurli and a Wurlitzer 200A electric piano in the background",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://store.dehlimusikk.no/l/midnight-wurli",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        },
+        "reviewCount": "0",
+        "sameAs": [
+            "https://store.dehlimusikk.no/l/midnight-wurli",
+            "https://dehlimusikk.gumroad.com/l/midnight-wurli",
+            "https://www.cylex.no/bedrift-produkt/midnight+wurli_266062.html",
+            "https://www.youtube.com/watch?v=LB-YDVqQh7s",
+            "https://www.youtube.com/shorts/nCFiLi4mdtE"
+        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "midnight-wurli.jpg",
+        "additionalImages": [
+            "midnight-wurli_01.jpg",
+            "midnight-wurli_02.jpg",
+            "midnight-wurli_03.png",
+            "midnight-wurli_04.png"
+        ]
+    },
+    {
         "timestamp": 1742677200000,
         "title": "DXtraterrestrial 2",
         "content": {
