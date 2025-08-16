@@ -21,6 +21,7 @@ import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { formatContentAsString, formatContentWithReactLinks } from "helpers/contentFormatter";
+import { generateProductSnippet } from "helpers/richSnippetsGenerators";
 
 // Data
 import products from "data/products";
@@ -72,7 +73,7 @@ const Products = () => {
             return {
                 "@type": "ListItem",
                 position: index + 1,
-                url: `https://www.dehlimusikk.no/${languageSlug}products/${selectedProductId}/`
+                item: generateProductSnippet(product, languageSlug, selectedLanguageKey)
             };
         });
         const snippet = {
@@ -127,7 +128,7 @@ const Products = () => {
         );
     };
 
-    const getSelectedProduct = (selectedProductId, selectedLanguageKey) => {
+    const getSelectedProduct = (selectedProductId) => {
         let selectedProduct = null;
         products.forEach((product, index) => {
             const productId = convertToUrlFriendlyString(product.title);
