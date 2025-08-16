@@ -27,6 +27,32 @@
     </video:video>
   </url>
   <url>
+    <loc>https://www.dehlimusikk.no/videos/nytt-sample-bibliotek-under-utvikling/video/</loc>
+    <video:video>
+      <video:title>Nytt sample-bibliotek under utvikling</video:title>
+      <video:description>Jobber med et nytt samplebibliotek med Wurlitzer 200A elektrisk piano. Det inneholder både samples av direktelyd og lyd tatt opp med en kontaktmikrofon.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=nCFiLi4mdtE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-08-04-00_540.47cc30d886301b2d5691.jpg</video:thumbnail_loc>
+      <video:duration>58</video:duration>
+      <video:publication_date>2025-08-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/new-sample-library-in-development/video/</loc>
+    <video:video>
+      <video:title>New sample library in development</video:title>
+      <video:description>Working on a new sample library featuring the Wurlitzer 200A electric piano. It includes both direct audio samples and audio captured with a contact microphone.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=nCFiLi4mdtE</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-08-04-00_540.47cc30d886301b2d5691.jpg</video:thumbnail_loc>
+      <video:duration>58</video:duration>
+      <video:publication_date>2025-08-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/clavinet-med-boss-oc-2-octaver-og-pro-co-rat-distortion/video/</loc>
     <video:video>
       <video:title>Clavinet med Boss OC-2 Octaver og Pro Co RAT distortion</video:title>
