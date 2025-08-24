@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/steely-dan-peg-intro-med-rhodes-og-clavinet/video/</loc>
+    <video:video>
+      <video:title>Steely Dan - Peg (intro) med Rhodes og Clavinet</video:title>
+      <video:description>Et forsøk på å gjenskape Rhodes- og Clavinet-partiene fra introen til låta Peg av Steely Dan. Instrumenter: Hohner Clavinet D6 og Rhodes Mark I Stage Piano. Effekter: Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Small Stone, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu og TC Electronic SCF Stereo Chorus Flanger. Forsterkere: Fender Twin Reverb og Vox AC15H1TV. Mikrofoner: Shure SM57 og Royer Labs R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=H6qiXOIQoo4</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-08-24-00_540.bb8f8d103ae14ee8f06c.jpg</video:thumbnail_loc>
+      <video:duration>21</video:duration>
+      <video:publication_date>2025-08-24</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/steely-dan-peg-intro-with-rhodes-and-clavinet/video/</loc>
+    <video:video>
+      <video:title>Steely Dan - Peg (intro) with Rhodes and Clavinet</video:title>
+      <video:description>An attempt to recreate the Rhodes and Clavinet parts from the intro to the song Peg by Steely Dan. Instruments: Hohner Clavinet D6 and Rhodes Mark I Stage Piano. Effects: Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Small Stone, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu and TC Electronic SCF Stereo Chorus Flanger. Amplifiers: Fender Twin Reverb and Vox AC15H1TV. Microphones: Shure SM57 and Royer Labs R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=H6qiXOIQoo4</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-08-24-00_540.bb8f8d103ae14ee8f06c.jpg</video:thumbnail_loc>
+      <video:duration>21</video:duration>
+      <video:publication_date>2025-08-24</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/wurlitzer-elektrisk-piano-for-decent-sampler-midnight-wurli/video/</loc>
     <video:video>
       <video:title>Wurlitzer elektrisk piano for Decent Sampler (Midnight Wurli)</video:title>
