@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/moog-matriarch-som-en-effektenhet-for-en-fender-rhodes/video/</loc>
+    <video:video>
+      <video:title>Moog Matriarch som en effektenhet for en Fender Rhodes</video:title>
+      <video:description>I denne videoen prosesseres en Fender Rhodes, utstyrt med en Avion Studios RetroFlyer-forforsterker, med Moog Matriarch. Signalet fra Matriarchs lavpassfilter (VCF 2) tas opp direkte. Signalet fra høypassfilteret (VCF 1) sendes gjennom en Roland Dimension D. Begge signalene går gjennom Matriarchs innebygde analoge stereo Bucket Brigade Delay. Instrumenter: Rhodes Mark I Stage Piano og Moog Matriarch. Effekter: Avion Studios RetroFlyer Preamp&apos;s Tremolo, Xotic EP-Booster, Moog Matriarch&apos;s innebygde filtre og stereo delay, Roland Dimension D SDD-320, Chase Bliss Audio &amp; Meris CXM 1978, Hairball Audio FET/RACK Revision D, Alex Franklinos Stereo Transformer Saturator, DIY Recording Equipment G Bus VCA Compressor og Handsome Audio Zulu.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=RtTx0VWAc-E</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-09-16-00_540.730d7efa913445c0a3a1.jpg</video:thumbnail_loc>
+      <video:duration>277</video:duration>
+      <video:publication_date>2025-09-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/moog-matriarch-as-an-effects-unit-for-a-fender-rhodes/video/</loc>
+    <video:video>
+      <video:title>Moog Matriarch as an effects unit for a Fender Rhodes</video:title>
+      <video:description>In this video, a Fender Rhodes equipped with an Avion Studios RetroFlyer Preamp is processed with the Moog Matriarch. The signal from the Matriarch’s Low-Pass Filter (VCF 2) is recorded directly. The signal from the High-Pass Filter (VCF 1) is sent through a Roland Dimension D. Both signals go through the Matriarch&apos;s onboard stereo analog Bucket Brigade Delay. Instruments: Rhodes Mark I Stage Piano and Moog Matriarch. Effects: Avion Studios RetroFlyer Preamp&apos;s Tremolo, Xotic EP-Booster, Moog Matriarch&apos;s built-in filters and stereo delay, Roland Dimension D SDD-320, Chase Bliss Audio &amp; Meris CXM 1978, Hairball Audio FET/RACK Revision D, Alex Franklinos Stereo Transformer Saturator, DIY Recording Equipment G Bus VCA Compressor and Handsome Audio Zulu.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=RtTx0VWAc-E</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-09-16-00_540.730d7efa913445c0a3a1.jpg</video:thumbnail_loc>
+      <video:duration>277</video:duration>
+      <video:publication_date>2025-09-16</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/elektron-sidstation-filterforvrengning/video/</loc>
     <video:video>
       <video:title>Elektron SidStation Filterforvrengning</video:title>
