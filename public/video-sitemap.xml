@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/roland-tr-606-roland-sh-09-korg-polysix-og-sequential-circuits-pro-one/video/</loc>
+    <video:video>
+      <video:title>Roland TR-606, Roland SH-09, Korg Polysix og Sequential Circuits Pro-One</video:title>
+      <video:description>En kjapp demo av en trommemaskin og noen synthesizere fra tidlig på 80-tallet. Instrumenter: Roland TR-606 (trommer), Roland SH-09 (bass), Korg Polysix (akkorder) and Sequential Circuits Pro-One (arpeggioer). Effekter: Alex Franklinos Stereo Transformer Saturator, Boss CE-1 Chorus Ensemble, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu, Roland Dimension D SDD-320 og Roland PA-120 (forforsterker og EQ). Båndopptaker: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=E2ZTjAL2W3c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-10-04-00_540.213169a2220177c3b34e.jpg</video:thumbnail_loc>
+      <video:duration>61</video:duration>
+      <video:publication_date>2025-10-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/roland-tr-606-roland-sh-09-korg-polysix-and-sequential-circuits-pro-one/video/</loc>
+    <video:video>
+      <video:title>Roland TR-606, Roland SH-09, Korg Polysix and Sequential Circuits Pro-One</video:title>
+      <video:description>A short demo featuring a drum machine and some synthesizers from the early 80&apos;s. Instruments: Roland TR-606 (drums), Roland SH-09 (bass), Korg Polysix (chords) and Sequential Circuits Pro-One (arpeggios). Effects: Alex Franklinos Stereo Transformer Saturator, Boss CE-1 Chorus Ensemble, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu, Roland Dimension D SDD-320 and Roland PA-120 (preamp and EQ). Tape recorder: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=E2ZTjAL2W3c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-10-04-00_540.213169a2220177c3b34e.jpg</video:thumbnail_loc>
+      <video:duration>61</video:duration>
+      <video:publication_date>2025-10-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/moog-matriarch-som-en-effektenhet-for-en-fender-rhodes/video/</loc>
     <video:video>
       <video:title>Moog Matriarch som en effektenhet for en Fender Rhodes</video:title>
