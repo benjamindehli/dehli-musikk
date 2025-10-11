@@ -27,6 +27,7 @@ import hanneStaverTheWords from './releases/data/hanneStaver_theWords.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock.json';
 import hauntedBySilhouettesDeparture from './releases/data/hauntedBySilhouettes_departure.json';
 import hauntedBySilhouettesFlock from './releases/data/hauntedBySilhouettes_flock.json';
+import hauntedBySilhouettesGodfall from './releases/data/hauntedBySilhouettes_godfall.json';
 import hauntedBySilhouettesIcon from './releases/data/hauntedBySilhouettes_icon.json';
 import hauntedBySilhouettesNoManIsle from './releases/data/hauntedBySilhouettes_noManIsle.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth.json';
@@ -70,9 +71,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
+  hauntedBySilhouettesGodfall,
   benjaminDehliCantiqueDeNoel,
-  kaasinDeadMansHand,
-  benjaminDehliRachelsSongCover
+  kaasinDeadMansHand
 ];
 
 const allReleases = [
@@ -105,6 +106,7 @@ const allReleases = [
   hauntedBySilhouettesDeadlock,
   hauntedBySilhouettesDeparture,
   hauntedBySilhouettesFlock,
+  hauntedBySilhouettesGodfall,
   hauntedBySilhouettesIcon,
   hauntedBySilhouettesNoManIsle,
   hauntedBySilhouettesSelkie,
