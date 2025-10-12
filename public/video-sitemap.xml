@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/therevox-med-ace-tone-fuzz-master/video/</loc>
+    <video:video>
+      <video:title>Therevox med Ace Tone Fuzz Master</video:title>
+      <video:description>Therevox med fuzz og båndekko gjennom en Tandberg Model 2 T. Instrument: Therevox ET-4.3. Effekkter: Ace Tone FM-2 Fuzz Master Professional, Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D og Handsome Audio Zulu. Forsterker: Tandberg Model 2 T (TB2). Mikrofoner: Shure SM57 og Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EMuGu12m5Ng</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-10-11-00_540.376f67ec23cc1273bae4.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2025-10-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/therevox-with-ace-tone-fuzz-master/video/</loc>
+    <video:video>
+      <video:title>Therevox with Ace Tone Fuzz Master</video:title>
+      <video:description>Therevox with fuzz and tape echo through a Tandberg Model 2 T. Instrument: Therevox ET-4.3. Effects: Ace Tone FM-2 Fuzz Master Professional, Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D and Handsome Audio Zulu. Amplifier: Tandberg Model 2 T (TB2). Microphones: Shure SM57 and Royer R-121.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=EMuGu12m5Ng</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-10-11-00_540.376f67ec23cc1273bae4.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2025-10-11</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/roland-tr-606-roland-sh-09-korg-polysix-og-sequential-circuits-pro-one/video/</loc>
     <video:video>
       <video:title>Roland TR-606, Roland SH-09, Korg Polysix og Sequential Circuits Pro-One</video:title>
