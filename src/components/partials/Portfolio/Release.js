@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet-async';
 
 // Components
 import EquipmentItem from 'components/partials/EquipmentItem';
+import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
+import Product from 'components/partials/Product';
 import ExpansionPanel from 'components/template/ExpansionPanel';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
@@ -11,7 +13,6 @@ import ListItemContent from 'components/template/List/ListItem/ListItemContent';
 import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
-import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
 
 // Actions
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
@@ -20,7 +21,7 @@ import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
-import { getReleaseInstruments } from 'helpers/releaseInstruments';
+import { getReleaseInstruments, getReleaseProducts } from 'helpers/releaseInstruments';
 import { useSelector } from 'react-redux';
 import { getRichSnippetDateString } from 'helpers/dateFormatter';
 
@@ -132,6 +133,27 @@ const Release = ({ release, fullscreen, compact }) => {
     }
   }
 
+  const renderProductsList = (products, selectedLanguageKey) => {
+    if (products && products.length) {
+      const listItems = products.map(product => {
+        return (<ListItem key={product.equipmentItemId} compact={true}>
+          <Product product={product} itemId={product.equipmentItemId} compact={true} />
+        </ListItem>)
+      });
+      const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
+      const elementId = `release-products-${releaseId}`;
+      return (
+        <ExpansionPanel elementId={elementId} panelTitle={selectedLanguageKey === 'en' ? 'Products used on the song' : 'Produkter som er brukt på låta'}>
+          <List compact={true}>
+            {listItems}
+          </List>
+        </ExpansionPanel>
+      );
+    } else {
+      return '';
+    }
+  }
+
   const renderLinkList = (release, selectedLanguageKey) => {
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
     const elementId = `release-links-${releaseId}`;
@@ -144,6 +166,7 @@ const Release = ({ release, fullscreen, compact }) => {
 
   const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
   const releaseInstruments = getReleaseInstruments(releaseId);
+  const releaseProducts = getReleaseProducts(releaseId);
 
   const imagePathAvif = !release.unreleased ? `data/releases/thumbnails/web/avif/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
   const imagePathWebp = !release.unreleased ? `data/releases/thumbnails/web/webp/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
@@ -199,6 +222,9 @@ const Release = ({ release, fullscreen, compact }) => {
         fullscreen ? renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
       }
       {
+        fullscreen ? renderProductsList(releaseProducts, selectedLanguageKey) : ''
+      }
+      {
         fullscreen ? renderLinkList(release, selectedLanguageKey) : ''
       }
     </React.Fragment>)
@@ -217,6 +243,9 @@ const Release = ({ release, fullscreen, compact }) => {
         </ListItemContent>
         {
           fullscreen ? renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
+        }
+        {
+          fullscreen ? renderProductsList(releaseProducts, selectedLanguageKey) : ''
         }
       </React.Fragment>
     );
