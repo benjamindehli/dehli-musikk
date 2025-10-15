@@ -5,11 +5,15 @@ import { Helmet } from "react-helmet-async";
 
 // Components
 import Button from "components/partials/Button";
+import Release from "components/partials//Portfolio/Release";
+import ListItem from "components/template/List/ListItem";
 import ListItemActionButtons from "components/template/List/ListItem/ListItemActionButtons";
 import ListItemContent from "components/template/List/ListItem/ListItemContent";
 import ListItemContentBody from "components/template/List/ListItem/ListItemContent/ListItemContentBody";
 import ListItemContentHeader from "components/template/List/ListItem/ListItemContent/ListItemContentHeader";
 import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbnail";
+import ExpansionPanel from "components/template/ExpansionPanel";
+import List from "components/template/List";
 
 // Selectors
 import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
@@ -20,8 +24,9 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { formatContentWithReactLinks } from "helpers/contentFormatter";
 import { convertStringToExcerpt } from "helpers/search";
 import { generateProductSnippet, generateSoftwareApplicationSnippet } from "helpers/richSnippetsGenerators";
+import { getProductReleases } from "helpers/instrumentReleases";
 
-const Product = ({ product, fullscreen }) => {
+const Product = ({ product, fullscreen, compact }) => {
     // Redux store
     const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
     const languageSlug = useSelector((state) => getLanguageSlug(state));
@@ -37,8 +42,8 @@ const Product = ({ product, fullscreen }) => {
         );
     };
 
-    const renderProductThumbnail = (image, altText, fullscreen) => {
-        const imageSize = fullscreen ? "540px" : "350px";
+    const renderProductThumbnail = (image, altText, fullscreen, compact) => {
+        const imageSize = compact ? "55px" : fullscreen ? "540px" : "350px";
 
         const srcSets = {
             avif: `${image.avif55} 55w, ${image.avif350} 350w ${fullscreen ? `, ${image.avif540} 540w` : ""}`,
@@ -62,6 +67,34 @@ const Product = ({ product, fullscreen }) => {
                 <Button buttontype="minimal">{link.text[selectedLanguageKey]}</Button>
             </a>
         );
+    };
+
+    const renderReleasesList = (releases, selectedLanguageKey, product) => {
+        const productId = convertToUrlFriendlyString(product.title);
+        const elementId = `product-releases-${productId}`;
+        if (releases && releases.length) {
+            const listItems = releases.map((release) => {
+                return (
+                    <ListItem key={release.releaseId} compact={true}>
+                        <Release release={release} compact={true} />
+                    </ListItem>
+                );
+            });
+            return (
+                <ExpansionPanel
+                    elementId={elementId}
+                    panelTitle={
+                        selectedLanguageKey === "en"
+                            ? `Recordings with the ${product.title}`
+                            : `Utgivelser med ${product.title}`
+                    }
+                >
+                    <List compact={true}>{listItems}</List>
+                </ExpansionPanel>
+            );
+        } else {
+            return "";
+        }
     };
 
     const productId = convertToUrlFriendlyString(product.title);
@@ -95,15 +128,19 @@ const Product = ({ product, fullscreen }) => {
     return product && product.content && product.content[selectedLanguageKey] ? (
         <React.Fragment>
             {fullscreen ? renderProductSnippet(product) : ""}
-            <ListItemThumbnail fullscreen={fullscreen} link={link}>
-                {renderProductThumbnail(image, product.thumbnailDescription, fullscreen)}
+            <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
+                {renderProductThumbnail(image, product.thumbnailDescription, fullscreen, compact)}
             </ListItemThumbnail>
             <ListItemContent fullscreen={fullscreen}>
                 <ListItemContentHeader fullscreen={fullscreen} link={link}>
                     <h2>{product.title}</h2>
-                    <time dateTime={productDate.toISOString()}>{getPrettyDate(productDate, selectedLanguageKey)}</time>
+                    {!compact && (
+                        <time dateTime={productDate.toISOString()}>
+                            {getPrettyDate(productDate, selectedLanguageKey)}
+                        </time>
+                    )}
                 </ListItemContentHeader>
-                <ListItemContentBody fullscreen={fullscreen}>{productDescription}</ListItemContentBody>
+                {!compact && <ListItemContentBody fullscreen={fullscreen}>{productDescription}</ListItemContentBody>}
                 {product.link && fullscreen ? (
                     <ListItemActionButtons fullscreen={fullscreen}>
                         {renderShopLink(product.link)}
@@ -112,6 +149,7 @@ const Product = ({ product, fullscreen }) => {
                     ""
                 )}
             </ListItemContent>
+            {fullscreen ? renderReleasesList(getProductReleases(productId), selectedLanguageKey, product) : ""}
         </React.Fragment>
     ) : (
         ""
