@@ -72,7 +72,7 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
           "name": clip.name[selectedLanguageKey],
           "startOffset": clip.startOffset,
           "endOffset": clip.endOffset,
-          "url": `https://www.youtube.com/watch?v=${video.youTubeId}&t=${clip.startOffset}`
+          "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/?t=${clip.startOffset}`
         }
       })
     }
