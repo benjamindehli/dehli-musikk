@@ -28,7 +28,7 @@ import style from "components/partials/Video.module.scss";
 import Button from './Button';
 import { Link } from 'react-router-dom';
 
-const Video = ({ video, fullscreen, isTheaterMode }) => {
+const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
 
   // Redux store
   const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
@@ -125,8 +125,21 @@ const Video = ({ video, fullscreen, isTheaterMode }) => {
     title: video.title[selectedLanguageKey]
   };
 
+  let theaterModeToPath;
+  if (isTheaterMode) {
+    theaterModeToPath = videoPath;
+    if (startOffset) {
+      theaterModeToPath += `?t=${startOffset}`;
+    }
+  } else {
+    theaterModeToPath = `${videoPath}video/`;
+    if (startOffset) {
+      theaterModeToPath += `?t=${startOffset}`;
+    }
+  }
+
   const theaterModeLink = {
-    to: isTheaterMode ? videoPath : `${videoPath}video/`,
+    to: theaterModeToPath,
     title: video.title[selectedLanguageKey],
     label: isTheaterMode
             ? selectedLanguageKey === "en"
@@ -145,7 +158,7 @@ const Video = ({ video, fullscreen, isTheaterMode }) => {
           ? (
             <React.Fragment>
               {renderVideoSnippet(video, videoId, image.jpg540)}
-              <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]} />
+              <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]} startOffset={startOffset} /> 
             </React.Fragment>
           ) : (
             <ListItemThumbnail fullscreen={fullscreen} link={link}>

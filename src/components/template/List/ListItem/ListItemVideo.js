@@ -1,13 +1,15 @@
 // Stylesheets
-import style from 'components/template/List/ListItem/ListItemVideo.module.scss';
+import style from "components/template/List/ListItem/ListItemVideo.module.scss";
 
-const ListItemThumbnail = ({ videoTitle, youTubeId }) => {
-  return (
-    <div className={style.videoContainer}>
-      <iframe width="945" height="532" title={videoTitle} src={`https://www.youtube.com/embed/${youTubeId}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen>
-      </iframe>
-    </div>
-  )
+const ListItemThumbnail = ({ videoTitle, youTubeId, startOffset }) => {
+    const videoSrc = `https://www.youtube.com/embed/${youTubeId}?origin=${window.location.origin}${
+        startOffset ? `&start=${startOffset}` : ""
+    }`;
+    return (
+        <div className={style.videoContainer}>
+            <iframe width="945" height="532" title={videoTitle} src={videoSrc} frameBorder="0" allowFullScreen></iframe>
+        </div>
+    );
 };
 
 export default ListItemThumbnail;

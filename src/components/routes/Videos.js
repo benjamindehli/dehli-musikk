@@ -32,6 +32,8 @@ const Videos = () => {
     const selectedVideoId = params?.videoId || null;
 
     const location = useLocation();
+    const startOffset = new URLSearchParams(location.search).get("t") || null;
+
 
     const lastSegment = location.pathname
         .split("/")
@@ -144,7 +146,7 @@ const Videos = () => {
                 selectedLanguageKey={selectedLanguageKey}
                 isTheaterMode={isTheaterMode}
             >
-                <Video video={selectedVideo} fullscreen={true} isTheaterMode={isTheaterMode} />
+                <Video video={selectedVideo} fullscreen={true} isTheaterMode={isTheaterMode} startOffset={startOffset} />
             </Modal>
         ) : (
             ""
