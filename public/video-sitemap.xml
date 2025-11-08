@@ -261,6 +261,32 @@
     </video:video>
   </url>
   <url>
+    <loc>https://www.dehlimusikk.no/videos/kaasin-fired-up-kassettmiks/video/</loc>
+    <video:video>
+      <video:title>Kaasin - Fired Up (kassettmiks)</video:title>
+      <video:description>En superkort forhåndslytt på kassettmiksen til hvert spor på Fired Up-albumet av Kaasin.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vDUMZkPFh1I</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-04-05-00_540.5f9d7073fff23da2efe0.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2025-04-05</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/kaasin-fired-up-cassette-mix/video/</loc>
+    <video:video>
+      <video:title>Kaasin - Fired Up (cassette mix)</video:title>
+      <video:description>A super short preview of a cassette mix version of each track on the Fired Up album by Kaasin.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=vDUMZkPFh1I</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-04-05-00_540.5f9d7073fff23da2efe0.jpg</video:thumbnail_loc>
+      <video:duration>60</video:duration>
+      <video:publication_date>2025-04-05</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/flere-egendefinerte-patcher-for-yamaha-dx7-dxtraterrestrial-2/video/</loc>
     <video:video>
       <video:title>Flere egendefinerte patcher for Yamaha DX7 (DXtraterrestrial 2)</video:title>
