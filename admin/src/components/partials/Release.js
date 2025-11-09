@@ -205,7 +205,7 @@ const Release = ({ releaseData, index }) => {
                 <a href={updatedRelease.links[linkKey]} target="_blank" rel="noreferrer">{updatedRelease.links[linkKey]}</a>
               </dd>
             </dl>
-            <button onClick={() => { this.handleLinkChange(linkKey, updatedRelease.links[linkKey]) }}>Replace link</button>
+            <button onClick={() => { handleLinkChange(linkKey, updatedRelease.links[linkKey]) }}>Replace link</button>
           </div>
         )
           : ''}
