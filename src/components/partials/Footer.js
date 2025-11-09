@@ -35,10 +35,10 @@ const Footer = () => {
                 </ul>
               </li>
               <li>
-                <a className="email" href="mailto:superelg@gmail.com" title="Send email to Dehli Musikk">superelg@gmail.com</a>
+                <span className="email">superelg@gmail.com</span>
               </li>
               <li>
-                <a className="tel" href="tel:+4792292719" title="Call Dehli Musikk">(47) 922 92 719</a>
+                <span className="tel">(47) 922 92 719</span>
               </li>
             </ul>
           </address>
