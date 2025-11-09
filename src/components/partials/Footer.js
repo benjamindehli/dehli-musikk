@@ -12,6 +12,8 @@ import style from 'components/partials/Footer.module.scss';
 // Redux store
 const selectedLanguageKey = window?.location?.pathname?.startsWith('/en/') ? 'en' : 'no';
 
+const year = new Date().getFullYear();
+
 const Footer = () => {
   return (<footer id="contact" className={style.footer}>
     <div className={style.contentSection}>
@@ -58,7 +60,7 @@ const Footer = () => {
       </div>
     </div>
     <div className={style.contentSection}>
-      © 2024 Dehli Musikk
+      © {year} Dehli Musikk
     </div>
   </footer>)
 }
