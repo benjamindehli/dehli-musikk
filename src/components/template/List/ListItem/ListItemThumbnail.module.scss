@@ -13,6 +13,7 @@
     & img {
       width: 55px;
       height: 55px;
+      aspect-ratio: attr(width) / attr(height);
       border-radius: 50%;
       border: 1px solid #eee;
     }
