@@ -1,9 +1,12 @@
 .videoContainer {
   position: relative;
   padding-bottom: 56.25%;
-  height: 0;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  width: 100%;
   & iframe {
     position: absolute;
+    border: none;
     width: 100%;
     height: 100%;
     top: 0;
