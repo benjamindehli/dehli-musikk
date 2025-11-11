@@ -97,7 +97,7 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
       <source sizes={imageSize} srcSet={srcSets.avif} type="image/avif" />
       <source sizes={imageSize} srcSet={srcSets.webp} type="image/webp" />
       <source sizes={imageSize} srcSet={srcSets.jpg} type="image/jpg" />
-      <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} />
+      <img loading="lazy" src={image.jpg350} width="350" height="197" alt={altText } />
     </React.Fragment>);
   }
 
