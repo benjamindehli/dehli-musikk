@@ -20,7 +20,7 @@ import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
 
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { formatContentAsString, formatContentWithReactLinks } from "helpers/contentFormatter";
+import { formatContentAsString } from "helpers/contentFormatter";
 
 // Data
 import posts from "data/posts";

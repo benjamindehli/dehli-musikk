@@ -20,7 +20,6 @@ import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
 
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { getReleaseInstruments } from "helpers/releaseInstruments";
 
 // Data
 import releases from "data/portfolio";
