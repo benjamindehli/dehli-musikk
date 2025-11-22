@@ -42,7 +42,6 @@ import configureStore, { history } from 'utils/configureStore';
 
 // Components
 import NavigationBar from 'components/partials/NavigationBar';
-import Footer from 'components/partials/Footer';
 
 // Assets
 import openGraphImage from 'assets/images/DehliMusikk-OpenGraph.jpg';
@@ -70,6 +69,7 @@ const Products = prerenderedLoadable(() => import("./components/routes/Products"
 const Equipment = prerenderedLoadable(() => import("./components/routes/Equipment"));
 const Faq = prerenderedLoadable(() => import("./components/routes/Faq"));
 const NotFound = prerenderedLoadable(() => import("./components/routes/NotFound"));
+const Footer = prerenderedLoadable(() => import("./components/partials/Footer"));
 
 library.add(
   faBullhorn,
@@ -132,7 +132,7 @@ const App = () => {
         </Helmet>
         <NavigationBar />
         <div className={style.container}>
-          <main>
+          <main style={{minHeight: "100vh"}}>
             <Routes>
               <Route path="*" key={"/404.html"} element={<NotFound />} />
               <Route path="/404" key={"/404.html"} element={<NotFound />} />
