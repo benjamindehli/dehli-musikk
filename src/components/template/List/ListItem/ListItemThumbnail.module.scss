@@ -6,7 +6,7 @@
   height: 55px;
   margin: 9px 6px;
   border-radius: 50%;
-  background-color: #e5e5e5;
+  background-color: #fff;
 
   & picture {
     display: block;
@@ -33,7 +33,6 @@
         & picture {
           & img {
             width: 100%;
-            color: red;
             height: auto;
             border-radius: 0;
             border: none;
