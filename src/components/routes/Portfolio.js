@@ -20,7 +20,6 @@ import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
 
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { getReleaseInstruments } from "helpers/releaseInstruments";
 
 // Data
 import releases from "data/portfolio";
@@ -151,26 +150,6 @@ const Portfolio = () => {
         return selectedRelease;
     };
 
-    const getReleaseInstrumentsText = (releaseId) => {
-        const releaseInstruments = getReleaseInstruments(releaseId);
-        const releaseInstrumentsString =
-            releaseInstruments?.length &&
-            releaseInstruments
-                .map((instrument, index) => {
-                    const separator =
-                        index === releaseInstruments.length - 2
-                            ? ` ${selectedLanguageKey === "en" ? "and" : "og"} `
-                            : ", ";
-                    return `${instrument.brand} ${instrument.model}${
-                        index === releaseInstruments.length - 1 ? "" : separator
-                    }`;
-                })
-                .join("");
-        return `${
-            selectedLanguageKey === "en" ? "Instruments used on the song: " : "Instrumenter som er brukt på låta: "
-        }${releaseInstrumentsString}`;
-    };
-
     const languageIsInitialized = !params.selectedLanguage || params.selectedLanguage === selectedLanguageKey;
     const languageIsValid = !params.selectedLanguage || params.selectedLanguage === "en";
 
@@ -295,23 +274,21 @@ const Portfolio = () => {
                         <meta property="twitter:title" content={contentTitle} />
                         <meta property="twitter:description" content={metaDescription} />
                     </Helmet>
+                    <Container blur={!!selectedRelease}>
+                        <Breadcrumbs breadcrumbs={breadcrumbs} />
+                    </Container>
                     {selectedRelease ? renderSelectedRelease(selectedRelease) : renderSummarySnippet(releases)}
                     <Container blur={selectedRelease !== null}>
-                        <Breadcrumbs breadcrumbs={breadcrumbs} />
-                        <h1>{contentTitle}</h1>
-                        {selectedRelease ? (
-                            <p>
-                                {detailsPage.description[selectedLanguageKey]}
-                                <br />
-                                {getReleaseInstrumentsText(selectedReleaseId)}
-                            </p>
-                        ) : (
-                            <p>
-                                {selectedLanguageKey === "en"
-                                    ? "Recordings where Dehli Musikk has contributed"
-                                    : "Utgivelser Dehli Musikk har bidratt på"}
-                            </p>
-                        )}
+                        {
+                            selectedRelease
+                                ? <h2 data-size="h1">{listPage.heading[selectedLanguageKey]}</h2>
+                                : <h1>{listPage.heading[selectedLanguageKey]}</h1>
+                        }
+                        <p>
+                            {selectedLanguageKey === "en"
+                                ? "Recordings where Dehli Musikk has contributed"
+                                : "Utgivelser Dehli Musikk har bidratt på"}
+                        </p>
                     </Container>
                     <Container blur={selectedRelease !== null}>
                         <List>{renderReleases()}</List>

@@ -388,26 +388,24 @@ const Equipment = () => {
                     </Helmet>
                     <Container blur={!!selectedEquipment}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
-                        <h1>
-                            {selectedEquipment
-                                ? detailsPage.heading
-                                : selectedEquipmentType
-                                ? listPage.heading[selectedLanguageKey]
-                                : listEquipmentTypesPage.heading[selectedLanguageKey]}
-                        </h1>
-                        <p>
-                            {selectedEquipment
-                                ? detailsPage.description
-                                : selectedEquipmentType
-                                ? listPage.description[selectedLanguageKey]
-                                : listEquipmentTypesPage.description[selectedLanguageKey]}
-                        </p>
                     </Container>
                     {selectedEquipment
                         ? renderSelectedEquipment(selectedEquipment, selectedEquipmentType)
                         : selectedEquipmentType
                         ? renderSummarySnippetForEquipmentItems(equipment[selectedEquipmentType], selectedEquipmentType)
                         : renderSummarySnippetForEquipmentTypes(equipment)}
+                    <Container blur={!!selectedEquipment}>
+                        {
+                            selectedEquipment
+                                ? <h2 data-size="h1">{selectedEquipmentType ? listPage.heading[selectedLanguageKey] : listEquipmentTypesPage.heading[selectedLanguageKey]}</h2>
+                                : <h1>{selectedEquipmentType ? listPage.heading[selectedLanguageKey] : listEquipmentTypesPage.heading[selectedLanguageKey]}</h1>
+                        }
+                        <p>
+                            {selectedEquipmentType
+                                ? listPage.description[selectedLanguageKey]
+                                : listEquipmentTypesPage.description[selectedLanguageKey]}
+                        </p>
+                    </Container>
                     <Container blur={!!selectedEquipment}>
                         <List>
                             {selectedEquipmentType

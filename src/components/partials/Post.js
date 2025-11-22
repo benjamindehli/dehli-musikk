@@ -155,7 +155,9 @@ const Post = ({ post, fullscreen }) => {
       </ListItemThumbnail>
       <ListItemContent fullscreen={fullscreen}>
         <ListItemContentHeader fullscreen={fullscreen} link={link}>
-          <h2>{post.title[selectedLanguageKey]}</h2>
+          {
+            fullscreen ? <h1>{post.title[selectedLanguageKey]}</h1> : <h2>{post.title[selectedLanguageKey]}</h2>
+          }
           <time dateTime={postDate.toISOString()}>{getPrettyDate(postDate, selectedLanguageKey)}</time>
         </ListItemContentHeader>
         <ListItemContentBody fullscreen={fullscreen}>

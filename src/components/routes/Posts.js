@@ -20,7 +20,7 @@ import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
 
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { formatContentAsString, formatContentWithReactLinks } from "helpers/contentFormatter";
+import { formatContentAsString } from "helpers/contentFormatter";
 
 // Data
 import posts from "data/posts";
@@ -256,18 +256,20 @@ const Posts = () => {
                     </Helmet>
                     <Container blur={!!selectedPost}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
-                        <h1>{contentTitle}</h1>
-                        {selectedPost ? (
-                            formatContentWithReactLinks(selectedPost.content[selectedLanguageKey], languageSlug)
-                        ) : (
-                            <p>
-                                {selectedLanguageKey === "en"
-                                    ? "Updates from Dehli Musikk"
-                                    : "Oppdateringer fra Dehli Musikk"}
-                            </p>
-                        )}
                     </Container>
                     {selectedPost ? renderSelectedPost(selectedPost) : renderSummarySnippet(posts)}
+                    <Container blur={!!selectedPost}>
+                        {
+                            selectedPost
+                                ? <h2 data-size="h1">{listPage.heading[selectedLanguageKey]}</h2>
+                                : <h1>{listPage.heading[selectedLanguageKey]}</h1>
+                        }
+                        <p>
+                            {selectedLanguageKey === "en"
+                                ? "Updates from Dehli Musikk"
+                                : "Oppdateringer fra Dehli Musikk"}
+                        </p>
+                    </Container>
                     <Container blur={!!selectedPost}>
                         <List>{renderPosts()}</List>
                     </Container>

@@ -144,10 +144,9 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
       </ListItemThumbnail>
       <ListItemContent fullscreen={fullscreen}>
         <ListItemContentHeader fullscreen={fullscreen} link={link}>
-          <h2>
-            {item.model}
-            <span>{item.brand}</span>
-          </h2>
+          {
+            fullscreen ? <h1>{item.model}<span>{item.brand}</span></h1> : <h2>{item.model}<span>{item.brand}</span></h2>
+          }
         </ListItemContentHeader>
       </ListItemContent>
       {

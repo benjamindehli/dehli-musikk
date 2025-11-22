@@ -28,9 +28,10 @@
   }
   &.fullscreen {
     display: block;
-    & h2 {
+    & h1 {
       margin: 0;
       font-size: 22px;
+      font-weight: 400;
       color: colors.$article-text-color;
       @media (min-width: breakpoints.$screen-sm) {
         font-size: 26px;
