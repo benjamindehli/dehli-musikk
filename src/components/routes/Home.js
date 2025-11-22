@@ -146,7 +146,7 @@ const Home = () => {
                         <meta property="twitter:title" content="Dehli Musikk" />
                         <meta property="twitter:description" content={metaDescription} />
                     </Helmet>
-                    <div className={style.header}>
+                    <div className={style.header} style={{ minHeight: "135px" }}>
                         {renderHeaderImage()}
                         <div className={style.overlay}>
                             <span className={style.logo}>
@@ -155,14 +155,14 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className={style.contentSection}>
+                    <div className={style.contentSection} style={{ minHeight: "468px" }}>
                         <header>
                             <h1>Dehli Musikk</h1>
                         </header>
                         <IntroContent />
                     </div>
 
-                    <div className={style.mutedSection}>
+                    <div className={style.mutedSection} style={{ minHeight: "650px" }}>
                         <Container>
                             <h2 className={style.sectionHeader}>
                                 {selectedLanguageKey === "en" ? "Latest updates" : "Siste oppdateringer"}
@@ -182,7 +182,7 @@ const Home = () => {
                         </Container>
                     </div>
 
-                    <div>
+                    <div style={{ minHeight: "650px" }}>
                         <Container>
                             <h2 className={style.sectionHeader}>
                                 {selectedLanguageKey === "en" ? "Latest releases" : "Siste utgivelser"}
@@ -202,7 +202,7 @@ const Home = () => {
                         </Container>
                     </div>
 
-                    <div className={style.mutedSection}>
+                    <div className={style.mutedSection} style={{ minHeight: "650px" }}>
                         <Container>
                             <h2 className={style.sectionHeader}>
                                 {selectedLanguageKey === "en" ? "Latest videos" : "Siste videoer"}
@@ -222,7 +222,7 @@ const Home = () => {
                         </Container>
                     </div>
 
-                    <div>
+                    <div style={{ minHeight: "650px" }}>
                         <Container>
                             <h2 className={style.sectionHeader}>
                                 {selectedLanguageKey === "en" ? "Newest products" : "Nyeste produkter"}
@@ -242,7 +242,7 @@ const Home = () => {
                         </Container>
                     </div>
 
-                    <div className={style.socialMediaSection}>
+                    <div className={style.socialMediaSection} style={{ minHeight: "297px" }}>
                         <div className={style.contentSection}>
                             <h2>
                                 {selectedLanguageKey === "en"
