@@ -1,99 +1,62 @@
-// Dependencies
-import React, { useEffect, useRef, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-// Stylesheets
-import style from 'components/template/ExpansionPanel.module.scss';
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import style from "components/template/ExpansionPanel.module.scss";
 
 const ExpansionPanel = ({ panelTitle, children, elementId }) => {
+  const [expanded, setExpanded] = useState(false);
+  const [maxHeight, setMaxHeight] = useState(0);
 
-  // State
-  const [expanded, setExpanded] = useState();
-  const [linkElements, setLinkElements] = useState(null);
-  const [maxHeight, setMaxHeight] = useState(null);
-  const [isInitiated, setIsInitiated] = useState(null);
+  const containerRef = useRef(null);
 
-  // Refs
-  const containerElement = useRef();
+  const id = elementId || `expansion-panel-${Math.random().toString(36).slice(2, 9)}`;
 
-  const makeLinksNotTabable = (linkElements) => {
-    if (linkElements) {
-      for (let item of linkElements) {
-        if (item.dataset.tabable) {
-          item.tabIndex = -1;
-        }
-      }
+  // Measure content height BEFORE paint to avoid CLS
+  useLayoutEffect(() => {
+    if (containerRef.current) {
+      setMaxHeight(containerRef.current.scrollHeight);
     }
-  };
+  }, [children]);
 
-  const makeLinksTabable = (linkElements) => {
-    if (linkElements) {
-      for (let item of linkElements) {
-        if (item.dataset.tabable) {
-          item.tabIndex = 0;
-        }
-      }
-    }
-  };
-
-  const hasSameIdAsHash = (elementId) => {
-    return elementId === window.location?.hash?.substring(1);
-  };
-
-  const toggleExpand = () => {
-    setExpanded(!expanded)
-    !expanded ? makeLinksTabable(linkElements) : makeLinksNotTabable(linkElements);
-  }
-
-  const generateRandomId = () => {
-    return `expansion-panel-${Math.random().toString(36).substring(2, 9)}`;
-  };
-
+  // Auto-expand if URL hash matches
   useEffect(() => {
-    setIsInitiated(false);
-    setExpanded(false);
-  }, [children])
-
-  useEffect(() => {
-    if (!isInitiated) {
+    if (id === window.location?.hash?.substring(1)) {
       setExpanded(true);
-      setLinkElements(containerElement.current.getElementsByTagName('a'));
-      setMaxHeight(containerElement.current.clientHeight);
-      setIsInitiated(true);
-    } else {
-      if (hasSameIdAsHash(elementId)) {
-        setExpanded(true);
-        makeLinksTabable(linkElements);
-      } else {
-        setExpanded(false);
-        makeLinksNotTabable(linkElements);
-      }
     }
-  }, [isInitiated, linkElements, elementId])
+  }, [id]);
 
+  const toggleExpand = () => setExpanded((prev) => !prev);
 
+  return (
+    <>
+      <button
+        id={id}
+        className={style.expandButton}
+        onClick={toggleExpand}
+        aria-expanded={expanded}
+        aria-controls={`${id}-content`}
+      >
+        <h2 className={`${style.expansionPanelHeader} ${expanded ? style.expanded : ""}`}>
+          <span id={`${id}-title`}>{panelTitle}</span>
+          <FontAwesomeIcon icon={["fas", "chevron-down"]} />
+        </h2>
+      </button>
 
-  const containerElementStyle = {
-    maxHeight: expanded
-      ? maxHeight
-      : isInitiated ? 0 : 'none'
-  };
-
-  const elementIdWithFallback = elementId || generateRandomId();
-
-  return (<React.Fragment>
-    <button id={elementIdWithFallback} className={style.expandButton} onClick={toggleExpand} aria-expanded={expanded ? "true" : "false"} aria-controls={`${elementIdWithFallback}-content`}>
-      <h2 className={`${style.expansionPanelHeader} ${expanded ? style.expanded : ''}`}>
-        <span id={`${elementIdWithFallback}-title`}>{panelTitle}</span>
-        <FontAwesomeIcon icon={['fas', 'chevron-down']} />
-      </h2>
-    </button>
-    <div ref={containerElement} id={`${elementIdWithFallback}-content`} role="region" aria-labelledby={`${elementIdWithFallback}-title`}
-      className={`${style.expansionPanelContent} ${expanded ? style.expanded : ''}`}
-      style={containerElementStyle}>
-      {children}
-    </div>
-  </React.Fragment>)
+      <div
+        ref={containerRef}
+        id={`${id}-content`}
+        role="region"
+        aria-labelledby={`${id}-title`}
+        aria-hidden={!expanded}
+        className={`${style.expansionPanelContent} ${expanded ? style.expanded : ""}`}
+        style={{
+          maxHeight: expanded ? `${maxHeight}px` : "0px",
+        }}
+        inert={!expanded ? "" : undefined}
+      >
+        {children}
+      </div>
+    </>
+  );
 };
 
 export default ExpansionPanel;
