@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/fender-rhodes-gjennom-nanobox-lemondrop/video/</loc>
+    <video:video>
+      <video:title>Fender Rhodes gjennom nanobox | lemondrop</video:title>
+      <video:description>Signalbehandlingskjede med et Fender Rhodes-piano og en 1010music nanobox | lemondrop granulærsynth. Rhodes-pianoets pickup-utgang er mikset med en kontaktmikrofon montert inne i instrumentet for å fange opp mekanikkstøy. Det summerte signalet er sendt gjennom en lemondrop og brukes som en sanntids granulær-oscillator. Parametere på synthen justeres underveis for å forme den innkommende lyden. Både det prosesserte signalet fra lemondrop&apos;en og direktesignalet fra Rhodes pianoet sendes deretter gjennom en stereo BBD delay på en Moog Matriarch. Jeg la også til litt romklang fra en Chase Bliss Audio &amp; Meris CXM 1978 for å skape litt mer luft og dybde. Instrumenter: 1010music nanobox | lemondrop og Rhodes Mark I Stage Piano. Effekter: Alex Franklinos Stereo Transformer Saturator, Avion Studios RetroFlyer Preamp, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu og Moog Matriarch (Stereo BBD Delay).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=WkURgjLvezk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-11-22-00_540.3bf94ffbe843111a3030.jpg</video:thumbnail_loc>
+      <video:duration>364</video:duration>
+      <video:publication_date>2025-11-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/fender-rhodes-through-nanobox-lemondrop/video/</loc>
+    <video:video>
+      <video:title>Fender Rhodes through nanobox | lemondrop</video:title>
+      <video:description>Signal-processing chain built around a Fender Rhodes piano and a 1010music nanobox | lemondrop granular synthesizer. The Rhodes piano&apos;s pickup output is blended with a contact microphone attached inside the instrument to capture mechanical key noise. The combined signal is routed into the lemondrop and used as a live-input granular oscillator source. Granular parameters are adjusted in real time to reshape the incoming audio. Both the processed signal from the lemondrop and the direct Rhodes signal are then sent through the stereo BBD delay on a Moog Matriarch. I also added some reverb from a Chase Bliss Audio &amp; Meris CXM 1978 to create a bit more space and depth. Instruments: 1010music nanobox | lemondrop and Rhodes Mark I Stage Piano. Effects: Alex Franklinos Stereo Transformer Saturator, Avion Studios RetroFlyer Preamp, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu and Moog Matriarch (Stereo BBD Delay).</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=WkURgjLvezk</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-11-22-00_540.3bf94ffbe843111a3030.jpg</video:thumbnail_loc>
+      <video:duration>364</video:duration>
+      <video:publication_date>2025-11-22</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/videos/1010music-nanobox-lemondrop-med-cxm-1978/video/</loc>
+    <video:video>
+      <video:title>1010music nanobox | lemondrop med CXM 1978</video:title>
+      <video:description>Patcher laget med 1010music nanobox | lemondrop granulærsynth. Hver patch er bygget opp med lyder fra forskjellige instrumenter: Roland D-50, Yamaha DX7, Wurlitzer 200A, Spilledåse, Klokkespill og Lekepiano. Lyden fra lemondrop er sendt gjennom en Chase Bliss Audio &amp; Meris CXM 1978 klang og spilt inn på 4-spors kassettbånd med en Fostex X-28H opptaker. Instrument: 1010music nanobox | lemondrop. Effekter: Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Hairball Audio FET/RACK Revision D og Handsome Audio Zulu. Båndopptaker: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Mo1Dxhy0C9c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-11-19-00_540.909d7fa6bfbd86ffb53a.jpg</video:thumbnail_loc>
+      <video:duration>243</video:duration>
+      <video:publication_date>2025-11-19</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/1010music-nanobox-lemondrop-with-cxm-1978/video/</loc>
+    <video:video>
+      <video:title>1010music nanobox | lemondrop with CXM 1978</video:title>
+      <video:description>Patches created on the 1010music nanobox | lemondrop granular synthesizer. Each patch is built from samples recorded from different instruments: Roland D-50, Yamaha DX7, Wurlitzer 200A, Music box, Glockenspiel and Toy piano. The lemondrop’s output is routed through the Chase Bliss Audio &amp; Meris CXM 1978 reverb and recorded to a 4-track cassette tape using the Fostex X-28H. Instrument: 1010music nanobox | lemondrop. Effects: Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Hairball Audio FET/RACK Revision D and Handsome Audio Zulu. Tape recorder: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=Mo1Dxhy0C9c</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-11-19-00_540.909d7fa6bfbd86ffb53a.jpg</video:thumbnail_loc>
+      <video:duration>243</video:duration>
+      <video:publication_date>2025-11-19</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/casio-cz-101-med-memory-man-og-cxm-1978/video/</loc>
     <video:video>
       <video:title>Casio CZ-101 med Memory Man og CXM 1978</video:title>
