@@ -151,26 +151,6 @@ const Portfolio = () => {
         return selectedRelease;
     };
 
-    const getReleaseInstrumentsText = (releaseId) => {
-        const releaseInstruments = getReleaseInstruments(releaseId);
-        const releaseInstrumentsString =
-            releaseInstruments?.length &&
-            releaseInstruments
-                .map((instrument, index) => {
-                    const separator =
-                        index === releaseInstruments.length - 2
-                            ? ` ${selectedLanguageKey === "en" ? "and" : "og"} `
-                            : ", ";
-                    return `${instrument.brand} ${instrument.model}${
-                        index === releaseInstruments.length - 1 ? "" : separator
-                    }`;
-                })
-                .join("");
-        return `${
-            selectedLanguageKey === "en" ? "Instruments used on the song: " : "Instrumenter som er brukt på låta: "
-        }${releaseInstrumentsString}`;
-    };
-
     const languageIsInitialized = !params.selectedLanguage || params.selectedLanguage === selectedLanguageKey;
     const languageIsValid = !params.selectedLanguage || params.selectedLanguage === "en";
 
