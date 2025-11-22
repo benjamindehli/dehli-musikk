@@ -256,18 +256,20 @@ const Products = () => {
                     </Helmet>
                     <Container blur={!!selectedProduct}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
-                        <h1>{contentTitle}</h1>
-                        {selectedProduct ? (
-                            formatContentWithReactLinks(selectedProduct.content[selectedLanguageKey], languageSlug)
-                        ) : (
-                            <p>
-                                {selectedLanguageKey === "en"
-                                    ? "Products from Dehli Musikk"
-                                    : "Produkter fra Dehli Musikk"}
-                            </p>
-                        )}
                     </Container>
                     {selectedProduct ? renderSelectedProduct(selectedProduct) : renderSummarySnippet(products)}
+                    <Container blur={!!selectedProduct}>
+                        {
+                            selectedProduct
+                                ? <h2 data-size="h1">{listPage.heading[selectedLanguageKey]}</h2>
+                                : <h1>{listPage.heading[selectedLanguageKey]}</h1>
+                        }
+                        <p>
+                            {selectedLanguageKey === "en"
+                                ? "Products from Dehli Musikk"
+                                : "Produkter fra Dehli Musikk"}
+                        </p>
+                    </Container>
                     <Container blur={!!selectedProduct}>
                         <List>{renderProducts()}</List>
                     </Container>

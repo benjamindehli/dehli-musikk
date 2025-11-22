@@ -288,18 +288,20 @@ const Videos = () => {
                     </Helmet>
                     <Container blur={!!selectedVideo}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
-                        <h1>{contentTitle}</h1>
-                        {selectedVideo ? (
-                            formatContentWithReactLinks(selectedVideo.content[selectedLanguageKey], languageSlug)
-                        ) : (
-                            <p>
-                                {selectedLanguageKey === "en"
-                                    ? "Videos Dehli Musikk has created or contributed in"
-                                    : "Videoer Dehli Musikk har har laget eller bidratt på"}
-                            </p>
-                        )}
                     </Container>
                     {selectedVideo ? renderSelectedVideo(selectedVideo) : renderSummarySnippet(videos)}
+                    <Container blur={!!selectedVideo}>
+                        {
+                            selectedVideo
+                                ? <h2 data-size="h1">{listPage.heading[selectedLanguageKey]}</h2>
+                                : <h1>{listPage.heading[selectedLanguageKey]}</h1>
+                        }
+                        <p>
+                            {selectedLanguageKey === "en"
+                                ? "Videos Dehli Musikk has created or contributed in"
+                                : "Videoer Dehli Musikk har har laget eller bidratt på"}
+                        </p>
+                    </Container>
                     {!isTheaterMode && (
                         <Container blur={!!selectedVideo}>
                             <List>{renderVideos()}</List>

@@ -133,7 +133,9 @@ const Product = ({ product, fullscreen, compact }) => {
             </ListItemThumbnail>
             <ListItemContent fullscreen={fullscreen}>
                 <ListItemContentHeader fullscreen={fullscreen} link={link}>
-                    <h2>{product.title}</h2>
+                    {
+                        fullscreen ? <h1>{product.title}</h1> : <h2>{product.title}</h2>
+                    }
                     {!compact && (
                         <time dateTime={productDate.toISOString()}>
                             {getPrettyDate(productDate, selectedLanguageKey)}

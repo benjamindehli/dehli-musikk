@@ -171,10 +171,9 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
         <ListItemContentHeader fullscreen={fullscreen} link={link}>
           {fullscreen ? (
             <div className={style.theaterModeHeader}>
-            <h2>
-              {video.title[selectedLanguageKey]}
-              <span>{video.youTubeUser}</span>
-            </h2>
+            {
+              fullscreen ? <h1>{video.title[selectedLanguageKey]}<span>{video.youTubeUser}</span></h1> : <h2>{video.title[selectedLanguageKey]}<span>{video.youTubeUser}</span></h2>
+            }
               <Link to={theaterModeLink.to} aria-label={theaterModeLink.title}>
                 <Button buttontype="minimal">
                   <span className={style.label}>{theaterModeLink.label}</span>

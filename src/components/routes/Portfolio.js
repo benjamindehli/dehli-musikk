@@ -295,23 +295,21 @@ const Portfolio = () => {
                         <meta property="twitter:title" content={contentTitle} />
                         <meta property="twitter:description" content={metaDescription} />
                     </Helmet>
+                    <Container blur={!!selectedRelease}>
+                        <Breadcrumbs breadcrumbs={breadcrumbs} />
+                    </Container>
                     {selectedRelease ? renderSelectedRelease(selectedRelease) : renderSummarySnippet(releases)}
                     <Container blur={selectedRelease !== null}>
-                        <Breadcrumbs breadcrumbs={breadcrumbs} />
-                        <h1>{contentTitle}</h1>
-                        {selectedRelease ? (
-                            <p>
-                                {detailsPage.description[selectedLanguageKey]}
-                                <br />
-                                {getReleaseInstrumentsText(selectedReleaseId)}
-                            </p>
-                        ) : (
-                            <p>
-                                {selectedLanguageKey === "en"
-                                    ? "Recordings where Dehli Musikk has contributed"
-                                    : "Utgivelser Dehli Musikk har bidratt på"}
-                            </p>
-                        )}
+                        {
+                            selectedRelease
+                                ? <h2 data-size="h1">{listPage.heading[selectedLanguageKey]}</h2>
+                                : <h1>{listPage.heading[selectedLanguageKey]}</h1>
+                        }
+                        <p>
+                            {selectedLanguageKey === "en"
+                                ? "Recordings where Dehli Musikk has contributed"
+                                : "Utgivelser Dehli Musikk har bidratt på"}
+                        </p>
                     </Container>
                     <Container blur={selectedRelease !== null}>
                         <List>{renderReleases()}</List>

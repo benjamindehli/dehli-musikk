@@ -200,9 +200,9 @@ const Release = ({ release, fullscreen, compact }) => {
       </ListItemThumbnail>
       <ListItemContent fullscreen={fullscreen}>
         <ListItemContentHeader fullscreen={fullscreen} link={link}>
-          <h2>{release.title}
-            <span>{release.artistName}</span>
-          </h2>
+          {
+            fullscreen ? <h1>{release.title}<span>{release.artistName}</span></h1> : <h2>{release.title}<span>{release.artistName}</span></h2>
+          }
         </ListItemContentHeader>
         <ListItemContentBody fullscreen={fullscreen}>
           <ul>
