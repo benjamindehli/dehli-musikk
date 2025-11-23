@@ -48,7 +48,11 @@ const Release = ({ release, fullscreen, compact }) => {
           ? <source sizes={imageSize} srcSet={`${image.png55} 55w, ${image.png350} 350w, ${image.png540} 540w`} type="image/png" />
           : <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
       }
-      <img loading="lazy" src={release.unreleased ? image.png540 : image.jpg540} width="540" height="540" alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
+      {
+        fullscreen 
+          ? <img fetchpriority="high" src={release.unreleased ? image.png540 : image.jpg540} width="540" height="400" alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
+          : <img loading="lazy" src={release.unreleased ? image.png350 : image.jpg350} width="350" height="350" alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
+      }
     </React.Fragment>);
   }
 
@@ -194,6 +198,11 @@ const Release = ({ release, fullscreen, compact }) => {
 
   return !release.unreleased
     ? (<React.Fragment>
+      {
+        fullscreen 
+          ? <Helmet><link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif" /></Helmet>
+          : ""
+      }
       {fullscreen ? renderReleaseSnippet(release, releaseInstruments, image['jpg540']) : ''}
       <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
         {renderReleaseThumbnail(image, fullscreen, release, compact)}
@@ -230,6 +239,11 @@ const Release = ({ release, fullscreen, compact }) => {
     </React.Fragment>)
     : (
       <React.Fragment>
+        {
+        fullscreen 
+          ? <Helmet><link rel="preload" as="image" href={image.png540} fetchpriority="high" type="image/png"/></Helmet>
+          : ""
+        }
         {fullscreen ? renderReleaseSnippet(release, releaseInstruments) : ''}
         <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
           {renderReleaseThumbnail(image, fullscreen, release, compact)}

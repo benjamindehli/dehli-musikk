@@ -85,7 +85,11 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
       <source sizes={imageSize} srcSet={srcSets.avif} type="image/avif" />
       <source sizes={imageSize} srcSet={srcSets.webp} type="image/webp" />
       <source sizes={imageSize} srcSet={srcSets.jpg} type="image/jpg" />
-      <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} />
+      {
+        fullscreen 
+          ? <img fetchpriority="high" src={image.jpg945} width="945" height="700" alt={itemName} />
+          : <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} />
+      }
     </React.Fragment>);
   }
 
@@ -137,6 +141,11 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
 
   return item
     ? (<React.Fragment>
+      {
+        fullscreen 
+          ? <Helmet><link rel="preload" as="image" href={image.avif945} fetchpriority="high" type="image/avif"/></Helmet>
+          : ""
+      }
       {fullscreen ? renderEquipmentItemImagesSnippet(image) : ''}
       {fullscreen ? renderEquipmentItemSnippet(item, image) : ''}
       <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>

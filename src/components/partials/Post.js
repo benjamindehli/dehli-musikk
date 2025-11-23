@@ -105,7 +105,11 @@ const Post = ({ post, fullscreen }) => {
       <source sizes={imageSize} srcSet={srcSets.avif} type="image/avif" />
       <source sizes={imageSize} srcSet={srcSets.webp} type="image/webp" />
       <source sizes={imageSize} srcSet={srcSets.jpg} type="image/jpg" />
-      <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} />
+      {
+        fullscreen 
+          ? <img fetchpriority="high" src={image.jpg540} width="540" height="400" alt={altText} />
+          : <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} />
+      }
     </React.Fragment>);
   }
 
@@ -149,6 +153,11 @@ const Post = ({ post, fullscreen }) => {
 
   return post && post.content && post.content[selectedLanguageKey]
     ? (<React.Fragment>
+      {
+        fullscreen 
+          ? <Helmet><link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif"/></Helmet>
+          : ""
+      }
       {fullscreen ? renderPostSnippet(post, postId, image.jpg540) : ''}
       <ListItemThumbnail fullscreen={fullscreen} link={link}>
         {renderPostThumbnail(image, post.thumbnailDescription, fullscreen)}

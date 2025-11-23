@@ -56,7 +56,11 @@ const Product = ({ product, fullscreen, compact }) => {
                 <source sizes={imageSize} srcSet={srcSets.avif} type="image/avif" />
                 <source sizes={imageSize} srcSet={srcSets.webp} type="image/webp" />
                 <source sizes={imageSize} srcSet={srcSets.jpg} type="image/jpg" />
-                <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} />
+                {
+                    fullscreen 
+                    ? <img fetchpriority="high" src={image.jpg540} width="540" height="400" alt={altText} />
+                    : <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} />
+                }
             </React.Fragment>
         );
     };
@@ -127,6 +131,11 @@ const Product = ({ product, fullscreen, compact }) => {
 
     return product && product.content && product.content[selectedLanguageKey] ? (
         <React.Fragment>
+            {
+            fullscreen 
+                ? <Helmet><link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif"/></Helmet>
+                : ""
+            }
             {fullscreen ? renderProductSnippet(product) : ""}
             <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
                 {renderProductThumbnail(image, product.thumbnailDescription, fullscreen, compact)}
