@@ -92,7 +92,7 @@ const Home = () => {
         return (
             <picture className={style.backgroundsImage}>
                 {srcSets}
-                <img src={headerImage.jpg[1024]} alt="A Korg MS-20 with a cassette and tape recorder" />
+                <img src={headerImage.jpg[1024]} fetchPriority="high" alt="A Korg MS-20 with a cassette and tape recorder" />
             </picture>
         );
     };
