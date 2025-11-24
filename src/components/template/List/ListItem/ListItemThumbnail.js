@@ -26,7 +26,8 @@ const ListItemThumbnail = ({ fullscreen, compact, link, children }) => {
             className={`${style.listItemThumbnail} ${fullscreen ? style.fullscreen : ""} ${
                 compact ? style.compact : ""
             }`}
-            style={imageSize ? { aspectRatio: `${imageSize.width} / ${imageSize.height}` } : {}}
+            data-width={imageSize ? imageSize.width : null}
+            data-height={imageSize ? imageSize.height : null}
         >
             <picture>{children}</picture>
         </figure>

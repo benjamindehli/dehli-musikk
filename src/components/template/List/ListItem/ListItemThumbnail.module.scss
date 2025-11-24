@@ -7,6 +7,7 @@
   margin: 9px 6px;
   border-radius: 50%;
   background-color: #fff;
+  aspect-ratio: 55 / 55;
 
   & picture {
     display: block;
@@ -15,7 +16,7 @@
     & img {
       width: 55px;
       height: 55px;
-      aspect-ratio: attr(width) / attr(height);
+      aspect-ratio: 55 / 55;
       border-radius: 50%;
       border: 1px solid #eee;
     }
@@ -29,14 +30,14 @@
       height: auto;
       margin: 0;
       border-radius: 0;
-      &:not(.compact) {
-        & picture {
-          & img {
-            width: 100%;
-            height: auto;
-            border-radius: 0;
-            border: none;
-          }
+      aspect-ratio: attr(data-width) / attr(data-height);
+      & picture {
+        & img {
+          width: 100%;
+          height: auto;
+          border-radius: 0;
+          border: none;
+          aspect-ratio: attr(width) / attr(height);
         }
       }
     }
@@ -46,6 +47,7 @@
     width: 100%;
     height: auto;
     margin: 0;
+    aspect-ratio: attr(data-width) / attr(data-height);
 
     & picture {
       & img {
@@ -53,6 +55,7 @@
         border: none;
         width: 100%;
         height: auto;
+        aspect-ratio: attr(width) / attr(height);
       }
     }
   }
