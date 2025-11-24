@@ -50,7 +50,7 @@ const Release = ({ release, fullscreen, compact }) => {
       }
       {
         fullscreen 
-          ? <img fetchpriority="high" src={release.unreleased ? image.png540 : image.jpg540} width="540" height="400" alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
+          ? <img fetchpriority="high" src={release.unreleased ? image.png540 : image.jpg540} width="540" height="540" alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
           : <img loading="lazy" src={release.unreleased ? image.png350 : image.jpg350} width="350" height="350" alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
       }
     </React.Fragment>);
