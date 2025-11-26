@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/keyboardlydene-i-haunted-by-silhouettes-pantheon/video/</loc>
+    <video:video>
+      <video:title>Keyboardlydene i &quot;Haunted By Silhouettes - Pantheon&quot;</video:title>
+      <video:description>Noen av keyboardlydene fra sporet Pantheon av Haunted By Silhouettes. Pantheon er en del av deres kommende album Faith Came Crawling, som skal slippes 28. november 2025. Instrumenter: Louis Zwicki Pianette, Mellotron M4000D, Dave Smith Instruments Mopho Keyboard, Dave Smith Instruments Tetra og Therevox ET-4.3. Effekter: Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Fairfield Circuitry Shallow Water, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu, Korg MS-20 External Signal Processor (ESP), Roland Dimension D SDD-320 og Roland PA-120. Forsterker: Tandberg Model 2 T. Mikrofoner: AKG C451E and Royer R-121. Båndopptaker: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=aOyILI3-LiA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-11-26-00_540.c0fa3d18119bb6ac563c.jpg</video:thumbnail_loc>
+      <video:duration>63</video:duration>
+      <video:publication_date>2025-11-26</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/the-keyboard-sounds-of-haunted-by-silhouettes-pantheon/video/</loc>
+    <video:video>
+      <video:title>The keyboard sounds of &quot;Haunted By Silhouettes - Pantheon&quot;</video:title>
+      <video:description>Some of the keyboard sounds from the track Pantheon by HauntedBySilhouettes. Pantheon will be featured on their upcoming album Faith Came Crawling, set to be released on November 28, 2025. Instruments: Louis Zwicki Pianette, Mellotron M4000D, Dave Smith Instruments Mopho Keyboard, Dave Smith Instruments Tetra and Therevox ET-4.3. Effects: Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Fairfield Circuitry Shallow Water, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu, Korg MS-20 External Signal Processor (ESP), Roland Dimension D SDD-320 and Roland PA-120. Amplifier: Tandberg Model 2 T. Microphones: AKG C451E and Royer R-121. Tape recorder: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=aOyILI3-LiA</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-11-26-00_540.c0fa3d18119bb6ac563c.jpg</video:thumbnail_loc>
+      <video:duration>63</video:duration>
+      <video:publication_date>2025-11-26</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/fender-rhodes-gjennom-nanobox-lemondrop/video/</loc>
     <video:video>
       <video:title>Fender Rhodes gjennom nanobox | lemondrop</video:title>
