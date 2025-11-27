@@ -1,0 +1,425 @@
+{
+    "instruments": {
+        "equipmentType": "instruments",
+        "items": [
+            {
+                "brand": "1010music",
+                "model": "nanobox | lemondrop"
+            },
+            {
+                "brand": "Arturia",
+                "model": "DrumBrute"
+            },
+            {
+                "brand": "Behringer",
+                "model": "VOCODER VC340"
+            },
+            {
+                "brand": "Carola",
+                "model": "Dragspel 3 körigt"
+            },
+            {
+                "brand": "Casio",
+                "model": "CTK-200"
+            },
+            {
+                "brand": "Casio",
+                "model": "CZ-101"
+            },
+            {
+                "brand": "Dave Smith Instruments",
+                "model": "Mopho Keyboard"
+            },
+            {
+                "brand": "Dave Smith Instruments",
+                "model": "Tetra"
+            },
+            {
+                "brand": "Doepfer",
+                "model": "Dark Energy"
+            },
+            {
+                "brand": "Dreadbox",
+                "model": "Erebus v2"
+            },
+            {
+                "brand": "Dubreq",
+                "model": "Stylophone S-1"
+            },
+            {
+                "brand": "Elektron",
+                "model": "SidStation"
+            },
+            {
+                "brand": "Fender",
+                "model": "Stratocaster"
+            },
+            {
+                "brand": "Hammond",
+                "model": "C3"
+            },
+            {
+                "brand": "Hohner",
+                "model": "Clavinet D6"
+            },
+            {
+                "brand": "Hohner",
+                "model": "Melodica Student 32"
+            },
+            {
+                "brand": "Kalikå",
+                "model": "Leksakspiano"
+            },
+            {
+                "brand": "Korg",
+                "model": "CX-3"
+            },
+            {
+                "brand": "Korg",
+                "model": "microKORG XL+"
+            },
+            {
+                "brand": "Korg",
+                "model": "microSAMPLER"
+            },
+            {
+                "brand": "Korg",
+                "model": "MS-20"
+            },
+            {
+                "brand": "Korg",
+                "model": "NS5R"
+            },
+            {
+                "brand": "Korg",
+                "model": "Polysix"
+            },
+            {
+                "brand": "Korg",
+                "model": "SQ-1"
+            },
+            {
+                "brand": "Levin",
+                "model": "Model 27"
+            },
+            {
+                "brand": "Logan",
+                "model": "String Melody II"
+            },
+            {
+                "brand": "Louis Zwicki",
+                "model": "Pianette"
+            },
+            {
+                "brand": "Mellotron",
+                "model": "M4000D"
+            },
+            {
+                "brand": "Moog",
+                "model": "Matriarch"
+            },
+            {
+                "brand": "Moog",
+                "model": "Minitaur"
+            },
+            {
+                "brand": "Muse Research",
+                "model": "Receptor Pro"
+            },
+            {
+                "brand": "Nagoya Suzuki",
+                "model": "No. 305"
+            },
+            {
+                "brand": "Rhodes",
+                "model": "Mark I Stage Piano"
+            },
+            {
+                "brand": "Roland",
+                "model": "AX-1"
+            },
+            {
+                "brand": "Roland",
+                "model": "D-50"
+            },
+            {
+                "brand": "Roland",
+                "model": "SH-09"
+            },
+            {
+                "brand": "Roland",
+                "model": "TR-606"
+            },
+            {
+                "brand": "Sequential Circuits",
+                "model": "Pro-One"
+            },
+            {
+                "brand": "Suzuki",
+                "model": "Omnichord OM-84 System Two"
+            },
+            {
+                "brand": "Therevox",
+                "model": "ET-4.3"
+            },
+            {
+                "brand": "Unbranded",
+                "model": "Glockenspiel-30F"
+            },
+            {
+                "brand": "Wurlitzer",
+                "model": "200A"
+            },
+            {
+                "brand": "Yamaha",
+                "model": "DX7"
+            },
+            {
+                "brand": "Yamaha",
+                "model": "L-20D"
+            },
+            {
+                "brand": "Yamaha",
+                "model": "YC-25D"
+            }
+        ],
+        "name": {
+            "en": "Instruments",
+            "no": "Instrumenter"
+        }
+    },
+    "effects": {
+        "equipmentType": "effects",
+        "items": [
+            {
+                "brand": "ABL Pedals",
+                "model": "Ukrainian Muff"
+            },
+            {
+                "brand": "Ace Tone",
+                "model": "FM-2 Fuzz Master Professional"
+            },
+            {
+                "brand": "Alex Franklinos",
+                "model": "Stereo Transformer Saturator"
+            },
+            {
+                "brand": "Boss",
+                "model": "CE-1 Chorus Ensemble"
+            },
+            {
+                "brand": "Boss",
+                "model": "DM-2 Delay"
+            },
+            {
+                "brand": "Boss",
+                "model": "NS-2 Noise Suppressor"
+            },
+            {
+                "brand": "Boss",
+                "model": "OC-2 Octaver"
+            },
+            {
+                "brand": "Ceriatone",
+                "model": "Centura Professional Overdrive"
+            },
+            {
+                "brand": "Chase Bliss Audio & Meris",
+                "model": "CXM 1978"
+            },
+            {
+                "brand": "Dallas Arbiter",
+                "model": "Fuzz Face"
+            },
+            {
+                "brand": "Dehli Musikk",
+                "model": "Fuzz Boost Limiter"
+            },
+            {
+                "brand": "Dehli Musikk",
+                "model": "Pianoforte"
+            },
+            {
+                "brand": "Dehli Musikk",
+                "model": "Smoke Booster"
+            },
+            {
+                "brand": "Diamond",
+                "model": "Memory Lane 2"
+            },
+            {
+                "brand": "DigiTech",
+                "model": "Whammy (5th Gen)"
+            },
+            {
+                "brand": "DIY Recording Equipment",
+                "model": "G Bus VCA Compressor"
+            },
+            {
+                "brand": "Dunlop",
+                "model": "Heil Talk Box"
+            },
+            {
+                "brand": "Electro-Harmonix",
+                "model": "Bassballs"
+            },
+            {
+                "brand": "Electro-Harmonix",
+                "model": "Deluxe Electric Mistress"
+            },
+            {
+                "brand": "Electro-Harmonix",
+                "model": "Deluxe Memory Man"
+            },
+            {
+                "brand": "Electro-Harmonix",
+                "model": "English Muff'n"
+            },
+            {
+                "brand": "Electro-Harmonix",
+                "model": "Small Stone"
+            },
+            {
+                "brand": "Fairfield Circuitry",
+                "model": "Shallow Water"
+            },
+            {
+                "brand": "Fender",
+                "model": "Blender (3 knob)"
+            },
+            {
+                "brand": "Fulltone",
+                "model": "Supa-Trem"
+            },
+            {
+                "brand": "Fulltone",
+                "model": "True-Path ABY-ST"
+            },
+            {
+                "brand": "Fulltone",
+                "model": "Tube Tape Echo"
+            },
+            {
+                "brand": "Gamechanger Audio",
+                "model": "LIGHT Pedal"
+            },
+            {
+                "brand": "Gamechanger Audio",
+                "model": "PLASMA Pedal"
+            },
+            {
+                "brand": "Goodrich",
+                "model": "H-120 HighBoy"
+            },
+            {
+                "brand": "Hairball Audio",
+                "model": "FET/RACK Revision D"
+            },
+            {
+                "brand": "Handsome Audio",
+                "model": "Zulu"
+            },
+            {
+                "brand": "HardWire",
+                "model": "RV-7"
+            },
+            {
+                "brand": "Hudson Electronics, UK",
+                "model": "Broadcast"
+            },
+            {
+                "brand": "Hughes & Kettner",
+                "model": "Tube Factor"
+            },
+            {
+                "brand": "Mojo Hand FX",
+                "model": "Iron Bell"
+            },
+            {
+                "brand": "MXR",
+                "model": "Six Band EQ"
+            },
+            {
+                "brand": "Neo Instruments",
+                "model": "Ventilator"
+            },
+            {
+                "brand": "Origin Effects",
+                "model": "Cali76 Standard"
+            },
+            {
+                "brand": "Pro Co",
+                "model": "RAT 2"
+            },
+            {
+                "brand": "Rainger FX",
+                "model": "Dr Freakenstein Fuzz DrFF-3"
+            },
+            {
+                "brand": "Rainger FX",
+                "model": "Minibar Liquid Analyser"
+            },
+            {
+                "brand": "Real McCoy Custom",
+                "model": "Picture Wah"
+            },
+            {
+                "brand": "Roger Mayer",
+                "model": "Voodoo-Vibe+"
+            },
+            {
+                "brand": "Roland",
+                "model": "Dimension D SDD-320"
+            },
+            {
+                "brand": "TC Electronic",
+                "model": "SCF Stereo Chorus Flanger"
+            },
+            {
+                "brand": "VanAmps",
+                "model": "Sole-Mate Jr."
+            },
+            {
+                "brand": "Xotic",
+                "model": "EP-Booster"
+            }
+        ],
+        "name": {
+            "en": "Effects",
+            "no": "Effekter"
+        }
+    },
+    "amplifiers": {
+        "equipmentType": "amplifiers",
+        "items": [
+            {
+                "brand": "Fender",
+                "model": "Twin Reverb"
+            },
+            {
+                "brand": "Leslie",
+                "model": "122"
+            },
+            {
+                "brand": "Roland",
+                "model": "JC-120 Jazz Chorus"
+            },
+            {
+                "brand": "Solton",
+                "model": "Dopplertone"
+            },
+            {
+                "brand": "Tandberg",
+                "model": "Model 2 T"
+            },
+            {
+                "brand": "Vox",
+                "model": "AC15H1TV"
+            }
+        ],
+        "name": {
+            "en": "Amplifiers",
+            "no": "Forsterkere"
+        }
+    }
+}
