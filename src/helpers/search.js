@@ -2,13 +2,24 @@
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from './contentFormatter';
 
-// Data
-import releases from 'data/portfolio';
-import posts from 'data/posts';
-import videos from 'data/videos';
-import products from 'data/products';
-import equipmentTypes from 'data/equipment';
-import frequentlyAskedQuestions from 'data/frequentlyAskedQuestions';
+
+// Get from /public/data 
+const getJsonData = async (fileName) => {
+  try {
+    const response = await fetch(`/data/${fileName}.json`);
+    return await response.json();
+  } catch (error) {
+    console.error(`Error loading ${fileName} data:`, error);
+    return null;
+  }
+};
+
+let releases;
+let posts;
+let videos;
+let products;
+let equipmentTypes;
+let frequentlyAskedQuestions;
 
 const getLanguageSlug = selectedLanguageKey => {
   return selectedLanguageKey === 'en' ? 'en/' : '';
@@ -389,22 +400,28 @@ const getSearchResultsFromFrequentlyAskedQuestions = (faqs, searchStringWords, s
 };
 
 
-export const getSearchResults = (query, selectedLanguageKey, searchCategory = 'all') => {
+export const getSearchResults = async (query, selectedLanguageKey, searchCategory = 'all') => {
   let searchString = query.replace(/[^a-å0-9- ]+/ig, ""); // Removes unwanted characters
   searchString = searchString.replace(/\s\s+/g, ' '); // Remove redundant whitespace
   const searchStringWords = searchString.split(" ").filter(searchStringWord => {
     return searchStringWord.length > 1;
   });
   if (searchString.length > 1) {
+    releases = releases || await getJsonData('releases');
+    posts = posts || await getJsonData('posts');
+    videos = videos || await getJsonData('videos');
+    products = products || await getJsonData('products');
+    equipmentTypes = equipmentTypes || await getJsonData('equipment');
+    frequentlyAskedQuestions = frequentlyAskedQuestions || await getJsonData('frequentlyAskedQuestions');
+
     const searchResultsFromReleases = searchCategory === 'release' || searchCategory === 'all' ? getSearchResultsFromReleases(releases, searchStringWords, selectedLanguageKey) : [];
     const searchResultsFromPosts = searchCategory === 'post' || searchCategory === 'all' ? getSearchResultsFromPosts(posts, searchStringWords, selectedLanguageKey) : [];
     const searchResultsFromVideos = searchCategory === 'video' || searchCategory === 'all' ? getSearchResultsFromVideos(videos, searchStringWords, selectedLanguageKey) : [];
     const searchResultsFromProducts = searchCategory === 'product' || searchCategory === 'all' ? getSearchResultsFromProducts(products, searchStringWords, selectedLanguageKey) : [];
     const searchResultsFromEquipmentTypes = getSearchResultsFromEquipmentTypes(equipmentTypes, searchStringWords, selectedLanguageKey, searchCategory);
     const searchResultsFromFrequentlyAskedQuestions = searchCategory === 'faq' || searchCategory === 'all' ? getSearchResultsFromFrequentlyAskedQuestions(frequentlyAskedQuestions, searchStringWords, selectedLanguageKey) : [];
-    const results = searchResultsFromReleases.concat(searchResultsFromPosts, searchResultsFromVideos, searchResultsFromProducts, searchResultsFromEquipmentTypes, searchResultsFromFrequentlyAskedQuestions);
-
-    return results.sort((a, b) => b.points - a.points);
+    const results = searchResultsFromReleases?.concat(searchResultsFromPosts, searchResultsFromVideos, searchResultsFromProducts, searchResultsFromEquipmentTypes, searchResultsFromFrequentlyAskedQuestions);
+    return results?.filter(result => result).sort((a, b) => b.points - a.points);
   } else {
     return null;
   }

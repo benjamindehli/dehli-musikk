@@ -76,15 +76,18 @@ const Search = () => {
     }, [availableLanguages, dispatch, searchCategory, searchQuery]);
 
     useEffect(() => {
-        if (!searchQuery || searchQuery?.trim().length < 2) {
-            navigate("/");
-        } else {
-            const searchResults = getSearchResults(searchQuery, selectedLanguageKey, searchCategory);
-            dispatch(updateSearchResults(searchResults));
-            if (searchCategory === "all") {
-                dispatch(updateSearchResultsCount(searchResults));
+        const fetchSearchResults = async () => {
+            if (!searchQuery || searchQuery?.trim().length < 2) {
+                navigate("/");
+            } else {
+                const searchResults = await getSearchResults(searchQuery, selectedLanguageKey, searchCategory);
+                dispatch(updateSearchResults(searchResults));
+                if (searchCategory === "all") {
+                    dispatch(updateSearchResultsCount(searchResults));
+                }
             }
-        }
+        };
+        fetchSearchResults();
     }, [dispatch, navigate, searchQuery, selectedLanguageKey, searchCategory]);
 
     const renderSearchResults = (searchResults) => {

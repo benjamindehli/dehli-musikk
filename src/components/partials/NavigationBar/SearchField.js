@@ -31,8 +31,8 @@ const SearchField = () => {
   const resultsListWrapperRef = useRef();
 
 
-  const handleShowResultsList = (event) => {
-    const searchResults = getSearchResults(event.target.value, selectedLanguageKey);
+  const handleShowResultsList = async (event) => {
+    const searchResults = await getSearchResults(event.target.value, selectedLanguageKey);
     if (searchResults) {
       setShowResultsList(true);
       setResults(searchResults);
