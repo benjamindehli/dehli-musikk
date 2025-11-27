@@ -296,42 +296,57 @@ const getSearchPointsFromFrequentlyAskedQuestions = (faq, searchStringWords, sel
 
 // Get search results
 const getSearchResultsFromReleases = (releases, searchStringWords, selectedLanguageKey) => {
-  const searchResultsFromReleases = releases.map(release => {
+  if (!releases?.length) {
+    return null;
+  }
+  const searchResultsFromReleases = releases?.map(release => {
     return getSearchPointsFromRelease(release, searchStringWords, selectedLanguageKey);
   });
-  return searchResultsFromReleases.filter(result => {
+  return searchResultsFromReleases?.filter(result => {
     return result.points && result.points >= 1;
   });
 };
 
 const getSearchResultsFromPosts = (posts, searchStringWords, selectedLanguageKey) => {
-  const searchResultsFromPosts = posts.map(post => {
+  if (!posts?.length) {
+    return null;
+  }
+  const searchResultsFromPosts = posts?.map(post => {
     return getSearchPointsFromPost(post, searchStringWords, selectedLanguageKey);
   });
-  return searchResultsFromPosts.filter(result => {
+  return searchResultsFromPosts?.filter(result => {
     return result.points && result.points >= 1;
   });
 };
 
 const getSearchResultsFromVideos = (videos, searchStringWords, selectedLanguageKey) => {
-  const searchResultsFromVideos = videos.map(video => {
+  if (!videos?.length) {
+    return null;
+  }
+  const searchResultsFromVideos = videos?.map(video => {
     return getSearchPointsFromVideos(video, searchStringWords, selectedLanguageKey);
   });
-  return searchResultsFromVideos.filter(result => {
+  return searchResultsFromVideos?.filter(result => {
     return result.points && result.points >= 1;
   });
 };
 
 const getSearchResultsFromProducts = (products, searchStringWords, selectedLanguageKey) => {
-  const searchResultsFromProducts = products.map(product => {
+  if (!products?.length) {
+    return null;
+  }
+  const searchResultsFromProducts = products?.map(product => {
     return getSearchPointsFromProduct(product, searchStringWords, selectedLanguageKey);
   });
-  return searchResultsFromProducts.filter(result => {
+  return searchResultsFromProducts?.filter(result => {
     return result.points && result.points >= 1;
   });
 };
 
 const getSearchResultsFromEquipmentTypes = (equipmentTypes, searchStringWords, selectedLanguageKey, searchCategory) => {
+  if (!equipmentTypes?.length) {
+    return null;
+  }
   let searchResultsFromEquipmentTypes = [];
   if (searchCategory === 'all') {
     Object.keys(equipmentTypes).forEach(equipmentTypeKey => {
@@ -350,19 +365,25 @@ const getSearchResultsFromEquipmentTypes = (equipmentTypes, searchStringWords, s
 };
 
 const getSearchResultsFromEquipmentType = (equipmentType, equipmentTypeKey, searchStringWords, selectedLanguageKey) => {
-  const searchResultsFromEquipmentItems = equipmentType.items.map(item => {
+  if (!equipmentType?.items?.length) {
+    return null;
+  }
+  const searchResultsFromEquipmentItems = equipmentType?.items.map(item => {
     return getSearchPointsFromEquipmentItems(item, equipmentType, equipmentTypeKey, searchStringWords, selectedLanguageKey);
   })
-  return searchResultsFromEquipmentItems.filter(result => {
+  return searchResultsFromEquipmentItems?.filter(result => {
     return result.points && result.points >= 1;
   });
 }
 
 const getSearchResultsFromFrequentlyAskedQuestions = (faqs, searchStringWords, selectedLanguageKey) => {
-  const searchResultsFromFrequentlyAskedQuestions = faqs.map(faq => {
+  if (!faqs?.length) {
+    return null;
+  }
+  const searchResultsFromFrequentlyAskedQuestions = faqs?.map(faq => {
     return getSearchPointsFromFrequentlyAskedQuestions(faq, searchStringWords, selectedLanguageKey);
   });
-  return searchResultsFromFrequentlyAskedQuestions.filter(result => {
+  return searchResultsFromFrequentlyAskedQuestions?.filter(result => {
     return result.points && result.points >= 1;
   });
 };
