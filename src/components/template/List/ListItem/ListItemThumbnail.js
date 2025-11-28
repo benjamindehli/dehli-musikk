@@ -18,11 +18,12 @@ const ListItemThumbnail = ({ fullscreen, compact, link, children }) => {
         return null;
     };
     const imageSize = getImageSize();
+    const classNames = [style.listItemThumbnail];
+    if (fullscreen) classNames.push(style.fullscreen);
+    if (compact) classNames.push(style.compact);
     const childElements = (
         <figure
-            className={`${style.listItemThumbnail} ${fullscreen ? style.fullscreen : ""} ${
-                compact ? style.compact : ""
-            }`}
+            className={classNames.join(" ")}
             data-width={imageSize ? imageSize.width : null}
             data-height={imageSize ? imageSize.height : null}
         >
