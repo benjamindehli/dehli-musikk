@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/keyboardlydene-i-haunted-by-silhouettes-oracle/video/</loc>
+    <video:video>
+      <video:title>Keyboardlydene i &quot;Haunted By Silhouettes - Oracle&quot;</video:title>
+      <video:description>Keyboardlydene fra bridge-delen på sporet Oracle av Haunted By Silhouettes. Oracle er en del av deres album Faith Came Crawling, som ble utgitt 28. november 2025. Instrumenter: Moog Matriarch, Rhodes Mark I Stage Piano, Roland SH-09 og Sequential Circuits Pro-One. Effekter: Avion Studios RetroFlyer, Boss CE-1 Chorus Ensemble, Chase Bliss Audio &amp; Meris CXM 1978, Diamond Memory Lane 2, DIY Recording Equipment G Bus VCA Compressor, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu, Moog Matriarch internal analog stereo delay og Roland PA-120. Forsterker: Fender Twin Reverb. Mikrofoner: Royer R-121 og Shure SM-57. Båndopptaker: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=-9H9RE3sRmc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-11-28-00_540.4642bbb933ac781a4c0a.jpg</video:thumbnail_loc>
+      <video:duration>55</video:duration>
+      <video:publication_date>2025-11-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/the-keyboard-sounds-of-haunted-by-silhouettes-oracle/video/</loc>
+    <video:video>
+      <video:title>The keyboard sounds of &quot;Haunted By Silhouettes - Oracle&quot;</video:title>
+      <video:description>The keyboard sounds from the bridge part of Oracle by Haunted By Silhouettes. Oracle is a part of their album Faith Came Crawling, released on November 28, 2025. Instruments: Moog Matriarch, Rhodes Mark I Stage Piano, Roland SH-09 and Sequential Circuits Pro-One. Effects: Avion Studios RetroFlyer, Boss CE-1 Chorus Ensemble, Chase Bliss Audio &amp; Meris CXM 1978, Diamond Memory Lane 2, DIY Recording Equipment G Bus VCA Compressor, Fulltone Tube Tape Echo, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu, Moog Matriarch internal analog stereo delay and Roland PA-120. Amplifier: Fender Twin Reverb. Microphones: Royer R-121 and Shure SM-57. Tape recorder: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=-9H9RE3sRmc</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2025-11-28-00_540.4642bbb933ac781a4c0a.jpg</video:thumbnail_loc>
+      <video:duration>55</video:duration>
+      <video:publication_date>2025-11-28</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/keyboardlydene-i-haunted-by-silhouettes-pantheon/video/</loc>
     <video:video>
       <video:title>Keyboardlydene i &quot;Haunted By Silhouettes - Pantheon&quot;</video:title>
