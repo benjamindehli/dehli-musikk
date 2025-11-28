@@ -1,6 +1,26 @@
 [
     {
         "copyright": true,
+        "timestamp": 1764284400000,
+        "title": {
+            "no": "Keyboardlydene i \"Haunted By Silhouettes - Oracle\"",
+            "en": "The keyboard sounds of \"Haunted By Silhouettes - Oracle\""
+        },
+        "content": {
+            "no": "Keyboardlydene fra bridge-delen på sporet Oracle av Haunted By Silhouettes. Oracle er en del av deres album Faith Came Crawling, som ble utgitt 28. november 2025.\nInstrumenter: [Moog Matriarch](equipment/instruments/moog-matriarch/), [Rhodes Mark I Stage Piano](equipment/instruments/rhodes-mark-i-stage-piano/), [Roland SH-09](equipment/instruments/roland-sh-09/) og [Sequential Circuits Pro-One](equipment/instruments/sequential-circuits-pro-one/).\nEffekter: Avion Studios RetroFlyer, [Boss CE-1 Chorus Ensemble](equipment/effects/boss-ce-1-chorus-ensemble/), [Chase Bliss Audio & Meris CXM 1978](equipment/effects/chase-bliss-audio-and-meris-cxm-1978/), [Diamond Memory Lane 2](equipment/effects/diamond-memory-lane-2/), [DIY Recording Equipment G Bus VCA Compressor](equipment/effects/diy-recording-equipment-g-bus-vca-compressor/), [Fulltone Tube Tape Echo](equipment/effects/fulltone-tube-tape-echo/), [Hairball Audio FET/RACK Revision D](equipment/effects/hairball-audio-fet-rack-revision-d/), [Handsome Audio Zulu](equipment/effects/handsome-audio-zulu/), [Moog Matriarch internal analog stereo delay](equipment/instruments/moog-matriarch/) og Roland PA-120.\nForsterker: [Fender Twin Reverb](equipment/amplifiers/fender-twin-reverb/).\nMikrofoner: Royer R-121 og Shure SM-57.\nBåndopptaker: Fostex X-28H.",
+            "en": "The keyboard sounds from the bridge part of Oracle by Haunted By Silhouettes. Oracle is a part of their album Faith Came Crawling, released on November 28, 2025.\nInstruments: [Moog Matriarch](equipment/instruments/moog-matriarch/), [Rhodes Mark I Stage Piano](equipment/instruments/rhodes-mark-i-stage-piano/), [Roland SH-09](equipment/instruments/roland-sh-09/) and [Sequential Circuits Pro-One](equipment/instruments/sequential-circuits-pro-one/).\nEffects: Avion Studios RetroFlyer, [Boss CE-1 Chorus Ensemble](equipment/effects/boss-ce-1-chorus-ensemble/), [Chase Bliss Audio & Meris CXM 1978](equipment/effects/chase-bliss-audio-and-meris-cxm-1978/), [Diamond Memory Lane 2](equipment/effects/diamond-memory-lane-2/), [DIY Recording Equipment G Bus VCA Compressor](equipment/effects/diy-recording-equipment-g-bus-vca-compressor/), [Fulltone Tube Tape Echo](equipment/effects/fulltone-tube-tape-echo/), [Hairball Audio FET/RACK Revision D](equipment/effects/hairball-audio-fet-rack-revision-d/), [Handsome Audio Zulu](equipment/effects/handsome-audio-zulu/), [Moog Matriarch internal analog stereo delay](equipment/instruments/moog-matriarch/) and Roland PA-120.\nAmplifier: [Fender Twin Reverb](equipment/amplifiers/fender-twin-reverb/).\nMicrophones: Royer R-121 and Shure SM-57.\nTape recorder: Fostex X-28H."
+        },
+        "duration": "PT55S",
+        "thumbnailDescription": "Various keyboard instruments being played with the Faith Came Crawling by Haunted By Silhouettes album cover in the middle",
+        "thumbnailFilename": "2025-11-28-00",
+        "youTubeId": "-9H9RE3sRmc",
+        "youTubeUser": "Benjamin Dehli",
+        "youTubeChannelId": "@BenjaminDehli",
+        "id": "2025112800",
+        "lastmod": 1764284400000
+    },
+    {
+        "copyright": true,
         "timestamp": 1764111600000,
         "title": {
             "no": "Keyboardlydene i \"Haunted By Silhouettes - Pantheon\"",

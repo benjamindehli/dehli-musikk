@@ -619,6 +619,54 @@
         "isrcCode": "NOUBU2102020"
     },
     {
+        "id": "50c4IoujsYUBl4ty4U3xv5",
+        "releaseId": "",
+        "artistName": "Haunted By Silhouettes",
+        "title": "Arrival",
+        "duration": 56253,
+        "durationISO": "PTM56S",
+        "isrcCode": "QT6EW2582766",
+        "genre": "Death Metal/Black Metal",
+        "releaseDate": 1764288000000,
+        "spotifyThumbnailUrl": "https://i.scdn.co/image/ab67616d0000b27358a4b9db08329765e11d0d87",
+        "thumbnailFilename": "hauntedBySilhouettes_arrival",
+        "links": {
+            "tidal": "https://listen.tidal.com/track/475988624",
+            "spotify": "https://open.spotify.com/track/50c4IoujsYUBl4ty4U3xv5",
+            "itunes": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733368&mt=1&app=itunes&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "appleMusic": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733368&mt=1&app=music&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "amazonStore": "https://amazon.com/dp/B0G3HSP71R",
+            "amazonMusic": "https://music.amazon.com/albums/B0G3HWQX6H?trackAsin=B0G3HSP71R",
+            "youtube": "https://www.youtube.com/watch?v=TGeKSZBEbYQ",
+            "youtubeMusic": "https://music.youtube.com/watch?v=TGeKSZBEbYQ"
+        },
+        "composedByDehliMusikk": true,
+        "slug": "haunted-by-silhouettes-arrival",
+        "producedByDehliMusikk": true
+    },
+    {
+        "id": "78tEUr3zjS0g6oFPx3DMC5",
+        "releaseId": "",
+        "artistName": "Haunted By Silhouettes",
+        "title": "Awake",
+        "duration": 273146,
+        "durationISO": "PT4M33S",
+        "isrcCode": "QT6EW2582769",
+        "genre": "Death Metal/Black Metal",
+        "releaseDate": 1764288000000,
+        "spotifyThumbnailUrl": "https://i.scdn.co/image/ab67616d0000b27358a4b9db08329765e11d0d87",
+        "thumbnailFilename": "hauntedBySilhouettes_awake",
+        "links": {
+            "appleMusic": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733373&mt=1&app=music&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "itunes": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733373&mt=1&app=itunes&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "tidal": "https://listen.tidal.com/track/475988629",
+            "youtube": "https://www.youtube.com/watch?v=aM54HWZSm68",
+            "youtubeMusic": "https://music.youtube.com/watch?v=aM54HWZSm68",
+            "spotify": "https://open.spotify.com/track/78tEUr3zjS0g6oFPx3DMC5"
+        },
+        "slug": "haunted-by-silhouettes-awake"
+    },
+    {
         "id": "7fVdrI4oTPXduyZiZNlcCH",
         "artistName": "Haunted By Silhouettes",
         "title": "Deadlock",
@@ -643,6 +691,30 @@
         },
         "slug": "haunted-by-silhouettes-deadlock",
         "isrcCode": "NO4FI1908030"
+    },
+    {
+        "id": "5gNPyLeAqAtpXHkSRT81aW",
+        "releaseId": "",
+        "artistName": "Haunted By Silhouettes",
+        "title": "Dead Man’s March",
+        "duration": 225186,
+        "durationISO": "PT3M45S",
+        "isrcCode": "QT6EW2582768",
+        "genre": "Death Metal/Black Metal",
+        "releaseDate": 1764288000000,
+        "spotifyThumbnailUrl": "https://i.scdn.co/image/ab67616d0000b27358a4b9db08329765e11d0d87",
+        "thumbnailFilename": "hauntedBySilhouettes_deadMansMarch",
+        "links": {
+            "amazonMusic": "https://music.amazon.com/albums/B0G3HWQX6H?trackAsin=B0G3HRQH4M",
+            "amazonStore": "https://amazon.com/dp/B0G3HRQH4M",
+            "appleMusic": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733372&mt=1&app=music&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "itunes": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733372&mt=1&app=itunes&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "tidal": "https://listen.tidal.com/track/475988628",
+            "youtube": "https://www.youtube.com/watch?v=RJBMR2OzVzA",
+            "youtubeMusic": "https://music.youtube.com/watch?v=RJBMR2OzVzA",
+            "spotify": "https://open.spotify.com/track/5gNPyLeAqAtpXHkSRT81aW"
+        },
+        "slug": "haunted-by-silhouettes-dead-mans-march"
     },
     {
         "id": "7bQu3qw8UMRkjqLyCBh8Bm",
@@ -755,6 +827,30 @@
         "slug": "haunted-by-silhouettes-godfall"
     },
     {
+        "id": "3U2AZ4nYum5VXpo8Gt8l7R",
+        "releaseId": "",
+        "artistName": "Haunted By Silhouettes",
+        "title": "Heretics",
+        "duration": 236053,
+        "durationISO": "PT3M56S",
+        "isrcCode": "QT6EW2582771",
+        "genre": "Death Metal/Black Metal",
+        "releaseDate": 1764288000000,
+        "spotifyThumbnailUrl": "https://i.scdn.co/image/ab67616d0000b27358a4b9db08329765e11d0d87",
+        "thumbnailFilename": "hauntedBySilhouettes_heretics",
+        "links": {
+            "amazonMusic": "https://music.amazon.com/albums/B0G3HWQX6H?trackAsin=B0G3HQ1ZY5",
+            "amazonStore": "https://amazon.com/dp/B0G3HQ1ZY5",
+            "appleMusic": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733375&mt=1&app=music&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "itunes": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733375&mt=1&app=itunes&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "tidal": "https://listen.tidal.com/track/475988631",
+            "youtube": "https://www.youtube.com/watch?v=tF0BdJf9Cqw",
+            "youtubeMusic": "https://music.youtube.com/watch?v=tF0BdJf9Cqw",
+            "spotify": "https://open.spotify.com/track/3U2AZ4nYum5VXpo8Gt8l7R"
+        },
+        "slug": "haunted-by-silhouettes-heretics"
+    },
+    {
         "id": "0veP9ScYmI1ddV2rbarc4f",
         "releaseId": "",
         "artistName": "Haunted By Silhouettes",
@@ -839,6 +935,54 @@
         "slug": "haunted-by-silhouettes-no-man-isle"
     },
     {
+        "id": "1f2OkDJmQithNot4ePJJJ8",
+        "releaseId": "",
+        "artistName": "Haunted By Silhouettes",
+        "title": "Oracle",
+        "duration": 264120,
+        "durationISO": "PT4M24S",
+        "isrcCode": "QT6EW2582770",
+        "genre": "Death Metal/Black Metal",
+        "releaseDate": 1764288000000,
+        "spotifyThumbnailUrl": "https://i.scdn.co/image/ab67616d0000b27358a4b9db08329765e11d0d87",
+        "thumbnailFilename": "hauntedBySilhouettes_oracle",
+        "links": {
+            "amazonMusic": "https://music.amazon.com/albums/B0G3HWQX6H?trackAsin=B0G3HY3M72",
+            "amazonStore": "https://amazon.com/dp/B0G3HY3M72",
+            "appleMusic": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733374&mt=1&app=music&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "itunes": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733374&mt=1&app=itunes&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "tidal": "https://listen.tidal.com/track/475988630",
+            "youtube": "https://www.youtube.com/watch?v=11ZS_KTv5H8",
+            "youtubeMusic": "https://music.youtube.com/watch?v=11ZS_KTv5H8",
+            "spotify": "https://open.spotify.com/track/1f2OkDJmQithNot4ePJJJ8"
+        },
+        "slug": "haunted-by-silhouettes-oracle"
+    },
+    {
+        "id": "0w5E6uY0TIFzCDuobosEGK",
+        "releaseId": "",
+        "artistName": "Haunted By Silhouettes",
+        "title": "Pantheon",
+        "duration": 252893,
+        "durationISO": "PT4M12S",
+        "isrcCode": "QT6EW2582773",
+        "genre": "Death Metal/Black Metal",
+        "releaseDate": 1764288000000,
+        "spotifyThumbnailUrl": "https://i.scdn.co/image/ab67616d0000b27358a4b9db08329765e11d0d87",
+        "thumbnailFilename": "hauntedBySilhouettes_pantheon",
+        "links": {
+            "amazonMusic": "https://music.amazon.com/albums/B0G3HWQX6H?trackAsin=B0G3HR76PS",
+            "amazonStore": "https://amazon.com/dp/B0G3HR76PS",
+            "appleMusic": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733378&mt=1&app=music&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "itunes": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733378&mt=1&app=itunes&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "tidal": "https://listen.tidal.com/track/475988634",
+            "youtube": "https://www.youtube.com/watch?v=4Y7uOkf-lnQ",
+            "youtubeMusic": "https://music.youtube.com/watch?v=4Y7uOkf-lnQ",
+            "spotify": "https://open.spotify.com/track/0w5E6uY0TIFzCDuobosEGK"
+        },
+        "slug": "haunted-by-silhouettes-pantheon"
+    },
+    {
         "id": "5LWJO42upg6lj913JJotAM?si=4252880a9e854e5f",
         "slug": "haunted-by-silhouettes-and-bjorn-speed-strid-selkie",
         "artistName": "Haunted By Silhouettes & Bjorn \"Speed\" Strid",
@@ -893,6 +1037,28 @@
         "isrcCode": "NO4FI1908010"
     },
     {
+        "id": "5KSV0yybRIF2rUKDJNMdaH",
+        "releaseId": "",
+        "artistName": "Haunted By Silhouettes",
+        "title": "Tragedians",
+        "duration": 264626,
+        "durationISO": "PT4M24S",
+        "isrcCode": "QT6EW2582772",
+        "genre": "Death Metal/Black Metal",
+        "releaseDate": 1764288000000,
+        "spotifyThumbnailUrl": "https://i.scdn.co/image/ab67616d0000b27358a4b9db08329765e11d0d87",
+        "thumbnailFilename": "hauntedBySilhouettes_tragedians",
+        "links": {
+            "itunes": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733376&mt=1&app=itunes&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "appleMusic": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733376&mt=1&app=music&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "amazonStore": "https://amazon.com/dp/B0G3HS8LFW",
+            "amazonMusic": "https://music.amazon.com/albums/B0G3HWQX6H?trackAsin=B0G3HS8LFW",
+            "tidal": "https://listen.tidal.com/track/475988632",
+            "spotify": "https://open.spotify.com/track/5KSV0yybRIF2rUKDJNMdaH"
+        },
+        "slug": "haunted-by-silhouettes-tragedians"
+    },
+    {
         "id": "1rTLnAzETljGUZHk7aoetP",
         "artistName": "Haunted By Silhouettes",
         "title": "Undertow",
@@ -917,6 +1083,30 @@
         },
         "slug": "haunted-by-silhouettes-undertow",
         "isrcCode": "NO4FI1908090"
+    },
+    {
+        "id": "6ursu0Pe0kXpx1COXc3UuW",
+        "releaseId": "",
+        "artistName": "Haunted By Silhouettes",
+        "title": "War Instinct",
+        "duration": 235253,
+        "durationISO": "PT3M55S",
+        "isrcCode": "QT6EW2582767",
+        "genre": "Death Metal/Black Metal",
+        "releaseDate": 1764288000000,
+        "spotifyThumbnailUrl": "https://i.scdn.co/image/ab67616d0000b27358a4b9db08329765e11d0d87",
+        "thumbnailFilename": "hauntedBySilhouettes_warInstinct",
+        "links": {
+            "youtube": "https://www.youtube.com/watch?v=gSeyCmzsLTE",
+            "youtubeMusic": "https://music.youtube.com/watch?v=gSeyCmzsLTE",
+            "amazonMusic": "https://music.amazon.com/albums/B0G3HWQX6H?trackAsin=B0G3HV24Y7",
+            "amazonStore": "https://amazon.com/dp/B0G3HV24Y7",
+            "appleMusic": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733371&mt=1&app=music&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "itunes": "https://geo.music.apple.com/us/album/_/1855733364?i=1855733371&mt=1&app=itunes&ls=1&at=1000lHKX&ct=api_http&itscg=30200&itsct=odsl_m",
+            "tidal": "https://listen.tidal.com/track/475988627",
+            "spotify": "https://open.spotify.com/track/6ursu0Pe0kXpx1COXc3UuW"
+        },
+        "slug": "haunted-by-silhouettes-war-instinct"
     },
     {
         "id": "47lPIvtkPBsdFExPJkv4vP",
