@@ -40,6 +40,14 @@ const Release = ({ release, fullscreen, compact }) => {
         ? '(max-width: 406px) 350px, 540px'
         : '(max-width: 600px) 55px, 350px';
 
+      const imageSrc = compact 
+        ? release.unreleased 
+          ? image.png55 : image.jpg55 
+        : release.unreleased 
+          ? image.png350 : image.jpg350;
+      const imageWidth = compact ? 55 : 350;
+      const imageHeight = compact ? 55 : 350;
+
     return (<React.Fragment>
       <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w`} type="image/avif" />
       <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
@@ -51,7 +59,7 @@ const Release = ({ release, fullscreen, compact }) => {
       {
         fullscreen 
           ? <img fetchpriority="high" src={release.unreleased ? image.png540 : image.jpg540} width="540" height="540" alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
-          : <img loading="lazy" src={release.unreleased ? image.png350 : image.jpg350} width="350" height="350" alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
+          : <img loading="lazy" src={imageSrc} width={imageWidth} height={imageHeight} alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
       }
     </React.Fragment>);
   }

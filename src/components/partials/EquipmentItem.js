@@ -68,12 +68,16 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
     </Helmet>);
   }
 
-  const renderPostThumbnail = (image, itemName, fullscreen, compact) => {
-    const imageSize = compact
-      ? '55px'
-      : fullscreen
+  const renderPostThumbnail = (image, itemName, fullscreen, compact) => {    
+      const imageSize = compact
+        ? '55px'
+        : fullscreen
           ? '(max-width: 406px) 350px, (max-width: 740px) 540px, 945px'
           : '(max-width: 600px) 55px, 350px';
+      
+      const imageSrc = compact ? image.jpg55 : image.jpg350;
+      const imageWidth = compact ? 55 : 350;
+      const imageHeight = compact ? 55 : 260;
 
     const srcSets = {
       avif: `${image.avif55} 55w, ${image.avif350} 350w ${fullscreen ? `, ${image.avif540} 540w, ${image.avif945} 945w` : ""}`,
@@ -88,7 +92,7 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
       {
         fullscreen 
           ? <img fetchpriority="high" src={image.jpg945} width="945" height="700" alt={itemName} />
-          : <img loading="lazy" src={image.jpg350} width="350" height="260" alt={itemName} />
+          : <img loading="lazy" src={imageSrc} width={imageWidth} height={imageHeight} alt={itemName} />
       }
     </React.Fragment>);
   }

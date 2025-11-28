@@ -49,6 +49,10 @@ const Product = ({ product, fullscreen, compact }) => {
                 ? '(max-width: 406px) 350px, 540px'
                 : '(max-width: 600px) 55px, 350px';
 
+        const imageSrc = compact ? image.jpg55 : image.jpg350;
+        const imageWidth = compact ? 55 : 350;
+        const imageHeight = compact ? 55 : 260;
+
         const srcSets = {
             avif: `${image.avif55} 55w, ${image.avif350} 350w ${fullscreen ? `, ${image.avif540} 540w` : ""}`,
             webp: `${image.webp55} 55w, ${image.webp350} 350w ${fullscreen ? `, ${image.webp540} 540w` : ""}`,
@@ -63,7 +67,7 @@ const Product = ({ product, fullscreen, compact }) => {
                 {
                     fullscreen 
                     ? <img fetchpriority="high" src={image.jpg540} width="540" height="400" alt={altText} />
-                    : <img loading="lazy" src={image.jpg350} width="350" height="260" alt={altText} />
+                    : <img loading="lazy" src={imageSrc} width={imageWidth} height={imageHeight} alt={altText} />
                 }
             </React.Fragment>
         );
