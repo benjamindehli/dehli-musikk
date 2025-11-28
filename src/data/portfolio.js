@@ -24,16 +24,24 @@ import haakerBrothers from './releases/data/haaker_brothers.json';
 import haakerGuardianAngels from './releases/data/haaker_guardianAngels.json'
 import haakerRocknrolla from './releases/data/haaker_rocknrolla.json';
 import hanneStaverTheWords from './releases/data/hanneStaver_theWords.json';
+import hauntedBySilhouettesArrival from './releases/data/hauntedBySilhouettes_arrival.json';
+import hauntedBySilhouettesAwake from './releases/data/hauntedBySilhouettes_awake.json';
 import hauntedBySilhouettesDeadlock from './releases/data/hauntedBySilhouettes_deadlock.json';
+import hauntedBySilhouettesDeadMansMarch from './releases/data/hauntedBySilhouettes_deadMansMarch.json';
 import hauntedBySilhouettesDeparture from './releases/data/hauntedBySilhouettes_departure.json';
 import hauntedBySilhouettesFaithCameCrawling from './releases/data/hauntedBySilhouettes_faithCameCrawling.json';
 import hauntedBySilhouettesFlock from './releases/data/hauntedBySilhouettes_flock.json';
 import hauntedBySilhouettesGodfall from './releases/data/hauntedBySilhouettes_godfall.json';
+import hauntedBySilhouettesHeretics from './releases/data/hauntedBySilhouettes_heretics.json';
 import hauntedBySilhouettesIcon from './releases/data/hauntedBySilhouettes_icon.json';
 import hauntedBySilhouettesLethean from './releases/data/hauntedBySilhouettes_lethean.json';
 import hauntedBySilhouettesNoManIsle from './releases/data/hauntedBySilhouettes_noManIsle.json';
+import hauntedBySilhouettesOracle from './releases/data/hauntedBySilhouettes_oracle.json';
+import hauntedBySilhouettesPantheon from './releases/data/hauntedBySilhouettes_pantheon.json';
 import hauntedBySilhouettesTheLastDayOnEarth from './releases/data/hauntedBySilhouettes_theLastDayonEarth.json';
+import hauntedBySilhouettesTragedians from './releases/data/hauntedBySilhouettes_tragedians.json';
 import hauntedBySilhouettesUndertow from './releases/data/hauntedBySilhouettes_undertow.json';
+import hauntedBySilhouettesWarInstinct from './releases/data/hauntedBySilhouettes_warInstinct.json';
 import hauntedBySilhouettesSelkie from './releases/data/hauntedBySilhouettesBjornSpeedStrid_selkie.json';
 import kaasinCarryOn from './releases/data/kAASIN_carryOn.json';
 import kaasinChainOfLove from './releases/data/kAASIN_chainofLove.json';
@@ -73,9 +81,9 @@ import wolfMoonFeverSeaOfGreen from './releases/data/wolfMoonFever_seaofGreen.js
 import wolfMoonFeverTheKeeperoftheLighthouse from './releases/data/wolfMoonFever_theKeeperoftheLighthouse.json';
 
 const latestReleases = [
-  hauntedBySilhouettesFaithCameCrawling,
-  hauntedBySilhouettesLethean,
-  hauntedBySilhouettesGodfall
+  hauntedBySilhouettesArrival,
+  hauntedBySilhouettesWarInstinct,
+  hauntedBySilhouettesTragedians
 ];
 
 const allReleases = [
@@ -105,17 +113,25 @@ const allReleases = [
   haakerGuardianAngels,
   haakerRocknrolla,
   hanneStaverTheWords,
+  hauntedBySilhouettesArrival,
+  hauntedBySilhouettesAwake,
   hauntedBySilhouettesDeadlock,
+  hauntedBySilhouettesDeadMansMarch,
   hauntedBySilhouettesDeparture,
   hauntedBySilhouettesFaithCameCrawling,
   hauntedBySilhouettesFlock,
   hauntedBySilhouettesGodfall,
+  hauntedBySilhouettesHeretics,
   hauntedBySilhouettesIcon,
   hauntedBySilhouettesLethean,
   hauntedBySilhouettesNoManIsle,
+  hauntedBySilhouettesOracle,
+  hauntedBySilhouettesPantheon,
   hauntedBySilhouettesSelkie,
   hauntedBySilhouettesTheLastDayOnEarth,
+  hauntedBySilhouettesTragedians,
   hauntedBySilhouettesUndertow,
+  hauntedBySilhouettesWarInstinct,
   kaasinCarryOn,
   kaasinChainOfLove,
   kaasinDeadMansHand,
