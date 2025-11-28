@@ -24,12 +24,11 @@
 
   &:not(.compact) {
     @media (min-width: breakpoints.$screen-sm) {
-      flex: none;
       display: block;
       width: 100%;
-      height: auto;
       margin: 0;
       border-radius: 0;
+      height: attr(data-height px);
       aspect-ratio: attr(data-width) / attr(data-height);
       & picture {
         & img {
@@ -45,9 +44,14 @@
 
   &.fullscreen {
     width: 100%;
-    height: auto;
     margin: 0;
+    height: calc((100vw - 56px) * (attr(data-height px) / attr(data-width px)));
+    max-height: attr(data-height px);
     aspect-ratio: attr(data-width) / attr(data-height);
+
+    @media (min-width: breakpoints.$screen-sm) {
+      height: calc((100vw - 200px) * (attr(data-height px) / attr(data-width px)));
+    }
 
     & picture {
       & img {
