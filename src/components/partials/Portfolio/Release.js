@@ -37,8 +37,8 @@ const Release = ({ release, fullscreen, compact }) => {
     const imageSize = compact
       ? '55px'
       : fullscreen
-        ? '540px'
-        : '350px';
+        ? '(max-width: 406px) 350px, 540px'
+        : '(max-width: 600px) 55px, 350px';
 
     return (<React.Fragment>
       <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w`} type="image/avif" />

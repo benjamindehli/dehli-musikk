@@ -43,7 +43,11 @@ const Product = ({ product, fullscreen, compact }) => {
     };
 
     const renderProductThumbnail = (image, altText, fullscreen, compact) => {
-        const imageSize = compact ? "55px" : fullscreen ? "540px" : "350px";
+        const imageSize = compact
+            ? '55px'
+            : fullscreen
+                ? '(max-width: 406px) 350px, 540px'
+                : '(max-width: 600px) 55px, 350px';
 
         const srcSets = {
             avif: `${image.avif55} 55w, ${image.avif350} 350w ${fullscreen ? `, ${image.avif540} 540w` : ""}`,

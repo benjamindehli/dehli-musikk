@@ -92,8 +92,8 @@ const Post = ({ post, fullscreen }) => {
 
   const renderPostThumbnail = (image, altText, fullscreen) => {
     const imageSize = fullscreen
-      ? '540px'
-      : '350px';
+      ? '(max-width: 406px) 350px, 540px'
+      : '(max-width: 600px) 55px, 350px';
 
     const srcSets = {
       avif: `${image.avif55} 55w, ${image.avif350} 350w ${fullscreen ? `, ${image.avif540} 540w` : ""}`,

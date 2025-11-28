@@ -72,8 +72,8 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
     const imageSize = compact
       ? '55px'
       : fullscreen
-        ? '945px'
-        : '350px';
+          ? '(max-width: 406px) 350px, (max-width: 740px) 540px, 945px'
+          : '(max-width: 600px) 55px, 350px';
 
     const srcSets = {
       avif: `${image.avif55} 55w, ${image.avif350} 350w ${fullscreen ? `, ${image.avif540} 540w, ${image.avif945} 945w` : ""}`,
