@@ -1,6 +1,20 @@
 @use "style/abstracts/mixins/calc";
 @use "style/abstracts/variables/breakpoints";
 
+@font-face {
+    font-family: "Roboto";
+    font-display: swap;
+    src: url(./assets/fonts/Roboto.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "FallbackFont";
+  src: local("Arial");
+  size-adjust: 100.10000000000005%;
+  ascent-override: 95%;
+}
+
+
 .container {
   position: absolute;
   overflow-y: scroll;
