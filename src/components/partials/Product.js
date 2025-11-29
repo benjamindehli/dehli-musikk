@@ -43,34 +43,34 @@ const Product = ({ product, fullscreen, compact }) => {
     };
 
     const renderProductThumbnail = (image, altText, fullscreen, compact) => {
-        const imageSize = compact
-            ? '55px'
-            : fullscreen
-                ? '(max-width: 406px) 350px, 540px'
-                : '(max-width: 600px) 55px, 350px';
-
-        const imageSrc = compact ? image.jpg55 : image.jpg350;
-        const imageWidth = compact ? 55 : 350;
-        const imageHeight = compact ? 55 : 260;
-
-        const srcSets = {
-            avif: `${image.avif55} 55w, ${image.avif350} 350w ${fullscreen ? `, ${image.avif540} 540w` : ""}`,
-            webp: `${image.webp55} 55w, ${image.webp350} 350w ${fullscreen ? `, ${image.webp540} 540w` : ""}`,
-            jpg: `${image.jpg55} 55w, ${image.jpg350} 350w ${fullscreen ? `, ${image.jpg540} 540w` : ""}`
-        };
-
-        return (
-            <React.Fragment>
-                <source sizes={imageSize} srcSet={srcSets.avif} type="image/avif" />
-                <source sizes={imageSize} srcSet={srcSets.webp} type="image/webp" />
-                <source sizes={imageSize} srcSet={srcSets.jpg} type="image/jpg" />
-                {
-                    fullscreen 
-                    ? <img fetchpriority="high" src={image.jpg540} width="540" height="400" alt={altText} />
-                    : <img loading="lazy" src={imageSrc} width={imageWidth} height={imageHeight} alt={altText} />
-                }
-            </React.Fragment>
-        );
+        if (compact) {
+            return (<React.Fragment>
+                <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" />
+                <source srcSet={`${image.webp55} 1x, ${image.webp55} 2x`} type="image/webp" />
+                <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpg" />
+                <img loading="lazy" src={image.jpg55} data-width="55" data-height="55" alt={altText} />
+            </React.Fragment>);
+        } else if (fullscreen){
+            return (<React.Fragment>
+                <source srcSet={`${image.avif350} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 407px)' />
+                <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 407px)' />
+                <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpg" media='(max-width: 407px)' />
+                <source srcSet={`${image.avif540} 1x, ${image.avif540} 2x`} type="image/avif" />
+                <source srcSet={`${image.webp540} 1x, ${image.webp540} 2x`} type="image/webp" />
+                <source srcSet={`${image.jpg540} 1x, ${image.jpg540} 2x`} type="image/jpg" />
+                <img fetchpriority="high" src={image.jpg540} data-width="540" data-height="400" alt={altText} />
+            </React.Fragment>);
+        } else {
+        return (<React.Fragment>
+            <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" media='(max-width: 599px)' />
+            <source srcSet={`${image.webp55} 1x, ${image.webp55} 2x`} type="image/webp" media='(max-width: 599px)' />
+            <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpg" media='(max-width: 599px)' />
+            <source srcSet={`${image.avif350} 1x, ${image.avif350} 2x`} type="image/avif" />
+            <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" />
+            <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpg" />
+            <img loading="lazy" src={image.jpg350} data-width="350" data-height="260" alt={altText} />
+        </React.Fragment>);
+        }
     };
 
     const renderShopLink = (link) => {
@@ -141,7 +141,10 @@ const Product = ({ product, fullscreen, compact }) => {
         <React.Fragment>
             {
             fullscreen 
-                ? <Helmet><link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif"/></Helmet>
+                ? <Helmet>
+                    <link rel="preload" as="image" href={image.avif350} fetchpriority="high" type="image/avif" media='(max-width: 407px)'/>
+                    <link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif" media='(min-width: 408px)'/>
+                </Helmet>
                 : ""
             }
             {fullscreen ? renderProductSnippet(product) : ""}

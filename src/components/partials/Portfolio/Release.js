@@ -34,34 +34,68 @@ const Release = ({ release, fullscreen, compact }) => {
 
 
   const renderReleaseThumbnail = (image, fullscreen, release, compact) => {
-    const imageSize = compact
-      ? '55px'
-      : fullscreen
-        ? '(max-width: 406px) 350px, 540px'
-        : '(max-width: 600px) 55px, 350px';
 
-      const imageSrc = compact 
-        ? release.unreleased 
-          ? image.png55 : image.jpg55 
-        : release.unreleased 
-          ? image.png350 : image.jpg350;
-      const imageWidth = compact ? 55 : 350;
-      const imageHeight = compact ? 55 : 350;
+      const altText = `${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`
 
-    return (<React.Fragment>
-      <source sizes={imageSize} srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w`} type="image/avif" />
-      <source sizes={imageSize} srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w`} type="image/webp" />
-      {
-        release.unreleased
-          ? <source sizes={imageSize} srcSet={`${image.png55} 55w, ${image.png350} 350w, ${image.png540} 540w`} type="image/png" />
-          : <source sizes={imageSize} srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w`} type="image/jpg" />
+      if (compact) {
+        return (<React.Fragment>
+            <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" />
+            <source srcSet={`${image.webp55} 1x, ${image.webp55} 2x`} type="image/webp" />
+            { release?.unreleased 
+                ? <source srcSet={`${image.png55} 1x, ${image.png55} 2x`} type="image/png" /> 
+                : <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpg" /> 
+            }
+            {
+              release?.unreleased 
+                ? <img loading="lazy" src={image.png55} data-width="55" data-height="55" alt={altText} />
+                : <img loading="lazy" src={image.jpg55} data-width="55" data-height="55" alt={altText} />
+            }
+        </React.Fragment>);
+      } else if (fullscreen){
+        return (<React.Fragment>
+          <source srcSet={`${image.avif350} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 407px)' />
+          <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 407px)' />
+          {
+            release?.unreleased 
+              ? <source srcSet={`${image.png350} 1x, ${image.png350} 2x`} type="image/png" media='(max-width: 407px)' />
+              : <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpg" media='(max-width: 407px)' />
+          }
+          <source srcSet={`${image.avif540} 1x, ${image.avif540} 2x`} type="image/avif" />
+          <source srcSet={`${image.webp540} 1x, ${image.webp540} 2x`} type="image/webp" />
+          {
+            release?.unreleased
+              ? <source srcSet={`${image.png540} 1x, ${image.png540} 2x`} type="image/png" />
+              : <source srcSet={`${image.jpg540} 1x, ${image.jpg540} 2x`} type="image/jpg" />
+          }
+          {
+            release?.unreleased
+              ? <img fetchpriority="high" src={image.png540} data-width="540" data-height="540" alt={altText} />
+              : <img fetchpriority="high" src={image.jpg540} data-width="540" data-height="540" alt={altText} />
+          }
+        </React.Fragment>);
+      } else {
+        return (<React.Fragment>
+          <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" media='(max-width: 599px)' />
+          <source srcSet={`${image.webp55} 1x, ${image.webp55} 2x`} type="image/webp" media='(max-width: 599px)' />
+          {
+            release?.unreleased
+              ? <source srcSet={`${image.png55} 1x, ${image.png55} 2x`} type="image/png" media='(max-width: 599px)' />
+              : <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpg" media='(max-width: 599px)' />
+          }
+          <source srcSet={`${image.avif350} 1x, ${image.avif350} 2x`} type="image/avif" />
+          <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" />
+          {
+            release?.unreleased
+              ? <source srcSet={`${image.png350} 1x, ${image.png350} 2x`} type="image/png" />
+              : <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpg" />
+          }
+          {
+            release?.unreleased
+              ? <img loading="lazy" src={image.png350} data-width="350" data-height="350" alt={altText} />
+              : <img loading="lazy" src={image.jpg350} data-width="350" data-height="350" alt={altText} />
+          }
+        </React.Fragment>);
       }
-      {
-        fullscreen 
-          ? <img fetchpriority="high" src={release.unreleased ? image.png540 : image.jpg540} width="540" height="540" alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
-          : <img loading="lazy" src={imageSrc} width={imageWidth} height={imageHeight} alt={`${release.unreleased ? 'Coming soon:' : 'Album cover for'} ${release.title} by ${release.artistName}`} />
-      }
-    </React.Fragment>);
   }
 
   const renderReleaseSnippet = (release, releaseInstruments, releaseThumbnailSrc) => {
@@ -208,7 +242,10 @@ const Release = ({ release, fullscreen, compact }) => {
     ? (<React.Fragment>
       {
         fullscreen 
-          ? <Helmet><link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif" /></Helmet>
+          ? <Helmet>
+              <link rel="preload" as="image" href={image.avif350} fetchpriority="high" type="image/avif" media='(max-width: 407px)'/>
+              <link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif" media='(min-width: 408px)'/>
+            </Helmet>
           : ""
       }
       {fullscreen ? renderReleaseSnippet(release, releaseInstruments, image['jpg540']) : ''}

@@ -82,22 +82,15 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
     </Helmet>);
   }
 
-  const renderVideoThumbnail = (image, altText, fullscreen) => {
-    const imageSize = fullscreen
-      ? '(max-width: 406px) 350px, 540px'
-      : '(max-width: 600px) 55px, 350px';
-    
-    const srcSets = {
-      avif: `${image.avif55} 55w, ${image.avif350} 350w ${fullscreen ? `, ${image.avif540} 540w` : ""}`,
-      webp: `${image.webp55} 55w, ${image.webp350} 350w ${fullscreen ? `, ${image.webp540} 540w` : ""}`,
-      jpg: `${image.jpg55} 55w, ${image.jpg350} 350w ${fullscreen ? `, ${image.jpg540} 540w` : ""}`
-    };
-
+  const renderVideoThumbnail = (image, altText) => {
     return (<React.Fragment>
-      <source sizes={imageSize} srcSet={srcSets.avif} type="image/avif" />
-      <source sizes={imageSize} srcSet={srcSets.webp} type="image/webp" />
-      <source sizes={imageSize} srcSet={srcSets.jpg} type="image/jpg" />
-      <img loading="lazy" src={image.jpg350} width="350" height="197" alt={altText } />
+        <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" media='(max-width: 599px)' />
+        <source srcSet={`${image.webp55} 1x, ${image.webp55} 2x`} type="image/webp" media='(max-width: 599px)' />
+        <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpg" media='(max-width: 599px)' />
+        <source srcSet={`${image.avif350} 1x, ${image.avif350} 2x`} type="image/avif" />
+        <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" />
+        <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpg" />
+        <img loading="lazy" src={image.jpg350} data-width="350" data-height="197" alt={altText} />
     </React.Fragment>);
   }
 
@@ -163,7 +156,7 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
             </React.Fragment>
           ) : (
             <ListItemThumbnail fullscreen={fullscreen} link={link}>
-              {renderVideoThumbnail(image, video.thumbnailDescription, fullscreen)}
+              {renderVideoThumbnail(image, video.thumbnailDescription)}
             </ListItemThumbnail>
           )
       }

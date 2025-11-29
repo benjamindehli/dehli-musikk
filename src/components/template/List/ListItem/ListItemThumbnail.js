@@ -7,12 +7,12 @@ import style from "components/template/List/ListItem/ListItemThumbnail.module.sc
 const ListItemThumbnail = ({ fullscreen, compact, link, children }) => {
     const getImageSize = () => {
         const image = children?.props?.children?.find((child) => {
-            return child?.type === "img" && child?.props?.height && child?.props?.width;
+            return child?.type === "img" && child?.props?.["data-width"] && child?.props?.["data-height"];
         });
         if (image) {
             return {
-                width: image.props.width,
-                height: image.props.height
+                width: image.props["data-width"],
+                height: image.props["data-height"]
             };
         }
         return null;
