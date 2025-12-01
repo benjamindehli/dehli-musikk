@@ -68,8 +68,9 @@ const renderContentLinksAsText = (content) => {
 };
 
 export const formatContentWithReactLinks = (content, languageSlug) => {
-    const formattedContent = content.split("\n").map((paragraph, key) => {
-        return <p key={key}>{renderContentLinksAsReactLinks(paragraph, languageSlug)}</p>;
+    const formattedContent = content.split("\n").map((paragraph) => {
+        const paraKey = `para-${paragraph.slice(0, 20)}-${paragraph.length}`;
+        return <p key={paraKey}>{renderContentLinksAsReactLinks(paragraph, languageSlug)}</p>;
     });
     return formattedContent;
 };
