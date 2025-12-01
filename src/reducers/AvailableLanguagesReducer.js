@@ -20,7 +20,5 @@ export default reducer;
 // Selectors
 export const getLanguageSlug = (state) => {
   const selectedLanguageKey = state.selectedLanguageKey || 'no';
-  return state.availableLanguages && state.availableLanguages.hasOwnProperty(selectedLanguageKey)
-    ? state.availableLanguages[selectedLanguageKey].path
-    : '';
+  return state.availableLanguages?.[selectedLanguageKey]?.path ?? '';
 }
