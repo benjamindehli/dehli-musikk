@@ -409,8 +409,8 @@ const Equipment = () => {
                     <Container blur={!!selectedEquipment}>
                         <List>
                             {selectedEquipmentType
-                                ? renderEquipmentItems(equipment[selectedEquipmentType], selectedEquipment)
-                                : renderEquipmentTypes(listEquipmentTypesPage)}
+                                ? renderEquipmentItems(equipment[selectedEquipmentType])
+                                : renderEquipmentTypes()}
                         </List>
                     </Container>
                 </React.Fragment>
