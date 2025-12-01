@@ -1,14 +1,13 @@
-import {UPDATE_SEARCH_RESULTS_COUNT} from 'constants/types';
+import { UPDATE_SEARCH_RESULTS_COUNT } from "constants/types";
 
 const initialState = {};
 
 const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case UPDATE_SEARCH_RESULTS_COUNT:
-      return action.payload;
-    default:
-      return state;
-  }
+    if (action.type === UPDATE_SEARCH_RESULTS_COUNT) {
+        return action.payload;
+    } else {
+        return state;
+    }
 };
 
 export default reducer;
