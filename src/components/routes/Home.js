@@ -82,17 +82,39 @@ const Home = () => {
                 1680: require(`../../${imagePath}_1680.jpg`)
             }
         };
-        const srcSets = Object.keys(headerImage).map((fileType) => {
-            const srcSet = Object.keys(headerImage[fileType]).map((imageSize) => {
-                return `${headerImage[fileType][imageSize]} ${imageSize}w`;
-            });
-            const sizes = "100vw";
-            return <source sizes={sizes} key={fileType} srcSet={srcSet} type={`image/${fileType}`} />;
-        });
+        let sourceElements = [];
+        for (const fileType of Object.keys(headerImage)) {
+            for (const imageSize of Object.keys(headerImage[fileType])) {
+                let sourceElement;
+                if (imageSize === "1680") {
+                    sourceElement = (
+                        <source
+                            key={`${fileType}-${imageSize}`}
+                            srcSet={`${headerImage[fileType][imageSize]} 1x, ${headerImage[fileType][imageSize]} 2x`}
+                            type={`image/${fileType}`}
+                        />
+                    );
+                } else {
+                    sourceElement = (
+                        <source
+                            key={`${fileType}-${imageSize}`}
+                            srcSet={`${headerImage[fileType][imageSize]} 1x, ${headerImage[fileType][imageSize]} 2x`}
+                            type={`image/${fileType}`}
+                            media={`(max-width: ${imageSize}px)`}
+                        />
+                    );
+                }
+                sourceElements.push(sourceElement);
+            }
+        }
         return (
             <picture className={style.backgroundsImage}>
-                {srcSets}
-                <img src={headerImage.jpg[1024]} fetchpriority="high" alt="A Korg MS-20 with a cassette and tape recorder" />
+                {sourceElements}
+                <img
+                    src={headerImage.jpg[1024]}
+                    fetchpriority="high"
+                    alt="A Korg MS-20 with a cassette and tape recorder"
+                />
             </picture>
         );
     };

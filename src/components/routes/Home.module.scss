@@ -16,6 +16,10 @@ img {
 
   & .backgroundsImage {
     position: absolute;
+    width: 100%;
+    img {
+      aspect-ratio: 80 / 51;
+    }
   }
 
   & .overlay {
