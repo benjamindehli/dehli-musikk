@@ -4,9 +4,11 @@ function getArtistNamesFromArtistNameString(artistNameString) {
 
 function getUniqueArtistNamesFromReleases(releases) {
     const artistNames = [];
-    releases.forEach((release) => {
-        getArtistNamesFromArtistNameString(release.artistName).forEach((artistName) => artistNames.push(artistName));
-    });
+    for (const release of releases) {
+        for (const artistName of getArtistNamesFromArtistNameString(release.artistName)) {
+            artistNames.push(artistName);
+        }
+    }
     return Array.from(new Set(artistNames)).sort();
 }
 
