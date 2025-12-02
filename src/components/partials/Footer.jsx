@@ -2,12 +2,12 @@
 import React from 'react';
 
 // Assets
-import map930Avif from 'assets/images/map_930.avif';
-import map930Webp from 'assets/images/map_930.webp';
-import map930Jpg from 'assets/images/map_930.jpg';
+import map930Avif from '../../assets/images/map_930.avif';
+import map930Webp from '../../assets/images/map_930.webp';
+import map930Jpg from '../../assets/images/map_930.jpg';
 
 // Stylesheets
-import style from 'components/partials/Footer.module.scss';
+import style from './Footer.module.scss';
 
 // Redux store
 const selectedLanguageKey = window?.location?.pathname?.startsWith('/en/') ? 'en' : 'no';

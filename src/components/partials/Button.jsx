@@ -1,5 +1,5 @@
 // Stylesheets
-import style from 'components/partials/Button.module.scss';
+import style from './Button.module.scss';
 
 const Button = ({ buttontype = 'default', children }) => {
   return (<span className={`${style.button} ${style[buttontype]}`}>

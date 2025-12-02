@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 // Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
+import { getLanguageSlug } from '../../reducers/AvailableLanguagesReducer';
 
 // Stylesheets
-import style from 'components/partials/Breadcrumbs.module.scss';
+import style from './Breadcrumbs.module.scss';
 
 const Breadcrumbs = ({ breadcrumbs = [] }) => {
 

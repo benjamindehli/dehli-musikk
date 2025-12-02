@@ -5,17 +5,17 @@ import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Components
-import SearchField from "components/partials/NavigationBar/SearchField";
+import SearchField from "./NavigationBar/SearchField";
 
 // Assets
-import { ReactComponent as DehliMusikkLogo } from "assets/svg/DehliMusikkLogoHorizontal.svg";
-import { ReactComponent as MenuIcon } from "assets/svg/menuIcon.svg";
+import DehliMusikkLogo from "../../assets/svg/DehliMusikkLogoHorizontal.svg?react";
+import MenuIcon from "../../assets/svg/menuIcon.svg?react";
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../reducers/AvailableLanguagesReducer";
 
 // Stylesheets
-import style from "components/partials/NavigationBar.module.scss";
+import style from "./NavigationBar.module.scss";
 
 const NavigationBar = () => {
     // Redux store

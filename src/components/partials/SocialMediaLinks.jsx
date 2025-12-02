@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // Assets
-import { ReactComponent as GumroadIcon } from 'assets/svg/gumroad.svg'
-import { ReactComponent as KofiIcon } from 'assets/svg/kofi.svg'
+import GumroadIcon from '../../assets/svg/gumroad.svg?react'
+import KofiIcon from '../../assets/svg/kofi.svg?react'
 
 
 // Stylesheets
-import style from 'components/partials/SocialMediaLinks.module.scss';
+import style from './SocialMediaLinks.module.scss';
 
 const SocialMediaLinks = () => {
 

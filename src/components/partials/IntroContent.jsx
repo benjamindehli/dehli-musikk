@@ -1,14 +1,14 @@
 // Dependencies
-import { getArtistNamesStringFromReleases } from 'helpers/releaseHelpers';
+import { getArtistNamesStringFromReleases } from '../../helpers/releaseHelpers';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
+import { getLanguageSlug } from '../../reducers/AvailableLanguagesReducer';
 
 // Data
-import releases from "data/portfolio";
+import releases from "../../data/portfolio";
 
 const IntroContent = () => {
 
