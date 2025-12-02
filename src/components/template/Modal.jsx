@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Stylesheets
-import style from 'components/template/Modal.module.scss';
+import style from './Modal.module.scss';
 
 const Modal = ({ isTheaterMode, maxWidth = 'none', selectedLanguageKey = 'no', onClickOutside, arrowLeftLink, arrowRightLink, children }) => {
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import style from "components/template/ExpansionPanel.module.scss";
+import style from "./ExpansionPanel.module.scss";
 
 const ExpansionPanel = ({ panelTitle, children, elementId }) => {
   const [expanded, setExpanded] = useState(false);

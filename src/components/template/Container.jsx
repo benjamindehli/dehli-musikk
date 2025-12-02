@@ -1,5 +1,5 @@
 // Stylesheets
-import style from 'components/template/Container.module.scss';
+import style from './Container.module.scss';
 
 const Container = ({ blur, children }) => {
   return (

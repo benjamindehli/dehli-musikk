@@ -1,5 +1,5 @@
 // Stylesheets
-import style from 'components/template/List.module.scss';
+import style from './List.module.scss';
 
 const List = ({ compact, children }) => {
   return (
