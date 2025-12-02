@@ -2,27 +2,27 @@
 import { useSelector } from 'react-redux';
 
 // Assets
-import { ReactComponent as AmazonMusicIcon } from 'assets/svg/amazonMusic.svg'
-import { ReactComponent as AmazonStoreIcon } from 'assets/svg/amazonStore.svg'
-import { ReactComponent as AnghamiIcon } from 'assets/svg/anghami.svg'
-import { ReactComponent as AppleMusicIcon } from 'assets/svg/appleMusic.svg'
-import { ReactComponent as AudiomackIcon } from 'assets/svg/audiomack.svg'
-import { ReactComponent as BoomplayIcon } from 'assets/svg/boomplay.svg'
-import { ReactComponent as DeezerIcon } from 'assets/svg/deezer.svg'
-import { ReactComponent as GoogleIcon } from 'assets/svg/google.svg'
-import { ReactComponent as GoogleStoreIcon } from 'assets/svg/googleStore.svg'
-import { ReactComponent as ItunesIcon } from 'assets/svg/itunes.svg'
-import { ReactComponent as NapsterIcon } from 'assets/svg/napster.svg'
-import { ReactComponent as PandoraIcon } from 'assets/svg/pandora.svg'
-import { ReactComponent as SoundcloudIcon } from 'assets/svg/soundcloud.svg'
-import { ReactComponent as SpotifyIcon } from 'assets/svg/spotify.svg'
-import { ReactComponent as TidalIcon } from 'assets/svg/tidal.svg'
-import { ReactComponent as YandexIcon } from 'assets/svg/yandex.svg'
-import { ReactComponent as YoutubeIcon } from 'assets/svg/youtube.svg'
-import { ReactComponent as YoutubeMusicIcon } from 'assets/svg/youtubeMusic.svg'
+import AmazonMusicIcon from '../../../assets/svg/amazonMusic.svg?react'
+import AmazonStoreIcon from '../../../assets/svg/amazonStore.svg?react'
+import AnghamiIcon from '../../../assets/svg/anghami.svg?react'
+import AppleMusicIcon from '../../../assets/svg/appleMusic.svg?react'
+import AudiomackIcon from '../../../assets/svg/audiomack.svg?react'
+import BoomplayIcon from '../../../assets/svg/boomplay.svg?react'
+import DeezerIcon from '../../../assets/svg/deezer.svg?react'
+import GoogleIcon from '../../../assets/svg/google.svg?react'
+import GoogleStoreIcon from '../../../assets/svg/googleStore.svg?react'
+import ItunesIcon from '../../../assets/svg/itunes.svg?react'
+import NapsterIcon from '../../../assets/svg/napster.svg?react'
+import PandoraIcon from '../../../assets/svg/pandora.svg?react'
+import SoundcloudIcon from '../../../assets/svg/soundcloud.svg?react'
+import SpotifyIcon from '../../../assets/svg/spotify.svg?react'
+import TidalIcon from '../../../assets/svg/tidal.svg?react'
+import YandexIcon from '../../../assets/svg/yandex.svg?react'
+import YoutubeIcon from '../../../assets/svg/youtube.svg?react'
+import YoutubeMusicIcon from '../../../assets/svg/youtubeMusic.svg?react'
 
 // Stylesheets
-import style from 'components/partials/Portfolio/ReleaseLinks.module.scss';
+import style from './ReleaseLinks.module.scss';
 
 const ReleaseLinks = ({ release }) => {
 

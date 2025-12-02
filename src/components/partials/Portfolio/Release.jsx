@@ -3,27 +3,27 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 // Components
-import EquipmentItem from 'components/partials/EquipmentItem';
-import ReleaseLinks from 'components/partials/Portfolio/ReleaseLinks';
-import Product from 'components/partials/Product';
-import ExpansionPanel from 'components/template/ExpansionPanel';
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+import EquipmentItem from '../EquipmentItem';
+import ReleaseLinks from './ReleaseLinks';
+import Product from '../Product';
+import ExpansionPanel from '../../template/ExpansionPanel';
+import List from '../../template/List';
+import ListItem from '../../template/List/ListItem';
+import ListItemContent from '../../template/List/ListItem/ListItemContent';
+import ListItemContentBody from '../../template/List/ListItem/ListItemContent/ListItemContentBody';
+import ListItemContentHeader from '../../template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemThumbnail from '../../template/List/ListItem/ListItemThumbnail';
 
 // Actions
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
+import { convertToUrlFriendlyString } from '../../../helpers/urlFormatter'
 
 // Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
+import { getLanguageSlug } from '../../../reducers/AvailableLanguagesReducer';
 
 // Helpers
-import { getReleaseInstruments, getReleaseProducts } from 'helpers/releaseInstruments';
+import { getReleaseInstruments, getReleaseProducts } from '../../../helpers/releaseInstruments';
 import { useSelector } from 'react-redux';
-import { getRichSnippetDateString } from 'helpers/dateFormatter';
+import { getRichSnippetDateString } from '../../../helpers/dateFormatter';
 
 
 const Release = ({ release, fullscreen, compact }) => {
@@ -219,18 +219,18 @@ const Release = ({ release, fullscreen, compact }) => {
   const imagePathJpg = !release.unreleased ? `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}` : null;
   const imagePathPng = !release.unreleased ? null : `assets/images/comingSoon_${selectedLanguageKey}`;
   const image = {
-    avif55: require(`../../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../../${imagePathAvif}_540.avif`),
-    webp55: require(`../../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../../${imagePathWebp}_540.webp`),
-    jpg55: !release.unreleased ? require(`../../../${imagePathJpg}_55.jpg`) : null,
-    jpg350: !release.unreleased ? require(`../../../${imagePathJpg}_350.jpg`) : null,
-    jpg540: !release.unreleased ? require(`../../../${imagePathJpg}_540.jpg`) : null,
-    png55: release.unreleased ? require(`../../../${imagePathPng}_55.png`) : null,
-    png350: release.unreleased ? require(`../../../${imagePathPng}_350.png`) : null,
-    png540: release.unreleased ? require(`../../../${imagePathPng}_540.png`) : null,
+    avif55: require(`../../../${imagePathAvif}_55.avif`)?.default,
+    avif350: require(`../../../${imagePathAvif}_350.avif`)?.default,
+    avif540: require(`../../../${imagePathAvif}_540.avif`)?.default,
+    webp55: require(`../../../${imagePathWebp}_55.webp`)?.default,
+    webp350: require(`../../../${imagePathWebp}_350.webp`)?.default,
+    webp540: require(`../../../${imagePathWebp}_540.webp`)?.default,
+    jpg55: !release.unreleased ? require(`../../../${imagePathJpg}_55.jpg`)?.default : null,
+    jpg350: !release.unreleased ? require(`../../../${imagePathJpg}_350.jpg`)?.default : null,
+    jpg540: !release.unreleased ? require(`../../../${imagePathJpg}_540.jpg`)?.default : null,
+    png55: release.unreleased ? require(`../../../${imagePathPng}_55.png`)?.default : null,
+    png350: release.unreleased ? require(`../../../${imagePathPng}_350.png`)?.default : null,
+    png540: release.unreleased ? require(`../../../${imagePathPng}_540.png`)?.default : null,
   };
 
   const link = {
