@@ -4,7 +4,7 @@ import { getPlusOneYear } from "./dateFormatter";
 import { convertToUrlFriendlyString } from "./urlFormatter";
 
 // Data
-import countryCodes from "data/countryCodes";
+import countryCodes from "../data/countryCodes";
 
 function generateShippingDestinations(countryCodes) {
     return countryCodes.map((countryCode) => {
@@ -57,7 +57,7 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
     const plusOneYear = getPlusOneYear();
 
     const imagePathJpg = `data/products/thumbnails/web/jpg/${productId}`;
-    const productThumbnailSrc = require(`../${imagePathJpg}_540.jpg`);
+    const productThumbnailSrc = require(`../${imagePathJpg}_540.jpg`)?.default;
 
     const snippet = {
         "@context": "http://schema.org",

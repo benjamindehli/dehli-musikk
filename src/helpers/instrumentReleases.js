@@ -1,6 +1,6 @@
-import releasesInstruments from 'data/releasesInstruments';
-import releases from 'data/portfolio';
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import releasesInstruments from '../data/releasesInstruments';
+import releases from '../data/portfolio';
+import {convertToUrlFriendlyString} from './urlFormatter'
 
 
 const getRelease = releaseId => {

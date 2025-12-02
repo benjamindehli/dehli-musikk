@@ -1,7 +1,7 @@
-import releasesInstruments from 'data/releasesInstruments';
-import {instruments} from 'data/equipment';
-import products from 'data/products';
-import {convertToUrlFriendlyString} from 'helpers/urlFormatter'
+import releasesInstruments from '../data/releasesInstruments';
+import {instruments} from '../data/equipment';
+import products from '../data/products';
+import {convertToUrlFriendlyString} from './urlFormatter'
 
 
 const getInstrument = equipmentId => {
