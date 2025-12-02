@@ -3,7 +3,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 // Stylesheets
-import style from 'components/routes/NotFound.module.scss';
+import style from './NotFound.module.scss';
 
 const NotFound = () => {
   return (<div className={style.contentSection}>

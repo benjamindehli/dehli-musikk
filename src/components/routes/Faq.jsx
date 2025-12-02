@@ -5,25 +5,25 @@ import { Helmet } from "react-helmet-async";
 import { Navigate, useParams } from "react-router";
 
 // Components
-import Breadcrumbs from "components/partials/Breadcrumbs";
-import Container from "components/template/Container";
+import Breadcrumbs from "../partials/Breadcrumbs";
+import Container from "../template/Container";
+import ExpansionPanel from "../template/ExpansionPanel";
 
 // Actions
-import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "../../actions/LanguageActions";
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../reducers/AvailableLanguagesReducer";
 
 // Helpers
-import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { formatContentAsString, formatContentWithReactLinks } from "helpers/contentFormatter";
+import { convertToUrlFriendlyString } from "../../helpers/urlFormatter";
+import { formatContentAsString, formatContentWithReactLinks } from "../../helpers/contentFormatter";
 
 // Data
-import frequentlyAskedQuestions from "data/frequentlyAskedQuestions.js";
-import ExpansionPanel from "components/template/ExpansionPanel";
+import frequentlyAskedQuestions from "../../data/frequentlyAskedQuestions.js";
 
 // Stylesheets
-import style from "components/routes/Faq.module.scss";
+import style from "./Faq.module.scss";
 
 const FrequentlyAskedQuestions = () => {
     const dispatch = useDispatch();

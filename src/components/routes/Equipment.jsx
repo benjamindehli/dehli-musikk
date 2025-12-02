@@ -5,27 +5,27 @@ import { Navigate, useNavigate, useParams } from "react-router";
 import { Helmet } from "react-helmet-async";
 
 // Components
-import Breadcrumbs from "components/partials/Breadcrumbs";
-import Container from "components/template/Container";
-import EquipmentItem from "components/partials/EquipmentItem";
-import List from "components/template/List";
-import ListItem from "components/template/List/ListItem";
-import ListItemContent from "components/template/List/ListItem/ListItemContent";
-import ListItemContentHeader from "components/template/List/ListItem/ListItemContent/ListItemContentHeader";
-import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbnail";
-import Modal from "components/template/Modal";
+import Breadcrumbs from "../partials/Breadcrumbs";
+import Container from "../template/Container";
+import EquipmentItem from "../partials/EquipmentItem";
+import List from "../template/List";
+import ListItem from "../template/List/ListItem";
+import ListItemContent from "../template/List/ListItem/ListItemContent";
+import ListItemContentHeader from "../template/List/ListItem/ListItemContent/ListItemContentHeader";
+import ListItemThumbnail from "../template/List/ListItem/ListItemThumbnail";
+import Modal from "../template/Modal";
 
 // Actions
-import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "../../actions/LanguageActions";
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../reducers/AvailableLanguagesReducer";
 
 // Helpers
-import { convertToUrlFriendlyString } from "helpers/urlFormatter";
+import { convertToUrlFriendlyString } from "../../helpers/urlFormatter";
 
 // Data
-import equipment from "data/equipment";
+import equipment from "../../data/equipment";
 
 const Equipment = () => {
     const dispatch = useDispatch();
@@ -150,18 +150,18 @@ const Equipment = () => {
                   const imagePathWebp = `data/equipment/thumbnails/web/webp/${equipmentTypeKey}`;
                   const imagePathJpg = `data/equipment/thumbnails/web/jpg/${equipmentTypeKey}`;
                   const image = {
-                      avif55: require(`../../${imagePathAvif}_55.avif`),
-                      avif350: require(`../../${imagePathAvif}_350.avif`),
-                      avif540: require(`../../${imagePathAvif}_540.avif`),
-                      avif945: require(`../../${imagePathAvif}_945.avif`),
-                      webp55: require(`../../${imagePathWebp}_55.webp`),
-                      webp350: require(`../../${imagePathWebp}_350.webp`),
-                      webp540: require(`../../${imagePathWebp}_540.webp`),
-                      webp945: require(`../../${imagePathWebp}_945.webp`),
-                      jpg55: require(`../../${imagePathJpg}_55.jpg`),
-                      jpg350: require(`../../${imagePathJpg}_350.jpg`),
-                      jpg540: require(`../../${imagePathJpg}_540.jpg`),
-                      jpg945: require(`../../${imagePathJpg}_945.jpg`)
+                      avif55: require(`../../${imagePathAvif}_55.avif`)?.default,
+                      avif350: require(`../../${imagePathAvif}_350.avif`)?.default,
+                      avif540: require(`../../${imagePathAvif}_540.avif`)?.default,
+                      avif945: require(`../../${imagePathAvif}_945.avif`)?.default,
+                      webp55: require(`../../${imagePathWebp}_55.webp`)?.default,
+                      webp350: require(`../../${imagePathWebp}_350.webp`)?.default,
+                      webp540: require(`../../${imagePathWebp}_540.webp`)?.default,
+                      webp945: require(`../../${imagePathWebp}_945.webp`)?.default,
+                      jpg55: require(`../../${imagePathJpg}_55.jpg`)?.default,
+                      jpg350: require(`../../${imagePathJpg}_350.jpg`)?.default,
+                      jpg540: require(`../../${imagePathJpg}_540.jpg`)?.default,
+                      jpg945: require(`../../${imagePathJpg}_945.jpg`)?.default
                   };
 
                   const link = {

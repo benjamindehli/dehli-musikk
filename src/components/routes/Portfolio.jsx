@@ -5,24 +5,24 @@ import { Navigate, useNavigate, useParams } from "react-router";
 import { Helmet } from "react-helmet-async";
 
 // Components
-import Breadcrumbs from "components/partials/Breadcrumbs";
-import Container from "components/template/Container";
-import List from "components/template/List";
-import ListItem from "components/template/List/ListItem";
-import Modal from "components/template/Modal";
-import Release from "components/partials/Portfolio/Release";
+import Breadcrumbs from "../partials/Breadcrumbs";
+import Container from "../template/Container";
+import List from "../template/List";
+import ListItem from "../template/List/ListItem";
+import Modal from "../template/Modal";
+import Release from "../partials/Portfolio/Release";
 
 // Actions
-import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "../../actions/LanguageActions";
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../reducers/AvailableLanguagesReducer";
 
 // Helpers
-import { convertToUrlFriendlyString } from "helpers/urlFormatter";
+import { convertToUrlFriendlyString } from "../../helpers/urlFormatter";
 
 // Data
-import releases from "data/portfolio";
+import releases from "../../data/portfolio";
 
 const Portfolio = () => {
     const dispatch = useDispatch();

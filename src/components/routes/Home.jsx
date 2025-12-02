@@ -6,26 +6,26 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 // Components
-import Button from "components/partials/Button";
-import Container from "components/template/Container";
-import IntroContent from "components/partials/IntroContent";
-import LatestPosts from "components/partials/LatestPosts";
-import LatestProducts from "components/partials/LatestProducts";
-import LatestReleases from "components/partials/LatestReleases";
-import LatestVideos from "components/partials/LatestVideos";
-import SocialMediaLinks from "components/partials/SocialMediaLinks";
+import Button from "../../components/partials/Button";
+import Container from "../template/Container";
+import IntroContent from "../../components/partials/IntroContent";
+import LatestPosts from "../../components/partials/LatestPosts";
+import LatestProducts from "../../components/partials/LatestProducts";
+import LatestReleases from "../../components/partials/LatestReleases";
+import LatestVideos from "../../components/partials/LatestVideos";
+import SocialMediaLinks from "../../components/partials/SocialMediaLinks";
 
 // Actions
-import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "../../actions/LanguageActions";
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../reducers/AvailableLanguagesReducer";
 
 // Assets
-import DehliMusikkLogo from "assets/svg/DehliMusikkLogoInverse.svg";
+import DehliMusikkLogo from "../../assets/svg/DehliMusikkLogoInverse.svg";
 
 // Stylesheets
-import style from "components/routes/Home.module.scss";
+import style from "./Home.module.scss";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -55,31 +55,31 @@ const Home = () => {
         const imagePath = `assets/images/header`;
         const headerImage = {
             avif: {
-                480: require(`../../${imagePath}_480.avif`),
-                640: require(`../../${imagePath}_640.avif`),
-                800: require(`../../${imagePath}_800.avif`),
-                1024: require(`../../${imagePath}_1024.avif`),
-                1260: require(`../../${imagePath}_1260.avif`),
-                1440: require(`../../${imagePath}_1440.avif`),
-                1680: require(`../../${imagePath}_1680.avif`)
+                480: require(`../../${imagePath}_480.avif`)?.default,
+                640: require(`../../${imagePath}_640.avif`)?.default,
+                800: require(`../../${imagePath}_800.avif`)?.default,
+                1024: require(`../../${imagePath}_1024.avif`)?.default,
+                1260: require(`../../${imagePath}_1260.avif`)?.default,
+                1440: require(`../../${imagePath}_1440.avif`)?.default,
+                1680: require(`../../${imagePath}_1680.avif`)?.default
             },
             webp: {
-                480: require(`../../${imagePath}_480.webp`),
-                640: require(`../../${imagePath}_640.webp`),
-                800: require(`../../${imagePath}_800.webp`),
-                1024: require(`../../${imagePath}_1024.webp`),
-                1260: require(`../../${imagePath}_1260.webp`),
-                1440: require(`../../${imagePath}_1440.webp`),
-                1680: require(`../../${imagePath}_1680.webp`)
+                480: require(`../../${imagePath}_480.webp`)?.default,
+                640: require(`../../${imagePath}_640.webp`)?.default,
+                800: require(`../../${imagePath}_800.webp`)?.default,
+                1024: require(`../../${imagePath}_1024.webp`)?.default,
+                1260: require(`../../${imagePath}_1260.webp`)?.default,
+                1440: require(`../../${imagePath}_1440.webp`)?.default,
+                1680: require(`../../${imagePath}_1680.webp`)?.default
             },
             jpg: {
-                480: require(`../../${imagePath}_480.jpg`),
-                640: require(`../../${imagePath}_640.jpg`),
-                800: require(`../../${imagePath}_800.jpg`),
-                1024: require(`../../${imagePath}_1024.jpg`),
-                1260: require(`../../${imagePath}_1260.jpg`),
-                1440: require(`../../${imagePath}_1440.jpg`),
-                1680: require(`../../${imagePath}_1680.jpg`)
+                480: require(`../../${imagePath}_480.jpg`)?.default,
+                640: require(`../../${imagePath}_640.jpg`)?.default,
+                800: require(`../../${imagePath}_800.jpg`)?.default,
+                1024: require(`../../${imagePath}_1024.jpg`)?.default,
+                1260: require(`../../${imagePath}_1260.jpg`)?.default,
+                1440: require(`../../${imagePath}_1440.jpg`)?.default,
+                1680: require(`../../${imagePath}_1680.jpg`)?.default
             }
         };
         let sourceElements = [];

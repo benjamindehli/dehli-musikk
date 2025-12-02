@@ -5,25 +5,25 @@ import { Navigate, useLocation, useNavigate, useParams } from "react-router";
 import { Helmet } from "react-helmet-async";
 
 // Components
-import Breadcrumbs from "components/partials/Breadcrumbs";
-import Container from "components/template/Container";
-import List from "components/template/List";
-import ListItem from "components/template/List/ListItem";
-import Modal from "components/template/Modal";
-import Video from "components/partials/Video";
+import Breadcrumbs from "../partials/Breadcrumbs";
+import Container from "../template/Container";
+import List from "../template/List";
+import ListItem from "../template/List/ListItem";
+import Modal from "../template/Modal";
+import Video from "../partials/Video";
 
 // Actions
-import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "../../actions/LanguageActions";
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../reducers/AvailableLanguagesReducer";
 
 // Helpers
-import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { formatContentAsString } from "helpers/contentFormatter";
+import { convertToUrlFriendlyString } from "../../helpers/urlFormatter";
+import { formatContentAsString } from "../../helpers/contentFormatter";
 
 // Data
-import videos from "data/videos";
+import videos from "../../data/videos";
 
 const Videos = () => {
     const dispatch = useDispatch();
@@ -82,7 +82,7 @@ const Videos = () => {
         const videoItems = videos.map((video, index) => {
             const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
             const imagePathJpg = `data/videos/thumbnails/web/jpg/${video.thumbnailFilename}`;
-            const videoThumbnailSrc = require(`../../${imagePathJpg}_540.jpg`);
+            const videoThumbnailSrc = require(`../../${imagePathJpg}_540.jpg`)?.default;
             const videoDate = new Date(video.timestamp).toISOString();
 
             return {

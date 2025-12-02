@@ -6,24 +6,24 @@ import { Helmet } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Components
-import Breadcrumbs from "components/partials/Breadcrumbs";
-import Container from "components/template/Container";
-import List from "components/template/List";
-import ListItem from "components/template/List/ListItem";
-import SearchResult from "components/partials/SearchResult";
+import Breadcrumbs from "../partials/Breadcrumbs";
+import Container from "../template/Container";
+import List from "../template/List";
+import ListItem from "../template/List/ListItem";
+import SearchResult from "../partials/SearchResult";
 
 // Actions
-import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
-import { updateSearchResults, updateSearchResultsCount } from "actions/SearchResultsActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "../../actions/LanguageActions";
+import { updateSearchResults, updateSearchResultsCount } from "../../actions/SearchResultsActions";
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../reducers/AvailableLanguagesReducer";
 
 // Helpers
-import { getSearchResults } from "helpers/search";
+import { getSearchResults } from "../../helpers/search";
 
 // Stylesheets
-import style from "components/routes/Search.module.scss";
+import style from "./Search.module.scss";
 
 const Search = () => {
     const location = useLocation();

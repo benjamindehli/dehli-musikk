@@ -5,35 +5,34 @@ import { Helmet } from "react-helmet-async";
 import { Navigate, useNavigate, useParams } from "react-router";
 
 // Components
-import Breadcrumbs from "components/partials/Breadcrumbs";
-import Container from "components/template/Container";
-import List from "components/template/List";
-import ListItem from "components/template/List/ListItem";
-import Modal from "components/template/Modal";
-import Product from "components/partials/Product";
+import Breadcrumbs from "../partials/Breadcrumbs";
+import Container from "../template/Container";
+import List from "../template/List";
+import ListItem from "../template/List/ListItem";
+import Modal from "../template/Modal";
+import Post from "../partials/Post";
 
 // Actions
-import { updateMultilingualRoutes, updateSelectedLanguageKey } from "actions/LanguageActions";
+import { updateMultilingualRoutes, updateSelectedLanguageKey } from "../../actions/LanguageActions";
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../reducers/AvailableLanguagesReducer";
 
 // Helpers
-import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { formatContentAsString } from "helpers/contentFormatter";
-import { generateProductSnippet } from "helpers/richSnippetsGenerators";
+import { convertToUrlFriendlyString } from "../../helpers/urlFormatter";
+import { formatContentAsString } from "../../helpers/contentFormatter";
 
 // Data
-import products from "data/products";
+import posts from "../../data/posts";
 
-const Products = () => {
+const Posts = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const params = useParams();
-    const selectedProductId = params?.productId || null;
+    const selectedPostId = params?.postId || null;
 
     // State
-    const [selectedProduct, setSelectedProduct] = useState();
+    const [selectedPost, setSelectedPost] = useState();
 
     // Redux store
     const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
@@ -49,37 +48,38 @@ const Products = () => {
 
     useEffect(() => {
         const languageIsInitialized = !params.selectedLanguage || params.selectedLanguage === selectedLanguageKey;
-        setSelectedProduct(
-            !!languageIsInitialized && !!selectedProductId
-                ? getSelectedProduct(selectedProductId, selectedLanguageKey)
+        setSelectedPost(
+            !!languageIsInitialized && !!selectedPostId
+                ? getSelectedPost(selectedPostId, selectedLanguageKey)
                 : undefined
         );
-    }, [params.selectedLanguage, selectedLanguageKey, selectedProductId]);
+    }, [params.selectedLanguage, selectedLanguageKey, selectedPostId]);
 
     useEffect(() => {
         const multilingualIds = {
-            en: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title) : "",
-            no: selectedProduct ? convertToUrlFriendlyString(selectedProduct.title) : ""
+            en: selectedPost ? convertToUrlFriendlyString(selectedPost.title.en) : "",
+            no: selectedPost ? convertToUrlFriendlyString(selectedPost.title.no) : ""
         };
         const multilingualPaths = {
-            no: `products/${selectedProduct ? multilingualIds.no + "/" : ""}`,
-            en: `products/${selectedProduct ? multilingualIds.en + "/" : ""}`
+            no: `posts/${selectedPost ? multilingualIds.no + "/" : ""}`,
+            en: `posts/${selectedPost ? multilingualIds.en + "/" : ""}`
         };
         dispatch(updateMultilingualRoutes(multilingualPaths, availableLanguages));
-    }, [availableLanguages, dispatch, selectedProduct]);
+    }, [availableLanguages, dispatch, selectedPost]);
 
-    const renderSummarySnippet = (products) => {
-        const productItems = products.map((product, index) => {
+    const renderSummarySnippet = (posts) => {
+        const postItems = posts.map((post, index) => {
+            const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
             return {
                 "@type": "ListItem",
                 position: index + 1,
-                item: generateProductSnippet(product, languageSlug, selectedLanguageKey)
+                url: `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`
             };
         });
         const snippet = {
             "@context": "http://schema.org",
             "@type": "ItemList",
-            itemListElement: productItems
+            itemListElement: postItems
         };
         return (
             <Helmet>
@@ -88,32 +88,29 @@ const Products = () => {
         );
     };
 
-    const renderProducts = () => {
-        return products && products.length
-            ? products.map((product) => {
-                  const productId = convertToUrlFriendlyString(product.title);
+    const renderPosts = () => {
+        return posts && posts.length
+            ? posts.map((post) => {
                   return (
-                      <ListItem key={productId}>
-                          <Product product={product} />
+                      <ListItem key={post.id} article>
+                          <Post post={post} />
                       </ListItem>
                   );
               })
             : "";
     };
 
-    const renderSelectedProduct = (selectedProduct) => {
+    const renderSelectedPost = (selectedPost) => {
         const handleClickOutside = () => {
-            navigate(`/${languageSlug}products/`);
+            navigate(`/${languageSlug}posts/`);
         };
         const arrowLeftLink =
-            selectedProduct && selectedProduct.previousProductId
-                ? `/${languageSlug}products/${selectedProduct.previousProductId}/`
+            selectedPost && selectedPost.previousPostId
+                ? `/${languageSlug}posts/${selectedPost.previousPostId}/`
                 : null;
         const arrowRightLink =
-            selectedProduct && selectedProduct.nextProductId
-                ? `/${languageSlug}products/${selectedProduct.nextProductId}/`
-                : null;
-        return selectedProduct ? (
+            selectedPost && selectedPost.nextPostId ? `/${languageSlug}posts/${selectedPost.nextPostId}/` : null;
+        return selectedPost ? (
             <Modal
                 onClickOutside={handleClickOutside}
                 maxWidth="540px"
@@ -121,27 +118,30 @@ const Products = () => {
                 arrowRightLink={arrowRightLink}
                 selectedLanguageKey={selectedLanguageKey}
             >
-                <Product product={selectedProduct} fullscreen={true} />
+                <Post post={selectedPost} fullscreen={true} />
             </Modal>
         ) : (
             ""
         );
     };
 
-    const getSelectedProduct = (selectedProductId) => {
-        let selectedProduct = null;
-        products.forEach((product, index) => {
-            const productId = convertToUrlFriendlyString(product.title);
-            if (productId === selectedProductId) {
-                selectedProduct = {
-                    ...product,
-                    previousProductId: index > 0 ? convertToUrlFriendlyString(products[index - 1].title) : null,
-                    nextProductId:
-                        index < products.length - 1 ? convertToUrlFriendlyString(products[index + 1].title) : null
+    const getSelectedPost = (selectedPostId, selectedLanguageKey) => {
+        let selectedPost = null;
+        posts.forEach((post, index) => {
+            const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
+            if (postId === selectedPostId) {
+                selectedPost = {
+                    ...post,
+                    previousPostId:
+                        index > 0 ? convertToUrlFriendlyString(posts[index - 1].title[selectedLanguageKey]) : null,
+                    nextPostId:
+                        index < posts.length - 1
+                            ? convertToUrlFriendlyString(posts[index + 1].title[selectedLanguageKey])
+                            : null
                 };
             }
         });
-        return selectedProduct;
+        return selectedPost;
     };
 
     const languageIsInitialized = !params.selectedLanguage || params.selectedLanguage === selectedLanguageKey;
@@ -153,60 +153,60 @@ const Products = () => {
         if (!languageIsValid) {
             return <Navigate to="/404" />;
         } else {
-            if (selectedProductId && selectedProduct === null) {
+            if (selectedPostId && selectedPost === null) {
                 return <Navigate to="/404" />;
             }
 
             const listPage = {
                 title: {
-                    en: "Products | Dehli Musikk",
-                    no: "Produkter | Dehli Musikk"
+                    en: "Posts | Dehli Musikk",
+                    no: "Innlegg | Dehli Musikk"
                 },
                 heading: {
-                    en: "Products",
-                    no: "Produkter"
+                    en: "Posts",
+                    no: "Innlegg"
                 },
                 description: {
-                    en: "Products from Dehli Musikk",
-                    no: "Produkter fra Dehli Musikk"
+                    en: "Latest update from Dehli Musikk",
+                    no: "Siste oppdateringer fra Dehli Musikk"
                 }
             };
 
             const detailsPage = {
                 title: {
-                    en: `${selectedProduct ? selectedProduct.title : ""} - Products | Dehli Musikk`,
-                    no: `${selectedProduct ? selectedProduct.title : ""} - Produkter | Dehli Musikk`
+                    en: `${selectedPost ? selectedPost.title.en : ""} - Posts | Dehli Musikk`,
+                    no: `${selectedPost ? selectedPost.title.no : ""} - Innlegg | Dehli Musikk`
                 },
                 heading: {
-                    en: selectedProduct ? selectedProduct.title : "",
-                    no: selectedProduct ? selectedProduct.title : ""
+                    en: selectedPost ? selectedPost.title.en : "",
+                    no: selectedPost ? selectedPost.title.no : ""
                 },
                 description: {
-                    en: selectedProduct ? formatContentAsString(selectedProduct.content.en) : "",
-                    no: selectedProduct ? formatContentAsString(selectedProduct.content.no) : ""
+                    en: selectedPost ? formatContentAsString(selectedPost.content.en) : "",
+                    no: selectedPost ? formatContentAsString(selectedPost.content.no) : ""
                 }
             };
 
             let breadcrumbs = [
                 {
                     name: listPage.heading[selectedLanguageKey],
-                    path: `/${languageSlug}products/`
+                    path: `/${languageSlug}posts/`
                 }
             ];
-            if (selectedProduct) {
+            if (selectedPost) {
                 breadcrumbs.push({
                     name: detailsPage.heading[selectedLanguageKey],
-                    path: `/${languageSlug}products/${selectedProductId}/`
+                    path: `/${languageSlug}posts/${selectedPostId}/`
                 });
             }
 
-            const metaTitle = selectedProduct
+            const metaTitle = selectedPost
                 ? detailsPage.title[selectedLanguageKey]
                 : listPage.title[selectedLanguageKey];
-            const contentTitle = selectedProduct
+            const contentTitle = selectedPost
                 ? detailsPage.heading[selectedLanguageKey]
                 : listPage.heading[selectedLanguageKey];
-            const metaDescription = selectedProduct
+            const metaDescription = selectedPost
                 ? detailsPage.description[selectedLanguageKey]
                 : listPage.description[selectedLanguageKey];
 
@@ -241,8 +241,8 @@ const Products = () => {
                         <meta property="og:title" content={contentTitle} />
                         <meta
                             property="og:url"
-                            content={`https://www.dehlimusikk.no/${languageSlug}products/${
-                                selectedProduct ? selectedProductId + "/" : ""
+                            content={`https://www.dehlimusikk.no/${languageSlug}posts/${
+                                selectedPost ? selectedPostId + "/" : ""
                             }`}
                         />
                         <meta property="og:description" content={metaDescription} />
@@ -254,24 +254,24 @@ const Products = () => {
                         <meta property="twitter:title" content={contentTitle} />
                         <meta property="twitter:description" content={metaDescription} />
                     </Helmet>
-                    <Container blur={!!selectedProduct}>
+                    <Container blur={!!selectedPost}>
                         <Breadcrumbs breadcrumbs={breadcrumbs} />
                     </Container>
-                    {selectedProduct ? renderSelectedProduct(selectedProduct) : renderSummarySnippet(products)}
-                    <Container blur={!!selectedProduct}>
+                    {selectedPost ? renderSelectedPost(selectedPost) : renderSummarySnippet(posts)}
+                    <Container blur={!!selectedPost}>
                         {
-                            selectedProduct
+                            selectedPost
                                 ? <h2 data-size="h1">{listPage.heading[selectedLanguageKey]}</h2>
                                 : <h1>{listPage.heading[selectedLanguageKey]}</h1>
                         }
                         <p>
                             {selectedLanguageKey === "en"
-                                ? "Products from Dehli Musikk"
-                                : "Produkter fra Dehli Musikk"}
+                                ? "Updates from Dehli Musikk"
+                                : "Oppdateringer fra Dehli Musikk"}
                         </p>
                     </Container>
-                    <Container blur={!!selectedProduct}>
-                        <List>{renderProducts()}</List>
+                    <Container blur={!!selectedPost}>
+                        <List>{renderPosts()}</List>
                     </Container>
                 </React.Fragment>
             );
@@ -279,4 +279,4 @@ const Products = () => {
     }
 };
 
-export default Products;
+export default Posts;
