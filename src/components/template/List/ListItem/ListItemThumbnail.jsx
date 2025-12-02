@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 // Stylesheets
-import style from "components/template/List/ListItem/ListItemThumbnail.module.scss";
+import style from "./ListItemThumbnail.module.scss";
 
 const ListItemThumbnail = ({ fullscreen, compact, link, children }) => {
     const getImageSize = () => {

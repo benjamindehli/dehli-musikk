@@ -1,5 +1,5 @@
 // Stylesheets
-import style from "components/template/List/ListItem/ListItemVideo.module.scss";
+import style from "./ListItemVideo.module.scss";
 
 const ListItemThumbnail = ({ videoTitle, youTubeId, startOffset }) => {
     const videoSrc = `https://www.youtube.com/embed/${youTubeId}${startOffset ? `?start=${startOffset}` : ""}`;

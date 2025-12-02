@@ -1,5 +1,5 @@
 // Stylesheets
-import style from 'components/template/List/ListItem/ListItemActionButtons.module.scss';
+import style from './ListItemActionButtons.module.scss';
 
 const ListItemActionButtons = ({ fullscreen, children }) => {
   return (
