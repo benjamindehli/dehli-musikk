@@ -1,5 +1,5 @@
 // Stylesheets
-import style from 'components/template/List/ListItem.module.scss';
+import style from './ListItem.module.scss';
 
 const ListItem = ({ fullscreen, article, compact, children }) => {
   const CustomTag = article ? 'article' : 'div';
