@@ -4,13 +4,13 @@ import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Components
-import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+import ListItemContent from '../template/List/ListItem/ListItemContent';
+import ListItemContentBody from '../template/List/ListItem/ListItemContent/ListItemContentBody';
+import ListItemContentHeader from '../template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemThumbnail from '../template/List/ListItem/ListItemThumbnail';
 
 // Stylesheets
-import style from 'components/partials/SearchResult.module.scss';
+import style from './SearchResult.module.scss';
 
 
 const SearchResult = ({ searchResult }) => {
