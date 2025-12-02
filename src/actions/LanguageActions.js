@@ -1,4 +1,4 @@
-import { UPDATE_MULTILINGUAL_ROUTES, UPDATE_SELECTED_LANGUAGE_KEY } from "constants/types";
+import { UPDATE_MULTILINGUAL_ROUTES, UPDATE_SELECTED_LANGUAGE_KEY } from "../constants/types";
 
 export const updateMultilingualRoutes = (multilingualPaths, availableLanguages) => {
     const appDomain = window.location.origin;
