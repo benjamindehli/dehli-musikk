@@ -1,4 +1,4 @@
-import { UPDATE_SEARCH_RESULTS, UPDATE_SEARCH_RESULTS_COUNT } from "constants/types";
+import { UPDATE_SEARCH_RESULTS, UPDATE_SEARCH_RESULTS_COUNT } from "../constants/types";
 
 export const updateSearchResults = (searchResults) => ({
     type: UPDATE_SEARCH_RESULTS,
