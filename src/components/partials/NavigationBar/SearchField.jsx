@@ -5,13 +5,13 @@ import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../../reducers/AvailableLanguagesReducer";
 
 // Helpers
-import { getSearchResults } from "helpers/search";
+import { getSearchResults } from "../../../helpers/search";
 
 // Stylesheets
-import style from 'components/partials/NavigationBar/SearchField.module.scss';
+import style from './SearchField.module.scss';
 import { Link } from "react-router-dom";
 
 
