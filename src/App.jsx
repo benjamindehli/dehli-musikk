@@ -38,16 +38,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 // Utils
-import configureStore, { history } from 'utils/configureStore';
+import configureStore, { history } from './utils/configureStore';
 
 // Components
-import NavigationBar from 'components/partials/NavigationBar';
+import NavigationBar from './components/partials/NavigationBar';
 
 // Assets
-import openGraphImage from 'assets/images/DehliMusikk-OpenGraph.jpg';
+import openGraphImage from './assets/images/DehliMusikk-OpenGraph.jpg';
 
 // Stylesheets
-import style from 'App.module.scss';
+import style from './App.module.scss';
 
 
 const prerenderedLoadable = dynamicImport => {
