@@ -4,27 +4,27 @@ import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet-async";
 
 // Components
-import Button from "components/partials/Button";
-import Release from "components/partials//Portfolio/Release";
-import ListItem from "components/template/List/ListItem";
-import ListItemActionButtons from "components/template/List/ListItem/ListItemActionButtons";
-import ListItemContent from "components/template/List/ListItem/ListItemContent";
-import ListItemContentBody from "components/template/List/ListItem/ListItemContent/ListItemContentBody";
-import ListItemContentHeader from "components/template/List/ListItem/ListItemContent/ListItemContentHeader";
-import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbnail";
-import ExpansionPanel from "components/template/ExpansionPanel";
-import List from "components/template/List";
+import Button from "./Button";
+import Release from "./Portfolio/Release";
+import ListItem from "../template/List/ListItem";
+import ListItemActionButtons from "../template/List/ListItem/ListItemActionButtons";
+import ListItemContent from "../template/List/ListItem/ListItemContent";
+import ListItemContentBody from "../template/List/ListItem/ListItemContent/ListItemContentBody";
+import ListItemContentHeader from "../template/List/ListItem/ListItemContent/ListItemContentHeader";
+import ListItemThumbnail from "../template/List/ListItem/ListItemThumbnail";
+import ExpansionPanel from "../template/ExpansionPanel";
+import List from "../template/List";
 
 // Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+import { getLanguageSlug } from "../../reducers/AvailableLanguagesReducer";
 
 // Helpers
-import { getPrettyDate } from "helpers/dateFormatter";
-import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { formatContentWithReactLinks } from "helpers/contentFormatter";
-import { convertStringToExcerpt } from "helpers/search";
-import { generateProductSnippet, generateSoftwareApplicationSnippet } from "helpers/richSnippetsGenerators";
-import { getProductReleases } from "helpers/instrumentReleases";
+import { getPrettyDate } from "../../helpers/dateFormatter";
+import { convertToUrlFriendlyString } from "../../helpers/urlFormatter";
+import { formatContentWithReactLinks } from "../../helpers/contentFormatter";
+import { convertStringToExcerpt } from "../../helpers/search";
+import { generateProductSnippet, generateSoftwareApplicationSnippet } from "../../helpers/richSnippetsGenerators";
+import { getProductReleases } from "../../helpers/instrumentReleases";
 
 const Product = ({ product, fullscreen, compact }) => {
     // Redux store
@@ -114,15 +114,15 @@ const Product = ({ product, fullscreen, compact }) => {
     const imagePathWebp = `data/products/thumbnails/web/webp/${productId}`;
     const imagePathJpg = `data/products/thumbnails/web/jpg/${productId}`;
     const image = {
-        avif55: require(`../../${imagePathAvif}_55.avif`),
-        avif350: require(`../../${imagePathAvif}_350.avif`),
-        avif540: require(`../../${imagePathAvif}_540.avif`),
-        webp55: require(`../../${imagePathWebp}_55.webp`),
-        webp350: require(`../../${imagePathWebp}_350.webp`),
-        webp540: require(`../../${imagePathWebp}_540.webp`),
-        jpg55: require(`../../${imagePathJpg}_55.jpg`),
-        jpg350: require(`../../${imagePathJpg}_350.jpg`),
-        jpg540: require(`../../${imagePathJpg}_540.jpg`)
+        avif55: require(`../../${imagePathAvif}_55.avif`)?.default,
+        avif350: require(`../../${imagePathAvif}_350.avif`)?.default,
+        avif540: require(`../../${imagePathAvif}_540.avif`)?.default,
+        webp55: require(`../../${imagePathWebp}_55.webp`)?.default,
+        webp350: require(`../../${imagePathWebp}_350.webp`)?.default,
+        webp540: require(`../../${imagePathWebp}_540.webp`)?.default,
+        jpg55: require(`../../${imagePathJpg}_55.jpg`)?.default,
+        jpg350: require(`../../${imagePathJpg}_350.jpg`)?.default,
+        jpg540: require(`../../${imagePathJpg}_540.jpg`)?.default
     };
     const productDate = new Date(product.timestamp);
     const productPath = `/${languageSlug}products/${productId}/`;

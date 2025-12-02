@@ -5,20 +5,20 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 // Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
+import { getLanguageSlug } from '../../reducers/AvailableLanguagesReducer';
 
 // Helpers
-import { getPrettyDate } from 'helpers/dateFormatter';
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
-import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
+import { getPrettyDate } from '../../helpers/dateFormatter';
+import { convertToUrlFriendlyString } from '../../helpers/urlFormatter'
+import { formatContentAsString, formatContentWithReactLinks } from '../../helpers/contentFormatter';
 
 // Components
-import Button from 'components/partials/Button';
-import ListItemActionButtons from 'components/template/List/ListItem/ListItemActionButtons';
-import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
+import Button from './Button';
+import ListItemActionButtons from '../template/List/ListItem/ListItemActionButtons';
+import ListItemContent from '../template/List/ListItem/ListItemContent';
+import ListItemContentBody from '../template/List/ListItem/ListItemContent/ListItemContentBody';
+import ListItemContentHeader from '../template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemThumbnail from '../template/List/ListItem/ListItemThumbnail';
 
 
 const Post = ({ post, fullscreen }) => {
@@ -133,15 +133,15 @@ const Post = ({ post, fullscreen }) => {
   const imagePathWebp = `data/posts/thumbnails/web/webp/${post.thumbnailFilename}`;
   const imagePathJpg = `data/posts/thumbnails/web/jpg/${post.thumbnailFilename}`;
   const image = {
-    avif55: require(`../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../${imagePathAvif}_540.avif`),
-    webp55: require(`../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../${imagePathWebp}_540.webp`),
-    jpg55: require(`../../${imagePathJpg}_55.jpg`),
-    jpg350: require(`../../${imagePathJpg}_350.jpg`),
-    jpg540: require(`../../${imagePathJpg}_540.jpg`)
+    avif55: require(`../../${imagePathAvif}_55.avif`)?.default,
+    avif350: require(`../../${imagePathAvif}_350.avif`)?.default,
+    avif540: require(`../../${imagePathAvif}_540.avif`)?.default,
+    webp55: require(`../../${imagePathWebp}_55.webp`)?.default,
+    webp350: require(`../../${imagePathWebp}_350.webp`)?.default,
+    webp540: require(`../../${imagePathWebp}_540.webp`)?.default,
+    jpg55: require(`../../${imagePathJpg}_55.jpg`)?.default,
+    jpg350: require(`../../${imagePathJpg}_350.jpg`)?.default,
+    jpg540: require(`../../${imagePathJpg}_540.jpg`)?.default
   };
   const postDate = new Date(post.timestamp);
   const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);

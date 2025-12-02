@@ -5,19 +5,19 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
 
 // Components
-import ExpansionPanel from 'components/template/ExpansionPanel';
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
-import Release from 'components/partials/Portfolio/Release';
+import ExpansionPanel from '../template/ExpansionPanel';
+import List from '../template/List';
+import ListItem from '../template/List/ListItem';
+import ListItemContent from '../template/List/ListItem/ListItemContent';
+import ListItemContentHeader from '../template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemThumbnail from '../template/List/ListItem/ListItemThumbnail';
+import Release from './Portfolio/Release';
 
 // Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
+import { getLanguageSlug } from '../../reducers/AvailableLanguagesReducer';
 
 // Helpers
-import { getInstrumentReleases } from 'helpers/instrumentReleases';
+import { getInstrumentReleases } from '../../helpers/instrumentReleases';
 
 const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
 
@@ -127,18 +127,18 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
   const imagePathWebp = `data/equipment/thumbnails/${itemType}/web/webp/${itemId}`;
   const imagePathJpg = `data/equipment/thumbnails/${itemType}/web/jpg/${itemId}`;
   const image = {
-    avif55: require(`../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../${imagePathAvif}_540.avif`),
-    avif945: require(`../../${imagePathAvif}_945.avif`),
-    webp55: require(`../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../${imagePathWebp}_540.webp`),
-    webp945: require(`../../${imagePathWebp}_945.webp`),
-    jpg55: require(`../../${imagePathJpg}_55.jpg`),
-    jpg350: require(`../../${imagePathJpg}_350.jpg`),
-    jpg540: require(`../../${imagePathJpg}_540.jpg`),
-    jpg945: require(`../../${imagePathJpg}_945.jpg`)
+    avif55: require(`../../${imagePathAvif}_55.avif`)?.default,
+    avif350: require(`../../${imagePathAvif}_350.avif`)?.default,
+    avif540: require(`../../${imagePathAvif}_540.avif`)?.default,
+    avif945: require(`../../${imagePathAvif}_945.avif`)?.default,
+    webp55: require(`../../${imagePathWebp}_55.webp`)?.default,
+    webp350: require(`../../${imagePathWebp}_350.webp`)?.default,
+    webp540: require(`../../${imagePathWebp}_540.webp`)?.default,
+    webp945: require(`../../${imagePathWebp}_945.webp`)?.default,
+    jpg55: require(`../../${imagePathJpg}_55.jpg`)?.default,
+    jpg350: require(`../../${imagePathJpg}_350.jpg`)?.default,
+    jpg540: require(`../../${imagePathJpg}_540.jpg`)?.default,
+    jpg945: require(`../../${imagePathJpg}_945.jpg`)?.default
   };
   const itemPath = `/${languageSlug}equipment/${itemType}/${itemId}/`;
   const itemName = `${item.brand} ${item.model}`;

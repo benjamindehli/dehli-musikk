@@ -4,27 +4,27 @@ import { useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 
 // Assets
-import { ReactComponent as MaximizeIcon } from "assets/svg/maximize.svg";
-import { ReactComponent as MinimizeIcon } from "assets/svg/minimize.svg";
+import MaximizeIcon from "../../assets/svg/maximize.svg?react";
+import MinimizeIcon from "../../assets/svg/minimize.svg?react";
 
 // Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
+import { getLanguageSlug } from '../../reducers/AvailableLanguagesReducer';
 
 // Helpers
-import { getPrettyDate } from 'helpers/dateFormatter';
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
-import { convertStringToExcerpt } from 'helpers/search';
+import { getPrettyDate } from '../../helpers/dateFormatter';
+import { convertToUrlFriendlyString } from '../../helpers/urlFormatter'
+import { convertStringToExcerpt } from '../../helpers/search';
 
 // Components
-import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentBody from 'components/template/List/ListItem/ListItemContent/ListItemContentBody';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
-import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
-import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
+import ListItemContent from '../template/List/ListItem/ListItemContent';
+import ListItemContentBody from '../template/List/ListItem/ListItemContent/ListItemContentBody';
+import ListItemContentHeader from '../template/List/ListItem/ListItemContent/ListItemContentHeader';
+import ListItemThumbnail from '../template/List/ListItem/ListItemThumbnail';
+import ListItemVideo from '../template/List/ListItem/ListItemVideo';
+import { formatContentAsString, formatContentWithReactLinks } from '../../helpers/contentFormatter';
 
 // Stylesheets
-import style from "components/partials/Video.module.scss";
+import style from "./Video.module.scss";
 import Button from './Button';
 import { Link } from 'react-router-dom';
 
@@ -98,15 +98,15 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
   const imagePathWebp = `data/videos/thumbnails/web/webp/${video.thumbnailFilename}`;
   const imagePathJpg = `data/videos/thumbnails/web/jpg/${video.thumbnailFilename}`;
   const image = {
-    avif55: require(`../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../${imagePathAvif}_540.avif`),
-    webp55: require(`../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../${imagePathWebp}_540.webp`),
-    jpg55: require(`../../${imagePathJpg}_55.jpg`),
-    jpg350: require(`../../${imagePathJpg}_350.jpg`),
-    jpg540: require(`../../${imagePathJpg}_540.jpg`)
+    avif55: require(`../../${imagePathAvif}_55.avif`)?.default,
+    avif350: require(`../../${imagePathAvif}_350.avif`)?.default,
+    avif540: require(`../../${imagePathAvif}_540.avif`)?.default,
+    webp55: require(`../../${imagePathWebp}_55.webp`)?.default,
+    webp350: require(`../../${imagePathWebp}_350.webp`)?.default,
+    webp540: require(`../../${imagePathWebp}_540.webp`)?.default,
+    jpg55: require(`../../${imagePathJpg}_55.jpg`)?.default,
+    jpg350: require(`../../${imagePathJpg}_350.jpg`)?.default,
+    jpg540: require(`../../${imagePathJpg}_540.jpg`)?.default
   };
   const videoDate = new Date(video.timestamp);
   const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
