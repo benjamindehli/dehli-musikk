@@ -1,10 +1,10 @@
 // Components
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Video from 'components/partials/Video';
+import List from '../template/List';
+import ListItem from '../template/List/ListItem';
+import Video from './Video';
 
 // Data
-import { latestVideos } from 'data/videos';
+import { latestVideos } from '../../data/videos';
 
 
 const LatestVideos = () => {

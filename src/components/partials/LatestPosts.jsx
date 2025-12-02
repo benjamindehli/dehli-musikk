@@ -1,10 +1,10 @@
 // Components
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Post from 'components/partials/Post';
+import List from '../template/List';
+import ListItem from '../template/List/ListItem';
+import Post from './Post';
 
 // Data
-import { latestPosts } from 'data/posts';
+import { latestPosts } from '../../data/posts';
 
 
 const LatestPosts = () => {

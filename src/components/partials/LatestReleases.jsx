@@ -1,10 +1,10 @@
 // Components
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Release from 'components/partials/Portfolio/Release';
+import List from '../template/List';
+import ListItem from '../template/List/ListItem';
+import Release from './Portfolio/Release';
 
 // Data
-import { latestReleases } from 'data/portfolio';
+import { latestReleases } from '../../data/portfolio';
 
 const LatestReleases = () => {
 
