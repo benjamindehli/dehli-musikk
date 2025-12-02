@@ -1,4 +1,4 @@
-import {UPDATE_SELECTED_LANGUAGE_KEY} from 'constants/types';
+import {UPDATE_SELECTED_LANGUAGE_KEY} from '../constants/types';
 
 const initialState = 'no';
 

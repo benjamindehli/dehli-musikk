@@ -1,4 +1,4 @@
-import {UPDATE_SEARCH_RESULTS} from 'constants/types';
+import {UPDATE_SEARCH_RESULTS} from '../constants/types';
 
 const initialState = [];
 
