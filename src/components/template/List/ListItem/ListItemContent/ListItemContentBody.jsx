@@ -1,5 +1,5 @@
 // Stylesheets
-import style from 'components/template/List/ListItem/ListItemContent/ListItemContentBody.module.scss';
+import style from './ListItemContentBody.module.scss';
 
 const ListItemContentBody = ({ fullscreen, children }) => {
   return (

@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 // Stylesheets
-import style from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader.module.scss';
+import style from './ListItemContentHeader.module.scss';
 
 const ListItemContentHeader = ({ fullscreen, link, children }) => {
 
