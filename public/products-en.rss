@@ -5,6 +5,29 @@
 <link>https://www.dehlimusikk.no/</link>
 <description></description>
 <item>
+        <g:id>en-maskintrommer</g:id>
+        <g:title>MaskinTrommer</g:title>
+        <g:description>MaskinTrommer is a drum sample library for Decent Sampler, featuring electronic drum sounds created from analog synthesizers. Each drum type contains multiple samples per sound to eliminate the typical &quot;machine gun&quot; effect associated with digital sample based drum machines. The drum sounds were created using Korg MS-20, Roland SH-09, Doepfer Dark Energy and Sequential Circuits Pro-One. The result is a versatile collection of synthetic kicks, snares, hi-hats, cymbals, and toms with a broad tonal range, from tight and percussive to big and sustaining. The user interface is divided into two main areas. Left section for individual drum controls and sample mixer and right section for global settings and effects. The keyboard at the bottom is color-coded to match each drum section, making it easy to identify the mapping. The top row of knobs in each drum section controls the primary sound-shaping parameters. The pitch knob for kick and snare adjusts the tuning of the drum. Turning it clockwise raises the pitch while turning it counterclockwise lowers the pitch. It affects both sample types for the kick and the &quot;body&quot; samples for the snare. The sustain knob for snare, hi-Hat, cymbal and tom controls which sustain-length samples are triggered. For snare and tom, it only affects the &quot;head&quot; samples. Lower values select shorter, tighter sounds while higher values select longer sustaining samples. The Dyn (Dynamic) mode makes higher MIDI velocity trigger longer sustaining samples and lower MIDI velocity trigger shorter sustaining samples. This allows expressive control directly from performance dynamics. The second and third rows of knobs in each drum section form the sample mixer. Each knob controls the volume of a specific sample type for that drum. The knob design visually represents which synthesizer the samples originate from. You can blend multiple synthesizer sources for a single drum. Each active source contributes its own round robin variations. Combining sources dramatically increases variation and complexity. Some mixer knobs include a small display. The display shows how the samples assigned to that knob are influenced by either pitch (kick &amp; snare) or sustain (snare, hi-hat, cymbal &amp; tom). This provides quick visual feedback when shaping the sound. The global settings are located in the rightmost section. The sensitivity knob controls how strongly MIDI velocity affects sample volume. Lower values gives more consistent volume regardless of velocity while higher values gives greater dynamic range. This allows you to tailor the instrument to your playing style or sequencing needs. The impact knob controls the level of the transient (initial attack) relative to the sustain portion. Higher values results in louder attack and quieter sustain while lower values results in a more even balance between attack and body. This is useful for tightening drums or making them cut through a mix. The saturation knob is a volume-compensated overdrive/distortion effect. It adds harmonic content and edge. It also maintains perceived loudness while increasing intensity. This is both suitable for subtle coloration and more aggressive processing. The on-screen keyboard is color-coded to match the drum sections. Kick (C1) is pink, snare (D1) is blue, closed hi-hat (E1) is green, open hi-hat (F1) is green, cymbal (G1) is yellow and tom (A1 to G2) is red. This makes it easy to identify which keys trigger which drums, especially during performance.</g:description>
+        <g:link>https://www.dehlimusikk.no/en/products/maskintrommer</g:link>
+        <g:image_link>https://www.dehlimusikk.no/product-images/maskintrommer.jpg</g:image_link>
+        <g:additional_image_link>https://www.dehlimusikk.no/product-images/maskintrommer_01.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/product-images/maskintrommer_02.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/product-images/maskintrommer_03.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/product-images/maskintrommer_04.png</g:additional_image_link>
+<g:additional_image_link>https://www.dehlimusikk.no/product-images/maskintrommer_05.png</g:additional_image_link>
+        <g:condition>new</g:condition>
+        <g:availability>in stock</g:availability>
+        <g:price>9.99 USD</g:price>
+        <g:google_product_category>313</g:google_product_category>
+        <g:identifier_exists>no</g:identifier_exists>
+        <g:adult>no</g:adult>
+        <g:included_destination>Free listings</g:included_destination>
+<g:included_destination>Shopping ads</g:included_destination>
+<g:included_destination>Free local listings</g:included_destination>
+        <g:brand>Dehli Musikk</g:brand>
+        <g:product_type>Sample instruments &gt; Decent Sampler</g:product_type>
+        </item>
+<item>
         <g:id>en-midnight-wurli</g:id>
         <g:title>Midnight Wurli</g:title>
         <g:description>Midnight Wurli is a sampled Wurlitzer 200A electric piano instrument that focuses on capturing the character of the instrument played softly at low volume. It uses two signal sources: the direct line out from the Wurlitzer and a contact microphone attached to the instrument. The contact microphone captures the mechanical noises, such as key clicks, release sounds, and pedal movements which results in a more intimate, close-up sound. The instrument includes both tonal samples and mechanical noise samples. It also features built-in effects including tremolo, tape echo, room reverb, and multiple amplifier impulse responses. Each key includes velocity-based round robins to enhance realism.</g:description>
