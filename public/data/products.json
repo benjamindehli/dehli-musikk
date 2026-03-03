@@ -1,5 +1,39 @@
 [
     {
+        "timestamp": 1772391600000,
+        "title": "MaskinTrommer",
+        "content": {
+            "no": "MaskinTrommer er et trommesamplebibliotek for Decent Sampler, med elektroniske trommelyder laget fra analoge synthesizere. Hver trommetype inneholder flere samples per lyd for å eliminere den typiske \"maskingevær\"-effekten som ofte forbindes med digitale, samplebaserte trommemaskiner.\nTrommelydene er laget med [Korg MS-20](equipment/instruments/korg-ms-20/), [Roland SH-09](equipment/instruments/roland-sh-09/), [Doepfer Dark Energy](equipment/instruments/doepfer-dark-energy/) og [Sequential Circuits Pro-One](equipment/instruments/sequential-circuits-pro-one/).\nResultatet er en allsidig samling av syntetiske stortromme, skarptrommer, hi-hat, cymbaler og tammer med et bredt tonalt spenn, fra \"tight\" og perkusivt til åpent og stort.\nBrukergrensesnittet er delt inn i to hovedseksjoner. Venstre seksjon for individuelle trommekontroller og samplemikser og høyre seksjon for globale innstillinger og effekter.\nTangentene nederst er fargekodet for å matche hver trommeseksjon, noe som gjør det enklere å identifisere mappingen.\nDen øverste raden med knotter i hver trommeseksjon styrer de primære parameterne for lydinnstillinger.\nPitch-knotten for stortromme og skarptromme justerer stemming av trommen. Om den dreies med klokken får man høyere tonehøyde og dreies den mot klokken får man lavere tonehøyde. Dette påvirker begge sampletypene for stortromme og \"body\"-samplene for skarptromme.\nSustain-knotten for skarptromme, hi-Hat, cymbal og tammer kontrollerer hvilke sustain-samples som trigges. For skarptromme og tam påvirker den kun \"head\"-samplene. Lavere verdier velger kortere og \"tightere\" lyder, mens høyere verdier velger lengre, mer åpne lyder. Dyn (Dynamisk)-modus gjør at høyere MIDI velocity trigger lengre sustain-samples, mens lavere MIDI velocity trigger kortere sustain-samples. Dette gir muligheten til å påvirke lyden med spilledynamikk.\nDen andre og tredje raden med knotter i hver trommeseksjon utgjør lydmikseren. Hver knott styrer volumet til en spesifikk sample-type for den aktuelle trommen. Utformingen av knottene representerer visuelt hvilken synthesizer samplene stammer fra.\nDu kan mikse flere synthesizerkilder for én enkelt tromme. Hver aktiv kilde bidrar med sine egne \"round robin\"-variasjoner. Kombinasjon av kilder øker variasjon og kompleksitet betydelig\nNoen mikserknotter har et liten skjerm ved siden av. Skjermen viser hvordan samplene som er tilordnet den knotten påvirkes av enten pitch (stortromme og skarptromme) eller sustain (skarptromme, hi-hat, cymbal & tammer). Dette gir rask visuell tilbakemelding under lydjusteringen.\nGlobal innstillinger er plassert i seksjonen lengst til høyre. Sensitivity-knotten kontrollerer hvor sterkt MIDI velocity påvirker samplevolumet. Lavere verdiergir mer jevnt volum uavhengig av velocity, mens høyere verdier gir større dynamisk spenn. Dette lar deg tilpasse instrumentet til spillestilen din eller sekvenseringsbehov.\nImpact-knotten kontrollerer nivået på transienten (anslaget) i forhold til sustain-delen. Høyere verdier resulterer i kraftigere anslag og lavere sustain, mens lavere verdier resulterer i jevnere balanse mellom anslag og sustain. Dette er nyttig for å tight'e opp trommer eller få dem til å skjære gjennom miksen.\nSaturation-knotten er en volumkompensert overdrive-/distorsjonseffekt. Den tilfører harmonisk innhold og karakter. Den opprettholder også opplevd lydstyrke samtidig som intensiteten økes. Denne er egnet både for subtil farging og mer aggressiv prosessering.\nTangentene på skjermen er fargekodet for å matche trommeseksjonene. Stortromme (C1) i rosa, skarptromme (D1) i blå, lukket hi-hat (E1) i grønn, åpen hi-hat (F1) i grønn, cymbal (G1) i gul og tam (A1 til G2) i rød. Dette gjør det enklere å se hvilke tangenter som trigger hvilke trommer.",
+            "en": "MaskinTrommer is a drum sample library for Decent Sampler, featuring electronic drum sounds created from analog synthesizers. Each drum type contains multiple samples per sound to eliminate the typical \"machine gun\" effect associated with digital sample based drum machines.\nThe drum sounds were created using [Korg MS-20](equipment/instruments/korg-ms-20/), [Roland SH-09](equipment/instruments/roland-sh-09/), [Doepfer Dark Energy](equipment/instruments/doepfer-dark-energy/) and [Sequential Circuits Pro-One](equipment/instruments/sequential-circuits-pro-one/).\nThe result is a versatile collection of synthetic kicks, snares, hi-hats, cymbals, and toms with a broad tonal range, from tight and percussive to big and sustaining.\nThe user interface is divided into two main areas. Left section for individual drum controls and sample mixer and right section for global settings and effects.\nThe keyboard at the bottom is color-coded to match each drum section, making it easy to identify the mapping.\nThe top row of knobs in each drum section controls the primary sound-shaping parameters.\nThe pitch knob for kick and snare adjusts the tuning of the drum. Turning it clockwise raises the pitch while turning it counterclockwise lowers the pitch. It affects both sample types for the kick and the \"body\" samples for the snare.\nThe sustain knob for snare, hi-Hat, cymbal and tom controls which sustain-length samples are triggered. For snare and tom, it only affects the \"head\" samples. Lower values select shorter, tighter sounds while higher values select longer sustaining samples. The Dyn (Dynamic) mode makes higher MIDI velocity trigger longer sustaining samples and lower MIDI velocity trigger shorter sustaining samples. This allows expressive control directly from performance dynamics.\nThe second and third rows of knobs in each drum section form the sample mixer. Each knob controls the volume of a specific sample type for that drum. The knob design visually represents which synthesizer the samples originate from.\nYou can blend multiple synthesizer sources for a single drum. Each active source contributes its own round robin variations. Combining sources dramatically increases variation and complexity.\nSome mixer knobs include a small display. The display shows how the samples assigned to that knob are influenced by either pitch (kick & snare) or sustain (snare, hi-hat, cymbal & tom). This provides quick visual feedback when shaping the sound.\nThe global settings are located in the rightmost section. The sensitivity knob controls how strongly MIDI velocity affects sample volume. Lower values gives more consistent volume regardless of velocity while higher values gives greater dynamic range. This allows you to tailor the instrument to your playing style or sequencing needs.\nThe impact knob controls the level of the transient (initial attack) relative to the sustain portion. Higher values results in louder attack and quieter sustain while lower values results in a more even balance between attack and body. This is useful for tightening drums or making them cut through a mix.\nThe saturation knob is a volume-compensated overdrive/distortion effect. It adds harmonic content and edge. It also maintains perceived loudness while increasing intensity. This is both suitable for subtle coloration and more aggressive processing.\nThe on-screen keyboard is color-coded to match the drum sections. Kick (C1) is pink, snare (D1) is blue, closed hi-hat (E1) is green, open hi-hat (F1) is green, cymbal (G1) is yellow and tom (A1 to G2) is red. This makes it easy to identify which keys trigger which drums, especially during performance."
+        },
+        "thumbnailDescription": "MaskinTrommer user interface",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://store.dehlimusikk.no/l/maskintrommer",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        },
+        "reviewCount": "0",
+        "sameAs": [
+            "https://store.dehlimusikk.no/l/maskintrommer",
+            "https://dehlimusikk.gumroad.com/l/maskintrommer",
+            "https://www.cylex.no/bedrift-produkt/maskintrommer_266081.html",
+            "https://www.youtube.com/watch?v=XWSHCTEfhZE"
+        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
+        "mainImage": "maskintrommer.jpg",
+        "additionalImages": [
+            "maskintrommer_01.png",
+            "maskintrommer_02.png",
+            "maskintrommer_03.png",
+            "maskintrommer_04.png",
+            "maskintrommer_05.png"
+        ]
+    },
+    {
         "timestamp": 1755115200000,
         "title": "Midnight Wurli",
         "content": {
@@ -24,10 +58,7 @@
             "https://www.youtube.com/watch?v=LB-YDVqQh7s",
             "https://www.youtube.com/shorts/nCFiLi4mdtE"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "midnight-wurli.jpg",
         "additionalImages": [
             "midnight-wurli_01.jpg",
@@ -61,10 +92,7 @@
             "https://www.youtube.com/watch?v=EuTsBIUXyJk",
             "https://www.matrixsynth.com/2025/03/more-custom-patches-for-yamaha-dx7.html"
         ],
-        "productType": [
-            "Patch library",
-            "Yamaha DX7"
-        ],
+        "productType": ["Patch library", "Yamaha DX7"],
         "mainImage": "dxtraterrestrial-2.jpg"
     },
     {
@@ -95,14 +123,9 @@
             "https://x.com/matrixsynth/status/1829910404991988214",
             "https://www.matrixsynth.com/2024/08/custom-patches-for-yamaha-dx7.html"
         ],
-        "productType": [
-            "Patch library",
-            "Yamaha DX7"
-        ],
+        "productType": ["Patch library", "Yamaha DX7"],
         "mainImage": "dxtraterrestrial-1.jpg",
-        "additionalImages": [
-            "dxtraterrestrial-1_01.jpg"
-        ]
+        "additionalImages": ["dxtraterrestrial-1_01.jpg"]
     },
     {
         "timestamp": 1723136400000,
@@ -129,16 +152,9 @@
             "https://www.cylex.no/bedrift-produkt/edb-orgel_223146.html",
             "https://www.youtube.com/watch?v=hZNESXfthg0"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "edb-orgel.jpg",
-        "additionalImages": [
-            "edb-orgel_01.png",
-            "edb-orgel_02.png",
-            "edb-orgel_03.png"
-        ]
+        "additionalImages": ["edb-orgel_01.png", "edb-orgel_02.png", "edb-orgel_03.png"]
     },
     {
         "timestamp": 1711914056000,
@@ -165,16 +181,9 @@
             "https://www.youtube.com/watch?v=yTpCq-qIIdY",
             "https://www.pianobook.co.uk/packs/subc/"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "subc.jpg",
-        "additionalImages": [
-            "subc_01.png",
-            "subc_02.png",
-            "subc_03.png"
-        ]
+        "additionalImages": ["subc_01.png", "subc_02.png", "subc_03.png"]
     },
     {
         "timestamp": 1710965029000,
@@ -201,10 +210,7 @@
             "https://www.cylex.no/bedrift-produkt/4-track-toy-piano_223144.html",
             "https://www.youtube.com/watch?v=igZ9TCwIJpw"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "4-track-toy-piano.jpg",
         "additionalImages": [
             "4-track-toy-piano_01.jpg",
@@ -240,10 +246,7 @@
             "https://www.cylex.no/bedrift-produkt/elektrisk-salmesykkel_223143.html",
             "https://www.youtube.com/watch?v=MWzlTejTHSw"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "elektrisk-salmesykkel.jpg",
         "additionalImages": [
             "elektrisk-salmesykkel_01.png",
@@ -280,10 +283,7 @@
             "https://www.youtube.com/watch?v=H_-g8gjE0EM",
             "https://www.pianobook.co.uk/packs/stylopoly/"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "stylopoly.jpg",
         "additionalImages": [
             "stylopoly_01.png",
@@ -324,10 +324,7 @@
             "https://www.youtube.com/watch?v=GyRbgZarPm4",
             "https://www.pianobook.co.uk/packs/strykebrett/"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "strykebrett.jpg",
         "additionalImages": [
             "strykebrett_01.png",
@@ -366,10 +363,7 @@
             "https://www.cylex.no/bedrift-produkt/4-track+glockenspiel_223140.html",
             "https://www.youtube.com/watch?v=8g-XCw91hSc"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "4-track-glockenspiel.jpg",
         "additionalImages": [
             "4-track-glockenspiel_01.jpg",
@@ -405,10 +399,7 @@
             "https://www.cylex.no/bedrift-produkt/4-track+music+box_223139.html",
             "https://www.youtube.com/watch?v=uBB4RNMrEXc"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "4-track-music-box.jpg",
         "additionalImages": [
             "4-track-music-box_01.jpg",
@@ -444,10 +435,7 @@
             "https://www.youtube.com/watch?v=0h4CQ6jh6yM",
             "https://www.pianobook.co.uk/packs/voltage-controlled-cassette-organ/"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "voltage-controlled-cassette-organ.jpg",
         "additionalImages": [
             "voltage-controlled-cassette-organ_01.png",
@@ -489,10 +477,7 @@
             "https://www.youtube.com/watch?v=qGyaNVAG-js",
             "https://www.pianobook.co.uk/packs/omni-84/"
         ],
-        "productType": [
-            "Sample instruments",
-            "Decent Sampler"
-        ],
+        "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "omni-84.jpg",
         "additionalImages": [
             "omni-84_01.jpg",
@@ -527,14 +512,8 @@
             "https://www.cylex.no/bedrift-produkt/lo-fi+tape+piano_223136.html",
             "https://www.youtube.com/watch?v=2k1QpuwCZzk"
         ],
-        "productType": [
-            "Sample instruments",
-            "EXS24"
-        ],
+        "productType": ["Sample instruments", "EXS24"],
         "mainImage": "lo-fi-tape-piano.jpg",
-        "additionalImages": [
-            "lo-fi-tape-piano_01.jpg",
-            "lo-fi-tape-piano_02.png"
-        ]
+        "additionalImages": ["lo-fi-tape-piano_01.jpg", "lo-fi-tape-piano_02.png"]
     }
 ]

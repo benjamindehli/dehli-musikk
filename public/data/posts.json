@@ -1,5 +1,19 @@
 [
     {
+        "id": "2026021400",
+        "orderNumber": 0,
+        "copyright": true,
+        "timestamp": 1771023600000,
+        "title": { "no": "MaskinTrommer under utvikling", "en": "MaskinTrommer under development" },
+        "content": {
+            "no": "Jobber med et nytt Decent Sampler trommemaskin-bibliotek 🥁🎛️",
+            "en": "Working on a new Decent Sampler drum machine preset 🥁🎛️"
+        },
+        "thumbnailDescription": "Computer screen with GUI for MaskinTrommer",
+        "thumbnailFilename": "2026-02-14-00",
+        "lastmod": 1772492400000
+    },
+    {
         "id": "2025090600",
         "orderNumber": 0,
         "copyright": true,
@@ -16,14 +30,8 @@
         "thumbnailFilename": "2025-09-06-00",
         "lastmod": 1757109600000,
         "link": {
-            "url": {
-                "en": "products/midnight-wurli/",
-                "no": "products/midnight-wurli/"
-            },
-            "text": {
-                "en": "Read more about Midnight Wurli",
-                "no": "Les mer om Midnight Wurli"
-            },
+            "url": { "en": "products/midnight-wurli/", "no": "products/midnight-wurli/" },
+            "text": { "en": "Read more about Midnight Wurli", "no": "Les mer om Midnight Wurli" },
             "internal": true
         }
     },
@@ -44,10 +52,7 @@
         "thumbnailFilename": "2024-09-04-00",
         "link": {
             "url": "https://www.amazona.de/community/yamaha-dx-7-imitiert-yamaha-cs-80/",
-            "text": {
-                "en": "Read article",
-                "no": "Les artikkel"
-            },
+            "text": { "en": "Read article", "no": "Les artikkel" },
             "internal": false
         },
         "lastmod": 1725573600000
@@ -72,10 +77,7 @@
                 "en": "portfolio/bjoern-eidsvaag-and-ylva-skyfri-himmel/",
                 "no": "portfolio/bjoern-eidsvaag-and-ylva-skyfri-himmel/"
             },
-            "text": {
-                "en": "Listen to Skyfri Himmel",
-                "no": "Lytt til Skyfri Himmel"
-            },
+            "text": { "en": "Listen to Skyfri Himmel", "no": "Lytt til Skyfri Himmel" },
             "internal": true
         }
     },
@@ -84,10 +86,7 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1715378400000,
-        "title": {
-            "no": "Ny forforsterker - Avion Studios RetroFlyer",
-            "en": "New preamp - Avion Studios RetroFlyer"
-        },
+        "title": { "no": "Ny forforsterker - Avion Studios RetroFlyer", "en": "New preamp - Avion Studios RetroFlyer" },
         "content": {
             "no": "Ga Rhodes en liten godbit 🎁 Avion Studios RetroFlyer Preamp og stereo tremolo 😃 Det får virkelig frem detaljene i Rhodes-lyden 🎹🔊",
             "en": "Gave my Rhodes a little treat 🎁 Avion Studios RetroFlyer Preamp and stereo tremolo 😃 It really brings out the details in the Rhodes sound 🎹🔊"
@@ -100,26 +99,21 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1715205600000,
-        "title": {
-            "no": "EDB-Orgel under utvikling",
-            "en": "EDB-Orgel under development"
-        },
+        "title": { "no": "EDB-Orgel under utvikling", "en": "EDB-Orgel under development" },
         "content": {
-            "no": "Working on a new sample library \"EDB-Orgel\" 🖥️💾🎹",
+            "no": "Jobber med et nytt sample-bibliotek \"EDB-Orgel\" 🖥️💾🎹",
             "en": "Working on a new sample library \"EDB-Orgel\" 🖥️💾🎹"
         },
         "thumbnailDescription": "Computer screen with GUI for EDB-Orgel",
-        "thumbnailFilename": "2024-05-09-00"
+        "thumbnailFilename": "2024-05-09-00",
+        "lastmod": 1772492400000
     },
     {
         "id": "2024032400",
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1711234800000,
-        "title": {
-            "no": "SubC under utvikling",
-            "en": "SubC under development"
-        },
+        "title": { "no": "SubC under utvikling", "en": "SubC under development" },
         "content": {
             "no": "Jobber med et nytt Decent Sampler synthbass-bibliotek 🎹 🎛️",
             "en": "Working on a new Decent Sampler synth bass preset 🎹 🎛️"
@@ -143,14 +137,8 @@
         "thumbnailDescription": "The sample libraries from Dehli Musikk",
         "thumbnailFilename": "2024-03-09-00",
         "link": {
-            "url": {
-                "en": "products/",
-                "no": "products/"
-            },
-            "text": {
-                "en": "See all products",
-                "no": "Se alle produkter"
-            },
+            "url": { "en": "products/", "no": "products/" },
+            "text": { "en": "See all products", "no": "Se alle produkter" },
             "internal": true
         }
     },
@@ -159,10 +147,7 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1709334000000,
-        "title": {
-            "no": "Ferdig med bygging av bus compressor",
-            "en": "Finished building the bus compressor"
-        },
+        "title": { "no": "Ferdig med bygging av bus compressor", "en": "Finished building the bus compressor" },
         "content": {
             "no": "Ferdig med å bygge og koble til [G Bus VCA Compressor fra DIY Recording Equipment](equipment/effects/diy-recording-equipment-g-bus-vca-compressor/)🕺 Her sammen med forrige byggeprosjekt, [Hairball Audio FET/RACK](equipment/effects/hairball-audio-fet-rack-revision-d/) 😃",
             "en": "Finished building and hooking up the [G Bus VCA Compressor from DIY Recording Equipment](equipment/effects/diy-recording-equipment-g-bus-vca-compressor/)🕺 Here together with the previous build project, [Hairball Audio FET/RACK](equipment/effects/hairball-audio-fet-rack-revision-d/) 😃"
@@ -176,10 +161,7 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1709247600000,
-        "title": {
-            "no": "Bygger en bus compressor",
-            "en": "Building a bus compressor"
-        },
+        "title": { "no": "Bygger en bus compressor", "en": "Building a bus compressor" },
         "content": {
             "no": "Bygger en klone av [SSL G384 bus compressor fra DIY Recording Equipment](equipment/effects/diy-recording-equipment-g-bus-vca-compressor/) 🎛️🛠️",
             "en": "Building a clone of a [SSL G384 bus compressor from DIY Recording Equipment](equipment/effects/diy-recording-equipment-g-bus-vca-compressor/) 🎛️🛠️"
@@ -225,10 +207,7 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1666648800000,
-        "title": {
-            "no": "Wurlitzer Music neonskilt",
-            "en": "Wurlitzer Music neon sign"
-        },
+        "title": { "no": "Wurlitzer Music neonskilt", "en": "Wurlitzer Music neon sign" },
         "content": {
             "no": "Fikk levert dette flotte Wurlitzer neonskiltet fra Ruth 66 i dag 😃 Skiltet er hare sterkere lys og farger enn det kommer fram på bildet 🤩",
             "en": "Got this beautiful Wurlitzer neon sign from Ruth 66 today 😃 The photos doesn't really do it justice. It looks a lot more vibrant in person 🤩"
@@ -273,10 +252,7 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1661205600000,
-        "title": {
-            "no": "Ny mikser - Roland PA-120",
-            "en": "New mixer - Roland PA-120"
-        },
+        "title": { "no": "Ny mikser - Roland PA-120", "en": "New mixer - Roland PA-120" },
         "content": {
             "no": "The Mean Green Machine 💚🎚️🎛️\nRoland PA-120 monomikser med innebygget fjærklang og effektsløyfe for båndekko 😁",
             "en": "The Mean Green Machine 💚🎚️🎛️\nRoland PA-120 with built-in spring reverb and effects loop for tape echo 😁"
@@ -288,10 +264,7 @@
                 "en": "videos/synth-jam-with-the-roland-pa-120-mixer/",
                 "no": "videos/synth-jam-med-roland-pa-120-mikser/"
             },
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            },
+            "text": { "en": "Watch video", "no": "Se video" },
             "internal": true
         },
         "lastmod": 1700780400000
@@ -317,10 +290,7 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1651096800000,
-        "title": {
-            "no": "Make fuzz not war",
-            "en": "Make fuzz not war"
-        },
+        "title": { "no": "Make fuzz not war", "en": "Make fuzz not war" },
         "content": {
             "no": "Tusen takk til Angus hos ABL Pedals som bygger denne fantastiske [Ukrainian Muff](equipment/effects/abl-pedals-ukrainian-muff/) pedalen og donerer inntektene til DEC Ukraine Humanitarian Appeal 💙💛🇺🇦 Слава Украине!✊",
             "en": "Thank you so much, Angus at ABL Pedals for building this amazing [Ukrainian Muff](equipment/effects/abl-pedals-ukrainian-muff/) pedal and donating the proceeds to the DEC Ukraine Humanitarian Appeal 💙💛🇺🇦 Слава Украине!✊"
@@ -348,10 +318,7 @@
                 "en": "portfolio/haunted-by-silhouettes-and-bjorn-speed-strid-selkie/",
                 "no": "portfolio/haunted-by-silhouettes-and-bjorn-speed-strid-selkie/"
             },
-            "text": {
-                "en": "Listen to Selkie",
-                "no": "Lytt til Selkie"
-            },
+            "text": { "en": "Listen to Selkie", "no": "Lytt til Selkie" },
             "internal": true
         }
     },
@@ -371,14 +338,8 @@
         "thumbnailDescription": "Album cover for \"Flock\" by Haunted By Silhouettes",
         "thumbnailFilename": "2022-02-11-00",
         "link": {
-            "url": {
-                "en": "portfolio/haunted-by-silhouettes-flock/",
-                "no": "portfolio/haunted-by-silhouettes-flock/"
-            },
-            "text": {
-                "en": "Listen to Flock",
-                "no": "Lytt til Flock"
-            },
+            "url": { "en": "portfolio/haunted-by-silhouettes-flock/", "no": "portfolio/haunted-by-silhouettes-flock/" },
+            "text": { "en": "Listen to Flock", "no": "Lytt til Flock" },
             "internal": true
         }
     },
@@ -387,10 +348,7 @@
         "orderNumber": 0,
         "copyright": false,
         "timestamp": 1637276400000,
-        "title": {
-            "no": "Ny utgivelse - Fired Up av Kaasin",
-            "en": "New release - Fired Up by Kaasin"
-        },
+        "title": { "no": "Ny utgivelse - Fired Up av Kaasin", "en": "New release - Fired Up by Kaasin" },
         "content": {
             "no": "Albumet Fired Up av Kaasin er nå sluppet 🎉\nTilgjengelig på alle strømmetjenester og som fysisk format 💿",
             "en": "The album Fired Up by Kaasin is now released 🎉\nAvailable on all streaming services and as a CD 💿"
@@ -415,10 +373,7 @@
         "thumbnailFilename": "2021-11-18-00",
         "link": {
             "url": "https://www.varden.no/kultur/i/Jx0wLb/dette-er-stua-til-benjamin-32-alt-av-loenninger-siden-ungdomsskoletida-har-gaatt-med",
-            "text": {
-                "en": "Read article",
-                "no": "Les artikkel"
-            }
+            "text": { "en": "Read article", "no": "Les artikkel" }
         }
     },
     {
@@ -426,10 +381,7 @@
         "orderNumber": 0,
         "copyright": false,
         "timestamp": 1636066800000,
-        "title": {
-            "no": "Ny utgivelse - Wrong av Kaasin",
-            "en": "New release - Wrong by Kaasin"
-        },
+        "title": { "no": "Ny utgivelse - Wrong av Kaasin", "en": "New release - Wrong by Kaasin" },
         "content": {
             "no": "Singelen Wrong av Kaasin er sluppet. Wrong blir også å høre på det kommende albumet Fired Up.",
             "en": "The new song Wrong by Kaasin has been released. Wrong will also be featured on the upcoming album Fired Up."
@@ -437,14 +389,8 @@
         "thumbnailDescription": "Album cover for the single \"Wrong\" by Kaasin",
         "thumbnailFilename": "2021-11-05-00",
         "link": {
-            "url": {
-                "en": "portfolio/kaasin-wrong/",
-                "no": "portfolio/kaasin-wrong/"
-            },
-            "text": {
-                "en": "Listen to Wrong",
-                "no": "Lytt til Wrong"
-            },
+            "url": { "en": "portfolio/kaasin-wrong/", "no": "portfolio/kaasin-wrong/" },
+            "text": { "en": "Listen to Wrong", "no": "Lytt til Wrong" },
             "internal": true
         }
     },
@@ -469,10 +415,7 @@
         "orderNumber": 0,
         "copyright": false,
         "timestamp": 1633644000000,
-        "title": {
-            "no": "Musikkvideo - We Are One av Kaasin",
-            "en": "Music video - We Are One by Kaasin"
-        },
+        "title": { "no": "Musikkvideo - We Are One av Kaasin", "en": "Music video - We Are One by Kaasin" },
         "content": {
             "no": "Ny låt fra Kaasin med musikkvideo filmet på Systemblokk i Bø 🧱Musikkvideoen er laget av Jon Sandersen 🎥",
             "en": "New song by Kaasin with music video shot at Systemblokk in Bø 🧱\nThe music video is made by Jon Sandersen 🎥"
@@ -480,14 +423,8 @@
         "thumbnailDescription": "Staale Kaasin, Jan Thore Grefstad, Jo Henning Kaasin, Benjamin Dehli and Per-Morten Bergseth",
         "thumbnailFilename": "2021-10-08-00",
         "link": {
-            "url": {
-                "en": "videos/kaasin-we-are-one/",
-                "no": "videos/kaasin-we-are-one/"
-            },
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            },
+            "url": { "en": "videos/kaasin-we-are-one/", "no": "videos/kaasin-we-are-one/" },
+            "text": { "en": "Show video", "no": "Se video" },
             "internal": true
         }
     },
@@ -496,10 +433,7 @@
         "orderNumber": 0,
         "copyright": false,
         "timestamp": 1632866400000,
-        "title": {
-            "no": "Kommer snart - Fired Up av Kaasin",
-            "en": "Coming soon - Fired Up by Kaasin"
-        },
+        "title": { "no": "Kommer snart - Fired Up av Kaasin", "en": "Coming soon - Fired Up by Kaasin" },
         "content": {
             "no": "Debutalbumet Fired Up av Kaasin blir sluppet 19. november 2021 🔥🎶🎵💿",
             "en": "The debut album Fired Up by Kaasin will be released November 10th, 2021 🔥🎶🎵💿\n"
@@ -512,56 +446,35 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1632607200000,
-        "title": {
-            "no": "MS-20 messingblås",
-            "en": "MS-20 brass"
-        },
+        "title": { "no": "MS-20 messingblås", "en": "MS-20 brass" },
         "content": {
             "no": "Innspilling av \"messingblås\" med en [Korg MS-20](equipment/instruments/korg-ms-20/) synth 🎹🎛️🎺",
             "en": "Recording some \"brass\" with a [Korg MS-20](equipment/instruments/korg-ms-20/) synthesizer 🎹🎛️🎺"
         },
         "thumbnailDescription": "A Korg MS-20 synthesizer being played",
         "thumbnailFilename": "2021-09-26-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CUSeG6ugcfQ/",
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CUSeG6ugcfQ/", "text": { "en": "Watch video", "no": "Se video" } }
     },
     {
         "id": "2021092400",
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1632434400000,
-        "title": {
-            "no": "Pro-One med vreng",
-            "en": "Overdriven Pro-One"
-        },
+        "title": { "no": "Pro-One med vreng", "en": "Overdriven Pro-One" },
         "content": {
             "no": "[Sequential Circuits Pro-One](equipment/instruments/sequential-circuits-pro-one/) synth med slapback [båndekko](equipment/effects/fulltone-tube-tape-echo/) gjennom en [Vox AC15](equipment/amplifiers/vox-ac15h1tv/) 🎹🎛️📼🔊",
             "en": "[Sequential Circuits Pro-One](equipment/instruments/sequential-circuits-pro-one/) synthesizer with slapback [tape echo](equipment/effects/fulltone-tube-tape-echo/) into a [Vox AC15](equipment/amplifiers/vox-ac15h1tv/) 🎹🎛️📼🔊"
         },
         "thumbnailDescription": "A Vox AC15H1TV amplifier with a Fulltone Tube Tape Echo effects unit on top",
         "thumbnailFilename": "2021-09-24-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CUNtteKgf3I/",
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CUNtteKgf3I/", "text": { "en": "Watch video", "no": "Se video" } }
     },
     {
         "id": "2021082700",
         "orderNumber": 0,
         "copyright": false,
         "timestamp": 1630015200000,
-        "title": {
-            "no": "Ny utgivelse - Guardian Angels av Haaker",
-            "en": "New release - Guardian Angels by Haaker"
-        },
+        "title": { "no": "Ny utgivelse - Guardian Angels av Haaker", "en": "New release - Guardian Angels by Haaker" },
         "content": {
             "no": "Ny kramgod metallåt fra Pål er nå ute 🤘\nJeg har hatt gleden av å spille klaviaturinstrumenter på denne 🎹🎛",
             "en": "A smoking hot metal song from Pål is now out 🤘\nI've had the pleasure of playing keyboard instruments on this one 🎹🎛"
@@ -569,14 +482,8 @@
         "thumbnailDescription": "Album cover for the single \"Guardian Angels\" by Haaker",
         "thumbnailFilename": "2021-08-27-00",
         "link": {
-            "url": {
-                "en": "portfolio/haaker-guardian-angels/",
-                "no": "portfolio/haaker-guardian-angels/"
-            },
-            "text": {
-                "en": "Listen to Guardian Angels",
-                "no": "Lytt til Guardian Angels"
-            },
+            "url": { "en": "portfolio/haaker-guardian-angels/", "no": "portfolio/haaker-guardian-angels/" },
+            "text": { "en": "Listen to Guardian Angels", "no": "Lytt til Guardian Angels" },
             "internal": true
         }
     },
@@ -601,33 +508,21 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1626300000000,
-        "title": {
-            "no": "Vinglass med ekkomaskin og romklang",
-            "en": "Wine glasses with tape echo and reverb"
-        },
+        "title": { "no": "Vinglass med ekkomaskin og romklang", "en": "Wine glasses with tape echo and reverb" },
         "content": {
             "no": "Sender opptak av vinglass gjennom en [Fulltone Tube Tape Echo båndekko](equipment/effects/fulltone-tube-tape-echo/) og [Chase Bliss Audio & Meris CXM 1978 romklang](equipment/effects/chase-bliss-audio-and-meris-cxm-1978/) 🍷📼🦄🔊",
             "en": "The recorded audio from wine glasses sent through a [Fulltone Tube Tape Echo](equipment/effects/fulltone-tube-tape-echo/) and a [Chase Bliss Audio & Meris CXM 1978 reverb](equipment/effects/chase-bliss-audio-and-meris-cxm-1978/) 🍷📼🦄🔊"
         },
         "thumbnailDescription": "Chase Bliss Audio & Meris CXM 1978 reverb and a Fulltone Tube Tape Echo delay",
         "thumbnailFilename": "2021-07-15-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CRXCxACAP4T/",
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CRXCxACAP4T/", "text": { "en": "Watch video", "no": "Se video" } }
     },
     {
         "id": "2021071400",
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1626213600000,
-        "title": {
-            "no": "Innspilling av vinglass",
-            "en": "Recording wine glasses"
-        },
+        "title": { "no": "Innspilling av vinglass", "en": "Recording wine glasses" },
         "content": {
             "no": "Opptak av vinglass med et AKG C451E stereopar 🎤🍷🍷",
             "en": "Recording some wine glass tracks with a pair of AKG C451E 🎤🍷🍷"
@@ -640,33 +535,21 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1625868000000,
-        "title": {
-            "no": "Clavinet, piano, orgel og 5/4-takt",
-            "en": "Clavinet, piano, organ and a 5/4 groove"
-        },
+        "title": { "no": "Clavinet, piano, orgel og 5/4-takt", "en": "Clavinet, piano, organ and a 5/4 groove" },
         "content": {
             "no": "Spiller inn et parti i 5/4-takt med [Hohner Clavinet D6](equipment/instruments/hohner-clavinet-d6/), [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) and [Hammond C3](equipment/instruments/hammond-c3/) 🦡🦚🦄🎹",
             "en": "Recording a part in 5/4 time signature with [Hohner Clavinet D6](equipment/instruments/hohner-clavinet-d6/), [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) and [Hammond C3](equipment/instruments/hammond-c3/) 🦡🦚🦄🎹"
         },
         "thumbnailDescription": "A Louis Zwicki Pianette piano being played",
         "thumbnailFilename": "2021-07-10-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CRKSyxwA7VE/",
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CRKSyxwA7VE/", "text": { "en": "Watch video", "no": "Se video" } }
     },
     {
         "id": "2021070200",
         "orderNumber": 0,
         "copyright": false,
         "timestamp": 1625176800000,
-        "title": {
-            "no": "Ny utgivelse - Hidden av Kaasin",
-            "en": "New release - Hidden by Kaasin"
-        },
+        "title": { "no": "Ny utgivelse - Hidden av Kaasin", "en": "New release - Hidden by Kaasin" },
         "content": {
             "no": "Rykende fersk rockelåt fra Kaasin 💥🦄🔊\nPerfekt musikk å lytte til mens du luker i blomsterbedet 👌🌼🌸\nGod helg og god sommer! 🌞",
             "en": "New rock music from Kaasin released today 💥🦄🔊\nPerfect music to listen to while weeding the flower bed 👌🌼🌸\nHave a nice weekend and summer! 🌞"
@@ -674,14 +557,8 @@
         "thumbnailDescription": "Album cover for the single \"Hidden\" by Kaasin",
         "thumbnailFilename": "2021-07-02-00",
         "link": {
-            "url": {
-                "en": "portfolio/kaasin-hidden/",
-                "no": "portfolio/kaasin-hidden/"
-            },
-            "text": {
-                "en": "Listen to Hidden",
-                "no": "Lytt til Hidden"
-            },
+            "url": { "en": "portfolio/kaasin-hidden/", "no": "portfolio/kaasin-hidden/" },
+            "text": { "en": "Listen to Hidden", "no": "Lytt til Hidden" },
             "internal": true
         }
     },
@@ -700,23 +577,14 @@
         },
         "thumbnailDescription": "A Hohner Clavinet D6 with effects pedals being played",
         "thumbnailFilename": "2021-06-13-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CQCZetWAYc5/",
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CQCZetWAYc5/", "text": { "en": "Watch video", "no": "Se video" } }
     },
     {
         "id": "2021042800",
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1619560800000,
-        "title": {
-            "no": "Ny effektboks - CXM 1978",
-            "en": "New effects unit - CXM 1978"
-        },
+        "title": { "no": "Ny effektboks - CXM 1978", "en": "New effects unit - CXM 1978" },
         "content": {
             "no": "Ny klangboks i hus 🥳\n[CXM 1978 fra Chase Bliss Audio og Meris](equipment/effects/chase-bliss-audio-and-meris-cxm-1978/) 🛸👌",
             "en": "Got a new reverb pedal today 🥳\n[CXM 1978 from Chase Bliss Audio and Meris](equipment/effects/chase-bliss-audio-and-meris-cxm-1978/) 🛸👌"
@@ -729,37 +597,22 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1617746400000,
-        "title": {
-            "no": "Leslie-Piano",
-            "en": "Leslie Piano"
-        },
+        "title": { "no": "Leslie-Piano", "en": "Leslie Piano" },
         "content": {
             "no": "Sender lyden fra [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) gjennom en [Leslie 122 forsterker](equipment/amplifiers/leslie-122/) 🎹🔄🔊",
             "en": "Sending sound from the [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) through a [Leslie 122 rotary speaker](equipment/amplifiers/leslie-122/) 🎹🔄🔊"
         },
         "thumbnailDescription": "A Leslie 122 rotary speaker",
         "thumbnailFilename": "2021-04-07-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CNX8ylvgoT3/",
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CNX8ylvgoT3/", "text": { "en": "Watch video", "no": "Se video" } }
     },
     {
         "id": "2021032900",
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1616968800000,
-        "title": {
-            "no": "Dehli Musikk kopp",
-            "en": "Dehli Musikk mug"
-        },
-        "content": {
-            "no": "☕️",
-            "en": "☕️"
-        },
+        "title": { "no": "Dehli Musikk kopp", "en": "Dehli Musikk mug" },
+        "content": { "no": "☕️", "en": "☕️" },
         "thumbnailDescription": "Cup of coffe with the Dehli Musikk logo",
         "thumbnailFilename": "2021-03-29-00"
     },
@@ -768,33 +621,21 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1612652400000,
-        "title": {
-            "no": "Wurli med go'vreng fra en Twin Reverb",
-            "en": "Wurli into an overdriven Twin Reverb"
-        },
+        "title": { "no": "Wurli med go'vreng fra en Twin Reverb", "en": "Wurli into an overdriven Twin Reverb" },
         "content": {
             "no": "Innspilling av [Wurlitzer 200A elektrisk piano](equipment/instruments/wurlitzer-200a/) med vreng fra en [Fender Twin Reverb forsterker](equipment/amplifiers/fender-twin-reverb/) 🎹🔊",
             "en": "Recording a [Wurlitzer 200A electric piano](equipment/instruments/wurlitzer-200a/) with an overdriven [Fender Twin Reverb amplifier](equipment/amplifiers/fender-twin-reverb/) 🎹🔊"
         },
         "thumbnailDescription": "A Wurlitzer 200A electric piano being played",
         "thumbnailFilename": "2021-02-07-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CK_f-npA1MZ/",
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CK_f-npA1MZ/", "text": { "en": "Watch video", "no": "Se video" } }
     },
     {
         "id": "2021020600",
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1612566000000,
-        "title": {
-            "no": "Clavinet med Whammy pedal",
-            "en": "Clavinet with Whammy pedal"
-        },
+        "title": { "no": "Clavinet med Whammy pedal", "en": "Clavinet with Whammy pedal" },
         "content": {
             "no": "Tester ut [DigiTech Whammy pedal](equipment/effects/digitech-whammy-5th-gen/) på [Clavinet](equipment/instruments/hohner-clavinet-d6/) 🦄🎹",
             "en": "Testing a [DigiTech Whammy pedal](equipment/effects/digitech-whammy-5th-gen/) on a [Clavinet](equipment/instruments/hohner-clavinet-d6/) 🦄🎹"
@@ -802,14 +643,8 @@
         "thumbnailDescription": "A Hohner Clavinet D6 being played",
         "thumbnailFilename": "2021-02-06-00",
         "link": {
-            "url": {
-                "en": "videos/clavinet-with-whammy-pedal/",
-                "no": "videos/clavinet-med-whammy-pedal/"
-            },
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            },
+            "url": { "en": "videos/clavinet-with-whammy-pedal/", "no": "videos/clavinet-med-whammy-pedal/" },
+            "text": { "en": "Watch video", "no": "Se video" },
             "internal": true
         }
     },
@@ -818,33 +653,21 @@
         "orderNumber": 1,
         "copyright": true,
         "timestamp": 1610751600000,
-        "title": {
-            "no": "Orgelinnspilling for Taxi Bear",
-            "en": "Recording organ for Taxi Bear"
-        },
+        "title": { "no": "Orgelinnspilling for Taxi Bear", "en": "Recording organ for Taxi Bear" },
         "content": {
             "no": "Filmklipp fra orgelinnspilling til låta Korea Town av Taxi Bear 🎹🚕🐻",
             "en": "Video of recording session for the song Korea Town by Taxi Bear 🎹🚕🐻"
         },
         "thumbnailDescription": "A Hammond C3 organ being played",
         "thumbnailFilename": "2021-01-16-01",
-        "link": {
-            "url": "https://fb.watch/32Jv1U3edU/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://fb.watch/32Jv1U3edU/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2021011600",
         "orderNumber": 0,
         "copyright": false,
         "timestamp": 1610751600000,
-        "title": {
-            "no": "Ny utgivelse - Korea Town av Taxi Bear",
-            "en": "New release - Korea Town by Taxi Bear"
-        },
+        "title": { "no": "Ny utgivelse - Korea Town av Taxi Bear", "en": "New release - Korea Town by Taxi Bear" },
         "content": {
             "no": "Taxi Bear har akkurat sluppet ut en kanontøff råkke-låt 🤘🎉\nJeg har vært så heldig å få spille orgel på denne 🎹",
             "en": "Taxi Bear released an awesome rock song 🤘🎉\nI've had the pleasure of playing organ on this one 🎹"
@@ -852,14 +675,8 @@
         "thumbnailDescription": "Album cover for the single \"Korea Town\" by Taxi Bear",
         "thumbnailFilename": "2021-01-16-00",
         "link": {
-            "url": {
-                "en": "portfolio/taxi-bear-korea-town/",
-                "no": "portfolio/taxi-bear-korea-town/"
-            },
-            "text": {
-                "en": "Listen to Korea Town",
-                "no": "Lytt til Korea Town"
-            },
+            "url": { "en": "portfolio/taxi-bear-korea-town/", "no": "portfolio/taxi-bear-korea-town/" },
+            "text": { "en": "Listen to Korea Town", "no": "Lytt til Korea Town" },
             "internal": true
         }
     },
@@ -868,10 +685,7 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1610060400000,
-        "title": {
-            "no": "Fuzz-orgel",
-            "en": "Fuzz organ"
-        },
+        "title": { "no": "Fuzz-orgel", "en": "Fuzz organ" },
         "content": {
             "no": "[Hammond C3](equipment/instruments/hammond-c3/) med [Fuzz Face](equipment/effects/dallas-arbiter-fuzz-face/) og [Vox AC5H1TV](equipment/amplifiers/vox-ac15h1tv/) 🎹🔊🦄",
             "en": "[Hammond C3](equipment/instruments/hammond-c3/) with [Fuzz Face](equipment/effects/dallas-arbiter-fuzz-face/) and [Vox AC15H1TV](equipment/amplifiers/vox-ac15h1tv/) 🎹🔊🦄"
@@ -883,10 +697,7 @@
                 "en": "videos/hammond-organ-with-fuzz-and-guitar-amp/",
                 "no": "videos/hammond-orgel-med-fuzz-og-gitarforsterker/"
             },
-            "text": {
-                "en": "Watch video",
-                "no": "Se video"
-            },
+            "text": { "en": "Watch video", "no": "Se video" },
             "internal": true
         }
     },
@@ -895,46 +706,28 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1609196400000,
-        "title": {
-            "no": "Orgeltirsdag 🎹🔊",
-            "en": "Organ Tuesday 🎹🔊"
-        },
+        "title": { "no": "Orgeltirsdag 🎹🔊", "en": "Organ Tuesday 🎹🔊" },
         "content": {
             "no": "Innspilling av [Hammond C3 tonehjulsorgel](equipment/instruments/hammond-c3/) med [Leslie 122 forsterker](equipment/amplifiers/leslie-122/) 🎹🔊",
             "en": "Recording the [Hammond C3 tonewheel organ](equipment/instruments/hammond-c3/) with a [Leslie 122 rotary speaker](equipment/amplifiers/leslie-122/) 🎹🔊"
         },
         "thumbnailDescription": "A Hammond C3 organ being played",
         "thumbnailFilename": "2020-12-29-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CJYumcdAjl6/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CJYumcdAjl6/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020122700",
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1609023600000,
-        "title": {
-            "no": "Romjulsinnspilling av synth",
-            "en": "Christmas recording session with synthesizers"
-        },
+        "title": { "no": "Romjulsinnspilling av synth", "en": "Christmas recording session with synthesizers" },
         "content": {
             "no": "Opptak av [Korg MS-20](equipment/instruments/korg-ms-20/), [Korg Polysix](equipment/instruments/korg-polysix/), [DSI Tetra](equipment/instruments/dave-smith-instruments-tetra/) and [DSI Mopho](equipment/instruments/dave-smith-instruments-mopho-keyboard/) 🎹🦄🎛️",
             "en": "Recording some [Korg MS-20](equipment/instruments/korg-ms-20/), [Korg Polysix](equipment/instruments/korg-polysix/), [DSI Tetra](equipment/instruments/dave-smith-instruments-tetra/) and [DSI Mopho](equipment/instruments/dave-smith-instruments-mopho-keyboard/) 🎹🦄🎛️"
         },
         "thumbnailDescription": "Computer screen with Logic Pro",
         "thumbnailFilename": "2020-12-27-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CJT2X9SgVvE/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CJT2X9SgVvE/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020121500",
@@ -951,23 +744,14 @@
         },
         "thumbnailDescription": "A Hohner Clavinet D6 being played",
         "thumbnailFilename": "2020-12-15-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CI1IpVfMgsc/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CI1IpVfMgsc/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020120800",
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1607382000000,
-        "title": {
-            "no": "Svevende Wurli",
-            "en": "Ambient Wurli"
-        },
+        "title": { "no": "Svevende Wurli", "en": "Ambient Wurli" },
         "content": {
             "no": "Innspilling av svevende [Wurlitzer piano](equipment/instruments/wurlitzer-200a/)-lyder med [Diamond Memory Lane 2 ekko pedal](equipment/effects/diamond-memory-lane-2/) og [Roland Jazz Chorus JC-120 forsterker](equipment/amplifiers/roland-jc-120-jazz-chorus/) 🕺🦄🎹",
             "en": "Creating ambient [Wurlitzer piano](equipment/instruments/wurlitzer-200a/) sounds with the [Diamond Memory Lane 2 delay pedal](equipment/effects/diamond-memory-lane-2/) and the [Roland Jazz Chorus JC-120 amplifier](equipment/amplifiers/roland-jc-120-jazz-chorus/) 🕺🦄🎹"
@@ -980,10 +764,7 @@
         "orderNumber": 1,
         "copyright": false,
         "timestamp": 1607036400000,
-        "title": {
-            "no": "Musikkvideo - Revelation av Kaasin",
-            "en": "Music video - Revelation by Kaasin"
-        },
+        "title": { "no": "Musikkvideo - Revelation av Kaasin", "en": "Music video - Revelation by Kaasin" },
         "content": {
             "no": "Har hatt gleden av å dra på skogstur med gjengen i Kaasin for å spille inn musikkvideo til låta Revelation 😎🤘\nMusikkvideoen er laget av Jon Sandersen 🎥",
             "en": "I've had the pleasure of going on a forest trip with Kaasin to shoot a music video for the song Revelation 😎🤘\nThe music video is made by Jon Sandersen 🎥"
@@ -991,14 +772,8 @@
         "thumbnailDescription": "Benjamin Dehli, Staale Kaasin, André Cosmo Søgnen, Jan Thore Grefstad and Jo Henning Kaasin",
         "thumbnailFilename": "2020-12-04-01",
         "link": {
-            "url": {
-                "en": "videos/kaasin-revelation/",
-                "no": "videos/kaasin-revelation/"
-            },
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            },
+            "url": { "en": "videos/kaasin-revelation/", "no": "videos/kaasin-revelation/" },
+            "text": { "en": "Show video", "no": "Se video" },
             "internal": true
         }
     },
@@ -1007,10 +782,7 @@
         "orderNumber": 0,
         "copyright": false,
         "timestamp": 1607036400000,
-        "title": {
-            "no": "Ny utgivelse - Revelation av Kaasin",
-            "en": "New release - Revelation by Kaasin"
-        },
+        "title": { "no": "Ny utgivelse - Revelation av Kaasin", "en": "New release - Revelation by Kaasin" },
         "content": {
             "no": "Har lagt på litt vrengtangenter på denne go'låta låta til Kaasin 🤠🤘🎹",
             "en": "I've recorded some rock keyboards on this amazing song by Kaasin 🤠🤘🎹"
@@ -1018,14 +790,8 @@
         "thumbnailDescription": "Album cover for the single \"Revelation\" by Kaasin",
         "thumbnailFilename": "2020-12-04-00",
         "link": {
-            "url": {
-                "en": "portfolio/kaasin-revelation/",
-                "no": "portfolio/kaasin-revelation/"
-            },
-            "text": {
-                "en": "Listen to Revelation",
-                "no": "Lytt til Revelation"
-            },
+            "url": { "en": "portfolio/kaasin-revelation/", "no": "portfolio/kaasin-revelation/" },
+            "text": { "en": "Listen to Revelation", "no": "Lytt til Revelation" },
             "internal": true
         }
     },
@@ -1034,10 +800,7 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1605913200000,
-        "title": {
-            "no": "Innspilling av musikkvideo for Revelation",
-            "en": "Shooting music video for Revelation"
-        },
+        "title": { "no": "Innspilling av musikkvideo for Revelation", "en": "Shooting music video for Revelation" },
         "content": {
             "no": "Innspilling av musikkvideo til KAASINs kommende låt Revelation med Jon Sandersen 🎬🎞️🔥",
             "en": "Shooting music video for KAASIN's upcoming release Revelation with Jon Sandersen 🎬🎞️🔥"
@@ -1049,10 +812,7 @@
         "id": "2020111100",
         "copyright": true,
         "timestamp": 1605052800000,
-        "title": {
-            "no": "Ferdig med vedlikehold av Pro-One",
-            "en": "Finished Pro-One maintenence at last"
-        },
+        "title": { "no": "Ferdig med vedlikehold av Pro-One", "en": "Finished Pro-One maintenence at last" },
         "content": {
             "no": "[Sequential Circuits Pro-One](equipment/instruments/sequential-circuits-pro-one/) etter vedlikehold 😁🛠️",
             "en": "[Sequential Circuits Pro-One](equipment/instruments/sequential-circuits-pro-one/) after maintenance 😁🛠️"
@@ -1064,10 +824,7 @@
         "id": "2020110900",
         "copyright": true,
         "timestamp": 1604880000000,
-        "title": {
-            "no": "Vedlikehold av Pro-One",
-            "en": "Pro-One maintenance"
-        },
+        "title": { "no": "Vedlikehold av Pro-One", "en": "Pro-One maintenance" },
         "content": {
             "no": "Rustfjerning, regulering av tangenthøyde og utskifting av gamle tangentforinger med nye fra Syntaur",
             "en": "Rust removal, adjustment of keyboard action and replacing old key bushings with new ones from Syntaur"
@@ -1079,10 +836,7 @@
         "id": "2020110800",
         "copyright": true,
         "timestamp": 1604793600000,
-        "title": {
-            "no": "Renjøring av potmeter og brytere",
-            "en": "Cleaning potmeters and switches"
-        },
+        "title": { "no": "Renjøring av potmeter og brytere", "en": "Cleaning potmeters and switches" },
         "content": {
             "no": "Kretsbrettkunst på innsiden av en [Pro-One](equipment/instruments/sequential-circuits-pro-one/) synthesizer 🍄🧘‍♀️🎨",
             "en": "PCB art inside the [Pro-One](equipment/instruments/sequential-circuits-pro-one/) synthesizer 🍄🧘‍♀️🎨"
@@ -1094,10 +848,7 @@
         "id": "2020110100",
         "copyright": true,
         "timestamp": 1604188800000,
-        "title": {
-            "no": "Opptak av tangenter for metal EP",
-            "en": "Recording keyboards for metal EP"
-        },
+        "title": { "no": "Opptak av tangenter for metal EP", "en": "Recording keyboards for metal EP" },
         "content": {
             "no": "Opptak av diverse krydderier med [Mellotron](equipment/instruments/mellotron-m4000d/), analog synth, [trekkspill](equipment/instruments/carola-dragspel-3-koerigt/), [tonehjulsorgel](equipment/instruments/hammond-c3/) og [combo-orgel](equipment/instruments/yamaha-yc-25d/) 🎹🎛️🦄",
             "en": "Adding some different flavours with [Mellotron](equipment/instruments/mellotron-m4000d/), analog synths, [accordion](equipment/instruments/carola-dragspel-3-koerigt/), [tonewheel organ](equipment/instruments/hammond-c3/) and [combo organ](equipment/instruments/yamaha-yc-25d/) 🎹🎛️🦄"
@@ -1109,10 +860,7 @@
         "id": "2020101700",
         "copyright": true,
         "timestamp": 1602892800000,
-        "title": {
-            "no": "Ny synth - Sequential Circuits Pro-One",
-            "en": "New synth - Sequential Circuits Pro-One"
-        },
+        "title": { "no": "Ny synth - Sequential Circuits Pro-One", "en": "New synth - Sequential Circuits Pro-One" },
         "content": {
             "no": "Monofonisk analogsynth fra tidlig 80-tallet 🎹🎛️",
             "en": "Monophonic analog synthesizer from the early '80s 🎹🎛️"
@@ -1123,10 +871,7 @@
     {
         "id": "2020101600",
         "timestamp": 1602806400000,
-        "title": {
-            "no": "Ny utgivelse - Rocknrolla av Haaker",
-            "en": "New release - Rocknrolla by Haaker"
-        },
+        "title": { "no": "Ny utgivelse - Rocknrolla av Haaker", "en": "New release - Rocknrolla by Haaker" },
         "content": {
             "no": "Min gode venn i nord og tidligere bandkollega har gitt ut en heidundrandens go'låt 🕺\nJeg har fått gleden av å legge på plingplong-klaviatur og [vreng-keytar](equipment/instruments/roland-ax-1/) 🎹 🎛\nHer er en pangstart på helga fra Haaker 💥",
             "en": "My good friend in the north and former band colleague has released an awesome track 🕺\nI've had the pleasure to play keyboards and [fuzz keytar](equipment/instruments/roland-ax-1/) on this one 🎹 🎛\n Kick start the weekend with \"Rocknrolla\" by Haaker 💥"
@@ -1134,15 +879,9 @@
         "thumbnailDescription": "Album cover for the single \"Rocknrolla\" by Haaker",
         "thumbnailFilename": "2020-10-16-00",
         "link": {
-            "url": {
-                "en": "portfolio/haaker-rocknrolla/",
-                "no": "portfolio/haaker-rocknrolla/"
-            },
+            "url": { "en": "portfolio/haaker-rocknrolla/", "no": "portfolio/haaker-rocknrolla/" },
             "internal": true,
-            "text": {
-                "en": "Listen to Rocknrolla",
-                "no": "Lytt til Rocknrolla"
-            }
+            "text": { "en": "Listen to Rocknrolla", "no": "Lytt til Rocknrolla" }
         }
     },
     {
@@ -1163,10 +902,7 @@
                 "en": "videos/recording-fuzz-clavinet-for-kaasin-revelation/",
                 "no": "videos/innspilling-av-fuzz-clavinet-paa-kaasin-revelation/"
             },
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            },
+            "text": { "en": "Show video", "no": "Se video" },
             "internal": true
         },
         "copyright": true
@@ -1185,25 +921,16 @@
         "thumbnailDescription": "Album cover for the single \"Driving Alone\" by Audun Haukvik",
         "thumbnailFilename": "2020-10-09-00",
         "link": {
-            "url": {
-                "en": "portfolio/audun-haukvik-driving-alone/",
-                "no": "portfolio/audun-haukvik-driving-alone/"
-            },
+            "url": { "en": "portfolio/audun-haukvik-driving-alone/", "no": "portfolio/audun-haukvik-driving-alone/" },
             "internal": true,
-            "text": {
-                "en": "Listen to Driving Alone",
-                "no": "Lytt til Driving Alone"
-            }
+            "text": { "en": "Listen to Driving Alone", "no": "Lytt til Driving Alone" }
         }
     },
     {
         "id": "2020100300",
         "copyright": true,
         "timestamp": 1601683200000,
-        "title": {
-            "no": "Clavinet gjennom en Korg MS-20",
-            "en": "Running Clavinet through a Korg MS-20"
-        },
+        "title": { "no": "Clavinet gjennom en Korg MS-20", "en": "Running Clavinet through a Korg MS-20" },
         "content": {
             "no": "[Korg MS-20](equipment/instruments/korg-ms-20/) som effektboks til [Hohner Clavinet D6](equipment/instruments/hohner-clavinet-d6/).",
             "en": "Using the [Korg MS-20](equipment/instruments/korg-ms-20/) as an effects unit for the [Hohner Clavinet D6](equipment/instruments/hohner-clavinet-d6/)."
@@ -1216,19 +943,13 @@
                 "no": "videos/clavinet-gjennom-en-korg-ms-20/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020081401",
         "timestamp": 1597363200000,
-        "title": {
-            "no": "Musikkvideo - Runaway Train av Kaasin",
-            "en": "Music video - Runaway Train by Kaasin"
-        },
+        "title": { "no": "Musikkvideo - Runaway Train av Kaasin", "en": "Music video - Runaway Train by Kaasin" },
         "content": {
             "no": "Jon Sandersen har filmet og klippet sammen en helt rå musikkvideo til låta Runaway Train av Kaasin 📼🎬",
             "en": "Jon Sandersen has shot and edited an awesome music video for Runaway Train by Kaasin 📼🎬"
@@ -1236,24 +957,15 @@
         "thumbnailDescription": "Snapshot from the music video for \"Runaway Train\" by Kaasin",
         "thumbnailFilename": "2020-08-14-01",
         "link": {
-            "url": {
-                "en": "videos/kaasin-runaway-train/",
-                "no": "videos/kaasin-runaway-train/"
-            },
+            "url": { "en": "videos/kaasin-runaway-train/", "no": "videos/kaasin-runaway-train/" },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020081400",
         "timestamp": 1597363200000,
-        "title": {
-            "no": "Ny utgivelse - Runaway Train av Kaasin",
-            "en": "New release - Runaway Train by Kaasin"
-        },
+        "title": { "no": "Ny utgivelse - Runaway Train av Kaasin", "en": "New release - Runaway Train by Kaasin" },
         "content": {
             "no": "Har vært så heldig å få klimpre på vrengtangenter sammen med gjengen i Kaasin 😃\nLyd-maestro Halvor Halvorsen har gjort sin magi bak spakene 👍👌\nFyr opp anlegget, gjekk deg en pærebrus og kickstart helga med litt råkknråll 😎🤘",
             "en": "I've had the pleasure to play some rock keyboards with the band Kaasin 😃\nSound wizzard Halvor Halvorsen has done his magic behind the faders 👍👌\nTurn up the volume, grab a beer and kickstart the weekend with some rock'n'roll 😎🤘"
@@ -1261,15 +973,9 @@
         "thumbnailDescription": "Album cover for the single \"Runaway Train\" by Kaasin",
         "thumbnailFilename": "2020-08-14-00",
         "link": {
-            "url": {
-                "en": "portfolio/kaasin-runaway-train/",
-                "no": "portfolio/kaasin-runaway-train/"
-            },
+            "url": { "en": "portfolio/kaasin-runaway-train/", "no": "portfolio/kaasin-runaway-train/" },
             "internal": true,
-            "text": {
-                "en": "Listen to Runaway Train",
-                "no": "Lytt til Runaway Train"
-            }
+            "text": { "en": "Listen to Runaway Train", "no": "Lytt til Runaway Train" }
         }
     },
     {
@@ -1292,40 +998,25 @@
                 "no": "videos/korg-polysix-og-fulltone-tube-tape-echo-med-utslitt-baand/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020073000",
         "timestamp": 1596067200000,
-        "title": {
-            "no": "Forsmak på Runaway Train av Kaasin",
-            "en": "Runaway Train by Kaasin (teaser video)"
-        },
+        "title": { "no": "Forsmak på Runaway Train av Kaasin", "en": "Runaway Train by Kaasin (teaser video)" },
         "content": {
             "no": "En liten forsmak på musikkvideoen til Runaway Train av Kaasin som kommer 14. august 😎🤘\nFoto: Jon Sandersen 📷",
             "en": "A short preview of the music video for Runaway Train by Kaasin coming August 14th 😎🤘\nPhoto: Jon Sandersen 📷"
         },
         "thumbnailDescription": "Korg MS-20 and Mellotron M4000D being played",
         "thumbnailFilename": "2020-07-30-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CDQw8xjHndw/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CDQw8xjHndw/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020071201",
         "timestamp": 1594512000000,
-        "title": {
-            "no": "Innspilling av musikkvideo med Kaasin",
-            "en": "Shooting music video with Kaasin"
-        },
+        "title": { "no": "Innspilling av musikkvideo med Kaasin", "en": "Shooting music video with Kaasin" },
         "content": {
             "no": "Inspilling av video for Kaasins debutlåt \"Runaway Train\" 🎬\nFoto: Terje Ottesen 📷",
             "en": "Shooting video for Kaasin's debut single \"Runaway Train\" 🎬\nPhoto: Terje Ottesen 📷"
@@ -1353,19 +1044,13 @@
                 "no": "videos/fulltone-tube-tape-echo-med-tangentinstrumenter-and-trommemaskin/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020071100",
         "timestamp": 1594425600000,
-        "title": {
-            "no": "Nytt band - Kaasin",
-            "en": "New band - Kaasin"
-        },
+        "title": { "no": "Nytt band - Kaasin", "en": "New band - Kaasin" },
         "content": {
             "no": "14. august kommer det både rockelåt og rockevideo fra denne skumle gjengen her 💪😎🤘🔥\nKaasin består av: Jo Henning Kåsin (Gitar), Jan Thore Grefstad (Vokal), Ståle Kåsin (Bass), Benjamin Dehli (Tangenter) og Rick Hagan (Trommer)",
             "en": "Debut single and video from the rock band Kaasin will be released on August 14th 💪😎🤘🔥\nKaasin consist of: Jo Henning Kaasin (Guitar), Jan Thore Grefstad (Vocals), Staale Kaasin (Bass), Benjamin Dehli (Keyboards) and Rick Hagan (Drums)"
@@ -1408,10 +1093,7 @@
                 "no": "videos/roland-dimension-d-sdd-320-med-synther-og-elektriske-pianoer/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
@@ -1433,10 +1115,7 @@
                 "no": "portfolio/wolf-moon-fever-the-keeper-of-the-lighthouse/"
             },
             "internal": true,
-            "text": {
-                "en": "Listen to The Keeper of the Lighthouse",
-                "no": "Lytt til The Keeper of the Lighthouse"
-            }
+            "text": { "en": "Listen to The Keeper of the Lighthouse", "no": "Lytt til The Keeper of the Lighthouse" }
         }
     },
     {
@@ -1453,22 +1132,13 @@
         },
         "thumbnailDescription": "A Fender Rhodes MKI Stage Piano being played",
         "thumbnailFilename": "2020-06-20-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CBq_jiYl5Kw/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CBq_jiYl5Kw/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020061300",
         "copyright": true,
         "timestamp": 1592006400000,
-        "title": {
-            "no": "Modifisering av Roland Dimension D",
-            "en": "Roland Dimension D modification"
-        },
+        "title": { "no": "Modifisering av Roland Dimension D", "en": "Roland Dimension D modification" },
         "content": {
             "no": "En liten modifisering av [Dimension D](equipment/effects/roland-dimension-d-sdd-320/) for å få mono / stereobryteren tilgjengelig fra frontpanelet 🔧",
             "en": "Doing a small modification to the [Dimension D](equipment/effects/roland-dimension-d-sdd-320/) making the mono/stereo switch accessible from the front panel 🔧"
@@ -1490,13 +1160,7 @@
         },
         "thumbnailDescription": "Yamaha YC-25D being played",
         "thumbnailFilename": "2020-06-11-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CBTYZkxAS_X/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CBTYZkxAS_X/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020052900",
@@ -1517,20 +1181,14 @@
                 "no": "portfolio/2020-vision-under-the-midnight-sun/"
             },
             "internal": true,
-            "text": {
-                "en": "Listen to Under the Midnight Sun",
-                "no": "Lytt til Under the Midnight Sun"
-            }
+            "text": { "en": "Listen to Under the Midnight Sun", "no": "Lytt til Under the Midnight Sun" }
         }
     },
     {
         "id": "2020052500",
         "copyright": true,
         "timestamp": 1590364800000,
-        "title": {
-            "no": "Nytt produkt - Lo-fi Tape Piano",
-            "en": "New product - Lo-fi Tape Piano"
-        },
+        "title": { "no": "Nytt produkt - Lo-fi Tape Piano", "en": "New product - Lo-fi Tape Piano" },
         "content": {
             "no": "Nå er sample-pakka 'Lo-fi Tape Piano' klar tilgjengelig for ca. 50 norske penger ($4.99) hos Roqstar 😃",
             "en": "The 'Lo-fi Tape Piano' sample pack is now available for $4.99 at Roqstar 😃"
@@ -1538,25 +1196,16 @@
         "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
         "thumbnailFilename": "2020-05-25-00",
         "link": {
-            "url": {
-                "en": "products/lo-fi-tape-piano/",
-                "no": "products/lo-fi-tape-piano/"
-            },
+            "url": { "en": "products/lo-fi-tape-piano/", "no": "products/lo-fi-tape-piano/" },
             "internal": true,
-            "text": {
-                "en": "Read more about Lo-fi Tape Piano",
-                "no": "Les mer om Lo-fi Tape Piano"
-            }
+            "text": { "en": "Read more about Lo-fi Tape Piano", "no": "Les mer om Lo-fi Tape Piano" }
         }
     },
     {
         "id": "2020052400",
         "copyright": true,
         "timestamp": 1590278400000,
-        "title": {
-            "no": "Demonstrasjonsvideo av Lo-fi Tape Piano",
-            "en": "Demo video of Lo-fi Tape Piano"
-        },
+        "title": { "no": "Demonstrasjonsvideo av Lo-fi Tape Piano", "en": "Demo video of Lo-fi Tape Piano" },
         "content": {
             "no": "Sample pakka 'Lo-fi Tape Piano' blir straks tilgjengelig for salg 👯‍♂️Inntil videre kan du sjekke ut denne videoen med lydeksempler",
             "en": "Lo-fi Tape Piano will soon be available for purchase 👯‍♂️‍For the time being, you can check out this video with examples"
@@ -1564,15 +1213,9 @@
         "thumbnailDescription": "Louis Zwicki Pianette with an old telephone, tape recorder and coffee cup on top",
         "thumbnailFilename": "2020-05-24-00",
         "link": {
-            "url": {
-                "en": "videos/lo-fi-tape-piano-sample-pack/",
-                "no": "videos/lo-fi-tape-piano-sample-pack/"
-            },
+            "url": { "en": "videos/lo-fi-tape-piano-sample-pack/", "no": "videos/lo-fi-tape-piano-sample-pack/" },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
@@ -1589,35 +1232,20 @@
         },
         "thumbnailDescription": "Yamaha YC-25D with effects pedals on top",
         "thumbnailFilename": "2020-05-23-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CAizNGWAnth/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CAizNGWAnth/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020052100",
         "copyright": true,
         "timestamp": 1590019200000,
-        "title": {
-            "no": "Forsmak på Lo-fi Tape Piano",
-            "en": "Lo-fi Tape Piano (teaser video)"
-        },
+        "title": { "no": "Forsmak på Lo-fi Tape Piano", "en": "Lo-fi Tape Piano (teaser video)" },
         "content": {
             "no": "Liten forsmak på en sample-pakke jeg holder på å lage 🤠☎️🦄📼🎹",
             "en": "Short teaser video of the sample pack I'm making 🤠☎️🦄📼🎹"
         },
         "thumbnailDescription": "Close up of a Louis Zwicki Pianette",
         "thumbnailFilename": "2020-05-21-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CAdVNcUgVGG/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CAdVNcUgVGG/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020051700",
@@ -1639,20 +1267,14 @@
                 "no": "videos/ja-vi-elsker-dette-landet-norges-nasjonalsang-med-analoge-synthesizere/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020051400",
         "copyright": true,
         "timestamp": 1589414400000,
-        "title": {
-            "no": "Lo-fi sampling av piano",
-            "en": "Lo-fi piano sampling"
-        },
+        "title": { "no": "Lo-fi sampling av piano", "en": "Lo-fi piano sampling" },
         "content": {
             "no": "Sampling av [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) med forskjellige typer mikrofoner og kassettopptaker 🎹☎️📼",
             "en": "Sampling the [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) with different kind of microphones and a 4-track recorder 🎹☎️📼"
@@ -1664,45 +1286,27 @@
         "id": "2020051000",
         "copyright": true,
         "timestamp": 1589068800000,
-        "title": {
-            "no": "Piano, synth og trommemaskin",
-            "en": "Piano, synthesizers and drum machine"
-        },
+        "title": { "no": "Piano, synth og trommemaskin", "en": "Piano, synthesizers and drum machine" },
         "content": {
             "no": "Lager 80-tallsinnspirert musikk med [piano](equipment/instruments/louis-zwicki-pianette/), forskjellige synther og trommemaskin 🎹🎛️👯‍♂️🦄",
             "en": "Making '80s inspired music with [piano](equipment/instruments/louis-zwicki-pianette/), various synthesizers and drum machine 🎹🎛️👯‍♂️🦄"
         },
         "thumbnailDescription": "A Fostex X-28H 4-track tape recorder",
         "thumbnailFilename": "2020-05-10-00",
-        "link": {
-            "url": "https://www.instagram.com/p/CABZIKGh_dt/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/CABZIKGh_dt/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020050900",
         "copyright": true,
         "timestamp": 1588982400000,
-        "title": {
-            "no": "Vrengkeytar",
-            "en": "Distortion keytar"
-        },
+        "title": { "no": "Vrengkeytar", "en": "Distortion keytar" },
         "content": {
             "no": "Innspilling av solo med [Roland AX-1 keytar](equipment/instruments/roland-ax-1/), vrengbokser og rørforsterkere 🎹🤠🦄📼🔊",
             "en": "Recording a solo with a [Roland AX-1 keytar](equipment/instruments/roland-ax-1/), overdrive pedals and tube amplifiers 🎹🤠🦄📼🔊"
         },
         "thumbnailDescription": "A Roland AX-1 being played",
         "thumbnailFilename": "2020-05-09-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B_-vosvAFuD/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B_-vosvAFuD/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020050800",
@@ -1723,10 +1327,7 @@
                 "no": "videos/lene-nevisdal-give-me-a-smile-joe/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
@@ -1748,55 +1349,34 @@
                 "no": "videos/haunted-by-silhouettes-track-by-track-undertow/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020042300",
         "copyright": true,
         "timestamp": 1587600000000,
-        "title": {
-            "no": "Innspilling av forskjellige Mellotron spor",
-            "en": "Layering Mellotron tracks"
-        },
+        "title": { "no": "Innspilling av forskjellige Mellotron spor", "en": "Layering Mellotron tracks" },
         "content": {
             "no": "Innspilling av fioliner, cello, gitar, vibrafon og pauker med [Mellotron M4000D](equipment/instruments/mellotron-m4000d/) 🎻🥁🎸🎹",
             "en": "Adding violins, cello, guitar, vibraphone and timpani track with the [Mellotron M4000D](equipment/instruments/mellotron-m4000d/) 🎻🥁🎸🎹"
         },
         "thumbnailDescription": "A Mellotron M4000D being played",
         "thumbnailFilename": "2020-04-23-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B_Vq3slFbRc/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B_Vq3slFbRc/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020042200",
         "copyright": true,
         "timestamp": 1587513600000,
-        "title": {
-            "no": "Innspilling av harmonium og piano",
-            "en": "Recording harmonium and piano"
-        },
+        "title": { "no": "Innspilling av harmonium og piano", "en": "Recording harmonium and piano" },
         "content": {
             "no": "Innspilling av [Yamaha L20-D harmonium](equipment/instruments/yamaha-l-20d/) og [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) 🎹",
             "en": "Recording the [Yamaha L20-D harmonium](equipment/instruments/yamaha-l-20d/) and [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) 🎹"
         },
         "thumbnailDescription": "A Yamaha L20-D harmonium being played",
         "thumbnailFilename": "2020-04-22-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B_S-HXYhQCd/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B_S-HXYhQCd/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020042101",
@@ -1818,10 +1398,7 @@
                 "no": "videos/roland-dimension-d-sdd-320-med-dreadbox-erebus-v2/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
@@ -1838,13 +1415,7 @@
         },
         "thumbnailDescription": "A Louis Zwicki Pianette miced with a stereo pait of AKG C451E",
         "thumbnailFilename": "2020-04-21-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B_OCTBJllCD/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B_OCTBJllCD/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020041700",
@@ -1865,20 +1436,14 @@
                 "no": "videos/haunted-by-silhouettes-track-by-track-deadlock/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020041600",
         "copyright": true,
         "timestamp": 1586995200000,
-        "title": {
-            "no": "Ny synth - Dreadbox Erebus v2",
-            "en": "New synth - Dreadbox Erebus v2"
-        },
+        "title": { "no": "Ny synth - Dreadbox Erebus v2", "en": "New synth - Dreadbox Erebus v2" },
         "content": {
             "no": "Kjapp testing av nyinnkjøpt [Dreadbox Erebus v2 analog paraphonic synthesizer](equipment/instruments/dreadbox-erebus-v2/)",
             "en": "Quick test of my newly purchased [Dreadbox Erebus v2 analog paraphonic synthesizer](equipment/instruments/dreadbox-erebus-v2/)"
@@ -1886,46 +1451,28 @@
         "thumbnailDescription": "A Dreadbox Erebus synthesizer being played",
         "thumbnailFilename": "2020-04-16-00",
         "link": {
-            "url": {
-                "en": "videos/dreadbox-erebus-v2/",
-                "no": "videos/dreadbox-erebus-v2/"
-            },
+            "url": { "en": "videos/dreadbox-erebus-v2/", "no": "videos/dreadbox-erebus-v2/" },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020040400",
         "copyright": true,
         "timestamp": 1585958400000,
-        "title": {
-            "no": "Piano med snurreforsterker",
-            "en": "Piano through a rotary speaker"
-        },
+        "title": { "no": "Piano med snurreforsterker", "en": "Piano through a rotary speaker" },
         "content": {
             "no": "Tester ut [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) med en [Solton Dopplertone](equipment/amplifiers/solton-dopplertone/) 🎹🔄📢",
             "en": "Testing out the [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) through a [Solton Dopplertone](equipment/amplifiers/solton-dopplertone/) 🎹🔄📢"
         },
         "thumbnailDescription": "Solton Dopplertone rotary speaker",
         "thumbnailFilename": "2020-04-04-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B-karVClzzn/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B-karVClzzn/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020040300",
         "timestamp": 1585872000000,
-        "title": {
-            "no": "Ny serie fra Haunted By Silhouettes",
-            "en": "New series from Haunted By Silhouettes"
-        },
+        "title": { "no": "Ny serie fra Haunted By Silhouettes", "en": "New series from Haunted By Silhouettes" },
         "content": {
             "no": "Sjekk ut første episode av serien Track By Track fra Haunted By Silhouettes.\nHer viser de blandt annet marsvin- og tangentspora jeg fikk æren av å legge på låta 'The Last Day on Earth' 🐹🤘",
             "en": "Check out the first episode of the Track By Track series from Haunted By Silhouettes.\nIn this episode you can hear guinea pig noises and the keyboard tracks I got the honor of playing on the song 'The Last Day on Earth' 🐹🤘"
@@ -1938,10 +1485,7 @@
                 "no": "videos/haunted-by-silhouettes-track-by-track-the-last-day-on-earth/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
@@ -1958,25 +1502,16 @@
         "thumbnailDescription": "Album cover for the single \"Can You See Me\" by 2020 Vision",
         "thumbnailFilename": "2020-04-01-00",
         "link": {
-            "url": {
-                "en": "portfolio/2020-vision-can-you-see-me/",
-                "no": "portfolio/2020-vision-can-you-see-me/"
-            },
+            "url": { "en": "portfolio/2020-vision-can-you-see-me/", "no": "portfolio/2020-vision-can-you-see-me/" },
             "internal": true,
-            "text": {
-                "en": "Listen to Can You See Me",
-                "no": "Lytt til Can You See Me"
-            }
+            "text": { "en": "Listen to Can You See Me", "no": "Lytt til Can You See Me" }
         }
     },
     {
         "id": "2020032800",
         "copyright": true,
         "timestamp": 1585353600000,
-        "title": {
-            "no": "Min favoritt belysning",
-            "en": "My favorite kind of candles"
-        },
+        "title": { "no": "Min favoritt belysning", "en": "My favorite kind of candles" },
         "content": {
             "no": "Rør i AO-28 forforsterkeren inne i [Hammond C3-orgelet](equipment/instruments/hammond-c3/) ✨💡",
             "en": "Vacuum Tubes in the AO-28 pre-amp inside the [Hammond C3 organ](equipment/instruments/hammond-c3/) ✨💡"
@@ -1988,10 +1523,7 @@
         "id": "2020032700",
         "copyright": true,
         "timestamp": 1585267200000,
-        "title": {
-            "no": "Bånn gass",
-            "en": "It might get loud"
-        },
+        "title": { "no": "Bånn gass", "en": "It might get loud" },
         "content": {
             "no": "[Leslie 122 forsterker](equipment/amplifiers/leslie-122/) med volum på fullt 😎📢",
             "en": "Maxing out the [Leslie 122 amplifier](equipment/amplifiers/leslie-122/) 😎📢"
@@ -2003,10 +1535,7 @@
         "id": "2020031401",
         "copyright": true,
         "timestamp": 1584144000000,
-        "title": {
-            "no": "Innspilling av Korg MS-20 arpeggioer",
-            "en": "Recording Korg MS-20 arpeggios"
-        },
+        "title": { "no": "Innspilling av Korg MS-20 arpeggioer", "en": "Recording Korg MS-20 arpeggios" },
         "content": {
             "no": "Innspilling av arpeggioer med en [Korg MS-20](equipment/instruments/korg-ms-20/) synth, analog ekko og fjærklang\nNotene kommer som MIDI signal fra Logic og gjort om til styrespenning med en [Korg SQ-1](equipment/instruments/korg-sq-1/)",
             "en": "Recording some arpeggios with the [Korg MS-20](equipment/instruments/korg-ms-20/) synthesizer, analog delay and spring reverb\nThe notes are coming from Logic as MIDI signal and converted into control voltage with a [Korg SQ-1](equipment/instruments/korg-sq-1/)"
@@ -2019,77 +1548,47 @@
                 "no": "videos/korg-ms-20-arpeggioer-med-logic-og-korg-sq-1/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020031400",
         "copyright": true,
         "timestamp": 1584144000000,
-        "title": {
-            "no": "Clavinet med wah-pedal",
-            "en": "Clavinet with wah-pedal"
-        },
+        "title": { "no": "Clavinet med wah-pedal", "en": "Clavinet with wah-pedal" },
         "content": {
             "no": "Innspilling av [Clavinet D6](equipment/instruments/hohner-clavinet-d6/) med [Real McCoy Custom Picture Wah](equipment/effects/real-mccoy-custom-picture-wah/) og [ProCo Rat vreng](equipment/effects/pro-co-rat-2/)",
             "en": "Recording [Clavinet D6](equipment/instruments/hohner-clavinet-d6/) with [Real McCoy Custom Picture Wah](equipment/effects/real-mccoy-custom-picture-wah/) and [ProCo Rat distortion](equipment/effects/pro-co-rat-2/)"
         },
         "thumbnailDescription": "Effects pedals",
         "thumbnailFilename": "2020-03-14-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B9tVPHUFD4f/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B9tVPHUFD4f/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020030801",
         "copyright": true,
         "timestamp": 1583625600000,
-        "title": {
-            "no": "Tangentpålegg",
-            "en": "Layering keyboard tracks"
-        },
+        "title": { "no": "Tangentpålegg", "en": "Layering keyboard tracks" },
         "content": {
             "no": "Pålegg av forskjellige tangentinstrumenter i Logic 🎹🎹🎹",
             "en": "Layering different keyboard instruments in Logic 🎹🎹🎹"
         },
         "thumbnailDescription": "Computer screen with Logic session",
         "thumbnailFilename": "2020-03-08-01",
-        "link": {
-            "url": "https://www.instagram.com/p/B9fKf_hFYgs/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B9fKf_hFYgs/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020030800",
         "copyright": true,
         "timestamp": 1583625600000,
-        "title": {
-            "no": "Innspilling av tonehjulsorgel",
-            "en": "Recording the tonewheel organ"
-        },
+        "title": { "no": "Innspilling av tonehjulsorgel", "en": "Recording the tonewheel organ" },
         "content": {
             "no": "Innspilling av [Hammond C3 tonehjulsorgel](equipment/instruments/hammond-c3/) med [Leslie 122](equipment/amplifiers/leslie-122/) 🎹📢🔄",
             "en": "Recording the [Hammond C3 tonewheel organ](equipment/instruments/hammond-c3/) with [Leslie 122](equipment/amplifiers/leslie-122/) 🎹📢🔄"
         },
         "thumbnailDescription": "Hammond C3 tonewheel organ with Leslie 122",
         "thumbnailFilename": "2020-03-08-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B9eixyfFo34/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B9eixyfFo34/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020030601",
@@ -2110,10 +1609,7 @@
                 "no": "videos/thomas-tveiten-daa-e-det-verdt-det/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
@@ -2135,20 +1631,14 @@
                 "no": "portfolio/thomas-tveiten-daa-e-det-verdt-det/"
             },
             "internal": true,
-            "text": {
-                "en": "Listen to Då E Det Verdt Det",
-                "no": "Lytt til Då E Det Verdt Det"
-            }
+            "text": { "en": "Listen to Då E Det Verdt Det", "no": "Lytt til Då E Det Verdt Det" }
         }
     },
     {
         "id": "2020022400",
         "copyright": true,
         "timestamp": 1582502400000,
-        "title": {
-            "no": "Yamaha YC-25D med effektpedaler",
-            "en": "Yamaha YC-25D with effects pedals"
-        },
+        "title": { "no": "Yamaha YC-25D med effektpedaler", "en": "Yamaha YC-25D with effects pedals" },
         "content": {
             "no": "Romskiplyder med [Yamaha YC-25D](equipment/instruments/yamaha-yc-25d/) og effektpedaler 🚀🛸",
             "en": "Spaceship sounds with the [Yamaha YC-25D](equipment/instruments/yamaha-yc-25d/) and effects pedals 🚀🛸"
@@ -2161,19 +1651,13 @@
                 "no": "videos/yamaha-yc-25d-med-effektpedaler/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020021400",
         "timestamp": 1581667200000,
-        "title": {
-            "no": "Ny utgivelse - Tåkemann av Esben Meyer",
-            "en": "New release - Tåkemann by Esben Meyer"
-        },
+        "title": { "no": "Ny utgivelse - Tåkemann av Esben Meyer", "en": "New release - Tåkemann by Esben Meyer" },
         "content": {
             "no": "Tåkemann av Esben Meyer er ute!\nKanontøff låt hvor jeg har fått lekt meg med litt forskjellige tangentinstrumenter 😀",
             "en": "Tåkemann by Esben Meyer is out!\nI've had a fun time experimenting with various keyboard instruments on this one 😀"
@@ -2181,15 +1665,9 @@
         "thumbnailDescription": "Album cover for the single \"Tåkemann\" by Esben Meyer",
         "thumbnailFilename": "2020-02-14-00",
         "link": {
-            "url": {
-                "en": "portfolio/esben-meyer-taakemann/",
-                "no": "portfolio/esben-meyer-taakemann/"
-            },
+            "url": { "en": "portfolio/esben-meyer-taakemann/", "no": "portfolio/esben-meyer-taakemann/" },
             "internal": true,
-            "text": {
-                "en": "Listen to Tåkemann",
-                "no": "Lytt til Tåkemann"
-            }
+            "text": { "en": "Listen to Tåkemann", "no": "Lytt til Tåkemann" }
         }
     },
     {
@@ -2211,20 +1689,14 @@
                 "no": "portfolio/lene-nevisdal-give-me-a-smile-joe/"
             },
             "internal": true,
-            "text": {
-                "en": "Listen to Give Me a Smile, Joe",
-                "no": "Lytt til Give Me a Smile, Joe"
-            }
+            "text": { "en": "Listen to Give Me a Smile, Joe", "no": "Lytt til Give Me a Smile, Joe" }
         }
     },
     {
         "id": "2020021100",
         "copyright": true,
         "timestamp": 1581379200000,
-        "title": {
-            "no": "Nytt orgel - Yamaha YC-25D",
-            "en": "New organ - Yamaha YC-25D"
-        },
+        "title": { "no": "Nytt orgel - Yamaha YC-25D", "en": "New organ - Yamaha YC-25D" },
         "content": {
             "no": "Har nettop skaffet meg et [Yamaha YC-25D combo-orgel](equipment/instruments/yamaha-yc-25d/) fra 70-tallet",
             "en": "I've just acquired this [Yamaha YC-25D combo organ](equipment/instruments/yamaha-yc-25d/) from the '70s'"
@@ -2235,10 +1707,7 @@
     {
         "id": "2020020200",
         "timestamp": 1580601600000,
-        "title": {
-            "no": "Piano som romklang-effekt til synth",
-            "en": "Piano as reverb for the synthesizer"
-        },
+        "title": { "no": "Piano som romklang-effekt til synth", "en": "Piano as reverb for the synthesizer" },
         "content": {
             "no": "Her brukes synthen [Korg MS-20](equipment/instruments/korg-ms-20/) med [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) som romklang-effekt 🎹🎛\nSynthen blir styrt av en [Korg SQ-1 step sequencer](equipment/instruments/korg-sq-1/)",
             "en": "Using the [Louis Zwicki Pianette](equipment/instruments/louis-zwicki-pianette/) as a reverb effect for the [Korg MS-20](equipment/instruments/korg-ms-20/) 🎹🎛\nThe MS-20 is triggered by the [Korg SQ-1 step sequencer](equipment/instruments/korg-sq-1/)"
@@ -2251,20 +1720,14 @@
                 "no": "videos/piano-som-klang-til-korg-ms-20/"
             },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2020012500",
         "copyright": true,
         "timestamp": 1579910400000,
-        "title": {
-            "no": "Stemmetid",
-            "en": "Tuning time"
-        },
+        "title": { "no": "Stemmetid", "en": "Tuning time" },
         "content": {
             "no": "Stemming av [Pianette](equipment/instruments/louis-zwicki-pianette/) 🎹🔧",
             "en": "Tuning the [Pianette](equipment/instruments/louis-zwicki-pianette/) 🎹🔧"
@@ -2276,32 +1739,20 @@
         "id": "2020012000",
         "copyright": true,
         "timestamp": 1579478400000,
-        "title": {
-            "no": "Mer 80-tallsrock",
-            "en": "Some more '80s rock"
-        },
+        "title": { "no": "Mer 80-tallsrock", "en": "Some more '80s rock" },
         "content": {
             "no": "Litt mer klaviaturopptak for 80-talls rockelåt 🤠🤘",
             "en": "Another recording session with some '80s rock keyboards 🤠🤘"
         },
         "thumbnailDescription": "Fostex 4-track tape recorder",
         "thumbnailFilename": "2020-01-20-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B7jvEE5hBlK/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B7jvEE5hBlK/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2020011900",
         "copyright": true,
         "timestamp": 1579392000000,
-        "title": {
-            "no": "Innspilling av Yamaha DX7",
-            "en": "Recording Yamaha DX7"
-        },
+        "title": { "no": "Innspilling av Yamaha DX7", "en": "Recording Yamaha DX7" },
         "content": {
             "no": "Det er ikke rock 'n' roll før man fyrer igang \"Koto\"-lyden 🇯🇵🤘",
             "en": "It's not rock 'n' roll until you fire up the \"Koto\" patch 🇯🇵🤘"
@@ -2313,10 +1764,7 @@
         "id": "2020011500",
         "copyright": true,
         "timestamp": 1579046400000,
-        "title": {
-            "no": "Ny synth i posten",
-            "en": "New Synth Day"
-        },
+        "title": { "no": "Ny synth i posten", "en": "New Synth Day" },
         "content": {
             "no": "[Vocoder VC340](equipment/instruments/behringer-vocoder-vc340/) 🎹\nNå blir det bare robotmusikk fremover 🤖",
             "en": "[Vocoder VC340](equipment/instruments/behringer-vocoder-vc340/) 🎹\nTime to make some robot music 🤖"
@@ -2328,32 +1776,20 @@
         "id": "2020011400",
         "copyright": true,
         "timestamp": 1578960000000,
-        "title": {
-            "no": "Innspilling av 80-tallsrock",
-            "en": "Recording '80s rock"
-        },
+        "title": { "no": "Innspilling av 80-tallsrock", "en": "Recording '80s rock" },
         "content": {
             "no": "Innspilling av klaviatur for 80-tallsrock 🎹📼🕹️",
             "en": "Recording keys for '80s rock 🎹📼🕹️"
         },
         "thumbnailDescription": "Effects pedals",
         "thumbnailFilename": "2020-01-14-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B7R4s7MhH1f/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B7R4s7MhH1f/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019121600",
         "copyright": true,
         "timestamp": 1576454400000,
-        "title": {
-            "no": "Synthgitar",
-            "en": "Synth Guitar"
-        },
+        "title": { "no": "Synthgitar", "en": "Synth Guitar" },
         "content": {
             "no": "[Korg MS-20](equipment/instruments/korg-ms-20/) ESP med [gitar](equipment/instruments/fender-stratocaster/) 🤠🤘🎹🎸",
             "en": "[Korg MS-20](equipment/instruments/korg-ms-20/) ESP with [guitar](equipment/instruments/fender-stratocaster/) 🤠🤘🎹🎸"
@@ -2361,25 +1797,16 @@
         "thumbnailDescription": "A red Fender Stratocaster being played",
         "thumbnailFilename": "2019-12-16-00",
         "link": {
-            "url": {
-                "en": "videos/korg-ms-20-esp-with-guitar/",
-                "no": "videos/korg-ms-20-esp-med-gitar/"
-            },
+            "url": { "en": "videos/korg-ms-20-esp-with-guitar/", "no": "videos/korg-ms-20-esp-med-gitar/" },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2019121500",
         "copyright": true,
         "timestamp": 1576368000000,
-        "title": {
-            "no": "Julestemning",
-            "en": "Christmas spirit"
-        },
+        "title": { "no": "Julestemning", "en": "Christmas spirit" },
         "content": {
             "no": "3. søndag i advent og tid for juleorgeltenning 🎹🎄",
             "en": "Christmas Organ Lighting 🎹🎄"
@@ -2391,10 +1818,7 @@
         "id": "2019113000",
         "copyright": true,
         "timestamp": 1575072000000,
-        "title": {
-            "no": "Clavinet-opptak",
-            "en": "Recording Clavinet"
-        },
+        "title": { "no": "Clavinet-opptak", "en": "Recording Clavinet" },
         "content": {
             "no": "Opptak av [vrengklaviatur](equipment/instruments/hohner-clavinet-d6/) 🤠🤘",
             "en": "Recording fuzz [wah](equipment/effects/real-mccoy-custom-picture-wah/) [Clavinet](equipment/instruments/hohner-clavinet-d6/) 🤠🤘"
@@ -2402,24 +1826,15 @@
         "thumbnailDescription": "A Hohner Clavinet D6 instrument being played",
         "thumbnailFilename": "2019-11-30-00",
         "link": {
-            "url": {
-                "en": "videos/clavinet-d6-solo/",
-                "no": "videos/clavinet-d6-solo/"
-            },
+            "url": { "en": "videos/clavinet-d6-solo/", "no": "videos/clavinet-d6-solo/" },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2019112200",
         "timestamp": 1574380800000,
-        "title": {
-            "no": "Ny låt fra The White Devil",
-            "en": "New release by The White Devil"
-        },
+        "title": { "no": "Ny låt fra The White Devil", "en": "New release by The White Devil" },
         "content": {
             "no": "I dag har The White Devil sluppet ut en frekk cowboyshanty-versjon av Get Lucky 🍾👯‍♂️\nJeg har fått æren av å snike inn noen [skrekkspill](equipment/instruments/carola-dragspel-3-koerigt/)-riff og diverse instrumentklimpringer på denne 😎\nNå er det bare å få på seg gamasjene og danse helga igang!",
             "en": "Today The White Devil released a cowboy shanty version of Get Lucky 🍾👯‍♂️\nI've had the honor to play some [accordion](equipment/instruments/carola-dragspel-3-koerigt/) riffs and various instruments on this one 😎"
@@ -2427,29 +1842,17 @@
         "thumbnailDescription": "Album cover for the single \"Get Lucky\" by The White Devil",
         "thumbnailFilename": "2019-11-22-00",
         "link": {
-            "url": {
-                "en": "portfolio/the-white-devil-get-lucky/",
-                "no": "portfolio/the-white-devil-get-lucky/"
-            },
+            "url": { "en": "portfolio/the-white-devil-get-lucky/", "no": "portfolio/the-white-devil-get-lucky/" },
             "internal": true,
-            "text": {
-                "en": "Listen to Get Lucky",
-                "no": "Lytt til Get Lucky"
-            }
+            "text": { "en": "Listen to Get Lucky", "no": "Lytt til Get Lucky" }
         }
     },
     {
         "id": "2019112000",
         "copyright": true,
         "timestamp": 1574208000000,
-        "title": {
-            "no": "Dehli Musikk skilt",
-            "en": "Dehli Musikk sign"
-        },
-        "content": {
-            "no": "Fikk skilt i posten i dag 😃🕴️🚧🎹",
-            "en": "Got my business sign today 😃🕴️🚧🎹"
-        },
+        "title": { "no": "Dehli Musikk skilt", "en": "Dehli Musikk sign" },
+        "content": { "no": "Fikk skilt i posten i dag 😃🕴️🚧🎹", "en": "Got my business sign today 😃🕴️🚧🎹" },
         "thumbnailDescription": "Sign with Dehli Musikk logo on house wall",
         "thumbnailFilename": "2019-11-20-00"
     },
@@ -2457,35 +1860,20 @@
         "id": "2019111700",
         "copyright": true,
         "timestamp": 1573948800000,
-        "title": {
-            "no": "Twin Peaks",
-            "en": "Twin Peaks"
-        },
-        "content": {
-            "no": "Coverversjon av Twin Peaks Theme ⛰⛰☕️",
-            "en": "Coverversion of Twin Peaks Theme ⛰⛰☕️"
-        },
+        "title": { "no": "Twin Peaks", "en": "Twin Peaks" },
+        "content": { "no": "Coverversjon av Twin Peaks Theme ⛰⛰☕️", "en": "Coverversion of Twin Peaks Theme ⛰⛰☕️" },
         "thumbnailDescription": "Fender Rhodes piano being played",
         "thumbnailFilename": "2019-11-17-00",
         "link": {
-            "url": {
-                "en": "videos/twin-peaks-theme-cover/",
-                "no": "videos/twin-peaks-theme-cover/"
-            },
+            "url": { "en": "videos/twin-peaks-theme-cover/", "no": "videos/twin-peaks-theme-cover/" },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2019111200",
         "timestamp": 1573516800000,
-        "title": {
-            "no": "Ny låt fra Spinning Wheels Band",
-            "en": "New release by Spinning Wheels Band"
-        },
+        "title": { "no": "Ny låt fra Spinning Wheels Band", "en": "New release by Spinning Wheels Band" },
         "content": {
             "no": "Rykende fersk låt fra Spinning Wheels Band!\nHar fått æren av å klimpre på [orgel](equipment/instruments/hammond-c3/) og [clavinet](equipment/instruments/hohner-clavinet-d6/) på denna go'låta 😎\nKnalldyktige karer med produsent Halvor Halvorsen bak spakene og musikere fra bandet til Brad Paisley 😃👍",
             "en": "New release by Spinning Wheels Band!\nI got the honor to play the [organ](equipment/instruments/hammond-c3/) and [clavinet](equipment/instruments/hohner-clavinet-d6/) on this one 😎\nSuper talented guys with producer Halvor Halvorsen behind the faders and musicians from Brad Paisley's band 😃👍"
@@ -2498,42 +1886,27 @@
                 "no": "portfolio/spinning-wheels-band-randle-currie-and-justin-williamson-back-when/"
             },
             "internal": true,
-            "text": {
-                "en": "Listen to Back When",
-                "no": "Lytt til Back When"
-            }
+            "text": { "en": "Listen to Back When", "no": "Lytt til Back When" }
         }
     },
     {
         "id": "2019111000",
         "copyright": true,
         "timestamp": 1573344000000,
-        "title": {
-            "no": "Kassettinnspilling av piano og Mellotron",
-            "en": "Recording piano and Mellotron to 4-track"
-        },
+        "title": { "no": "Kassettinnspilling av piano og Mellotron", "en": "Recording piano and Mellotron to 4-track" },
         "content": {
             "no": "[Piano](equipment/instruments/louis-zwicki-pianette/) og [Mellotron](equipment/instruments/mellotron-m4000d/)-fløyter spilt av fra kassett i halv hastighet 🐇🐢📼🎹",
             "en": "[Piano](equipment/instruments/louis-zwicki-pianette/) and [Mellotron](equipment/instruments/mellotron-m4000d/) flutes at half speed 🐇🐢📼🎹"
         },
         "thumbnailDescription": "A piano and a Mellotron being played",
         "thumbnailFilename": "2019-11-10-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B4s7gxYHPuN/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B4s7gxYHPuN/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019110800",
         "copyright": true,
         "timestamp": 1573171200000,
-        "title": {
-            "no": "Tid for vedlikehold",
-            "en": "Maintenance time"
-        },
+        "title": { "no": "Tid for vedlikehold", "en": "Maintenance time" },
         "content": {
             "no": "[Clavinet'en](equipment/instruments/hohner-clavinet-d6/) trengte en service",
             "en": "The [Clavinet](equipment/instruments/hohner-clavinet-d6/) was in need for a service"
@@ -2545,10 +1918,7 @@
         "id": "2019110200",
         "copyright": true,
         "timestamp": 1572652800000,
-        "title": {
-            "no": "Pianoinnspilling",
-            "en": "Recording piano"
-        },
+        "title": { "no": "Pianoinnspilling", "en": "Recording piano" },
         "content": {
             "no": "Innspilling av [Pianette](equipment/instruments/louis-zwicki-pianette/) på Cassette 📼🎹",
             "en": "Recording \"lo-fi\" [piano](equipment/instruments/louis-zwicki-pianette/) 📼🎹"
@@ -2560,32 +1930,20 @@
         "id": "2019102700",
         "copyright": true,
         "timestamp": 1572134400000,
-        "title": {
-            "no": "Testing av nyinnkjøpt piano",
-            "en": "Testing the new piano"
-        },
+        "title": { "no": "Testing av nyinnkjøpt piano", "en": "Testing the new piano" },
         "content": {
             "no": "[Pianoet](equipment/instruments/louis-zwicki-pianette/) trenger definitivt litt justeringer og stemming, men det låter stort til å være så lite 😃",
             "en": "It definitely needs some tuning and damper adjustments, but this small [piano](equipment/instruments/louis-zwicki-pianette/) sounds big 😃"
         },
         "thumbnailDescription": "Piano with a mid-century design being played",
         "thumbnailFilename": "2019-10-27-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B4GSSbeHD0U/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B4GSSbeHD0U/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019102500",
         "copyright": true,
         "timestamp": 1571961600000,
-        "title": {
-            "no": "Nytt piano",
-            "en": "New piano"
-        },
+        "title": { "no": "Nytt piano", "en": "New piano" },
         "content": {
             "no": "Lite og fjongt [50-talls piano fra Danmark](equipment/instruments/louis-zwicki-pianette/) er på plass 😃🎹🇩🇰",
             "en": "I've just acquired this [Danish mid-century beauty](equipment/instruments/louis-zwicki-pianette/) 😃🎹🇩🇰"
@@ -2597,76 +1955,46 @@
         "id": "2019102000",
         "copyright": true,
         "timestamp": 1571529600000,
-        "title": {
-            "no": "Kassettinnspilling",
-            "en": "Recording to tape"
-        },
+        "title": { "no": "Kassettinnspilling", "en": "Recording to tape" },
         "content": {
             "no": "Innspilling av et par Twin Peaks melodier med litt båndvreng 📼⛰️⛰️",
             "en": "Recording a couple of Twin Peaks melodies with some tape saturation 📼⛰️⛰️"
         },
         "thumbnailDescription": "Tape recorder with cassette tape",
         "thumbnailFilename": "2019-10-20-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B32OYGCnY51/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B32OYGCnY51/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019101200",
         "copyright": true,
         "timestamp": 1570838400000,
-        "title": {
-            "no": "Trekkspillsynthmaskin",
-            "en": "Accordionsyntesizermachine"
-        },
+        "title": { "no": "Trekkspillsynthmaskin", "en": "Accordionsyntesizermachine" },
         "content": {
             "no": "Hvorfor dra på fest når man kan bli hjemme å spille på [trekkspillsynthmaskinen](equipment/instruments/carola-dragspel-3-koerigt/) 🤠",
             "en": "Why go out partying when you can stay home and play the [accordionsyntesizermachine](equipment/instruments/carola-dragspel-3-koerigt/) 🤠"
         },
         "thumbnailDescription": "An accordion being played",
         "thumbnailFilename": "2019-10-12-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B3iKAd6hKxU/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B3iKAd6hKxU/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019100100",
         "copyright": true,
         "timestamp": 1569888000000,
-        "title": {
-            "no": "Twin Peaks på Clavinet og Rhodes",
-            "en": "Twin Peaks with Clavinet and Rhodes"
-        },
+        "title": { "no": "Twin Peaks på Clavinet og Rhodes", "en": "Twin Peaks with Clavinet and Rhodes" },
         "content": {
             "no": "Twin Peaks Theme på [Hohner Clavinet D6](equipment/instruments/hohner-clavinet-d6/) og [Rhodes Mark I Stage Piano](equipment/instruments/rhodes-mark-i-stage-piano/)",
             "en": "Twin Peaks Theme on [Hohner Clavinet D6](equipment/instruments/hohner-clavinet-d6/) and [Rhodes Mark I Stage Piano](equipment/instruments/rhodes-mark-i-stage-piano/)"
         },
         "thumbnailDescription": "A Clavinet and a Rhodes Piano being played",
         "thumbnailFilename": "2019-10-01-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B3FyA13Hamz/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B3FyA13Hamz/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019092100",
         "copyright": true,
         "timestamp": 1569024000000,
-        "title": {
-            "no": "Lyddesign med Mellotron",
-            "en": "Sound design with the Mellotron"
-        },
+        "title": { "no": "Lyddesign med Mellotron", "en": "Sound design with the Mellotron" },
         "content": {
             "no": "Lager romskiplyder med [Mellotron M4000D](equipment/instruments/mellotron-m4000d/) og effektpedaler 🤠🚀",
             "en": "Making spaceship sounds with the [Mellotron M4000D](equipment/instruments/mellotron-m4000d/) and effects pedals 🤠🚀"
@@ -2678,10 +2006,7 @@
         "id": "2019091801",
         "copyright": true,
         "timestamp": 1568764800000,
-        "title": {
-            "no": "Testing av Korg Polysix",
-            "en": "Testing the Korg Polysix"
-        },
+        "title": { "no": "Testing av Korg Polysix", "en": "Testing the Korg Polysix" },
         "content": {
             "no": "Kjapp testkjøring av [Korg Polysix](equipment/instruments/korg-polysix/) 😊",
             "en": "Quick test run of the [Korg Polysix](equipment/instruments/korg-polysix/) 😊"
@@ -2689,25 +2014,16 @@
         "thumbnailDescription": "A Korg Polisix being played",
         "thumbnailFilename": "2019-09-18-01",
         "link": {
-            "url": {
-                "en": "videos/korg-polysix-test-run/",
-                "no": "videos/testkjoering-av-korg-polysix/"
-            },
+            "url": { "en": "videos/korg-polysix-test-run/", "no": "videos/testkjoering-av-korg-polysix/" },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
         "id": "2019091800",
         "copyright": true,
         "timestamp": 1568764800000,
-        "title": {
-            "no": "Ny synth - Korg Polysix",
-            "en": "New synth - Korg Polysix"
-        },
+        "title": { "no": "Ny synth - Korg Polysix", "en": "New synth - Korg Polysix" },
         "content": {
             "no": "Kjøpte en [bursdagsgave](equipment/instruments/korg-polysix/) til meg selv 😁",
             "en": "Bought myself a [birthday present](equipment/instruments/korg-polysix/) 😁"
@@ -2719,10 +2035,7 @@
         "id": "2019091600",
         "copyright": true,
         "timestamp": 1568592000000,
-        "title": {
-            "no": "A Saucerful of Secrets",
-            "en": "A Saucerful of Secrets"
-        },
+        "title": { "no": "A Saucerful of Secrets", "en": "A Saucerful of Secrets" },
         "content": {
             "no": "Tester ut den nyfiksede [Logan String Melody II](equipment/instruments/logan-string-melody-ii/) med noen akkorder fra \"A Saucerful of Secrets\" av Pink Floyd 🎹🦄",
             "en": "Testing the newly maintained [Logan String Melody II](equipment/instruments/logan-string-melody-ii/) with some chords from \"A Saucerful of Secrets\" by Pink Floyd 🎹🦄"
@@ -2730,15 +2043,9 @@
         "thumbnailDescription": "Close-up shot of the Logan / Hohner String Melody string synthesizer",
         "thumbnailFilename": "2019-09-16-00",
         "link": {
-            "url": {
-                "en": "videos/logan-hohner-string-melody-ii/",
-                "no": "videos/logan-hohner-string-melody-ii/"
-            },
+            "url": { "en": "videos/logan-hohner-string-melody-ii/", "no": "videos/logan-hohner-string-melody-ii/" },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         },
         "lastmod": 1700780400000
     },
@@ -2746,10 +2053,7 @@
         "id": "2019091400",
         "copyright": true,
         "timestamp": 1568419200000,
-        "title": {
-            "no": "Vedlikehold av Logan String Melody",
-            "en": "Logan String Melody maintenance"
-        },
+        "title": { "no": "Vedlikehold av Logan String Melody", "en": "Logan String Melody maintenance" },
         "content": {
             "no": "[String Melody'en](equipment/instruments/logan-string-melody-ii/) trengte litt pleie 🤕\nSkitne fadere og en tangent uten lyd 👨‍🏭",
             "en": "The [String Melody](equipment/instruments/logan-string-melody-ii/) needed some TLC 🤕\nDirty faders and a stuck j-wire in the busbar👨‍🏭"
@@ -2761,10 +2065,7 @@
         "id": "2019090800",
         "copyright": true,
         "timestamp": 1567900800000,
-        "title": {
-            "no": "Innspilling av Clavinet",
-            "en": "Recording the Clavinet"
-        },
+        "title": { "no": "Innspilling av Clavinet", "en": "Recording the Clavinet" },
         "content": {
             "no": "Innspilling av [Hohner Clavinet D6](equipment/instruments/hohner-clavinet-d6/) med effektpedaler 🎹👯🦄‍",
             "en": "Recording the [Hohner Clavinet D6](equipment/instruments/hohner-clavinet-d6/) with effects pedals 🎹👯🦄"
@@ -2791,20 +2092,14 @@
                 "no": "portfolio/haunted-by-silhouettes-the-last-day-on-earth/"
             },
             "internal": true,
-            "text": {
-                "en": "Listen to The Last Day on Earth",
-                "no": "Lytt til The Last Day on Earth"
-            }
+            "text": { "en": "Listen to The Last Day on Earth", "no": "Lytt til The Last Day on Earth" }
         }
     },
     {
         "id": "2019081100",
         "copyright": true,
         "timestamp": 1565481600000,
-        "title": {
-            "no": "Røykvarslerpedal",
-            "en": "Smoke detector pedal"
-        },
+        "title": { "no": "Røykvarslerpedal", "en": "Smoke detector pedal" },
         "content": {
             "no": "[Hjemmelaget Dallas Rangemaster Treble Booster klone](equipment/effects/dehli-musikk-smoke-booster/) i en røyvarsler 👨‍🚒🎛️",
             "en": "[Home made Dallas Rangemaster Treble Booster clone](equipment/effects/dehli-musikk-smoke-booster/) in a smoke detector enclosure 👨‍🚒🎛️"
@@ -2826,110 +2121,65 @@
         },
         "thumbnailDescription": "A Fender Rhodes MKI electric piano being played",
         "thumbnailFilename": "2019-08-05-00",
-        "link": {
-            "url": "https://youtu.be/rZ5D-5CRkZg",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://youtu.be/rZ5D-5CRkZg", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019080300",
         "copyright": true,
         "timestamp": 1564790400000,
-        "title": {
-            "no": "Tester min nye Arturia DrumBrute",
-            "en": "Testing my new Arturia DrumBrute"
-        },
+        "title": { "no": "Tester min nye Arturia DrumBrute", "en": "Testing my new Arturia DrumBrute" },
         "content": {
             "no": "Synkroniserer [Arturia DrumBrute](equipment/instruments/arturia-drumbrute/) med [Korg MS-20](equipment/instruments/korg-ms-20/) og [Korg SQ-1](equipment/instruments/korg-sq-1/) 🎛️🥁🎹",
             "en": "Syncing [Arturia DrumBrute](equipment/instruments/arturia-drumbrute/) with [Korg MS-20](equipment/instruments/korg-ms-20/) and [Korg SQ-1](equipment/instruments/korg-sq-1/) 🎛️🥁🎹"
         },
         "thumbnailDescription": "An Arturia DrumBrute drum machine and a Korg MS-20 synthesizer",
         "thumbnailFilename": "2019-08-03-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B0tacZ0Ifz5/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B0tacZ0Ifz5/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019073100",
         "copyright": true,
         "timestamp": 1564531200000,
-        "title": {
-            "no": "Innspilling av orgel",
-            "en": "Recording the organ"
-        },
+        "title": { "no": "Innspilling av orgel", "en": "Recording the organ" },
         "content": {
             "no": "Varmer opp [Hammond C3-orgelet](equipment/instruments/hammond-c3/) før innspilling 🤠🎹",
             "en": "Warming up the [Hammond C3](equipment/instruments/hammond-c3/) for some recording 🤠🎹"
         },
         "thumbnailDescription": "A Hammond C3 tonewheel organ being played",
         "thumbnailFilename": "2019-07-31-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B0l6kiYIkvi/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B0l6kiYIkvi/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019072300",
         "copyright": true,
         "timestamp": 1563840000000,
-        "title": {
-            "no": "Led clipping fuzz boost effektpedal",
-            "en": "Led clipping fuzz boost effects pedal"
-        },
+        "title": { "no": "Led clipping fuzz boost effektpedal", "en": "Led clipping fuzz boost effects pedal" },
         "content": {
             "no": "[Hjemmelaget effektpedal](equipment/effects/dehli-musikk-fuzz-boost-limiter/) med LED clipping, volum boost og oktav fuzz.\nBoost-kretsen er basert på en Electro Harmonix LPB-1",
             "en": "[Home made an effects pedal](equipment/effects/dehli-musikk-fuzz-boost-limiter/) with LED clipping, volume boost and octave fuzz,\nThe boost circuit is based of an Electro Harmonix LPB-1"
         },
         "thumbnailDescription": "Home made effects pedal",
         "thumbnailFilename": "2019-07-23-00",
-        "link": {
-            "url": "https://www.instagram.com/p/B0PE5TEIfrY/",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://www.instagram.com/p/B0PE5TEIfrY/", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019072101",
         "copyright": true,
         "timestamp": 1563667200000,
-        "title": {
-            "no": "Fender Rhodes og Korg MS-20",
-            "en": "Fender Rhodes and Korg MS-20"
-        },
+        "title": { "no": "Fender Rhodes og Korg MS-20", "en": "Fender Rhodes and Korg MS-20" },
         "content": {
             "no": "En liten videosnutt av [Korg MS-20](equipment/instruments/korg-ms-20/) og [Fender Rhodes MKI](equipment/instruments/rhodes-mark-i-stage-piano/) tatt opp på kassett",
             "en": "I recorded a short live jam to tape with [Korg MS-20](equipment/instruments/korg-ms-20/) and [Fender Rhodes MKI](equipment/instruments/rhodes-mark-i-stage-piano/)."
         },
         "thumbnailDescription": "A Fender Rhodes MKI electric piano with a Korg MS-20 synthesizer on top",
         "thumbnailFilename": "2019-07-21-01",
-        "link": {
-            "url": "https://youtu.be/bXcYmN3bTME",
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
-        }
+        "link": { "url": "https://youtu.be/bXcYmN3bTME", "text": { "en": "Show video", "no": "Se video" } }
     },
     {
         "id": "2019072100",
         "copyright": true,
         "timestamp": 1563667200000,
-        "title": {
-            "no": "Vedlikehold av Korg MS-20",
-            "en": "Korg MS-20 maintenance"
-        },
+        "title": { "no": "Vedlikehold av Korg MS-20", "en": "Korg MS-20 maintenance" },
         "content": {
             "no": "Reparerer en ødelagt strømkabel på en [Korg MS-20](equipment/instruments/korg-ms-20/) 👷‍🛠️🎹",
             "en": "Repairing a broken power cord on the [Korg MS-20](equipment/instruments/korg-ms-20/) 👷‍🛠️🎹"
@@ -2941,10 +2191,7 @@
         "id": "2019062500",
         "copyright": true,
         "timestamp": 1561420800000,
-        "title": {
-            "no": "Fender-kroken",
-            "en": "The Fender corner"
-        },
+        "title": { "no": "Fender-kroken", "en": "The Fender corner" },
         "content": {
             "no": "[Fender Rhodes](equipment/instruments/rhodes-mark-i-stage-piano/), Fender Blender, [Fender Twin Reverb](equipment/amplifiers/fender-twin-reverb/) og [Fender Stratocaster](equipment/instruments/fender-stratocaster/)",
             "en": "[Fender Rhodes](equipment/instruments/rhodes-mark-i-stage-piano/), Fender Blender, [Fender Twin Reverb](equipment/amplifiers/fender-twin-reverb/) and [Fender Stratocaster](equipment/instruments/fender-stratocaster/)"
@@ -2966,15 +2213,9 @@
         "thumbnailDescription": "Snapshot from the music video for \"Deadlock\" by Haunted By Silhouettes",
         "thumbnailFilename": "2019-06-21-01",
         "link": {
-            "url": {
-                "en": "videos/haunted-by-silhouettes-deadlock/",
-                "no": "videos/haunted-by-silhouettes-deadlock/"
-            },
+            "url": { "en": "videos/haunted-by-silhouettes-deadlock/", "no": "videos/haunted-by-silhouettes-deadlock/" },
             "internal": true,
-            "text": {
-                "en": "Show video",
-                "no": "Se video"
-            }
+            "text": { "en": "Show video", "no": "Se video" }
         }
     },
     {
@@ -2996,20 +2237,14 @@
                 "no": "portfolio/haunted-by-silhouettes-deadlock/"
             },
             "internal": true,
-            "text": {
-                "en": "Listen to Deadlock",
-                "no": "Lytt til Deadlock"
-            }
+            "text": { "en": "Listen to Deadlock", "no": "Lytt til Deadlock" }
         }
     },
     {
         "id": "2019062000",
         "copyright": true,
         "timestamp": 1560988800000,
-        "title": {
-            "no": "Ny forsterker - Fender Twin Reverb",
-            "en": "New amp - Fender Twin Reverb"
-        },
+        "title": { "no": "Ny forsterker - Fender Twin Reverb", "en": "New amp - Fender Twin Reverb" },
         "content": {
             "no": "Har nettop fåt tak i en god gammal [tvillingklangforsterker](equipment/amplifiers/fender-twin-reverb/) 🍾👯",
             "en": "I've just acquired this good ol' [Twin Reverb amplifier](equipment/amplifiers/fender-twin-reverb/) 🍾👯"
@@ -3021,14 +2256,8 @@
         "id": "2019061600",
         "copyright": true,
         "timestamp": 1560643200000,
-        "title": {
-            "no": "Gledelig Pride-måned",
-            "en": "Happy Pride Month"
-        },
-        "content": {
-            "no": "🏳️‍🌈🌈❤️",
-            "en": "🏳️‍🌈🌈❤️"
-        },
+        "title": { "no": "Gledelig Pride-måned", "en": "Happy Pride Month" },
+        "content": { "no": "🏳️‍🌈🌈❤️", "en": "🏳️‍🌈🌈❤️" },
         "thumbnailDescription": "A Korg MS-20 synthesizer with rainbow colored patch cables",
         "thumbnailFilename": "2019-06-16-00"
     },
@@ -3037,10 +2266,7 @@
         "orderNumber": 0,
         "copyright": true,
         "timestamp": 1545346800000,
-        "title": {
-            "no": "Hjemmelaget kabinett for Mellotron M4000D",
-            "en": "Custom cabinet for the Mellotron M4000D"
-        },
+        "title": { "no": "Hjemmelaget kabinett for Mellotron M4000D", "en": "Custom cabinet for the Mellotron M4000D" },
         "content": {
             "no": "Endelig ferdig med å bygge en Mellotron M400-inspirert kasse for [Mellotron M4000D](equipment/instruments/mellotron-m4000d/).",
             "en": "The Mellotron M400-inspired cabinet for the [Mellotron M4000D](equipment/instruments/mellotron-m4000d/) is finally finished."
