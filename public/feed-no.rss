@@ -6,6 +6,14 @@
 <atom:link href="https://www.dehlimusikk.no/feed-no.rss" rel="self" type="application/rss+xml" />
 <description></description>
 <item>
+                <title>MaskinTrommer under utvikling</title>
+                <description>Jobber med et nytt Decent Sampler trommemaskin-bibliotek 🥁🎛️</description>
+                <pubDate>Fri, 13 Feb 2026 23:00:00 GMT</pubDate>
+                <link>https://www.dehlimusikk.no/posts/maskintrommer-under-utvikling/</link>
+                <guid>https://www.dehlimusikk.no/posts/maskintrommer-under-utvikling/</guid>
+                <dc:creator>Benjamin Dehli</dc:creator>
+                </item>
+<item>
                 <title>En intim tolkning av den klassiske Wurlitzer 200A</title>
                 <description>Leter du etter en Wurlitzer-pianoplugin? Midnight Wurli er et Decent Sampler-bibliotek som kombinerer opptak fra direkte linjeutgang og kontaktmikrofon for å levere en intim og nær lyd av et Wurlitzer 200A elektrisk piano.</description>
                 <pubDate>Fri, 05 Sep 2025 22:00:00 GMT</pubDate>
@@ -39,7 +47,7 @@
                 </item>
 <item>
                 <title>EDB-Orgel under utvikling</title>
-                <description>Working on a new sample library &quot;EDB-Orgel&quot; 🖥️💾🎹</description>
+                <description>Jobber med et nytt sample-bibliotek &quot;EDB-Orgel&quot; 🖥️💾🎹</description>
                 <pubDate>Wed, 08 May 2024 22:00:00 GMT</pubDate>
                 <link>https://www.dehlimusikk.no/posts/edb-orgel-under-utvikling/</link>
                 <guid>https://www.dehlimusikk.no/posts/edb-orgel-under-utvikling/</guid>
@@ -155,14 +163,6 @@
                 <pubDate>Thu, 10 Feb 2022 23:00:00 GMT</pubDate>
                 <link>https://www.dehlimusikk.no/posts/ny-utgivelse-flock-av-haunted-by-silhouettes/</link>
                 <guid>https://www.dehlimusikk.no/posts/ny-utgivelse-flock-av-haunted-by-silhouettes/</guid>
-                <dc:creator>Benjamin Dehli</dc:creator>
-                </item>
-<item>
-                <title>Ny utgivelse - Fired Up av Kaasin</title>
-                <description>Albumet Fired Up av Kaasin er nå sluppet 🎉 Tilgjengelig på alle strømmetjenester og som fysisk format 💿</description>
-                <pubDate>Thu, 18 Nov 2021 23:00:00 GMT</pubDate>
-                <link>https://www.dehlimusikk.no/posts/ny-utgivelse-fired-up-av-kaasin/</link>
-                <guid>https://www.dehlimusikk.no/posts/ny-utgivelse-fired-up-av-kaasin/</guid>
                 <dc:creator>Benjamin Dehli</dc:creator>
                 </item>
 </channel>
