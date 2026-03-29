@@ -53,6 +53,13 @@ const Release = ({ releaseData, index }) => {
     });
   }
 
+  const handleJsonLdIdChange = (jsonLdId) => {
+    setRelease({
+      ...release,
+      jsonLdId
+    });
+  }
+
 
   const handleArtistNameChange = (artistName) => {
     const slug = convertToUrlFriendlyString(`${artistName} ${release.title}`);
@@ -328,6 +335,13 @@ const Release = ({ releaseData, index }) => {
             <span id={`thumbnailFilename-${index}`}>
               {release.thumbnailFilename}_[filesize].[filetype]
             </span>
+          </label>
+        </div>
+
+        <div className={commonStyle.formElement}>
+          <label htmlFor={`jsonLdId-${index}`}>
+            JSON-LD ID
+            <input type="text" id={`jsonLdId-${index}`} value={release.jsonLdId} onChange={event => handleJsonLdIdChange(event.target.value)} onBlur={updateReleasesInStore} />
           </label>
         </div>
 
