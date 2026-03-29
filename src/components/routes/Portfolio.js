@@ -20,6 +20,7 @@ import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
 
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
+import { getJsonLdIdForRelease } from "helpers/releaseHelpers";
 
 // Data
 import releases from "data/portfolio";
@@ -53,8 +54,12 @@ const Portfolio = () => {
 
     useEffect(() => {
         const multilingualIds = {
-            en: selectedRelease ? convertToUrlFriendlyString(`${selectedRelease.artistName} ${selectedRelease.title}`) : "",
-            no: selectedRelease ? convertToUrlFriendlyString(`${selectedRelease.artistName} ${selectedRelease.title}`) : ""
+            en: selectedRelease
+                ? convertToUrlFriendlyString(`${selectedRelease.artistName} ${selectedRelease.title}`)
+                : "",
+            no: selectedRelease
+                ? convertToUrlFriendlyString(`${selectedRelease.artistName} ${selectedRelease.title}`)
+                : ""
         };
         const multilingualPaths = {
             no: `portfolio/${selectedRelease ? multilingualIds.no + "/" : ""}`,
@@ -68,7 +73,7 @@ const Portfolio = () => {
             const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
             return {
                 "@type": "MusicRecording",
-                "@id": `https://www.dehlimusikk.no/portfolio/${releaseId}/`,
+                "@id": getJsonLdIdForRelease(release),
                 position: index + 1,
                 url: `https://www.dehlimusikk.no/${languageSlug}portfolio/${releaseId}/`
             };
@@ -279,11 +284,11 @@ const Portfolio = () => {
                     </Container>
                     {selectedRelease ? renderSelectedRelease(selectedRelease) : renderSummarySnippet(releases)}
                     <Container blur={selectedRelease !== null}>
-                        {
-                            selectedRelease
-                                ? <h2 data-size="h1">{listPage.heading[selectedLanguageKey]}</h2>
-                                : <h1>{listPage.heading[selectedLanguageKey]}</h1>
-                        }
+                        {selectedRelease ? (
+                            <h2 data-size="h1">{listPage.heading[selectedLanguageKey]}</h2>
+                        ) : (
+                            <h1>{listPage.heading[selectedLanguageKey]}</h1>
+                        )}
                         <p>
                             {selectedLanguageKey === "en"
                                 ? "Recordings where Dehli Musikk has contributed"
