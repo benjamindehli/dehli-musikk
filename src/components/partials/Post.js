@@ -35,7 +35,7 @@ const Post = ({ post, fullscreen }) => {
       "@id": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,
       "url": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,
       "author": {
-        "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
+        "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
       },
       "publisher": {
         "@id": "https://www.dehlimusikk.no/",
@@ -60,7 +60,7 @@ const Post = ({ post, fullscreen }) => {
         "copyrightNotice": "Benjamin Dehli",
         "creditText": "Dehli Musikk",
         "creator": {
-          "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
+          "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
         },
         "contentLocation": {
           "name": "Dehli Musikk",

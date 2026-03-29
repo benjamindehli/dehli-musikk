@@ -40,7 +40,7 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
         "copyrightNotice": "Benjamin Dehli",
         "creditText": "Dehli Musikk",
         "creator": {
-          "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
+          "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
         }
       }
     });
