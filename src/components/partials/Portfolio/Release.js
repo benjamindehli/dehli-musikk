@@ -24,6 +24,7 @@ import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 import { getReleaseInstruments, getReleaseProducts } from 'helpers/releaseInstruments';
 import { useSelector } from 'react-redux';
 import { getRichSnippetDateString } from 'helpers/dateFormatter';
+import { getJsonLdForArtist, getJsonLdIdForArtist, getJsonLdIdForRelease } from 'helpers/releaseHelpers';
 
 
 const Release = ({ release, fullscreen, compact }) => {
@@ -99,21 +100,16 @@ const Release = ({ release, fullscreen, compact }) => {
   }
 
   const renderReleaseSnippet = (release, releaseInstruments, releaseThumbnailSrc) => {
-    const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
     const releaseDate = new Date(release.releaseDate);
     let snippet = {
       "@context": "http://schema.org",
       "@type": "MusicRecording",
-      "@id": `https://www.dehlimusikk.no/portfolio/${releaseId}/`,
+      "@id": getJsonLdIdForRelease(release),
       "name": release.title,
       "duration": release.durationISO,
       "genre": release.genre,
       "description": `This is a music recording made by ${release.artistName}. The song is ${release.duration} long and belongs to the genre ${release.genre}.`,
-      "byArtist": {
-        "@type": "MusicGroup",
-        "@id": `https://www.dehlimusikk.no/artists/${convertToUrlFriendlyString(release.artistName)}`,
-        "name": release.artistName
-      },
+      "byArtist": getJsonLdForArtist(release.artistName),
       "recordingOf": {
         "@type": "MusicComposition",
         "name": release.title
@@ -121,7 +117,8 @@ const Release = ({ release, fullscreen, compact }) => {
       "contributor": {
         "@type": "OrganizationRole",
         "contributor": {
-          "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli",
+          "@type": "MusicGroup",
+          "@id": getJsonLdIdForArtist("Benjamin Dehli"),
         }
       }
     }
@@ -134,12 +131,12 @@ const Release = ({ release, fullscreen, compact }) => {
     }
     if (release.composedByDehliMusikk) {
       snippet.recordingOf.composer = {
-        "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
+        "@id": getJsonLdIdForArtist("Benjamin Dehli")
       }
     }
     if (release.producedByDehliMusikk) {
       snippet.producer = {
-        "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
+        "@id": getJsonLdIdForArtist("Benjamin Dehli")
       }
     }
     if (release.isrcCode) {
