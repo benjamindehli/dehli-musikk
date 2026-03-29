@@ -38,7 +38,7 @@ const Post = ({ post, fullscreen }) => {
         "@id": "https://www.dehlimusikk.no/artists/benjamin-dehli"
       },
       "publisher": {
-        "@id": "https://www.dehlimusikk.no/organizations/DehliMusikk",
+        "@id": "https://www.dehlimusikk.no/",
       },
       "headline": post.title[selectedLanguageKey],
       "inLanguage": selectedLanguageKey,
