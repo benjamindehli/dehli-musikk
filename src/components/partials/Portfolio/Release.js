@@ -25,6 +25,7 @@ import { getReleaseInstruments, getReleaseProducts } from 'helpers/releaseInstru
 import { useSelector } from 'react-redux';
 import { getRichSnippetDateString } from 'helpers/dateFormatter';
 import { getJsonLdForArtist, getJsonLdIdForArtist, getJsonLdIdForRelease } from 'helpers/releaseHelpers';
+import { millisecondsToReadableTime } from 'helpers/timeFormatter';
 
 
 const Release = ({ release, fullscreen, compact }) => {
@@ -108,7 +109,7 @@ const Release = ({ release, fullscreen, compact }) => {
       "name": release.title,
       "duration": release.durationISO,
       "genre": release.genre,
-      "description": `This is a music recording made by ${release.artistName}. The song is ${release.duration} long and belongs to the genre ${release.genre}.`,
+      "description": `This is a music recording made by ${release.artistName}. The song is ${millisecondsToReadableTime(release.duration)} long and belongs to the ${release.genre?.toLowerCase()} genre.`,
       "byArtist": getJsonLdForArtist(release.artistName),
       "recordingOf": {
         "@type": "MusicComposition",
