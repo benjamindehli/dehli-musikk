@@ -50,7 +50,7 @@ const FrequentlyAskedQuestions = () => {
     }, [availableLanguages, dispatch]);
 
     const renderSummarySnippet = (faqs) => {
-        const faqItems = faqs.map((faq, index) => {
+        const faqItems = faqs.map((faq) => {
             return {
                 "@type": "Question",
                 name: faq.question[selectedLanguageKey],
@@ -63,6 +63,7 @@ const FrequentlyAskedQuestions = () => {
         const snippet = {
             "@context": "http://schema.org",
             "@type": "FAQPage",
+            "@id": `https://www.dehlimusikk.no/frequently-asked-questions/`,
             mainEntity: faqItems
         };
         return (
