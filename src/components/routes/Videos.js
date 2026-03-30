@@ -87,7 +87,7 @@ const Videos = () => {
 
             return {
                 "@type": "VideoObject",
-                "@id": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/`,
+                "@id": `https://www.dehlimusikk.no/videos/${videoId}/video/`,
                 position: index + 1,
                 url: `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/`,
                 name: video.title[selectedLanguageKey],
@@ -102,6 +102,8 @@ const Videos = () => {
         const snippet = {
             "@context": "http://schema.org",
             "@type": "ItemList",
+            "@id": `https://www.dehlimusikk.no/videos/`,
+            name: selectedLanguageKey === "en" ? "Videos by Dehli Musikk" : "Videoer av Dehli Musikk",
             itemListElement: videoItems
         };
         return (
