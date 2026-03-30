@@ -72,6 +72,8 @@ const Products = () => {
         const productItems = products.map((product, index) => {
             return {
                 "@type": "ListItem",
+                "@id": product.link.url,
+                "name": product.title,
                 position: index + 1,
                 item: generateProductSnippet(product, languageSlug, selectedLanguageKey)
             };
@@ -79,6 +81,8 @@ const Products = () => {
         const snippet = {
             "@context": "http://schema.org",
             "@type": "ItemList",
+            "@id": `https://www.dehlimusikk.no/products/`,
+            name: selectedLanguageKey === "en" ? "Products by Dehli Musikk" : "Produkter fra Dehli Musikk",
             itemListElement: productItems
         };
         return (
