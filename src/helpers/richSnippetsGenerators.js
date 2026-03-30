@@ -18,6 +18,7 @@ function generateShippingDestinations(countryCodes) {
 function generateShippingDetailsSnippet() {
     return {
         "@type": "OfferShippingDetails",
+        doesNotShip: true,
         shippingRate: {
             "@type": "MonetaryAmount",
             value: "0",
@@ -62,7 +63,7 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
     const snippet = {
         "@context": "http://schema.org",
         "@type": "Product",
-        "@id": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
+        "@id": product.link.url,
         url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
         description: formatContentAsString(product.content[selectedLanguageKey]),
         brand: {
@@ -107,13 +108,6 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
             availability: "http://schema.org/OnlineOnly",
             validFrom: productDate,
             priceValidUntil: plusOneYear,
-            doesNotShip: true,
-            offers: [
-                {
-                    "@type": "Offer",
-                    url: product.link.url
-                }
-            ],
             shippingDetails: generateShippingDetailsSnippet(),
             hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet()
         },
@@ -142,7 +136,7 @@ export function generateSoftwareApplicationSnippet(product, languageSlug) {
     const applicationJsonLd = {
         "@context": "http://schema.org",
         "@type": "SoftwareApplication",
-        "@id": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
+        "@id": product.link.url,
         url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
         name: product.title,
         operatingSystem: "All",
@@ -156,13 +150,6 @@ export function generateSoftwareApplicationSnippet(product, languageSlug) {
             availability: "http://schema.org/OnlineOnly",
             validFrom: productDate,
             priceValidUntil: plusOneYear,
-            doesNotShip: true,
-            offers: [
-                {
-                    "@type": "Offer",
-                    url: product.link.url
-                }
-            ],
             shippingDetails: generateShippingDetailsSnippet(),
             hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet(),
             sameAs: product.sameAs?.length && product.sameAs
