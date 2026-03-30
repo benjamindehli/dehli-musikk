@@ -72,6 +72,8 @@ const Posts = () => {
             const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
             return {
                 "@type": "ListItem",
+                "@id": `https://www.dehlimusikk.no/posts/${postId}/`,
+                name: post.title[selectedLanguageKey],
                 position: index + 1,
                 url: `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`
             };
@@ -79,6 +81,8 @@ const Posts = () => {
         const snippet = {
             "@context": "http://schema.org",
             "@type": "ItemList",
+            "@id": `https://www.dehlimusikk.no/posts/`,
+            name: selectedLanguageKey === "en" ? "Posts from Dehli Musikk" : "Innlegg fra Dehli Musikk",
             itemListElement: postItems
         };
         return (
