@@ -74,6 +74,7 @@ const Portfolio = () => {
             return {
                 "@type": "MusicRecording",
                 "@id": getJsonLdIdForRelease(release),
+                name: release.title,
                 position: index + 1,
                 url: `https://www.dehlimusikk.no/${languageSlug}portfolio/${releaseId}/`
             };
@@ -81,6 +82,8 @@ const Portfolio = () => {
         const snippet = {
             "@context": "http://schema.org",
             "@type": "ItemList",
+            "@id": `https://www.dehlimusikk.no/portfolio/`,
+            name: selectedLanguageKey === "en" ? "Portfolio for Dehli Musikk" : "Porteføljen til Dehli Musikk",
             itemListElement: releaseItems
         };
         return (
