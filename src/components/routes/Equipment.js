@@ -77,6 +77,8 @@ const Equipment = () => {
                 ? Object.keys(equipment).map((equipmentTypeKey, index) => {
                       return {
                           "@type": "ListItem",
+                          "@id": `https://www.dehlimusikk.no/equipment/${equipmentTypeKey}/`,
+                          name: equipment[equipmentTypeKey].name[selectedLanguageKey],
                           position: index + 1,
                           url: `https://www.dehlimusikk.no/${languageSlug}equipment/${equipmentTypeKey}/`
                       };
@@ -85,6 +87,8 @@ const Equipment = () => {
         const snippet = {
             "@context": "http://schema.org",
             "@type": "ItemList",
+            "@id": `https://www.dehlimusikk.no/equipment/`,
+            name: selectedLanguageKey === "en" ? "Equipment used by Dehli Musikk" : "Utstyr brukt av Dehli Musikk",
             itemListElement: equipmentTypeItems
         };
         return (
@@ -100,6 +104,8 @@ const Equipment = () => {
                   const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
                   return {
                       "@type": "ListItem",
+                      "@id": `https://www.dehlimusikk.no/equipment/${equipmentTypeKey}/${itemId}/`,
+                      name: `${item.brand} ${item.model}`,
                       position: index + 1,
                       url: `https://www.dehlimusikk.no/${languageSlug}equipment/${equipmentTypeKey}/${itemId}/`
                   };
@@ -108,6 +114,8 @@ const Equipment = () => {
         const snippet = {
             "@context": "http://schema.org",
             "@type": "ItemList",
+            "@id": `https://www.dehlimusikk.no/equipment/${equipmentTypeKey}/`,
+            name: equipment.name[selectedLanguageKey],
             itemListElement: equipmentItems
         };
         return (
