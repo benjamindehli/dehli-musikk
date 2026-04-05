@@ -1,0 +1,6 @@
+@mixin hyphenate-limit-chars($word-limit, $before-hyphen-limit: auto, $after-hyphen-limit: auto) {
+    hyphenate-limit-chars: $word-limit $before-hyphen-limit $after-hyphen-limit;
+    -ms-hyphenate-limit-chars: $word-limit $before-hyphen-limit $after-hyphen-limit;
+    -webkit-hyphenate-limit-before: $before-hyphen-limit;
+    -webkit-hyphenate-limit-after: $after-hyphen-limit;
+}
