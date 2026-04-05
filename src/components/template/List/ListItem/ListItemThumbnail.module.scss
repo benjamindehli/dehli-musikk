@@ -28,15 +28,15 @@
       width: 100%;
       margin: 0;
       border-radius: 0;
-      height: attr(data-height px);
-      aspect-ratio: attr(data-width) / attr(data-height);
+      height: calc(var(--h) * 1px);
+      aspect-ratio: var(--w) / var(--h);
       & picture {
         & img {
           width: 100%;
           height: auto;
           border-radius: 0;
           border: none;
-          aspect-ratio: attr(data-width px) / attr(data-height px);
+          aspect-ratio: var(--w) / var(--h);
         }
       }
     }
@@ -45,12 +45,12 @@
   &.fullscreen {
     width: 100%;
     margin: 0;
-    height: calc((100vw - 56px) * (attr(data-height px) / attr(data-width px)));
-    max-height: attr(data-height px);
-    aspect-ratio: attr(data-width) / attr(data-height);
+    height: calc((100vw - 56px) * (var(--h) / var(--w)));
+    max-height: calc(var(--h) * 1px);
+    aspect-ratio: var(--w) / var(--h);
 
     @media (min-width: breakpoints.$screen-sm) {
-      height: calc((100vw - 200px) * (attr(data-height px) / attr(data-width px)));
+      height: calc((100vw - 200px) * (var(--h) / var(--w)));
     }
 
     & picture {
@@ -59,7 +59,7 @@
         border: none;
         width: 100%;
         height: auto;
-        aspect-ratio: attr(data-width px) / attr(data-height px);
+        aspect-ratio: var(--w) / var(--h);
       }
     }
   }
