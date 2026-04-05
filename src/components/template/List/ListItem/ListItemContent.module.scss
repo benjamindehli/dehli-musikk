@@ -1,12 +1,15 @@
 @use "../../../../style/abstracts/mixins/calc";
+@use "../../../../style/abstracts/mixins/hyphenate-limit-chars";
+@use "../../../../style/abstracts/mixins/hyphens";
 @use "../../../../style/abstracts/variables/breakpoints";
 
 .listItemContent {
   @include calc.calc("width", "100% - 55px");
+  @include hyphens.hyphens(auto);
+  @include hyphenate-limit-chars.hyphenate-limit-chars(10, 3, 3);
   display: inline-block;
   padding: 6px;
   word-break: normal;
-  hyphens: auto;
   @media (min-width: breakpoints.$screen-sm) {
     padding: 16px;
     width: 100%;
