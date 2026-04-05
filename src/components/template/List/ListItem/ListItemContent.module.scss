@@ -6,7 +6,7 @@
 .listItemContent {
   @include calc.calc("width", "100% - 55px");
   @include hyphens.hyphens(auto);
-  @include hyphenate-limit-chars.hyphenate-limit-chars(10, 3, 3);
+  @include hyphenate-limit-chars.hyphenate-limit-chars(12, 3, 3);
   display: inline-block;
   padding: 6px;
   word-break: normal;
