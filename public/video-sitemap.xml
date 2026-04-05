@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
+    <loc>https://www.dehlimusikk.no/videos/kassett-looping-med-yamaha-yc-25d/video/</loc>
+    <video:video>
+      <video:title>Kassett-looping med Yamaha YC-25D</video:title>
+      <video:description>Lager en 4-spors kassett-loop og spiller med på Yamaha YC-25D-orgelet. Fire separate spor spilles inn på kassetten: Fmaj7-akkord på spor 1, Cmaj7 akkord på spor 2, lys E drone på spor 3 og yse melodiske aksenter på spor 4. Loopen spilles kontinuerlig og de fire sporene blir mikset ved å bruke mikserseksjonen på Fostex X-28H båndopptakeren. Samtidig legges det på andre orgelpartier. Både orgellyden og lyden fra kassett-loopen blir rutet inn i en 1010music nanobox | lemondrop, hvor de brukes som oscillatorkilde for direktelyd. Det resulterende signalet sendes deretter gjennom en Electro-Harmonix Deluxe Memory Man analog ekko og en Chase Bliss Audio &amp; Meris CXM 1978 klang. Instrument:Yamaha YC-25D. Effekter: 1010music nanobox | lemondrop, Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu og Roland PA-120. Båndopptaker: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=9i9eUdURO00</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2026-04-04-00_540.d8111788edd78006464a.jpg</video:thumbnail_loc>
+      <video:duration>584</video:duration>
+      <video:publication_date>2026-04-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://www.dehlimusikk.no/en/videos/tape-looping-with-a-yamaha-yc-25d/video/</loc>
+    <video:video>
+      <video:title>Tape looping with a Yamaha YC-25D</video:title>
+      <video:description>Creating a 4-track cassette tape loop and playing along on the Yamaha YC-25D organ. Four separate parts are recorded to the tape loop: Fmaj7 chord on track 1, Cmaj7 chord on track 2, high E drone on track 3 and bright melodic accents on track 4. As the loop plays continuously, the four tracks are mixed in real time using the mixer section on the Fostex X-28H tape recorder while additional organ parts are performed live. Both the organ signal and the tape loop output are routed into a 1010music nanobox | lemondrop, where they are used as a live input granular oscillator source. The resulting signal is then sent through an Electro-Harmonix Deluxe Memory Man analog delay and a Chase Bliss Audio &amp; Meris CXM 1978 reverb. Instrument:Yamaha YC-25D. Effects: 1010music nanobox | lemondrop, Alex Franklinos Stereo Transformer Saturator, Chase Bliss Audio &amp; Meris CXM 1978, DIY Recording Equipment G Bus VCA Compressor, Electro-Harmonix Deluxe Memory Man, Hairball Audio FET/RACK Revision D, Handsome Audio Zulu and Roland PA-120. Tape recorder: Fostex X-28H.</video:description>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=9i9eUdURO00</video:player_loc>
+      <video:thumbnail_loc>https://www.dehlimusikk.no/static/media/2026-04-04-00_540.d8111788edd78006464a.jpg</video:thumbnail_loc>
+      <video:duration>584</video:duration>
+      <video:publication_date>2026-04-04</video:publication_date>
+      <video:uploader info="https://www.youtube.com/@BenjaminDehli">Benjamin Dehli</video:uploader>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+  <url>
     <loc>https://www.dehlimusikk.no/videos/drum-machine-plugin-preset-for-decent-sampler-maskintrommer/video/</loc>
     <video:video>
       <video:title>Drum Machine plugin preset for Decent Sampler (MaskinTrommer)</video:title>
