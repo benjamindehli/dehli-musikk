@@ -64,7 +64,7 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
         "@context": "http://schema.org",
         "@type": "Product",
         "@id": product.link.url,
-        url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
+        url: product.link.url,
         description: formatContentAsString(product.content[selectedLanguageKey]),
         brand: {
             "@type": "Brand",
