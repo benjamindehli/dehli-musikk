@@ -6,43 +6,6 @@ import { convertToUrlFriendlyString } from "./urlFormatter";
 // Data
 import countryCodes from "data/countryCodes";
 
-function generateShippingDestinations(countryCodes) {
-    return countryCodes.map((countryCode) => {
-        return {
-            "@type": "DefinedRegion",
-            addressCountry: countryCode
-        };
-    });
-}
-
-function generateShippingDetailsSnippet() {
-    return {
-        "@type": "OfferShippingDetails",
-        doesNotShip: true,
-        shippingRate: {
-            "@type": "MonetaryAmount",
-            value: "0",
-            currency: "USD"
-        },
-        shippingDestination: generateShippingDestinations(countryCodes),
-        deliveryTime: {
-            "@type": "ShippingDeliveryTime",
-            handlingTime: {
-                "@type": "QuantitativeValue",
-                minValue: 0,
-                maxValue: 0,
-                unitCode: "DAY"
-            },
-            transitTime: {
-                "@type": "QuantitativeValue",
-                minValue: 0,
-                maxValue: 0,
-                unitCode: "DAY"
-            }
-        }
-    };
-}
-
 function generateHasMerchantReturnPolicySnippet() {
     return {
         "@type": "MerchantReturnPolicy",
@@ -60,11 +23,27 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
     const imagePathJpg = `data/products/thumbnails/web/jpg/${productId}`;
     const productThumbnailSrc = require(`../${imagePathJpg}_540.jpg`);
 
+    const image = [product?.mainImage]
+        .concat(product?.additionalImages || [])
+        .filter(Boolean)
+        .map((image) => `https://www.dehlimusikk.no/${image}`);
+
+    const video = product?.video
+        ? {
+              "@type": "VideoObject",
+              name: product?.video?.name?.[selectedLanguageKey],
+              description: product?.video?.description?.[selectedLanguageKey],
+              thumbnailUrl: productThumbnailSrc,
+              uploadDate: product?.video?.uploadDate ? `${product?.video?.uploadDate}T18:00:00Z` : undefined,
+              contentUrl: product?.video?.contentUrl
+          }
+        : null;
+
     const snippet = {
         "@context": "http://schema.org",
         "@type": "Product",
         "@id": product.link.url,
-        url: product.link.url,
+        url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
         description: formatContentAsString(product.content[selectedLanguageKey]),
         brand: {
             "@type": "Brand",
@@ -73,33 +52,8 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
         productionDate: productDate,
         releaseDate: productDate,
         name: product.title,
-        image: {
-            "@type": "ImageObject",
-            url: `https://www.dehlimusikk.no${productThumbnailSrc}`,
-            contentUrl: `https://www.dehlimusikk.no${productThumbnailSrc}`,
-            license: "https://creativecommons.org/licenses/by/4.0/legalcode",
-            acquireLicensePage: "https://www.dehlimusikk.no/#contact",
-            caption: product.title,
-            description: product.thumbnailDescription,
-            uploadDate: productDate,
-            copyrightNotice: "Benjamin Dehli",
-            creditText: "Dehli Musikk",
-            creator: {
-                "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
-            },
-            contentLocation: {
-                name: "Dehli Musikk",
-                address: {
-                    "@type": "PostalAddress",
-                    addressLocality: "Bø i Telemark",
-                    postalCode: "3804",
-                    streetAddress: "Margretes veg 15",
-                    addressCountry: {
-                        name: "NO"
-                    }
-                }
-            }
-        },
+        image: image.length ? image : productThumbnailSrc,
+        video: video,
         offers: {
             "@type": "Offer",
             price: product.price?.length ? product.price : 0,
@@ -108,14 +62,17 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
             availability: "http://schema.org/OnlineOnly",
             validFrom: productDate,
             priceValidUntil: plusOneYear,
-            shippingDetails: generateShippingDetailsSnippet(),
-            hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet()
+            hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet(),
+            seller: {
+                "@type": "Organization",
+                name: "Dehli Musikk"
+            }
         },
         mainEntityOfPage: {
             "@type": "WebPage",
             "@id": "https://www.dehlimusikk.no"
         },
-        sameAs: product.sameAs?.length && product.sameAs
+        sameAs: product.sameAs?.length ? product.sameAs : undefined
     };
     if (product?.ratingValue && product?.reviewCount) {
         snippet.aggregateRating = {
@@ -150,9 +107,12 @@ export function generateSoftwareApplicationSnippet(product, languageSlug) {
             availability: "http://schema.org/OnlineOnly",
             validFrom: productDate,
             priceValidUntil: plusOneYear,
-            shippingDetails: generateShippingDetailsSnippet(),
             hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet(),
-            sameAs: product.sameAs?.length && product.sameAs
+            sameAs: product.sameAs?.length && product.sameAs,
+            seller: {
+                "@type": "Organization",
+                name: "Dehli Musikk"
+            }
         }
     };
     return applicationJsonLd;
