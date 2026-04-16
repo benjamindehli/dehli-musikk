@@ -38,10 +38,10 @@ const SocialMediaLinks = ({ lang }) => {
       <FontAwesomeIcon icon={faXTwitter} />
     </a>
     <a href='https://store.dehlimusikk.no/' title='Link to Gumroad page' aria-label='Link to Gumroad page' target='_blank' rel="noopener noreferrer" className={style.gumroad}>
-      <img src="/images/gumroad.svg" alt="" aria-hidden="true" />
+      <img src="/images/gumroad.svg" alt="" aria-hidden="true" width="45" height="45" />
     </a>
     <a href='https://ko-fi.com/benjamindehli' title='Link to Ko-fi page' aria-label='Link to Ko-fi page' target='_blank' rel="noopener noreferrer" className={style.kofi}>
-      <img src="/images/kofi.svg" alt="" aria-hidden="true" />
+      <img src="/images/kofi.svg" alt="" aria-hidden="true" width="49" height="32" />
     </a>
     <a href={lang === 'en' ? '/feed-en.rss' : '/feed-no.rss'} title='Link to RSS feed' aria-label='Link to RSS feed' target='_blank' rel="noopener noreferrer" className={style.rss}>
       <FontAwesomeIcon icon={faRss} />
