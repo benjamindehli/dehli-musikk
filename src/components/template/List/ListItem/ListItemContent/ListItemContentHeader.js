@@ -4,7 +4,7 @@ import Link from 'next/link';
 // Stylesheets
 import style from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader.module.scss';
 
-const ListItemContentHeader = ({ fullscreen, link, children }) => {
+const ListItemContentHeader = ({ fullscreen = false, link = null, children }) => {
 
   const renderContent = (link, children) => {
     return link && !fullscreen

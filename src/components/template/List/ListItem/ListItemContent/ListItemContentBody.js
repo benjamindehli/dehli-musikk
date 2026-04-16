@@ -1,7 +1,7 @@
 // Stylesheets
 import style from 'components/template/List/ListItem/ListItemContent/ListItemContentBody.module.scss';
 
-const ListItemContentBody = ({ fullscreen, children }) => {
+const ListItemContentBody = ({ fullscreen = false, children }) => {
   return (
     <div className={`${style.listItemContentBody} ${fullscreen ? style.fullscreen : ''}`}>
       {children}
