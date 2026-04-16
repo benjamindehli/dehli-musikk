@@ -1,7 +1,5 @@
 // Dependencies
 import React from "react";
-import { useSelector } from "react-redux";
-import { Helmet } from "react-helmet-async";
 
 // Components
 import Button from "components/partials/Button";
@@ -15,9 +13,6 @@ import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbna
 import ExpansionPanel from "components/template/ExpansionPanel";
 import List from "components/template/List";
 
-// Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
-
 // Helpers
 import { getPrettyDate } from "helpers/dateFormatter";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
@@ -26,10 +21,7 @@ import { convertStringToExcerpt } from "helpers/search";
 import { generateProductSnippet, generateSoftwareApplicationSnippet } from "helpers/richSnippetsGenerators";
 import { getProductReleases } from "helpers/instrumentReleases";
 
-const Product = ({ product, fullscreen, compact }) => {
-    // Redux store
-    const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
-    const languageSlug = useSelector((state) => getLanguageSlug(state));
+const Product = ({ product, fullscreen = false, compact = false, lang, languageSlug }) => {
 
     const renderProductSnippet = (product) => {
         const productSnippet = generateProductSnippet(product, languageSlug, lang);
@@ -81,20 +73,20 @@ const Product = ({ product, fullscreen, compact }) => {
 
     const renderShopLink = (link) => {
         return (
-            <a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[selectedLanguageKey]}>
-                <Button buttontype="minimal">{link.text[selectedLanguageKey]}</Button>
+            <a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[lang]}>
+                <Button buttontype="minimal">{link.text[lang]}</Button>
             </a>
         );
     };
 
-    const renderReleasesList = (releases, selectedLanguageKey, product) => {
+    const renderReleasesList = (releases, lang, product) => {
         const productId = convertToUrlFriendlyString(product.title);
         const elementId = `product-releases-${productId}`;
         if (releases && releases.length) {
             const listItems = releases.map((release) => {
                 return (
                     <ListItem key={release.releaseId} compact={true}>
-                        <Release release={release} compact={true} />
+                        <Release release={release} compact={true} lang={lang} languageSlug={languageSlug} />
                     </ListItem>
                 );
             });
@@ -102,7 +94,7 @@ const Product = ({ product, fullscreen, compact }) => {
                 <ExpansionPanel
                     elementId={elementId}
                     panelTitle={
-                        selectedLanguageKey === "en"
+                        lang === "en"
                             ? `Recordings with the ${product.title}`
                             : `Utgivelser med ${product.title}`
                     }
@@ -130,9 +122,9 @@ const Product = ({ product, fullscreen, compact }) => {
     const productDate = new Date(product.timestamp);
     const productPath = `/${languageSlug}products/${productId}/`;
     const productDescription = fullscreen ? (
-        formatContentWithReactLinks(product.content[selectedLanguageKey], languageSlug)
+        formatContentWithReactLinks(product.content[lang], languageSlug)
     ) : (
-        <p>{convertStringToExcerpt(product.content[selectedLanguageKey])}</p>
+        <p>{convertStringToExcerpt(product.content[lang])}</p>
     );
 
     const link = {
@@ -140,16 +132,8 @@ const Product = ({ product, fullscreen, compact }) => {
         title: product.title
     };
 
-    return product && product.content && product.content[selectedLanguageKey] ? (
+    return product && product.content && product.content[lang] ? (
         <React.Fragment>
-            {
-            fullscreen 
-                ? <Helmet>
-                    <link rel="preload" as="image" href={image.avif350} fetchpriority="high" type="image/avif" media='(max-width: 407px)'/>
-                    <link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif" media='(min-width: 408px)'/>
-                </Helmet>
-                : ""
-            }
             {fullscreen ? renderProductSnippet(product) : ""}
             <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
                 {renderProductThumbnail(image, product.thumbnailDescription, fullscreen, compact)}
@@ -161,7 +145,7 @@ const Product = ({ product, fullscreen, compact }) => {
                     }
                     {!compact && (
                         <time dateTime={productDate.toISOString()}>
-                            {getPrettyDate(productDate, selectedLanguageKey)}
+                            {getPrettyDate(productDate, lang)}
                         </time>
                     )}
                 </ListItemContentHeader>
@@ -174,7 +158,7 @@ const Product = ({ product, fullscreen, compact }) => {
                     ""
                 )}
             </ListItemContent>
-            {fullscreen ? renderReleasesList(getProductReleases(productId), selectedLanguageKey, product) : ""}
+            {fullscreen ? renderReleasesList(getProductReleases(productId), lang, product) : ""}
         </React.Fragment>
     ) : (
         ""

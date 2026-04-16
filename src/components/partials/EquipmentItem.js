@@ -1,8 +1,5 @@
 // Dependencies
 import React from 'react';
-import { connect, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet-async';
 
 // Components
 import ExpansionPanel from 'components/template/ExpansionPanel';
@@ -13,19 +10,10 @@ import ListItemContentHeader from 'components/template/List/ListItem/ListItemCon
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import Release from 'components/partials/Portfolio/Release';
 
-// Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
-
 // Helpers
 import { getInstrumentReleases } from 'helpers/instrumentReleases';
 
-const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
-
-
-  // Redux store
-  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
-  const languageSlug = useSelector(state => getLanguageSlug(state));
-
+const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, itemId, lang, languageSlug }) => {
 
   const renderEquipmentItemImagesSnippet = (images) => {
     const snippet = Object.keys(images).map(format => {
@@ -101,20 +89,20 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
             <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" />
             <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpg" />
             <img loading="lazy" src={image.jpg350} data-width="350" data-height="260" alt={itemName} />
-    </React.Fragment>);
+        </React.Fragment>);
     }
   }
 
-  const renderReleasesList = (releases, selectedLanguageKey, item) => {
+  const renderReleasesList = (releases, lang, item) => {
     const elementId = `equipment-item-releases-${item.equipmentItemId}`;
     if (releases && releases.length) {
       const listItems = releases.map(release => {
         return (<ListItem key={release.releaseId} compact={true}>
-          <Release release={release} compact={true} />
+          <Release release={release} compact={true} lang={lang} languageSlug={languageSlug} />
         </ListItem>)
       });
       return (
-        <ExpansionPanel elementId={elementId} panelTitle={selectedLanguageKey === 'en' ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}>
+        <ExpansionPanel elementId={elementId} panelTitle={lang === 'en' ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}>
           <List compact={true}>
             {listItems}
           </List>
@@ -149,15 +137,6 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
 
   return item
     ? (<React.Fragment>
-      {
-        fullscreen 
-          ? <Helmet>
-              <link rel="preload" as="image" href={image.avif350} fetchpriority="high" type="image/avif" media='(max-width: 407px)'/>
-              <link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif" media='(min-width: 408px) and (max-width: 741px)'/>
-              <link rel="preload" as="image" href={image.avif945} fetchpriority="high" type="image/avif" media='(min-width: 742px)'/>
-            </Helmet>
-          : ""
-      }
       {fullscreen ? renderEquipmentItemImagesSnippet(image) : ''}
       {fullscreen ? renderEquipmentItemSnippet(item, image) : ''}
       <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
@@ -171,33 +150,10 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
         </ListItemContentHeader>
       </ListItemContent>
       {
-        fullscreen && itemType === 'instruments' ? renderReleasesList(getInstrumentReleases(itemId), selectedLanguageKey, item) : ''
+        fullscreen && itemType === 'instruments' ? renderReleasesList(getInstrumentReleases(itemId), lang, item) : ''
       }
     </React.Fragment>)
     : '';
 }
 
-EquipmentItem.propTypes = {
-  fullscreen: PropTypes.bool,
-  compact: PropTypes.bool,
-  item: PropTypes.exact({
-    brand: PropTypes.string,
-    model: PropTypes.string,
-    equipmentItemId: PropTypes.string,
-    nextEquipmentItemId: PropTypes.string,
-    previousEquipmentItemId: PropTypes.string
-  })
-};
-
-EquipmentItem.defaultProps = {
-  fullscreen: false,
-  compact: false
-};
-
-const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
-
-const mapDispatchToProps = {
-  getLanguageSlug
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(EquipmentItem);
+export default EquipmentItem;

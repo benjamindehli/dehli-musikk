@@ -1,10 +1,6 @@
 // Dependencies
 import React from 'react';
 import Link from 'next/link';
-import { Helmet } from 'react-helmet-async';
-
-// Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Helpers
 import { getPrettyDate } from 'helpers/dateFormatter';
@@ -20,11 +16,7 @@ import ListItemContentHeader from 'components/template/List/ListItem/ListItemCon
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 
 
-const Post = ({ post, fullscreen }) => {
-
-  // Redux store
-  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
-  const languageSlug = useSelector(state => getLanguageSlug(state));
+const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
 
   const renderPostSnippet = (post, postId, postThumbnailSrc) => {
     const postDate = new Date(post.timestamp).toISOString();
@@ -39,21 +31,21 @@ const Post = ({ post, fullscreen }) => {
       "publisher": {
         "@id": "https://www.dehlimusikk.no/",
       },
-      "headline": post.title[selectedLanguageKey],
-      "inLanguage": selectedLanguageKey,
-      "articleBody": post.content[selectedLanguageKey]
-        ? formatContentAsString(post.content[selectedLanguageKey])
+      "headline": post.title[lang],
+      "inLanguage": lang,
+      "articleBody": post.content[lang]
+        ? formatContentAsString(post.content[lang])
         : '',
       "dateCreated": postDate,
       "dateModified": postDate,
       "datePublished": postDate,
-      "name": post.title[selectedLanguageKey],
+      "name": post.title[lang],
       "image": {
         "@type": "ImageObject",
         "url": `https://www.dehlimusikk.no${postThumbnailSrc}`,
         "contentUrl": `https://www.dehlimusikk.no${postThumbnailSrc}`,
         "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
-        "caption": post.title[selectedLanguageKey],
+        "caption": post.title[lang],
         "description": post.thumbnailDescription,
         "uploadDate": postDate,
         "copyrightNotice": "Benjamin Dehli",
@@ -120,12 +112,12 @@ const Post = ({ post, fullscreen }) => {
     return link.internal
       ? (<Link href={`/${languageSlug}${link.url[lang]}`} title={link.text[lang]}>
         <Button buttontype='minimal'>
-          {link.text[selectedLanguageKey]}
+          {link.text[lang]}
         </Button>
       </Link>)
-      : (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[selectedLanguageKey]}>
+      : (<a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[lang]}>
         <Button buttontype='minimal'>
-          {link.text[selectedLanguageKey]}
+          {link.text[lang]}
         </Button>
       </a>);
   }
@@ -142,24 +134,16 @@ const Post = ({ post, fullscreen }) => {
     jpg540: `/data/posts/web/jpg/${post.thumbnailFilename}_540.jpg`
   };
   const postDate = new Date(post.timestamp);
-  const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
+  const postId = convertToUrlFriendlyString(post.title[lang]);
   const postPath = `/${languageSlug}posts/${postId}/`;
 
   const link = {
     to: postPath,
-    title: post.title[selectedLanguageKey]
+    title: post.title[lang]
   };
 
-  return post && post.content && post.content[selectedLanguageKey]
+  return post && post.content && post.content[lang]
     ? (<React.Fragment>
-      {
-        fullscreen 
-          ? <Helmet>
-              <link rel="preload" as="image" href={image.avif350} fetchpriority="high" type="image/avif" media='(max-width: 407px)'/>
-              <link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif" media='(min-width: 408px)'/>
-            </Helmet>
-          : ""
-      }
       {fullscreen ? renderPostSnippet(post, postId, image.jpg540) : ''}
       <ListItemThumbnail fullscreen={fullscreen} link={link}>
         {renderPostThumbnail(image, post.thumbnailDescription, fullscreen)}
@@ -167,13 +151,13 @@ const Post = ({ post, fullscreen }) => {
       <ListItemContent fullscreen={fullscreen}>
         <ListItemContentHeader fullscreen={fullscreen} link={link}>
           {
-            fullscreen ? <h1>{post.title[selectedLanguageKey]}</h1> : <h2>{post.title[selectedLanguageKey]}</h2>
+            fullscreen ? <h1>{post.title[lang]}</h1> : <h2>{post.title[lang]}</h2>
           }
-          <time dateTime={postDate.toISOString()}>{getPrettyDate(postDate, selectedLanguageKey)}</time>
+          <time dateTime={postDate.toISOString()}>{getPrettyDate(postDate, lang)}</time>
         </ListItemContentHeader>
         <ListItemContentBody fullscreen={fullscreen}>
           {
-            formatContentWithReactLinks(post.content[selectedLanguageKey], languageSlug)
+            formatContentWithReactLinks(post.content[lang], languageSlug)
           }
         </ListItemContentBody>
         {

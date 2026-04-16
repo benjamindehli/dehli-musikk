@@ -2,17 +2,11 @@
 import React from 'react';
 import Link from 'next/link';
 
-// Assets
-import { ReactComponent as MaximizeIcon } from "assets/svg/maximize.svg";
-import { ReactComponent as MinimizeIcon } from "assets/svg/minimize.svg";
-
-// Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
-
 // Helpers
 import { getPrettyDate } from 'helpers/dateFormatter';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 import { convertStringToExcerpt } from 'helpers/search';
+import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
 
 // Components
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
@@ -20,17 +14,12 @@ import ListItemContentBody from 'components/template/List/ListItem/ListItemConte
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
-import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
 
 // Stylesheets
 import style from "components/partials/Video.module.scss";
 import Button from './Button';
 
-const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
-
-  // Redux store
-  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
-  const languageSlug = useSelector(state => getLanguageSlug(state));
+const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset = null, lang, languageSlug }) => {
 
   const renderVideoSnippet = (video, videoId, videoThumbnailSrc) => {
     const videoDate = new Date(video.timestamp).toISOString();
@@ -38,9 +27,9 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
       "@context": "http://schema.org",
       "@type": "VideoObject",
       "@id": `https://www.dehlimusikk.no/videos/${videoId}/video/`,
-      "name": video.title[selectedLanguageKey],
-      "description": video.content[selectedLanguageKey]
-        ? formatContentAsString(video.content[selectedLanguageKey])
+      "name": video.title[lang],
+      "description": video.content[lang]
+        ? formatContentAsString(video.content[lang])
         : '',
       "duration": video.duration,
       "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/`,
@@ -68,7 +57,7 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
       snippet.hasPart = video.clips.map(clip => {
         return {
           "@type": "Clip",
-          "name": clip.name[selectedLanguageKey],
+          "name": clip.name[lang],
           "startOffset": clip.startOffset,
           "endOffset": clip.endOffset,
           "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/?t=${clip.startOffset}`
@@ -107,14 +96,14 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
     jpg540: `/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`
   };
   const videoDate = new Date(video.timestamp);
-  const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
+  const videoId = convertToUrlFriendlyString(video.title[lang]);
   const videoPath = `/${languageSlug}videos/${videoId}/`;
-  const videoContentString = video?.content?.[selectedLanguageKey] || '';
+  const videoContentString = video?.content?.[lang] || '';
   const videoDescription = fullscreen ? formatContentWithReactLinks(videoContentString, languageSlug) : <p>{convertStringToExcerpt(videoContentString)}</p>;
 
   const link = {
     to: videoPath,
-    title: video.title[selectedLanguageKey]
+    title: video.title[lang]
   };
 
   let theaterModeToPath;
@@ -132,25 +121,25 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
 
   const theaterModeLink = {
     to: theaterModeToPath,
-    title: video.title[selectedLanguageKey],
+    title: video.title[lang],
     label: isTheaterMode
-            ? selectedLanguageKey === "en"
+            ? lang === "en"
               ? "Reduce"
               : "Forminsk"
-            : selectedLanguageKey === "en"
+            : lang === "en"
               ? "Enlarge"
               : "Forstørr"
-    
+
   };
 
-  return video && video.content && video.content[selectedLanguageKey]
+  return video && video.content && video.content[lang]
     ? (<React.Fragment>
       {
         fullscreen
           ? (
             <React.Fragment>
               {renderVideoSnippet(video, videoId, image.jpg540)}
-              <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[selectedLanguageKey]} startOffset={startOffset} /> 
+              <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[lang]} startOffset={startOffset} />
             </React.Fragment>
           ) : (
             <ListItemThumbnail fullscreen={fullscreen} link={link}>
@@ -163,25 +152,25 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
           {fullscreen ? (
             <div className={style.theaterModeHeader}>
             {
-              fullscreen ? <h1>{video.title[selectedLanguageKey]}<span>{video.youTubeUser}</span></h1> : <h2>{video.title[selectedLanguageKey]}<span>{video.youTubeUser}</span></h2>
+              fullscreen ? <h1>{video.title[lang]}<span>{video.youTubeUser}</span></h1> : <h2>{video.title[lang]}<span>{video.youTubeUser}</span></h2>
             }
               <Link href={theaterModeLink.to} aria-label={theaterModeLink.title}>
                 <Button buttontype="minimal">
                   <span className={style.label}>{theaterModeLink.label}</span>
-                  {isTheaterMode ? <MinimizeIcon className={style.icon} /> : <MaximizeIcon className={style.icon} />}
+                  {isTheaterMode ? <img src="/images/minimize.svg" className={style.icon} alt="" aria-hidden="true" /> : <img src="/images/maximize.svg" className={style.icon} alt="" aria-hidden="true" />}
                 </Button>
               </Link>
           </div>
           ) : (
             <h2>
-              {video.title[selectedLanguageKey]}
+              {video.title[lang]}
               <span>{video.youTubeUser}</span>
             </h2>
           )}
-          <time dateTime={videoDate.toISOString()}>{getPrettyDate(videoDate, selectedLanguageKey)}</time>
+          <time dateTime={videoDate.toISOString()}>{getPrettyDate(videoDate, lang)}</time>
         </ListItemContentHeader>
         <ListItemContentBody fullscreen={fullscreen}>
-          { 
+          {
             videoDescription
           }
         </ListItemContentBody>
