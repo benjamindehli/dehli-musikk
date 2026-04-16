@@ -1,7 +1,6 @@
 // Dependencies
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Helmet } from 'react-helmet-async';
 
 // Selectors
@@ -47,7 +46,7 @@ const Breadcrumbs = ({ breadcrumbs = [] }) => {
           <span>{breadcrumb.name}</span>
         </li>)
         : (<li key={key}>
-          <Link to={breadcrumb.path} title={breadcrumb.name}>{breadcrumb.name}</Link>
+          <Link href={breadcrumb.path} title={breadcrumb.name}>{breadcrumb.name}</Link>
         </li>);
     })
   }
@@ -61,7 +60,7 @@ const Breadcrumbs = ({ breadcrumbs = [] }) => {
     <nav className={style.breadcrumbs}>
       <ul aria-label='Breadcrumbs for current page path'>
         <li>
-          <Link to={`/${languageSlug}`} title='Dehli Musikk'>Dehli Musikk</Link>
+          <Link href={`/${languageSlug}`} title='Dehli Musikk'>Dehli Musikk</Link>
         </li>
         {renderBreadcrumbListElements(breadcrumbs)}
       </ul>

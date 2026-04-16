@@ -1,7 +1,7 @@
 // Dependencies
 import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Components
@@ -158,7 +158,7 @@ const NavigationBar = () => {
                 <nav ref={sidebarWrapperRef} className={style.sidebarContent}>
                     <div className={style.sidebarContentHeader}>
                         <Link
-                            to={`/${languageSlug}`}
+                            href={`/${languageSlug}`}
                             aria-label="Link to Dehli Musikk home page"
                             title="Link to Dehli Musikk home page"
                             onClick={hideSidebar}
@@ -170,10 +170,10 @@ const NavigationBar = () => {
                     </div>
                     <ul className={style.sidebarLinks}>
                         <li>
-                            <NavLink
-                                to={`/${languageSlug}portfolio/`}
-                                className={({ isActive }) => (isActive ? style.activeLink : undefined)}
-                                title={selectedLanguageKey === "en" ? "Portfolio" : "Portefølje"}
+                            <Link
+                                href={`/${languageSlug}portfolio/`}
+                                className={isNavActive("portfolio") ? style.activeLink : undefined}
+                                title={lang === "en" ? "Portfolio" : "Portefølje"}
                                 onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "music"]} />{" "}
@@ -181,59 +181,59 @@ const NavigationBar = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink
-                                to={`/${languageSlug}posts/`}
-                                className={({ isActive }) => (isActive ? style.activeLink : undefined)}
-                                title={selectedLanguageKey === "en" ? "Posts" : "Innlegg"}
+                            <Link
+                                href={`/${languageSlug}posts/`}
+                                className={isNavActive("posts") ? style.activeLink : undefined}
+                                title={lang === "en" ? "Posts" : "Innlegg"}
                                 onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "photo-video"]} />{" "}
                                 {selectedLanguageKey === "en" ? "Posts" : "Innlegg"}
-                            </NavLink>
+                            </Link>
                         </li>
                         <li>
-                            <NavLink
-                                to={`/${languageSlug}videos/`}
-                                className={({ isActive }) => (isActive ? style.activeLink : undefined)}
-                                title={selectedLanguageKey === "en" ? "Videos" : "Videoer"}
+                            <Link
+                                href={`/${languageSlug}videos/`}
+                                className={isNavActive("videos") ? style.activeLink : undefined}
+                                title={lang === "en" ? "Videos" : "Videoer"}
                                 onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "film"]} />{" "}
                                 {selectedLanguageKey === "en" ? "Videos" : "Videoer"}
-                            </NavLink>
+                            </Link>
                         </li>
                         <li>
-                            <NavLink
-                                to={`/${languageSlug}products/`}
-                                className={({ isActive }) => (isActive ? style.activeLink : undefined)}
-                                title={selectedLanguageKey === "en" ? "Products" : "Produkter"}
+                            <Link
+                                href={`/${languageSlug}products/`}
+                                className={isNavActive("products") ? style.activeLink : undefined}
+                                title={lang === "en" ? "Products" : "Produkter"}
                                 onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "shopping-cart"]} />{" "}
                                 {selectedLanguageKey === "en" ? "Products" : "Produkter"}
-                            </NavLink>
+                            </Link>
                         </li>
                         <li>
-                            <NavLink
-                                to={`/${languageSlug}equipment/`}
-                                className={({ isActive }) => (isActive ? style.activeLink : undefined)}
-                                title={selectedLanguageKey === "en" ? "Equipment" : "Utstyr"}
+                            <Link
+                                href={`/${languageSlug}equipment/`}
+                                className={isNavActive("equipment") ? style.activeLink : undefined}
+                                title={lang === "en" ? "Equipment" : "Utstyr"}
                                 onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "guitar"]} />{" "}
                                 {selectedLanguageKey === "en" ? "Equipment" : "Utstyr"}
-                            </NavLink>
+                            </Link>
                         </li>
                         <li>
-                            <NavLink
-                                to={`/${languageSlug}frequently-asked-questions/`}
-                                className={({ isActive }) => (isActive ? style.activeLink : undefined)}
-                                title={selectedLanguageKey === "en" ? "Frequently Asked Questions" : "Ofte stilte spørsmål"}
+                            <Link
+                                href={`/${languageSlug}frequently-asked-questions/`}
+                                className={isNavActive("frequently-asked-questions") ? style.activeLink : undefined}
+                                title={lang === "en" ? "Frequently Asked Questions" : "Ofte stilte spørsmål"}
                                 onClick={hideSidebar}
                             >
                                 <FontAwesomeIcon icon={["fas", "comments"]} />{" "}
                                 {selectedLanguageKey === "en" ? "FAQ" : "FAQ"}
-                            </NavLink>
+                            </Link>
                         </li>
                     </ul>
                 </nav>

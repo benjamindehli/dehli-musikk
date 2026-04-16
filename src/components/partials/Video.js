@@ -1,6 +1,6 @@
 // Dependencies
 import React from 'react';
-import { useSelector } from 'react-redux';
+import Link from 'next/link';
 import { Helmet } from 'react-helmet-async';
 
 // Assets
@@ -26,7 +26,6 @@ import { formatContentAsString, formatContentWithReactLinks } from 'helpers/cont
 // Stylesheets
 import style from "components/partials/Video.module.scss";
 import Button from './Button';
-import { Link } from 'react-router-dom';
 
 const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
 
@@ -164,7 +163,7 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
             {
               fullscreen ? <h1>{video.title[selectedLanguageKey]}<span>{video.youTubeUser}</span></h1> : <h2>{video.title[selectedLanguageKey]}<span>{video.youTubeUser}</span></h2>
             }
-              <Link to={theaterModeLink.to} aria-label={theaterModeLink.title}>
+              <Link href={theaterModeLink.to} aria-label={theaterModeLink.title}>
                 <Button buttontype="minimal">
                   <span className={style.label}>{theaterModeLink.label}</span>
                   {isTheaterMode ? <MinimizeIcon className={style.icon} /> : <MaximizeIcon className={style.icon} />}
@@ -188,7 +187,5 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
     </React.Fragment>)
     : '';
 }
-
-
 
 export default Video;

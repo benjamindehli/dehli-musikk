@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from "next/link";
 
 // Selectors
 import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
@@ -12,7 +13,6 @@ import { getSearchResults } from "helpers/search";
 
 // Stylesheets
 import style from 'components/partials/NavigationBar/SearchField.module.scss';
-import { Link } from "react-router-dom";
 
 
 const SearchField = () => {
@@ -111,11 +111,25 @@ const SearchField = () => {
         faq: ['fas', 'comments']
       };
       const resultsElements = results.map((result, resultKey) => {
-        return (<Link onClick={() => hideResultsList()} to={{pathname: result.link, hash: result.hash}} title={result.linkTitle} key={resultKey} className={style.resultsListItem}>
-          {result.thumbnailPaths && result.thumbnailDescription ? renderReleaseThumbnail(result.thumbnailPaths, result.thumbnailDescription) : ''}
+                const href = result.hash ? `${result.link}${result.hash}` : result.link;
+                return (
+                    <Link
+                        onClick={() => hideResultsList()}
+                        href={href}
+                        title={result.linkTitle}
+                        key={resultKey}
+                        className={style.resultsListItem}
+                    >
+                        {result.thumbnailPaths && result.thumbnailDescription
+                            ? renderReleaseThumbnail(result.thumbnailPaths, result.thumbnailDescription)
+                            : ""}
           <span className={style.resultsListItemText}>{result.text}</span>
-          <span className={`${style.resultsListItemTypeLabel} ${style[result.type]}`}><span><FontAwesomeIcon icon={itemTypeIcons[result.type]} /> {result.label}</span></span>
-        </Link>)
+                        <span className={`${style.resultsListItemTypeLabel} ${style[result.type]}`}>
+                            <span>
+                                <FontAwesomeIcon icon={itemTypeIcons[result.type]} /> {result.label}
+                            </span>
+                        </span>
+                    </Link>
       });
       return resultsElements;
     } else {

@@ -1,8 +1,7 @@
 // Dependencies
 import React from 'react';
-import { useSelector } from 'react-redux';
+import Link from 'next/link';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
 
 // Selectors
 import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
@@ -116,7 +115,7 @@ const Post = ({ post, fullscreen }) => {
 
   const renderLink = (link) => {
     return link.internal
-      ? (<Link to={`/${languageSlug}${link.url[selectedLanguageKey]}`} title={link.text[selectedLanguageKey]}>
+      ? (<Link href={`/${languageSlug}${link.url[lang]}`} title={link.text[lang]}>
         <Button buttontype='minimal'>
           {link.text[selectedLanguageKey]}
         </Button>

@@ -1,8 +1,7 @@
 // Dependencies
 import { getArtistNamesStringFromReleases } from 'helpers/releaseHelpers';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 // Selectors
 import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
@@ -33,7 +32,7 @@ const IntroContent = () => {
   const englishContent = (<React.Fragment>
     <p>Dehli Musikk is a sole proprietorship run by keyboard player and producer Benjamin Dehli and offers keyboard instrument tracks on recordings for artists and bands.</p>
     <p>If you're recording a song and want some keyboard instrument tracks, feel free to contact me on  <a href={facebookLink} title="Dehli Musikk's Facebook page" target='_blank' rel="noopener noreferrer">Facebook</a> or <a href={emailLink} title="Send Dehli Musikk an email">email</a>.</p>
-    <p>Check out the <Link to={`/${languageSlug}portfolio/`} title="Dehli Musikk's portfolio">portfolio</Link> if you want to hear releases where Benjamin Dehli (Dehli Musikk) contributed.</p>
+    <p>Check out the <Link href={`/${languageSlug}portfolio/`} title="Dehli Musikk's portfolio">portfolio</Link> if you want to hear releases where Benjamin Dehli (Dehli Musikk) contributed.</p>
     <h2>Artists who have collaborated with Dehli Musikk</h2>
     <p>{artistNamesString}.</p>
   </React.Fragment>);
