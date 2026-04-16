@@ -84,9 +84,12 @@ const Post = ({ post, fullscreen }) => {
       snippet.image.license = "https://creativecommons.org/licenses/by/4.0/legalcode";
       snippet.image.acquireLicensePage = "https://www.dehlimusikk.no/#contact";
     }
-    return (<Helmet>
-      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-    </Helmet>)
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
+      />
+    );
   }
 
   const renderPostThumbnail = (image, altText, fullscreen) => {

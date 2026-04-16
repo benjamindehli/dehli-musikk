@@ -1,7 +1,6 @@
 // Dependencies
 import React from 'react';
 import Link from 'next/link';
-import { Helmet } from 'react-helmet-async';
 
 // Assets
 import { ReactComponent as MaximizeIcon } from "assets/svg/maximize.svg";
@@ -76,9 +75,12 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
         }
       })
     }
-    return (<Helmet>
-      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-    </Helmet>);
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
+      />
+    );
   }
 
   const renderVideoThumbnail = (image, altText) => {

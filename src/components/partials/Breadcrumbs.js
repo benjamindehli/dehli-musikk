@@ -52,11 +52,10 @@ const Breadcrumbs = ({ breadcrumbs = [] }) => {
   }
 
   return (<React.Fragment>
-    <Helmet>
-      <script type="application/ld+json">
-        {renderBreadcrumbJsonLd(breadcrumbs)}
-      </script>
-    </Helmet>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: renderBreadcrumbJsonLd(breadcrumbs) }}
+    />
     <nav className={style.breadcrumbs}>
       <ul aria-label='Breadcrumbs for current page path'>
         <li>

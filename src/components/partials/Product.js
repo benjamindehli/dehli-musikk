@@ -32,13 +32,19 @@ const Product = ({ product, fullscreen, compact }) => {
     const languageSlug = useSelector((state) => getLanguageSlug(state));
 
     const renderProductSnippet = (product) => {
-        const productSnippet = generateProductSnippet(product, languageSlug, selectedLanguageKey);
+        const productSnippet = generateProductSnippet(product, languageSlug, lang);
         const softwareApplicationSnippet = generateSoftwareApplicationSnippet(product, languageSlug);
         return (
-            <Helmet>
-                <script type="application/ld+json">{`${JSON.stringify(productSnippet)}`}</script>
-                <script type="application/ld+json">{`${JSON.stringify(softwareApplicationSnippet)}`}</script>
-            </Helmet>
+            <React.Fragment>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(productSnippet) }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSnippet) }}
+                />
+            </React.Fragment>
         );
     };
 

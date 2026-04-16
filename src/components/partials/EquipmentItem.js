@@ -44,16 +44,17 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
         }
       }
     });
-    return (<Helmet>
-      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-    </Helmet>);
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
+      />
+    );
   }
 
   const renderEquipmentItemSnippet = (item, images) => {
-
     const imagePath = images['jpg945'];
     const itemName = `${item.brand} ${item.model}`;
-
     const snippet = {
       "@context": "http://schema.org",
       "@type": "Thing",
@@ -62,13 +63,15 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
       "image": `https://www.dehlimusikk.no${imagePath}`,
       "description": itemName
     }
-
-    return (<Helmet>
-      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-    </Helmet>);
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
+      />
+    );
   }
 
-  const renderPostThumbnail = (image, itemName, fullscreen, compact) => {    
+  const renderPostThumbnail = (image, itemName, fullscreen, compact) => {
     if (compact) {
         return (<React.Fragment>
             <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" />

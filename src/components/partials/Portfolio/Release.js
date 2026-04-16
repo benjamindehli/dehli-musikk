@@ -151,9 +151,12 @@ const Release = ({ release, fullscreen, compact }) => {
     if (Object.values(release.links)?.length) {
       snippet.sameAs = Object.values(release.links);
     }
-    return (<Helmet>
-      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-    </Helmet>)
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
+      />
+    );
   }
 
   const renderInstrumentsList = (instruments, selectedLanguageKey) => {
