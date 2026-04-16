@@ -4,6 +4,7 @@ import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Container from 'components/template/Container';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import Modal from 'components/template/Modal';
 import Post from 'components/partials/Post';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
@@ -72,19 +73,23 @@ export default function PostDetailPage({ params }: { params: { postId: string } 
 
     return (
         <>
-            <Container>
+            <Container blur>
                 <Breadcrumbs breadcrumbs={breadcrumbs} languageSlug={languageSlug} />
             </Container>
-            <Container>
-                <ListItem article>
-                    <Post post={post} fullscreen={true} lang={lang} languageSlug={languageSlug} />
-                </ListItem>
-            </Container>
-            <Container>
+            <Modal
+                listPath={`/${languageSlug}posts/`}
+                arrowLeftLink={post.previousPostId ? `/${languageSlug}posts/${post.previousPostId}/` : null}
+                arrowRightLink={post.nextPostId ? `/${languageSlug}posts/${post.nextPostId}/` : null}
+                maxWidth="540px"
+                lang={lang}
+            >
+                <Post post={post} fullscreen={true} lang={lang} languageSlug={languageSlug} />
+            </Modal>
+            <Container blur>
                 <h2 data-size="h1">Innlegg</h2>
                 <p>Oppdateringer fra Dehli Musikk</p>
             </Container>
-            <Container>
+            <Container blur>
                 <List>
                     {posts.map((p) => (
                         <ListItem key={p.id} article>

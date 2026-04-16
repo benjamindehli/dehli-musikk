@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Container from 'components/template/Container';
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
+import Modal from 'components/template/Modal';
 import Video from 'components/partials/Video';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
@@ -70,29 +69,15 @@ export default function VideoTheaterPage({ params }: { params: { videoId: string
 
     return (
         <>
-            <Container>
+            <Container blur>
                 <Breadcrumbs breadcrumbs={breadcrumbs} languageSlug={languageSlug} />
             </Container>
-            <Container>
-                <ListItem>
-                    <Video video={video} fullscreen={true} isTheaterMode={true} lang={lang} languageSlug={languageSlug} />
-                </ListItem>
-            </Container>
-            <Container>
+            <Modal isTheaterMode listPath={`/${languageSlug}videos/`} lang={lang}>
+                <Video video={video} fullscreen={true} isTheaterMode={true} lang={lang} languageSlug={languageSlug} />
+            </Modal>
+            <Container blur>
                 <h2 data-size="h1">Videos</h2>
                 <p>Videos Dehli Musikk has created or contributed in</p>
-            </Container>
-            <Container>
-                <List>
-                    {videos.map((v) => {
-                        const vId = convertToUrlFriendlyString(v.title[lang]);
-                        return (
-                            <ListItem key={vId}>
-                                <Video video={v} lang={lang} languageSlug={languageSlug} />
-                            </ListItem>
-                        );
-                    })}
-                </List>
             </Container>
         </>
     );

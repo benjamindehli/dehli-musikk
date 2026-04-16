@@ -4,6 +4,7 @@ import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Container from 'components/template/Container';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import Modal from 'components/template/Modal';
 import EquipmentItem from 'components/partials/EquipmentItem';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import equipment from 'data/equipment';
@@ -89,19 +90,23 @@ export default function EquipmentItemPage({ params }: { params: { equipmentType:
 
     return (
         <>
-            <Container>
+            <Container blur>
                 <Breadcrumbs breadcrumbs={breadcrumbs} languageSlug={languageSlug} />
             </Container>
-            <Container>
-                <ListItem>
-                    <EquipmentItem item={item} itemId={equipmentId} itemType={equipmentType} fullscreen={true} lang={lang} languageSlug={languageSlug} />
-                </ListItem>
-            </Container>
-            <Container>
+            <Modal
+                listPath={`/${languageSlug}equipment/${equipmentType}/`}
+                arrowLeftLink={item.previousEquipmentItemId ? `/${languageSlug}equipment/${equipmentType}/${item.previousEquipmentItemId}/` : null}
+                arrowRightLink={item.nextEquipmentItemId ? `/${languageSlug}equipment/${equipmentType}/${item.nextEquipmentItemId}/` : null}
+                maxWidth="945px"
+                lang={lang}
+            >
+                <EquipmentItem item={item} itemId={equipmentId} itemType={equipmentType} fullscreen={true} lang={lang} languageSlug={languageSlug} />
+            </Modal>
+            <Container blur>
                 <h2 data-size="h1">{typeName}</h2>
                 <p>{typeName} I use during recording</p>
             </Container>
-            <Container>
+            <Container blur>
                 <List>
                     {equipmentTypeData.items.map((e) => {
                         const eId = convertToUrlFriendlyString(`${e.brand} ${e.model}`);

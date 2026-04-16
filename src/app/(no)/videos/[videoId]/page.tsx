@@ -4,6 +4,7 @@ import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Container from 'components/template/Container';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import Modal from 'components/template/Modal';
 import Video from 'components/partials/Video';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
@@ -69,19 +70,23 @@ export default function VideoDetailPage({ params }: { params: { videoId: string 
 
     return (
         <>
-            <Container>
+            <Container blur>
                 <Breadcrumbs breadcrumbs={breadcrumbs} languageSlug={languageSlug} />
             </Container>
-            <Container>
-                <ListItem>
-                    <Video video={video} lang={lang} languageSlug={languageSlug} />
-                </ListItem>
-            </Container>
-            <Container>
+            <Modal
+                listPath={`/${languageSlug}videos/`}
+                arrowLeftLink={video.previousVideoId ? `/${languageSlug}videos/${video.previousVideoId}/` : null}
+                arrowRightLink={video.nextVideoId ? `/${languageSlug}videos/${video.nextVideoId}/` : null}
+                maxWidth="945px"
+                lang={lang}
+            >
+                <Video video={video} fullscreen={true} lang={lang} languageSlug={languageSlug} />
+            </Modal>
+            <Container blur>
                 <h2 data-size="h1">Videoer</h2>
                 <p>Videoer Dehli Musikk har laget eller bidratt på</p>
             </Container>
-            <Container>
+            <Container blur>
                 <List>
                     {videos.map((v) => {
                         const vId = convertToUrlFriendlyString(v.title[lang]);

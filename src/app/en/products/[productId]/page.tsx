@@ -4,6 +4,7 @@ import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Container from 'components/template/Container';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import Modal from 'components/template/Modal';
 import Product from 'components/partials/Product';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
@@ -69,19 +70,23 @@ export default function ProductDetailPage({ params }: { params: { productId: str
 
     return (
         <>
-            <Container>
+            <Container blur>
                 <Breadcrumbs breadcrumbs={breadcrumbs} languageSlug={languageSlug} />
             </Container>
-            <Container>
-                <ListItem>
-                    <Product product={product} fullscreen={true} lang={lang} languageSlug={languageSlug} />
-                </ListItem>
-            </Container>
-            <Container>
+            <Modal
+                listPath={`/${languageSlug}products/`}
+                arrowLeftLink={product.previousProductId ? `/${languageSlug}products/${product.previousProductId}/` : null}
+                arrowRightLink={product.nextProductId ? `/${languageSlug}products/${product.nextProductId}/` : null}
+                maxWidth="540px"
+                lang={lang}
+            >
+                <Product product={product} fullscreen={true} lang={lang} languageSlug={languageSlug} />
+            </Modal>
+            <Container blur>
                 <h2 data-size="h1">Products</h2>
                 <p>Products from Dehli Musikk</p>
             </Container>
-            <Container>
+            <Container blur>
                 <List>
                     {products.map((p) => {
                         const pId = convertToUrlFriendlyString(p.title);

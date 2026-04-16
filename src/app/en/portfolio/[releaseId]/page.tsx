@@ -4,6 +4,7 @@ import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Container from 'components/template/Container';
 import List from 'components/template/List';
 import ListItem from 'components/template/List/ListItem';
+import Modal from 'components/template/Modal';
 import Release from 'components/partials/Portfolio/Release';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import releases from 'data/portfolio';
@@ -75,19 +76,23 @@ export default function ReleaseDetailPage({ params }: { params: { releaseId: str
 
     return (
         <>
-            <Container>
+            <Container blur>
                 <Breadcrumbs breadcrumbs={breadcrumbs} languageSlug={languageSlug} />
             </Container>
-            <Container>
-                <ListItem>
-                    <Release release={release} fullscreen={true} lang={lang} languageSlug={languageSlug} />
-                </ListItem>
-            </Container>
-            <Container>
+            <Modal
+                listPath={`/${languageSlug}portfolio/`}
+                arrowLeftLink={release.previousReleaseId ? `/${languageSlug}portfolio/${release.previousReleaseId}/` : null}
+                arrowRightLink={release.nextReleaseId ? `/${languageSlug}portfolio/${release.nextReleaseId}/` : null}
+                maxWidth="540px"
+                lang={lang}
+            >
+                <Release release={release} fullscreen={true} lang={lang} languageSlug={languageSlug} />
+            </Modal>
+            <Container blur>
                 <h2 data-size="h1">Portfolio</h2>
                 <p>Recordings where Dehli Musikk has contributed</p>
             </Container>
-            <Container>
+            <Container blur>
                 <List>
                     {releases.map((r) => {
                         const rId = convertToUrlFriendlyString(`${r.artistName} ${r.title}`);
