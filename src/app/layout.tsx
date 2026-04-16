@@ -19,7 +19,7 @@ export const metadata = {
         siteName: 'Dehli Musikk'
     },
     twitter: {
-        card: 'summary',
+        card: 'summary_large_image',
         site: '@BenjaminDehli',
         creator: '@BenjaminDehli',
         images: '/images/DehliMusikk-OpenGraph.jpg'
