@@ -18,25 +18,19 @@ import {
 // Components
 import SearchField from "components/partials/NavigationBar/SearchField";
 
-// Assets
-import { ReactComponent as DehliMusikkLogo } from "assets/svg/DehliMusikkLogoHorizontal.svg";
-import { ReactComponent as MenuIcon } from "assets/svg/menuIcon.svg";
-
-// Selectors
-import { getLanguageSlug } from "reducers/AvailableLanguagesReducer";
+// Lib
+import { useLang } from "lib/LangContext";
+import { LANGUAGES } from "lib/i18n";
 
 // Stylesheets
 import style from "components/partials/NavigationBar.module.scss";
 
 const NavigationBar = () => {
-    // Redux store
-    const availableLanguages = useSelector((state) => state.availableLanguages);
-    const multilingualRoutes = useSelector((state) => state.multilingualRoutes);
-    const selectedLanguageKey = useSelector((state) => state.selectedLanguageKey);
-    const languageSlug = useSelector((state) => getLanguageSlug(state));
+    const { lang, languageSlug } = useLang();
+    const pathname = usePathname();
 
     // State
-    const [showSidebar, setShowSidebar] = useState();
+    const [showSidebar, setShowSidebar] = useState(false);
     const [hidingSidebar, setHidingSidebar] = useState(false);
     const [showLanguageSelectorList, setShowLanguageSelectorList] = useState(false);
 
@@ -167,7 +161,7 @@ const NavigationBar = () => {
                             onClick={hideSidebar}
                         >
                             <span className={style.appLogo}>
-                                <DehliMusikkLogo />
+                                <img src="/images/DehliMusikkLogoHorizontal.svg" alt="Dehli Musikk logo" />
                             </span>
                         </Link>
                     </div>

@@ -1,6 +1,5 @@
 // Dependencies
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faPhotoFilm,
@@ -23,10 +22,7 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import style from 'components/partials/SearchResult.module.scss';
 
 
-const SearchResult = ({ searchResult }) => {
-
-  // Redux store
-  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+const SearchResult = ({ searchResult, lang }) => {
 
   const renderThumbnail = (thumbnailPaths, alt) => {
     return (<picture>
@@ -76,7 +72,7 @@ const SearchResult = ({ searchResult }) => {
     </React.Fragment>)
 
   } else {
-    return (<span className={style.resultsListItem}>{selectedLanguageKey === 'en' ? 'No results' : 'Ingen resultat'}</span>);
+    return (<span className={style.resultsListItem}>{lang === 'en' ? 'No results' : 'Ingen resultat'}</span>);
   }
 }
 

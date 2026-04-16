@@ -10,13 +10,13 @@ import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 import { latestProducts } from 'data/products';
 
 
-const LatestProducts = () => {
+const LatestProducts = ({ lang, languageSlug }) => {
   const renderProducts = () => {
     return latestProducts && latestProducts.length
       ? latestProducts.map(product => {
         const productId = convertToUrlFriendlyString(product.title);
         return (<ListItem key={productId}>
-          <Product product={product} />
+          <Product product={product} lang={lang} languageSlug={languageSlug} />
         </ListItem>)
       })
       : '';

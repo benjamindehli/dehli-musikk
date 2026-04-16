@@ -1,18 +1,11 @@
 // Dependencies
 import React from 'react';
 import Link from 'next/link';
-import { Helmet } from 'react-helmet-async';
-
-// Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
 
 // Stylesheets
 import style from 'components/partials/Breadcrumbs.module.scss';
 
-const Breadcrumbs = ({ breadcrumbs = [] }) => {
-
-  // Redux store
-  const languageSlug = useSelector(state => getLanguageSlug(state));
+const Breadcrumbs = ({ breadcrumbs = [], languageSlug }) => {
 
   const renderBreadcrumbJsonLd = (breadcrumbs) => {
     const originUrl = 'https://www.dehlimusikk.no';

@@ -4,17 +4,14 @@ import React from 'react';
 // Stylesheets
 import style from 'components/partials/Footer.module.scss';
 
-// Redux store
-const selectedLanguageKey = window?.location?.pathname?.startsWith('/en/') ? 'en' : 'no';
-
 const year = new Date().getFullYear();
 
-const Footer = () => {
+const Footer = ({ lang }) => {
   return (<footer id="contact" className={style.footer}>
     <div className={style.contentSection}>
       <div className={style.grid}>
         <div className={style.textSection}>
-          <h2>{selectedLanguageKey === "en" ? "Contact" : "Kontakt"}</h2>
+          <h2>{lang === "en" ? "Contact" : "Kontakt"}</h2>
           <address className={style.addressContent}>
             <ul id="hcard-Benjamin-Dehli" className="vcard">
               <li className="fn n">
