@@ -3,30 +3,22 @@ import { getArtistNamesStringFromReleases } from 'helpers/releaseHelpers';
 import React from 'react';
 import Link from 'next/link';
 
-// Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
-
 // Data
 import releases from "data/portfolio";
 
-const IntroContent = () => {
-
-  // Redux store
-  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
-  const languageSlug = useSelector(state => getLanguageSlug(state));
+const IntroContent = ({ lang, languageSlug }) => {
 
   const facebookLink = "https://www.facebook.com/DehliMusikk/";
   const emailLink = "mailto:superelg@gmail.com";
 
-  const artistNamesString = getArtistNamesStringFromReleases(releases, selectedLanguageKey);
+  const artistNamesString = getArtistNamesStringFromReleases(releases, lang);
 
   const norwegianContent = (<React.Fragment>
     <p>Dehli Musikk er et enkeltpersonsforetak drevet av keyboardist og produsent Benjamin Dehli og tilbyr spilling av tangentinstrumenter på låter for artister og band.</p>
     <p>Har du en låt som skal spilles inn og mangler tangenter, ta gjerne kontakt på <a href={facebookLink} title="Dehli Musikks Facebook-side" target='_blank' rel="noopener noreferrer">Facebook</a> eller <a href={emailLink} title="Send Dehli Musikk en e-post">e-post</a>.</p>
-    <p>Sjekk ut <Link to={`/${languageSlug}portfolio/`} title="Dehli Musikks portefølje">porteføljen</Link> om du vil høre utgivelser Benjamin Dehli (Dehli Musikk) har bidratt på.</p>
+    <p>Sjekk ut <Link href={`/${languageSlug}portfolio/`} title="Dehli Musikks portefølje">porteføljen</Link> om du vil høre utgivelser Benjamin Dehli (Dehli Musikk) har bidratt på.</p>
     <h2>Artister som Dehli Musikk har samarbeidet med</h2>
     <p>{artistNamesString}.</p>
-
   </React.Fragment>);
 
   const englishContent = (<React.Fragment>
@@ -36,8 +28,9 @@ const IntroContent = () => {
     <h2>Artists who have collaborated with Dehli Musikk</h2>
     <p>{artistNamesString}.</p>
   </React.Fragment>);
+
   return (<div>
-    {selectedLanguageKey === 'en' ? englishContent : norwegianContent}
+    {lang === 'en' ? englishContent : norwegianContent}
   </div>)
 }
 
