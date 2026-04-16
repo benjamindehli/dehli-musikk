@@ -1,8 +1,19 @@
+'use client';
 // Dependencies
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faMagnifyingGlass,
+    faPhotoFilm,
+    faFilm,
+    faCartShopping,
+    faMusic,
+    faGuitar,
+    faBullhorn,
+    faSliders,
+    faComments
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 // Selectors
@@ -101,14 +112,14 @@ const SearchField = () => {
   const renderResultsList = (results, selectedLanguageKey) => {
     if (results && results.length) {
       const itemTypeIcons = {
-        post: ['fas', 'photo-video'],
-        video: ['fas', 'film'],
-        product: ['fas', 'shopping-cart'],
-        release: ['fas', 'music'],
-        instruments: ['fas', 'guitar'],
-        amplifiers: ['fas', 'bullhorn'],
-        effects: ['fas', 'sliders-h'],
-        faq: ['fas', 'comments']
+        post: faPhotoFilm,
+        video: faFilm,
+        product: faCartShopping,
+        release: faMusic,
+        instruments: faGuitar,
+        amplifiers: faBullhorn,
+        effects: faSliders,
+        faq: faComments
       };
       const resultsElements = results.map((result, resultKey) => {
                 const href = result.hash ? `${result.link}${result.hash}` : result.link;
@@ -140,7 +151,7 @@ const SearchField = () => {
 
   return (<React.Fragment>
     <div className={style.searchFieldContainer}>
-      <FontAwesomeIcon icon={['fas', 'search']} />
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
       <label htmlFor="search" className={style.hidden}>{selectedLanguageKey === 'en' ? 'Search' : 'Søk'}</label>
       <input type="search"
         autoComplete="off"

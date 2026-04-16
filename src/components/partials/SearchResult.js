@@ -2,6 +2,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faPhotoFilm,
+    faFilm,
+    faCartShopping,
+    faMusic,
+    faGuitar,
+    faBullhorn,
+    faSliders,
+    faComments
+} from '@fortawesome/free-solid-svg-icons';
 
 // Components
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
@@ -29,14 +39,14 @@ const SearchResult = ({ searchResult }) => {
 
   if (searchResult) {
     const itemTypeIcons = {
-      post: ['fas', 'photo-video'],
-      video: ['fas', 'film'],
-      product: ['fas', 'shopping-cart'],
-      release: ['fas', 'music'],
-      instruments: ['fas', 'guitar'],
-      amplifiers: ['fas', 'bullhorn'],
-      effects: ['fas', 'sliders-h'],
-      faq: ['fas', 'comments']
+      post: faPhotoFilm,
+      video: faFilm,
+      product: faCartShopping,
+      release: faMusic,
+      instruments: faGuitar,
+      amplifiers: faBullhorn,
+      effects: faSliders,
+      faq: faComments
     };
 
     const link = {
