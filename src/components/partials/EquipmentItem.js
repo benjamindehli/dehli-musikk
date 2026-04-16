@@ -122,23 +122,19 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
     }
   }
 
-
-  const imagePathAvif = `data/equipment/thumbnails/${itemType}/web/avif/${itemId}`;
-  const imagePathWebp = `data/equipment/thumbnails/${itemType}/web/webp/${itemId}`;
-  const imagePathJpg = `data/equipment/thumbnails/${itemType}/web/jpg/${itemId}`;
   const image = {
-    avif55: require(`../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../${imagePathAvif}_540.avif`),
-    avif945: require(`../../${imagePathAvif}_945.avif`),
-    webp55: require(`../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../${imagePathWebp}_540.webp`),
-    webp945: require(`../../${imagePathWebp}_945.webp`),
-    jpg55: require(`../../${imagePathJpg}_55.jpg`),
-    jpg350: require(`../../${imagePathJpg}_350.jpg`),
-    jpg540: require(`../../${imagePathJpg}_540.jpg`),
-    jpg945: require(`../../${imagePathJpg}_945.jpg`)
+    avif55: `/data/equipment/${itemType}/web/avif/${itemId}_55.avif`,
+    avif350: `/data/equipment/${itemType}/web/avif/${itemId}_350.avif`,
+    avif540: `/data/equipment/${itemType}/web/avif/${itemId}_540.avif`,
+    avif945: `/data/equipment/${itemType}/web/avif/${itemId}_945.avif`,
+    webp55: `/data/equipment/${itemType}/web/webp/${itemId}_55.webp`,
+    webp350: `/data/equipment/${itemType}/web/webp/${itemId}_350.webp`,
+    webp540: `/data/equipment/${itemType}/web/webp/${itemId}_540.webp`,
+    webp945: `/data/equipment/${itemType}/web/webp/${itemId}_945.webp`,
+    jpg55: `/data/equipment/${itemType}/web/jpg/${itemId}_55.jpg`,
+    jpg350: `/data/equipment/${itemType}/web/jpg/${itemId}_350.jpg`,
+    jpg540: `/data/equipment/${itemType}/web/jpg/${itemId}_540.jpg`,
+    jpg945: `/data/equipment/${itemType}/web/jpg/${itemId}_945.jpg`
   };
   const itemPath = `/${languageSlug}equipment/${itemType}/${itemId}/`;
   const itemName = `${item.brand} ${item.model}`;

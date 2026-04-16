@@ -3,7 +3,7 @@ import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from './contentFormatter';
 
 
-// Get from /public/data 
+// Get from /public/data
 const getJsonData = async (fileName) => {
   try {
     const response = await fetch(`/data/${fileName}.json`);
@@ -36,7 +36,7 @@ export const convertStringToExcerpt = string => {
 }
 
 
-// Get search point
+// Get search points
 const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguageKey) => {
   const id = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
   const link = `/${getLanguageSlug(selectedLanguageKey)}portfolio/${id}/`;
@@ -62,14 +62,14 @@ const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguage
 
   const thumbnailPaths = !release.unreleased
     ? {
-      avif: require(`../data/releases/thumbnails/web/avif/${release.thumbnailFilename}_55.avif`),
-      webp: require(`../data/releases/thumbnails/web/webp/${release.thumbnailFilename}_55.webp`),
-      jpg: require(`../data/releases/thumbnails/web/jpg/${release.thumbnailFilename}_55.jpg`)
+      avif: `/data/releases/web/avif/${release.thumbnailFilename}_55.avif`,
+      webp: `/data/releases/web/webp/${release.thumbnailFilename}_55.webp`,
+      jpg: `/data/releases/web/jpg/${release.thumbnailFilename}_55.jpg`
     }
     : {
-      avif: require(`../assets/images/comingSoon_${selectedLanguageKey}_55.avif`),
-      webp: require(`../assets/images/comingSoon_${selectedLanguageKey}_55.webp`),
-      png: require(`../assets/images/comingSoon_${selectedLanguageKey}_55.png`)
+      avif: `/images/comingSoon_${selectedLanguageKey}_55.avif`,
+      webp: `/images/comingSoon_${selectedLanguageKey}_55.webp`,
+      png: `/images/comingSoon_${selectedLanguageKey}_55.png`
     };
   const thumbnailDescription = selectedLanguageKey === 'en' ? `Cover image for ${release.title} by ${release.artistName}` : `Coverbilde til ${release.title} av ${release.artistName}`;
 
@@ -120,9 +120,9 @@ const getSearchPointsFromPost = (post, searchStringWords, selectedLanguageKey) =
   const points = (titlePoints + contentPoints) / searchStringWords.length;
 
   const thumbnailPaths = {
-    avif: require(`../data/posts/thumbnails/web/avif/${post.thumbnailFilename}_55.avif`),
-    webp: require(`../data/posts/thumbnails/web/webp/${post.thumbnailFilename}_55.webp`),
-    jpg: require(`../data/posts/thumbnails/web/jpg/${post.thumbnailFilename}_55.jpg`)
+    avif: `/data/posts/web/avif/${post.thumbnailFilename}_55.avif`,
+    webp: `/data/posts/web/webp/${post.thumbnailFilename}_55.webp`,
+    jpg: `/data/posts/web/jpg/${post.thumbnailFilename}_55.jpg`
   };
   const thumbnailDescription = post.thumbnailDescription;
 
@@ -160,9 +160,9 @@ const getSearchPointsFromVideos = (video, searchStringWords, selectedLanguageKey
   const points = (titlePoints + contentPoints) / searchStringWords.length;
 
   const thumbnailPaths = {
-    avif: require(`../data/videos/thumbnails/web/avif/${video.thumbnailFilename}_55.avif`),
-    webp: require(`../data/videos/thumbnails/web/webp/${video.thumbnailFilename}_55.webp`),
-    jpg: require(`../data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_55.jpg`)
+    avif: `/data/videos/web/avif/${video.thumbnailFilename}_55.avif`,
+    webp: `/data/videos/web/webp/${video.thumbnailFilename}_55.webp`,
+    jpg: `/data/videos/web/jpg/${video.thumbnailFilename}_55.jpg`
   };
   const thumbnailDescription = video.thumbnailDescription;
 
@@ -200,9 +200,9 @@ const getSearchPointsFromProduct = (product, searchStringWords, selectedLanguage
   const points = (titlePoints + contentPoints) / searchStringWords.length;
 
   const thumbnailPaths = {
-    avif: require(`../data/products/thumbnails/web/avif/${id}_55.avif`),
-    webp: require(`../data/products/thumbnails/web/webp/${id}_55.webp`),
-    jpg: require(`../data/products/thumbnails/web/jpg/${id}_55.jpg`)
+    avif: `/data/products/web/avif/${id}_55.avif`,
+    webp: `/data/products/web/webp/${id}_55.webp`,
+    jpg: `/data/products/web/jpg/${id}_55.jpg`
   };
   const thumbnailDescription = linkTitle;
 
@@ -243,9 +243,9 @@ const getSearchPointsFromEquipmentItems = (item, equipmentType, equipmentTypeKey
   const points = (brandPoints + modelPoints + equipmentTypePoints) / searchStringWords.length;
 
   const thumbnailPaths = {
-    avif: require(`../data/equipment/thumbnails/${equipmentTypeKey}/web/avif/${id}_55.avif`),
-    webp: require(`../data/equipment/thumbnails/${equipmentTypeKey}/web/webp/${id}_55.webp`),
-    jpg: require(`../data/equipment/thumbnails/${equipmentTypeKey}/web/jpg/${id}_55.jpg`)
+    avif: `/data/equipment/${equipmentTypeKey}/web/avif/${id}_55.avif`,
+    webp: `/data/equipment/${equipmentTypeKey}/web/webp/${id}_55.webp`,
+    jpg: `/data/equipment/${equipmentTypeKey}/web/jpg/${id}_55.jpg`
   };
   const thumbnailDescription = `${item.brand} ${item.model}`;
 
@@ -281,14 +281,12 @@ const getSearchPointsFromFrequentlyAskedQuestions = (faq, searchStringWords, sel
   });
   const points = (questionPoints + answerPoints) / searchStringWords.length;
 
-  
   const thumbnailPaths = {
-    avif: require(`../data/frequentlyAskedQuestions/thumbnails/web/avif/thumbnail_55.avif`),
-    webp: require(`../data/frequentlyAskedQuestions/thumbnails/web/webp/thumbnail_55.webp`),
-    jpg: require(`../data/frequentlyAskedQuestions/thumbnails/web/jpg/thumbnail_55.jpg`)
+    avif: `/data/frequentlyAskedQuestions/web/avif/thumbnail_55.avif`,
+    webp: `/data/frequentlyAskedQuestions/web/webp/thumbnail_55.webp`,
+    jpg: `/data/frequentlyAskedQuestions/web/jpg/thumbnail_55.jpg`
   };
   const thumbnailDescription = `Speach bubble icon for frequently asked questions`;
-  
 
   return {
     type: 'faq',

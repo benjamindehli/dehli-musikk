@@ -110,19 +110,16 @@ const Product = ({ product, fullscreen, compact }) => {
     };
 
     const productId = convertToUrlFriendlyString(product.title);
-    const imagePathAvif = `data/products/thumbnails/web/avif/${productId}`;
-    const imagePathWebp = `data/products/thumbnails/web/webp/${productId}`;
-    const imagePathJpg = `data/products/thumbnails/web/jpg/${productId}`;
     const image = {
-        avif55: require(`../../${imagePathAvif}_55.avif`),
-        avif350: require(`../../${imagePathAvif}_350.avif`),
-        avif540: require(`../../${imagePathAvif}_540.avif`),
-        webp55: require(`../../${imagePathWebp}_55.webp`),
-        webp350: require(`../../${imagePathWebp}_350.webp`),
-        webp540: require(`../../${imagePathWebp}_540.webp`),
-        jpg55: require(`../../${imagePathJpg}_55.jpg`),
-        jpg350: require(`../../${imagePathJpg}_350.jpg`),
-        jpg540: require(`../../${imagePathJpg}_540.jpg`)
+        avif55: `/data/products/web/avif/${productId}_55.avif`,
+        avif350: `/data/products/web/avif/${productId}_350.avif`,
+        avif540: `/data/products/web/avif/${productId}_540.avif`,
+        webp55: `/data/products/web/webp/${productId}_55.webp`,
+        webp350: `/data/products/web/webp/${productId}_350.webp`,
+        webp540: `/data/products/web/webp/${productId}_540.webp`,
+        jpg55: `/data/products/web/jpg/${productId}_55.jpg`,
+        jpg350: `/data/products/web/jpg/${productId}_350.jpg`,
+        jpg540: `/data/products/web/jpg/${productId}_540.jpg`
     };
     const productDate = new Date(product.timestamp);
     const productPath = `/${languageSlug}products/${productId}/`;

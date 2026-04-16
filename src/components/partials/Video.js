@@ -94,19 +94,16 @@ const Video = ({ video, fullscreen, isTheaterMode, startOffset }) => {
     </React.Fragment>);
   }
 
-  const imagePathAvif = `data/videos/thumbnails/web/avif/${video.thumbnailFilename}`;
-  const imagePathWebp = `data/videos/thumbnails/web/webp/${video.thumbnailFilename}`;
-  const imagePathJpg = `data/videos/thumbnails/web/jpg/${video.thumbnailFilename}`;
   const image = {
-    avif55: require(`../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../${imagePathAvif}_540.avif`),
-    webp55: require(`../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../${imagePathWebp}_540.webp`),
-    jpg55: require(`../../${imagePathJpg}_55.jpg`),
-    jpg350: require(`../../${imagePathJpg}_350.jpg`),
-    jpg540: require(`../../${imagePathJpg}_540.jpg`)
+    avif55: `/data/videos/web/avif/${video.thumbnailFilename}_55.avif`,
+    avif350: `/data/videos/web/avif/${video.thumbnailFilename}_350.avif`,
+    avif540: `/data/videos/web/avif/${video.thumbnailFilename}_540.avif`,
+    webp55: `/data/videos/web/webp/${video.thumbnailFilename}_55.webp`,
+    webp350: `/data/videos/web/webp/${video.thumbnailFilename}_350.webp`,
+    webp540: `/data/videos/web/webp/${video.thumbnailFilename}_540.webp`,
+    jpg55: `/data/videos/web/jpg/${video.thumbnailFilename}_55.jpg`,
+    jpg350: `/data/videos/web/jpg/${video.thumbnailFilename}_350.jpg`,
+    jpg540: `/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`
   };
   const videoDate = new Date(video.timestamp);
   const videoId = convertToUrlFriendlyString(video.title[selectedLanguageKey]);

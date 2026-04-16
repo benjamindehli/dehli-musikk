@@ -128,20 +128,16 @@ const Post = ({ post, fullscreen }) => {
       </a>);
   }
 
-
-  const imagePathAvif = `data/posts/thumbnails/web/avif/${post.thumbnailFilename}`;
-  const imagePathWebp = `data/posts/thumbnails/web/webp/${post.thumbnailFilename}`;
-  const imagePathJpg = `data/posts/thumbnails/web/jpg/${post.thumbnailFilename}`;
   const image = {
-    avif55: require(`../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../${imagePathAvif}_540.avif`),
-    webp55: require(`../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../${imagePathWebp}_540.webp`),
-    jpg55: require(`../../${imagePathJpg}_55.jpg`),
-    jpg350: require(`../../${imagePathJpg}_350.jpg`),
-    jpg540: require(`../../${imagePathJpg}_540.jpg`)
+    avif55: `/data/posts/web/avif/${post.thumbnailFilename}_55.avif`,
+    avif350: `/data/posts/web/avif/${post.thumbnailFilename}_350.avif`,
+    avif540: `/data/posts/web/avif/${post.thumbnailFilename}_540.avif`,
+    webp55: `/data/posts/web/webp/${post.thumbnailFilename}_55.webp`,
+    webp350: `/data/posts/web/webp/${post.thumbnailFilename}_350.webp`,
+    webp540: `/data/posts/web/webp/${post.thumbnailFilename}_540.webp`,
+    jpg55: `/data/posts/web/jpg/${post.thumbnailFilename}_55.jpg`,
+    jpg350: `/data/posts/web/jpg/${post.thumbnailFilename}_350.jpg`,
+    jpg540: `/data/posts/web/jpg/${post.thumbnailFilename}_540.jpg`
   };
   const postDate = new Date(post.timestamp);
   const postId = convertToUrlFriendlyString(post.title[selectedLanguageKey]);

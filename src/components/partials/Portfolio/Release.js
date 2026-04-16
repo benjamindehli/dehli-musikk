@@ -212,23 +212,30 @@ const Release = ({ release, fullscreen, compact }) => {
   const releaseInstruments = getReleaseInstruments(releaseId);
   const releaseProducts = getReleaseProducts(releaseId);
 
-  const imagePathAvif = !release.unreleased ? `data/releases/thumbnails/web/avif/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
-  const imagePathWebp = !release.unreleased ? `data/releases/thumbnails/web/webp/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
-  const imagePathJpg = !release.unreleased ? `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}` : null;
-  const imagePathPng = !release.unreleased ? null : `assets/images/comingSoon_${selectedLanguageKey}`;
-  const image = {
-    avif55: require(`../../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../../${imagePathAvif}_540.avif`),
-    webp55: require(`../../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../../${imagePathWebp}_540.webp`),
-    jpg55: !release.unreleased ? require(`../../../${imagePathJpg}_55.jpg`) : null,
-    jpg350: !release.unreleased ? require(`../../../${imagePathJpg}_350.jpg`) : null,
-    jpg540: !release.unreleased ? require(`../../../${imagePathJpg}_540.jpg`) : null,
-    png55: release.unreleased ? require(`../../../${imagePathPng}_55.png`) : null,
-    png350: release.unreleased ? require(`../../../${imagePathPng}_350.png`) : null,
-    png540: release.unreleased ? require(`../../../${imagePathPng}_540.png`) : null,
+  const image = release.unreleased
+    ? {
+        avif55: `/images/comingSoon_${lang}_55.avif`,
+        avif350: `/images/comingSoon_${lang}_350.avif`,
+        avif540: `/images/comingSoon_${lang}_540.avif`,
+        webp55: `/images/comingSoon_${lang}_55.webp`,
+        webp350: `/images/comingSoon_${lang}_350.webp`,
+        webp540: `/images/comingSoon_${lang}_540.webp`,
+        png55: `/images/comingSoon_${lang}_55.png`,
+        png350: `/images/comingSoon_${lang}_350.png`,
+        png540: `/images/comingSoon_${lang}_540.png`,
+        jpg55: null, jpg350: null, jpg540: null,
+      }
+    : {
+        avif55: `/data/releases/web/avif/${release.thumbnailFilename}_55.avif`,
+        avif350: `/data/releases/web/avif/${release.thumbnailFilename}_350.avif`,
+        avif540: `/data/releases/web/avif/${release.thumbnailFilename}_540.avif`,
+        webp55: `/data/releases/web/webp/${release.thumbnailFilename}_55.webp`,
+        webp350: `/data/releases/web/webp/${release.thumbnailFilename}_350.webp`,
+        webp540: `/data/releases/web/webp/${release.thumbnailFilename}_540.webp`,
+        jpg55: `/data/releases/web/jpg/${release.thumbnailFilename}_55.jpg`,
+        jpg350: `/data/releases/web/jpg/${release.thumbnailFilename}_350.jpg`,
+        jpg540: `/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`,
+        png55: null, png350: null, png540: null,
   };
 
   const link = {
