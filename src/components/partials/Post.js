@@ -93,7 +93,7 @@ const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
         <source srcSet={`${image.avif540} 1x, ${image.avif540} 2x`} type="image/avif" />
         <source srcSet={`${image.webp540} 1x, ${image.webp540} 2x`} type="image/webp" />
         <source srcSet={`${image.jpg540} 1x, ${image.jpg540} 2x`} type="image/jpg" />
-        <img fetchpriority="high" src={image.jpg540} data-width="540" data-height="400" alt={altText} />
+        <img fetchPriority="high" src={image.jpg540} data-width="540" data-height="400" alt={altText} />
       </React.Fragment>);
     } else {
       return (<React.Fragment>

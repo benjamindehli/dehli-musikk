@@ -112,7 +112,7 @@ const Home = () => {
                 {sourceElements}
                 <img
                     src={headerImage.jpg[1024]}
-                    fetchpriority="high"
+                    fetchPriority="high"
                     alt="A Korg MS-20 with a cassette and tape recorder"
                 />
             </picture>

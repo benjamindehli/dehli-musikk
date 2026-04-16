@@ -59,8 +59,8 @@ const Release = ({ release, fullscreen = false, compact = false, lang, languageS
           }
           {
             release?.unreleased
-              ? <img fetchpriority="high" src={image.png540} data-width="540" data-height="540" alt={altText} />
-              : <img fetchpriority="high" src={image.jpg540} data-width="540" data-height="540" alt={altText} />
+              ? <img fetchPriority="high" src={image.png540} data-width="540" data-height="540" alt={altText} />
+              : <img fetchPriority="high" src={image.jpg540} data-width="540" data-height="540" alt={altText} />
           }
         </React.Fragment>);
       } else {

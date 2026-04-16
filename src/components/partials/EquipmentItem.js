@@ -78,7 +78,7 @@ const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, it
             <source srcSet={`${image.avif945} 1x, ${image.avif945} 2x`} type="image/avif" />
             <source srcSet={`${image.webp945} 1x, ${image.webp945} 2x`} type="image/webp" />
             <source srcSet={`${image.jpg945} 1x, ${image.jpg945} 2x`} type="image/jpg" />
-            <img fetchpriority="high" src={image.jpg945} data-width="945" data-height="700" alt={itemName} />
+            <img fetchPriority="high" src={image.jpg945} data-width="945" data-height="700" alt={itemName} />
         </React.Fragment>);
     } else {
         return (<React.Fragment>
