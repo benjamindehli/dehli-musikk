@@ -53,7 +53,7 @@ const ExpansionPanel = ({ panelTitle, children, elementId }) => {
         style={{
           maxHeight: expanded ? `${maxHeight}px` : "0px",
         }}
-        inert={!expanded ? "" : undefined}
+        inert={!expanded}
       >
         {children}
       </div>
