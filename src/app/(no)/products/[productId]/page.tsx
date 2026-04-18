@@ -31,8 +31,8 @@ function getProduct(productId: string) {
     };
 }
 
-export async function generateMetadata({ params }: { params: { productId: string } }): Promise<Metadata> {
-    const { productId } = params;
+export async function generateMetadata({ params }: { params: Promise<{ productId: string }> }): Promise<Metadata> {
+    const { productId } = await params;
     const product = getProduct(productId);
     if (!product) return {};
 
@@ -57,8 +57,8 @@ export async function generateMetadata({ params }: { params: { productId: string
     };
 }
 
-export default function ProductDetailPage({ params }: { params: { productId: string } }) {
-    const { productId } = params;
+export default async function ProductDetailPage({ params }: { params: Promise<{ productId: string }> }) {
+    const { productId } = await params;
     const product = getProduct(productId);
 
     if (!product) notFound();

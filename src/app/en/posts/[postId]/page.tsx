@@ -32,8 +32,8 @@ function getPost(postId: string) {
     };
 }
 
-export async function generateMetadata({ params }: { params: { postId: string } }): Promise<Metadata> {
-    const { postId } = params;
+export async function generateMetadata({ params }: { params: Promise<{ postId: string }> }): Promise<Metadata> {
+    const { postId } = await params;
     const post = getPost(postId);
     if (!post) return {};
 
@@ -60,8 +60,8 @@ export async function generateMetadata({ params }: { params: { postId: string } 
     };
 }
 
-export default function PostDetailPage({ params }: { params: { postId: string } }) {
-    const { postId } = params;
+export default async function PostDetailPage({ params }: { params: Promise<{ postId: string }> }) {
+    const { postId } = await params;
     const post = getPost(postId);
 
     if (!post) notFound();

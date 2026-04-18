@@ -31,8 +31,8 @@ function getVideo(videoId: string) {
     };
 }
 
-export async function generateMetadata({ params }: { params: { videoId: string } }): Promise<Metadata> {
-    const { videoId } = params;
+export async function generateMetadata({ params }: { params: Promise<{ videoId: string }> }): Promise<Metadata> {
+    const { videoId } = await params;
     const video = getVideo(videoId);
     if (!video) return {};
 
@@ -57,8 +57,8 @@ export async function generateMetadata({ params }: { params: { videoId: string }
     };
 }
 
-export default function VideoDetailPage({ params }: { params: { videoId: string } }) {
-    const { videoId } = params;
+export default async function VideoDetailPage({ params }: { params: Promise<{ videoId: string }> }) {
+    const { videoId } = await params;
     const video = getVideo(videoId);
 
     if (!video) notFound();

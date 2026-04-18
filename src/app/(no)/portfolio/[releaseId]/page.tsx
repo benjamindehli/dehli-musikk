@@ -35,8 +35,8 @@ function getRelease(releaseId: string) {
     };
 }
 
-export async function generateMetadata({ params }: { params: { releaseId: string } }): Promise<Metadata> {
-    const { releaseId } = params;
+export async function generateMetadata({ params }: { params: Promise<{ releaseId: string }> }): Promise<Metadata> {
+    const { releaseId } = await params;
     const release = getRelease(releaseId);
     if (!release) return {};
 
@@ -62,8 +62,8 @@ export async function generateMetadata({ params }: { params: { releaseId: string
     };
 }
 
-export default function ReleaseDetailPage({ params }: { params: { releaseId: string } }) {
-    const { releaseId } = params;
+export default async function ReleaseDetailPage({ params }: { params: Promise<{ releaseId: string }> }) {
+    const { releaseId } = await params;
     const release = getRelease(releaseId);
 
     if (!release) notFound();

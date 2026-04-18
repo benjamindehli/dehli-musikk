@@ -16,8 +16,8 @@ export function generateStaticParams() {
     return VALID_EQUIPMENT_TYPES.map((equipmentType) => ({ equipmentType }));
 }
 
-export async function generateMetadata({ params }: { params: { equipmentType: string } }): Promise<Metadata> {
-    const { equipmentType } = params;
+export async function generateMetadata({ params }: { params: Promise<{ equipmentType: string }> }): Promise<Metadata> {
+    const { equipmentType } = await params;
     const equipmentTypeData = equipment[equipmentType];
     if (!equipmentTypeData) return {};
 
@@ -43,8 +43,8 @@ export async function generateMetadata({ params }: { params: { equipmentType: st
     };
 }
 
-export default function EquipmentTypePage({ params }: { params: { equipmentType: string } }) {
-    const { equipmentType } = params;
+export default async function EquipmentTypePage({ params }: { params: Promise<{ equipmentType: string }> }) {
+    const { equipmentType } = await params;
     const equipmentTypeData = equipment[equipmentType];
 
     if (!equipmentTypeData) notFound();

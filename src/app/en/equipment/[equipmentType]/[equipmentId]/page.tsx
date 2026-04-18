@@ -41,8 +41,8 @@ function getEquipmentItem(equipmentType: string, equipmentId: string) {
     };
 }
 
-export async function generateMetadata({ params }: { params: { equipmentType: string; equipmentId: string } }): Promise<Metadata> {
-    const { equipmentType, equipmentId } = params;
+export async function generateMetadata({ params }: { params: Promise<{ equipmentType: string; equipmentId: string }> }): Promise<Metadata> {
+    const { equipmentType, equipmentId } = await params;
     const equipmentTypeData = equipment[equipmentType];
     if (!equipmentTypeData) return {};
     const item = getEquipmentItem(equipmentType, equipmentId);
@@ -70,8 +70,8 @@ export async function generateMetadata({ params }: { params: { equipmentType: st
     };
 }
 
-export default function EquipmentItemPage({ params }: { params: { equipmentType: string; equipmentId: string } }) {
-    const { equipmentType, equipmentId } = params;
+export default async function EquipmentItemPage({ params }: { params: Promise<{ equipmentType: string; equipmentId: string }> }) {
+    const { equipmentType, equipmentId } = await params;
     const equipmentTypeData = equipment[equipmentType];
 
     if (!equipmentTypeData) notFound();
