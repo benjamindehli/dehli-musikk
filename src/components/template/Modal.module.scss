@@ -35,6 +35,13 @@
     padding: 0;
   }
 
+  .overlayClose {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    cursor: default;
+  }
+
   .arrowLeftButton,
   .arrowRightButton {
     @include appearance.appearance(none);
@@ -42,6 +49,8 @@
       color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
       transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms
     );
+    position: relative;
+    z-index: 1;
     background: none;
     align-self: center;
     padding: 22px;
@@ -55,6 +64,7 @@
 
     & svg {
       @include transform.transform(rotate(90deg));
+      display: block;
       @media (min-width: breakpoints.$screen-sm) {
         @include transform.transform(none);
       }
@@ -62,6 +72,8 @@
   }
 
   .arrowPlaceholderButton {
+    position: relative;
+    z-index: 1;
     width: 64px;
   }
 
@@ -72,6 +84,8 @@
       0 24px 38px 3px rgba(0, 0, 0, 0.14),
       0 9px 46px 8px rgba(0, 0, 0, 0.12)
     );
+    position: relative;
+    z-index: 1;
     max-width: 540px;
     width: 100%;
     background-color: #fff;

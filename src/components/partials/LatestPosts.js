@@ -7,12 +7,12 @@ import Post from 'components/partials/Post';
 import { latestPosts } from 'data/posts';
 
 
-const LatestPosts = () => {
+const LatestPosts = ({ lang, languageSlug }) => {
   const renderPosts = () => {
     return latestPosts && latestPosts.length
       ? latestPosts.map(post => {
         return (<ListItem key={post.id}>
-          <Post post={post} />
+          <Post post={post} lang={lang} languageSlug={languageSlug} />
         </ListItem>)
       })
       : '';

@@ -1,25 +1,17 @@
 // Dependencies
 import React from 'react';
 
-// Assets
-import map930Avif from 'assets/images/map_930.avif';
-import map930Webp from 'assets/images/map_930.webp';
-import map930Jpg from 'assets/images/map_930.jpg';
-
 // Stylesheets
 import style from 'components/partials/Footer.module.scss';
 
-// Redux store
-const selectedLanguageKey = window?.location?.pathname?.startsWith('/en/') ? 'en' : 'no';
-
 const year = new Date().getFullYear();
 
-const Footer = () => {
+const Footer = ({ lang }) => {
   return (<footer id="contact" className={style.footer}>
     <div className={style.contentSection}>
       <div className={style.grid}>
         <div className={style.textSection}>
-          <h2>{selectedLanguageKey === "en" ? "Contact" : "Kontakt"}</h2>
+          <h2>{lang === "en" ? "Contact" : "Kontakt"}</h2>
           <address className={style.addressContent}>
             <ul id="hcard-Benjamin-Dehli" className="vcard">
               <li className="fn n">
@@ -49,10 +41,10 @@ const Footer = () => {
           <a href='https://g.page/dehli-musikk?share' title='Location for Dehli Musikk in Google Maps' aria-label='Location for Dehli Musikk in Google Maps' target='_blank' rel="noopener noreferrer">
             <figure className={style.map}>
               <picture>
-                <source sizes="100vw" srcSet={`${map930Avif} 930w`} type="image/avif" />
-                <source sizes="100vw" srcSet={`${map930Webp} 930w`} type="image/webp" />
-                <source sizes="100vw" srcSet={`${map930Jpg} 930w`} type="image/jpg" />
-                <img loading="lazy" src={map930Jpg} alt="Location for Dehli Musikk" width="779" height="250" />
+                <source sizes="100vw" srcSet="/images/map_930.avif 930w" type="image/avif" />
+                <source sizes="100vw" srcSet="/images/map_930.webp 930w" type="image/webp" />
+                <source sizes="100vw" srcSet="/images/map_930.jpg 930w" type="image/jpg" />
+                <img loading="lazy" src="/images/map_930.jpg" alt="Location for Dehli Musikk" width="779" height="250" />
               </picture>
             </figure>
           </a>

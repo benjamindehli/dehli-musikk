@@ -7,12 +7,12 @@ import Video from 'components/partials/Video';
 import { latestVideos } from 'data/videos';
 
 
-const LatestVideos = () => {
+const LatestVideos = ({ lang, languageSlug }) => {
   const renderVideos = () => {
     return latestVideos && latestVideos.length
       ? latestVideos.map(video => {
         return (<ListItem key={video.id}>
-          <Video video={video} />
+          <Video video={video} lang={lang} languageSlug={languageSlug} />
         </ListItem>)
       })
       : '';

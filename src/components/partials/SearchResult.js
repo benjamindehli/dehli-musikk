@@ -1,7 +1,16 @@
 // Dependencies
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faPhotoFilm,
+    faFilm,
+    faCartShopping,
+    faMusic,
+    faGuitar,
+    faBullhorn,
+    faSliders,
+    faComments
+} from '@fortawesome/free-solid-svg-icons';
 
 // Components
 import ListItemContent from 'components/template/List/ListItem/ListItemContent';
@@ -13,10 +22,7 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import style from 'components/partials/SearchResult.module.scss';
 
 
-const SearchResult = ({ searchResult }) => {
-
-  // Redux store
-  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
+const SearchResult = ({ searchResult, lang }) => {
 
   const renderThumbnail = (thumbnailPaths, alt) => {
     return (<picture>
@@ -29,14 +35,14 @@ const SearchResult = ({ searchResult }) => {
 
   if (searchResult) {
     const itemTypeIcons = {
-      post: ['fas', 'photo-video'],
-      video: ['fas', 'film'],
-      product: ['fas', 'shopping-cart'],
-      release: ['fas', 'music'],
-      instruments: ['fas', 'guitar'],
-      amplifiers: ['fas', 'bullhorn'],
-      effects: ['fas', 'sliders-h'],
-      faq: ['fas', 'comments']
+      post: faPhotoFilm,
+      video: faFilm,
+      product: faCartShopping,
+      release: faMusic,
+      instruments: faGuitar,
+      amplifiers: faBullhorn,
+      effects: faSliders,
+      faq: faComments
     };
 
     const link = {
@@ -66,7 +72,7 @@ const SearchResult = ({ searchResult }) => {
     </React.Fragment>)
 
   } else {
-    return (<span className={style.resultsListItem}>{selectedLanguageKey === 'en' ? 'No results' : 'Ingen resultat'}</span>);
+    return (<span className={style.resultsListItem}>{lang === 'en' ? 'No results' : 'Ingen resultat'}</span>);
   }
 }
 

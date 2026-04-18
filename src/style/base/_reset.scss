@@ -38,6 +38,11 @@ input {
   appearance: none;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 h1,
 [data-size="h1"] {
   display: block;

@@ -1,5 +1,7 @@
+'use client';
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import style from "components/template/ExpansionPanel.module.scss";
 
 const ExpansionPanel = ({ panelTitle, children, elementId }) => {
@@ -37,7 +39,7 @@ const ExpansionPanel = ({ panelTitle, children, elementId }) => {
       >
         <h2 className={`${style.expansionPanelHeader} ${expanded ? style.expanded : ""}`}>
           <span id={`${id}-title`}>{panelTitle}</span>
-          <FontAwesomeIcon icon={["fas", "chevron-down"]} />
+          <FontAwesomeIcon icon={faChevronDown} />
         </h2>
       </button>
 
@@ -51,7 +53,7 @@ const ExpansionPanel = ({ panelTitle, children, elementId }) => {
         style={{
           maxHeight: expanded ? `${maxHeight}px` : "0px",
         }}
-        inert={!expanded ? "" : undefined}
+        inert={!expanded}
       >
         {children}
       </div>

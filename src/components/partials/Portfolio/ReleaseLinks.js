@@ -1,132 +1,80 @@
-// Dependencies
-import { useSelector } from 'react-redux';
-
-// Assets
-import { ReactComponent as AmazonMusicIcon } from 'assets/svg/amazonMusic.svg'
-import { ReactComponent as AmazonStoreIcon } from 'assets/svg/amazonStore.svg'
-import { ReactComponent as AnghamiIcon } from 'assets/svg/anghami.svg'
-import { ReactComponent as AppleMusicIcon } from 'assets/svg/appleMusic.svg'
-import { ReactComponent as AudiomackIcon } from 'assets/svg/audiomack.svg'
-import { ReactComponent as BoomplayIcon } from 'assets/svg/boomplay.svg'
-import { ReactComponent as DeezerIcon } from 'assets/svg/deezer.svg'
-import { ReactComponent as GoogleIcon } from 'assets/svg/google.svg'
-import { ReactComponent as GoogleStoreIcon } from 'assets/svg/googleStore.svg'
-import { ReactComponent as ItunesIcon } from 'assets/svg/itunes.svg'
-import { ReactComponent as NapsterIcon } from 'assets/svg/napster.svg'
-import { ReactComponent as PandoraIcon } from 'assets/svg/pandora.svg'
-import { ReactComponent as SoundcloudIcon } from 'assets/svg/soundcloud.svg'
-import { ReactComponent as SpotifyIcon } from 'assets/svg/spotify.svg'
-import { ReactComponent as TidalIcon } from 'assets/svg/tidal.svg'
-import { ReactComponent as YandexIcon } from 'assets/svg/yandex.svg'
-import { ReactComponent as YoutubeIcon } from 'assets/svg/youtube.svg'
-import { ReactComponent as YoutubeMusicIcon } from 'assets/svg/youtubeMusic.svg'
-
 // Stylesheets
 import style from 'components/partials/Portfolio/ReleaseLinks.module.scss';
 
-const ReleaseLinks = ({ release }) => {
+const getLinkIcon = (linkKey) => {
+  const icons = {
+    amazonMusic: '/images/amazonMusic.svg',
+    amazonStore: '/images/amazonStore.svg',
+    anghami: '/images/anghami.svg',
+    appleMusic: '/images/appleMusic.svg',
+    audiomack: '/images/audiomack.svg',
+    boomplay: '/images/boomplay.svg',
+    deezer: '/images/deezer.svg',
+    google: '/images/google.svg',
+    googleStore: '/images/googleStore.svg',
+    itunes: '/images/itunes.svg',
+    napster: '/images/napster.svg',
+    pandora: '/images/pandora.svg',
+    soundcloud: '/images/soundcloud.svg',
+    spotify: '/images/spotify.svg',
+    tidal: '/images/tidal.svg',
+    yandex: '/images/yandex.svg',
+    youtube: '/images/youtube.svg',
+    youtubeMusic: '/images/youtubeMusic.svg'
+  };
+  const src = icons[linkKey];
+  return src ? <img src={src} alt="" aria-hidden="true" /> : null;
+};
 
-  // Redux store
-  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
-
-  const getLinkIcon = (linkKey) => {
-    switch (linkKey) {
-      case 'amazonMusic':
-        return <AmazonMusicIcon />
-      case 'amazonStore':
-        return <AmazonStoreIcon />
-      case 'anghami':
-        return <AnghamiIcon />
-      case 'appleMusic':
-        return <AppleMusicIcon />
-      case 'audiomack':
-        return <AudiomackIcon />
-      case 'boomplay':
-        return <BoomplayIcon />
-      case 'deezer':
-        return <DeezerIcon />
-      case 'google':
-        return <GoogleIcon />
-      case 'googleStore':
-        return <GoogleStoreIcon />
-      case 'itunes':
-        return <ItunesIcon />
-      case 'napster':
-        return <NapsterIcon />
-      case 'pandora':
-        return <PandoraIcon />
-      case 'soundcloud':
-        return <SoundcloudIcon />
-      case 'spotify':
-        return <SpotifyIcon />
-      case 'tidal':
-        return <TidalIcon />
-      case 'yandex':
-        return <YandexIcon />
-      case 'youtube':
-        return <YoutubeIcon />
-      case 'youtubeMusic':
-        return <YoutubeMusicIcon />
-      default:
-        return 'Missing icon'
-    }
+const getLinkName = (linkKey) => {
+  switch (linkKey) {
+    case 'amazonMusic': return 'Amazon Music';
+    case 'amazonStore': return 'Amazon';
+    case 'anghami': return 'Anghami';
+    case 'appleMusic': return 'Apple Music';
+    case 'audiomack': return 'Audiomack';
+    case 'boomplay': return 'Boomplay';
+    case 'deezer': return 'Deezer';
+    case 'google': return 'Google Play Music';
+    case 'googleStore': return 'Google Play';
+    case 'itunes': return 'iTunes';
+    case 'napster': return 'Napster';
+    case 'pandora': return 'Pandora';
+    case 'soundcloud': return 'SoundCloud';
+    case 'spotify': return 'Spotify';
+    case 'tidal': return 'Tidal';
+    case 'yandex': return 'Yandex';
+    case 'youtube': return 'YouTube';
+    case 'youtubeMusic': return 'YouTube Music';
+    default: return linkKey;
   }
+};
 
-  const getLinkName = (linkKey) => {
-    switch (linkKey) {
-      case 'amazonMusic':
-        return 'Amazon Music'
-      case 'amazonStore':
-        return 'Amazon'
-      case 'anghami':
-        return 'Anghami'
-      case 'appleMusic':
-        return 'Apple Music'
-      case 'audiomack':
-        return 'Audiomack'
-      case 'boomplay':
-        return 'Boomplay'
-      case 'deezer':
-        return 'Deezer'
-      case 'google':
-        return 'Google Play Music'
-      case 'googleStore':
-        return 'Google Play'
-      case 'itunes':
-        return 'iTunes'
-      case 'napster':
-        return 'Napster'
-      case 'pandora':
-        return 'Pandora'
-      case 'soundcloud':
-        return 'SoundCloud'
-      case 'spotify':
-        return 'Spotify'
-      case 'tidal':
-        return 'Tidal'
-      case 'yandex':
-        return 'Yandex'
-      case 'youtube':
-        return 'YouTube'
-      case 'youtubeMusic':
-        return 'YouTube Music'
-      default:
-        return linkKey
-    }
-  }
-
-  const renderReleaseLinks = (release) => {
-    const links = release.links;
-    return Object.keys(links).map(linkKey => {
-      const url = links[linkKey];
-      const linkTitle = `${selectedLanguageKey === 'en' ? 'Listen to' : 'Lytt til'} ${release.title} ${selectedLanguageKey === 'en' ? 'on' : 'på'} ${getLinkName(linkKey)}`;
-      return <a href={url} data-tabable={true} key={linkKey} aria-label={linkTitle} title={linkTitle} target='_blank' rel='noopener noreferrer' className={style.link}>{getLinkIcon(linkKey)} {getLinkName(linkKey)}</a>;
-    });
-  }
-
-  return (<div className={style.releaseLinks}>
-    {renderReleaseLinks(release)}
-  </div>);
-}
+const ReleaseLinks = ({ release, lang }) => {
+  const links = release.links;
+  return (
+    <div className={style.releaseLinks}>
+      {Object.keys(links).map((linkKey) => {
+        const url = links[linkKey];
+        const name = getLinkName(linkKey);
+        const linkTitle = `${lang === 'en' ? 'Listen to' : 'Lytt til'} ${release.title} ${lang === 'en' ? 'on' : 'på'} ${name}`;
+        return (
+          <a
+            href={url}
+            data-tabable={true}
+            key={linkKey}
+            aria-label={linkTitle}
+            title={linkTitle}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={style.link}
+          >
+            {getLinkIcon(linkKey)} {name}
+          </a>
+        );
+      })}
+    </div>
+  );
+};
 
 export default ReleaseLinks;

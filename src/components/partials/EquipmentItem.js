@@ -1,8 +1,5 @@
 // Dependencies
 import React from 'react';
-import { connect, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet-async';
 
 // Components
 import ExpansionPanel from 'components/template/ExpansionPanel';
@@ -13,19 +10,10 @@ import ListItemContentHeader from 'components/template/List/ListItem/ListItemCon
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import Release from 'components/partials/Portfolio/Release';
 
-// Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
-
 // Helpers
 import { getInstrumentReleases } from 'helpers/instrumentReleases';
 
-const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
-
-
-  // Redux store
-  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
-  const languageSlug = useSelector(state => getLanguageSlug(state));
-
+const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, itemId, lang, languageSlug }) => {
 
   const renderEquipmentItemImagesSnippet = (images) => {
     const snippet = Object.keys(images).map(format => {
@@ -44,16 +32,17 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
         }
       }
     });
-    return (<Helmet>
-      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-    </Helmet>);
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
+      />
+    );
   }
 
   const renderEquipmentItemSnippet = (item, images) => {
-
     const imagePath = images['jpg945'];
     const itemName = `${item.brand} ${item.model}`;
-
     const snippet = {
       "@context": "http://schema.org",
       "@type": "Thing",
@@ -62,13 +51,15 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
       "image": `https://www.dehlimusikk.no${imagePath}`,
       "description": itemName
     }
-
-    return (<Helmet>
-      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-    </Helmet>);
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
+      />
+    );
   }
 
-  const renderPostThumbnail = (image, itemName, fullscreen, compact) => {    
+  const renderPostThumbnail = (image, itemName, fullscreen, compact) => {
     if (compact) {
         return (<React.Fragment>
             <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" />
@@ -87,7 +78,7 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
             <source srcSet={`${image.avif945} 1x, ${image.avif945} 2x`} type="image/avif" />
             <source srcSet={`${image.webp945} 1x, ${image.webp945} 2x`} type="image/webp" />
             <source srcSet={`${image.jpg945} 1x, ${image.jpg945} 2x`} type="image/jpg" />
-            <img fetchpriority="high" src={image.jpg945} data-width="945" data-height="700" alt={itemName} />
+            <img fetchPriority="high" src={image.jpg945} data-width="945" data-height="700" alt={itemName} />
         </React.Fragment>);
     } else {
         return (<React.Fragment>
@@ -98,20 +89,20 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
             <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" />
             <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpg" />
             <img loading="lazy" src={image.jpg350} data-width="350" data-height="260" alt={itemName} />
-    </React.Fragment>);
+        </React.Fragment>);
     }
   }
 
-  const renderReleasesList = (releases, selectedLanguageKey, item) => {
+  const renderReleasesList = (releases, lang, item) => {
     const elementId = `equipment-item-releases-${item.equipmentItemId}`;
     if (releases && releases.length) {
       const listItems = releases.map(release => {
         return (<ListItem key={release.releaseId} compact={true}>
-          <Release release={release} compact={true} />
+          <Release release={release} compact={true} lang={lang} languageSlug={languageSlug} />
         </ListItem>)
       });
       return (
-        <ExpansionPanel elementId={elementId} panelTitle={selectedLanguageKey === 'en' ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}>
+        <ExpansionPanel elementId={elementId} panelTitle={lang === 'en' ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}>
           <List compact={true}>
             {listItems}
           </List>
@@ -122,23 +113,19 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
     }
   }
 
-
-  const imagePathAvif = `data/equipment/thumbnails/${itemType}/web/avif/${itemId}`;
-  const imagePathWebp = `data/equipment/thumbnails/${itemType}/web/webp/${itemId}`;
-  const imagePathJpg = `data/equipment/thumbnails/${itemType}/web/jpg/${itemId}`;
   const image = {
-    avif55: require(`../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../${imagePathAvif}_540.avif`),
-    avif945: require(`../../${imagePathAvif}_945.avif`),
-    webp55: require(`../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../${imagePathWebp}_540.webp`),
-    webp945: require(`../../${imagePathWebp}_945.webp`),
-    jpg55: require(`../../${imagePathJpg}_55.jpg`),
-    jpg350: require(`../../${imagePathJpg}_350.jpg`),
-    jpg540: require(`../../${imagePathJpg}_540.jpg`),
-    jpg945: require(`../../${imagePathJpg}_945.jpg`)
+    avif55: `/data/equipment/${itemType}/web/avif/${itemId}_55.avif`,
+    avif350: `/data/equipment/${itemType}/web/avif/${itemId}_350.avif`,
+    avif540: `/data/equipment/${itemType}/web/avif/${itemId}_540.avif`,
+    avif945: `/data/equipment/${itemType}/web/avif/${itemId}_945.avif`,
+    webp55: `/data/equipment/${itemType}/web/webp/${itemId}_55.webp`,
+    webp350: `/data/equipment/${itemType}/web/webp/${itemId}_350.webp`,
+    webp540: `/data/equipment/${itemType}/web/webp/${itemId}_540.webp`,
+    webp945: `/data/equipment/${itemType}/web/webp/${itemId}_945.webp`,
+    jpg55: `/data/equipment/${itemType}/web/jpg/${itemId}_55.jpg`,
+    jpg350: `/data/equipment/${itemType}/web/jpg/${itemId}_350.jpg`,
+    jpg540: `/data/equipment/${itemType}/web/jpg/${itemId}_540.jpg`,
+    jpg945: `/data/equipment/${itemType}/web/jpg/${itemId}_945.jpg`
   };
   const itemPath = `/${languageSlug}equipment/${itemType}/${itemId}/`;
   const itemName = `${item.brand} ${item.model}`;
@@ -150,15 +137,6 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
 
   return item
     ? (<React.Fragment>
-      {
-        fullscreen 
-          ? <Helmet>
-              <link rel="preload" as="image" href={image.avif350} fetchpriority="high" type="image/avif" media='(max-width: 407px)'/>
-              <link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif" media='(min-width: 408px) and (max-width: 741px)'/>
-              <link rel="preload" as="image" href={image.avif945} fetchpriority="high" type="image/avif" media='(min-width: 742px)'/>
-            </Helmet>
-          : ""
-      }
       {fullscreen ? renderEquipmentItemImagesSnippet(image) : ''}
       {fullscreen ? renderEquipmentItemSnippet(item, image) : ''}
       <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
@@ -172,33 +150,10 @@ const EquipmentItem = ({ fullscreen, compact, item, itemType, itemId }) => {
         </ListItemContentHeader>
       </ListItemContent>
       {
-        fullscreen && itemType === 'instruments' ? renderReleasesList(getInstrumentReleases(itemId), selectedLanguageKey, item) : ''
+        fullscreen && itemType === 'instruments' ? renderReleasesList(getInstrumentReleases(itemId), lang, item) : ''
       }
     </React.Fragment>)
     : '';
 }
 
-EquipmentItem.propTypes = {
-  fullscreen: PropTypes.bool,
-  compact: PropTypes.bool,
-  item: PropTypes.exact({
-    brand: PropTypes.string,
-    model: PropTypes.string,
-    equipmentItemId: PropTypes.string,
-    nextEquipmentItemId: PropTypes.string,
-    previousEquipmentItemId: PropTypes.string
-  })
-};
-
-EquipmentItem.defaultProps = {
-  fullscreen: false,
-  compact: false
-};
-
-const mapStateToProps = state => ({ selectedLanguageKey: state.selectedLanguageKey });
-
-const mapDispatchToProps = {
-  getLanguageSlug
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(EquipmentItem);
+export default EquipmentItem;

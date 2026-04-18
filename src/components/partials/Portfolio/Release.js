@@ -1,6 +1,5 @@
 // Dependencies
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 
 // Components
 import EquipmentItem from 'components/partials/EquipmentItem';
@@ -14,26 +13,15 @@ import ListItemContentBody from 'components/template/List/ListItem/ListItemConte
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 
-// Actions
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
-
-// Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
-
 // Helpers
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 import { getReleaseInstruments, getReleaseProducts } from 'helpers/releaseInstruments';
-import { useSelector } from 'react-redux';
 import { getRichSnippetDateString } from 'helpers/dateFormatter';
 import { getJsonLdForArtist, getJsonLdIdForArtist, getJsonLdIdForRelease } from 'helpers/releaseHelpers';
 import { millisecondsToReadableTime } from 'helpers/timeFormatter';
 
 
-const Release = ({ release, fullscreen, compact }) => {
-
-  // Redux store
-  const selectedLanguageKey = useSelector(state => state.selectedLanguageKey)
-  const languageSlug = useSelector(state => getLanguageSlug(state));
-
+const Release = ({ release, fullscreen = false, compact = false, lang, languageSlug }) => {
 
   const renderReleaseThumbnail = (image, fullscreen, release, compact) => {
 
@@ -43,12 +31,12 @@ const Release = ({ release, fullscreen, compact }) => {
         return (<React.Fragment>
             <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" />
             <source srcSet={`${image.webp55} 1x, ${image.webp55} 2x`} type="image/webp" />
-            { release?.unreleased 
-                ? <source srcSet={`${image.png55} 1x, ${image.png55} 2x`} type="image/png" /> 
-                : <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpg" /> 
+            { release?.unreleased
+                ? <source srcSet={`${image.png55} 1x, ${image.png55} 2x`} type="image/png" />
+                : <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpg" />
             }
             {
-              release?.unreleased 
+              release?.unreleased
                 ? <img loading="lazy" src={image.png55} data-width="55" data-height="55" alt={altText} />
                 : <img loading="lazy" src={image.jpg55} data-width="55" data-height="55" alt={altText} />
             }
@@ -58,7 +46,7 @@ const Release = ({ release, fullscreen, compact }) => {
           <source srcSet={`${image.avif350} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 407px)' />
           <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 407px)' />
           {
-            release?.unreleased 
+            release?.unreleased
               ? <source srcSet={`${image.png350} 1x, ${image.png350} 2x`} type="image/png" media='(max-width: 407px)' />
               : <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpg" media='(max-width: 407px)' />
           }
@@ -71,8 +59,8 @@ const Release = ({ release, fullscreen, compact }) => {
           }
           {
             release?.unreleased
-              ? <img fetchpriority="high" src={image.png540} data-width="540" data-height="540" alt={altText} />
-              : <img fetchpriority="high" src={image.jpg540} data-width="540" data-height="540" alt={altText} />
+              ? <img fetchPriority="high" src={image.png540} data-width="540" data-height="540" alt={altText} />
+              : <img fetchPriority="high" src={image.jpg540} data-width="540" data-height="540" alt={altText} />
           }
         </React.Fragment>);
       } else {
@@ -151,22 +139,25 @@ const Release = ({ release, fullscreen, compact }) => {
     if (Object.values(release.links)?.length) {
       snippet.sameAs = Object.values(release.links);
     }
-    return (<Helmet>
-      <script type="application/ld+json">{`${JSON.stringify(snippet)}`}</script>
-    </Helmet>)
+    return (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
+      />
+    );
   }
 
-  const renderInstrumentsList = (instruments, selectedLanguageKey) => {
+  const renderInstrumentsList = (instruments, lang) => {
     if (instruments && instruments.length) {
       const listItems = instruments.map(instrument => {
         return (<ListItem key={instrument.equipmentItemId} compact={true}>
-          <EquipmentItem item={instrument} itemId={instrument.equipmentItemId} itemType='instruments' compact={true} />
+          <EquipmentItem item={instrument} itemId={instrument.equipmentItemId} itemType='instruments' compact={true} lang={lang} languageSlug={languageSlug} />
         </ListItem>)
       });
       const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
       const elementId = `release-instruments-${releaseId}`;
       return (
-        <ExpansionPanel elementId={elementId} panelTitle={selectedLanguageKey === 'en' ? 'Instruments used on the song' : 'Instrumenter som er brukt på låta'}>
+        <ExpansionPanel elementId={elementId} panelTitle={lang === 'en' ? 'Instruments used on the song' : 'Instrumenter som er brukt på låta'}>
           <List compact={true}>
             {listItems}
           </List>
@@ -177,17 +168,17 @@ const Release = ({ release, fullscreen, compact }) => {
     }
   }
 
-  const renderProductsList = (products, selectedLanguageKey) => {
+  const renderProductsList = (products, lang) => {
     if (products && products.length) {
       const listItems = products.map(product => {
         return (<ListItem key={product.equipmentItemId} compact={true}>
-          <Product product={product} itemId={product.equipmentItemId} compact={true} />
+          <Product product={product} itemId={product.equipmentItemId} compact={true} lang={lang} languageSlug={languageSlug} />
         </ListItem>)
       });
       const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
       const elementId = `release-products-${releaseId}`;
       return (
-        <ExpansionPanel elementId={elementId} panelTitle={selectedLanguageKey === 'en' ? 'Products used on the song' : 'Produkter som er brukt på låta'}>
+        <ExpansionPanel elementId={elementId} panelTitle={lang === 'en' ? 'Products used on the song' : 'Produkter som er brukt på låta'}>
           <List compact={true}>
             {listItems}
           </List>
@@ -198,12 +189,12 @@ const Release = ({ release, fullscreen, compact }) => {
     }
   }
 
-  const renderLinkList = (release, selectedLanguageKey) => {
+  const renderLinkList = (release, lang) => {
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`)
     const elementId = `release-links-${releaseId}`;
     return (
-      <ExpansionPanel elementId={elementId} panelTitle={selectedLanguageKey === 'en' ? `Listen to ${release.title}` : `Lytt til ${release.title}`}>
-        <ReleaseLinks release={release} />
+      <ExpansionPanel elementId={elementId} panelTitle={lang === 'en' ? `Listen to ${release.title}` : `Lytt til ${release.title}`}>
+        <ReleaseLinks release={release} lang={lang} />
       </ExpansionPanel>
     );
   }
@@ -212,40 +203,39 @@ const Release = ({ release, fullscreen, compact }) => {
   const releaseInstruments = getReleaseInstruments(releaseId);
   const releaseProducts = getReleaseProducts(releaseId);
 
-  const imagePathAvif = !release.unreleased ? `data/releases/thumbnails/web/avif/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
-  const imagePathWebp = !release.unreleased ? `data/releases/thumbnails/web/webp/${release.thumbnailFilename}` : `assets/images/comingSoon_${selectedLanguageKey}`;
-  const imagePathJpg = !release.unreleased ? `data/releases/thumbnails/web/jpg/${release.thumbnailFilename}` : null;
-  const imagePathPng = !release.unreleased ? null : `assets/images/comingSoon_${selectedLanguageKey}`;
-  const image = {
-    avif55: require(`../../../${imagePathAvif}_55.avif`),
-    avif350: require(`../../../${imagePathAvif}_350.avif`),
-    avif540: require(`../../../${imagePathAvif}_540.avif`),
-    webp55: require(`../../../${imagePathWebp}_55.webp`),
-    webp350: require(`../../../${imagePathWebp}_350.webp`),
-    webp540: require(`../../../${imagePathWebp}_540.webp`),
-    jpg55: !release.unreleased ? require(`../../../${imagePathJpg}_55.jpg`) : null,
-    jpg350: !release.unreleased ? require(`../../../${imagePathJpg}_350.jpg`) : null,
-    jpg540: !release.unreleased ? require(`../../../${imagePathJpg}_540.jpg`) : null,
-    png55: release.unreleased ? require(`../../../${imagePathPng}_55.png`) : null,
-    png350: release.unreleased ? require(`../../../${imagePathPng}_350.png`) : null,
-    png540: release.unreleased ? require(`../../../${imagePathPng}_540.png`) : null,
-  };
+  const image = release.unreleased
+    ? {
+        avif55: `/images/comingSoon_${lang}_55.avif`,
+        avif350: `/images/comingSoon_${lang}_350.avif`,
+        avif540: `/images/comingSoon_${lang}_540.avif`,
+        webp55: `/images/comingSoon_${lang}_55.webp`,
+        webp350: `/images/comingSoon_${lang}_350.webp`,
+        webp540: `/images/comingSoon_${lang}_540.webp`,
+        png55: `/images/comingSoon_${lang}_55.png`,
+        png350: `/images/comingSoon_${lang}_350.png`,
+        png540: `/images/comingSoon_${lang}_540.png`,
+        jpg55: null, jpg350: null, jpg540: null,
+      }
+    : {
+        avif55: `/data/releases/web/avif/${release.thumbnailFilename}_55.avif`,
+        avif350: `/data/releases/web/avif/${release.thumbnailFilename}_350.avif`,
+        avif540: `/data/releases/web/avif/${release.thumbnailFilename}_540.avif`,
+        webp55: `/data/releases/web/webp/${release.thumbnailFilename}_55.webp`,
+        webp350: `/data/releases/web/webp/${release.thumbnailFilename}_350.webp`,
+        webp540: `/data/releases/web/webp/${release.thumbnailFilename}_540.webp`,
+        jpg55: `/data/releases/web/jpg/${release.thumbnailFilename}_55.jpg`,
+        jpg350: `/data/releases/web/jpg/${release.thumbnailFilename}_350.jpg`,
+        jpg540: `/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`,
+        png55: null, png350: null, png540: null,
+      };
 
   const link = {
     to: `/${languageSlug}portfolio/${releaseId}/`,
-    title: `${selectedLanguageKey === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`
+    title: `${lang === 'en' ? 'Listen to ' : 'Lytt til '} ${release.title}`
   };
 
   return !release.unreleased
     ? (<React.Fragment>
-      {
-        fullscreen 
-          ? <Helmet>
-              <link rel="preload" as="image" href={image.avif350} fetchpriority="high" type="image/avif" media='(max-width: 407px)'/>
-              <link rel="preload" as="image" href={image.avif540} fetchpriority="high" type="image/avif" media='(min-width: 408px)'/>
-            </Helmet>
-          : ""
-      }
       {fullscreen ? renderReleaseSnippet(release, releaseInstruments, image['jpg540']) : ''}
       <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
         {renderReleaseThumbnail(image, fullscreen, release, compact)}
@@ -271,22 +261,17 @@ const Release = ({ release, fullscreen, compact }) => {
         </ListItemContentBody>
       </ListItemContent>
       {
-        fullscreen ? renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
+        fullscreen ? renderInstrumentsList(releaseInstruments, lang) : ''
       }
       {
-        fullscreen ? renderProductsList(releaseProducts, selectedLanguageKey) : ''
+        fullscreen ? renderProductsList(releaseProducts, lang) : ''
       }
       {
-        fullscreen ? renderLinkList(release, selectedLanguageKey) : ''
+        fullscreen ? renderLinkList(release, lang) : ''
       }
     </React.Fragment>)
     : (
       <React.Fragment>
-        {
-        fullscreen 
-          ? <Helmet><link rel="preload" as="image" href={image.png540} fetchpriority="high" type="image/png"/></Helmet>
-          : ""
-        }
         {fullscreen ? renderReleaseSnippet(release, releaseInstruments) : ''}
         <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
           {renderReleaseThumbnail(image, fullscreen, release, compact)}
@@ -299,10 +284,10 @@ const Release = ({ release, fullscreen, compact }) => {
           </ListItemContentHeader>
         </ListItemContent>
         {
-          fullscreen ? renderInstrumentsList(releaseInstruments, selectedLanguageKey) : ''
+          fullscreen ? renderInstrumentsList(releaseInstruments, lang) : ''
         }
         {
-          fullscreen ? renderProductsList(releaseProducts, selectedLanguageKey) : ''
+          fullscreen ? renderProductsList(releaseProducts, lang) : ''
         }
       </React.Fragment>
     );

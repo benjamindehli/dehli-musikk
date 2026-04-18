@@ -1,10 +1,10 @@
 // Dependencies
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 // Stylesheets
 import style from "components/template/List/ListItem/ListItemThumbnail.module.scss";
 
-const ListItemThumbnail = ({ fullscreen, compact, link, children }) => {
+const ListItemThumbnail = ({ fullscreen = false, compact = false, link = null, children }) => {
     const getImageSize = () => {
         const image = children?.props?.children?.find((child) => {
             return child?.type === "img" && child?.props?.["data-width"] && child?.props?.["data-height"];
@@ -33,7 +33,7 @@ const ListItemThumbnail = ({ fullscreen, compact, link, children }) => {
     );
 
     return link && !fullscreen ? (
-        <Link to={link.to} title={link.title} tabIndex="-1">
+        <Link href={link.to} title={link.title} tabIndex="-1">
             {childElements}
         </Link>
     ) : (

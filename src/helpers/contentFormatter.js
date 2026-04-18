@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const renderContentLinksAsReactLinks = (content, languageSlug) => {
     const regex = /\[(?<title>[^\]]+)\]\((?<link>[^)]+)\)/gm;
@@ -21,7 +21,7 @@ const renderContentLinksAsReactLinks = (content, languageSlug) => {
         const title = match.groups.title;
         const link = `/${languageSlug}${match.groups.link}`;
         elements.push(
-            <Link key={`link-${matchStart}`} to={link} data-tabable={true}>
+            <Link key={`link-${matchStart}`} href={link} data-tabable={true}>
                 {title}
             </Link>
         );

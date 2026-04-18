@@ -20,8 +20,7 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
     const productDate = new Date(product.timestamp).toISOString();
     const plusOneYear = getPlusOneYear();
 
-    const imagePathJpg = `data/products/thumbnails/web/jpg/${productId}`;
-    const productThumbnailSrc = require(`../${imagePathJpg}_540.jpg`);
+    const productThumbnailSrc = `https://www.dehlimusikk.no/data/products/web/jpg/${productId}_540.jpg`;
 
     const image = [product?.mainImage]
         .concat(product?.additionalImages || [])

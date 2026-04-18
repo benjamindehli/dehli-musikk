@@ -6,13 +6,13 @@ import Release from 'components/partials/Portfolio/Release';
 // Data
 import { latestReleases } from 'data/portfolio';
 
-const LatestReleases = () => {
+const LatestReleases = ({ lang, languageSlug }) => {
 
   const renderReleases = () => {
     return latestReleases && latestReleases.length
       ? latestReleases.map(release => {
         return (<ListItem key={release.id}>
-          <Release release={release} />
+          <Release release={release} lang={lang} languageSlug={languageSlug} />
         </ListItem>)
       })
       : '';

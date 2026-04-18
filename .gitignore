@@ -40,6 +40,7 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 /build
 /build_backup
+/out
 
 # Dependencies
 /node_modules
@@ -81,3 +82,7 @@ typings/
 
 # Firebase
 .firebase/
+
+/.claude
+
+tsconfig.tsbuildinfo

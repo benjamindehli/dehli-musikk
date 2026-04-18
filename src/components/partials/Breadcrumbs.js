@@ -1,19 +1,11 @@
 // Dependencies
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
-
-// Selectors
-import { getLanguageSlug } from 'reducers/AvailableLanguagesReducer';
+import Link from 'next/link';
 
 // Stylesheets
 import style from 'components/partials/Breadcrumbs.module.scss';
 
-const Breadcrumbs = ({ breadcrumbs = [] }) => {
-
-  // Redux store
-  const languageSlug = useSelector(state => getLanguageSlug(state));
+const Breadcrumbs = ({ breadcrumbs = [], languageSlug }) => {
 
   const renderBreadcrumbJsonLd = (breadcrumbs) => {
     const originUrl = 'https://www.dehlimusikk.no';
@@ -47,21 +39,20 @@ const Breadcrumbs = ({ breadcrumbs = [] }) => {
           <span>{breadcrumb.name}</span>
         </li>)
         : (<li key={key}>
-          <Link to={breadcrumb.path} title={breadcrumb.name}>{breadcrumb.name}</Link>
+          <Link href={breadcrumb.path} title={breadcrumb.name}>{breadcrumb.name}</Link>
         </li>);
     })
   }
 
   return (<React.Fragment>
-    <Helmet>
-      <script type="application/ld+json">
-        {renderBreadcrumbJsonLd(breadcrumbs)}
-      </script>
-    </Helmet>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: renderBreadcrumbJsonLd(breadcrumbs) }}
+    />
     <nav className={style.breadcrumbs}>
       <ul aria-label='Breadcrumbs for current page path'>
         <li>
-          <Link to={`/${languageSlug}`} title='Dehli Musikk'>Dehli Musikk</Link>
+          <Link href={`/${languageSlug}`} title='Dehli Musikk'>Dehli Musikk</Link>
         </li>
         {renderBreadcrumbListElements(breadcrumbs)}
       </ul>

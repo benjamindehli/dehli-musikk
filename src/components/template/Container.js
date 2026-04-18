@@ -1,7 +1,7 @@
 // Stylesheets
 import style from 'components/template/Container.module.scss';
 
-const Container = ({ blur, children }) => {
+const Container = ({ blur = false, children }) => {
   return (
     <div className={`${style.container} ${blur ? style.blur : ''}`}>
       {children}
