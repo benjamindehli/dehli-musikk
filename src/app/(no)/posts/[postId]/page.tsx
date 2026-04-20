@@ -54,9 +54,10 @@ export async function generateMetadata({ params }: { params: Promise<{ postId: s
         openGraph: {
             title: post.title[lang],
             url: `https://www.dehlimusikk.no/posts/${postId}/`,
-            description, locale: 'no_NO', alternateLocale: 'en_US'
+            description, locale: 'no_NO', alternateLocale: 'en_US',
+            images: [{ url: `https://www.dehlimusikk.no/data/posts/web/jpg/${post.thumbnailFilename}_540.jpg`, width: 540, height: 400 }]
         },
-        twitter: { title: post.title[lang], description }
+        twitter: { title: post.title[lang], description, images: [`https://www.dehlimusikk.no/data/posts/web/jpg/${post.thumbnailFilename}_540.jpg`] }
     };
 }
 

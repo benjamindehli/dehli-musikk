@@ -56,9 +56,10 @@ export async function generateMetadata({ params }: { params: Promise<{ releaseId
         },
         openGraph: {
             title: heading, url: `https://www.dehlimusikk.no/en/portfolio/${releaseId}/`,
-            description, locale: 'en_US', alternateLocale: 'nb_NO'
+            description, locale: 'en_US', alternateLocale: 'nb_NO',
+            images: [{ url: `https://www.dehlimusikk.no/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`, width: 540, height: 540 }]
         },
-        twitter: { title: heading, description }
+        twitter: { title: heading, description, images: [`https://www.dehlimusikk.no/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`] }
     };
 }
 

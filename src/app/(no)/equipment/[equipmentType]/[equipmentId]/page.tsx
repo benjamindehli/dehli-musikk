@@ -64,9 +64,10 @@ export async function generateMetadata({ params }: { params: Promise<{ equipment
         },
         openGraph: {
             title: itemName, url: `https://www.dehlimusikk.no/equipment/${equipmentType}/${equipmentId}/`,
-            description: itemName, locale: 'no_NO', alternateLocale: 'en_US'
+            description: itemName, locale: 'no_NO', alternateLocale: 'en_US',
+            images: [{ url: `https://www.dehlimusikk.no/data/equipment/${equipmentType}/web/jpg/${equipmentId}_945.jpg`, width: 945, height: 700 }]
         },
-        twitter: { title: itemName, description: itemName }
+        twitter: { title: itemName, description: itemName, images: [`https://www.dehlimusikk.no/data/equipment/${equipmentType}/web/jpg/${equipmentId}_945.jpg`] }
     };
 }
 

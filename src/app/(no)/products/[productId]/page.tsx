@@ -51,9 +51,10 @@ export async function generateMetadata({ params }: { params: Promise<{ productId
         },
         openGraph: {
             title: product.title, url: `https://www.dehlimusikk.no/products/${productId}/`,
-            description, locale: 'no_NO', alternateLocale: 'en_US'
+            description, locale: 'no_NO', alternateLocale: 'en_US',
+            images: [{ url: `https://www.dehlimusikk.no/data/products/web/jpg/${productId}_540.jpg`, width: 540, height: 400 }]
         },
-        twitter: { title: product.title, description }
+        twitter: { title: product.title, description, images: [`https://www.dehlimusikk.no/data/products/web/jpg/${productId}_540.jpg`] }
     };
 }
 
