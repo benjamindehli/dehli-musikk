@@ -79,7 +79,7 @@ const Products = () => {
             };
         });
         const snippet = {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "ItemList",
             "@id": `https://www.dehlimusikk.no/products/`,
             name: selectedLanguageKey === "en" ? "Products by Dehli Musikk" : "Produkter fra Dehli Musikk",

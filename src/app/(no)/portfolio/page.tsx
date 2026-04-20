@@ -41,7 +41,7 @@ export default function PortfolioPage() {
         };
     });
     const jsonLd = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'ItemList',
         '@id': 'https://www.dehlimusikk.no/portfolio/',
         name: 'Porteføljen til Dehli Musikk',

@@ -21,7 +21,7 @@ const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
   const renderPostSnippet = (post, postId, postThumbnailSrc) => {
     const postDate = new Date(post.timestamp).toISOString();
     const snippet = {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "NewsArticle",
       "@id": `https://www.dehlimusikk.no/posts/${postId}/`,
       "url": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,

@@ -63,7 +63,7 @@ export default async function EquipmentTypePage({ params }: { params: Promise<{ 
         };
     });
     const jsonLd = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'ItemList',
         '@id': `https://www.dehlimusikk.no/equipment/${equipmentType}/`,
         name: typeName,

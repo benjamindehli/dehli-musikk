@@ -80,7 +80,7 @@ const Portfolio = () => {
             };
         });
         const snippet = {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "ItemList",
             "@id": `https://www.dehlimusikk.no/portfolio/`,
             name: selectedLanguageKey === "en" ? "Portfolio for Dehli Musikk" : "Porteføljen til Dehli Musikk",

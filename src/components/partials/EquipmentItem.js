@@ -19,7 +19,7 @@ const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, it
     const snippet = Object.keys(images).map(format => {
       const imagePath = images[format];
       return {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "ImageObject",
         "url": `https://www.dehlimusikk.no${imagePath}`,
         "contentUrl": `https://www.dehlimusikk.no${imagePath}`,
@@ -44,7 +44,7 @@ const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, it
     const imagePath = images['jpg945'];
     const itemName = `${item.brand} ${item.model}`;
     const snippet = {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "Thing",
       "@id": `https://www.dehlimusikk.no/equipment/${itemType}/${itemId}/`,
       "name": itemName,

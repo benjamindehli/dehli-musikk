@@ -38,7 +38,7 @@ export default function ProductsPage() {
         item: generateProductSnippet(product, languageSlug, lang)
     }));
     const jsonLd = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'ItemList',
         '@id': 'https://www.dehlimusikk.no/products/',
         name: 'Products by Dehli Musikk',

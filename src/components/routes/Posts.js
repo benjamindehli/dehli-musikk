@@ -79,7 +79,7 @@ const Posts = () => {
             };
         });
         const snippet = {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "ItemList",
             "@id": `https://www.dehlimusikk.no/posts/`,
             name: selectedLanguageKey === "en" ? "Posts from Dehli Musikk" : "Innlegg fra Dehli Musikk",

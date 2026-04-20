@@ -24,7 +24,7 @@ const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset =
   const renderVideoSnippet = (video, videoId, videoThumbnailSrc) => {
     const videoDate = new Date(video.timestamp).toISOString();
     const snippet = {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "VideoObject",
       "@id": `https://www.dehlimusikk.no/videos/${videoId}/video/`,
       "name": video.title[lang],

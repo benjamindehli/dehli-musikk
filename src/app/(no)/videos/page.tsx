@@ -46,7 +46,7 @@ export default function VideosPage() {
         };
     });
     const jsonLd = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'ItemList',
         '@id': 'https://www.dehlimusikk.no/videos/',
         name: 'Videoer av Dehli Musikk',

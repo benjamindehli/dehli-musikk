@@ -1,5 +1,5 @@
 const localBusinessJsonLd = {
-    '@context': 'http://schema.org',
+    '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': 'https://www.dehlimusikk.no/',
     address: {
@@ -100,7 +100,7 @@ const localBusinessJsonLd = {
 };
 
 const personJsonLd = {
-    '@context': 'http://schema.org',
+    '@context': 'https://schema.org',
     '@type': ['Person', 'MusicGroup'],
     '@id': 'https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f',
     name: 'Benjamin Dehli',
@@ -155,7 +155,7 @@ const personJsonLd = {
     ],
     brand: { '@id': 'https://www.dehlimusikk.no/' },
     jobTitle: {
-        '@context': 'http://schema.org/',
+        '@context': 'https://schema.org/',
         '@type': 'DefinedTerm',
         termCode: '711130',
         name: 'Musical Groups and Artists',
@@ -209,7 +209,7 @@ const personJsonLd = {
 };
 
 const websiteJsonLd = {
-    '@context': 'http://schema.org',
+    '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Dehli Musikk',
     url: 'https://www.dehlimusikk.no',

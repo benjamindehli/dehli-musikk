@@ -61,7 +61,7 @@ const FrequentlyAskedQuestions = () => {
             };
         });
         const snippet = {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "FAQPage",
             "@id": `https://www.dehlimusikk.no/frequently-asked-questions/`,
             mainEntity: faqItems

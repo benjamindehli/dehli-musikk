@@ -100,7 +100,7 @@ const Videos = () => {
             };
         });
         const snippet = {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "ItemList",
             "@id": `https://www.dehlimusikk.no/videos/`,
             name: selectedLanguageKey === "en" ? "Videos by Dehli Musikk" : "Videoer av Dehli Musikk",

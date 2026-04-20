@@ -91,7 +91,7 @@ const Release = ({ release, fullscreen = false, compact = false, lang, languageS
   const renderReleaseSnippet = (release, releaseInstruments, releaseThumbnailSrc) => {
     const releaseDate = new Date(release.releaseDate);
     let snippet = {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "MusicRecording",
       "@id": getJsonLdIdForRelease(release),
       "name": release.title,

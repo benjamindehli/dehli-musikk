@@ -41,7 +41,7 @@ export default function PostsPage() {
         };
     });
     const jsonLd = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'ItemList',
         '@id': 'https://www.dehlimusikk.no/posts/',
         name: 'Posts from Dehli Musikk',

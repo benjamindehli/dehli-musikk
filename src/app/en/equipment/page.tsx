@@ -38,7 +38,7 @@ export default function EquipmentPage() {
         url: `https://www.dehlimusikk.no/en/equipment/${equipmentTypeKey}/`
     }));
     const jsonLd = {
-        '@context': 'http://schema.org',
+        '@context': 'https://schema.org',
         '@type': 'ItemList',
         '@id': 'https://www.dehlimusikk.no/equipment/',
         name: 'Equipment used by Dehli Musikk',

@@ -85,7 +85,7 @@ const Equipment = () => {
                   })
                 : null;
         const snippet = {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "ItemList",
             "@id": `https://www.dehlimusikk.no/equipment/`,
             name: selectedLanguageKey === "en" ? "Equipment used by Dehli Musikk" : "Utstyr brukt av Dehli Musikk",
@@ -112,7 +112,7 @@ const Equipment = () => {
               })
             : null;
         const snippet = {
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "ItemList",
             "@id": `https://www.dehlimusikk.no/equipment/${equipmentTypeKey}/`,
             name: equipment.name[selectedLanguageKey],

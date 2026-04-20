@@ -39,7 +39,7 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
         : null;
 
     const snippet = {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "Product",
         "@id": product.link.url,
         url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
@@ -58,7 +58,7 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
             price: product.price?.length ? product.price : 0,
             priceCurrency: product.priceCurrency?.length ? product.priceCurrency : "USD",
             url: product.link.url,
-            availability: "http://schema.org/OnlineOnly",
+            availability: "https://schema.org/OnlineOnly",
             validFrom: productDate,
             priceValidUntil: plusOneYear,
             hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet(),
@@ -90,7 +90,7 @@ export function generateSoftwareApplicationSnippet(product, languageSlug) {
     const plusOneYear = getPlusOneYear();
 
     const applicationJsonLd = {
-        "@context": "http://schema.org",
+        "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "@id": product.link.url,
         url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
@@ -103,7 +103,7 @@ export function generateSoftwareApplicationSnippet(product, languageSlug) {
             price: product.price?.length ? product.price : 0,
             priceCurrency: product.priceCurrency?.length ? product.priceCurrency : "USD",
             url: product.link.url,
-            availability: "http://schema.org/OnlineOnly",
+            availability: "https://schema.org/OnlineOnly",
             validFrom: productDate,
             priceValidUntil: plusOneYear,
             hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet(),
