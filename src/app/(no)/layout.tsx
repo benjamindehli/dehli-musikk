@@ -8,6 +8,8 @@ export default function NoLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="no">
             <head>
+                <link rel="preconnect" href="https://www.youtube.com" />
+                <link rel="preconnect" href="https://i.ytimg.com" />
                 <SiteJsonLd />
             </head>
             <body>

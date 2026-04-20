@@ -8,6 +8,8 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
             <head>
+                <link rel="preconnect" href="https://www.youtube.com" />
+                <link rel="preconnect" href="https://i.ytimg.com" />
                 <SiteJsonLd />
             </head>
             <body>
