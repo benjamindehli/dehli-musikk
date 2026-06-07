@@ -6,6 +6,14 @@
 <atom:link href="https://www.dehlimusikk.no/feed-en.rss" rel="self" type="application/rss+xml" />
 <description></description>
 <item>
+                <title>A new microSAMPLER Editor / Librarian under development</title>
+                <description>A new editor/librarian for the Korg microSAMPLER that will work on 64bit systems is under development. This is an independent, unofficial project, and is not affiliated with Korg in any way.</description>
+                <pubDate>Sat, 06 Jun 2026 22:00:00 GMT</pubDate>
+                <link>https://www.dehlimusikk.no/en/posts/a-new-microsampler-editor-librarian-under-development/</link>
+                <guid>https://www.dehlimusikk.no/en/posts/a-new-microsampler-editor-librarian-under-development/</guid>
+                <dc:creator>Benjamin Dehli</dc:creator>
+                </item>
+<item>
                 <title>MaskinTrommer under development</title>
                 <description>Working on a new Decent Sampler drum machine preset 🥁🎛️</description>
                 <pubDate>Fri, 13 Feb 2026 23:00:00 GMT</pubDate>
@@ -155,14 +163,6 @@
                 <pubDate>Thu, 24 Mar 2022 23:00:00 GMT</pubDate>
                 <link>https://www.dehlimusikk.no/en/posts/new-release-selkie-by-haunted-by-silhouettes/</link>
                 <guid>https://www.dehlimusikk.no/en/posts/new-release-selkie-by-haunted-by-silhouettes/</guid>
-                <dc:creator>Benjamin Dehli</dc:creator>
-                </item>
-<item>
-                <title>New release - Flock by Haunted By Silhouettes</title>
-                <description>I have been so lucky to play keyboards on the upcoming EP No Man Isle by Haunted By Silhouettes 😃 Today they&apos;ve released the first song Flock and it sounds insanely good 🤠🤘</description>
-                <pubDate>Thu, 10 Feb 2022 23:00:00 GMT</pubDate>
-                <link>https://www.dehlimusikk.no/en/posts/new-release-flock-by-haunted-by-silhouettes/</link>
-                <guid>https://www.dehlimusikk.no/en/posts/new-release-flock-by-haunted-by-silhouettes/</guid>
                 <dc:creator>Benjamin Dehli</dc:creator>
                 </item>
 </channel>
