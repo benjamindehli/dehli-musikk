@@ -40,22 +40,25 @@ export const metadata: Metadata = {
 const renderHeaderImage = () => {
     const sizes = [480, 640, 800, 1024, 1260, 1440, 1680];
     const formats = ['avif', 'webp', 'jpg'] as const;
+    const mimeTypes = { avif: 'image/avif', webp: 'image/webp', jpg: 'image/jpeg' };
 
     const sourceElements = formats.flatMap((fmt) =>
         sizes.map((size) => {
             const src = `/images/header_${size}.${fmt}`;
+            const size2x = sizes.find((s) => s >= size * 2);
+            const srcSet = size2x ? `${src} 1x, /images/header_${size2x}.${fmt} 2x` : src;
             const key = `${fmt}-${size}`;
             return size === 1680 ? (
                 <source
                     key={key}
-                    srcSet={`${src} 1x, ${src} 2x`}
-                    type={`image/${fmt}`}
+                    srcSet={srcSet}
+                    type={mimeTypes[fmt]}
                 />
             ) : (
                 <source
                     key={key}
-                    srcSet={`${src} 1x, ${src} 2x`}
-                    type={`image/${fmt}`}
+                    srcSet={srcSet}
+                    type={mimeTypes[fmt]}
                     media={`(max-width: ${size}px)`}
                 />
             );

@@ -43,7 +43,7 @@ const Footer = ({ lang }) => {
               <picture>
                 <source sizes="100vw" srcSet="/images/map_930.avif 930w" type="image/avif" />
                 <source sizes="100vw" srcSet="/images/map_930.webp 930w" type="image/webp" />
-                <source sizes="100vw" srcSet="/images/map_930.jpg 930w" type="image/jpg" />
+                <source sizes="100vw" srcSet="/images/map_930.jpg 930w" type="image/jpeg" />
                 <img loading="lazy" src="/images/map_930.jpg" alt="Location for Dehli Musikk" width="779" height="250" />
               </picture>
             </figure>

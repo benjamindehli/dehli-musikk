@@ -80,7 +80,7 @@ export default function EquipmentPage() {
                                 <ListItemThumbnail link={link}>
                                     <source sizes="175px" srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`} type="image/avif" />
                                     <source sizes="175px" srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp" />
-                                    <source sizes="175px" srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpg" />
+                                    <source sizes="175px" srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpeg" />
                                     <img loading="lazy" width="350" height="260" src={image.jpg350} alt={equipmentType.name[lang]} />
                                 </ListItemThumbnail>
                                 <ListItemContent>

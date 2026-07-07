@@ -98,7 +98,7 @@ const SearchField = () => {
             <picture>
                 <source sizes="55" srcSet={thumbnailPaths.avif} type="image/avif" />
                 <source sizes="55" srcSet={`${thumbnailPaths.webp} 55w`} type="image/webp" />
-                {thumbnailPaths.jpg ? <source sizes="55" srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpg" /> : ""}
+                {thumbnailPaths.jpg ? <source sizes="55" srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpeg" /> : ""}
                 {thumbnailPaths.png ? <source sizes="55" srcSet={`${thumbnailPaths.png} 55w`} type="image/png" /> : ""}
                 <img src={thumbnailPaths.jpg ? thumbnailPaths.jpg : thumbnailPaths.png} width="55" height="55" alt={alt} />
             </picture>
