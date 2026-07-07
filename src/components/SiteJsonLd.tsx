@@ -92,7 +92,7 @@ const localBusinessJsonLd = {
         creditText: 'Dehli Musikk',
         creator: { '@id': 'https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f' }
     },
-    email: 'superelg@gmail.org',
+    email: 'superelg@gmail.com',
     founder: { '@id': 'https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f' },
     name: 'Dehli Musikk',
     telephone: '+47 92 29 27 19',
@@ -111,7 +111,7 @@ const personJsonLd = {
         streetAddress: 'Margretes veg 15',
         addressCountry: { name: 'NO' }
     },
-    email: 'superelg@gmail.org',
+    email: 'superelg@gmail.com',
     telephone: '+47 92 29 27 19',
     image: {
         '@type': 'ImageObject',
