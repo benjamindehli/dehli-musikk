@@ -65,8 +65,8 @@
             "no": "Jeg trenger programvare eller maskinvare for å bruke produktene?"
         },
         "answer": {
-            "en": "The instrument libraries require the DecentSampler plugin, which is free and available for Windows, macOS, and Linux. The DX7 synthesizer patches require a [Yamaha DX7 synthesizer](equipment/instruments/yamaha-dx7/) or a DX7 compatible software or hardware.",
-            "no": "Instrumentbibliotekene krever DecentSampler-pluginen, som er gratis og tilgjengelig for Windows, macOS og Linux. DX7-synthesizer-patcher krever en [Yamaha DX7-synthesizer](equipment/instruments/yamaha-dx7/) eller en DX7-kompatibel programvare eller maskinvare."
+            "en": "The instrument libraries are available both as DecentSampler presets and as native plugins. The DecentSampler version requires the free DecentSampler plugin (Windows, macOS and Linux). The plugin version (VST3, AU and Standalone) runs on its own without DecentSampler and is currently available for macOS, with Windows and Linux planned. The DX7 synthesizer patches require a [Yamaha DX7 synthesizer](equipment/instruments/yamaha-dx7/) or DX7-compatible software or hardware.",
+            "no": "Instrumentbibliotekene er tilgjengelige både som DecentSampler-presets og som native plugins. DecentSampler-versjonen krever den gratis DecentSampler-pluginen (Windows, macOS og Linux). Plugin-versjonen (VST3, AU og Standalone) kjører på egen hånd uten DecentSampler og er foreløpig tilgjengelig for macOS, med Windows og Linux planlagt. DX7-synthesizer-patchene krever en [Yamaha DX7-synthesizer](equipment/instruments/yamaha-dx7/) eller DX7-kompatibel programvare eller maskinvare."
         }
     },
     {
