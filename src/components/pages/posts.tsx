@@ -1,3 +1,4 @@
+import JsonLd from 'components/JsonLd';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
@@ -71,7 +72,7 @@ export function PostsPage({ lang }: { lang: Lang }) {
 
     return (
         <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <JsonLd data={jsonLd} />
             <Container>
                 <Breadcrumbs breadcrumbs={breadcrumbs} languageSlug={languageSlug} />
                 <h1>{t.pageTitle}</h1>

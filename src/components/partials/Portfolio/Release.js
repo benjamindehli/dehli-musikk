@@ -1,4 +1,5 @@
 // Dependencies
+import JsonLd from 'components/JsonLd';
 import React from 'react';
 
 // Components
@@ -140,10 +141,7 @@ const Release = ({ release, fullscreen = false, compact = false, lang, languageS
       snippet.sameAs = Object.values(release.links);
     }
     return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
-      />
+      <JsonLd data={snippet} />
     );
   }
 

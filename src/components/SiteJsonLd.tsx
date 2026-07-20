@@ -1,3 +1,5 @@
+import JsonLd from 'components/JsonLd';
+
 const localBusinessJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -223,9 +225,9 @@ const websiteJsonLd = {
 
 const SiteJsonLd = () => (
     <>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+        <JsonLd data={localBusinessJsonLd} />
+        <JsonLd data={personJsonLd} />
+        <JsonLd data={websiteJsonLd} />
     </>
 );
 

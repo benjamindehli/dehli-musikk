@@ -1,4 +1,5 @@
 // Dependencies
+import JsonLd from 'components/JsonLd';
 import React from 'react';
 import Link from 'next/link';
 
@@ -65,10 +66,7 @@ const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset =
       })
     }
     return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
-      />
+      <JsonLd data={snippet} />
     );
   }
 

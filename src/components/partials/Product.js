@@ -1,4 +1,5 @@
 // Dependencies
+import JsonLd from 'components/JsonLd';
 import React from "react";
 
 // Components
@@ -28,14 +29,8 @@ const Product = ({ product, fullscreen = false, compact = false, lang, languageS
         const softwareApplicationSnippet = generateSoftwareApplicationSnippet(product, languageSlug);
         return (
             <React.Fragment>
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(productSnippet) }}
-                />
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSnippet) }}
-                />
+                <JsonLd data={productSnippet} />
+                <JsonLd data={softwareApplicationSnippet} />
             </React.Fragment>
         );
     };

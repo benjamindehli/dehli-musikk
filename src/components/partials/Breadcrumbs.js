@@ -2,6 +2,9 @@
 import React from 'react';
 import Link from 'next/link';
 
+// Components
+import JsonLd from 'components/JsonLd';
+
 // Stylesheets
 import style from 'components/partials/Breadcrumbs.module.scss';
 
@@ -29,7 +32,7 @@ const Breadcrumbs = ({ breadcrumbs = [], languageSlug }) => {
         "name": breadcrumb.name
       })
     })
-    return JSON.stringify(jsonLd);
+    return jsonLd;
   }
 
   const renderBreadcrumbListElements = (breadcrumbs) => {
@@ -45,10 +48,7 @@ const Breadcrumbs = ({ breadcrumbs = [], languageSlug }) => {
   }
 
   return (<React.Fragment>
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: renderBreadcrumbJsonLd(breadcrumbs) }}
-    />
+    <JsonLd data={renderBreadcrumbJsonLd(breadcrumbs)} />
     <nav className={style.breadcrumbs}>
       <ul aria-label='Breadcrumbs for current page path'>
         <li>

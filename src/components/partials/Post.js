@@ -1,4 +1,5 @@
 // Dependencies
+import JsonLd from 'components/JsonLd';
 import React from 'react';
 import Link from 'next/link';
 
@@ -77,10 +78,7 @@ const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
       snippet.image.acquireLicensePage = "https://www.dehlimusikk.no/#contact";
     }
     return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
-      />
+      <JsonLd data={snippet} />
     );
   }
 

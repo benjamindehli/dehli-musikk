@@ -1,3 +1,4 @@
+import JsonLd from 'components/JsonLd';
 import type { Metadata } from 'next';
 import Breadcrumbs from 'components/partials/Breadcrumbs';
 import Container from 'components/template/Container';
@@ -61,7 +62,7 @@ export function FaqPage({ lang }: { lang: Lang }) {
 
     return (
         <>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <JsonLd data={jsonLd} />
             <Container>
                 <Breadcrumbs breadcrumbs={breadcrumbs} languageSlug={languageSlug} />
                 <h1>{t.pageTitle}</h1>

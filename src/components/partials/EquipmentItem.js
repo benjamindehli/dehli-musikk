@@ -1,4 +1,5 @@
 // Dependencies
+import JsonLd from 'components/JsonLd';
 import React from 'react';
 
 // Components
@@ -33,10 +34,7 @@ const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, it
       }
     });
     return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
-      />
+      <JsonLd data={snippet} />
     );
   }
 
@@ -52,10 +50,7 @@ const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, it
       "description": itemName
     }
     return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(snippet) }}
-      />
+      <JsonLd data={snippet} />
     );
   }
 
