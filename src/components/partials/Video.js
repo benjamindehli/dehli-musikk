@@ -26,7 +26,7 @@ const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset =
     const snippet = {
       "@context": "https://schema.org",
       "@type": "VideoObject",
-      "@id": `https://www.dehlimusikk.no/videos/${videoId}/video/`,
+      "@id": `https://www.dehlimusikk.no/videos/${convertToUrlFriendlyString(video.title.no)}/video/`,
       "name": video.title[lang],
       "description": video.content[lang]
         ? formatContentAsString(video.content[lang])

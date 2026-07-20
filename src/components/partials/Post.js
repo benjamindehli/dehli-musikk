@@ -23,7 +23,7 @@ const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
     const snippet = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "@id": `https://www.dehlimusikk.no/posts/${postId}/`,
+      "@id": `https://www.dehlimusikk.no/posts/${convertToUrlFriendlyString(post.title.no)}/`,
       "url": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,
       "author": {
         "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
