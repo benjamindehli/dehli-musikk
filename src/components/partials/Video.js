@@ -74,12 +74,12 @@ const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset =
 
   const renderVideoThumbnail = (image, altText) => {
     return (<React.Fragment>
-        <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" media='(max-width: 599px)' />
-        <source srcSet={`${image.webp55} 1x, ${image.webp55} 2x`} type="image/webp" media='(max-width: 599px)' />
-        <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpeg" media='(max-width: 599px)' />
-        <source srcSet={`${image.avif350} 1x, ${image.avif350} 2x`} type="image/avif" />
-        <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" />
-        <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpeg" />
+        <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 599px)' />
+        <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 599px)' />
+        <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" media='(max-width: 599px)' />
+        <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
+        <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
+        <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
         <img loading="lazy" src={image.jpg350} data-width="350" data-height="197" alt={altText} />
     </React.Fragment>);
   }

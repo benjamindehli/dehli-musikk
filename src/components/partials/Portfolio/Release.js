@@ -29,11 +29,11 @@ const Release = ({ release, fullscreen = false, compact = false, lang, languageS
 
       if (compact) {
         return (<React.Fragment>
-            <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" />
-            <source srcSet={`${image.webp55} 1x, ${image.webp55} 2x`} type="image/webp" />
+            <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" />
+            <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" />
             { release?.unreleased
-                ? <source srcSet={`${image.png55} 1x, ${image.png55} 2x`} type="image/png" />
-                : <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpeg" />
+                ? <source srcSet={`${image.png55} 1x, ${image.png350} 2x`} type="image/png" />
+                : <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" />
             }
             {
               release?.unreleased
@@ -43,19 +43,19 @@ const Release = ({ release, fullscreen = false, compact = false, lang, languageS
         </React.Fragment>);
       } else if (fullscreen){
         return (<React.Fragment>
-          <source srcSet={`${image.avif350} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 407px)' />
-          <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 407px)' />
+          <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" media='(max-width: 407px)' />
+          <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" media='(max-width: 407px)' />
           {
             release?.unreleased
-              ? <source srcSet={`${image.png350} 1x, ${image.png350} 2x`} type="image/png" media='(max-width: 407px)' />
-              : <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpeg" media='(max-width: 407px)' />
+              ? <source srcSet={`${image.png350} 1x, ${image.png540} 2x`} type="image/png" media='(max-width: 407px)' />
+              : <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" media='(max-width: 407px)' />
           }
-          <source srcSet={`${image.avif540} 1x, ${image.avif540} 2x`} type="image/avif" />
-          <source srcSet={`${image.webp540} 1x, ${image.webp540} 2x`} type="image/webp" />
+          <source srcSet={`${image.avif540}`} type="image/avif" />
+          <source srcSet={`${image.webp540}`} type="image/webp" />
           {
             release?.unreleased
-              ? <source srcSet={`${image.png540} 1x, ${image.png540} 2x`} type="image/png" />
-              : <source srcSet={`${image.jpg540} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
+              ? <source srcSet={`${image.png540}`} type="image/png" />
+              : <source srcSet={`${image.jpg540}`} type="image/jpeg" />
           }
           {
             release?.unreleased
@@ -65,19 +65,19 @@ const Release = ({ release, fullscreen = false, compact = false, lang, languageS
         </React.Fragment>);
       } else {
         return (<React.Fragment>
-          <source srcSet={`${image.avif55} 1x, ${image.avif55} 2x`} type="image/avif" media='(max-width: 599px)' />
-          <source srcSet={`${image.webp55} 1x, ${image.webp55} 2x`} type="image/webp" media='(max-width: 599px)' />
+          <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 599px)' />
+          <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 599px)' />
           {
             release?.unreleased
-              ? <source srcSet={`${image.png55} 1x, ${image.png55} 2x`} type="image/png" media='(max-width: 599px)' />
-              : <source srcSet={`${image.jpg55} 1x, ${image.jpg55} 2x`} type="image/jpeg" media='(max-width: 599px)' />
+              ? <source srcSet={`${image.png55} 1x, ${image.png350} 2x`} type="image/png" media='(max-width: 599px)' />
+              : <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" media='(max-width: 599px)' />
           }
-          <source srcSet={`${image.avif350} 1x, ${image.avif350} 2x`} type="image/avif" />
-          <source srcSet={`${image.webp350} 1x, ${image.webp350} 2x`} type="image/webp" />
+          <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
+          <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
           {
             release?.unreleased
-              ? <source srcSet={`${image.png350} 1x, ${image.png350} 2x`} type="image/png" />
-              : <source srcSet={`${image.jpg350} 1x, ${image.jpg350} 2x`} type="image/jpeg" />
+              ? <source srcSet={`${image.png350} 1x, ${image.png540} 2x`} type="image/png" />
+              : <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
           }
           {
             release?.unreleased
