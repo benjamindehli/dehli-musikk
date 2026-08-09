@@ -1,5 +1,72 @@
 [
     {
+        "timestamp": 1786276800000,
+        "title": "SidStation ASID",
+        "content": {
+            "no": "SidStation ASID er en cross platform plugin (VST3, AU og Standalone) som kontrollerer de tre SID-chip-stemmene i [Elektron SidStation](equipment/instruments/elektron-sidstation/) direkte over ASID-protokollen. Den strømmer de rå MOS6581 SID-chipen registerne, slik at du får kontroll over hver enkelt stemme med egen pitch og gate, i tillegg til det som vanlig MIDI CC ikke når. Én plugin-instans styrer én stemme, så i et lydredigeringsprogram legger du en instans på hvert av tre spor og velger stemme per spor. Dette gjør de tre stemmene om til uavhengige, sekvenserbare instrumenter, noe som er tungvint med SidStation på egen hånd.\nPer stemme er de fire SID-bølgeformene (kombinerbare, med støy eksklusiv som på den ekte chipen), en ADSR-envelope, pulsbredde, grov- og finstemming, pitch bend, hard sync, ringmodulasjon, TEST-bit'en, portamento, en åtte-stegs wavetable, og dedikerte LFO-er for tonehøyde, pulsbredde og cutoff.\nDelt mellom de tre stemmene er filteret (cutoff, resonans, ruting per stemme, ekstern inngang, og kombinerbare low-, band- og high pass-moduser), master-volum, og en bryter for å dempe stemmenummer 3 så den kan brukes som modulasjonskilde for ring og sync.\nVisuelt er det et Commodore 64-inspirert pikselgrensesnitt med fargekoding per stemme, lydpresets lagret til disk, en tempo-avlesning og en MIDI-belastningsmåler.\nDen kjører på macOS, er gratis og har åpen kildekode (GNU GPL v3), og er et uavhengig, uoffisielt prosjekt som ikke er tilknyttet eller støttet av Elektron.",
+            "en": "SidStation ASID is a cross platform plugin (VST3, AU and Standalone) that plays the three SID chip voices of the [Elektron SidStation](equipment/instruments/elektron-sidstation/) directly over the ASID protocol. It streams the raw MOS6581 SID chip registers, so it gives independent control of each voice with its own pitch and gate, plus the things MIDI CC cannot reach. One instance drives one voice, so in a DAW you put an instance on each of three tracks and pick a voice per track. This turns the three voices into independent, sequenceable instruments, which the SidStation makes awkward on its own.\nPer voice are the four SID waveforms (combinable, with noise exclusive as on the real chip), an ADSR envelope, pulse width, coarse and fine tuning, pitch bend, hard sync, ring modulation, the raw TEST bit, portamento, an eight step wavetable, and three LFOs on pitch, pulse width and cutoff.\nShared across the three voices are the filter (cutoff, resonance, per voice routing, external input, and combinable low, band and high pass modes), master volume, and a switch to silence voice 3 so it can serve as a modulation source for ring and sync.\nVisually it's a Commodore 64 styled pixel interface with per voice colour coding, voice sound presets saved to disk, a tempo readout and a MIDI load meter.\nIt runs on macOS, is free and open source (GNU GPL v3), and is an independent, unofficial project not affiliated with or endorsed by Elektron."
+        },
+        "thumbnailDescription": "SidStation ASID user interface",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://benjamindehli.github.io/sidstation-asid/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        },
+        "reviewCount": "0",
+        "sameAs": [
+            "https://benjamindehli.github.io/sidstation-asid/",
+            "https://github.com/benjamindehli/sidstation-asid",
+            "https://github.com/benjamindehli/sidstation-asid/releases"
+        ],
+        "productType": ["Software", "Elektron SidStation"],
+        "mainImage": "sidstation-asid.jpg",
+        "additionalImages": [
+            "sidstation-asid_01.png",
+            "sidstation-asid_02.png",
+            "sidstation-asid_03.png",
+            "sidstation-asid_04.png"
+        ]
+    },
+    {
+        "timestamp": 1780920000000,
+        "title": "microSAMPLER Editor / Librarian",
+        "content": {
+            "no": "microSAMPLER Editor / Librarian er et moderne redigering- og biblioteksprogram librarian for [Korg microSAMPLER](equipment/instruments/korg-microsampler/), bygget opp fra bunnen av fordi Korgs originale 32-bits editor ikke lenger fungerer på nyere versjoner av macOS. Den kommuniserer med maskinvaren over USB og gjør alt det jeg brukte den originale editoren til, i tillegg til noen ting til.\nSampler: Last opp og ned lydfiler (med automatisk resampling til enhetens samplingsfrekvenser), rediger alle sample-parametere, trim lydfilen med automatisk snapping til nullpunkt, og spill av lyden på enheten fra et skjermtastatur, datamaskinens tastatur eller eksternt keyboard.\nEffekter: Full kontroll over alle de 22 effekttypene og deres parametere.\nPatterns: Overfør, spill av, ta opp og rediger patterns i en innebygd piano-roll, og importer eller eksporter dem som vanlige MIDI-filer for å redigere dem i et annet program.\nBanker: Ta sikkerhetskopi av og gjenopprett komplette banker, inkludert de permanente brukerbankene, og plukk ut lydfiler fra en sikkerhetskopi.\nBiblioteksmodus (Library): Bla gjennom og hent ut lydfiler og innspilte patterns fra originale Korg .msmpl_bank-sikkerhetskopier (og appens egne .zip-sikkerhetskopier) uten maskinvare tilkoblet, nyttig for å redde lyd eller patterns fra gamle sikkerhetskopier.\nDen kjører på macOS og Linux, er gratis og har åpen kildekode (GNU GPL v3), og er et uavhengig, uoffisielt prosjekt som ikke er tilknyttet eller støttet av Korg.",
+            "en": "microSAMPLER Editor / Librarian is a modern editor and librarian for the [Korg microSAMPLER](equipment/instruments/korg-microsampler/), rebuilt from scratch because Korg's original 32-bit editor no longer runs on current versions of macOS. It talks to the hardware over USB and does everything I used the original editor for, plus a few things it never could.\nSamples: Download and upload WAV samples (with automatic resampling to the device's sample rates), edit every sample parameter, trim the waveform with zero-crossing snapping, and play samples on the device from an on-screen or computer keyboard.\nEffects: Full control over all 22 effect types and their complete parameter sets.\nPatterns: Receive, play, record and edit patterns in an in-app piano roll, and import or export them as standard MIDI files for a round trip with your DAW.\nBanks: Back up and restore complete banks, including the persistent user banks, and cherry-pick individual samples from a backup.\nLibrary mode: Browse and extract samples and recorded patterns from original Korg .msmpl_bank backups (and this app's own .zip backups) with no hardware connected, useful for recovering audio or patterns from old backups.\nIt runs on macOS and Linux, is free and open source (GNU GPL v3), and is an independent, unofficial project not affiliated with or endorsed by Korg."
+        },
+        "thumbnailDescription": "microSAMPLER Editor / Librarian user interface",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://benjamindehli.github.io/microsampler-editor-librarian/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        },
+        "reviewCount": "0",
+        "sameAs": [
+            "https://benjamindehli.github.io/microsampler-editor-librarian/",
+            "https://github.com/benjamindehli/microsampler-editor-librarian",
+            "https://github.com/benjamindehli/microsampler-editor-librarian/releases"
+        ],
+        "productType": ["Software", "Korg microSAMPLER"],
+        "mainImage": "microsampler-editor-librarian.jpg",
+        "additionalImages": [
+            "microsampler-editor-librarian_01.png",
+            "microsampler-editor-librarian_02.png",
+            "microsampler-editor-librarian_03.png",
+            "microsampler-editor-librarian_04.png",
+            "microsampler-editor-librarian_05.png",
+            "microsampler-editor-librarian_06.png",
+            "microsampler-editor-librarian_07.png"
+        ]
+    },
+    {
         "timestamp": 1772391600000,
         "title": "MaskinTrommer",
         "content": {
@@ -43,92 +110,6 @@
             },
             "uploadDate": "2026-03-01",
             "contentUrl": "https://www.youtube.com/watch?v=XWSHCTEfhZE"
-        }
-    },
-    {
-        "timestamp": 1755115200000,
-        "title": "Midnight Wurli",
-        "content": {
-            "no": "Midnight Wurli er et samplet [Wurlitzer 200A elektrisk piano](equipment/instruments/wurlitzer-200a/) som fokuserer på å fange instrumentets karakter når det spilles på med lavt volum. Det bruker to lydkilder: Den direkte linjeutgangen fra Wurlitzeren og en kontaktmikrofon festet til instrumentet. Kontaktmikrofonen fanger opp de mekaniske lydene, som tangentklikk og pedalbevegelser, noe som gir en mer intim og nær lyd.\nInstrumentet inkluderer både tonale lyder og lyder av mekanisk støy. Det har også innebygde effekter som tremolo, båndekko, romklang og flere impulsresponser fra forsterkere. Hver tangent har flere lyder som blir påvirket av anslaget for å øke realismen.\nDet finnes nå en plugin-versjon (VST3, AU og Standalone) for macOS, med alle sampler, grafikk og effekter innebygd, så den kjører uten DecentSampler. I tillegg til kontrollene fra DecentSampler-versjonen har den en innstillingsmeny (egen pitch bend opp og ned, maks polyfoni, master-stemming og velocity-kurve), MIDI-learn ved å høyreklikke en kontroll, og drift-hjul for en subtil tilfeldig pitch- og volumdrift. Plugin-versjonen er foreløpig kun for macOS; Windows- og Linux-versjoner er planlagt, og DecentSampler-versjonen dekker disse plattformene inntil videre.",
-            "en": "Midnight Wurli is a sampled [Wurlitzer 200A electric piano instrument](equipment/instruments/wurlitzer-200a/) that focuses on capturing the character of the instrument played softly at low volume. It uses two signal sources: the direct line out from the Wurlitzer and a contact microphone attached to the instrument. The contact microphone captures the mechanical noises, such as key clicks, release sounds, and pedal movements which results in a more intimate, close-up sound.\nThe instrument includes both tonal samples and mechanical noise samples. It also features built-in effects including tremolo, tape echo, room reverb, and multiple amplifier impulse responses. Each key includes velocity-based round robins to enhance realism.\nThere is now a plugin version (VST3, AU and Standalone) for macOS, with all samples, graphics and effects built in, so it runs without DecentSampler. On top of the controls from the DecentSampler version it adds a settings menu (separate pitch bend up and down, max polyphony, master tuning and velocity curve), MIDI learn by right-clicking any control, and drift wheels for a subtle random pitch and volume drift. The plugin version is currently macOS only; Windows and Linux versions are planned, and the DecentSampler version covers those platforms until then."
-        },
-        "thumbnailDescription": "Logo with the text Midnight Wurli and a Wurlitzer 200A electric piano in the background",
-        "price": "9.99",
-        "priceCurrency": "USD",
-        "link": {
-            "url": "https://store.dehlimusikk.no/l/midnight-wurli",
-            "text": {
-                "en": "Go to download page",
-                "no": "Gå til side for nedlasting"
-            }
-        },
-        "reviewCount": "0",
-        "sameAs": [
-            "https://store.dehlimusikk.no/l/midnight-wurli",
-            "https://dehlimusikk.gumroad.com/l/midnight-wurli",
-            "https://www.cylex.no/bedrift-produkt/midnight+wurli_266062.html",
-            "https://www.youtube.com/watch?v=LB-YDVqQh7s",
-            "https://www.youtube.com/shorts/nCFiLi4mdtE"
-        ],
-        "productType": ["Sample instruments", "Decent Sampler"],
-        "mainImage": "midnight-wurli.jpg",
-        "additionalImages": [
-            "midnight-wurli_01.jpg",
-            "midnight-wurli_02.jpg",
-            "midnight-wurli_03.png",
-            "midnight-wurli_04.png"
-        ],
-        "video": {
-            "name": {
-                "en": "Wurlitzer Electric Piano plugin preset for Decent Sampler (Midnight Wurli)",
-                "no": "Wurlitzer elektrisk piano plugin preset for Decent Sampler (Midnight Wurli)"
-            },
-            "description": {
-                "en": "A demonstration of the Midnight Wurli library for Decent Sampler.",
-                "no": "En demonstrasjon av Midnight Wurli-biblioteket for Decent Sampler."
-            },
-            "uploadDate": "2025-08-13",
-            "contentUrl": "https://www.youtube.com/watch?v=LB-YDVqQh7s"
-        }
-    },
-    {
-        "timestamp": 1742677200000,
-        "title": "DXtraterrestrial 2",
-        "content": {
-            "no": "DXtraterrestrial 2 er det andre patch-biblioteket i DXtraterrestrial-serien, og tilbyr en samling av 32 nøye utformede patcher. Den har varme synthpads, lyse og skarpe bjeller, dynamiske akustiske lyder og en rekke digitale, glitchy teksturer - og alt i mellom. Disse patch'ene er designet for å gi en variert palett av toner, egnet for enhver musikalsk stil. Enten du ønsker lyden av retrosynther, moderne lyder eller mer eksperimentelle lydlandskap, har DXtraterrestrial 2 noe å inspirere kreativiteten din med.",
-            "en": "DXtraterrestrial 2 is the second patch library in the DXtraterrestrial series, offering a rich collection of 32 carefully crafted patches. It features lush synth pads, bright and crisp bells, dynamic acoustic sounds, and a variety of digital, glitchy textures — and everything in between. These presets are designed to provide a diverse palette of tones, suitable for any musical style. Whether you're drawn to nostalgic retro synths, contemporary vibes, or more experimental soundscapes, DXtraterrestrial 2 has something to inspire your creativity."
-        },
-        "thumbnailDescription": "DXtraterrestrial 2 cartrigde with a Yamaha DX7 synthesizer in the background",
-        "price": "9.99",
-        "priceCurrency": "USD",
-        "link": {
-            "url": "https://store.dehlimusikk.no/l/dxtraterrestrial-2",
-            "text": {
-                "en": "Go to download page",
-                "no": "Gå til side for nedlasting"
-            }
-        },
-        "reviewCount": "0",
-        "sameAs": [
-            "https://store.dehlimusikk.no/l/dxtraterrestrial-2",
-            "https://dehlimusikk.gumroad.com/l/dxtraterrestrial-2",
-            "https://www.cylex.no/bedrift-produkt/dxtraterrestrial+2_238848.html",
-            "https://www.youtube.com/watch?v=EuTsBIUXyJk",
-            "https://www.matrixsynth.com/2025/03/more-custom-patches-for-yamaha-dx7.html"
-        ],
-        "productType": ["Patch library", "Yamaha DX7"],
-        "mainImage": "dxtraterrestrial-2.jpg",
-        "video": {
-            "name": {
-                "en": "More custom patches for Yamaha DX7 (DXtraterrestrial 2)",
-                "no": "Flere egendefinerte patcher for Yamaha DX7 (DXtraterrestrial 2)"
-            },
-            "description": {
-                "en": "A demonstration of the DXtraterrestrial 2 custom patches for the Yamaha DX7 and other DX7-compatible devices",
-                "no": "En demonstrasjon av DXtraterrestrial 2 egendefinerte patcher for Yamaha DX7 og andre DX7-kompatible enheter."
-            },
-            "uploadDate": "2025-03-14",
-            "contentUrl": "https://www.youtube.com/watch?v=EuTsBIUXyJk"
         }
     }
 ]

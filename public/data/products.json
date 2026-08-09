@@ -1,5 +1,72 @@
 [
     {
+        "timestamp": 1786276800000,
+        "title": "SidStation ASID",
+        "content": {
+            "no": "SidStation ASID er en cross platform plugin (VST3, AU og Standalone) som kontrollerer de tre SID-chip-stemmene i [Elektron SidStation](equipment/instruments/elektron-sidstation/) direkte over ASID-protokollen. Den strømmer de rå MOS6581 SID-chipen registerne, slik at du får kontroll over hver enkelt stemme med egen pitch og gate, i tillegg til det som vanlig MIDI CC ikke når. Én plugin-instans styrer én stemme, så i et lydredigeringsprogram legger du en instans på hvert av tre spor og velger stemme per spor. Dette gjør de tre stemmene om til uavhengige, sekvenserbare instrumenter, noe som er tungvint med SidStation på egen hånd.\nPer stemme er de fire SID-bølgeformene (kombinerbare, med støy eksklusiv som på den ekte chipen), en ADSR-envelope, pulsbredde, grov- og finstemming, pitch bend, hard sync, ringmodulasjon, TEST-bit'en, portamento, en åtte-stegs wavetable, og dedikerte LFO-er for tonehøyde, pulsbredde og cutoff.\nDelt mellom de tre stemmene er filteret (cutoff, resonans, ruting per stemme, ekstern inngang, og kombinerbare low-, band- og high pass-moduser), master-volum, og en bryter for å dempe stemmenummer 3 så den kan brukes som modulasjonskilde for ring og sync.\nVisuelt er det et Commodore 64-inspirert pikselgrensesnitt med fargekoding per stemme, lydpresets lagret til disk, en tempo-avlesning og en MIDI-belastningsmåler.\nDen kjører på macOS, er gratis og har åpen kildekode (GNU GPL v3), og er et uavhengig, uoffisielt prosjekt som ikke er tilknyttet eller støttet av Elektron.",
+            "en": "SidStation ASID is a cross platform plugin (VST3, AU and Standalone) that plays the three SID chip voices of the [Elektron SidStation](equipment/instruments/elektron-sidstation/) directly over the ASID protocol. It streams the raw MOS6581 SID chip registers, so it gives independent control of each voice with its own pitch and gate, plus the things MIDI CC cannot reach. One instance drives one voice, so in a DAW you put an instance on each of three tracks and pick a voice per track. This turns the three voices into independent, sequenceable instruments, which the SidStation makes awkward on its own.\nPer voice are the four SID waveforms (combinable, with noise exclusive as on the real chip), an ADSR envelope, pulse width, coarse and fine tuning, pitch bend, hard sync, ring modulation, the raw TEST bit, portamento, an eight step wavetable, and three LFOs on pitch, pulse width and cutoff.\nShared across the three voices are the filter (cutoff, resonance, per voice routing, external input, and combinable low, band and high pass modes), master volume, and a switch to silence voice 3 so it can serve as a modulation source for ring and sync.\nVisually it's a Commodore 64 styled pixel interface with per voice colour coding, voice sound presets saved to disk, a tempo readout and a MIDI load meter.\nIt runs on macOS, is free and open source (GNU GPL v3), and is an independent, unofficial project not affiliated with or endorsed by Elektron."
+        },
+        "thumbnailDescription": "SidStation ASID user interface",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://benjamindehli.github.io/sidstation-asid/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        },
+        "reviewCount": "0",
+        "sameAs": [
+            "https://benjamindehli.github.io/sidstation-asid/",
+            "https://github.com/benjamindehli/sidstation-asid",
+            "https://github.com/benjamindehli/sidstation-asid/releases"
+        ],
+        "productType": ["Software", "Elektron SidStation"],
+        "mainImage": "sidstation-asid.jpg",
+        "additionalImages": [
+            "sidstation-asid_01.png",
+            "sidstation-asid_02.png",
+            "sidstation-asid_03.png",
+            "sidstation-asid_04.png"
+        ]
+    },
+    {
+        "timestamp": 1780920000000,
+        "title": "microSAMPLER Editor / Librarian",
+        "content": {
+            "no": "microSAMPLER Editor / Librarian er et moderne redigering- og biblioteksprogram librarian for [Korg microSAMPLER](equipment/instruments/korg-microsampler/), bygget opp fra bunnen av fordi Korgs originale 32-bits editor ikke lenger fungerer på nyere versjoner av macOS. Den kommuniserer med maskinvaren over USB og gjør alt det jeg brukte den originale editoren til, i tillegg til noen ting til.\nSampler: Last opp og ned lydfiler (med automatisk resampling til enhetens samplingsfrekvenser), rediger alle sample-parametere, trim lydfilen med automatisk snapping til nullpunkt, og spill av lyden på enheten fra et skjermtastatur, datamaskinens tastatur eller eksternt keyboard.\nEffekter: Full kontroll over alle de 22 effekttypene og deres parametere.\nPatterns: Overfør, spill av, ta opp og rediger patterns i en innebygd piano-roll, og importer eller eksporter dem som vanlige MIDI-filer for å redigere dem i et annet program.\nBanker: Ta sikkerhetskopi av og gjenopprett komplette banker, inkludert de permanente brukerbankene, og plukk ut lydfiler fra en sikkerhetskopi.\nBiblioteksmodus (Library): Bla gjennom og hent ut lydfiler og innspilte patterns fra originale Korg .msmpl_bank-sikkerhetskopier (og appens egne .zip-sikkerhetskopier) uten maskinvare tilkoblet, nyttig for å redde lyd eller patterns fra gamle sikkerhetskopier.\nDen kjører på macOS og Linux, er gratis og har åpen kildekode (GNU GPL v3), og er et uavhengig, uoffisielt prosjekt som ikke er tilknyttet eller støttet av Korg.",
+            "en": "microSAMPLER Editor / Librarian is a modern editor and librarian for the [Korg microSAMPLER](equipment/instruments/korg-microsampler/), rebuilt from scratch because Korg's original 32-bit editor no longer runs on current versions of macOS. It talks to the hardware over USB and does everything I used the original editor for, plus a few things it never could.\nSamples: Download and upload WAV samples (with automatic resampling to the device's sample rates), edit every sample parameter, trim the waveform with zero-crossing snapping, and play samples on the device from an on-screen or computer keyboard.\nEffects: Full control over all 22 effect types and their complete parameter sets.\nPatterns: Receive, play, record and edit patterns in an in-app piano roll, and import or export them as standard MIDI files for a round trip with your DAW.\nBanks: Back up and restore complete banks, including the persistent user banks, and cherry-pick individual samples from a backup.\nLibrary mode: Browse and extract samples and recorded patterns from original Korg .msmpl_bank backups (and this app's own .zip backups) with no hardware connected, useful for recovering audio or patterns from old backups.\nIt runs on macOS and Linux, is free and open source (GNU GPL v3), and is an independent, unofficial project not affiliated with or endorsed by Korg."
+        },
+        "thumbnailDescription": "microSAMPLER Editor / Librarian user interface",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "link": {
+            "url": "https://benjamindehli.github.io/microsampler-editor-librarian/",
+            "text": {
+                "en": "Go to download page",
+                "no": "Gå til side for nedlasting"
+            }
+        },
+        "reviewCount": "0",
+        "sameAs": [
+            "https://benjamindehli.github.io/microsampler-editor-librarian/",
+            "https://github.com/benjamindehli/microsampler-editor-librarian",
+            "https://github.com/benjamindehli/microsampler-editor-librarian/releases"
+        ],
+        "productType": ["Software", "Korg microSAMPLER"],
+        "mainImage": "microsampler-editor-librarian.jpg",
+        "additionalImages": [
+            "microsampler-editor-librarian_01.png",
+            "microsampler-editor-librarian_02.png",
+            "microsampler-editor-librarian_03.png",
+            "microsampler-editor-librarian_04.png",
+            "microsampler-editor-librarian_05.png",
+            "microsampler-editor-librarian_06.png",
+            "microsampler-editor-librarian_07.png"
+        ]
+    },
+    {
         "timestamp": 1772391600000,
         "title": "MaskinTrommer",
         "content": {
