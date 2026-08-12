@@ -258,7 +258,7 @@ function getImagesFromPost(post, languageKey) {
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
     formats.forEach((format) => {
-        const imagePath = `data/posts/thumbnails/web/${format}/${post.thumbnailFilename}`;
+        const imagePath = `data/posts/web/${format}/${post.thumbnailFilename}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
             let image = {
@@ -281,7 +281,7 @@ function getImagesFromVideo(video, languageKey) {
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
     formats.forEach((format) => {
-        const imagePath = `data/videos/thumbnails/web/${format}/${video.thumbnailFilename}`;
+        const imagePath = `data/videos/web/${format}/${video.thumbnailFilename}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
             let image = {
@@ -304,7 +304,7 @@ function getImagesFromProduct(product) {
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
     formats.forEach((format) => {
-        const imagePath = `data/products/thumbnails/web/${format}/${convertToUrlFriendlyString(product.title)}`;
+        const imagePath = `data/products/web/${format}/${convertToUrlFriendlyString(product.title)}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
             let image = {
@@ -320,13 +320,37 @@ function getImagesFromProduct(product) {
     return images;
 }
 
+function getImagesFromRelease(release, languageKey) {
+    // Unreleased entries show a shared "coming soon" placeholder rather than
+    // cover art, so there is nothing release-specific to submit.
+    if (release.unreleased) return [];
+
+    let images = [];
+    const formats = ["avif", "webp", "jpg"];
+    const sizes = [55, 350, 540];
+    const connector = languageKey === "en" ? "by" : "av";
+    formats.forEach((format) => {
+        const imagePath = `data/releases/web/${format}/${release.thumbnailFilename}`;
+        sizes.forEach((size) => {
+            // No license or geoLocation here, unlike the other image types:
+            // cover art belongs to the artists and labels, not Dehli Musikk.
+            images.push({
+                loc: `${imagePath}_${size}.${format}`,
+                caption: convertToXmlFriendlyString(`${release.title} ${connector} ${release.artistName}`),
+                title: convertToXmlFriendlyString(release.title)
+            });
+        });
+    });
+    return images;
+}
+
 function getImagesFromEquipmentType(equipmentType, languageKey) {
     let images = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540, 945];
 
     formats.forEach((format) => {
-        const imagePath = `data/equipment/thumbnails/web/${format}/${equipmentType.equipmentType}`;
+        const imagePath = `data/equipment/web/${format}/${equipmentType.equipmentType}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
             let image = {
@@ -349,7 +373,7 @@ function getImagesFromEquipmentItem(equipmentItem, equipmentType) {
 
     const imageFileName = convertToUrlFriendlyString(`${equipmentItem.brand} ${equipmentItem.model}`);
     formats.forEach((format) => {
-        const imagePath = `data/equipment/thumbnails/${equipmentType}/web/${format}/${imageFileName}`;
+        const imagePath = `data/equipment/${equipmentType}/web/${format}/${imageFileName}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
             let image = {
@@ -414,6 +438,40 @@ function renderProductsListImages(products) {
         renderImagePageUrlElement(urlNorwegianPage, norwegianImages),
         renderImagePageUrlElement(urlEnglishPage, englishImages)
     ].join("");
+}
+
+function renderReleasesListImages(releases) {
+    const urlNorwegianPage = `${languageSlug.no}portfolio/`;
+    const urlEnglishPage = `${languageSlug.en}portfolio/`;
+    let norwegianImages = [];
+    let englishImages = [];
+    if (releases?.length) {
+        releases.forEach((release) => {
+            norwegianImages = norwegianImages.concat(getImagesFromRelease(release, "no"));
+            englishImages = englishImages.concat(getImagesFromRelease(release, "en"));
+        });
+    }
+    return [
+        renderImagePageUrlElement(urlNorwegianPage, norwegianImages),
+        renderImagePageUrlElement(urlEnglishPage, englishImages)
+    ].join("");
+}
+
+function renderReleasesDetailsImages(releases) {
+    return releases?.length
+        ? releases
+              .map((release) => {
+                  const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
+                  const norwegianImages = getImagesFromRelease(release, "no");
+                  const englishImages = getImagesFromRelease(release, "en");
+                  if (!norwegianImages.length) return "";
+                  return [
+                      renderImagePageUrlElement(`${languageSlug.no}portfolio/${releaseId}/`, norwegianImages),
+                      renderImagePageUrlElement(`${languageSlug.en}portfolio/${releaseId}/`, englishImages)
+                  ].join("");
+              })
+              .join("")
+        : "";
 }
 
 function renderEquipmentTypesListImages(equipmentTypes) {
@@ -581,13 +639,15 @@ export function getNewsSitemapXML(posts) {
     ].join("");
 }
 
-export function getImageSitemapXML({ equipmentTypes, posts, products, videos }) {
+export function getImageSitemapXML({ equipmentTypes, posts, products, releases, videos }) {
     return [
         '<?xml version="1.0" encoding="UTF-8"?>\n',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n',
         renderPostsListImages(posts),
         renderPostsDetailsImages(posts),
         renderVideosListImages(videos),
+        renderReleasesListImages(releases),
+        renderReleasesDetailsImages(releases),
         renderEquipmentTypesListImages(equipmentTypes),
         renderEquipmentListImages(equipmentTypes),
         renderEquipmentDetailsImages(equipmentTypes),
