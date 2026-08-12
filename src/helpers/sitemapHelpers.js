@@ -513,9 +513,18 @@ function renderEquipmentDetailsImages(equipmentTypes) {
     return equipmentDetailsElements.join("");
 }
 
+// Google only looks at articles published in the last two days, but this site is
+// built statically on release and publishes a handful of posts a year, so a
+// build-time date window would leave the file empty on most builds. Capping to
+// the newest posts keeps it small and always populated; Google ignores the
+// entries that have aged out.
+const NEWS_SITEMAP_POST_LIMIT = 10;
+
 function renderNewsPostsDetails(posts) {
     return posts?.length
-        ? posts
+        ? [...posts]
+              .sort((postA, postB) => postB.timestamp - postA.timestamp)
+              .slice(0, NEWS_SITEMAP_POST_LIMIT)
               .map((post) => {
                   const urlNorwegianPage = `${languageSlug.no}posts/${convertToUrlFriendlyString(post.title.no)}/`;
                   const urlEnglishPage = `${languageSlug.en}posts/${convertToUrlFriendlyString(post.title.en)}/`;
