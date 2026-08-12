@@ -79,6 +79,7 @@ typings/
 # Misc
 .DS_Store
 *.db
+/temp
 
 # Firebase
 .firebase/
