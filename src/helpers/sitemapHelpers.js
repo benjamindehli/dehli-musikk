@@ -94,34 +94,57 @@ function renderMultilingualUrlObjects(norwegianUrl, englishUrl, timestamp) {
     ];
 }
 
-function renderHome() {
+/*
+ * A list page changes whenever its newest entry does, so it takes that entry's
+ * date as its lastmod. Without one, the pages that change most often are the only
+ * ones giving Google nothing to schedule a recrawl against.
+ *
+ * The date field differs per collection and mirrors the detail renderers below:
+ * lastmod wins where present, then timestamp, except releases which use
+ * releaseDate. Equipment and the FAQ carry no dates at all, so those list pages
+ * are left without a lastmod rather than given an invented one.
+ */
+function getNewestTimestamp(items, dateKey = "timestamp") {
+    if (!items?.length) return undefined;
+    const timestamps = items.map((item) => item?.lastmod || item?.[dateKey]).filter(Boolean);
+    return timestamps.length ? Math.max(...timestamps) : undefined;
+}
+
+function renderHome(posts, videos, products, releases) {
     const urlNorwegianPage = `${languageSlug.no}`;
     const urlEnglishPage = `${languageSlug.en}`;
-    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage);
+    // The home page surfaces the latest of everything, so any of them can change it
+    const newest = [
+        getNewestTimestamp(posts),
+        getNewestTimestamp(videos),
+        getNewestTimestamp(products),
+        getNewestTimestamp(releases, "releaseDate")
+    ].filter(Boolean);
+    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, newest.length ? Math.max(...newest) : undefined);
 }
 
-function renderPostsList() {
+function renderPostsList(posts) {
     const urlNorwegianPage = `${languageSlug.no}posts/`;
     const urlEnglishPage = `${languageSlug.en}posts/`;
-    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage);
+    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, getNewestTimestamp(posts));
 }
 
-function renderVideosList() {
+function renderVideosList(videos) {
     const urlNorwegianPage = `${languageSlug.no}videos/`;
     const urlEnglishPage = `${languageSlug.en}videos/`;
-    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage);
+    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, getNewestTimestamp(videos));
 }
 
-function renderProductsList() {
+function renderProductsList(products) {
     const urlNorwegianPage = `${languageSlug.no}products/`;
     const urlEnglishPage = `${languageSlug.en}products/`;
-    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage);
+    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, getNewestTimestamp(products));
 }
 
-function renderReleasesList() {
+function renderReleasesList(releases) {
     const urlNorwegianPage = `${languageSlug.no}portfolio/`;
     const urlEnglishPage = `${languageSlug.en}portfolio/`;
-    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage);
+    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, getNewestTimestamp(releases, "releaseDate"));
 }
 
 function renderEquipmentTypesList(equipmentTypes) {
@@ -574,11 +597,11 @@ function renderVideoSitemapDetails(videos) {
 
 export function getSitemapXML({ equipmentTypes, posts, products, releases, videos }) {
     return [
-        ...renderHome(),
-        ...renderPostsList(),
-        ...renderVideosList(),
-        ...renderProductsList(),
-        ...renderReleasesList(),
+        ...renderHome(posts, videos, products, releases),
+        ...renderPostsList(posts),
+        ...renderVideosList(videos),
+        ...renderProductsList(products),
+        ...renderReleasesList(releases),
         ...renderEquipmentTypesList(equipmentTypes),
         ...renderFaqList(),
         ...renderPostsDetails(posts),
