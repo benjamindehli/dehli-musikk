@@ -38,7 +38,7 @@ function renderVideoUrlElement(url, video, languageKey) {
     const dateDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const dateString = `${dateYear}-${dateMonth}-${dateDay}`;
     const duration = youTubeTimeToSeconds(video.duration);
-    const thumbnailLoc = `data/videos/thumbnails/web/jpg/${video.thumbnailFilename}_540.jpg`;
+    const thumbnailLoc = `data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`;
     const absoluteThumbnailLoc = `${SITE_ORIGIN}${thumbnailLoc}`;
     const contentAsString = formatContentAsString(video.content[languageKey]);
     return `  <url>
@@ -46,7 +46,7 @@ function renderVideoUrlElement(url, video, languageKey) {
     <video:video>
       <video:title>${convertToXmlFriendlyString(video.title[languageKey])}</video:title>
       <video:description>${convertToXmlFriendlyString(contentAsString)}</video:description>
-      <video:player_loc allow_embed="yes">https://www.youtube.com/watch?v=${video.youTubeId}</video:player_loc>
+      <video:player_loc allow_embed="yes">https://www.youtube.com/embed/${video.youTubeId}</video:player_loc>
       <video:thumbnail_loc>${absoluteThumbnailLoc}</video:thumbnail_loc>
       <video:duration>${duration}</video:duration>
       <video:publication_date>${dateString}</video:publication_date>

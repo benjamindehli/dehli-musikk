@@ -34,7 +34,7 @@ const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset =
         : '',
       "duration": video.duration,
       "url": `https://www.dehlimusikk.no/${languageSlug}videos/${videoId}/video/`,
-      "embedURL": `https://www.youtube.com/watch?v=${video.youTubeId}`,
+      "embedUrl": `https://www.youtube.com/embed/${video.youTubeId}`,
       "thumbnailUrl": `https://www.dehlimusikk.no${videoThumbnailSrc}`,
       "thumbnail": {
         "@type": "ImageObject",

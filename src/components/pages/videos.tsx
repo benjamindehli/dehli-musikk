@@ -61,7 +61,7 @@ export function VideosPage({ lang }: { lang: Lang }) {
             name: video.title[lang],
             description: video.content[lang] ? formatContentAsString(video.content[lang]) : '',
             thumbnailUrl: `${WEBSITE_URL}/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`,
-            embedURL: `https://www.youtube.com/watch?v=${video.youTubeId}`,
+            embedUrl: `https://www.youtube.com/embed/${video.youTubeId}`,
             uploadDate: videoDate
         };
     });
