@@ -1,4 +1,16 @@
 import JsonLd from 'components/JsonLd';
+import { getLanguageSlug } from 'lib/i18n';
+import type { Lang } from 'lib/pageMetadata';
+
+const localBusinessDescriptions: Record<Lang, string> = {
+    no: 'Dehli Musikk er et enkeltpersonsforetak i Bø i Telemark, drevet av Benjamin Dehli siden 2019, som tilbyr spilling av tangentinstrumenter på låter for artister og band.',
+    en: 'Dehli Musikk is a local music business based in Bø i Telemark, Norway. Founded by Benjamin Dehli in 2019, it offers keyboard instrument tracks on recordings for artists and bands.'
+};
+
+const personDescriptions: Record<Lang, string> = {
+    no: 'Benjamin Dehli er tangentspiller, komponist og produsent fra Norge. Gjennom musikkvirksomheten Dehli Musikk tilbyr han spilling av tangentinstrumenter på låter for artister og band.',
+    en: 'Benjamin Dehli is a keyboard player, composer and producer from Norway. Benjamin offers keyboard instrument tracks on recordings for artists and bands through his music business Dehli Musikk.'
+};
 
 const localBusinessJsonLd = {
     '@context': 'https://schema.org',
@@ -9,7 +21,7 @@ const localBusinessJsonLd = {
         addressLocality: 'Bø i Telemark',
         postalCode: '3804',
         streetAddress: 'Margretes veg 15',
-        addressCountry: { name: 'NO' }
+        addressCountry: { '@type': 'Country', name: 'NO' }
     },
     naics: '711130',
     sameAs: [
@@ -61,7 +73,7 @@ const localBusinessJsonLd = {
         },
         hasMap: 'https://www.google.com/maps?cid=13331960642102658320'
     },
-    description: 'Dehli Musikk is a local music business based in Bø i Telemark, Norway. Founded by Benjamin Dehli in 2019, it offers keyboard instrument tracks on recordings for artists and bands.',
+    // description is set per language by SiteJsonLd
     foundingDate: '2019-10-01',
     foundingLocation: {
         '@type': 'Place',
@@ -165,7 +177,7 @@ const personJsonLd = {
         inDefinedTermSet: 'NAICS (North American Industry Classification System)'
     },
     worksFor: { '@id': 'https://www.dehlimusikk.no/' },
-    description: 'Benjamin Dehli is a keyboard player, composer and producer from Norway. Benjamin offers keyboard instrument tracks on recordings for artists and bands through his music business Dehli Musikk.',
+    // description is set per language by SiteJsonLd
     memberOf: [
         {
             '@type': 'OrganizationRole',
@@ -210,24 +222,27 @@ const personJsonLd = {
     ]
 };
 
-const websiteJsonLd = {
+const getWebsiteJsonLd = (lang: Lang) => ({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    // Distinct from the LocalBusiness, which owns https://www.dehlimusikk.no/
+    '@id': 'https://www.dehlimusikk.no/#website',
     name: 'Dehli Musikk',
     url: 'https://www.dehlimusikk.no',
+    inLanguage: ['no', 'en'],
     potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://www.dehlimusikk.no/search/?q={search_term_string}',
+        target: `https://www.dehlimusikk.no/${getLanguageSlug(lang)}search/?q={search_term_string}`,
         'query-input': 'required name=search_term_string'
     },
     author: { '@id': 'https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f' }
-};
+});
 
-const SiteJsonLd = () => (
+const SiteJsonLd = ({ lang }: { lang: Lang }) => (
     <>
-        <JsonLd data={localBusinessJsonLd} />
-        <JsonLd data={personJsonLd} />
-        <JsonLd data={websiteJsonLd} />
+        <JsonLd data={{ ...localBusinessJsonLd, description: localBusinessDescriptions[lang] }} />
+        <JsonLd data={{ ...personJsonLd, description: personDescriptions[lang] }} />
+        <JsonLd data={getWebsiteJsonLd(lang)} />
     </>
 );
 

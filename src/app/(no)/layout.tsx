@@ -11,7 +11,7 @@ export default function NoLayout({ children }: { children: React.ReactNode }) {
                 <link rel="preconnect" href="https://www.youtube.com" />
                 <link rel="preconnect" href="https://i.ytimg.com" />
                 <link rel="alternate" type="application/rss+xml" title="Dehli Musikk nyheter" href="https://www.dehlimusikk.no/feed-no.rss" />
-                <SiteJsonLd />
+                <SiteJsonLd lang="no" />
             </head>
             <body>
                 <LangProvider lang="no">

@@ -74,26 +74,22 @@ function renderImagePageUrlElement(url, images) {
 }
 
 function renderMultilingualUrlObjects(norwegianUrl, englishUrl, timestamp) {
+    // Matches buildAlternates() in lib/pageMetadata: Norwegian is x-default.
+    const languages = {
+        no: absoluteUrl(norwegianUrl),
+        en: absoluteUrl(englishUrl),
+        "x-default": absoluteUrl(norwegianUrl)
+    };
     return [
         {
             url: absoluteUrl(norwegianUrl),
             lastModified: timestamp ? new Date(timestamp) : undefined,
-            alternates: {
-                languages: {
-                    no: absoluteUrl(norwegianUrl),
-                    en: absoluteUrl(englishUrl)
-                }
-            }
+            alternates: { languages }
         },
         {
             url: absoluteUrl(englishUrl),
             lastModified: timestamp ? new Date(timestamp) : undefined,
-            alternates: {
-                languages: {
-                    no: absoluteUrl(norwegianUrl),
-                    en: absoluteUrl(englishUrl)
-                }
-            }
+            alternates: { languages }
         }
     ];
 }

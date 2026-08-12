@@ -5,6 +5,9 @@
   },
   "hosting": {
     "public": "out",
+    "cleanUrls": true,
+    "trailingSlash": true,
+    "appAssociation": "AUTO",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -90,9 +93,6 @@
     },
     "hosting": {
       "port": 5000
-    },
-    "cleanUrls": true,
-    "trailingSlash": true,
-    "appAssociation": "AUTO"
+    }
   }
 }

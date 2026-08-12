@@ -14,6 +14,7 @@ import style from 'components/routes/Home.module.scss';
 
 const translations = {
     no: {
+        metaTitle: 'Dehli Musikk - tangentinstrumenter på låter for artister og band',
         description: 'Dehli Musikk er et enkeltpersonsforetak drevet av Benjamin Dehli som tilbyr spilling av tangentinstrumenter på låter for artister og band',
         latestPosts: 'Siste oppdateringer',
         seeAllPosts: 'Se alle innlegg',
@@ -30,6 +31,7 @@ const translations = {
         followOnSocialMedia: 'Følg Dehli Musikk på sosiale medier'
     },
     en: {
+        metaTitle: 'Dehli Musikk - keyboard instrument tracks for artists and bands',
         description: 'Dehli Musikk is a sole proprietorship run by Benjamin Dehli which offers keyboard instrument tracks on recordings for artists and bands',
         latestPosts: 'Latest updates',
         seeAllPosts: 'See all posts',
@@ -51,10 +53,12 @@ export function getHomePageMetadata(lang: Lang): Metadata {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     return {
-        title: 'Dehli Musikk',
+        title: t.metaTitle,
         description: t.description,
         alternates: buildAlternates(lang, { no: '', en: '' }),
         openGraph: {
+            // Kept as the bare brand name: og:title is a social-card heading,
+            // not a search snippet, and the keywords read as noise there.
             title: 'Dehli Musikk',
             url: `${WEBSITE_URL}/${languageSlug}`,
             description: t.description,

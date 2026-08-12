@@ -11,7 +11,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
                 <link rel="preconnect" href="https://www.youtube.com" />
                 <link rel="preconnect" href="https://i.ytimg.com" />
                 <link rel="alternate" type="application/rss+xml" title="Dehli Musikk news" href="https://www.dehlimusikk.no/feed-en.rss" />
-                <SiteJsonLd />
+                <SiteJsonLd lang="en" />
             </head>
             <body>
                 <LangProvider lang="en">
