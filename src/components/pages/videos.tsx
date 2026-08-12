@@ -118,7 +118,19 @@ function getVideo(lang: Lang, videoId: string) {
     };
 }
 
-async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps, pathSuffix: '' | 'video/'): Promise<Metadata> {
+// Each video has two URLs serving the same content: /videos/{slug}/ shows it in
+// the page modal, /videos/{slug}/video/ full screen. Google declines to treat the
+// modal page as a video page ("video is not the main content"), so the theater
+// URL is the canonical one. Both pages point at it, which is also where the
+// VideoObject markup and video-sitemap.xml already point.
+function getCanonicalVideoPaths(video: { title: Record<Lang, string> }) {
+    return {
+        no: `videos/${convertToUrlFriendlyString(video.title.no)}/video/`,
+        en: `videos/${convertToUrlFriendlyString(video.title.en)}/video/`
+    };
+}
+
+async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps): Promise<Metadata> {
     const { videoId } = await params;
     const video = getVideo(lang, videoId);
     if (!video) return {};
@@ -127,15 +139,13 @@ async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps, pathSuf
     const languageSlug = getLanguageSlug(lang);
     const title = `${video.title[lang]} - ${t.metaTitle}`;
     const description = formatContentAsString(video.content[lang]);
+    const canonicalPaths = getCanonicalVideoPaths(video);
 
     return {
         title, description,
-        alternates: buildAlternates(lang, {
-            no: `videos/${convertToUrlFriendlyString(video.title.no)}/${pathSuffix}`,
-            en: `videos/${convertToUrlFriendlyString(video.title.en)}/${pathSuffix}`
-        }),
+        alternates: buildAlternates(lang, canonicalPaths),
         openGraph: {
-            title: video.title[lang], url: `${WEBSITE_URL}/${languageSlug}videos/${videoId}/${pathSuffix}`,
+            title: video.title[lang], url: `${WEBSITE_URL}/${languageSlug}${canonicalPaths[lang]}`,
             description, ...ogLocale(lang),
             images: [{ url: `${WEBSITE_URL}/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`, width: 540, height: 304 }]
         },
@@ -144,11 +154,11 @@ async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps, pathSuf
 }
 
 export function getVideoDetailsMetadata(lang: Lang, props: VideoRouteProps) {
-    return getVideoMetadata(lang, props, '');
+    return getVideoMetadata(lang, props);
 }
 
 export function getVideoTheaterMetadata(lang: Lang, props: VideoRouteProps) {
-    return getVideoMetadata(lang, props, 'video/');
+    return getVideoMetadata(lang, props);
 }
 
 export async function VideoDetailsPage({ lang, params }: { lang: Lang } & VideoRouteProps) {

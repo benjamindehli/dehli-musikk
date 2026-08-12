@@ -158,17 +158,8 @@ function renderPostsDetails(posts) {
         : [];
 }
 
-function renderVideosDetails(videos) {
-    return videos?.length
-        ? videos.flatMap((video) => {
-              const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/`;
-              const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/`;
-              const timestamp = video?.lastmod ? video.lastmod : video?.timestamp;
-              return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, timestamp);
-          })
-        : [];
-}
-
+// Only the /video/ URL is listed: /videos/{slug}/ serves the same content and
+// canonicalises to it, so submitting both would offer Google a duplicate.
 function renderVideosDetailsVideo(videos) {
     return videos?.length
         ? videos.flatMap((video) => {
@@ -591,7 +582,6 @@ export function getSitemapXML({ equipmentTypes, posts, products, releases, video
         ...renderEquipmentTypesList(equipmentTypes),
         ...renderFaqList(),
         ...renderPostsDetails(posts),
-        ...renderVideosDetails(videos),
         ...renderVideosDetailsVideo(videos),
         ...renderProductsDetails(products),
         ...renderReleasesDetails(releases),
