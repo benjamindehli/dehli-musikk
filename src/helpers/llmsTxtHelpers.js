@@ -38,7 +38,8 @@ const renderReleaseLine = (release) => {
 const renderVideoLine = (video) => {
     const videoId = convertToUrlFriendlyString(video.title.en);
     const description = video.content.en ? truncate(formatContentAsString(video.content.en), 120) : "";
-    return `- [${video.title.en}](${websiteUrl}/en/videos/${videoId}/) (${isoDate(video.timestamp)}): ${description}`;
+    // The /video/ URL is the canonical one: /en/videos/{slug}/ canonicalises to it
+    return `- [${video.title.en}](${websiteUrl}/en/videos/${videoId}/video/) (${isoDate(video.timestamp)}): ${description}`;
 };
 
 export function getLlmsTxt({ posts, products, releases, videos }) {
