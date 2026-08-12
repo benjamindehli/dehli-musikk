@@ -76,11 +76,11 @@ export function ProductsPage({ lang }: { lang: Lang }) {
             </Container>
             <Container>
                 <List>
-                    {products.map((product) => {
+                    {products.map((product, index) => {
                         const productId = convertToUrlFriendlyString(product.title);
                         return (
                             <ListItem key={productId}>
-                                <Product product={product} lang={lang} languageSlug={languageSlug} />
+                                <Product product={product} priority={index === 0} lang={lang} languageSlug={languageSlug} />
                             </ListItem>
                         );
                     })}

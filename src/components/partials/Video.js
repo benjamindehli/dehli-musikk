@@ -20,7 +20,7 @@ import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
 import style from "components/partials/Video.module.scss";
 import Button from './Button';
 
-const Video = ({ video, fullscreen = false, compact = false, isTheaterMode = false, startOffset = null, lang, languageSlug }) => {
+const Video = ({ video, fullscreen = false, compact = false, priority = false, isTheaterMode = false, startOffset = null, lang, languageSlug }) => {
 
   const renderVideoSnippet = (video, videoId, videoThumbnailSrc) => {
     const videoDate = new Date(video.timestamp).toISOString();
@@ -70,23 +70,27 @@ const Video = ({ video, fullscreen = false, compact = false, isTheaterMode = fal
     );
   }
 
+  // The first card on a list page is usually the LCP element, so it loads eagerly
+  // with a priority hint rather than being lazy like the cards below the fold.
+  const loadingAttributes = priority ? { fetchPriority: 'high' } : { loading: 'lazy' };
+
   const renderVideoThumbnail = (image, altText, compact) => {
     if (compact) {
       return (<React.Fragment>
-        <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" />
-        <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" />
-        <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" />
-        <img loading="lazy" src={image.jpg55} data-width="55" data-height="55" alt={altText} />
+        <source srcSet={`${image.avif55}`} type="image/avif" />
+        <source srcSet={`${image.webp55}`} type="image/webp" />
+        <source srcSet={`${image.jpg55}`} type="image/jpeg" />
+        <img {...loadingAttributes} src={image.jpg55} data-width="55" data-height="55" alt={altText} />
       </React.Fragment>);
     }
     return (<React.Fragment>
-        <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 599px)' />
-        <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 599px)' />
-        <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" media='(max-width: 599px)' />
+        <source srcSet={`${image.avif55}`} type="image/avif" media='(max-width: 599px)' />
+        <source srcSet={`${image.webp55}`} type="image/webp" media='(max-width: 599px)' />
+        <source srcSet={`${image.jpg55}`} type="image/jpeg" media='(max-width: 599px)' />
         <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
         <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
         <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
-        <img loading="lazy" src={image.jpg350} data-width="350" data-height="197" alt={altText} />
+        <img {...loadingAttributes} src={image.jpg350} data-width="350" data-height="197" alt={altText} />
     </React.Fragment>);
   }
 
@@ -125,17 +129,21 @@ const Video = ({ video, fullscreen = false, compact = false, isTheaterMode = fal
     }
   }
 
+  const theaterModeLabel = isTheaterMode
+    ? lang === "en"
+      ? "Reduce"
+      : "Forminsk"
+    : lang === "en"
+      ? "Enlarge"
+      : "Forstørr";
+
   const theaterModeLink = {
     to: theaterModeToPath,
-    title: video.title[lang],
-    label: isTheaterMode
-            ? lang === "en"
-              ? "Reduce"
-              : "Forminsk"
-            : lang === "en"
-              ? "Enlarge"
-              : "Forstørr"
-
+    label: theaterModeLabel,
+    // The accessible name leads with the visible label so speech input users can
+    // activate the link by saying what they see, then names the video for anyone
+    // hearing the link out of context (WCAG 2.5.3 Label in Name).
+    ariaLabel: `${theaterModeLabel} - ${video.title[lang]}`
   };
 
   return video && video.content && video.content[lang]
@@ -160,7 +168,7 @@ const Video = ({ video, fullscreen = false, compact = false, isTheaterMode = fal
             {
               fullscreen ? <h1>{video.title[lang]}<span>{video.youTubeUser}</span></h1> : <h2>{video.title[lang]}<span>{video.youTubeUser}</span></h2>
             }
-              <Link href={theaterModeLink.to} aria-label={theaterModeLink.title}>
+              <Link href={theaterModeLink.to} aria-label={theaterModeLink.ariaLabel}>
                 <Button buttontype="minimal">
                   <span className={style.label}>{theaterModeLink.label}</span>
                   {isTheaterMode ? <img src="/images/minimize.svg" className={style.icon} alt="" aria-hidden="true" /> : <img src="/images/maximize.svg" className={style.icon} alt="" aria-hidden="true" />}

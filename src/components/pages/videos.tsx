@@ -86,11 +86,11 @@ export function VideosPage({ lang }: { lang: Lang }) {
             </Container>
             <Container>
                 <List>
-                    {videos.map((video) => {
+                    {videos.map((video, index) => {
                         const videoId = convertToUrlFriendlyString(video.title[lang]);
                         return (
                             <ListItem key={videoId}>
-                                <Video video={video} lang={lang} languageSlug={languageSlug} />
+                                <Video video={video} priority={index === 0} lang={lang} languageSlug={languageSlug} />
                             </ListItem>
                         );
                     })}

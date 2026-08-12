@@ -81,9 +81,9 @@ export function PostsPage({ lang }: { lang: Lang }) {
             </Container>
             <Container>
                 <List>
-                    {posts.map((post) => (
+                    {posts.map((post, index) => (
                         <ListItem key={post.id} article>
-                            <Post post={post} lang={lang} languageSlug={languageSlug} />
+                            <Post post={post} priority={index === 0} lang={lang} languageSlug={languageSlug} />
                         </ListItem>
                     ))}
                 </List>

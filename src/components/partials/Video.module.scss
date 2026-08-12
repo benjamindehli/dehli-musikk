@@ -17,6 +17,9 @@
         }
         & .icon {
             width: 16px;
+            // Both dimensions are set so the box is reserved before the SVG
+            // loads; the global img reset would otherwise leave height: auto.
+            height: 16px;
             display: inline-block;
             vertical-align: middle;
         }

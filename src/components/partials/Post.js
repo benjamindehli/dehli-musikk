@@ -17,7 +17,10 @@ import ListItemContentHeader from 'components/template/List/ListItem/ListItemCon
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 
 
-const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
+const Post = ({ post, fullscreen = false, priority = false, lang, languageSlug }) => {
+  // The first card on a list page is usually the LCP element, so it loads eagerly
+  // with a priority hint rather than being lazy like the cards below the fold.
+  const loadingAttributes = priority ? { fetchPriority: 'high' } : { loading: 'lazy' };
 
   const renderPostSnippet = (post, postId, postThumbnailSrc) => {
     const postDate = new Date(post.timestamp).toISOString();
@@ -88,13 +91,13 @@ const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
       </React.Fragment>);
     } else {
       return (<React.Fragment>
-        <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 599px)' />
-        <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 599px)' />
-        <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" media='(max-width: 599px)' />
+        <source srcSet={`${image.avif55}`} type="image/avif" media='(max-width: 599px)' />
+        <source srcSet={`${image.webp55}`} type="image/webp" media='(max-width: 599px)' />
+        <source srcSet={`${image.jpg55}`} type="image/jpeg" media='(max-width: 599px)' />
         <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
         <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
         <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
-        <img loading="lazy" src={image.jpg350} data-width="350" data-height="260" alt={altText} />
+        <img {...loadingAttributes} src={image.jpg350} data-width="350" data-height="260" alt={altText} />
       </React.Fragment>);
     }
   }

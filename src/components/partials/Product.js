@@ -22,7 +22,10 @@ import { convertStringToExcerpt } from "helpers/search";
 import { generateProductSnippet } from "helpers/richSnippetsGenerators";
 import { getProductReleases } from "helpers/instrumentReleases";
 
-const Product = ({ product, fullscreen = false, compact = false, lang, languageSlug }) => {
+const Product = ({ product, fullscreen = false, compact = false, priority = false, lang, languageSlug }) => {
+  // The first card on a list page is usually the LCP element, so it loads eagerly
+  // with a priority hint rather than being lazy like the cards below the fold.
+  const loadingAttributes = priority ? { fetchPriority: 'high' } : { loading: 'lazy' };
 
     const renderProductSnippet = (product) => {
         const productSnippet = generateProductSnippet(product, languageSlug, lang);
@@ -32,10 +35,10 @@ const Product = ({ product, fullscreen = false, compact = false, lang, languageS
     const renderProductThumbnail = (image, altText, fullscreen, compact) => {
         if (compact) {
             return (<React.Fragment>
-                <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" />
-                <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" />
-                <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" />
-                <img loading="lazy" src={image.jpg55} data-width="55" data-height="55" alt={altText} />
+                <source srcSet={`${image.avif55}`} type="image/avif" />
+                <source srcSet={`${image.webp55}`} type="image/webp" />
+                <source srcSet={`${image.jpg55}`} type="image/jpeg" />
+                <img {...loadingAttributes} src={image.jpg55} data-width="55" data-height="55" alt={altText} />
             </React.Fragment>);
         } else if (fullscreen){
             return (<React.Fragment>
@@ -49,13 +52,13 @@ const Product = ({ product, fullscreen = false, compact = false, lang, languageS
             </React.Fragment>);
         } else {
         return (<React.Fragment>
-            <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 599px)' />
-            <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 599px)' />
-            <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" media='(max-width: 599px)' />
+            <source srcSet={`${image.avif55}`} type="image/avif" media='(max-width: 599px)' />
+            <source srcSet={`${image.webp55}`} type="image/webp" media='(max-width: 599px)' />
+            <source srcSet={`${image.jpg55}`} type="image/jpeg" media='(max-width: 599px)' />
             <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
             <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
             <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
-            <img loading="lazy" src={image.jpg350} data-width="350" data-height="260" alt={altText} />
+            <img {...loadingAttributes} src={image.jpg350} data-width="350" data-height="260" alt={altText} />
         </React.Fragment>);
         }
     };

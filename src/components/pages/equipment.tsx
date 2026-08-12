@@ -218,11 +218,11 @@ export async function EquipmentTypePage({ lang, params }: { lang: Lang } & Equip
             </Container>
             <Container>
                 <List>
-                    {equipmentTypeData.items.map((item) => {
+                    {equipmentTypeData.items.map((item, index) => {
                         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
                         return (
                             <ListItem key={itemId}>
-                                <EquipmentItem item={item} itemId={itemId} itemType={equipmentType} lang={lang} languageSlug={languageSlug} />
+                                <EquipmentItem item={item} itemId={itemId} itemType={equipmentType} priority={index === 0} lang={lang} languageSlug={languageSlug} />
                             </ListItem>
                         );
                     })}

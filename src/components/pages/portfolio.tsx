@@ -83,11 +83,11 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
             </Container>
             <Container>
                 <List>
-                    {releases.map((release) => {
+                    {releases.map((release, index) => {
                         const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
                         return (
                             <ListItem key={releaseId}>
-                                <Release release={release} lang={lang} languageSlug={languageSlug} />
+                                <Release release={release} priority={index === 0} lang={lang} languageSlug={languageSlug} />
                             </ListItem>
                         );
                     })}

@@ -17,7 +17,10 @@ import { getInstrumentReleases } from 'helpers/instrumentReleases';
 import { getVideosForEquipmentItem } from 'helpers/equipmentUsage';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 
-const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, itemId, lang, languageSlug }) => {
+const EquipmentItem = ({ fullscreen = false, compact = false, priority = false, item, itemType, itemId, lang, languageSlug }) => {
+  // The first card on a list page is usually the LCP element, so it loads eagerly
+  // with a priority hint rather than being lazy like the cards below the fold.
+  const loadingAttributes = priority ? { fetchPriority: 'high' } : { loading: 'lazy' };
 
   const renderEquipmentItemImagesSnippet = (images) => {
     const snippet = Object.keys(images).map(format => {
@@ -60,10 +63,10 @@ const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, it
   const renderPostThumbnail = (image, itemName, fullscreen, compact) => {
     if (compact) {
         return (<React.Fragment>
-            <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" />
-            <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" />
-            <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" />
-            <img loading="lazy" src={image.jpg55} data-width="55" data-height="55" alt={itemName} />
+            <source srcSet={`${image.avif55}`} type="image/avif" />
+            <source srcSet={`${image.webp55}`} type="image/webp" />
+            <source srcSet={`${image.jpg55}`} type="image/jpeg" />
+            <img {...loadingAttributes} src={image.jpg55} data-width="55" data-height="55" alt={itemName} />
         </React.Fragment>);
     } else if (fullscreen){
         return (<React.Fragment>
@@ -80,13 +83,13 @@ const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, it
         </React.Fragment>);
     } else {
         return (<React.Fragment>
-            <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 599px)' />
-            <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 599px)' />
-            <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" media='(max-width: 599px)' />
+            <source srcSet={`${image.avif55}`} type="image/avif" media='(max-width: 599px)' />
+            <source srcSet={`${image.webp55}`} type="image/webp" media='(max-width: 599px)' />
+            <source srcSet={`${image.jpg55}`} type="image/jpeg" media='(max-width: 599px)' />
             <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
             <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
             <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
-            <img loading="lazy" src={image.jpg350} data-width="350" data-height="260" alt={itemName} />
+            <img {...loadingAttributes} src={image.jpg350} data-width="350" data-height="260" alt={itemName} />
         </React.Fragment>);
     }
   }

@@ -22,7 +22,10 @@ import { getJsonLdForArtist, getJsonLdIdForArtist, getJsonLdIdForRelease } from 
 import { millisecondsToReadableTime } from 'helpers/timeFormatter';
 
 
-const Release = ({ release, fullscreen = false, compact = false, lang, languageSlug }) => {
+const Release = ({ release, fullscreen = false, compact = false, priority = false, lang, languageSlug }) => {
+  // The first card on a list page is usually the LCP element, so it loads eagerly
+  // with a priority hint rather than being lazy like the cards below the fold.
+  const loadingAttributes = priority ? { fetchPriority: 'high' } : { loading: 'lazy' };
 
   const renderReleaseThumbnail = (image, fullscreen, release, compact) => {
 
@@ -38,8 +41,8 @@ const Release = ({ release, fullscreen = false, compact = false, lang, languageS
             }
             {
               release?.unreleased
-                ? <img loading="lazy" src={image.png55} data-width="55" data-height="55" alt={altText} />
-                : <img loading="lazy" src={image.jpg55} data-width="55" data-height="55" alt={altText} />
+                ? <img {...loadingAttributes} src={image.png55} data-width="55" data-height="55" alt={altText} />
+                : <img {...loadingAttributes} src={image.jpg55} data-width="55" data-height="55" alt={altText} />
             }
         </React.Fragment>);
       } else if (fullscreen){
@@ -82,8 +85,8 @@ const Release = ({ release, fullscreen = false, compact = false, lang, languageS
           }
           {
             release?.unreleased
-              ? <img loading="lazy" src={image.png350} data-width="350" data-height="350" alt={altText} />
-              : <img loading="lazy" src={image.jpg350} data-width="350" data-height="350" alt={altText} />
+              ? <img {...loadingAttributes} src={image.png350} data-width="350" data-height="350" alt={altText} />
+              : <img {...loadingAttributes} src={image.jpg350} data-width="350" data-height="350" alt={altText} />
           }
         </React.Fragment>);
       }
