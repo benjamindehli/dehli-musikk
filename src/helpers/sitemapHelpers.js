@@ -98,13 +98,6 @@ function renderMultilingualUrlObjects(norwegianUrl, englishUrl, timestamp) {
     ];
 }
 
-function renderMonolingualUrlObject(url, timestamp) {
-    return {
-        url: absoluteUrl(url),
-        lastModified: timestamp ? new Date(timestamp) : undefined
-    };
-}
-
 function renderHome() {
     const urlNorwegianPage = `${languageSlug.no}`;
     const urlEnglishPage = `${languageSlug.en}`;
@@ -127,11 +120,6 @@ function renderProductsList() {
     const urlNorwegianPage = `${languageSlug.no}products/`;
     const urlEnglishPage = `${languageSlug.en}products/`;
     return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage);
-}
-
-function renderGumroadProductsList() {
-    const url = "https://store.dehlimusikk.no/";
-    return [renderMonolingualUrlObject(url)];
 }
 
 function renderReleasesList() {
@@ -203,19 +191,6 @@ function renderProductsDetails(products) {
               const urlEnglishPage = `${languageSlug.en}products/${convertToUrlFriendlyString(product.title)}/`;
               const timestamp = product?.lastmod ? product.lastmod : product?.timestamp;
               return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, timestamp);
-          })
-        : [];
-}
-
-function renderGumroadProductsDetails(products) {
-    const gumroadProducts = products.filter((product) => {
-        return product?.link?.url.includes("store.dehlimusikk.no");
-    });
-    return gumroadProducts?.length
-        ? gumroadProducts.flatMap((product) => {
-              const url = product?.link?.url;
-              const timestamp = product?.lastmod ? product.lastmod : product?.timestamp;
-              return renderMonolingualUrlObject(url, timestamp);
           })
         : [];
 }
@@ -616,7 +591,6 @@ export function getSitemapXML({ equipmentTypes, posts, products, releases, video
         ...renderPostsList(),
         ...renderVideosList(),
         ...renderProductsList(),
-        ...renderGumroadProductsList(),
         ...renderReleasesList(),
         ...renderEquipmentTypesList(equipmentTypes),
         ...renderFaqList(),
@@ -624,7 +598,6 @@ export function getSitemapXML({ equipmentTypes, posts, products, releases, video
         ...renderVideosDetails(videos),
         ...renderVideosDetailsVideo(videos),
         ...renderProductsDetails(products),
-        ...renderGumroadProductsDetails(products),
         ...renderReleasesDetails(releases),
         ...renderEquipmentDetails(equipmentTypes)
     ];
