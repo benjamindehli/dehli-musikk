@@ -91,9 +91,9 @@ const Post = ({ post, fullscreen = false, priority = false, lang, languageSlug }
       </React.Fragment>);
     } else {
       return (<React.Fragment>
-        <source srcSet={`${image.avif55}`} type="image/avif" media='(max-width: 599px)' />
-        <source srcSet={`${image.webp55}`} type="image/webp" media='(max-width: 599px)' />
-        <source srcSet={`${image.jpg55}`} type="image/jpeg" media='(max-width: 599px)' />
+        <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" media='(max-width: 599px)' />
+        <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" media='(max-width: 599px)' />
+        <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" media='(max-width: 599px)' />
         <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
         <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
         <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
@@ -118,12 +118,15 @@ const Post = ({ post, fullscreen = false, priority = false, lang, languageSlug }
 
   const image = {
     avif55: `/data/posts/web/avif/${post.thumbnailFilename}_55.avif`,
+    avif110: `/data/posts/web/avif/${post.thumbnailFilename}_110.avif`,
     avif350: `/data/posts/web/avif/${post.thumbnailFilename}_350.avif`,
     avif540: `/data/posts/web/avif/${post.thumbnailFilename}_540.avif`,
     webp55: `/data/posts/web/webp/${post.thumbnailFilename}_55.webp`,
+    webp110: `/data/posts/web/webp/${post.thumbnailFilename}_110.webp`,
     webp350: `/data/posts/web/webp/${post.thumbnailFilename}_350.webp`,
     webp540: `/data/posts/web/webp/${post.thumbnailFilename}_540.webp`,
     jpg55: `/data/posts/web/jpg/${post.thumbnailFilename}_55.jpg`,
+    jpg110: `/data/posts/web/jpg/${post.thumbnailFilename}_110.jpg`,
     jpg350: `/data/posts/web/jpg/${post.thumbnailFilename}_350.jpg`,
     jpg540: `/data/posts/web/jpg/${post.thumbnailFilename}_540.jpg`
   };

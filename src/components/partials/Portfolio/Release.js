@@ -33,11 +33,11 @@ const Release = ({ release, fullscreen = false, compact = false, priority = fals
 
       if (compact) {
         return (<React.Fragment>
-            <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" />
-            <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" />
+            <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" />
+            <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" />
             { release?.unreleased
-                ? <source srcSet={`${image.png55} 1x, ${image.png350} 2x`} type="image/png" />
-                : <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" />
+                ? <source srcSet={`${image.png55} 1x, ${image.png110} 2x`} type="image/png" />
+                : <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" />
             }
             {
               release?.unreleased
@@ -69,12 +69,12 @@ const Release = ({ release, fullscreen = false, compact = false, priority = fals
         </React.Fragment>);
       } else {
         return (<React.Fragment>
-          <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 599px)' />
-          <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 599px)' />
+          <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" media='(max-width: 599px)' />
+          <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" media='(max-width: 599px)' />
           {
             release?.unreleased
-              ? <source srcSet={`${image.png55} 1x, ${image.png350} 2x`} type="image/png" media='(max-width: 599px)' />
-              : <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" media='(max-width: 599px)' />
+              ? <source srcSet={`${image.png55} 1x, ${image.png110} 2x`} type="image/png" media='(max-width: 599px)' />
+              : <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" media='(max-width: 599px)' />
           }
           <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
           <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
@@ -207,27 +207,33 @@ const Release = ({ release, fullscreen = false, compact = false, priority = fals
   const image = release.unreleased
     ? {
         avif55: `/images/comingSoon_${lang}_55.avif`,
+        avif110: `/images/comingSoon_${lang}_110.avif`,
         avif350: `/images/comingSoon_${lang}_350.avif`,
         avif540: `/images/comingSoon_${lang}_540.avif`,
         webp55: `/images/comingSoon_${lang}_55.webp`,
+        webp110: `/images/comingSoon_${lang}_110.webp`,
         webp350: `/images/comingSoon_${lang}_350.webp`,
         webp540: `/images/comingSoon_${lang}_540.webp`,
         png55: `/images/comingSoon_${lang}_55.png`,
+        png110: `/images/comingSoon_${lang}_110.png`,
         png350: `/images/comingSoon_${lang}_350.png`,
         png540: `/images/comingSoon_${lang}_540.png`,
-        jpg55: null, jpg350: null, jpg540: null,
+        jpg55: null, jpg110: null, jpg350: null, jpg540: null,
       }
     : {
         avif55: `/data/releases/web/avif/${release.thumbnailFilename}_55.avif`,
+        avif110: `/data/releases/web/avif/${release.thumbnailFilename}_110.avif`,
         avif350: `/data/releases/web/avif/${release.thumbnailFilename}_350.avif`,
         avif540: `/data/releases/web/avif/${release.thumbnailFilename}_540.avif`,
         webp55: `/data/releases/web/webp/${release.thumbnailFilename}_55.webp`,
+        webp110: `/data/releases/web/webp/${release.thumbnailFilename}_110.webp`,
         webp350: `/data/releases/web/webp/${release.thumbnailFilename}_350.webp`,
         webp540: `/data/releases/web/webp/${release.thumbnailFilename}_540.webp`,
         jpg55: `/data/releases/web/jpg/${release.thumbnailFilename}_55.jpg`,
+        jpg110: `/data/releases/web/jpg/${release.thumbnailFilename}_110.jpg`,
         jpg350: `/data/releases/web/jpg/${release.thumbnailFilename}_350.jpg`,
         jpg540: `/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`,
-        png55: null, png350: null, png540: null,
+        png55: null, png110: null, png350: null, png540: null,
       };
 
   const link = {

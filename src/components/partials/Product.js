@@ -35,9 +35,9 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
     const renderProductThumbnail = (image, altText, fullscreen, compact) => {
         if (compact) {
             return (<React.Fragment>
-                <source srcSet={`${image.avif55}`} type="image/avif" />
-                <source srcSet={`${image.webp55}`} type="image/webp" />
-                <source srcSet={`${image.jpg55}`} type="image/jpeg" />
+                <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" />
+                <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" />
+                <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" />
                 <img {...loadingAttributes} src={image.jpg55} data-width="55" data-height="55" alt={altText} />
             </React.Fragment>);
         } else if (fullscreen){
@@ -52,9 +52,9 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
             </React.Fragment>);
         } else {
         return (<React.Fragment>
-            <source srcSet={`${image.avif55}`} type="image/avif" media='(max-width: 599px)' />
-            <source srcSet={`${image.webp55}`} type="image/webp" media='(max-width: 599px)' />
-            <source srcSet={`${image.jpg55}`} type="image/jpeg" media='(max-width: 599px)' />
+            <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" media='(max-width: 599px)' />
+            <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" media='(max-width: 599px)' />
+            <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" media='(max-width: 599px)' />
             <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
             <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
             <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
@@ -102,12 +102,15 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
     const productId = convertToUrlFriendlyString(product.title);
     const image = {
         avif55: `/data/products/web/avif/${productId}_55.avif`,
+    avif110: `/data/products/web/avif/${productId}_110.avif`,
         avif350: `/data/products/web/avif/${productId}_350.avif`,
         avif540: `/data/products/web/avif/${productId}_540.avif`,
         webp55: `/data/products/web/webp/${productId}_55.webp`,
+    webp110: `/data/products/web/webp/${productId}_110.webp`,
         webp350: `/data/products/web/webp/${productId}_350.webp`,
         webp540: `/data/products/web/webp/${productId}_540.webp`,
         jpg55: `/data/products/web/jpg/${productId}_55.jpg`,
+    jpg110: `/data/products/web/jpg/${productId}_110.jpg`,
         jpg350: `/data/products/web/jpg/${productId}_350.jpg`,
         jpg540: `/data/products/web/jpg/${productId}_540.jpg`
     };

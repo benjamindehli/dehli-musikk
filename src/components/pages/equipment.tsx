@@ -92,14 +92,17 @@ export function EquipmentPage({ lang }: { lang: Lang }) {
                         const link = { to: itemPath, title: equipmentType.name[lang] };
                         const image = {
                             avif55: `/data/equipment/web/avif/${equipmentTypeKey}_55.avif`,
+                            avif110: `/data/equipment/web/avif/${equipmentTypeKey}_110.avif`,
                             avif350: `/data/equipment/web/avif/${equipmentTypeKey}_350.avif`,
                             avif540: `/data/equipment/web/avif/${equipmentTypeKey}_540.avif`,
                             avif945: `/data/equipment/web/avif/${equipmentTypeKey}_945.avif`,
                             webp55: `/data/equipment/web/webp/${equipmentTypeKey}_55.webp`,
+                            webp110: `/data/equipment/web/webp/${equipmentTypeKey}_110.webp`,
                             webp350: `/data/equipment/web/webp/${equipmentTypeKey}_350.webp`,
                             webp540: `/data/equipment/web/webp/${equipmentTypeKey}_540.webp`,
                             webp945: `/data/equipment/web/webp/${equipmentTypeKey}_945.webp`,
                             jpg55: `/data/equipment/web/jpg/${equipmentTypeKey}_55.jpg`,
+                            jpg110: `/data/equipment/web/jpg/${equipmentTypeKey}_110.jpg`,
                             jpg350: `/data/equipment/web/jpg/${equipmentTypeKey}_350.jpg`,
                             jpg540: `/data/equipment/web/jpg/${equipmentTypeKey}_540.jpg`,
                             jpg945: `/data/equipment/web/jpg/${equipmentTypeKey}_945.jpg`
@@ -107,9 +110,16 @@ export function EquipmentPage({ lang }: { lang: Lang }) {
                         return (
                             <ListItem key={equipmentTypeKey}>
                                 <ListItemThumbnail link={link}>
-                                    <source sizes="175px" srcSet={`${image.avif55} 55w, ${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`} type="image/avif" />
-                                    <source sizes="175px" srcSet={`${image.webp55} 55w, ${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp" />
-                                    <source sizes="175px" srcSet={`${image.jpg55} 55w, ${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpeg" />
+                                    {/* Below 600px the thumbnail is a 55px circle, so the square crops
+                                        serve it. The wider crops below are a different aspect ratio and
+                                        would be squashed into it, which is why they are split apart
+                                        rather than listed as w candidates alongside the square ones. */}
+                                    <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" media="(max-width: 599px)" />
+                                    <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" media="(max-width: 599px)" />
+                                    <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" media="(max-width: 599px)" />
+                                    <source sizes="175px" srcSet={`${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`} type="image/avif" />
+                                    <source sizes="175px" srcSet={`${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp" />
+                                    <source sizes="175px" srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpeg" />
                                     <img loading="lazy" width="350" height="260" src={image.jpg350} alt={equipmentType.name[lang]} />
                                 </ListItemThumbnail>
                                 <ListItemContent>

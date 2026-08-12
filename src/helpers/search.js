@@ -63,13 +63,19 @@ const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguage
   const thumbnailPaths = !release.unreleased
     ? {
       avif: `/data/releases/web/avif/${release.thumbnailFilename}_55.avif`,
+      avif110: `/data/releases/web/avif/${release.thumbnailFilename}_110.avif`,
       webp: `/data/releases/web/webp/${release.thumbnailFilename}_55.webp`,
-      jpg: `/data/releases/web/jpg/${release.thumbnailFilename}_55.jpg`
+      webp110: `/data/releases/web/webp/${release.thumbnailFilename}_110.webp`,
+      jpg: `/data/releases/web/jpg/${release.thumbnailFilename}_55.jpg`,
+      jpg110: `/data/releases/web/jpg/${release.thumbnailFilename}_110.jpg`
     }
     : {
       avif: `/images/comingSoon_${selectedLanguageKey}_55.avif`,
+      avif110: `/images/comingSoon_${selectedLanguageKey}_110.avif`,
       webp: `/images/comingSoon_${selectedLanguageKey}_55.webp`,
-      png: `/images/comingSoon_${selectedLanguageKey}_55.png`
+      webp110: `/images/comingSoon_${selectedLanguageKey}_110.webp`,
+      png: `/images/comingSoon_${selectedLanguageKey}_55.png`,
+      png110: `/images/comingSoon_${selectedLanguageKey}_110.png`
     };
   const thumbnailDescription = selectedLanguageKey === 'en' ? `Cover image for ${release.title} by ${release.artistName}` : `Coverbilde til ${release.title} av ${release.artistName}`;
 
@@ -121,8 +127,11 @@ const getSearchPointsFromPost = (post, searchStringWords, selectedLanguageKey) =
 
   const thumbnailPaths = {
     avif: `/data/posts/web/avif/${post.thumbnailFilename}_55.avif`,
+    avif110: `/data/posts/web/avif/${post.thumbnailFilename}_110.avif`,
     webp: `/data/posts/web/webp/${post.thumbnailFilename}_55.webp`,
-    jpg: `/data/posts/web/jpg/${post.thumbnailFilename}_55.jpg`
+    webp110: `/data/posts/web/webp/${post.thumbnailFilename}_110.webp`,
+    jpg: `/data/posts/web/jpg/${post.thumbnailFilename}_55.jpg`,
+    jpg110: `/data/posts/web/jpg/${post.thumbnailFilename}_110.jpg`
   };
   const thumbnailDescription = post.thumbnailDescription;
 
@@ -161,8 +170,11 @@ const getSearchPointsFromVideos = (video, searchStringWords, selectedLanguageKey
 
   const thumbnailPaths = {
     avif: `/data/videos/web/avif/${video.thumbnailFilename}_55.avif`,
+    avif110: `/data/videos/web/avif/${video.thumbnailFilename}_110.avif`,
     webp: `/data/videos/web/webp/${video.thumbnailFilename}_55.webp`,
-    jpg: `/data/videos/web/jpg/${video.thumbnailFilename}_55.jpg`
+    webp110: `/data/videos/web/webp/${video.thumbnailFilename}_110.webp`,
+    jpg: `/data/videos/web/jpg/${video.thumbnailFilename}_55.jpg`,
+    jpg110: `/data/videos/web/jpg/${video.thumbnailFilename}_110.jpg`
   };
   const thumbnailDescription = video.thumbnailDescription;
 
@@ -201,8 +213,11 @@ const getSearchPointsFromProduct = (product, searchStringWords, selectedLanguage
 
   const thumbnailPaths = {
     avif: `/data/products/web/avif/${id}_55.avif`,
+    avif110: `/data/products/web/avif/${id}_110.avif`,
     webp: `/data/products/web/webp/${id}_55.webp`,
-    jpg: `/data/products/web/jpg/${id}_55.jpg`
+    webp110: `/data/products/web/webp/${id}_110.webp`,
+    jpg: `/data/products/web/jpg/${id}_55.jpg`,
+    jpg110: `/data/products/web/jpg/${id}_110.jpg`
   };
   const thumbnailDescription = linkTitle;
 
@@ -244,8 +259,11 @@ const getSearchPointsFromEquipmentItems = (item, equipmentType, equipmentTypeKey
 
   const thumbnailPaths = {
     avif: `/data/equipment/${equipmentTypeKey}/web/avif/${id}_55.avif`,
+    avif110: `/data/equipment/${equipmentTypeKey}/web/avif/${id}_110.avif`,
     webp: `/data/equipment/${equipmentTypeKey}/web/webp/${id}_55.webp`,
-    jpg: `/data/equipment/${equipmentTypeKey}/web/jpg/${id}_55.jpg`
+    webp110: `/data/equipment/${equipmentTypeKey}/web/webp/${id}_110.webp`,
+    jpg: `/data/equipment/${equipmentTypeKey}/web/jpg/${id}_55.jpg`,
+    jpg110: `/data/equipment/${equipmentTypeKey}/web/jpg/${id}_110.jpg`
   };
   const thumbnailDescription = `${item.brand} ${item.model}`;
 
@@ -283,8 +301,11 @@ const getSearchPointsFromFrequentlyAskedQuestions = (faq, searchStringWords, sel
 
   const thumbnailPaths = {
     avif: `/data/frequentlyAskedQuestions/web/avif/thumbnail_55.avif`,
+    avif110: `/data/frequentlyAskedQuestions/web/avif/thumbnail_110.avif`,
     webp: `/data/frequentlyAskedQuestions/web/webp/thumbnail_55.webp`,
-    jpg: `/data/frequentlyAskedQuestions/web/jpg/thumbnail_55.jpg`
+    webp110: `/data/frequentlyAskedQuestions/web/webp/thumbnail_110.webp`,
+    jpg: `/data/frequentlyAskedQuestions/web/jpg/thumbnail_55.jpg`,
+    jpg110: `/data/frequentlyAskedQuestions/web/jpg/thumbnail_110.jpg`
   };
   const thumbnailDescription = `Speach bubble icon for frequently asked questions`;
 

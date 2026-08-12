@@ -24,11 +24,14 @@ import style from 'components/partials/SearchResult.module.scss';
 
 const SearchResult = ({ searchResult, lang }) => {
 
+  // The box is a fixed 55px, so the candidates vary by pixel ratio rather than by
+  // layout width: x descriptors, and no sizes attribute to get wrong.
   const renderThumbnail = (thumbnailPaths, alt) => {
     return (<picture>
-      <source sizes='55' srcSet={`${thumbnailPaths.webp} 55w`} type="image/webp" />
-      {thumbnailPaths.jpg ? <source sizes='55' srcSet={`${thumbnailPaths.jpg} 55w`} type="image/jpeg" /> : ''}
-      {thumbnailPaths.png ? <source sizes='55' srcSet={`${thumbnailPaths.png} 55w`} type="image/png" /> : ''}
+      <source srcSet={`${thumbnailPaths.avif} 1x, ${thumbnailPaths.avif110} 2x`} type="image/avif" />
+      <source srcSet={`${thumbnailPaths.webp} 1x, ${thumbnailPaths.webp110} 2x`} type="image/webp" />
+      {thumbnailPaths.jpg ? <source srcSet={`${thumbnailPaths.jpg} 1x, ${thumbnailPaths.jpg110} 2x`} type="image/jpeg" /> : ''}
+      {thumbnailPaths.png ? <source srcSet={`${thumbnailPaths.png} 1x, ${thumbnailPaths.png110} 2x`} type="image/png" /> : ''}
       <img src={thumbnailPaths.jpg ? thumbnailPaths.jpg : thumbnailPaths.png} width='55' height='55' alt={alt} />
     </picture>);
   }
