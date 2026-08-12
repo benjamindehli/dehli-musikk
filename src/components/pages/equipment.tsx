@@ -11,6 +11,7 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import Modal from 'components/template/Modal';
 import EquipmentItem from 'components/partials/EquipmentItem';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
+import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
 import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import equipment from 'data/equipment';
@@ -305,7 +306,7 @@ export async function EquipmentItemPage({ lang, params }: { lang: Lang } & Equip
             </Container>
             <Container blur>
                 <List>
-                    {equipmentTypeData.items.map((e) => {
+                    {equipmentTypeData.items.slice(0, BACKDROP_LIST_ITEM_LIMIT).map((e) => {
                         const eId = convertToUrlFriendlyString(`${e.brand} ${e.model}`);
                         return (
                             <ListItem key={eId}>

@@ -9,6 +9,7 @@ import Modal from 'components/template/Modal';
 import Release from 'components/partials/Portfolio/Release';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { getJsonLdIdForRelease } from 'helpers/releaseHelpers';
+import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
 import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import releases from 'data/portfolio';
@@ -182,7 +183,7 @@ export async function ReleaseDetailsPage({ lang, params }: { lang: Lang } & Rele
             </Container>
             <Container blur>
                 <List>
-                    {releases.map((r) => {
+                    {releases.slice(0, BACKDROP_LIST_ITEM_LIMIT).map((r) => {
                         const rId = convertToUrlFriendlyString(`${r.artistName} ${r.title}`);
                         return (
                             <ListItem key={rId}>

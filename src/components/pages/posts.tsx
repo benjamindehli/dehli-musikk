@@ -9,6 +9,7 @@ import Modal from 'components/template/Modal';
 import Post from 'components/partials/Post';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
+import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
 import { AUTHOR_URL, buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import posts from 'data/posts';
@@ -174,7 +175,7 @@ export async function PostDetailsPage({ lang, params }: { lang: Lang } & PostRou
             </Container>
             <Container blur>
                 <List>
-                    {posts.map((p) => (
+                    {posts.slice(0, BACKDROP_LIST_ITEM_LIMIT).map((p) => (
                         <ListItem key={p.id} article>
                             <Post post={p} lang={lang} languageSlug={languageSlug} />
                         </ListItem>

@@ -9,6 +9,7 @@ import Modal from 'components/template/Modal';
 import Video from 'components/partials/Video';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
+import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
 import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import videos from 'data/videos';
@@ -183,7 +184,7 @@ export async function VideoDetailsPage({ lang, params }: { lang: Lang } & VideoR
             </Container>
             <Container blur>
                 <List>
-                    {videos.map((v) => {
+                    {videos.slice(0, BACKDROP_LIST_ITEM_LIMIT).map((v) => {
                         const vId = convertToUrlFriendlyString(v.title[lang]);
                         return (
                             <ListItem key={vId}>

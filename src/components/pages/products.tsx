@@ -10,6 +10,7 @@ import Product from 'components/partials/Product';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
 import { generateProductSnippet } from 'helpers/richSnippetsGenerators';
+import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
 import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import products from 'data/products';
@@ -165,7 +166,7 @@ export async function ProductDetailsPage({ lang, params }: { lang: Lang } & Prod
             </Container>
             <Container blur>
                 <List>
-                    {products.map((p) => {
+                    {products.slice(0, BACKDROP_LIST_ITEM_LIMIT).map((p) => {
                         const pId = convertToUrlFriendlyString(p.title);
                         return (
                             <ListItem key={pId}>
