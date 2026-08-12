@@ -14,6 +14,10 @@
 
 .selectListLabel {
   font-weight: bold;
+  // A label is inline by default, so it needs to be a block to sit on its own
+  // line above the control with any spacing of its own
+  display: block;
+  margin-bottom: 4px;
 }
 
 .selectListContainer {
@@ -22,6 +26,8 @@
   width: 100%;
   border-bottom: 1px solid colors.$default-text-color;
   margin-bottom: 19px;
+  // Anchors the two icons, which are positioned over the full-width select
+  position: relative;
 
   @media (min-width: breakpoints.$screen-xs) {
     max-width: 200px;
@@ -41,28 +47,38 @@
     margin-bottom: 18px;
   }
 
-  & svg:first-child {
-    position: relative;
-    left: 16px;
-    margin-right: -16px;
+  /*
+   * The icons sit over the select rather than beside it, so the select can span
+   * the whole control and stay clickable across its full width. Being positioned
+   * they paint above the select, which has no background of its own, and
+   * pointer-events: none keeps them from swallowing clicks meant for it.
+   */
+  & svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: colors.$default-text-color;
   }
 
-  & svg:last-child {
-    position: relative;
-    right: 16px;
-    margin-left: -16px;
+  & svg:first-of-type {
+    left: 12px;
+  }
+
+  & svg:last-of-type {
+    right: 12px;
   }
 
   & select {
     @include appearance.appearance(none);
     @include box-shadow.box-shadow(none);
     border-color: transparent;
-    padding: 8px 8px 8px 40px;
+    // Horizontal padding clears both icons
+    padding: 8px 36px;
     background: none;
     font-size: 16px;
     color: colors.$default-text-color;
-    position: relative;
-    z-index: 2;
+    display: block;
     width: 100%;
 
     &:focus {
