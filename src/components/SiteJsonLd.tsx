@@ -44,24 +44,6 @@ const localBusinessJsonLd = {
     ],
     openingHours: ['Mo-Su 00:00-24:00'],
     priceRange: '$$',
-    review: [
-        {
-            '@type': 'Review',
-            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-            author: { '@type': 'Person', name: 'Ole Riege' }
-        },
-        {
-            '@type': 'Review',
-            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' },
-            author: { '@type': 'Person', name: 'tommy moen' }
-        }
-    ],
-    aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: 10,
-        bestRating: 10,
-        ratingCount: 2
-    },
     hasPos: {
         '@type': 'Place',
         address: {
