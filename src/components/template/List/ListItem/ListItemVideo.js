@@ -8,7 +8,33 @@ import style from "components/template/List/ListItem/ListItemVideo.module.scss";
 
 const IFRAME_API_SRC = "https://www.youtube.com/iframe_api";
 
+// youtube.com serves the API script and the player frame, i.ytimg.com the assets
+// the player loads for itself. The media host is a per-session googlevideo
+// subdomain that cannot be known in advance, so it is not worth guessing at.
+const YOUTUBE_ORIGINS = ["https://www.youtube.com", "https://i.ytimg.com"];
+
 let iframeApiPromise = null;
+let hasWarmedConnections = false;
+
+/*
+ * Opening a connection takes a DNS lookup, a TCP handshake and a TLS handshake,
+ * which is dead time once the visitor has actually asked for the video. Doing it
+ * on hover or focus spends that while they are still deciding, rather than on
+ * every page load, where most visitors never press play at all.
+ *
+ * No crossOrigin: a CORS-mode connection would not be reused by the classic
+ * script or the frame navigation that follow.
+ */
+function warmYouTubeConnections() {
+    if (hasWarmedConnections) return;
+    hasWarmedConnections = true;
+    YOUTUBE_ORIGINS.forEach((origin) => {
+        const link = document.createElement("link");
+        link.rel = "preconnect";
+        link.href = origin;
+        document.head.appendChild(link);
+    });
+}
 
 /*
  * The API script calls a single global callback when it is ready, so loading is
@@ -118,6 +144,10 @@ const ListItemVideo = ({ videoTitle, youTubeId, startOffset, image, lang = "no" 
                     type="button"
                     className={style.facade}
                     onClick={() => setIsPlayerRequested(true)}
+                    // pointerEnter rather than mouseEnter so a touch that lands on
+                    // the button still warms the connection before the click fires
+                    onPointerEnter={warmYouTubeConnections}
+                    onFocus={warmYouTubeConnections}
                     aria-label={lang === "en" ? `Play video: ${videoTitle}` : `Spill av video: ${videoTitle}`}
                 >
                     {renderPoster()}
