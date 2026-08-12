@@ -13,6 +13,28 @@
     left: 0;
   }
 
+  // Where the IFrame API replaces its target element with the player
+  & .playerMount {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  & .poster {
+    position: absolute;
+    inset: 0;
+    display: block;
+
+    & img {
+      // Overrides the global img reset, which sets height: auto
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
   // Stands in for the player until the visitor presses play
   & .facade {
     position: absolute;
@@ -25,14 +47,6 @@
     cursor: pointer;
     display: block;
     color: #fff;
-
-    & img {
-      // Overrides the global img reset, which sets height: auto
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
 
     & .playIcon {
       position: absolute;
