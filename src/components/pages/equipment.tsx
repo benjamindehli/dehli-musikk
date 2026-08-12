@@ -11,6 +11,7 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import Modal from 'components/template/Modal';
 import EquipmentItem from 'components/partials/EquipmentItem';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
+import { getEquipmentItemDescription } from 'helpers/equipmentDescription';
 import { getInstrumentReleases } from 'helpers/instrumentReleases';
 import { getVideosForEquipmentItem } from 'helpers/equipmentUsage';
 import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
@@ -24,34 +25,14 @@ const translations = {
         pageTitle: 'Utstyr',
         description: 'Utstyr jeg bruker under innspilling',
         listName: 'Utstyr brukt av Dehli Musikk',
-        typeDescription: (typeName: string) => `${typeName} jeg bruker under innspilling`,
-        // The preposition sits inside each part so the sentence avoids a pronoun:
-        // equipment names vary in grammatical gender ("en gitar" but "et orgel").
-        itemDescription: (itemName: string, videoCount: number, releaseCount: number) => {
-            const usage = [
-                videoCount ? `i ${videoCount} ${videoCount === 1 ? 'video' : 'videoer'}` : null,
-                releaseCount ? `på ${releaseCount} ${releaseCount === 1 ? 'utgivelse' : 'utgivelser'}` : null
-            ].filter(Boolean);
-            return usage.length
-                ? `${itemName} er en del av utstyret Dehli Musikk bruker under innspilling. Brukt ${usage.join(' og ')}.`
-                : `${itemName} er en del av utstyret Dehli Musikk bruker under innspilling.`;
-        }
+        typeDescription: (typeName: string) => `${typeName} jeg bruker under innspilling`
     },
     en: {
         metaTitle: 'Equipment | Dehli Musikk',
         pageTitle: 'Equipment',
         description: 'Equipment I use during recording',
         listName: 'Equipment used by Dehli Musikk',
-        typeDescription: (typeName: string) => `${typeName} I use during recording`,
-        itemDescription: (itemName: string, videoCount: number, releaseCount: number) => {
-            const usage = [
-                videoCount ? `in ${videoCount} ${videoCount === 1 ? 'video' : 'videos'}` : null,
-                releaseCount ? `on ${releaseCount} ${releaseCount === 1 ? 'recording' : 'recordings'}` : null
-            ].filter(Boolean);
-            return usage.length
-                ? `${itemName} is part of the equipment Dehli Musikk uses during recording. Heard ${usage.join(' and ')}.`
-                : `${itemName} is part of the equipment Dehli Musikk uses during recording.`;
-        }
+        typeDescription: (typeName: string) => `${typeName} I use during recording`
     }
 } as const;
 
@@ -272,10 +253,11 @@ export async function getEquipmentItemMetadata(lang: Lang, { params }: Equipment
     const itemName = `${item.brand} ${item.model}`;
     const typeName = equipmentTypeData.name[lang];
     const title = `${itemName} - ${typeName} - ${t.metaTitle}`;
-    const description = t.itemDescription(
+    const description = getEquipmentItemDescription(
         itemName,
         getVideosForEquipmentItem(equipmentType, equipmentId).length,
-        getInstrumentReleases(equipmentId).length
+        getInstrumentReleases(equipmentId).length,
+        lang
     );
 
     return {

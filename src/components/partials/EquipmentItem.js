@@ -13,6 +13,7 @@ import Release from 'components/partials/Portfolio/Release';
 import Video from 'components/partials/Video';
 
 // Helpers
+import { getEquipmentItemDescription } from 'helpers/equipmentDescription';
 import { getInstrumentReleases } from 'helpers/instrumentReleases';
 import { getVideosForEquipmentItem } from 'helpers/equipmentUsage';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
@@ -44,16 +45,24 @@ const EquipmentItem = ({ fullscreen = false, compact = false, priority = false, 
     );
   }
 
-  const renderEquipmentItemSnippet = (item, images) => {
+  // Product rather than Thing: these are manufactured items with a brand and a
+  // model, which Thing cannot express. No offers, because the gear is not for
+  // sale here, so the node describes the instrument rather than a listing.
+  const renderEquipmentItemSnippet = (item, images, videoCount, releaseCount) => {
     const imagePath = images['jpg945'];
     const itemName = `${item.brand} ${item.model}`;
     const snippet = {
       "@context": "https://schema.org",
-      "@type": "Thing",
+      "@type": "Product",
       "@id": `https://www.dehlimusikk.no/equipment/${itemType}/${itemId}/`,
       "name": itemName,
+      "brand": {
+        "@type": "Brand",
+        "name": item.brand
+      },
+      "model": item.model,
       "image": `https://www.dehlimusikk.no${imagePath}`,
-      "description": itemName
+      "description": getEquipmentItemDescription(itemName, videoCount, releaseCount, lang)
     }
     return (
       <JsonLd data={snippet} />
@@ -154,10 +163,15 @@ const EquipmentItem = ({ fullscreen = false, compact = false, priority = false, 
     title: itemName
   };
 
+  // Only the detail page renders these, and it needs the counts for the
+  // description as well as the lists themselves, so resolve them once.
+  const equipmentVideos = fullscreen ? getVideosForEquipmentItem(itemType, itemId) : [];
+  const equipmentReleases = fullscreen ? getInstrumentReleases(itemId) : [];
+
   return item
     ? (<React.Fragment>
       {fullscreen ? renderEquipmentItemImagesSnippet(image) : ''}
-      {fullscreen ? renderEquipmentItemSnippet(item, image) : ''}
+      {fullscreen ? renderEquipmentItemSnippet(item, image, equipmentVideos.length, equipmentReleases.length) : ''}
       <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
         {renderPostThumbnail(image, itemName, fullscreen, compact)}
       </ListItemThumbnail>
@@ -169,10 +183,10 @@ const EquipmentItem = ({ fullscreen = false, compact = false, priority = false, 
         </ListItemContentHeader>
       </ListItemContent>
       {
-        fullscreen ? renderVideosList(getVideosForEquipmentItem(itemType, itemId), lang, item) : ''
+        fullscreen ? renderVideosList(equipmentVideos, lang, item) : ''
       }
       {
-        fullscreen ? renderReleasesList(getInstrumentReleases(itemId), lang, item) : ''
+        fullscreen ? renderReleasesList(equipmentReleases, lang, item) : ''
       }
     </React.Fragment>)
     : '';
