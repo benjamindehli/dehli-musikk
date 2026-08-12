@@ -19,20 +19,14 @@ import { getPrettyDate } from "helpers/dateFormatter";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { formatContentWithReactLinks } from "helpers/contentFormatter";
 import { convertStringToExcerpt } from "helpers/search";
-import { generateProductSnippet, generateSoftwareApplicationSnippet } from "helpers/richSnippetsGenerators";
+import { generateProductSnippet } from "helpers/richSnippetsGenerators";
 import { getProductReleases } from "helpers/instrumentReleases";
 
 const Product = ({ product, fullscreen = false, compact = false, lang, languageSlug }) => {
 
     const renderProductSnippet = (product) => {
         const productSnippet = generateProductSnippet(product, languageSlug, lang);
-        const softwareApplicationSnippet = generateSoftwareApplicationSnippet(product, languageSlug);
-        return (
-            <React.Fragment>
-                <JsonLd data={productSnippet} />
-                <JsonLd data={softwareApplicationSnippet} />
-            </React.Fragment>
-        );
+        return <JsonLd data={productSnippet} />;
     };
 
     const renderProductThumbnail = (image, altText, fullscreen, compact) => {

@@ -51,7 +51,6 @@ export function ProductsPage({ lang }: { lang: Lang }) {
     const languageSlug = getLanguageSlug(lang);
     const productItems = products.map((product, index) => ({
         '@type': 'ListItem',
-        '@id': product.link.url,
         name: product.title,
         position: index + 1,
         item: generateProductSnippet(product, languageSlug, lang)

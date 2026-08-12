@@ -14,6 +14,22 @@ function generateHasMerchantReturnPolicySnippet() {
     };
 }
 
+// productType is ordered as [category, ...platforms], e.g.
+// ["Sample instruments", "Decent Sampler", "EXS24"]. Only the categories below
+// are software you run; a patch library is sysex data for a hardware synth and
+// is a Product but not a SoftwareApplication.
+const SOFTWARE_PRODUCT_CATEGORIES = ["Software", "Sample instruments"];
+
+function generateSoftwareApplicationProperties(product) {
+    const [category, ...platforms] = product.productType || [];
+    if (!SOFTWARE_PRODUCT_CATEGORIES.includes(category)) return null;
+    return {
+        operatingSystem: "All",
+        applicationCategory: ["EntertainmentApplication", "MultimediaApplication"],
+        softwareRequirements: platforms.length ? platforms.join(", ") : undefined
+    };
+}
+
 export function generateProductSnippet(product, languageSlug, selectedLanguageKey) {
     const productId = convertToUrlFriendlyString(product.title);
 
@@ -38,9 +54,14 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
           }
         : null;
 
+    const softwareApplicationProperties = generateSoftwareApplicationProperties(product);
+
     const snippet = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        // A single node typed as both, rather than two nodes sharing one @id:
+        // same @id means same node, so separate Product/SoftwareApplication
+        // snippets would merge into one node with contradictory types.
+        "@type": softwareApplicationProperties ? ["Product", "SoftwareApplication"] : "Product",
         "@id": product.link.url,
         url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
         description: formatContentAsString(product.content[selectedLanguageKey]),
@@ -71,41 +92,8 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
             "@type": "WebPage",
             "@id": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`
         },
-        sameAs: product.sameAs?.length ? product.sameAs : undefined
+        sameAs: product.sameAs?.length ? product.sameAs : undefined,
+        ...softwareApplicationProperties
     };
     return snippet;
-}
-
-export function generateSoftwareApplicationSnippet(product, languageSlug) {
-    const productId = convertToUrlFriendlyString(product.title);
-
-    const productDate = new Date(product.timestamp).toISOString();
-    const plusOneYear = getPlusOneYear();
-
-    const applicationJsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "@id": product.link.url,
-        url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
-        name: product.title,
-        operatingSystem: "All",
-        applicationCategory: ["EntertainmentApplication", "MultimediaApplication"],
-        softwareRequirements: "DecentSampler",
-        offers: {
-            "@type": "Offer",
-            price: product.price?.length ? product.price : 0,
-            priceCurrency: product.priceCurrency?.length ? product.priceCurrency : "USD",
-            url: product.link.url,
-            availability: "https://schema.org/OnlineOnly",
-            validFrom: productDate,
-            priceValidUntil: plusOneYear,
-            hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet(),
-            sameAs: product.sameAs?.length && product.sameAs,
-            seller: {
-                "@type": "Organization",
-                name: "Dehli Musikk"
-            }
-        }
-    };
-    return applicationJsonLd;
 }
