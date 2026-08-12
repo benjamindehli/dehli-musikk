@@ -20,7 +20,7 @@ import ListItemVideo from 'components/template/List/ListItem/ListItemVideo';
 import style from "components/partials/Video.module.scss";
 import Button from './Button';
 
-const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset = null, lang, languageSlug }) => {
+const Video = ({ video, fullscreen = false, compact = false, isTheaterMode = false, startOffset = null, lang, languageSlug }) => {
 
   const renderVideoSnippet = (video, videoId, videoThumbnailSrc) => {
     const videoDate = new Date(video.timestamp).toISOString();
@@ -70,7 +70,15 @@ const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset =
     );
   }
 
-  const renderVideoThumbnail = (image, altText) => {
+  const renderVideoThumbnail = (image, altText, compact) => {
+    if (compact) {
+      return (<React.Fragment>
+        <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" />
+        <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" />
+        <source srcSet={`${image.jpg55} 1x, ${image.jpg350} 2x`} type="image/jpeg" />
+        <img loading="lazy" src={image.jpg55} data-width="55" data-height="55" alt={altText} />
+      </React.Fragment>);
+    }
     return (<React.Fragment>
         <source srcSet={`${image.avif55} 1x, ${image.avif350} 2x`} type="image/avif" media='(max-width: 599px)' />
         <source srcSet={`${image.webp55} 1x, ${image.webp350} 2x`} type="image/webp" media='(max-width: 599px)' />
@@ -140,8 +148,8 @@ const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset =
               <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[lang]} startOffset={startOffset} />
             </React.Fragment>
           ) : (
-            <ListItemThumbnail fullscreen={fullscreen} link={link}>
-              {renderVideoThumbnail(image, video.thumbnailDescription)}
+            <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
+              {renderVideoThumbnail(image, video.thumbnailDescription, compact)}
             </ListItemThumbnail>
           )
       }
@@ -165,13 +173,17 @@ const Video = ({ video, fullscreen = false, isTheaterMode = false, startOffset =
               <span>{video.youTubeUser}</span>
             </h2>
           )}
-          <time dateTime={videoDate.toISOString()}>{getPrettyDate(videoDate, lang)}</time>
+          {!compact && (
+            <time dateTime={videoDate.toISOString()}>{getPrettyDate(videoDate, lang)}</time>
+          )}
         </ListItemContentHeader>
-        <ListItemContentBody fullscreen={fullscreen}>
-          {
-            videoDescription
-          }
-        </ListItemContentBody>
+        {!compact && (
+          <ListItemContentBody fullscreen={fullscreen}>
+            {
+              videoDescription
+            }
+          </ListItemContentBody>
+        )}
       </ListItemContent>
     </React.Fragment>)
     : '';

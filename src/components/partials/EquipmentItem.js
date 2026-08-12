@@ -10,9 +10,12 @@ import ListItemContent from 'components/template/List/ListItem/ListItemContent';
 import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
 import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
 import Release from 'components/partials/Portfolio/Release';
+import Video from 'components/partials/Video';
 
 // Helpers
 import { getInstrumentReleases } from 'helpers/instrumentReleases';
+import { getVideosForEquipmentItem } from 'helpers/equipmentUsage';
+import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 
 const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, itemId, lang, languageSlug }) => {
 
@@ -88,6 +91,24 @@ const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, it
     }
   }
 
+  const renderVideosList = (videos, lang, item) => {
+    const elementId = `equipment-item-videos-${itemId}`;
+    if (!videos || !videos.length) return '';
+    const listItems = videos.map(video => {
+      const videoId = convertToUrlFriendlyString(video.title[lang]);
+      return (<ListItem key={videoId} compact={true}>
+        <Video video={video} compact={true} lang={lang} languageSlug={languageSlug} />
+      </ListItem>)
+    });
+    return (
+      <ExpansionPanel elementId={elementId} panelTitle={lang === 'en' ? `Videos with the ${item.brand} ${item.model}` : `Videoer med ${item.brand} ${item.model}`}>
+        <List compact={true}>
+          {listItems}
+        </List>
+      </ExpansionPanel>
+    );
+  }
+
   const renderReleasesList = (releases, lang, item) => {
     const elementId = `equipment-item-releases-${item.equipmentItemId}`;
     if (releases && releases.length) {
@@ -145,7 +166,10 @@ const EquipmentItem = ({ fullscreen = false, compact = false, item, itemType, it
         </ListItemContentHeader>
       </ListItemContent>
       {
-        fullscreen && itemType === 'instruments' ? renderReleasesList(getInstrumentReleases(itemId), lang, item) : ''
+        fullscreen ? renderVideosList(getVideosForEquipmentItem(itemType, itemId), lang, item) : ''
+      }
+      {
+        fullscreen ? renderReleasesList(getInstrumentReleases(itemId), lang, item) : ''
       }
     </React.Fragment>)
     : '';
