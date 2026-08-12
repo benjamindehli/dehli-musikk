@@ -21,9 +21,14 @@ const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
 
   const renderPostSnippet = (post, postId, postThumbnailSrc) => {
     const postDate = new Date(post.timestamp).toISOString();
+    // Matches article:modified_time in the page metadata, which uses lastmod
+    // where a post has one and falls back to the publish date otherwise.
+    const postModifiedDate = new Date(post.lastmod ?? post.timestamp).toISOString();
     const snippet = {
       "@context": "https://schema.org",
-      "@type": "NewsArticle",
+      // BlogPosting, not NewsArticle: these are updates about Dehli Musikk's own
+      // work, not journalism by a news organisation.
+      "@type": "BlogPosting",
       "@id": `https://www.dehlimusikk.no/posts/${convertToUrlFriendlyString(post.title.no)}/`,
       "url": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`,
       "author": {
@@ -38,7 +43,7 @@ const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
         ? formatContentAsString(post.content[lang])
         : '',
       "dateCreated": postDate,
-      "dateModified": postDate,
+      "dateModified": postModifiedDate,
       "datePublished": postDate,
       "name": post.title[lang],
       "image": {
