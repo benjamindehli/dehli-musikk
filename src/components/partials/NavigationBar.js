@@ -161,7 +161,7 @@ const NavigationBar = () => {
                             onClick={hideSidebar}
                         >
                             <span className={style.appLogo}>
-                                <img src="/images/DehliMusikkLogoHorizontal.svg" alt="Dehli Musikk logo" />
+                                <img src="/images/DehliMusikkLogoHorizontal.svg" alt="Dehli Musikk logo" width="680" height="112" />
                             </span>
                         </Link>
                     </div>
