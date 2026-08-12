@@ -69,7 +69,7 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
         },
         mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": "https://www.dehlimusikk.no"
+            "@id": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`
         },
         sameAs: product.sameAs?.length ? product.sameAs : undefined
     };

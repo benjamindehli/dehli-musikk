@@ -58,7 +58,7 @@ const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
       "thumbnailUrl": `https://www.dehlimusikk.no${postThumbnailSrc}`,
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.dehlimusikk.no"
+        "@id": `https://www.dehlimusikk.no/${languageSlug}posts/${postId}/`
       }
     }
     if (post.copyright) {
