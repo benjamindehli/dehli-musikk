@@ -7,6 +7,10 @@ export const WEBSITE_URL = 'https://www.dehlimusikk.no';
 // Facebook/Open Graph locale codes (Norwegian Bokmål is nb_NO)
 export const OG_LOCALES: Record<Lang, string> = { no: 'nb_NO', en: 'en_US' };
 
+// Same identifier used as the author @id in the site's JSON-LD, so the author
+// resolves to one identity across both vocabularies.
+export const AUTHOR_URL = 'https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f';
+
 export const otherLang = (lang: Lang): Lang => (lang === 'no' ? 'en' : 'no');
 
 /**

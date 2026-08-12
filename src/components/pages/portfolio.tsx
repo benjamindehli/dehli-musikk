@@ -137,8 +137,11 @@ export async function getReleaseDetailsMetadata(lang: Lang, { params }: ReleaseR
             en: `portfolio/${releaseId}/`
         }),
         openGraph: {
+            type: 'music.song',
             title: heading, url: `${WEBSITE_URL}/${languageSlug}portfolio/${releaseId}/`,
             description, ...ogLocale(lang),
+            // og:music:duration is in whole seconds; release.duration is in milliseconds
+            duration: release.duration ? Math.round(release.duration / 1000) : undefined,
             images: [{ url: `${WEBSITE_URL}/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`, width: 540, height: 540 }]
         },
         twitter: { title: heading, description, images: [`${WEBSITE_URL}/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`] }
