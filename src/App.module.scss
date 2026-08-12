@@ -4,7 +4,11 @@
 @font-face {
     font-family: "Roboto";
     font-display: swap;
-    src: url(./assets/fonts/Roboto.woff2) format("woff2");
+    // Served from public/ rather than imported from src/assets, so the URL is
+    // stable and the layouts can preload it. Importing it here would have Next
+    // emit a hashed /_next/static/media path that no link tag can name, leaving
+    // the font undiscoverable until the stylesheet has been parsed.
+    src: url(/fonts/Roboto.woff2) format("woff2");
 }
 
 @font-face {
