@@ -23,6 +23,13 @@ const localBusinessJsonLd = {
         streetAddress: 'Margretes veg 15',
         addressCountry: { '@type': 'Country', name: 'NO' }
     },
+    // elevation is in metres, per WGS 84, which is what a bare number means here
+    geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 59.445747,
+        longitude: 9.084364,
+        elevation: 193.1
+    },
     naics: '711130',
     sameAs: [
         'https://www.dehlimusikk.no/',
@@ -42,8 +49,16 @@ const localBusinessJsonLd = {
         'https://credits.muso.ai/profile/39f5096c-b6bd-41d0-9248-d959da8c4b81',
         'https://credits.muso.ai/profile/120086b1-1215-4d5c-a61d-d992e0b2289e'
     ],
-    openingHours: ['Mo-Su 00:00-24:00'],
+    // No openingHours: the work is booked rather than served over a counter, and
+    // claiming Mo-Su 00:00-24:00 from a home address reads as inflated, which
+    // risks the whole LocalBusiness node being discounted.
     priceRange: '$$',
+    // The recordings are delivered as files, so the service is not limited to
+    // the area around the address
+    areaServed: {
+        '@type': 'Country',
+        name: 'Norway'
+    },
     hasPos: {
         '@type': 'Place',
         address: {

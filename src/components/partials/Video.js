@@ -24,6 +24,8 @@ const Video = ({ video, fullscreen = false, compact = false, priority = false, i
 
   const renderVideoSnippet = (video, videoId, videoThumbnailSrc) => {
     const videoDate = new Date(video.timestamp).toISOString();
+    // Matches how posts report it: lastmod where a video has one, publish date otherwise
+    const videoModifiedDate = new Date(video.lastmod ?? video.timestamp).toISOString();
     const snippet = {
       "@context": "https://schema.org",
       "@type": "VideoObject",
@@ -42,7 +44,16 @@ const Video = ({ video, fullscreen = false, compact = false, priority = false, i
         "contentUrl": `https://www.dehlimusikk.no${videoThumbnailSrc}`
       },
       "datePublished": videoDate,
-      "uploadDate": videoDate
+      "dateModified": videoModifiedDate,
+      "uploadDate": videoDate,
+      // Not every video is on Dehli Musikk's own channel: several were published
+      // by the artist or label, so the channel is named per video rather than
+      // attributing all of them to one account.
+      "publisher": {
+        "@type": "Organization",
+        "name": video.youTubeUser?.trim(),
+        "url": `https://www.youtube.com/${video.youTubeChannelId}`
+      }
     };
     if (video.copyright) {
       snippet.thumbnail.license = "https://creativecommons.org/licenses/by/4.0/legalcode";

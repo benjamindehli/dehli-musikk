@@ -71,6 +71,7 @@ export function VideosPage({ lang }: { lang: Lang }) {
         '@type': 'ItemList',
         '@id': `${WEBSITE_URL}/videos/`,
         name: t.listName,
+        numberOfItems: videoItems.length,
         itemListElement: videoItems
     };
 

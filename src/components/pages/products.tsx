@@ -61,6 +61,7 @@ export function ProductsPage({ lang }: { lang: Lang }) {
         '@type': 'ItemList',
         '@id': `${WEBSITE_URL}/products/`,
         name: t.listName,
+        numberOfItems: productItems.length,
         itemListElement: productItems
     };
 

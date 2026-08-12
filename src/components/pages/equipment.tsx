@@ -71,6 +71,7 @@ export function EquipmentPage({ lang }: { lang: Lang }) {
         '@type': 'ItemList',
         '@id': `${WEBSITE_URL}/equipment/`,
         name: t.listName,
+        numberOfItems: equipmentTypeItems.length,
         itemListElement: equipmentTypeItems
     };
 
@@ -191,6 +192,7 @@ export async function EquipmentTypePage({ lang, params }: { lang: Lang } & Equip
         '@type': 'ItemList',
         '@id': `${WEBSITE_URL}/equipment/${equipmentType}/`,
         name: typeName,
+        numberOfItems: equipmentItems.length,
         itemListElement: equipmentItems
     };
 

@@ -66,6 +66,7 @@ export function PostsPage({ lang }: { lang: Lang }) {
         '@type': 'ItemList',
         '@id': `${WEBSITE_URL}/posts/`,
         name: t.listName,
+        numberOfItems: postItems.length,
         itemListElement: postItems
     };
 

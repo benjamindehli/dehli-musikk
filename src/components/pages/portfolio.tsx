@@ -68,6 +68,7 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
         '@type': 'ItemList',
         '@id': `${WEBSITE_URL}/portfolio/`,
         name: t.listName,
+        numberOfItems: releaseItems.length,
         itemListElement: releaseItems
     };
 
