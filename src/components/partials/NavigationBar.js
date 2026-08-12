@@ -20,6 +20,7 @@ import SearchField from "components/partials/NavigationBar/SearchField";
 
 // Lib
 import { useLang } from "lib/LangContext";
+import { useModalState } from "lib/ModalContext";
 import { LANGUAGES } from "lib/i18n";
 
 // Stylesheets
@@ -27,6 +28,7 @@ import style from "components/partials/NavigationBar.module.scss";
 
 const NavigationBar = () => {
     const { lang, languageSlug } = useLang();
+    const { isModalOpen } = useModalState();
     const pathname = usePathname();
 
     // State
@@ -98,7 +100,10 @@ const NavigationBar = () => {
     const isNavActive = (segment) => pathname.includes(`/${segment}/`);
 
     return (
-        <div className={style.navigationBar}>
+        // The modal overlay paints over the navigation bar, so clicks already
+        // cannot reach it while a modal is open. inert makes keyboard focus and
+        // screen readers agree, instead of landing on links behind the overlay.
+        <div className={style.navigationBar} inert={isModalOpen}>
             <button
                 onClick={handleShowSidebarClick}
                 className={style.menuButton}

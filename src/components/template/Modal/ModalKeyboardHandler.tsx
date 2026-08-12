@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useModalState } from 'lib/ModalContext';
 
 interface Props {
     listPath: string;
@@ -11,6 +12,11 @@ interface Props {
 
 const ModalKeyboardHandler = ({ listPath, arrowLeftLink, arrowRightLink }: Props) => {
     const router = useRouter();
+    const { registerModal } = useModalState();
+
+    // Modal renders this on every detail page, so it is where the open state is
+    // reported from; registerModal returns its own deregister function.
+    useEffect(() => registerModal(), [registerModal]);
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {

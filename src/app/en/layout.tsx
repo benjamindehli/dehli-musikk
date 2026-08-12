@@ -1,4 +1,5 @@
 import { LangProvider } from 'lib/LangContext';
+import { ModalProvider } from 'lib/ModalContext';
 import NavigationBar from 'components/partials/NavigationBar';
 import Footer from 'components/partials/Footer';
 import SiteJsonLd from 'components/SiteJsonLd';
@@ -19,13 +20,15 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
             </head>
             <body>
                 <LangProvider lang="en">
-                    <NavigationBar />
-                    <div className={style.container}>
-                        <main style={{ minHeight: '100vh' }}>
-                            {children}
-                        </main>
-                        <Footer lang="en" />
-                    </div>
+                    <ModalProvider>
+                        <NavigationBar />
+                        <div className={style.container}>
+                            <main style={{ minHeight: '100vh' }}>
+                                {children}
+                            </main>
+                            <Footer lang="en" />
+                        </div>
+                    </ModalProvider>
                 </LangProvider>
             </body>
         </html>
