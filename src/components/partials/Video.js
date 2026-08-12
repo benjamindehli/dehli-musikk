@@ -153,7 +153,7 @@ const Video = ({ video, fullscreen = false, compact = false, priority = false, i
           ? (
             <React.Fragment>
               {renderVideoSnippet(video, videoId, image.jpg540)}
-              <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[lang]} startOffset={startOffset} />
+              <ListItemVideo youTubeId={video.youTubeId} videoTitle={video.title[lang]} startOffset={startOffset} image={image} lang={lang} />
             </React.Fragment>
           ) : (
             <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
