@@ -73,13 +73,6 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
         },
         sameAs: product.sameAs?.length ? product.sameAs : undefined
     };
-    if (product?.ratingValue && product?.reviewCount) {
-        snippet.aggregateRating = {
-            "@type": "AggregateRating",
-            ratingValue: product.ratingValue,
-            reviewCount: product.reviewCount
-        };
-    }
     return snippet;
 }
 
