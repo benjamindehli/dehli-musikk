@@ -53,18 +53,6 @@ const Post = ({ post, fullscreen = false, lang, languageSlug }) => {
         "creditText": "Dehli Musikk",
         "creator": {
           "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
-        },
-        "contentLocation": {
-          "name": "Dehli Musikk",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Bø i Telemark",
-            "postalCode": "3804",
-            "streetAddress": "Margretes veg 15",
-            "addressCountry": {
-              "name": "NO"
-            }
-          }
         }
       },
       "thumbnailUrl": `https://www.dehlimusikk.no${postThumbnailSrc}`,

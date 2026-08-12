@@ -174,7 +174,7 @@ export function HomePage({ lang }: { lang: Lang }) {
                 </Container>
             </div>
 
-            <div className={style.socialMediaSection} style={{ minHeight: '297px' }}>
+            <div id="contact" className={style.socialMediaSection} style={{ minHeight: '297px' }}>
                 <div className={style.contentSection}>
                     <h2>{t.followOnSocialMedia}</h2>
                     <SocialMediaLinks lang={lang} />

@@ -7,50 +7,7 @@ import style from 'components/partials/Footer.module.scss';
 const year = new Date().getFullYear();
 
 const Footer = ({ lang }) => {
-  return (<footer id="contact" className={style.footer}>
-    <div className={style.contentSection}>
-      <div className={style.grid}>
-        <div className={style.textSection}>
-          <h2>{lang === "en" ? "Contact" : "Kontakt"}</h2>
-          <address className={style.addressContent}>
-            <ul id="hcard-Benjamin-Dehli" className="vcard">
-              <li className="fn n">
-                <span className="given-name">Benjamin</span> <span className="family-name">Dehli</span>
-              </li>
-              <li>
-                <a className="url" href="https://www.dehlimusikk.no/">
-                  <span className="org">Dehli Musikk</span>
-                </a>
-              </li>
-              <li>
-                <ul className="adr">
-                  <li className="street-address">Margretes veg 15</li>
-                  <li><span className="postal-code">3804</span> <span className="locality">Bø i Telemark</span>, <span className="country-name">Norway</span></li>
-                </ul>
-              </li>
-              <li>
-                <span className="email">superelg@gmail.com</span>
-              </li>
-              <li>
-                <span className="tel">(47) 922 92 719</span>
-              </li>
-            </ul>
-          </address>
-        </div>
-        <div className={style.mapSection}>
-          <a href='https://g.page/dehli-musikk?share' title='Location for Dehli Musikk in Google Maps' aria-label='Location for Dehli Musikk in Google Maps' target='_blank' rel="noopener noreferrer">
-            <figure className={style.map}>
-              <picture>
-                <source sizes="100vw" srcSet="/images/map_930.avif 930w" type="image/avif" />
-                <source sizes="100vw" srcSet="/images/map_930.webp 930w" type="image/webp" />
-                <source sizes="100vw" srcSet="/images/map_930.jpg 930w" type="image/jpeg" />
-                <img loading="lazy" src="/images/map_930.jpg" alt="Location for Dehli Musikk" width="779" height="250" />
-              </picture>
-            </figure>
-          </a>
-        </div>
-      </div>
-    </div>
+  return (<footer className={style.footer}>
     <div className={style.contentSection}>
       © {year} Dehli Musikk
     </div>
