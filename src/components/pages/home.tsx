@@ -68,45 +68,37 @@ export function getHomePageMetadata(lang: Lang): Metadata {
     };
 }
 
-const renderHeaderImage = () => {
-    const sizes = [480, 640, 800, 1024, 1260, 1440, 1680];
-    const formats = ['avif', 'webp', 'jpg'] as const;
-    const mimeTypes = { avif: 'image/avif', webp: 'image/webp', jpg: 'image/jpeg' };
+/*
+ * The header spans the full width of the viewport, so every candidate is offered
+ * with a w descriptor and sizes="100vw". The browser then multiplies viewport
+ * width by device pixel ratio and picks the smallest file that covers it, which
+ * is what the previous media + 1x/2x pairs could not express: the widest file
+ * was 1680, so any display above 840 CSS px at 2x was served fewer pixels than
+ * it could show.
+ *
+ * Only avif and webp need <source> elements. The <img> carries the jpeg
+ * candidates, so it doubles as the fallback for browsers supporting neither.
+ */
+const HEADER_IMAGE_WIDTHS = [480, 640, 800, 1024, 1260, 1440, 1680, 1920, 2160, 2560, 2880, 3200, 3840];
 
-    const sourceElements = formats.flatMap((fmt) =>
-        sizes.map((size) => {
-            const src = `/images/header_${size}.${fmt}`;
-            const size2x = sizes.find((s) => s >= size * 2);
-            const srcSet = size2x ? `${src} 1x, /images/header_${size2x}.${fmt} 2x` : src;
-            const key = `${fmt}-${size}`;
-            return size === 1680 ? (
-                <source
-                    key={key}
-                    srcSet={srcSet}
-                    type={mimeTypes[fmt]}
-                />
-            ) : (
-                <source
-                    key={key}
-                    srcSet={srcSet}
-                    type={mimeTypes[fmt]}
-                    media={`(max-width: ${size}px)`}
-                />
-            );
-        })
-    );
+const headerSrcSet = (extension: 'avif' | 'webp' | 'jpg') =>
+    HEADER_IMAGE_WIDTHS.map((width) => `/images/header_${width}.${extension} ${width}w`).join(', ');
 
-    return (
-        <picture className={style.backgroundsImage}>
-            {sourceElements}
-            <img
-                src="/images/header_1024.jpg"
-                fetchPriority="high"
-                alt="A Korg MS-20 with a cassette and tape recorder"
-            />
-        </picture>
-    );
-};
+const renderHeaderImage = () => (
+    <picture className={style.backgroundsImage}>
+        <source type="image/avif" sizes="100vw" srcSet={headerSrcSet('avif')} />
+        <source type="image/webp" sizes="100vw" srcSet={headerSrcSet('webp')} />
+        <img
+            src="/images/header_1260.jpg"
+            srcSet={headerSrcSet('jpg')}
+            sizes="100vw"
+            width="1260"
+            height="804"
+            fetchPriority="high"
+            alt="A Korg MS-20 with a cassette and tape recorder"
+        />
+    </picture>
+);
 
 export function HomePage({ lang }: { lang: Lang }) {
     const t = translations[lang];
