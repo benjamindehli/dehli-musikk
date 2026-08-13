@@ -88,13 +88,56 @@ const NavigationBar = () => {
         };
     }, [languageSelectorListWrapperRef, showLanguageSelectorList]);
 
+    /*
+     * Every page already declares its counterpart in the other language: the same
+     * buildAlternates call that feeds hreflang puts the exact URL in the document
+     * head. Reading it there means the switcher does not have to know how each
+     * route builds its slug, and the visible link can never disagree with what
+     * hreflang tells crawlers.
+     */
+    const [alternatePaths, setAlternatePaths] = useState({});
+
+    useEffect(() => {
+        const paths = {};
+        document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((link) => {
+            const hreflang = link.getAttribute('hreflang');
+            const href = link.getAttribute('href');
+            if (!hreflang || hreflang === 'x-default' || !href) return;
+            try {
+                // Keep it a path so Link still navigates client side
+                paths[hreflang] = new URL(href).pathname;
+            } catch {
+                // A malformed href is not worth breaking the switcher over
+            }
+        });
+        setAlternatePaths(paths);
+    }, [pathname]);
+
+    // Posts and videos build their slug from the translated title, so the slug
+    // itself differs between languages and swapping the /en prefix cannot produce
+    // a path that exists. Every other section uses a language-independent slug.
+    const translatedSlugSections = ['posts', 'videos'];
+
     const getAlternateLangPath = (targetLang) => {
         if (targetLang === lang) return pathname;
-        if (targetLang === 'en') {
-            return `/en${pathname}`;
-        } else {
-            return pathname.replace(/^\/en/, '') || '/';
+
+        const declaredPath = alternatePaths[targetLang];
+        if (declaredPath) return declaredPath;
+
+        /*
+         * Only reached before hydration, or if a page declares no alternate.
+         * Swapping the prefix is correct wherever the slug is language
+         * independent; for a post or video it would 404, so offer that section's
+         * list in the target language rather than a broken link.
+         */
+        const pathWithoutLang = pathname.replace(/^\/en(?=\/|$)/, '') || '/';
+        const [, section, slug] = pathWithoutLang.split('/');
+        const targetPrefix = targetLang === 'en' ? '/en' : '';
+
+        if (slug && translatedSlugSections.includes(section)) {
+            return `${targetPrefix}/${section}/`;
         }
+        return `${targetPrefix}${pathWithoutLang}`;
     };
 
     const isNavActive = (segment) => pathname.includes(`/${segment}/`);
