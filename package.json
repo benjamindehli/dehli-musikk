@@ -21,7 +21,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "verify:thumbnails": "node scripts/verify-110-thumbnails.mjs",
+    "verify:albums": "node scripts/verify-release-albums.mjs",
+    "verify": "yarn verify:thumbnails && yarn verify:albums"
   },
   "packageManager": "yarn@4.5.0"
 }
