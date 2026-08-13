@@ -18,6 +18,7 @@ import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbna
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
 import { getReleaseInstruments, getReleaseProducts } from 'helpers/releaseInstruments';
 import { getRichSnippetDateString } from 'helpers/dateFormatter';
+import { getAlbumJsonLdForRelease } from 'helpers/releaseAlbums';
 import { getJsonLdForArtist, getJsonLdIdForArtist, getJsonLdIdForRelease } from 'helpers/releaseHelpers';
 import { millisecondsToReadableTime } from 'helpers/timeFormatter';
 
@@ -94,6 +95,11 @@ const Release = ({ release, fullscreen = false, compact = false, priority = fals
 
   const renderReleaseSnippet = (release, releaseInstruments, releaseThumbnailSrc) => {
     const releaseDate = new Date(release.releaseDate);
+    const byArtist = getJsonLdForArtist(release.artistName);
+    // releaseAlbums keys releases by slug, which is the same value the URL uses.
+    // Prefer the stored field over recomputing so the two cannot disagree.
+    const releaseSnippetId = release.slug?.length ? release.slug : convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
+    const album = getAlbumJsonLdForRelease(releaseSnippetId, byArtist);
     let snippet = {
       "@context": "https://schema.org",
       "@type": "MusicRecording",
@@ -102,7 +108,7 @@ const Release = ({ release, fullscreen = false, compact = false, priority = fals
       "duration": release.durationISO,
       "genre": release.genre,
       "description": `This is a music recording made by ${release.artistName}. The song is ${millisecondsToReadableTime(release.duration)} long and belongs to the ${release.genre?.toLowerCase()} genre.`,
-      "byArtist": getJsonLdForArtist(release.artistName),
+      "byArtist": byArtist,
       "recordingOf": {
         "@type": "MusicComposition",
         "name": release.title
@@ -114,6 +120,9 @@ const Release = ({ release, fullscreen = false, compact = false, priority = fals
           "@id": getJsonLdIdForArtist("Benjamin Dehli"),
         }
       }
+    }
+    if (album) {
+      snippet.inAlbum = album;
     }
     if (!release.unreleased && releaseThumbnailSrc) {
       snippet.thumbnailUrl = `https://www.dehlimusikk.no${releaseThumbnailSrc}`;

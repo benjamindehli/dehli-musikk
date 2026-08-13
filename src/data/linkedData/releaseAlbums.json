@@ -1,0 +1,96 @@
+[
+    {
+        "id": "haunted-by-silhouettes-faith-came-crawling",
+        "jsonLdId": "https://musicbrainz.org/release-group/19d64253-3a38-4ebb-bc0f-c43dc57c7332",
+        "title": "Faith Came Crawling",
+        "releaseIds": [
+            "haunted-by-silhouettes-arrival",
+            "haunted-by-silhouettes-godfall",
+            "haunted-by-silhouettes-faith-came-crawling",
+            "haunted-by-silhouettes-war-instinct",
+            "haunted-by-silhouettes-dead-mans-march",
+            "haunted-by-silhouettes-awake",
+            "haunted-by-silhouettes-oracle",
+            "haunted-by-silhouettes-heretics",
+            "haunted-by-silhouettes-tragedians",
+            "haunted-by-silhouettes-lethean",
+            "haunted-by-silhouettes-pantheon"
+        ]
+    },
+    {
+        "id": "haunted-by-silhouettes-no-man-isle",
+        "jsonLdId": "https://musicbrainz.org/release-group/a4ed294f-ce7d-49f7-a3e0-a51553f05b79",
+        "title": "No Man Isle",
+        "releaseIds": [
+            "haunted-by-silhouettes-departure",
+            "haunted-by-silhouettes-flock",
+            "haunted-by-silhouettes-icon",
+            "haunted-by-silhouettes-and-bjorn-speed-strid-selkie",
+            "haunted-by-silhouettes-no-man-isle"
+        ]
+    },
+    {
+        "id": "haunted-by-silhouettes-the-last-day-on-earth",
+        "jsonLdId": "https://musicbrainz.org/release-group/c42cb7fe-105c-4ab9-9c9c-836604fc355a",
+        "title": "The Last Day on Earth",
+        "releaseIds": [
+            "haunted-by-silhouettes-the-last-day-on-earth",
+            "haunted-by-silhouettes-deadlock",
+            "haunted-by-silhouettes-undertow"
+        ]
+    },
+    {
+        "id": "kaasin-fired-up-2025-remix",
+        "jsonLdId": "https://musicbrainz.org/release-group/a6885f74-37e1-4932-994e-0b77e4b15579",
+        "title": "Fired Up (2025 Remix)",
+        "releaseIds": [
+            "kaasin-we-are-one",
+            "kaasin-hidden",
+            "kaasin-the-smoking-gun",
+            "kaasin-carry-on",
+            "kaasin-shades-of-yesterday",
+            "kaasin-walking-downwards",
+            "kaasin-chain-of-love",
+            "kaasin-wrong",
+            "kaasin-inside-out"
+        ]
+    },
+    {
+        "id": "kaasin-fired-up",
+        "jsonLdId": "https://musicbrainz.org/release-group/56f72222-f978-4664-b5da-67d1c48f2c2c",
+        "title": "Fired Up",
+        "releaseIds": [
+            "kaasin-we-are-one",
+            "kaasin-hidden",
+            "kaasin-the-smoking-gun",
+            "kaasin-carry-on",
+            "kaasin-shades-of-yesterday",
+            "kaasin-walking-downwards",
+            "kaasin-chain-of-love",
+            "kaasin-wrong",
+            "kaasin-inside-out"
+        ]
+    },
+    {
+        "id": "south-of-jameson-late-nights-and-broken-hearts-live-unplugged",
+        "title": "Late Nights & Broken Hearts (Live Unplugged)",
+        "releaseIds": [
+            "south-of-jameson-woman-in-my-dreams-bonus-track-demo",
+            "south-of-jameson-find-my-shelter-bonus-track-demo",
+            "south-of-jameson-little-girl-bonus-track-demo"
+        ]
+    },
+    {
+        "id": "wild-whens-from-the-valley",
+        "title": "From the Valley",
+        "releaseIds": [
+            "wild-whens-crazy-to-the-bone-remastered",
+            "wild-whens-backtrack-jack",
+            "wild-whens-travellin-man",
+            "wild-whens-rebel-heart",
+            "wild-whens-chains-of-yesterday",
+            "wild-whens-sailin-sarah",
+            "wild-whens-from-the-valley"
+        ]
+    }
+]
