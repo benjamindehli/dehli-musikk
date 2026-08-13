@@ -45,22 +45,27 @@ const EquipmentItem = ({ fullscreen = false, compact = false, priority = false, 
     );
   }
 
-  // Product rather than Thing: these are manufactured items with a brand and a
-  // model, which Thing cannot express. No offers, because the gear is not for
-  // sale here, so the node describes the instrument rather than a listing.
+  /*
+   * Thing, deliberately, and not Product. Product would let this carry brand and
+   * model, but Google validates every Product node against its merchant listing
+   * requirements and rejects one without offers, review or aggregateRating.
+   * This gear is equipment Dehli Musikk uses, not stock for sale, so there are no
+   * honest offers to give it and no ratings to report. Typed as Product it was
+   * reported invalid across all 202 equipment pages, which cost real Search
+   * Console errors in exchange for rich results these pages could never earn.
+   *
+   * brand and model are Product properties, so they cannot come along; the brand
+   * and model are both in name and in the description regardless.
+   */
   const renderEquipmentItemSnippet = (item, images, videoCount, releaseCount) => {
     const imagePath = images['jpg945'];
     const itemName = `${item.brand} ${item.model}`;
     const snippet = {
       "@context": "https://schema.org",
-      "@type": "Product",
+      "@type": "Thing",
       "@id": `https://www.dehlimusikk.no/equipment/${itemType}/${itemId}/`,
       "name": itemName,
-      "brand": {
-        "@type": "Brand",
-        "name": item.brand
-      },
-      "model": item.model,
+      "url": `https://www.dehlimusikk.no/${languageSlug}equipment/${itemType}/${itemId}/`,
       "image": `https://www.dehlimusikk.no${imagePath}`,
       "description": getEquipmentItemDescription(itemName, videoCount, releaseCount, lang)
     }
