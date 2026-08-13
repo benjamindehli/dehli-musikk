@@ -87,8 +87,86 @@ export function getLlmsTxt({ posts, products, releases, videos }) {
         "## Optional",
         "",
         `- [Frequently asked questions](${websiteUrl}/en/frequently-asked-questions/): Questions and answers about Dehli Musikk, products, and services`,
+        `- [Full text](${websiteUrl}/llms-full.txt): Every page's complete text in one file, rather than links to it`,
         `- [News feed](${websiteUrl}/feed-en.rss): RSS feed with the latest posts (Norwegian: ${websiteUrl}/feed-no.rss)`,
         `- [Sitemap](${websiteUrl}/sitemap.xml): All pages in both languages`,
         ""
+    ].join("\n");
+}
+
+/*
+ * The companion to llms.txt: the same material with each page's text inlined
+ * instead of linked, so a reader needs one request rather than sixty. Unlike
+ * llms.txt this covers every item rather than the most recent handful, and does
+ * not truncate.
+ *
+ * llms-full.txt is a widely followed convention rather than part of the llms.txt
+ * specification, so it is kept deliberately plain: headings, then prose.
+ */
+const renderFullEntry = (heading, url, meta, body) =>
+    [`### ${heading}`, "", `URL: ${url}`, ...(meta ? [meta, ""] : [""]), ...(body ? [body, ""] : [])].join("\n");
+
+const renderFullProduct = (product) => {
+    const productId = convertToUrlFriendlyString(product.title);
+    const price = product.price ? `${product.price} ${product.priceCurrency || "USD"}` : null;
+    const meta = [price ? `Price: ${price}` : null, product.productType?.length ? `Type: ${product.productType.join(" > ")}` : null, product.link?.url ? `Store: ${product.link.url}` : null]
+        .filter(Boolean)
+        .join("\n");
+    return renderFullEntry(product.title, `${websiteUrl}/en/products/${productId}/`, meta, product.content?.en ? formatContentAsString(product.content.en) : "");
+};
+
+const renderFullPost = (post) => {
+    const postId = convertToUrlFriendlyString(post.title.en);
+    return renderFullEntry(post.title.en, `${websiteUrl}/en/posts/${postId}/`, `Published: ${isoDate(post.timestamp)}`, post.content?.en ? formatContentAsString(post.content.en) : "");
+};
+
+const renderFullVideo = (video) => {
+    const videoId = convertToUrlFriendlyString(video.title.en);
+    const meta = [`Published: ${isoDate(video.timestamp)}`, `Watch: https://www.youtube.com/watch?v=${video.youTubeId}`].join("\n");
+    return renderFullEntry(video.title.en, `${websiteUrl}/en/videos/${videoId}/video/`, meta, video.content?.en ? formatContentAsString(video.content.en) : "");
+};
+
+// Releases hold no prose, so they contribute their metadata instead
+const renderFullRelease = (release) => {
+    const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
+    const meta = [
+        `Artist: ${release.artistName}`,
+        release.genre ? `Genre: ${release.genre}` : null,
+        release.releaseDate ? `Released: ${isoDate(release.releaseDate)}` : null,
+        release.isrcCode ? `ISRC: ${release.isrcCode}` : null,
+        release.links?.spotify ? `Listen: ${release.links.spotify}` : null
+    ]
+        .filter(Boolean)
+        .join("\n");
+    return renderFullEntry(`${release.title} by ${release.artistName}`, `${websiteUrl}/en/portfolio/${releaseId}/`, meta, "");
+};
+
+const renderFullFaq = (faq) => [`### ${faq.question.en}`, "", formatContentAsString(faq.answer.en), ""].join("\n");
+
+export function getLlmsFullTxt({ posts, products, releases, videos, frequentlyAskedQuestions }) {
+    const byNewest = (items, dateKey = "timestamp") => [...items].sort((a, b) => b[dateKey] - a[dateKey]);
+
+    return [
+        "# Dehli Musikk",
+        "",
+        "> Dehli Musikk is a sole proprietorship run by Benjamin Dehli in Bø i Telemark, Norway. It offers keyboard instrument tracks on recordings for artists and bands, and sells virtual sample-based instruments and patch libraries.",
+        "",
+        `This is the full text of the English pages. Norwegian versions of every page live at the site root rather than under /en/. For a linked overview instead, see ${websiteUrl}/llms.txt.`,
+        "",
+        `## Products (${products.length})`,
+        "",
+        products.map(renderFullProduct).join("\n"),
+        `## Posts (${posts.length})`,
+        "",
+        byNewest(posts).map(renderFullPost).join("\n"),
+        `## Videos (${videos.length})`,
+        "",
+        byNewest(videos).map(renderFullVideo).join("\n"),
+        `## Releases (${releases.length})`,
+        "",
+        byNewest(releases, "releaseDate").map(renderFullRelease).join("\n"),
+        `## Frequently asked questions (${frequentlyAskedQuestions.length})`,
+        "",
+        frequentlyAskedQuestions.map(renderFullFaq).join("\n")
     ].join("\n");
 }
