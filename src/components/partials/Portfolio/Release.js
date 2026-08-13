@@ -99,7 +99,9 @@ const Release = ({ release, fullscreen = false, compact = false, priority = fals
     // releaseAlbums keys releases by slug, which is the same value the URL uses.
     // Prefer the stored field over recomputing so the two cannot disagree.
     const releaseSnippetId = release.slug?.length ? release.slug : convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
-    const album = getAlbumJsonLdForRelease(releaseSnippetId, byArtist);
+    // The album derives its own artist from the tracks it contains, rather than
+    // taking this release's, which on a guest feature would credit the guest
+    const album = getAlbumJsonLdForRelease(releaseSnippetId);
     let snippet = {
       "@context": "https://schema.org",
       "@type": "MusicRecording",
