@@ -62,9 +62,47 @@ const isSellable = (product) => Number.parseFloat(product.price) > 0 && !!produc
 
 const getSellableProducts = (products) => (products || []).filter(isSellable);
 
+/*
+ * Merchant Center caps g:description at 5000 characters and disapproves the item
+ * that runs over. The longest product copy already sits within a hundred
+ * characters of that, so cut here rather than wait for the next paragraph added
+ * to a product page to take the item down with it.
+ *
+ * Applied to the text before escapeXml: an entity stands for the one character
+ * it encodes, so it is the unescaped length the limit is about.
+ */
+const MAX_DESCRIPTION_LENGTH = 5000;
+
+/*
+ * Ending mid-sentence reads like the feed is broken, so back up to the last
+ * sentence that fits. Only within this window though: dropping a trailing
+ * paragraph is worth it, dropping most of the description to reach an early
+ * full stop is not, and a description written without sentence breaks would
+ * otherwise be cut to almost nothing.
+ */
+const SENTENCE_SEARCH_WINDOW = 500;
+
+const capDescription = (description) => {
+    if (description.length <= MAX_DESCRIPTION_LENGTH) return description;
+
+    const head = description.slice(0, MAX_DESCRIPTION_LENGTH);
+    const sentenceEnd = Math.max(head.lastIndexOf(". "), head.lastIndexOf("! "), head.lastIndexOf("? "));
+    if (sentenceEnd >= MAX_DESCRIPTION_LENGTH - SENTENCE_SEARCH_WINDOW) {
+        // Keeps the punctuation mark, drops the space that followed it
+        return head.slice(0, sentenceEnd + 1);
+    }
+
+    // The ellipsis counts against the limit as well, so it needs its own room.
+    // Falls back to the hard cut for text with no whitespace to break on, where
+    // trimming the trailing word would leave nothing at all.
+    const hardCut = head.slice(0, MAX_DESCRIPTION_LENGTH - 1);
+    const atWordBoundary = hardCut.replace(/\s+\S*$/, "");
+    return `${atWordBoundary || hardCut}…`;
+};
+
 const renderMerchantItem = (product, lang, languageSlug) => {
     const productId = getProductId(product);
-    const description = product.content[lang] ? formatContentAsString(product.content[lang]) : "";
+    const description = product.content[lang] ? capDescription(formatContentAsString(product.content[lang])) : "";
     const additionalImageLinks = (product.additionalImages || []).map(
         (image) => `<g:additional_image_link>${websiteUrl}/product-images/${image}</g:additional_image_link>`
     );
