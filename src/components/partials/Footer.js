@@ -11,6 +11,18 @@ import style from 'components/partials/Footer.module.scss';
 
 const year = new Date().getFullYear();
 
+/*
+ * The same accounts the home page's social media section links, as plain text
+ * rather than icons: the icon row pulls in the FontAwesome brands set, which
+ * nothing else sitewide uses and which the footer would put on every page.
+ */
+const socialLinks = [
+    { href: 'https://www.facebook.com/DehliMusikk/', label: 'Facebook', titleKey: 'facebook' },
+    { href: 'https://www.instagram.com/benjamindehli/', label: 'Instagram', titleKey: 'instagram' },
+    { href: 'https://youtube.com/@BenjaminDehli', label: 'YouTube', titleKey: 'youtube' },
+    { href: 'https://github.com/benjamindehli', label: 'GitHub', titleKey: 'github' }
+];
+
 const translations = {
     no: {
         navLabel: 'Lenker i bunnteksten',
@@ -19,8 +31,10 @@ const translations = {
         home: 'Hjem',
         email: 'Send e-post',
         facebook: 'Dehli Musikk på Facebook',
-        feed: 'Nyheter som RSS',
-        country: 'Norge'
+        instagram: 'Dehli Musikk på Instagram',
+        youtube: 'Dehli Musikk på YouTube',
+        github: 'Benjamin Dehli på GitHub',
+        feed: 'Nyheter som RSS'
     },
     en: {
         navLabel: 'Footer links',
@@ -29,8 +43,10 @@ const translations = {
         home: 'Home',
         email: 'Send an email',
         facebook: 'Dehli Musikk on Facebook',
-        feed: 'News as RSS',
-        country: 'Norway'
+        instagram: 'Dehli Musikk on Instagram',
+        youtube: 'Dehli Musikk on YouTube',
+        github: 'Benjamin Dehli on GitHub',
+        feed: 'News as RSS'
     }
 };
 
@@ -63,39 +79,26 @@ const Footer = ({ lang }) => {
                             })}
                         </ul>
                     </div>
-                    <div className={`${style.linkSection} ${style.addressContent}`}>
+                    <div className={`${style.linkSection} ${style.contactLinks}`}>
                         <h2>{t.contact}</h2>
-                        {/* Matches the address and telephone in the LocalBusiness
-                            structured data, so the two cannot disagree about
-                            where the business is. */}
-                        <address>
-                            Margretes veg 15
-                            <br />
-                            3804 Bø i Telemark
-                            <br />
-                            {t.country}
-                        </address>
                         <ul>
                             <li>
                                 <a href="mailto:superelg@gmail.com" title={t.email}>
                                     superelg@gmail.com
                                 </a>
                             </li>
-                            <li>
-                                <a href="tel:+4792292719" title={t.contact}>
-                                    +47 92 29 27 19
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="https://www.facebook.com/DehliMusikk/"
-                                    title={t.facebook}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Facebook
-                                </a>
-                            </li>
+                            {socialLinks.map((socialLink) => (
+                                <li key={socialLink.href}>
+                                    <a
+                                        href={socialLink.href}
+                                        title={t[socialLink.titleKey]}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {socialLink.label}
+                                    </a>
+                                </li>
+                            ))}
                             <li>
                                 <a href={feedPath} title={t.feed}>
                                     RSS

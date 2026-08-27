@@ -69,6 +69,13 @@
       }
     }
 
+    &.github {
+      &:hover,
+      &:focus {
+        background-color: #181717;
+      }
+    }
+
     &.pianobook {
       &:hover,
       &:focus {

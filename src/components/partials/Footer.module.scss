@@ -38,13 +38,7 @@
       }
     }
 
-    & .addressContent {
-      & address {
-        font-style: normal;
-        line-height: 1.5em;
-        margin: 0 0 6px;
-      }
-
+    & .contactLinks {
       & a {
         color: colors.$default-text-color;
       }

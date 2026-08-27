@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRss } from '@fortawesome/free-solid-svg-icons';
 import {
     faFacebookF,
+    faGithub,
     faInstagram,
     faYoutube,
     faVimeoV,
@@ -36,6 +37,9 @@ const SocialMediaLinks = ({ lang }) => {
     </a>
     <a href='https://twitter.com/BenjaminDehli' title='Link to Twitter page' aria-label='Link to Twitter page' target='_blank' rel="noopener noreferrer" className={style.twitter}>
       <FontAwesomeIcon icon={faXTwitter} />
+    </a>
+    <a href='https://github.com/benjamindehli' title='Link to GitHub profile' aria-label='Link to GitHub profile' target='_blank' rel="noopener noreferrer" className={style.github}>
+      <FontAwesomeIcon icon={faGithub} />
     </a>
     <a href='https://store.dehlimusikk.no/' title='Link to Gumroad page' aria-label='Link to Gumroad page' target='_blank' rel="noopener noreferrer" className={style.gumroad}>
       <img src="/images/gumroad.svg" alt="" aria-hidden="true" width="45" height="45" />
