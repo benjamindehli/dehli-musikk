@@ -3,18 +3,18 @@
   "name": "Dehli Musikk",
   "icons": [{
       "src": "favicon.ico",
-      "sizes": "48x48",
+      "sizes": "16x16 32x32 48x48",
       "type": "image/x-icon"
     },
     {
       "src": "favicon-16x16.png",
       "sizes": "16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
       "src": "favicon-32x32.png",
       "sizes": "32x32",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
       "src": "logo192.png",
@@ -33,7 +33,8 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "lang": "no",
   "display": "standalone",
   "theme_color": "#C32A22",
   "background_color": "#ffffff"
