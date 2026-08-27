@@ -86,8 +86,11 @@ const localBusinessJsonLd = {
         elevation: 193.1
     },
     naics: '711130',
+    // Without https://www.dehlimusikk.no/, which the Person's list below does
+    // carry: sameAs points at other pages identifying the same thing, and this
+    // node already owns that URL as both its @id and its url. On the Person,
+    // a separate node, naming the site still says something.
     sameAs: [
-        'https://www.dehlimusikk.no/',
         'https://store.dehlimusikk.no/',
         'https://www.facebook.com/DehliMusikk/',
         'https://x.com/BenjaminDehli',
