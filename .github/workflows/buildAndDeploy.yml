@@ -23,6 +23,11 @@ jobs:
         run: yarn install --immutable
       - name: Build
         run: yarn build
+      # Reads the exported HTML, so it has to run after the build and before the
+      # artifact goes anywhere. Fails the release rather than shipping markup
+      # that points at files which are not there.
+      - name: Verify Markup Assets
+        run: yarn verify:markup
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
         with:

@@ -24,6 +24,7 @@
     "start": "next start",
     "verify:thumbnails": "node scripts/verify-110-thumbnails.mjs",
     "verify:albums": "node scripts/verify-release-albums.mjs",
+    "verify:markup": "node scripts/verify-markup-assets.mjs",
     "verify": "yarn verify:thumbnails && yarn verify:albums"
   },
   "packageManager": "yarn@4.5.0"
