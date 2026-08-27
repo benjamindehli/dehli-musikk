@@ -9,47 +9,50 @@
     padding: 16px;
     margin: auto;
     flex: 1;
-    text-align: center;
-
-    & .map {
-      margin: 0;
-
-      & img {
-        width: 100%;
-        height: auto;
-      }
-    }
 
     & .grid {
-      @media (min-width: breakpoints.$screen-md) {
-        display: flex;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+      text-align: left;
+
+      @media (min-width: breakpoints.$screen-sm) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    & .linkSection {
+      & h2 {
+        font-size: 1rem;
+        margin: 0 0 8px;
       }
 
-      & .textSection {
-        @media (min-width: breakpoints.$screen-md) {
-          flex: 1;
-        }
-      }
+      & ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
-      & .mapSection {
-        @media (min-width: breakpoints.$screen-md) {
-          flex: 2;
+        & li {
+          margin: 6px 0;
         }
       }
     }
-  }
 
-  & .addressContent {
-    & ul {
-      list-style: none;
-      padding: 0;
-
-      & li {
-        margin: 6px 0;
-        a {
-          color: colors.$default-text-color;
-        }
+    & .addressContent {
+      & address {
+        font-style: normal;
+        line-height: 1.5em;
+        margin: 0 0 6px;
       }
+
+      & a {
+        color: colors.$default-text-color;
+      }
+    }
+
+    & .copyright {
+      margin-top: 16px;
+      text-align: center;
     }
   }
 }
