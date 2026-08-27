@@ -23,8 +23,20 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const SITE = 'https://www.dehlimusikk.no';
+
+/*
+ * Compared as a parsed hostname rather than as a string prefix. Prefix matching
+ * on "https://www.dehlimusikk.no" also accepts www.dehlimusikk.no.example.com,
+ * which is the same mistake whether it lets a bad host through somewhere that
+ * matters or, as here, only produces a confusing missing-file report.
+ */
+const SITE_ORIGIN = 'https://www.dehlimusikk.no';
+const SITE_HOSTNAME = 'www.dehlimusikk.no';
+
 const directory = process.argv[2] || 'out';
+// resolve, not join: an absolute directory argument has to replace the root
+// rather than be appended to it
+const EXPORT_DIR = path.resolve(ROOT, directory);
 
 const ASSET_EXTENSIONS = new Set([
     'jpg', 'jpeg', 'png', 'webp', 'avif', 'svg', 'ico', 'gif',
@@ -34,19 +46,20 @@ const ASSET_EXTENSIONS = new Set([
 
 // public/ is checked as well as the export: the same script then works against a
 // build that keeps its HTML apart from the static files it serves.
-const ASSET_ROOTS = [directory, 'public'];
+const ASSET_ROOTS = [EXPORT_DIR, path.resolve(ROOT, 'public')];
 
-if (!fs.existsSync(path.join(ROOT, directory))) {
+if (!fs.existsSync(EXPORT_DIR)) {
     console.log(`No ${directory}/ directory. Build first, then run this:\n\n   yarn build && node scripts/verify-markup-assets.mjs\n`);
     process.exitCode = 1;
 } else {
     run();
 }
 
-function htmlFiles(from) {
+// Returns paths relative to EXPORT_DIR, which is what gets reported
+function htmlFiles(prefix = '') {
     const found = [];
-    for (const entry of fs.readdirSync(path.join(ROOT, from), { withFileTypes: true })) {
-        const relative = `${from}/${entry.name}`;
+    for (const entry of fs.readdirSync(path.join(EXPORT_DIR, prefix), { withFileTypes: true })) {
+        const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
         if (entry.isDirectory()) found.push(...htmlFiles(relative));
         else if (entry.name.endsWith('.html')) found.push(relative);
     }
@@ -61,34 +74,44 @@ function htmlFiles(from) {
 function assetPath(value) {
     if (!value) return null;
 
-    let candidate = value.trim();
-    if (candidate.startsWith(SITE)) candidate = candidate.slice(SITE.length);
-    else if (!candidate.startsWith('/')) return null;
-    // Root-relative but on no host we know, e.g. //cdn.example.com/x.png
-    if (candidate.startsWith('//')) return null;
+    /*
+     * Resolving against the site's own origin covers both forms in one step: a
+     * root-relative href keeps that origin, an absolute URL brings its own, and
+     * the hostname check below then rejects anything that is not ours. It also
+     * normalises away ".." segments and drops the query and fragment, so what
+     * comes out is always a plain path under the site root.
+     */
+    let url;
+    try {
+        url = new URL(value.trim(), SITE_ORIGIN);
+    } catch {
+        return null;
+    }
 
-    const withoutSuffix = candidate.split(/[?#]/)[0];
-    const extension = path.extname(withoutSuffix).slice(1).toLowerCase();
+    // Not ours: another host, or a mailto:/data: value with no host at all
+    if (url.hostname !== SITE_HOSTNAME) return null;
+
+    const extension = path.extname(url.pathname).slice(1).toLowerCase();
     if (!ASSET_EXTENSIONS.has(extension)) return null;
 
     try {
-        return decodeURIComponent(withoutSuffix);
+        return decodeURIComponent(url.pathname);
     } catch {
         // A malformed escape is a broken reference in its own right
-        return withoutSuffix;
+        return url.pathname;
     }
 }
 
 function resolveAsset(assetPathname) {
     for (const root of ASSET_ROOTS) {
-        const file = path.join(ROOT, root, assetPathname);
+        const file = path.join(root, assetPathname);
         if (fs.existsSync(file) && fs.statSync(file).isFile()) return root;
     }
     return null;
 }
 
 function run() {
-    const files = htmlFiles(directory);
+    const files = htmlFiles();
 
     // Where a URL came from, so a failure says which markup to go and fix
     const sources = { 'structured data': new Map(), 'head metadata': new Map() };
@@ -97,15 +120,17 @@ function run() {
         if (!sources[kind].has(assetPathname)) sources[kind].set(assetPathname, page);
     };
 
-    for (const file of files) {
-        const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
-        const page = file.slice(directory.length + 1);
+    for (const page of files) {
+        const html = fs.readFileSync(path.join(EXPORT_DIR, page), 'utf8');
 
         // JSON-LD, wherever in the document it sits. The blocks escape "<" as
         // <, so read the URLs out of the decoded text.
         for (const [, block] of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) {
             const decoded = block.replaceAll('\\u003c', '<');
-            for (const [, url] of decoded.matchAll(/"(https:\/\/www\.dehlimusikk\.no\/[^"]*)"/g)) {
+            // Every absolute URL in the block, ours or not. assetPath is the one
+            // place that decides which host counts, so the rule is not spelled
+            // out twice.
+            for (const [, url] of decoded.matchAll(/"(https?:\/\/[^"\s]+)"/g)) {
                 const found = assetPath(url);
                 if (found) record('structured data', found, page);
             }
