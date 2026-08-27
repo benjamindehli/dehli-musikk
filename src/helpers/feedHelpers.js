@@ -47,6 +47,21 @@ const STORE_CODE = "04516683628261596954";
 
 const getProductId = (product) => convertToUrlFriendlyString(product.title);
 
+/*
+ * Merchant Center rejects an item priced at zero, for both Shopping ads and free
+ * listings, so submitting one costs a standing disapproval and gains nothing.
+ * The products priced at 0.00 are the free ones released on GitHub rather than
+ * sold through the store, so there is no offer to submit for them in the first
+ * place; they stay on the site and out of the feeds.
+ *
+ * Keyed on the price rather than on where the product is hosted because the
+ * price is what Google actually validates: make one of these paid, or a paid one
+ * free, and it enters or leaves the feed on its own.
+ */
+const isSellable = (product) => Number.parseFloat(product.price) > 0 && !!product.priceCurrency?.length;
+
+const getSellableProducts = (products) => (products || []).filter(isSellable);
+
 const renderMerchantItem = (product, lang, languageSlug) => {
     const productId = getProductId(product);
     const description = product.content[lang] ? formatContentAsString(product.content[lang]) : "";
@@ -100,7 +115,9 @@ export function getMerchantFeedXML(products, lang) {
     const { languageSlug } = channelInfo[lang];
     return [
         merchantFeedHeader,
-        products.map((product) => renderMerchantItem(product, lang, languageSlug)).join("\n"),
+        getSellableProducts(products)
+            .map((product) => renderMerchantItem(product, lang, languageSlug))
+            .join("\n"),
         "\n</channel>\n</rss>"
     ].join("");
 }
@@ -108,7 +125,9 @@ export function getMerchantFeedXML(products, lang) {
 export function getLocalInventoryFeedXML(products, lang) {
     return [
         merchantFeedHeader,
-        products.map((product) => renderLocalInventoryItem(product, lang)).join("\n"),
+        getSellableProducts(products)
+            .map((product) => renderLocalInventoryItem(product, lang))
+            .join("\n"),
         "\n</channel>\n</rss>"
     ].join("");
 }
