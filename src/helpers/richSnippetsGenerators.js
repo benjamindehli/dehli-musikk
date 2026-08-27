@@ -24,11 +24,36 @@ function generateHasMerchantReturnPolicySnippet() {
 // is a Product but not a SoftwareApplication.
 const SOFTWARE_PRODUCT_CATEGORIES = ["Software", "Sample instruments"];
 
-function generateSoftwareApplicationProperties(product) {
+/*
+ * operatingSystem used to be "All" for every software product, which is not true
+ * of a native plugin and contradicted what the plugins' own pages say about
+ * themselves. The values below come from each product's own description.
+ *
+ * Every sample library here is a Decent Sampler instrument, and Decent Sampler
+ * runs on all three systems. Each library also ships a macOS plugin build, so
+ * the three cover the product either way.
+ */
+const SAMPLE_INSTRUMENT_OPERATING_SYSTEMS = "macOS, Windows, Linux";
+
+/*
+ * The standalone plugins state their own support, so they are listed one by one.
+ * A product missing from here gets no operatingSystem at all rather than a
+ * guess, which is what leaving it out of this map means.
+ */
+const SOFTWARE_OPERATING_SYSTEMS = {
+    overtonium: "macOS, Windows, Linux",
+    "sidstation-asid": "macOS, Windows, Linux",
+    "microsampler-editor-librarian": "macOS, Linux"
+};
+
+function generateSoftwareApplicationProperties(product, productId) {
     const [category, ...platforms] = product.productType || [];
     if (!SOFTWARE_PRODUCT_CATEGORIES.includes(category)) return null;
     return {
-        operatingSystem: "All",
+        operatingSystem:
+            category === "Sample instruments"
+                ? SAMPLE_INSTRUMENT_OPERATING_SYSTEMS
+                : SOFTWARE_OPERATING_SYSTEMS[productId],
         applicationCategory: ["EntertainmentApplication", "MultimediaApplication"],
         softwareRequirements: platforms.length ? platforms.join(", ") : undefined
     };
@@ -42,10 +67,18 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
 
     const productThumbnailSrc = `https://www.dehlimusikk.no/data/products/web/jpg/${productId}_540.jpg`;
 
+    /*
+     * mainImage and additionalImages are bare filenames, and the files sit in
+     * public/product-images. The directory used to be missing here, so every
+     * product advertised images at the site root that had never been there, while
+     * the merchant feed built the same filenames correctly. Nothing on the page
+     * showed it, because what visitors see comes from the generated sizes under
+     * data/products/web instead.
+     */
     const image = [product?.mainImage]
         .concat(product?.additionalImages || [])
         .filter(Boolean)
-        .map((image) => `https://www.dehlimusikk.no/${image}`);
+        .map((image) => `https://www.dehlimusikk.no/product-images/${image}`);
 
     const video = product?.video
         ? {
@@ -58,7 +91,7 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
           }
         : null;
 
-    const softwareApplicationProperties = generateSoftwareApplicationProperties(product);
+    const softwareApplicationProperties = generateSoftwareApplicationProperties(product, productId);
 
     const minimumPrice = getMinimumPrice(product);
     const priceCurrency = getPriceCurrency(product);
