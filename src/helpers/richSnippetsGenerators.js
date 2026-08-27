@@ -66,7 +66,21 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
         // same @id means same node, so separate Product/SoftwareApplication
         // snippets would merge into one node with contradictory types.
         "@type": softwareApplicationProperties ? ["Product", "SoftwareApplication"] : "Product",
-        "@id": product.link.url,
+        /*
+         * The product's identity belongs on this site rather than on the store or
+         * GitHub page it is downloaded from, which is where the @id used to
+         * point: an @id is what other nodes refer to, and handing that to an
+         * external URL means anything describing the product describes a page
+         * Dehli Musikk does not control. The store URL is still in offers.url
+         * and sameAs, which is what those are for.
+         *
+         * Language independent, so both language versions describe one product,
+         * with the localised address in url. The #product fragment keeps it clear
+         * of the WebPage node in mainEntityOfPage below, which owns the bare page
+         * URL, the same way the WebSite node uses #website to stay clear of the
+         * LocalBusiness.
+         */
+        "@id": `https://www.dehlimusikk.no/products/${productId}/#product`,
         url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
         description: formatContentAsString(product.content[selectedLanguageKey]),
         brand: {

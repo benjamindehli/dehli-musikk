@@ -7,6 +7,61 @@ const localBusinessDescriptions: Record<Lang, string> = {
     en: 'Dehli Musikk is a local music business based in Bø i Telemark, Norway. Founded by Benjamin Dehli in 2019, it offers keyboard instrument tracks on recordings for artists and bands.'
 };
 
+/*
+ * The one thing the business actually sells was described only in prose. Nothing
+ * in the structured data said a service was on offer at all: the LocalBusiness
+ * gave an address and a price range, the products cover the sample libraries, and
+ * between them the keyboard session work went unstated.
+ *
+ * No price on the Offer. The work is quoted per song rather than sold at a set
+ * rate, so any number here would be invented, and priceRange on the
+ * LocalBusiness already gives the rough answer.
+ */
+const serviceNames: Record<Lang, string> = {
+    no: 'Innspilling av tangentinstrumenter',
+    en: 'Keyboard instrument recording'
+};
+
+const serviceDescriptions: Record<Lang, string> = {
+    no: 'Spilling av tangentinstrumenter på låter for artister og band. Sporene spilles inn i Bø i Telemark og leveres som lydfiler.',
+    en: 'Keyboard instrument tracks played on songs for artists and bands. The tracks are recorded in Bø i Telemark and delivered as audio files.'
+};
+
+const serviceTypes: Record<Lang, string> = {
+    no: 'Musikkinnspilling',
+    en: 'Music recording'
+};
+
+const getServiceOffer = (lang: Lang) => ({
+    '@type': 'Offer',
+    itemOffered: {
+        '@type': 'Service',
+        // Language independent, like the other @ids, with the localised address
+        // in the channel's serviceUrl below
+        '@id': 'https://www.dehlimusikk.no/#service',
+        name: serviceNames[lang],
+        description: serviceDescriptions[lang],
+        serviceType: serviceTypes[lang],
+        provider: { '@id': 'https://www.dehlimusikk.no/' },
+        // Matches areaServed on the LocalBusiness rather than claiming wider
+        // reach than the business itself states
+        areaServed: {
+            '@type': 'Country',
+            name: 'Norway'
+        },
+        availableChannel: {
+            '@type': 'ServiceChannel',
+            // The contact section on the home page, which is also where
+            // acquireLicensePage points
+            serviceUrl: `https://www.dehlimusikk.no/${getLanguageSlug(lang)}#contact`,
+            availableLanguage: [
+                { '@type': 'Language', name: 'Norwegian', alternateName: 'no' },
+                { '@type': 'Language', name: 'English', alternateName: 'en' }
+            ]
+        }
+    }
+});
+
 const personDescriptions: Record<Lang, string> = {
     no: 'Benjamin Dehli er tangentspiller, komponist og produsent fra Norge. Gjennom musikkvirksomheten Dehli Musikk tilbyr han spilling av tangentinstrumenter på låter for artister og band.',
     en: 'Benjamin Dehli is a keyboard player, composer and producer from Norway. Benjamin offers keyboard instrument tracks on recordings for artists and bands through his music business Dehli Musikk.'
@@ -241,7 +296,13 @@ const getWebsiteJsonLd = (lang: Lang) => ({
 
 const SiteJsonLd = ({ lang }: { lang: Lang }) => (
     <>
-        <JsonLd data={{ ...localBusinessJsonLd, description: localBusinessDescriptions[lang] }} />
+        <JsonLd
+            data={{
+                ...localBusinessJsonLd,
+                description: localBusinessDescriptions[lang],
+                makesOffer: getServiceOffer(lang)
+            }}
+        />
         <JsonLd data={{ ...personJsonLd, description: personDescriptions[lang] }} />
         <JsonLd data={getWebsiteJsonLd(lang)} />
     </>
