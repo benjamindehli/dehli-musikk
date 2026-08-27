@@ -1,6 +1,7 @@
 // Helpers
 import { formatContentAsString } from "./contentFormatter";
 import { getPlusOneYear } from "./dateFormatter";
+import { getMinimumPrice, getPriceCurrency } from "./productPricing";
 import { convertToUrlFriendlyString } from "./urlFormatter";
 
 // Data
@@ -56,6 +57,9 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
 
     const softwareApplicationProperties = generateSoftwareApplicationProperties(product);
 
+    const minimumPrice = getMinimumPrice(product);
+    const priceCurrency = getPriceCurrency(product);
+
     const snippet = {
         "@context": "https://schema.org",
         // A single node typed as both, rather than two nodes sharing one @id:
@@ -76,8 +80,28 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
         video: video,
         offers: {
             "@type": "Offer",
-            price: product.price?.length ? product.price : 0,
-            priceCurrency: product.priceCurrency?.length ? product.priceCurrency : "USD",
+            /*
+             * Store products are pay what you want, so this is the least a buyer
+             * can pay and not a fixed amount. minPrice below says so.
+             *
+             * price stays regardless: Merchant Center compares it against the
+             * g:price in the product feed when it crawls this page, and dropping
+             * it in favour of the specification alone would leave that with
+             * nothing to match. The two are the same number by construction.
+             */
+            price: minimumPrice,
+            priceCurrency,
+            // Nothing to qualify where a product is free: no minimum to clear,
+            // and minPrice: 0 would only restate the price above.
+            ...(minimumPrice > 0
+                ? {
+                      priceSpecification: {
+                          "@type": "PriceSpecification",
+                          minPrice: minimumPrice,
+                          priceCurrency
+                      }
+                  }
+                : {}),
             url: product.link.url,
             availability: "https://schema.org/OnlineOnly",
             validFrom: productDate,

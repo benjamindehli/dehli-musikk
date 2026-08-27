@@ -1,6 +1,7 @@
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { formatContentAsString } from "helpers/contentFormatter";
+import { getPriceCurrency, hasPrice } from "helpers/productPricing";
 
 const websiteUrl = "https://www.dehlimusikk.no";
 const feedPostCount = 20;
@@ -50,17 +51,15 @@ const getProductId = (product) => convertToUrlFriendlyString(product.title);
 /*
  * Merchant Center rejects an item priced at zero, for both Shopping ads and free
  * listings, so submitting one costs a standing disapproval and gains nothing.
- * The products priced at 0.00 are the free ones released on GitHub rather than
- * sold through the store, so there is no offer to submit for them in the first
- * place; they stay on the site and out of the feeds.
+ * A product at zero is either a free release with no payment path or a store
+ * product a buyer may take for nothing, and neither has an offer to submit; they
+ * stay on the site and out of the feeds.
  *
  * Keyed on the price rather than on where the product is hosted because the
  * price is what Google actually validates: make one of these paid, or a paid one
  * free, and it enters or leaves the feed on its own.
  */
-const isSellable = (product) => Number.parseFloat(product.price) > 0 && !!product.priceCurrency?.length;
-
-const getSellableProducts = (products) => (products || []).filter(isSellable);
+const getSellableProducts = (products) => (products || []).filter(hasPrice);
 
 /*
  * Merchant Center caps g:description at 5000 characters and disapproves the item
@@ -116,7 +115,7 @@ const renderMerchantItem = (product, lang, languageSlug) => {
         ...additionalImageLinks,
         "<g:condition>new</g:condition>",
         "<g:availability>in stock</g:availability>",
-        `<g:price>${product.price} ${product.priceCurrency}</g:price>`,
+        `<g:price>${product.price} ${getPriceCurrency(product)}</g:price>`,
         "<g:google_product_category>313</g:google_product_category>",
         "<g:identifier_exists>no</g:identifier_exists>",
         "<g:adult>no</g:adult>",
@@ -135,7 +134,7 @@ const renderLocalInventoryItem = (product, lang) => {
         `<g:id>${lang}-${getProductId(product)}</g:id>`,
         `<g:store_code>${STORE_CODE}</g:store_code>`,
         "<g:availability>in stock</g:availability>",
-        `<g:price>${product.price} ${product.priceCurrency}</g:price>`,
+        `<g:price>${product.price} ${getPriceCurrency(product)}</g:price>`,
         "</item>"
     ].join("\n");
 };

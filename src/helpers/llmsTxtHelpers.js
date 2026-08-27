@@ -1,6 +1,7 @@
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { formatContentAsString } from "helpers/contentFormatter";
+import { getPriceCurrency, hasPrice } from "helpers/productPricing";
 
 const websiteUrl = "https://www.dehlimusikk.no";
 
@@ -108,8 +109,13 @@ const renderFullEntry = (heading, url, meta, body) =>
 
 const renderFullProduct = (product) => {
     const productId = convertToUrlFriendlyString(product.title);
-    const price = product.price ? `${product.price} ${product.priceCurrency || "USD"}` : null;
-    const meta = [price ? `Price: ${price}` : null, product.productType?.length ? `Type: ${product.productType.join(" > ")}` : null, product.link?.url ? `Store: ${product.link.url}` : null]
+    /*
+     * "from", because the price on a store product is a pay what you want
+     * minimum. Zero reads as free rather than as "0.00 USD", which was both ugly
+     * and easy to mistake for a missing value.
+     */
+    const price = hasPrice(product) ? `from ${product.price} ${getPriceCurrency(product)}` : "free";
+    const meta = [`Price: ${price}`, product.productType?.length ? `Type: ${product.productType.join(" > ")}` : null, product.link?.url ? `Store: ${product.link.url}` : null]
         .filter(Boolean)
         .join("\n");
     return renderFullEntry(product.title, `${websiteUrl}/en/products/${productId}/`, meta, product.content?.en ? formatContentAsString(product.content.en) : "");
