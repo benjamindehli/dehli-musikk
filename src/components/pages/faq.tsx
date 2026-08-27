@@ -6,7 +6,7 @@ import ExpansionPanel from 'components/template/ExpansionPanel';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString, formatContentWithReactLinks } from 'helpers/contentFormatter';
 import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
+import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import frequentlyAskedQuestions from 'data/frequentlyAskedQuestions';
 import style from 'components/routes/Faq.module.scss';
 
@@ -32,11 +32,11 @@ export function getFaqPageMetadata(lang: Lang): Metadata {
         title: t.metaTitle,
         description: t.description,
         alternates: buildAlternates(lang, { no: 'frequently-asked-questions/', en: 'frequently-asked-questions/' }),
-        openGraph: {
-            title: t.pageTitle, url: `${WEBSITE_URL}/${languageSlug}frequently-asked-questions/`,
-            description: t.description, ...ogLocale(lang)
-        },
-        twitter: { title: t.pageTitle, description: t.description }
+        ...socialMetadata(lang, {
+            title: t.pageTitle,
+            url: `${WEBSITE_URL}/${languageSlug}frequently-asked-questions/`,
+            description: t.description
+        })
     };
 }
 

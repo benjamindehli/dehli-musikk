@@ -11,7 +11,7 @@ import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { getJsonLdIdForRelease } from 'helpers/releaseHelpers';
 import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
+import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import releases from 'data/portfolio';
 
 const translations = {
@@ -42,11 +42,11 @@ export function getPortfolioPageMetadata(lang: Lang): Metadata {
         title: t.metaTitle,
         description: t.description,
         alternates: buildAlternates(lang, { no: 'portfolio/', en: 'portfolio/' }),
-        openGraph: {
-            title: t.pageTitle, url: `${WEBSITE_URL}/${languageSlug}portfolio/`,
-            description: t.description, ...ogLocale(lang)
-        },
-        twitter: { title: t.pageTitle, description: t.description }
+        ...socialMetadata(lang, {
+            title: t.pageTitle,
+            url: `${WEBSITE_URL}/${languageSlug}portfolio/`,
+            description: t.description
+        })
     };
 }
 
@@ -138,15 +138,15 @@ export async function getReleaseDetailsMetadata(lang: Lang, { params }: ReleaseR
             no: `portfolio/${releaseId}/`,
             en: `portfolio/${releaseId}/`
         }),
-        openGraph: {
+        ...socialMetadata(lang, {
             type: 'music.song',
-            title: heading, url: `${WEBSITE_URL}/${languageSlug}portfolio/${releaseId}/`,
-            description, ...ogLocale(lang),
-            // og:music:duration is in whole seconds; release.duration is in milliseconds
+            title: heading,
+            url: `${WEBSITE_URL}/${languageSlug}portfolio/${releaseId}/`,
+            description,
+            // release.duration is in milliseconds, og:music:duration in seconds
             duration: release.duration ? Math.round(release.duration / 1000) : undefined,
             images: [{ url: `${WEBSITE_URL}/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`, width: 540, height: 540 }]
-        },
-        twitter: { title: heading, description, images: [`${WEBSITE_URL}/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`] }
+        })
     };
 }
 

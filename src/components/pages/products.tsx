@@ -12,7 +12,7 @@ import { formatContentAsString } from 'helpers/contentFormatter';
 import { generateProductSnippet } from 'helpers/richSnippetsGenerators';
 import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
+import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import products from 'data/products';
 
 const translations = {
@@ -39,11 +39,11 @@ export function getProductsPageMetadata(lang: Lang): Metadata {
         title: t.metaTitle,
         description: t.description,
         alternates: buildAlternates(lang, { no: 'products/', en: 'products/' }),
-        openGraph: {
-            title: t.pageTitle, url: `${WEBSITE_URL}/${languageSlug}products/`,
-            description: t.description, ...ogLocale(lang)
-        },
-        twitter: { title: t.pageTitle, description: t.description }
+        ...socialMetadata(lang, {
+            title: t.pageTitle,
+            url: `${WEBSITE_URL}/${languageSlug}products/`,
+            description: t.description
+        })
     };
 }
 
@@ -125,12 +125,12 @@ export async function getProductDetailsMetadata(lang: Lang, { params }: ProductR
             no: `products/${productId}/`,
             en: `products/${productId}/`
         }),
-        openGraph: {
-            title: product.title, url: `${WEBSITE_URL}/${languageSlug}products/${productId}/`,
-            description, ...ogLocale(lang),
+        ...socialMetadata(lang, {
+            title: product.title,
+            url: `${WEBSITE_URL}/${languageSlug}products/${productId}/`,
+            description,
             images: [{ url: `${WEBSITE_URL}/data/products/web/jpg/${productId}_540.jpg`, width: 540, height: 400 }]
-        },
-        twitter: { title: product.title, description, images: [`${WEBSITE_URL}/data/products/web/jpg/${productId}_540.jpg`] }
+        })
     };
 }
 

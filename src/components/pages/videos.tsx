@@ -11,7 +11,7 @@ import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
 import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
+import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import videos from 'data/videos';
 
 const translations = {
@@ -40,11 +40,11 @@ export function getVideosPageMetadata(lang: Lang): Metadata {
         title: t.metaTitle,
         description: t.description,
         alternates: buildAlternates(lang, { no: 'videos/', en: 'videos/' }),
-        openGraph: {
-            title: t.pageTitle, url: `${WEBSITE_URL}/${languageSlug}videos/`,
-            description: t.description, ...ogLocale(lang)
-        },
-        twitter: { title: t.pageTitle, description: t.description }
+        ...socialMetadata(lang, {
+            title: t.pageTitle,
+            url: `${WEBSITE_URL}/${languageSlug}videos/`,
+            description: t.description
+        })
     };
 }
 
@@ -145,12 +145,12 @@ async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps): Promis
     return {
         title, description,
         alternates: buildAlternates(lang, canonicalPaths),
-        openGraph: {
-            title: video.title[lang], url: `${WEBSITE_URL}/${languageSlug}${canonicalPaths[lang]}`,
-            description, ...ogLocale(lang),
+        ...socialMetadata(lang, {
+            title: video.title[lang],
+            url: `${WEBSITE_URL}/${languageSlug}${canonicalPaths[lang]}`,
+            description,
             images: [{ url: `${WEBSITE_URL}/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`, width: 540, height: 304 }]
-        },
-        twitter: { title: video.title[lang], description, images: [`${WEBSITE_URL}/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`] }
+        })
     };
 }
 

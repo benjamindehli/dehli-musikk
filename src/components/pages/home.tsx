@@ -9,7 +9,7 @@ import LatestReleases from 'components/partials/LatestReleases';
 import LatestVideos from 'components/partials/LatestVideos';
 import SocialMediaLinks from 'components/partials/SocialMediaLinks';
 import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
+import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import style from 'components/routes/Home.module.scss';
 
 const translations = {
@@ -56,15 +56,13 @@ export function getHomePageMetadata(lang: Lang): Metadata {
         title: t.metaTitle,
         description: t.description,
         alternates: buildAlternates(lang, { no: '', en: '' }),
-        openGraph: {
+        ...socialMetadata(lang, {
             // Kept as the bare brand name: og:title is a social-card heading,
             // not a search snippet, and the keywords read as noise there.
             title: 'Dehli Musikk',
             url: `${WEBSITE_URL}/${languageSlug}`,
-            description: t.description,
-            ...ogLocale(lang)
-        },
-        twitter: { title: 'Dehli Musikk', description: t.description }
+            description: t.description
+        })
     };
 }
 

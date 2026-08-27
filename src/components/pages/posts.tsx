@@ -11,7 +11,7 @@ import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
 import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
-import { AUTHOR_URL, buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
+import { AUTHOR_URL, buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import posts from 'data/posts';
 
 const translations = {
@@ -40,11 +40,11 @@ export function getPostsPageMetadata(lang: Lang): Metadata {
         title: t.metaTitle,
         description: t.description,
         alternates: buildAlternates(lang, { no: 'posts/', en: 'posts/' }),
-        openGraph: {
-            title: t.pageTitle, url: `${WEBSITE_URL}/${languageSlug}posts/`,
-            description: t.description, ...ogLocale(lang)
-        },
-        twitter: { title: t.pageTitle, description: t.description }
+        ...socialMetadata(lang, {
+            title: t.pageTitle,
+            url: `${WEBSITE_URL}/${languageSlug}posts/`,
+            description: t.description
+        })
     };
 }
 
@@ -129,17 +129,16 @@ export async function getPostDetailsMetadata(lang: Lang, { params }: PostRoutePr
             no: `posts/${convertToUrlFriendlyString(post.title.no)}/`,
             en: `posts/${convertToUrlFriendlyString(post.title.en)}/`
         }),
-        openGraph: {
+        ...socialMetadata(lang, {
             type: 'article',
             title: post.title[lang],
             url: `${WEBSITE_URL}/${languageSlug}posts/${postId}/`,
-            description, ...ogLocale(lang),
+            description,
             publishedTime: new Date(post.timestamp).toISOString(),
             modifiedTime: new Date(post.lastmod ?? post.timestamp).toISOString(),
             authors: [AUTHOR_URL],
             images: [{ url: `${WEBSITE_URL}/data/posts/web/jpg/${post.thumbnailFilename}_540.jpg`, width: 540, height: 400 }]
-        },
-        twitter: { title: post.title[lang], description, images: [`${WEBSITE_URL}/data/posts/web/jpg/${post.thumbnailFilename}_540.jpg`] }
+        })
     };
 }
 

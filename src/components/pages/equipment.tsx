@@ -16,7 +16,7 @@ import { getInstrumentReleases } from 'helpers/instrumentReleases';
 import { getVideosForEquipmentItem } from 'helpers/equipmentUsage';
 import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, ogLocale, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
+import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
 import equipment from 'data/equipment';
 
 const translations = {
@@ -48,11 +48,11 @@ export function getEquipmentPageMetadata(lang: Lang): Metadata {
         title: t.metaTitle,
         description: t.description,
         alternates: buildAlternates(lang, { no: 'equipment/', en: 'equipment/' }),
-        openGraph: {
-            title: t.pageTitle, url: `${WEBSITE_URL}/${languageSlug}equipment/`,
-            description: t.description, ...ogLocale(lang)
-        },
-        twitter: { title: t.pageTitle, description: t.description }
+        ...socialMetadata(lang, {
+            title: t.pageTitle,
+            url: `${WEBSITE_URL}/${languageSlug}equipment/`,
+            description: t.description
+        })
     };
 }
 
@@ -158,11 +158,12 @@ export async function getEquipmentTypeMetadata(lang: Lang, { params }: Equipment
             no: `equipment/${equipmentType}/`,
             en: `equipment/${equipmentType}/`
         }),
-        openGraph: {
-            title: typeName, url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentType}/`,
-            description, ...ogLocale(lang)
-        },
-        twitter: { title: typeName, description }
+        ...socialMetadata(lang, {
+            title: typeName,
+            url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentType}/`,
+            description,
+            images: [{ url: `${WEBSITE_URL}/data/equipment/web/jpg/${equipmentType}_945.jpg`, width: 945, height: 700 }]
+        })
     };
 }
 
@@ -278,12 +279,12 @@ export async function getEquipmentItemMetadata(lang: Lang, { params }: Equipment
             no: `equipment/${equipmentType}/${equipmentId}/`,
             en: `equipment/${equipmentType}/${equipmentId}/`
         }),
-        openGraph: {
-            title: itemName, url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentType}/${equipmentId}/`,
-            description, ...ogLocale(lang),
+        ...socialMetadata(lang, {
+            title: itemName,
+            url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentType}/${equipmentId}/`,
+            description,
             images: [{ url: `${WEBSITE_URL}/data/equipment/${equipmentType}/web/jpg/${equipmentId}_945.jpg`, width: 945, height: 700 }]
-        },
-        twitter: { title: itemName, description, images: [`${WEBSITE_URL}/data/equipment/${equipmentType}/web/jpg/${equipmentId}_945.jpg`] }
+        })
     };
 }
 
