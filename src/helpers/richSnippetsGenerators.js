@@ -93,6 +93,17 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
 
     const softwareApplicationProperties = generateSoftwareApplicationProperties(product, productId);
 
+    /*
+     * video belongs to CreativeWork. A SoftwareApplication is one, so the sample
+     * libraries and the plugins can carry it, but the patch libraries are typed
+     * Product alone, deliberately, and a Product is not a CreativeWork. Their demo
+     * attaches through subjectOf instead, which any Thing can carry.
+     *
+     * Spread rather than assigned, so a product without a video says nothing at
+     * all instead of carrying an explicit null.
+     */
+    const videoProperty = video ? (softwareApplicationProperties ? { video } : { subjectOf: video }) : {};
+
     const minimumPrice = getMinimumPrice(product);
     const priceCurrency = getPriceCurrency(product);
 
@@ -136,7 +147,7 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
         releaseDate: productDate,
         name: product.title,
         image: image.length ? image : productThumbnailSrc,
-        video: video,
+        ...videoProperty,
         offers: {
             "@type": "Offer",
             /*
