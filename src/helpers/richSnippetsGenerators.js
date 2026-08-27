@@ -7,6 +7,9 @@ import { convertToUrlFriendlyString } from "./urlFormatter";
 // Data
 import countryCodes from "data/countryCodes";
 
+// The LocalBusiness node in components/SiteJsonLd, which every page carries
+const SITE_JSON_LD_ID = "https://www.dehlimusikk.no/";
+
 function generateHasMerchantReturnPolicySnippet() {
     return {
         "@type": "MerchantReturnPolicy",
@@ -83,10 +86,19 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
         "@id": `https://www.dehlimusikk.no/products/${productId}/#product`,
         url: `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
         description: formatContentAsString(product.content[selectedLanguageKey]),
-        brand: {
-            "@type": "Brand",
-            name: "Dehli Musikk"
-        },
+        /*
+         * References the LocalBusiness node that SiteJsonLd puts on every page,
+         * rather than describing Dehli Musikk again. As anonymous nodes these
+         * were two more copies of the business sitting beside the real one in the
+         * same document with nothing tying them together.
+         *
+         * name is restated rather than left to the reference alone: each snippet
+         * here goes out in its own script tag instead of a shared @graph, and a
+         * consumer that reads one tag in isolation would otherwise see a brand
+         * with no name. The value is the referenced node's own, so the two cannot
+         * disagree. No @type, which would add Brand to the business's types.
+         */
+        brand: { "@id": SITE_JSON_LD_ID, name: "Dehli Musikk" },
         productionDate: productDate,
         releaseDate: productDate,
         name: product.title,
@@ -121,10 +133,9 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
             validFrom: productDate,
             priceValidUntil: plusOneYear,
             hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet(),
-            seller: {
-                "@type": "Organization",
-                name: "Dehli Musikk"
-            }
+            // The same node as brand above, and as the business the page already
+            // describes in full
+            seller: { "@id": SITE_JSON_LD_ID, name: "Dehli Musikk" }
         },
         mainEntityOfPage: {
             "@type": "WebPage",
