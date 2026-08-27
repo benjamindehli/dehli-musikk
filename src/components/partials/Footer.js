@@ -4,30 +4,12 @@ import Link from 'next/link';
 
 // Lib
 import { getLanguageSlug } from 'lib/i18n';
+import { sectionLinks } from 'lib/sectionLinks';
 
 // Stylesheets
 import style from 'components/partials/Footer.module.scss';
 
 const year = new Date().getFullYear();
-
-/*
- * The same six sections the navigation sidebar lists. Repeating them here is
- * deliberate: the sidebar is the only other route between pages, so before this
- * every page linked onward through a single burger menu. Both lists are short
- * enough that keeping them in step by hand is cheaper than sharing a module
- * between a server and a client component.
- */
-const sectionLinks = [
-    { path: 'portfolio/', label: { no: 'Portefølje', en: 'Portfolio' } },
-    { path: 'posts/', label: { no: 'Innlegg', en: 'Posts' } },
-    { path: 'videos/', label: { no: 'Videoer', en: 'Videos' } },
-    { path: 'products/', label: { no: 'Produkter', en: 'Products' } },
-    { path: 'equipment/', label: { no: 'Utstyr', en: 'Equipment' } },
-    {
-        path: 'frequently-asked-questions/',
-        label: { no: 'Ofte stilte spørsmål', en: 'Frequently Asked Questions' }
-    }
-];
 
 const translations = {
     no: {

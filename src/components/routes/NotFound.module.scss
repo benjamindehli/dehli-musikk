@@ -1,5 +1,38 @@
+@use "../../style/abstracts/variables/breakpoints";
+
 .contentSection {
   max-width: 1200px;
   padding: 64px 24px;
   margin: auto;
+
+  & .logo {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+  }
+
+  & h1 {
+    margin-bottom: 0;
+  }
+
+  & .languageSections {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr;
+
+    @media (min-width: breakpoints.$screen-sm) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    & .languageSection {
+      & ul {
+        list-style: none;
+        padding: 0;
+
+        & li {
+          margin: 6px 0;
+        }
+      }
+    }
+  }
 }
