@@ -55,7 +55,20 @@ function generateSoftwareApplicationProperties(product, productId) {
                 ? SAMPLE_INSTRUMENT_OPERATING_SYSTEMS
                 : SOFTWARE_OPERATING_SYSTEMS[productId],
         applicationCategory: ["EntertainmentApplication", "MultimediaApplication"],
-        softwareRequirements: platforms.length ? platforms.join(", ") : undefined
+        softwareRequirements: platforms.length ? platforms.join(", ") : undefined,
+        /*
+         * The optional docs link, which is what softwareHelp is for. It lives
+         * here rather than beside the other product properties because
+         * softwareHelp belongs to SoftwareApplication: the patch libraries are
+         * plain Products, so a docs link on one of those stays a button on the
+         * page without a structured data equivalent.
+         *
+         * A page node rather than a bare URL, since softwareHelp expects a
+         * CreativeWork.
+         */
+        softwareHelp: product.documentationLink?.url
+            ? { "@type": "WebPage", url: product.documentationLink.url }
+            : undefined
     };
 }
 

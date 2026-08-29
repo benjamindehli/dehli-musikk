@@ -63,10 +63,21 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
         }
     };
 
-    const renderShopLink = (link) => {
+    /*
+     * link is where the product is bought or downloaded, documentationLink an
+     * optional second button for a docs or info page. Both carry their own text
+     * per language, so the button says whatever the product data says.
+     */
+    const renderActionLink = (actionLink) => {
         return (
-            <a href={link.url} target="_blank" rel="noopener noreferrer" title={link.text[lang]}>
-                <Button buttontype="minimal">{link.text[lang]}</Button>
+            <a
+                key={actionLink.url}
+                href={actionLink.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={actionLink.text[lang]}
+            >
+                <Button buttontype="minimal">{actionLink.text[lang]}</Button>
             </a>
         );
     };
@@ -127,6 +138,12 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
         title: product.title
     };
 
+    // Ordered as the buttons appear: where to get it first, then where to read
+    // about it. A product with neither renders no button row at all.
+    const actionLinks = [product.link, product.documentationLink].filter(
+        (actionLink) => actionLink?.url && actionLink?.text?.[lang]
+    );
+
     return product && product.content && product.content[lang] ? (
         <React.Fragment>
             {fullscreen ? renderProductSnippet(product) : ""}
@@ -145,9 +162,9 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
                     )}
                 </ListItemContentHeader>
                 {!compact && <ListItemContentBody fullscreen={fullscreen}>{productDescription}</ListItemContentBody>}
-                {product.link && fullscreen ? (
+                {actionLinks.length && fullscreen ? (
                     <ListItemActionButtons fullscreen={fullscreen}>
-                        {renderShopLink(product.link)}
+                        {actionLinks.map(renderActionLink)}
                     </ListItemActionButtons>
                 ) : (
                     ""
