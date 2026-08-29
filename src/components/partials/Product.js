@@ -68,10 +68,15 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
      * optional second button for a docs or info page. Both carry their own text
      * per language, so the button says whatever the product data says.
      */
-    const renderActionLink = (actionLink) => {
+    /*
+     * Keyed by role, not by url: a product may point both buttons at the same
+     * page, which the free plugins do, and duplicate keys are an error React
+     * only warns about before behaving unpredictably.
+     */
+    const renderActionLink = ({ role, actionLink }) => {
         return (
             <a
-                key={actionLink.url}
+                key={role}
                 href={actionLink.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -140,9 +145,10 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
 
     // Ordered as the buttons appear: where to get it first, then where to read
     // about it. A product with neither renders no button row at all.
-    const actionLinks = [product.link, product.documentationLink].filter(
-        (actionLink) => actionLink?.url && actionLink?.text?.[lang]
-    );
+    const actionLinks = [
+        { role: 'primary', actionLink: product.link },
+        { role: 'documentation', actionLink: product.documentationLink }
+    ].filter(({ actionLink }) => actionLink?.url && actionLink?.text?.[lang]);
 
     return product && product.content && product.content[lang] ? (
         <React.Fragment>
