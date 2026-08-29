@@ -10,6 +10,10 @@ import countryCodes from "data/countryCodes";
 // The LocalBusiness node in components/SiteJsonLd, which every page carries
 const SITE_JSON_LD_ID = "https://www.dehlimusikk.no/";
 
+// Distinct from the business above, which is an organisation and not a brand,
+// following the same fragment convention as #website, #service and #product
+const BRAND_JSON_LD_ID = "https://www.dehlimusikk.no/#brand";
+
 function generateHasMerchantReturnPolicySnippet() {
     return {
         "@type": "MerchantReturnPolicy",
@@ -153,9 +157,17 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
          * here goes out in its own script tag instead of a shared @graph, and a
          * consumer that reads one tag in isolation would otherwise see a brand
          * with no name. The value is the referenced node's own, so the two cannot
-         * disagree. No @type, which would add Brand to the business's types.
+         * disagree.
+         *
+         * The brand is its own node rather than a reference to the business.
+         * Google requires a typed object here and reports "Invalid object type
+         * for field brand" without one, but typing the business's @id as Brand
+         * would add Brand to that node's types, which it is not. A separate @id
+         * gives the brand one identity across all the product pages, instead of
+         * the anonymous copy per page this replaced, without touching the
+         * business node.
          */
-        brand: { "@id": SITE_JSON_LD_ID, name: "Dehli Musikk" },
+        brand: { "@type": "Brand", "@id": BRAND_JSON_LD_ID, name: "Dehli Musikk" },
         productionDate: productDate,
         releaseDate: productDate,
         name: product.title,
@@ -190,9 +202,14 @@ export function generateProductSnippet(product, languageSlug, selectedLanguageKe
             validFrom: productDate,
             priceValidUntil: plusOneYear,
             hasMerchantReturnPolicy: generateHasMerchantReturnPolicySnippet(),
-            // The same node as brand above, and as the business the page already
-            // describes in full
-            seller: { "@id": SITE_JSON_LD_ID, name: "Dehli Musikk" }
+            /*
+             * The business itself, which does sell these, so this one stays a
+             * reference to the LocalBusiness node the page already describes in
+             * full. Typed Organization for the same reason brand is typed: Google
+             * wants an object type here. LocalBusiness is a subtype of
+             * Organization, so the two descriptions of that node agree.
+             */
+            seller: { "@type": "Organization", "@id": SITE_JSON_LD_ID, name: "Dehli Musikk" }
         },
         mainEntityOfPage: {
             "@type": "WebPage",
