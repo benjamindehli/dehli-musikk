@@ -10,11 +10,15 @@
         "price": "0.00",
         "priceCurrency": "USD",
         "link": {
-            "url": "https://benjamindehli.github.io/overtonium/",
+            "url": "https://github.com/benjamindehli/overtonium/releases/latest",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/overtonium/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://benjamindehli.github.io/overtonium/",
@@ -36,11 +40,15 @@
         "price": "0.00",
         "priceCurrency": "USD",
         "link": {
-            "url": "https://benjamindehli.github.io/sidstation-asid/",
+            "url": "https://github.com/benjamindehli/overtonium/releases/latest",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/sidstation-asid/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://benjamindehli.github.io/sidstation-asid/",
@@ -67,11 +75,15 @@
         "price": "0.00",
         "priceCurrency": "USD",
         "link": {
-            "url": "https://benjamindehli.github.io/microsampler-editor-librarian/",
+            "url": "https://github.com/benjamindehli/microsampler-editor-librarian/releases/latest",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/microsampler-editor-librarian/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://benjamindehli.github.io/microsampler-editor-librarian/",

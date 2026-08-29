@@ -10,11 +10,15 @@
         "price": "0.00",
         "priceCurrency": "USD",
         "link": {
-            "url": "https://benjamindehli.github.io/overtonium/",
+            "url": "https://github.com/benjamindehli/overtonium/releases/latest",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/overtonium/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://benjamindehli.github.io/overtonium/",
@@ -36,11 +40,15 @@
         "price": "0.00",
         "priceCurrency": "USD",
         "link": {
-            "url": "https://benjamindehli.github.io/sidstation-asid/",
+            "url": "https://github.com/benjamindehli/overtonium/releases/latest",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/sidstation-asid/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://benjamindehli.github.io/sidstation-asid/",
@@ -67,11 +75,15 @@
         "price": "0.00",
         "priceCurrency": "USD",
         "link": {
-            "url": "https://benjamindehli.github.io/microsampler-editor-librarian/",
+            "url": "https://github.com/benjamindehli/microsampler-editor-librarian/releases/latest",
             "text": {
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/microsampler-editor-librarian/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://benjamindehli.github.io/microsampler-editor-librarian/",
@@ -106,6 +118,10 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/MaskinTrommer/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/maskintrommer",
@@ -153,6 +169,10 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/MidnightWurli/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/midnight-wurli",
@@ -282,6 +302,10 @@
                 "no": "Gå til side for nedlasting"
             }
         },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/EDB-Orgel/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+        },
         "sameAs": [
             "https://store.dehlimusikk.no/l/edb-orgel",
             "https://dehlimusikk.gumroad.com/l/edb-orgel",
@@ -322,6 +346,10 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/SubC/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/subc",
@@ -364,6 +392,10 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/4-track-toy-piano/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/4-track-toy-piano",
@@ -413,6 +445,10 @@
                 "no": "Gå til side for nedlasting"
             }
         },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/ElektriskSalmesykkel/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+        },
         "sameAs": [
             "https://store.dehlimusikk.no/l/elektrisk-salmesykkel",
             "https://dehlimusikk.gumroad.com/l/elektrisk-salmesykkel",
@@ -460,6 +496,10 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/StyloPoly/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/stylopoly",
@@ -514,6 +554,10 @@
                 "no": "Gå til side for nedlasting"
             }
         },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/Strykebrett/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+        },
         "sameAs": [
             "https://store.dehlimusikk.no/l/strykebrett",
             "https://dehlimusikk.gumroad.com/l/strykebrett",
@@ -566,6 +610,10 @@
                 "no": "Gå til side for nedlasting"
             }
         },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/4-track-glockenspiel/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+        },
         "sameAs": [
             "https://store.dehlimusikk.no/l/4-track-glockenspiel",
             "https://dehlimusikk.gumroad.com/l/4-track-glockenspiel",
@@ -614,6 +662,10 @@
                 "no": "Gå til side for nedlasting"
             }
         },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/4-track-music-box/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+        },
         "sameAs": [
             "https://store.dehlimusikk.no/l/4-track-music-box",
             "https://dehlimusikk.gumroad.com/l/4-track-music-box",
@@ -661,6 +713,10 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/VoltageControlledCassetteOrgan/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/voltage-controlled-cassette-organ",
@@ -715,6 +771,10 @@
                 "no": "Gå til side for nedlasting"
             }
         },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/Omni-84/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+        },
         "sameAs": [
             "https://store.dehlimusikk.no/l/omni-84",
             "https://dehlimusikk.gumroad.com/l/omni-84",
@@ -765,6 +825,10 @@
                 "en": "Go to download page",
                 "no": "Gå til side for nedlasting"
             }
+        },
+        "documentationLink": {
+            "url": "https://benjamindehli.github.io/lo-fi-tape-piano/",
+            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/lo-fi-tape-piano",
