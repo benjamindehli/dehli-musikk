@@ -71,6 +71,20 @@ const localBusinessJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': 'https://www.dehlimusikk.no/',
+    /*
+     * The products carry this same node as their brand. Naming it here ties the
+     * two together, so a consumer reading the page sees one business that has a
+     * brand rather than two unconnected things both called Dehli Musikk.
+     *
+     * A node of its own rather than this business typed as a Brand as well: an
+     * organisation is not a brand, and Google rejects a Product whose brand
+     * resolves to something that is not one.
+     */
+    brand: {
+        '@type': 'Brand',
+        '@id': 'https://www.dehlimusikk.no/#brand',
+        name: 'Dehli Musikk'
+    },
     address: {
         '@type': 'PostalAddress',
         addressLocality: 'Bø i Telemark',
