@@ -1,13 +1,34 @@
 # https://www.robotstxt.org/robotstxt.html
+#
+# Content signals: https://contentsignals.org/
+#   search    building a search index and linking to the content
+#   ai-input  using the content as input to an AI answer at query time
+#   ai-train  using the content to train a generative AI model
+#
+# Written in the exact shape contentsignals.org documents: group first in the
+# file, "User-Agent" capitalised as they capitalise it, and the signals in their
+# order. None of that should matter - robots.txt field names are case
+# insensitive and Sitemap is a non-group record that reads the same anywhere.
+#
+# It is written this way because Cloudflare's Agent Readiness diagnostics
+# reported finding no Content-Signal while an earlier layout, carrying these
+# same signals in a group placed after the Sitemap lines, was demonstrably being
+# served. Two things changed before it went green: this layout shipped, and
+# Cloudflare's "Managed robots.txt" setting was toggled on and back through its
+# options. Which one mattered was never established, so do not assume the layout
+# is load bearing - but do not casually change it either without watching the
+# diagnostics afterwards.
+#
+# Managed robots.txt is currently enabled on the zone yet injecting nothing. If
+# it ever starts prepending its own block again, the served file will hold two
+# User-Agent: * groups with different signals, and the ones here should be
+# removed rather than left to disagree. Nothing about that would appear in git.
+
+User-Agent: *
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+Allow: /
+
 Sitemap: https://www.dehlimusikk.no/sitemap.xml
 Sitemap: https://www.dehlimusikk.no/news-sitemap.xml
 Sitemap: https://www.dehlimusikk.no/image-sitemap.xml
 Sitemap: https://www.dehlimusikk.no/video-sitemap.xml
-
-# Content signals: https://contentsignals.org/
-# search: building a search index and linking to the content
-# ai-input: using the content as input to an AI answer at query time
-# ai-train: using the content to train a generative AI model
-User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=no
-Allow: /
