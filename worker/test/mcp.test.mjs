@@ -127,6 +127,25 @@ test('search can be restricted by category and limited', () => {
     assert.equal(searchCorpus(entries, 'x', 'all').length, 0, 'single characters are not searched');
 });
 
+test('body matches have diminishing returns', () => {
+    /*
+     * Equipment entries name every video an item appears in, so a much-used
+     * accessory carries far more text than the instrument a query is about, and
+     * scored linearly it wins on length alone. This asserts the damping itself
+     * rather than a ranking outcome: the scorer makes no promise that a title
+     * match always beats a long body, and forcing it to - by raising the title
+     * weight - simply moved the same artifact into the title, where a long video
+     * title with a repeated word started outranking the item named after it.
+     */
+    const entry = (text) => ({ title: 'Untitled', category: 'post', url: 'https://www.dehlimusikk.no/en/posts/x/', text });
+
+    const [one] = searchCorpus([entry('clavinet')], 'clavinet');
+    const [many] = searchCorpus([entry(Array(25).fill('clavinet').join(' '))], 'clavinet');
+
+    assert.ok(many.score > one.score, '25 mentions still outrank 1');
+    assert.ok(many.score < one.score * 6, `but by 5x at most, not 25x - got ${(many.score / one.score).toFixed(1)}x`);
+});
+
 test('equipment is searchable by the recordings and videos it appears on', () => {
     const entries = parseCorpus(CORPUS);
 

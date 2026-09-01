@@ -102,6 +102,22 @@ export function parseCorpus(text) {
 const escapeForRegex = (word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /*
+ * What one word's body matches contribute, with diminishing returns.
+ *
+ * Entry lengths differ by an order of magnitude: an equipment item names every
+ * video it is heard in, and the Chase Bliss CXM 1978 is in 69 of them. Scored
+ * linearly, length alone wins - a Vox AC15H1TV came second for "clavinet" purely
+ * on volume, being an amp that appears in a lot of Clavinet videos.
+ *
+ * A hard cap was tried first and was worse: at five it demoted the item actually
+ * named "Fulltone Tube Tape Echo" below a video for the query "tape echo",
+ * because a cap discards signal that is still meaningful past the threshold. A
+ * square root keeps the ordering while flattening the tail - one match scores 2,
+ * nine score 6, sixty-nine score about 17 rather than 69.
+ */
+const bodyScore = (matches) => (matches ? Math.sqrt(matches) * 2 : 0);
+
+/*
  * Deliberately simpler than the ranking behind the site's own search box, which
  * weights each field of each content type separately. This has one corpus and no
  * fields, so it scores a title match well above a body match and leaves it
@@ -123,7 +139,7 @@ export function searchCorpus(entries, query, category = 'all', limit = 10) {
         for (const word of words) {
             const pattern = new RegExp(escapeForRegex(word), 'gi');
             score += (entry.title.match(pattern) || []).length * 5;
-            score += (entry.text.match(pattern) || []).length;
+            score += bodyScore((entry.text.match(pattern) || []).length);
         }
         if (score > 0) scored.push({ ...entry, score: score / words.length });
     }
