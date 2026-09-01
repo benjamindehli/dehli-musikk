@@ -3,6 +3,7 @@ import { ModalProvider } from 'lib/ModalContext';
 import NavigationBar from 'components/partials/NavigationBar';
 import Footer from 'components/partials/Footer';
 import SiteJsonLd from 'components/SiteJsonLd';
+import WebMcpTools from 'components/partials/WebMcpTools';
 import style from 'App.module.scss';
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
@@ -30,6 +31,9 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
                             </main>
                             <Footer lang="en" />
                         </div>
+                        {/* Registers the site's tools with the browser for in-page
+                            agents. Renders nothing. */}
+                        <WebMcpTools lang="en" />
                     </ModalProvider>
                 </LangProvider>
             </body>
