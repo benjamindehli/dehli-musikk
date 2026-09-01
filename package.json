@@ -26,7 +26,9 @@
     "verify:albums": "node scripts/verify-release-albums.mjs",
     "verify:markup": "node scripts/verify-markup-assets.mjs",
     "verify:markdown": "node scripts/verify-markdown.mjs",
+    "verify:skills": "node scripts/agent-skills.mjs --check",
     "verify": "yarn verify:thumbnails && yarn verify:albums",
+    "skills:build": "node scripts/agent-skills.mjs",
     "worker:test": "node --test \"worker/test/*.test.mjs\"",
     "worker:dev": "yarn dlx wrangler@4 dev --config worker/wrangler.jsonc",
     "worker:deploy": "yarn dlx wrangler@4 deploy --config worker/wrangler.jsonc"

@@ -21,6 +21,12 @@ jobs:
         run: corepack enable
       - name: Install Dependencies
         run: yarn install --immutable
+      # Reads public/ rather than the export, so it runs before the build and
+      # fails fast. Catches a SKILL.md edited without regenerating the digest in
+      # the discovery index, which would otherwise ship an index telling every
+      # reader the document had been tampered with.
+      - name: Verify Agent Skills Index
+        run: yarn verify:skills
       - name: Build
         run: yarn build
       # Reads the exported HTML, so it has to run after the build and before the

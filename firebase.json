@@ -8,10 +8,13 @@
     "cleanUrls": true,
     "trailingSlash": true,
     "appAssociation": "AUTO",
+    "_comment_ignore": "Was **/.* , which also excluded .well-known and so silently dropped the agent-skills discovery documents from every deploy. Firebase ignore globs have no negation, so the dotfiles worth excluding are now named. The only ones the export has ever contained are .DS_Store.",
     "ignore": [
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**/.DS_Store",
+      "**/.env*",
+      "**/.git*"
     ],
     "headers": [{
       "source": "**",

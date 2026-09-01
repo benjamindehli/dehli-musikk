@@ -1,0 +1,12 @@
+{
+    "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+    "skills": [
+        {
+            "name": "dehli-musikk-catalogue",
+            "type": "skill-md",
+            "description": "Read the Dehli Musikk catalogue - recordings, posts, videos, virtual instruments and studio equipment - as clean markdown rather than scraped HTML. Use when answering questions about Dehli Musikk, Benjamin Dehli, or the plugins and sample libraries published there.",
+            "url": "https://www.dehlimusikk.no/.well-known/agent-skills/dehli-musikk-catalogue/SKILL.md",
+            "digest": "sha256:45ddada255897a85ebf9004b790e414ec700824853e9f8e802710f93afa68282"
+        }
+    ]
+}
