@@ -28,8 +28,8 @@
     "verify:markdown": "node scripts/verify-markdown.mjs",
     "verify": "yarn verify:thumbnails && yarn verify:albums",
     "worker:test": "node --test \"worker/test/*.test.mjs\"",
-    "worker:dev": "yarn dlx wrangler dev --config worker/wrangler.jsonc",
-    "worker:deploy": "yarn dlx wrangler deploy --config worker/wrangler.jsonc"
+    "worker:dev": "yarn dlx wrangler@4 dev --config worker/wrangler.jsonc",
+    "worker:deploy": "yarn dlx wrangler@4 deploy --config worker/wrangler.jsonc"
   },
   "packageManager": "yarn@4.5.0"
 }

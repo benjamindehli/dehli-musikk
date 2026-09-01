@@ -71,6 +71,10 @@ zone ids are pinned in `wrangler.jsonc` rather than looked up by name:
 
 No DNS permission is involved.
 
+Wrangler's major version is pinned to 4 in both the workflow and the `worker:*`
+scripts. `wrangler.jsonc` needs 3.91 or newer to be read at all, and an
+unpinned install is one breaking major away from a failing release.
+
 Manually:
 
 ```

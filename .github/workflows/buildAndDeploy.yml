@@ -68,9 +68,14 @@ jobs:
       # already in place. Skipped when no Cloudflare token is configured: the
       # Worker is an enhancement, and a missing secret should not fail a release
       # that has already shipped the site.
+      #
+      # Invoked through npx rather than cloudflare/wrangler-action, which infers
+      # a package manager from the lockfile: it picked yarn, and the global yarn
+      # on the runner is 1.22 while this repo declares yarn 4 via packageManager,
+      # so it refused to run without Corepack. The major version is pinned
+      # because that action also defaulted to wrangler 3.90, which is older than
+      # wrangler.jsonc support and cannot read this Worker's config at all.
+      # wrangler reads CLOUDFLARE_API_TOKEN from the environment.
       - name: Deploy Markdown Negotiation Worker
         if: env.CLOUDFLARE_API_TOKEN != ''
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          command: deploy --config worker/wrangler.jsonc
+        run: npx --yes wrangler@4 deploy --config worker/wrangler.jsonc
