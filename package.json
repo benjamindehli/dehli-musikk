@@ -26,7 +26,10 @@
     "verify:albums": "node scripts/verify-release-albums.mjs",
     "verify:markup": "node scripts/verify-markup-assets.mjs",
     "verify:markdown": "node scripts/verify-markdown.mjs",
-    "verify": "yarn verify:thumbnails && yarn verify:albums"
+    "verify": "yarn verify:thumbnails && yarn verify:albums",
+    "worker:test": "node --test \"worker/test/*.test.mjs\"",
+    "worker:dev": "yarn dlx wrangler dev --config worker/wrangler.jsonc",
+    "worker:deploy": "yarn dlx wrangler deploy --config worker/wrangler.jsonc"
   },
   "packageManager": "yarn@4.5.0"
 }

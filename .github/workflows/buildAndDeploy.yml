@@ -32,6 +32,11 @@ jobs:
       # and a page that loses its twin is invisible from the site itself.
       - name: Verify Markdown
         run: yarn verify:markdown
+      # No build output involved: this is the edge Worker's negotiation logic,
+      # which decides whether a request gets HTML or markdown. A false positive
+      # would serve plain text to a browser, so it gates the release too.
+      - name: Test Worker
+        run: yarn worker:test
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -41,6 +46,10 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
+    # At job level so the step below can test it in an `if`, which cannot read a
+    # secret directly.
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -55,3 +64,13 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      # Deploys after hosting, so the markdown files the Worker serves are
+      # already in place. Skipped when no Cloudflare token is configured: the
+      # Worker is an enhancement, and a missing secret should not fail a release
+      # that has already shipped the site.
+      - name: Deploy Markdown Negotiation Worker
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy --config worker/wrangler.jsonc

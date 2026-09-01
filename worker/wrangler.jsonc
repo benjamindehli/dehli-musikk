@@ -1,0 +1,31 @@
+{
+    "name": "dehlimusikk-markdown-negotiation",
+    "main": "src/index.js",
+    "compatibility_date": "2026-09-01",
+
+    /*
+     * Both ids are pinned rather than resolved from names at deploy time, so the
+     * API token needs nothing beyond Workers Scripts (account) and Workers Routes
+     * (zone). Looking a zone up by name, or discovering which account to deploy
+     * to, would each want a read permission of their own.
+     *
+     * Neither id is a secret; they appear in dashboard URLs.
+     */
+    "account_id": "50082fad1ace4f57ab06d901aac10a81",
+
+    /*
+     * Runs in front of every request to the site, because negotiation has to
+     * happen on the page URLs themselves rather than on a separate path. The
+     * handler passes anything it is not interested in straight to the origin.
+     *
+     * Requires the www record to be proxied. On a DNS-only record the route
+     * never matches and the Worker is simply never invoked.
+     */
+    "routes": [{ "pattern": "www.dehlimusikk.no/*", "zone_id": "9e19dafc8f2f8f377ae1705f676d1c24" }],
+
+    // Nothing should reach this Worker except through the route above; a
+    // workers.dev URL would answer for an origin it has no business serving.
+    "workers_dev": false,
+
+    "observability": { "enabled": true }
+}

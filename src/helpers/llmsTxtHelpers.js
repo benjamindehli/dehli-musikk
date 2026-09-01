@@ -55,7 +55,7 @@ export function getLlmsTxt({ posts, products, releases, videos }) {
         "",
         "English pages live under /en/; Norwegian versions of the same pages live at the site root (e.g. /products/ vs /en/products/).",
         "",
-        "Every page is also published as markdown, at index.md beside the page itself: https://www.dehlimusikk.no/en/products/ has https://www.dehlimusikk.no/en/products/index.md. Each page's HTML links to its own with <link rel=\"alternate\" type=\"text/markdown\">.",
+        "Every page is also published as markdown, at index.md beside the page itself: https://www.dehlimusikk.no/en/products/ has https://www.dehlimusikk.no/en/products/index.md. Each page's HTML links to its own with <link rel=\"alternate\" type=\"text/markdown\">. Requesting the page URL with an Accept: text/markdown header returns the markdown too.",
         "",
         "## Products",
         "",
