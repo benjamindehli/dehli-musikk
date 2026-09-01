@@ -6,12 +6,13 @@ import posts from "data/posts";
 import products from "data/products";
 import releases from "data/portfolio";
 import videos from "data/videos";
+import equipmentTypes from "data/equipment";
 import frequentlyAskedQuestions from "data/frequentlyAskedQuestions";
 
 export const dynamic = "force-static";
 
 export async function GET() {
-    const body = getLlmsFullTxt({ posts, products, releases, videos, frequentlyAskedQuestions });
+    const body = getLlmsFullTxt({ posts, products, releases, videos, equipmentTypes, frequentlyAskedQuestions });
 
     return new Response(body, {
         headers: { "Content-Type": "text/plain; charset=utf-8" }

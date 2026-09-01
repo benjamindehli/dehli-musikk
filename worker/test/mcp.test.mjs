@@ -37,6 +37,16 @@ Published: 2026-04-03
 
 Recording a Wurlitzer to a cassette loop.
 
+## Equipment (1)
+
+### Yamaha YC-25D
+
+URL: https://www.dehlimusikk.no/en/equipment/instruments/yamaha-yc-25d/
+Type: Instruments
+
+Yamaha YC-25D is part of the equipment Dehli Musikk uses during recording. Heard in 1 video.
+Heard in: Tape looping with a Yamaha YC-25D.
+
 ## Frequently asked questions (1)
 
 ### Is Dehli Musikk a music store?
@@ -70,18 +80,24 @@ const post = (body) =>
 test('the corpus parser finds every entry and its URL', () => {
     const entries = parseCorpus(CORPUS);
 
-    assert.equal(entries.length, 4);
+    assert.equal(entries.length, 5);
     assert.deepEqual(
         entries.map((e) => e.category),
-        ['product', 'product', 'post', 'faq']
+        ['product', 'product', 'post', 'equipment', 'faq']
     );
+    // Every section heading must map to a category; an unmapped one would leave
+    // entries labelled null in search output
+    assert.equal(entries.filter((e) => e.category === null).length, 0);
     assert.equal(entries[0].title, 'Overtonium');
     assert.equal(entries[0].url, 'https://www.dehlimusikk.no/en/products/overtonium/');
     assert.match(entries[0].text, /additive synthesiser/);
     // Metadata lines stay searchable
     assert.match(entries[0].text, /Price: free/);
     // FAQ entries carry no URL of their own and fall back to the page
-    assert.equal(entries[3].url, 'https://www.dehlimusikk.no/en/frequently-asked-questions/');
+    const faq = entries.find((e) => e.category === 'faq');
+    assert.equal(faq.url, 'https://www.dehlimusikk.no/en/frequently-asked-questions/');
+    // Everything else carries its own
+    assert.equal(entries.filter((e) => !e.url).length, 0);
 });
 
 test('search ranks title matches above body matches', () => {
@@ -109,6 +125,21 @@ test('search can be restricted by category and limited', () => {
     );
     assert.equal(searchCorpus(entries, 'wurlitzer', 'all', 1).length, 1);
     assert.equal(searchCorpus(entries, 'x', 'all').length, 0, 'single characters are not searched');
+});
+
+test('equipment is searchable by the recordings and videos it appears on', () => {
+    const entries = parseCorpus(CORPUS);
+
+    // The entry names no instrument type, only a brand and model, so this only
+    // works because the videos it is heard in are named in the body
+    const byUsage = searchCorpus(entries, 'tape looping', 'equipment');
+    assert.deepEqual(
+        byUsage.map((r) => r.title),
+        ['Yamaha YC-25D']
+    );
+
+    const byName = searchCorpus(entries, 'yc-25d', 'equipment');
+    assert.equal(byName[0].url, 'https://www.dehlimusikk.no/en/equipment/instruments/yamaha-yc-25d/');
 });
 
 test('initialize reports the protocol version and tools capability', async () => {

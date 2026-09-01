@@ -15,9 +15,8 @@
  * copy of convertToUrlFriendlyString living at the edge, and the day the two
  * disagreed every URL in a search result would 404 with nothing to catch it.
  *
- * The trade is that llms-full.txt is English only and omits equipment, so search
- * covers products, posts, videos, releases and the FAQ, in English. read_page
- * handles either language and any page.
+ * The trade is that llms-full.txt is English only, so search results are English
+ * whatever language the caller works in. read_page handles either language.
  */
 
 const CANONICAL_ORIGIN = 'https://www.dehlimusikk.no';
@@ -46,6 +45,7 @@ const SECTION_CATEGORIES = {
     Posts: 'post',
     Videos: 'video',
     Releases: 'release',
+    Equipment: 'equipment',
     'Frequently asked questions': 'faq'
 };
 
@@ -168,14 +168,14 @@ export const TOOLS = [
     {
         name: 'search',
         description:
-            'Search the Dehli Musikk catalogue: virtual instruments and plugins, blog posts, videos, recordings in the portfolio, and the FAQ. Returns titles, URLs and excerpts. English only, and does not cover the equipment pages.',
+            'Search the Dehli Musikk catalogue: virtual instruments and plugins, blog posts, videos, recordings in the portfolio, studio equipment, and the FAQ. Returns titles, URLs and excerpts. English only. Equipment entries name the videos and recordings each item is heard on, so this also answers "what gear is on that track".',
         inputSchema: {
             type: 'object',
             properties: {
                 query: { type: 'string', description: 'Words to search for, e.g. "mellotron" or "Wurlitzer piano".' },
                 category: {
                     type: 'string',
-                    enum: ['all', 'product', 'post', 'video', 'release', 'faq'],
+                    enum: ['all', 'product', 'post', 'video', 'release', 'equipment', 'faq'],
                     description: 'Restrict to one kind of item. Defaults to all.'
                 },
                 limit: { type: 'integer', minimum: 1, maximum: 25, description: 'Maximum results. Defaults to 10.' }

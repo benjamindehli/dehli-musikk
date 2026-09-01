@@ -1,6 +1,11 @@
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { formatContentAsString } from "helpers/contentFormatter";
+// From contentText, not contentFormatter: this module produces plain text and
+// has no business pulling JSX in behind it.
+import { formatContentAsString } from "helpers/contentText";
+import { getEquipmentItemDescription } from "helpers/equipmentDescription";
+import { getInstrumentReleases } from "helpers/instrumentReleases";
+import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
 
 const websiteUrl = "https://www.dehlimusikk.no";
@@ -151,8 +156,39 @@ const renderFullRelease = (release) => {
 
 const renderFullFaq = (faq) => [`### ${faq.question.en}`, "", formatContentAsString(faq.answer.en), ""].join("\n");
 
-export function getLlmsFullTxt({ posts, products, releases, videos, frequentlyAskedQuestions }) {
+/*
+ * Equipment holds only a brand and a model, so an entry that stopped at the name
+ * would be findable by that name and nothing else. The videos and recordings an
+ * item appears on are what people actually search by - "which organ is on that
+ * track" - so they are named here rather than merely counted, the way the
+ * equipment page itself lists them.
+ */
+const renderFullEquipmentItem = (item, equipmentType, equipmentTypeKey) => {
+    const itemName = `${item.brand} ${item.model}`;
+    const itemId = convertToUrlFriendlyString(itemName);
+    const itemVideos = getVideosForEquipmentItem(equipmentTypeKey, itemId);
+    const itemReleases = getInstrumentReleases(itemId);
+
+    const meta = [`Type: ${equipmentType.name.en}`].join("\n");
+    const body = [
+        getEquipmentItemDescription(itemName, itemVideos.length, itemReleases.length, "en"),
+        itemVideos.length ? `Heard in: ${itemVideos.map((video) => video.title.en).join(", ")}.` : null,
+        itemReleases.length ? `Heard on: ${itemReleases.map((release) => `${release.title} by ${release.artistName}`).join(", ")}.` : null
+    ]
+        .filter(Boolean)
+        .join("\n");
+
+    return renderFullEntry(itemName, `${websiteUrl}/en/equipment/${equipmentTypeKey}/${itemId}/`, meta, body);
+};
+
+export function getLlmsFullTxt({ posts, products, releases, videos, equipmentTypes, frequentlyAskedQuestions }) {
     const byNewest = (items, dateKey = "timestamp") => [...items].sort((a, b) => b[dateKey] - a[dateKey]);
+
+    const equipmentKeys = Object.keys(equipmentTypes);
+    const equipmentCount = equipmentKeys.reduce((total, key) => total + equipmentTypes[key].items.length, 0);
+    const equipmentEntries = equipmentKeys
+        .flatMap((key) => equipmentTypes[key].items.map((item) => renderFullEquipmentItem(item, equipmentTypes[key], key)))
+        .join("\n");
 
     return [
         "# Dehli Musikk",
@@ -173,6 +209,9 @@ export function getLlmsFullTxt({ posts, products, releases, videos, frequentlyAs
         `## Releases (${releases.length})`,
         "",
         byNewest(releases, "releaseDate").map(renderFullRelease).join("\n"),
+        `## Equipment (${equipmentCount})`,
+        "",
+        equipmentEntries,
         `## Frequently asked questions (${frequentlyAskedQuestions.length})`,
         "",
         frequentlyAskedQuestions.map(renderFullFaq).join("\n")
