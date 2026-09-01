@@ -48,6 +48,12 @@ jobs:
         with:
           name: build
           path: out
+          # Without this the upload silently drops every dotfile and
+          # dot-directory, which means out/.well-known never reaches the deploy
+          # job. The build succeeds, every verify step passes, Firebase deploys,
+          # and the agent-skills documents 404 in production with nothing in the
+          # logs but a warning.
+          include-hidden-files: true
   deploy:
     name: Deploy
     needs: build
@@ -64,6 +70,17 @@ jobs:
         with:
           name: build
           path: out
+      # The verify steps all run in the build job, so nothing has ever checked
+      # what actually survived the artifact round trip. That is precisely how the
+      # .well-known directory went missing from a release that passed every gate.
+      - name: Verify Artifact Is Complete
+        run: |
+          missing=0
+          for file in index.html robots.txt .well-known/agent-skills/index.json; do
+            if [ ! -f "out/$file" ]; then echo "missing from artifact: $file"; missing=1; fi
+          done
+          [ "$missing" = 0 ] || { echo "Refusing to deploy an incomplete artifact."; exit 1; }
+          echo "artifact complete"
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
