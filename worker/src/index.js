@@ -11,7 +11,7 @@
  * page (see src/helpers/markdownHelpers.js). This Worker never generates
  * markdown; it only chooses which of two already-published files to return.
  */
-import { CANONICAL_HOST, isNonCanonicalRobots, markdownPathFor, prefersMarkdown } from './negotiate.js';
+import { CANONICAL_HOST, homepageLinkHeader, isNonCanonicalRobots, markdownPathFor, prefersMarkdown } from './negotiate.js';
 
 /*
  * Set on both branches. Without it a shared cache that stored the markdown could
@@ -27,9 +27,32 @@ const withVary = (response) => {
     return varied;
 };
 
+/*
+ * Adds the RFC 8288 Link header on the homepages, so an agent can find the
+ * site's machine-readable descriptions from a HEAD request. Applied to the
+ * response the client actually gets, whichever representation that turned out
+ * to be.
+ */
+const withHomepageLinks = (response, pathname) => {
+    const links = homepageLinkHeader(pathname);
+    if (!links) return response;
+    // Rebuilt rather than mutated: headers on a response straight from fetch()
+    // are immutable in the Workers runtime.
+    const linked = new Response(response.body, response);
+    linked.headers.set('Link', links);
+    return linked;
+};
+
 // Exported for worker/test/handler.test.mjs, which drives it with a stubbed
 // fetch. The Worker entry point below is the only caller in production.
 export async function handle(request) {
+    const response = await respond(request);
+    // Applied once, to whichever representation was chosen, rather than repeated
+    // at every return inside respond().
+    return withHomepageLinks(response, new URL(request.url).pathname);
+}
+
+async function respond(request) {
     // A negotiated response to anything that changes state would be a surprise;
     // this only ever swaps one representation of a page for another.
     if (request.method !== 'GET' && request.method !== 'HEAD') return fetch(request);

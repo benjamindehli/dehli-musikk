@@ -157,6 +157,31 @@ test('robots.txt on the canonical host is left alone', async () => {
     assert.deepEqual(calls.map((call) => call.pathname), ['/robots.txt'], 'no extra hop for the host we are already on');
 });
 
+test('the homepages carry a Link header pointing at the machine-readable descriptions', async () => {
+    for (const homepage of ['/', '/en/']) {
+        stubOrigin({ [homepage]: { body: PAGE_HTML } });
+
+        const link = (await handle(get(homepage, 'text/html,*/*;q=0.8'))).headers.get('Link');
+
+        assert.ok(link, `${homepage} should carry a Link header`);
+        assert.match(link, /<\/llms\.txt>; rel="describedby"/);
+        assert.match(link, /<\/sitemap\.xml>; rel="sitemap"/);
+        assert.match(link, new RegExp(`<${homepage}index\\.md>; rel="alternate"; type="text/markdown"`));
+        // No API exists, so nothing may claim to describe one
+        assert.doesNotMatch(link, /api-catalog|service-desc|service-doc/);
+    }
+});
+
+test('interior pages carry no Link header', async () => {
+    // Only the homepages are known to have every target; a Link header naming a
+    // file that 404s is worse than none
+    stubOrigin({ '/en/products/subc/': { body: PAGE_HTML } });
+
+    const response = await handle(get('/en/products/subc/', 'text/html,*/*;q=0.8'));
+
+    assert.equal(response.headers.get('Link'), null);
+});
+
 test('the root page has a twin', async () => {
     stubOrigin({ '/index.md': { body: PAGE_MARKDOWN } });
 

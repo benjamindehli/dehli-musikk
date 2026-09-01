@@ -100,3 +100,33 @@ export const CANONICAL_HOST = 'www.dehlimusikk.no';
 export function isNonCanonicalRobots(url) {
     return url.hostname !== CANONICAL_HOST && url.pathname === '/robots.txt';
 }
+
+/* The two homepages: Norwegian at the root, English under /en/. */
+const HOMEPAGE_PATHS = new Set(['/', '/en/']);
+
+/**
+ * The value of the Link header for a homepage, or null for any other path.
+ *
+ * RFC 8288 relations pointing at the machine-readable descriptions this site
+ * actually publishes, so a client can find them from response headers without
+ * parsing HTML first. A HEAD request is enough.
+ *
+ * Deliberately not emitted on every page. Only the homepages are guaranteed to
+ * have all of these, and a Link header naming a file that 404s is worse than no
+ * header at all - which is the same reason the markdown alternate is advertised
+ * per page through <link rel="alternate"> in the HTML, where the build knows
+ * which pages really have a twin.
+ *
+ * No api-catalog, service-desc or service-doc relations: this site has no API,
+ * and pointing at descriptions of one that does not exist would send an agent
+ * looking for something it will never find.
+ */
+export function homepageLinkHeader(pathname) {
+    if (!HOMEPAGE_PATHS.has(pathname)) return null;
+    return [
+        '</llms.txt>; rel="describedby"; type="text/plain"',
+        '</llms-full.txt>; rel="describedby"; type="text/plain"',
+        `<${pathname}index.md>; rel="alternate"; type="text/markdown"`,
+        '</sitemap.xml>; rel="sitemap"'
+    ].join(', ');
+}
