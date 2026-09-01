@@ -28,6 +28,10 @@ jobs:
       # that points at files which are not there.
       - name: Verify Markup Assets
         run: yarn verify:markup
+      # Same reasoning: the markdown twins only exist once the exporter has run,
+      # and a page that loses its twin is invisible from the site itself.
+      - name: Verify Markdown
+        run: yarn verify:markdown
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v4
         with:

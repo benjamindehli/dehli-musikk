@@ -25,19 +25,45 @@ export const AUTHOR_URL = 'https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5
 
 export const otherLang = (lang: Lang): Lang => (lang === 'no' ? 'en' : 'no');
 
+/** Site-relative page paths in both languages, without a leading slash and
+ *  without the /en/ prefix, e.g. { no: 'posts/innlegg-slug/', en: 'posts/post-slug/' }. */
+export type PagePaths = { no: string; en: string };
+
 /**
- * Builds canonical + hreflang alternates for a page.
- * Paths are site-relative without leading slash and without the /en/ prefix,
- * e.g. { no: 'posts/innlegg-slug/', en: 'posts/post-slug/' }.
+ * The absolute URL of a page in both languages.
+ * Split out of buildAlternates because the markdown representations key off the
+ * same mapping, and a second copy of it would be a second thing to keep right.
  */
-export function buildAlternates(lang: Lang, paths: { no: string; en: string }): Metadata['alternates'] {
-    const urls = {
+export function alternateUrls(paths: PagePaths): Record<Lang, string> {
+    return {
         no: `${WEBSITE_URL}/${paths.no}`,
         en: `${WEBSITE_URL}/en/${paths.en}`
     };
+}
+
+/*
+ * Every page is published twice: as HTML, and as markdown at this filename
+ * beside it, so /en/products/subc/ has /en/products/subc/index.md. Agents that
+ * want the text without the layout can ask for the sibling directly, and the
+ * edge negotiation layer maps an Accept: text/markdown request onto the same
+ * file. Every page path already ends in a slash, so appending is enough.
+ */
+export const MARKDOWN_FILENAME = 'index.md';
+
+export const markdownUrl = (pageUrl: string): string => `${pageUrl}${MARKDOWN_FILENAME}`;
+
+/**
+ * Builds canonical + hreflang alternates for a page, plus a link to the page's
+ * markdown representation.
+ */
+export function buildAlternates(lang: Lang, paths: PagePaths): Metadata['alternates'] {
+    const urls = alternateUrls(paths);
     return {
         canonical: urls[lang],
-        languages: { no: urls.no, en: urls.en, 'x-default': urls.no }
+        languages: { no: urls.no, en: urls.en, 'x-default': urls.no },
+        // Renders <link rel="alternate" type="text/markdown">, which is how a
+        // reader that has only the HTML discovers the markdown exists.
+        types: { 'text/markdown': markdownUrl(urls[lang]) }
     };
 }
 

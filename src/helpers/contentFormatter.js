@@ -38,35 +38,6 @@ const renderContentLinksAsReactLinks = (content, languageSlug) => {
     return elements.length ? elements : content;
 };
 
-const renderContentLinksAsText = (content) => {
-    const regex = /\[(?<title>[^\]]+)\]\((?<link>[^)]+)\)/gm;
-
-    let result = "";
-    let lastIndex = 0;
-
-    let match;
-    while ((match = regex.exec(content)) !== null) {
-        const matchStart = match.index;
-        const matchEnd = regex.lastIndex;
-
-        // Append text before match
-        result += content.slice(lastIndex, matchStart);
-
-        // Append just the title (stripped link)
-        result += match.groups.title;
-
-        // Update lastIndex
-        lastIndex = matchEnd;
-    }
-
-    // Append remaining text
-    if (lastIndex < content.length) {
-        result += content.slice(lastIndex);
-    }
-
-    return result;
-};
-
 export const formatContentWithReactLinks = (content, languageSlug) => {
     const formattedContent = content.split("\n").map((paragraph) => {
         const paraKey = `para-${paragraph.slice(0, 20)}-${paragraph.length}`;
@@ -75,10 +46,6 @@ export const formatContentWithReactLinks = (content, languageSlug) => {
     return formattedContent;
 };
 
-export const formatContentAsString = (content) => {
-    const formattedContent = content.split("\n").map((paragraph) => {
-        return renderContentLinksAsText(paragraph);
-    });
-    const formattedContentString = formattedContent.join(" ");
-    return formattedContentString;
-};
+// Re-exported so the many callers that already import it from here keep working;
+// it lives in contentText because this module cannot be read outside a bundler.
+export { formatContentAsString } from "helpers/contentText";
