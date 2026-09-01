@@ -1,25 +1,13 @@
 # https://www.robotstxt.org/robotstxt.html
-
-# Content signals are NOT declared here. Cloudflare's "Managed robots.txt"
-# setting is enabled for this zone, and it prepends its own block to whatever
-# this file contains: the content signals policy text, a User-agent: * group
-# carrying the signals, and Disallow rules for a list of AI crawlers it
-# maintains.
-#
-# Declaring signals here too produced a second User-agent: * group with
-# different values from Cloudflare's. RFC 9309 says a parser should merge every
-# matching group, but many read only the first, so the two groups disagreed
-# about ai-input with no way to predict which won. One source of truth is worth
-# more than a duplicate that might be ignored.
-#
-# The signals therefore live in the Cloudflare dashboard, under
-# Agent Readiness. Turning that setting off removes them from the served file
-# entirely, and they would need adding back here.
-#
-# Sitemap is a non-group record, so it is unaffected by any of the above and
-# stays where it can be version controlled.
-
 Sitemap: https://www.dehlimusikk.no/sitemap.xml
 Sitemap: https://www.dehlimusikk.no/news-sitemap.xml
 Sitemap: https://www.dehlimusikk.no/image-sitemap.xml
 Sitemap: https://www.dehlimusikk.no/video-sitemap.xml
+
+# Content signals: https://contentsignals.org/
+# search: building a search index and linking to the content
+# ai-input: using the content as input to an AI answer at query time
+# ai-train: using the content to train a generative AI model
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
