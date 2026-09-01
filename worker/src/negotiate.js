@@ -78,3 +78,25 @@ export function prefersMarkdown(accept) {
 export function markdownPathFor(pathname) {
     return pathname.endsWith('/') ? `${pathname}index.md` : null;
 }
+
+/** The host every page and file on this site is canonically served from. */
+export const CANONICAL_HOST = 'www.dehlimusikk.no';
+
+/**
+ * Whether this request is for robots.txt on a host other than the canonical one.
+ *
+ * The apex is a Firebase Hosting custom domain set to redirect to www, and
+ * Firebase answers that redirect with `Content-Type: text/plain` over a 52-byte
+ * body reading "Redirecting to https://www.dehlimusikk.no/robots.txt". To a
+ * client that reads the body instead of following the hop, that is a perfectly
+ * well formed robots.txt which happens to contain no rules and no Content-Signal
+ * directives.
+ *
+ * robots.txt is a per-origin resource, so the apex ought to answer with the real
+ * file rather than point at another host's. RFC 9309 does tell crawlers to
+ * follow at least five redirects for it, but not every client obeys, and the
+ * ones that do not fail silently.
+ */
+export function isNonCanonicalRobots(url) {
+    return url.hostname !== CANONICAL_HOST && url.pathname === '/robots.txt';
+}

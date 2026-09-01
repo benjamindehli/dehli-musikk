@@ -124,6 +124,39 @@ test('non-GET methods are passed straight through', async () => {
     assert.deepEqual(calls.map((call) => call.method), ['POST']);
 });
 
+test('robots.txt on the apex serves the real file, not the redirect', async () => {
+    const ROBOTS = '# https://www.robotstxt.org/robotstxt.html\nUser-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=no\nAllow: /\n';
+    const calls = [];
+    globalThis.fetch = async (input, init = {}) => {
+        const url = new URL(typeof input === 'string' || input instanceof URL ? input : input.url);
+        calls.push(`${url.hostname}${url.pathname}`);
+        // The apex would answer with Firebase's text/plain 301
+        if (url.hostname === 'dehlimusikk.no') {
+            return new Response('Redirecting to https://www.dehlimusikk.no/robots.txt', {
+                status: 301,
+                headers: { 'Content-Type': 'text/plain; charset=utf-8', Location: 'https://www.dehlimusikk.no/robots.txt' }
+            });
+        }
+        return new Response(ROBOTS, { status: 200, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+    };
+
+    const response = await handle(new Request('https://dehlimusikk.no/robots.txt'));
+
+    assert.equal(response.status, 200, 'not a redirect');
+    assert.match(await response.text(), /Content-Signal:/, 'the real directives, not "Redirecting to ..."');
+    assert.equal(response.headers.get('Content-Type'), 'text/plain; charset=utf-8');
+    assert.deepEqual(calls, ['www.dehlimusikk.no/robots.txt'], 'fetched from the canonical host');
+});
+
+test('robots.txt on the canonical host is left alone', async () => {
+    const calls = stubOrigin({ '/robots.txt': { body: 'User-agent: *\n', headers: { 'Content-Type': 'text/plain; charset=utf-8' } } });
+
+    const response = await handle(get('/robots.txt'));
+
+    assert.equal(await response.text(), 'User-agent: *\n');
+    assert.deepEqual(calls.map((call) => call.pathname), ['/robots.txt'], 'no extra hop for the host we are already on');
+});
+
 test('the root page has a twin', async () => {
     stubOrigin({ '/index.md': { body: PAGE_MARKDOWN } });
 

@@ -11,7 +11,7 @@
  * page (see src/helpers/markdownHelpers.js). This Worker never generates
  * markdown; it only chooses which of two already-published files to return.
  */
-import { markdownPathFor, prefersMarkdown } from './negotiate.js';
+import { CANONICAL_HOST, isNonCanonicalRobots, markdownPathFor, prefersMarkdown } from './negotiate.js';
 
 /*
  * Set on both branches. Without it a shared cache that stored the markdown could
@@ -34,9 +34,29 @@ export async function handle(request) {
     // this only ever swaps one representation of a page for another.
     if (request.method !== 'GET' && request.method !== 'HEAD') return fetch(request);
 
+    const url = new URL(request.url);
+
+    /*
+     * Answer robots.txt on the apex with the real file instead of Firebase's
+     * redirect to www. See isNonCanonicalRobots for why the redirect is not good
+     * enough. Everything else on the apex keeps redirecting as before.
+     */
+    if (isNonCanonicalRobots(url)) {
+        const canonical = new URL(url);
+        canonical.hostname = CANONICAL_HOST;
+        const robots = await fetch(canonical, { method: request.method });
+        if (robots.ok) {
+            const response = new Response(robots.body, robots);
+            response.headers.set('Content-Type', 'text/plain; charset=utf-8');
+            return response;
+        }
+        // Origin trouble: fall through to the redirect rather than invent a
+        // robots.txt, because a wrong one is worse than one more hop.
+        return fetch(request);
+    }
+
     if (!prefersMarkdown(request.headers.get('Accept'))) return withVary(await fetch(request));
 
-    const url = new URL(request.url);
     const markdownPath = markdownPathFor(url.pathname);
     if (!markdownPath) return withVary(await fetch(request));
 

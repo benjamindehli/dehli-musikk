@@ -21,7 +21,18 @@
      * Requires the www record to be proxied. On a DNS-only record the route
      * never matches and the Worker is simply never invoked.
      */
-    "routes": [{ "pattern": "www.dehlimusikk.no/*", "zone_id": "9e19dafc8f2f8f377ae1705f676d1c24" }],
+    "routes": [
+        { "pattern": "www.dehlimusikk.no/*", "zone_id": "9e19dafc8f2f8f377ae1705f676d1c24" },
+
+        /*
+         * One path on the apex, nothing more. The apex is a Firebase custom
+         * domain that redirects to www, which is right for pages but wrong for
+         * robots.txt: that is a per-origin resource, and Firebase's redirect is
+         * itself served as text/plain, so a client reading the body sees an
+         * empty-looking robots.txt rather than following the hop.
+         */
+        { "pattern": "dehlimusikk.no/robots.txt", "zone_id": "9e19dafc8f2f8f377ae1705f676d1c24" }
+    ],
 
     // Nothing should reach this Worker except through the route above; a
     // workers.dev URL would answer for an origin it has no business serving.

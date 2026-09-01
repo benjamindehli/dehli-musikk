@@ -35,6 +35,22 @@ which of two already-published files to return:
 Anything thrown inside the handler falls back to the origin, so a bug here
 degrades to "no markdown variant" rather than taking the site down.
 
+## The apex robots.txt
+
+One unrelated job rides along, on its own narrow route (`dehlimusikk.no/robots.txt`).
+
+The apex is a Firebase Hosting custom domain set to redirect to www, which is
+right for pages and wrong for `robots.txt`. That is a per-origin resource, and
+Firebase serves the redirect itself as `Content-Type: text/plain` with a 52-byte
+body reading `Redirecting to https://www.dehlimusikk.no/robots.txt`. A client
+that reads the body rather than following the hop sees a well-formed
+`robots.txt` that happens to contain no rules, and therefore no Content-Signal
+directives. RFC 9309 says crawlers should follow up to five redirects for
+`robots.txt`, but the ones that do not fail silently.
+
+The Worker answers that one path with the real file fetched from www. Every
+other apex URL keeps redirecting exactly as before.
+
 ## Route scope and cost
 
 The route is `www.dehlimusikk.no/*`, so the Worker is invoked for every request
