@@ -4,5 +4,10 @@ Sitemap: https://www.dehlimusikk.no/news-sitemap.xml
 Sitemap: https://www.dehlimusikk.no/image-sitemap.xml
 Sitemap: https://www.dehlimusikk.no/video-sitemap.xml
 
+# Content signals: https://contentsignals.org/
+# search: building a search index and linking to the content
+# ai-input: using the content as input to an AI answer at query time
+# ai-train: using the content to train a generative AI model
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
