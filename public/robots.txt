@@ -1,13 +1,25 @@
 # https://www.robotstxt.org/robotstxt.html
+#
+# Content signals: https://contentsignals.org/
+#   search    building a search index and linking to the content
+#   ai-input  using the content as input to an AI answer at query time
+#   ai-train  using the content to train a generative AI model
+#
+# The group below is written in the exact shape contentsignals.org documents:
+# group first in the file, "User-Agent" capitalised as they capitalise it, and
+# the signals in their order. None of that should matter, since robots.txt field
+# names are case insensitive and Sitemap is a non-group record that reads the
+# same anywhere in the file. It is written this way because Cloudflare's Agent
+# Readiness scanner reported finding no directive when the same signals sat in a
+# group placed after the Sitemap lines, and matching the documented form exactly
+# removes the question. If the scanner is later found to have been at fault, the
+# layout is free to go back.
+
+User-Agent: *
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+Allow: /
+
 Sitemap: https://www.dehlimusikk.no/sitemap.xml
 Sitemap: https://www.dehlimusikk.no/news-sitemap.xml
 Sitemap: https://www.dehlimusikk.no/image-sitemap.xml
 Sitemap: https://www.dehlimusikk.no/video-sitemap.xml
-
-# Content signals: https://contentsignals.org/
-# search: building a search index and linking to the content
-# ai-input: using the content as input to an AI answer at query time
-# ai-train: using the content to train a generative AI model
-User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=no
-Allow: /
