@@ -51,6 +51,32 @@ directives. RFC 9309 says crawlers should follow up to five redirects for
 The Worker answers that one path with the real file fetched from www. Every
 other apex URL keeps redirecting exactly as before.
 
+## The MCP server
+
+`src/mcp.js` serves a Model Context Protocol server over Streamable HTTP at
+`/mcp`, with its card at `/.well-known/mcp/server-card.json`. Both are answered
+by the Worker rather than the origin, so the card and the server it describes
+can never be deployed apart from each other.
+
+Three read-only tools: `search`, `read_page`, `list_sections`. Stateless, so
+there are no sessions; the site is static, so nothing writes.
+
+Search reads `/llms-full.txt` rather than the JSON behind the site's own search
+box. That file already carries every item's title, URL and full text, so the
+Worker never derives a slug — a second copy of `convertToUrlFriendlyString` at
+the edge would 404 every search result the day it drifted from the build's. The
+cost of that choice: `llms-full.txt` is English only and omits equipment, so
+search covers products, posts, videos, releases and the FAQ, in English.
+`read_page` has no such limit and serves either language.
+
+Point a client at `https://www.dehlimusikk.no/mcp`, or try it by hand:
+
+```
+curl -s https://www.dehlimusikk.no/mcp \
+  -H 'Content-Type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
+
 ## Route scope and cost
 
 The route is `www.dehlimusikk.no/*`, so the Worker is invoked for every request

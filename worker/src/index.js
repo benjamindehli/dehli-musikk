@@ -11,6 +11,7 @@
  * page (see src/helpers/markdownHelpers.js). This Worker never generates
  * markdown; it only chooses which of two already-published files to return.
  */
+import { handleMcpRequest, handleMcpServerCard, MCP_ENDPOINT_PATH, MCP_SERVER_CARD_PATH } from './mcp.js';
 import { CANONICAL_HOST, homepageLinkHeader, isNonCanonicalRobots, markdownPathFor, prefersMarkdown } from './negotiate.js';
 
 /*
@@ -53,11 +54,19 @@ export async function handle(request) {
 }
 
 async function respond(request) {
+    const url = new URL(request.url);
+
+    /*
+     * The MCP server, before anything else: it is the one endpoint here that
+     * answers a POST, so it has to be routed ahead of the GET/HEAD gate below.
+     * The origin knows nothing about either path.
+     */
+    if (url.pathname === MCP_ENDPOINT_PATH) return handleMcpRequest(request);
+    if (url.pathname === MCP_SERVER_CARD_PATH) return handleMcpServerCard();
+
     // A negotiated response to anything that changes state would be a surprise;
     // this only ever swaps one representation of a page for another.
     if (request.method !== 'GET' && request.method !== 'HEAD') return fetch(request);
-
-    const url = new URL(request.url);
 
     /*
      * Answer robots.txt on the apex with the real file instead of Firebase's
