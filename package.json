@@ -1,6 +1,6 @@
 {
   "name": "dehli-musikk",
-  "version": "2.13.1",
+  "version": "2.14.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
