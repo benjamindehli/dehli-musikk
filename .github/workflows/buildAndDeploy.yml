@@ -87,6 +87,16 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      # After hosting, so the URLs submitted are already live. Reads the markdown
+      # twins in the downloaded artifact for their published/modified dates and
+      # submits only what this release changed.
+      #
+      # continue-on-error because the site is deployed and correct by this point:
+      # a refused submission costs a crawl hint, not a release, and marking the
+      # release failed over it would be misleading. Bing finds the pages anyway.
+      - name: Submit Changed URLs to IndexNow
+        continue-on-error: true
+        run: node scripts/indexnow.mjs
       # Deploys after hosting, so the markdown files the Worker serves are
       # already in place. Skipped when no Cloudflare token is configured: the
       # Worker is an enhancement, and a missing secret should not fail a release
