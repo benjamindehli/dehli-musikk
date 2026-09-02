@@ -376,7 +376,13 @@ const getSearchResultsFromProducts = (products, searchStringWords, selectedLangu
 };
 
 const getSearchResultsFromEquipmentTypes = (equipmentTypes, searchStringWords, selectedLanguageKey, searchCategory) => {
-  if (!equipmentTypes?.length) {
+  /*
+   * Keyed by type - instruments, effects, amplifiers - rather than an array, so
+   * the .length test this used to do always read undefined and returned early.
+   * Equipment never reached the search results at all, which is also how
+   * public/data/equipment.json went a whole item out of date unnoticed.
+   */
+  if (!equipmentTypes || !Object.keys(equipmentTypes).length) {
     return null;
   }
   let searchResultsFromEquipmentTypes = [];
