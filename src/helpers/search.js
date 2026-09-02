@@ -1,6 +1,8 @@
 // Helpers
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
-import { formatContentAsString } from './contentFormatter';
+// From contentText, not contentFormatter: this module is plain string work and
+// pulling JSX in behind it makes it impossible to exercise outside a bundler.
+import { formatContentAsString } from './contentText';
 
 
 // Get from /public/data
