@@ -101,6 +101,25 @@ export function isNonCanonicalRobots(url) {
     return url.hostname !== CANONICAL_HOST && url.pathname === '/robots.txt';
 }
 
+/**
+ * The page a markdown twin belongs to, or null if this is not a twin.
+ *
+ * Every page advertises its twin with <link rel="alternate">, so all of them are
+ * reachable by a crawler. Being plain text they can carry no canonical tag of
+ * their own, which leaves a crawler free to index /products/subc/index.md as a
+ * page in its own right, duplicating the HTML.
+ *
+ * A canonical Link header rather than noindex, deliberately. noindex would also
+ * discourage the agent-facing crawlers these files exist for; canonical says
+ * "index the HTML instead", which is the actual intent, and leaves the twin
+ * fully available to anyone who wants it.
+ */
+export function canonicalPageUrlFor(pathname) {
+    const suffix = 'index.md';
+    if (!pathname.endsWith(`/${suffix}`)) return null;
+    return `https://${CANONICAL_HOST}${pathname.slice(0, -suffix.length)}`;
+}
+
 /* The two homepages: Norwegian at the root, English under /en/. */
 const HOMEPAGE_PATHS = new Set(['/', '/en/']);
 

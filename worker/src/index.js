@@ -12,7 +12,7 @@
  * markdown; it only chooses which of two already-published files to return.
  */
 import { handleMcpRequest, handleMcpServerCard, MCP_ENDPOINT_PATH, MCP_SERVER_CARD_PATH } from './mcp.js';
-import { CANONICAL_HOST, homepageLinkHeader, isNonCanonicalRobots, markdownPathFor, prefersMarkdown } from './negotiate.js';
+import { CANONICAL_HOST, canonicalPageUrlFor, homepageLinkHeader, isNonCanonicalRobots, markdownPathFor, prefersMarkdown } from './negotiate.js';
 
 /*
  * Set on both branches. Without it a shared cache that stored the markdown could
@@ -85,6 +85,20 @@ async function respond(request) {
         // Origin trouble: fall through to the redirect rather than invent a
         // robots.txt, because a wrong one is worse than one more hop.
         return fetch(request);
+    }
+
+    /*
+     * A markdown twin fetched by its own URL gets a canonical header pointing at
+     * the page it mirrors, so a crawler consolidates it with the HTML rather than
+     * indexing both. See canonicalPageUrlFor for why this is canonical and not
+     * noindex.
+     */
+    const canonicalPage = canonicalPageUrlFor(url.pathname);
+    if (canonicalPage) {
+        const upstream = await fetch(request);
+        const twin = new Response(upstream.body, upstream);
+        twin.headers.set('Link', `<${canonicalPage}>; rel="canonical"`);
+        return twin;
     }
 
     if (!prefersMarkdown(request.headers.get('Accept'))) return withVary(await fetch(request));

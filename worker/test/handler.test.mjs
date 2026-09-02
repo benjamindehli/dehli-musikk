@@ -157,6 +157,34 @@ test('robots.txt on the canonical host is left alone', async () => {
     assert.deepEqual(calls.map((call) => call.pathname), ['/robots.txt'], 'no extra hop for the host we are already on');
 });
 
+test('a markdown twin declares the page it mirrors as canonical', async () => {
+    const calls = stubOrigin({ '/en/products/subc/index.md': { body: PAGE_MARKDOWN, headers: { 'Content-Type': 'text/markdown; charset=utf-8' } } });
+
+    const response = await handle(get('/en/products/subc/index.md'));
+
+    assert.equal(await response.text(), PAGE_MARKDOWN);
+    assert.equal(response.headers.get('Link'), '<https://www.dehlimusikk.no/en/products/subc/>; rel="canonical"');
+    // Not noindex: these files exist for agent crawlers and must stay fetchable
+    assert.equal(response.headers.get('X-Robots-Tag'), null);
+    assert.equal(calls.length, 1, 'fetched once, not twice');
+});
+
+test('the root twin canonicalises to the root page', async () => {
+    stubOrigin({ '/index.md': { body: PAGE_MARKDOWN } });
+
+    const response = await handle(get('/index.md'));
+
+    assert.equal(response.headers.get('Link'), '<https://www.dehlimusikk.no/>; rel="canonical"');
+});
+
+test('non-twin paths get no canonical header', async () => {
+    stubOrigin({ '/llms.txt': { body: 'llms' }, '/en/products/subc/': { body: PAGE_HTML } });
+
+    // A .md that is not a twin, and an ordinary page
+    assert.equal((await handle(get('/en/products/subc/'))).headers.get('Link'), null);
+    assert.equal((await handle(get('/llms.txt'))).headers.get('Link'), null);
+});
+
 test('the homepages carry a Link header pointing at the machine-readable descriptions', async () => {
     for (const homepage of ['/', '/en/']) {
         stubOrigin({ [homepage]: { body: PAGE_HTML } });
