@@ -13,19 +13,24 @@ const monthNames = {
         "November",
         "December"
     ],
+    /*
+     * Lower case: Norwegian does not capitalise month names, unlike English.
+     * These read as "28. mars 2021" mid-sentence, which is where they appear -
+     * on post and video pages, and in the meta description fallback.
+     */
     no: [
-        "Januar",
-        "Februar",
-        "Mars",
-        "April",
-        "Mai",
-        "Juni",
-        "Juli",
-        "August",
-        "September",
-        "Oktober",
-        "November",
-        "Desember"
+        "januar",
+        "februar",
+        "mars",
+        "april",
+        "mai",
+        "juni",
+        "juli",
+        "august",
+        "september",
+        "oktober",
+        "november",
+        "desember"
     ]
 };
 
