@@ -8,6 +8,7 @@ import ListItem from 'components/template/List/ListItem';
 import Modal from 'components/template/Modal';
 import Post from 'components/partials/Post';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
+import { getPrettyDate } from 'helpers/dateFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
 import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
@@ -20,14 +21,19 @@ const translations = {
         pageTitle: 'Innlegg',
         description: 'Siste oppdateringer fra Dehli Musikk',
         intro: 'Oppdateringer fra Dehli Musikk',
-        listName: 'Innlegg fra Dehli Musikk'
+        listName: 'Innlegg fra Dehli Musikk',
+        // Used only when a post's own text is too thin to describe it
+        descriptionFallback: (title: string, excerpt: string, date: string) =>
+            `${title}. ${excerpt} Innlegg fra Dehli Musikk, publisert ${date}.`
     },
     en: {
         metaTitle: 'Posts | Dehli Musikk',
         pageTitle: 'Posts',
         description: 'Latest update from Dehli Musikk',
         intro: 'Updates from Dehli Musikk',
-        listName: 'Posts from Dehli Musikk'
+        listName: 'Posts from Dehli Musikk',
+        descriptionFallback: (title: string, excerpt: string, date: string) =>
+            `${title}. ${excerpt} A post from Dehli Musikk, published ${date}.`
     }
 } as const;
 
@@ -120,9 +126,16 @@ export async function getPostDetailsMetadata(lang: Lang, { params }: PostRoutePr
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     const title = `${post.title[lang]} - ${t.metaTitle}`;
-    // Truncated: this feeds meta, og and twitter descriptions, all of which are
-    // shown at about 155 characters. The Article JSON-LD is unaffected.
-    const description = metaDescription(formatContentAsString(post.content[lang]));
+    /*
+     * Truncated: this feeds meta, og and twitter descriptions, all of which are
+     * shown at about 155 characters. The Article JSON-LD is unaffected. The
+     * fallback covers the posts whose whole body is an emoji.
+     */
+    const excerpt = formatContentAsString(post.content[lang]);
+    const description = metaDescription(
+        excerpt,
+        t.descriptionFallback(post.title[lang], excerpt, getPrettyDate(new Date(post.timestamp), lang))
+    );
 
     return {
         title,

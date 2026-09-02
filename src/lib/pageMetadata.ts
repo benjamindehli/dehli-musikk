@@ -42,11 +42,32 @@ export const otherLang = (lang: Lang): Lang => (lang === 'no' ? 'en' : 'no');
  */
 const META_DESCRIPTION_MAX = 155;
 
-export function metaDescription(text: string): string {
-    const flattened = (text ?? '').replace(/\s+/g, ' ').trim();
-    if (flattened.length <= META_DESCRIPTION_MAX) return flattened;
-    // Back off to a word boundary so the text does not end mid-word
-    return `${flattened.slice(0, META_DESCRIPTION_MAX).replace(/[\s,;:]+\S*$/, '')}…`;
+/*
+ * Below this, a description tells a search engine nothing and gives an AI answer
+ * nothing to quote. Twenty-five items are under it, some of them only an emoji:
+ * the "Dehli Musikk mug" post's entire body is a coffee cup. Those get the
+ * fallback the caller supplies, which puts the title and some context around
+ * whatever the content does say.
+ */
+const META_DESCRIPTION_MIN = 50;
+
+const flatten = (text: string) => (text ?? '').replace(/\s+/g, ' ').trim();
+
+const clip = (text: string) =>
+    text.length <= META_DESCRIPTION_MAX
+        ? text
+        : // Back off to a word boundary so the text does not end mid-word
+          `${text.slice(0, META_DESCRIPTION_MAX).replace(/[\s,;:]+\S*$/, '')}…`;
+
+/**
+ * @param text the page's own content
+ * @param fallback used instead when the content is too thin to describe the page;
+ *        composed by the caller, which is where the translations live
+ */
+export function metaDescription(text: string, fallback?: string): string {
+    const flattened = flatten(text);
+    if (flattened.length >= META_DESCRIPTION_MIN || !fallback) return clip(flattened);
+    return clip(flatten(fallback));
 }
 
 /** Site-relative page paths in both languages, without a leading slash and

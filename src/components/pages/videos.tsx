@@ -8,6 +8,7 @@ import ListItem from 'components/template/List/ListItem';
 import Modal from 'components/template/Modal';
 import Video from 'components/partials/Video';
 import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
+import { getPrettyDate } from 'helpers/dateFormatter';
 import { formatContentAsString } from 'helpers/contentFormatter';
 import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
@@ -20,14 +21,18 @@ const translations = {
         pageTitle: 'Videoer',
         description: 'Videoer Dehli Musikk har laget eller bidratt på',
         listName: 'Videoer av Dehli Musikk',
-        theaterMode: 'Kinomodus'
+        theaterMode: 'Kinomodus',
+        descriptionFallback: (title: string, excerpt: string, date: string) =>
+            `${title}. ${excerpt} Video fra Dehli Musikk, publisert ${date}.`
     },
     en: {
         metaTitle: 'Videos | Dehli Musikk',
         pageTitle: 'Videos',
         description: 'Videos Dehli Musikk has created or contributed in',
         listName: 'Videos by Dehli Musikk',
-        theaterMode: 'Theater mode'
+        theaterMode: 'Theater mode',
+        descriptionFallback: (title: string, excerpt: string, date: string) =>
+            `${title}. ${excerpt} A video from Dehli Musikk, published ${date}.`
     }
 } as const;
 
@@ -139,9 +144,15 @@ async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps): Promis
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     const title = `${video.title[lang]} - ${t.metaTitle}`;
-    // Truncated for the snippet vocabularies only; the VideoObject JSON-LD above
-    // keeps the full text, which is what Google's video guidelines want.
-    const description = metaDescription(formatContentAsString(video.content[lang]));
+    /*
+     * Truncated for the snippet vocabularies only; the VideoObject JSON-LD above
+     * keeps the full text, which is what Google's video guidelines want.
+     */
+    const excerpt = formatContentAsString(video.content[lang]);
+    const description = metaDescription(
+        excerpt,
+        t.descriptionFallback(video.title[lang], excerpt, getPrettyDate(new Date(video.timestamp), lang))
+    );
     const canonicalPaths = getCanonicalVideoPaths(video);
 
     return {
