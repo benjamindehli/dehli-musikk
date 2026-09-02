@@ -12,7 +12,7 @@ import { formatContentAsString } from 'helpers/contentFormatter';
 import { generateProductSnippet } from 'helpers/richSnippetsGenerators';
 import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
 import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
+import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, type Lang } from 'lib/pageMetadata';
 import products from 'data/products';
 
 const translations = {
@@ -117,7 +117,9 @@ export async function getProductDetailsMetadata(lang: Lang, { params }: ProductR
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     const title = `${product.title} - ${t.metaTitle}`;
-    const description = formatContentAsString(product.content[lang]);
+    // Truncated: this feeds meta, og and twitter descriptions, all shown at about
+    // 155 characters. generateProductSnippet keeps the full text for JSON-LD.
+    const description = metaDescription(formatContentAsString(product.content[lang]));
 
     return {
         title, description,

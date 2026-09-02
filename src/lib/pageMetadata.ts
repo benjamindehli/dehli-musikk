@@ -25,6 +25,30 @@ export const AUTHOR_URL = 'https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5
 
 export const otherLang = (lang: Lang): Lang => (lang === 'no' ? 'en' : 'no');
 
+/*
+ * Search results and social cards show roughly the first 155 characters of a
+ * description and discard the rest, so anything longer is cut at whatever word
+ * it happens to land on.
+ *
+ * The page components used to pass a whole post or product body straight
+ * through: products ran to a median of 1470 characters and one video to 4358.
+ * socialMetadata emits the value three times, as meta description, og:description
+ * and twitter:description, so the longest product page carried about 12 KB of
+ * duplicated prose in its head to show 155 characters of it.
+ *
+ * Deliberately not applied to the JSON-LD descriptions. Structured data is not a
+ * snippet, and a fuller description is worth having there - including for the
+ * AI answers that read it.
+ */
+const META_DESCRIPTION_MAX = 155;
+
+export function metaDescription(text: string): string {
+    const flattened = (text ?? '').replace(/\s+/g, ' ').trim();
+    if (flattened.length <= META_DESCRIPTION_MAX) return flattened;
+    // Back off to a word boundary so the text does not end mid-word
+    return `${flattened.slice(0, META_DESCRIPTION_MAX).replace(/[\s,;:]+\S*$/, '')}…`;
+}
+
 /** Site-relative page paths in both languages, without a leading slash and
  *  without the /en/ prefix, e.g. { no: 'posts/innlegg-slug/', en: 'posts/post-slug/' }. */
 export type PagePaths = { no: string; en: string };
