@@ -135,6 +135,14 @@ function getVideo(lang: Lang, videoId: string) {
 // modal page as a video page ("video is not the main content"), so the theater
 // URL is the canonical one. Both pages point at it, which is also where the
 // VideoObject markup and video-sitemap.xml already point.
+/*
+ * Only the videos that need one carry a metaDescription, so the type inferred
+ * from the JSON does not have the field at all. Narrowed here rather than at the
+ * call site so the assertion is written once and says what it is for.
+ */
+const videoMetaDescription = (video: object, lang: Lang): string | undefined =>
+    (video as { metaDescription?: Record<Lang, string> }).metaDescription?.[lang];
+
 function getCanonicalVideoPaths(video: { title: Record<Lang, string> }) {
     return {
         no: `videos/${convertToUrlFriendlyString(video.title.no)}/video/`,
@@ -155,7 +163,18 @@ async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps): Promis
      * keeps the full text, which is what Google's video guidelines want.
      */
     const excerpt = formatContentAsString(video.content[lang]);
-    const description = metaDescription(excerpt, t.descriptionFallback(video.title[lang], excerpt, getPrettyDate(new Date(video.timestamp), lang)));
+    /*
+     * A video demonstrating a product opens by describing the product, in the
+     * same words the product's own page opens with. Both pages are worth having
+     * and both are canonical, but the first 155 characters of each were coming
+     * out identical, so eight videos carry a metaDescription of their own that
+     * says what is in the video rather than what the product is. It applies to
+     * the snippet only; the page's text and its JSON-LD are untouched.
+     */
+    const description = metaDescription(
+        videoMetaDescription(video, lang) ?? excerpt,
+        t.descriptionFallback(video.title[lang], excerpt, getPrettyDate(new Date(video.timestamp), lang))
+    );
     const canonicalPaths = getCanonicalVideoPaths(video);
 
     return {
