@@ -19,6 +19,8 @@ const translations = {
         metaTitle: "Portefølje | Dehli Musikk",
         pageTitle: "Portefølje",
         description: "Utgivelser Dehli Musikk har bidratt på",
+        listMetaDescription: (releaseCount: number, artistCount: number) =>
+            `De ${releaseCount} utgivelsene Dehli Musikk har spilt tangentinstrumenter på, for ${artistCount} artister og band, med lenker for å høre hver av dem.`,
         listName: "Porteføljen til Dehli Musikk",
         byConnector: "av",
         listenTo: (title: string, artistName: string) => `Lytt til låta ${title} av ${artistName}`,
@@ -29,6 +31,8 @@ const translations = {
         metaTitle: "Portfolio | Dehli Musikk",
         pageTitle: "Portfolio",
         description: "Recordings where Dehli Musikk has contributed",
+        listMetaDescription: (releaseCount: number, artistCount: number) =>
+            `The ${releaseCount} recordings Dehli Musikk has played keyboard instruments on, for ${artistCount} artists and bands, with links to hear each one.`,
         listName: "Portfolio for Dehli Musikk",
         byConnector: "by",
         listenTo: (title: string, artistName: string) => `Listen to the track ${title} by ${artistName}`,
@@ -42,14 +46,17 @@ type ReleaseRouteProps = { params: Promise<{ releaseId: string }> };
 export function getPortfolioPageMetadata(lang: Lang): Metadata {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
+    // Longer than the paragraph the page opens with: that one sits under a
+    // heading that has already said "Portfolio", a search snippet stands alone
+    const description = t.listMetaDescription(releases.length, new Set(releases.map((release) => release.artistName)).size);
     return {
         title: t.metaTitle,
-        description: t.description,
+        description,
         alternates: buildAlternates(lang, { no: "portfolio/", en: "portfolio/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}portfolio/`,
-            description: t.description
+            description
         })
     };
 }
