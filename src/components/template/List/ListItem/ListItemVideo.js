@@ -71,7 +71,7 @@ function loadIframeApi() {
  * player reports ready avoids that where the browser permits it at all; where it
  * does not, YouTube's button is still there and nothing is worse than before.
  */
-const ListItemVideo = ({ videoTitle, youTubeId, startOffset, image, lang = "no" }) => {
+const ListItemVideo = ({ videoTitle, thumbnailDescription, youTubeId, startOffset, image, lang = "no" }) => {
     const [isPlayerRequested, setIsPlayerRequested] = useState(false);
     const playerMountRef = useRef(null);
     const playerRef = useRef(null);
@@ -113,6 +113,12 @@ const ListItemVideo = ({ videoTitle, youTubeId, startOffset, image, lang = "no" 
     }, [isPlayerRequested, youTubeId, startOffset, videoTitle]);
 
     const sizes = "(max-width: 945px) 100vw, 945px";
+    /*
+     * The poster carries the same authored description the thumbnail uses in the
+     * lists, rather than alt="". It is the video's own frame and the only image
+     * on the page, so it is content, not decoration. The empty alts elsewhere in
+     * the codebase are icons, and those are marked aria-hidden as well.
+     */
     const renderPoster = () =>
         image ? (
             <picture className={style.poster}>
@@ -125,7 +131,7 @@ const ListItemVideo = ({ videoTitle, youTubeId, startOffset, image, lang = "no" 
                     width="945"
                     height="532"
                     fetchPriority="high"
-                    alt=""
+                    alt={thumbnailDescription}
                 />
             </picture>
         ) : null;
