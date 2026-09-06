@@ -23,7 +23,8 @@
         "sameAs": [
             "https://benjamindehli.github.io/overtonium/",
             "https://github.com/benjamindehli/overtonium",
-            "https://github.com/benjamindehli/overtonium/releases"
+            "https://github.com/benjamindehli/overtonium/releases",
+            "https://www.kvraudio.com/product/overtonium-by-dehli-musikk"
         ],
         "productType": ["Software"],
         "mainImage": "overtonium.jpg",
@@ -53,7 +54,8 @@
         "sameAs": [
             "https://benjamindehli.github.io/sidstation-asid/",
             "https://github.com/benjamindehli/sidstation-asid",
-            "https://github.com/benjamindehli/sidstation-asid/releases"
+            "https://github.com/benjamindehli/sidstation-asid/releases",
+            "https://www.kvraudio.com/product/sidstation-asid-by-dehli-musikk"
         ],
         "productType": ["Software", "Elektron SidStation"],
         "mainImage": "sidstation-asid.jpg",
@@ -88,7 +90,8 @@
         "sameAs": [
             "https://benjamindehli.github.io/microsampler-editor-librarian/",
             "https://github.com/benjamindehli/microsampler-editor-librarian",
-            "https://github.com/benjamindehli/microsampler-editor-librarian/releases"
+            "https://github.com/benjamindehli/microsampler-editor-librarian/releases",
+            "https://www.kvraudio.com/product/microsampler-editor-librarian-by-dehli-musikk"
         ],
         "productType": ["Software", "Korg microSAMPLER"],
         "mainImage": "microsampler-editor-librarian.jpg",
@@ -129,7 +132,8 @@
             "https://www.cylex.no/bedrift-produkt/maskintrommer_266081.html",
             "https://www.youtube.com/watch?v=XWSHCTEfhZE",
             "https://github.com/benjamindehli/MaskinTrommer",
-            "https://benjamindehli.github.io/MaskinTrommer/"
+            "https://benjamindehli.github.io/MaskinTrommer/",
+            "https://www.kvraudio.com/product/maskintrommer-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "maskintrommer.jpg",
@@ -181,7 +185,8 @@
             "https://www.youtube.com/watch?v=LB-YDVqQh7s",
             "https://www.youtube.com/shorts/nCFiLi4mdtE",
             "https://github.com/benjamindehli/MidnightWurli",
-            "https://benjamindehli.github.io/MidnightWurli/"
+            "https://benjamindehli.github.io/MidnightWurli/",
+            "https://www.kvraudio.com/product/midnight-wurli-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "midnight-wurli.jpg",
@@ -312,7 +317,8 @@
             "https://www.cylex.no/bedrift-produkt/edb-orgel_223146.html",
             "https://www.youtube.com/watch?v=hZNESXfthg0",
             "https://github.com/benjamindehli/EDB-Orgel",
-            "https://benjamindehli.github.io/EDB-Orgel/"
+            "https://benjamindehli.github.io/EDB-Orgel/",
+            "https://www.kvraudio.com/product/edb-orgel-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "edb-orgel.jpg",
@@ -358,7 +364,8 @@
             "https://www.youtube.com/watch?v=yTpCq-qIIdY",
             "https://www.pianobook.co.uk/packs/subc/",
             "https://github.com/benjamindehli/SubC",
-            "https://benjamindehli.github.io/SubC/"
+            "https://benjamindehli.github.io/SubC/",
+            "https://www.kvraudio.com/product/subc-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "subc.jpg",
@@ -403,7 +410,8 @@
             "https://www.cylex.no/bedrift-produkt/4-track-toy-piano_223144.html",
             "https://www.youtube.com/watch?v=igZ9TCwIJpw",
             "https://github.com/benjamindehli/4-track-toy-piano",
-            "https://benjamindehli.github.io/4-track-toy-piano/"
+            "https://benjamindehli.github.io/4-track-toy-piano/",
+            "https://www.kvraudio.com/product/4-track-toy-piano-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "4-track-toy-piano.jpg",
@@ -455,7 +463,8 @@
             "https://www.cylex.no/bedrift-produkt/elektrisk-salmesykkel_223143.html",
             "https://www.youtube.com/watch?v=MWzlTejTHSw",
             "https://github.com/benjamindehli/ElektriskSalmesykkel",
-            "https://benjamindehli.github.io/ElektriskSalmesykkel/"
+            "https://benjamindehli.github.io/ElektriskSalmesykkel/",
+            "https://www.kvraudio.com/product/elektrisk-salmesykkel-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "elektrisk-salmesykkel.jpg",
@@ -508,7 +517,8 @@
             "https://www.youtube.com/watch?v=H_-g8gjE0EM",
             "https://www.pianobook.co.uk/packs/stylopoly/",
             "https://github.com/benjamindehli/StyloPoly",
-            "https://benjamindehli.github.io/StyloPoly/"
+            "https://benjamindehli.github.io/StyloPoly/",
+            "https://www.kvraudio.com/product/stylopoly-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "stylopoly.jpg",
@@ -565,7 +575,8 @@
             "https://www.youtube.com/watch?v=GyRbgZarPm4",
             "https://www.pianobook.co.uk/packs/strykebrett/",
             "https://github.com/benjamindehli/Strykebrett",
-            "https://benjamindehli.github.io/Strykebrett/"
+            "https://benjamindehli.github.io/Strykebrett/",
+            "https://www.kvraudio.com/product/strykebrett-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "strykebrett.jpg",
@@ -620,7 +631,8 @@
             "https://www.cylex.no/bedrift-produkt/4-track+glockenspiel_223140.html",
             "https://www.youtube.com/watch?v=8g-XCw91hSc",
             "https://github.com/benjamindehli/4-track-glockenspiel",
-            "https://benjamindehli.github.io/4-track-glockenspiel/"
+            "https://benjamindehli.github.io/4-track-glockenspiel/",
+            "https://www.kvraudio.com/product/4-track-glockenspiel-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "4-track-glockenspiel.jpg",
@@ -672,7 +684,8 @@
             "https://www.cylex.no/bedrift-produkt/4-track+music+box_223139.html",
             "https://www.youtube.com/watch?v=uBB4RNMrEXc",
             "https://github.com/benjamindehli/4-track-music-box",
-            "https://benjamindehli.github.io/4-track-music-box/"
+            "https://benjamindehli.github.io/4-track-music-box/",
+            "https://www.kvraudio.com/product/4-track-music-box-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "4-track-music-box.jpg",
@@ -725,7 +738,8 @@
             "https://www.youtube.com/watch?v=0h4CQ6jh6yM",
             "https://www.pianobook.co.uk/packs/voltage-controlled-cassette-organ/",
             "https://github.com/benjamindehli/VoltageControlledCassetteOrgan",
-            "https://benjamindehli.github.io/VoltageControlledCassetteOrgan/"
+            "https://benjamindehli.github.io/VoltageControlledCassetteOrgan/",
+            "https://www.kvraudio.com/product/voltage-controlled-cassette-organ-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "voltage-controlled-cassette-organ.jpg",
@@ -783,7 +797,8 @@
             "https://www.youtube.com/watch?v=qGyaNVAG-js",
             "https://www.pianobook.co.uk/packs/omni-84/",
             "https://github.com/benjamindehli/Omni-84",
-            "https://benjamindehli.github.io/Omni-84/"
+            "https://benjamindehli.github.io/Omni-84/",
+            "https://www.kvraudio.com/product/omni-84-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler"],
         "mainImage": "omni-84.jpg",
@@ -836,7 +851,8 @@
             "https://www.cylex.no/bedrift-produkt/lo-fi+tape+piano_223136.html",
             "https://www.youtube.com/watch?v=2k1QpuwCZzk",
             "https://github.com/benjamindehli/lo-fi-tape-piano",
-            "https://benjamindehli.github.io/lo-fi-tape-piano/"
+            "https://benjamindehli.github.io/lo-fi-tape-piano/",
+            "https://www.kvraudio.com/product/lo-fi-tape-piano-by-dehli-musikk"
         ],
         "productType": ["Sample instruments", "Decent Sampler", "EXS24"],
         "mainImage": "lo-fi-tape-piano.jpg",
