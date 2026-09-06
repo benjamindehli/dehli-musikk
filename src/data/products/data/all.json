@@ -795,7 +795,6 @@
             "https://www.cylex.no/bedrift-produkt/omni-84_223137.html",
             "https://www.youtube.com/watch?v=dAxy1PFxv3U",
             "https://www.youtube.com/watch?v=qGyaNVAG-js",
-            "https://www.pianobook.co.uk/packs/omni-84/",
             "https://github.com/benjamindehli/Omni-84",
             "https://benjamindehli.github.io/Omni-84/",
             "https://www.kvraudio.com/product/omni-84-by-dehli-musikk"
@@ -847,6 +846,7 @@
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/lo-fi-tape-piano",
+            "https://dehlimusikk.gumroad.com/l/lo-fi-tape-piano",
             "https://www.roqstar.io/item/lo-fi-tape-piano",
             "https://www.cylex.no/bedrift-produkt/lo-fi+tape+piano_223136.html",
             "https://www.youtube.com/watch?v=2k1QpuwCZzk",
