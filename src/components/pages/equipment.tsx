@@ -24,15 +24,23 @@ const translations = {
         metaTitle: "Utstyr | Dehli Musikk",
         pageTitle: "Utstyr",
         description: "Utstyr jeg bruker under innspilling",
+        listMetaDescription:
+            "Instrumenter, effekter og forsterkere jeg bruker når jeg spiller inn tangentspor for artister og band, med videoer og utgivelser hvert av dem høres på.",
         listName: "Utstyr brukt av Dehli Musikk",
-        typeDescription: (typeName: string) => `${typeName} jeg bruker under innspilling`
+        typeDescription: (typeName: string) => `${typeName} jeg bruker under innspilling`,
+        typeMetaDescription: (typeName: string, count: number) =>
+            `${count} ${typeName.toLowerCase()} jeg bruker når jeg spiller inn tangentspor for artister og band, med videoer og utgivelser hvert av dem høres på.`
     },
     en: {
         metaTitle: "Equipment | Dehli Musikk",
         pageTitle: "Equipment",
         description: "Equipment I use during recording",
+        listMetaDescription:
+            "The instruments, effects and amplifiers I use when recording keyboard tracks for artists and bands, each with the videos and releases it is heard on.",
         listName: "Equipment used by Dehli Musikk",
-        typeDescription: (typeName: string) => `${typeName} I use during recording`
+        typeDescription: (typeName: string) => `${typeName} I use during recording`,
+        typeMetaDescription: (typeName: string, count: number) =>
+            `The ${count} ${typeName.toLowerCase()} I use when recording keyboard tracks for artists and bands, each with the videos and releases it is heard on.`
     }
 } as const;
 
@@ -44,14 +52,17 @@ type EquipmentItemRouteProps = { params: Promise<{ equipmentType: string; equipm
 export function getEquipmentPageMetadata(lang: Lang): Metadata {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
+    // Longer than the paragraph the page opens with: that one sits under a
+    // heading that has already said "Equipment", a search snippet stands alone
+    const description = t.listMetaDescription;
     return {
         title: t.metaTitle,
-        description: t.description,
+        description,
         alternates: buildAlternates(lang, { no: "equipment/", en: "equipment/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}equipment/`,
-            description: t.description
+            description
         })
     };
 }
@@ -162,7 +173,8 @@ export async function getEquipmentTypeMetadata(lang: Lang, { params }: Equipment
     const languageSlug = getLanguageSlug(lang);
     const typeName = equipmentTypeData.name[lang];
     const title = detailTitle(typeName);
-    const description = t.typeDescription(typeName);
+    // The page's own paragraph stays short; this one has to stand alone
+    const description = t.typeMetaDescription(typeName, equipmentTypeData.items.length);
 
     return {
         title,

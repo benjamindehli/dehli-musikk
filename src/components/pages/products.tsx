@@ -21,6 +21,8 @@ const translations = {
         metaTitle: "Produkter | Dehli Musikk",
         pageTitle: "Produkter",
         description: "Produkter fra Dehli Musikk",
+        listMetaDescription:
+            "Virtuelle instrumenter og patch-bibliotek fra Dehli Musikk: samplede tangentinstrumenter og trommemaskiner for Decent Sampler, plugins og editorer.",
         listName: "Produkter fra Dehli Musikk",
         descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} Produkt fra Dehli Musikk, publisert ${date}.`
     },
@@ -28,6 +30,8 @@ const translations = {
         metaTitle: "Products | Dehli Musikk",
         pageTitle: "Products",
         description: "Products from Dehli Musikk",
+        listMetaDescription:
+            "Virtual instruments and patch libraries from Dehli Musikk: sampled keyboards and drum machines for Decent Sampler, plus plugins and editor software.",
         listName: "Products by Dehli Musikk",
         descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} A product from Dehli Musikk, published ${date}.`
     }
@@ -38,14 +42,17 @@ type ProductRouteProps = { params: Promise<{ productId: string }> };
 export function getProductsPageMetadata(lang: Lang): Metadata {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
+    // Longer than the paragraph the page opens with: that one sits under a
+    // heading that has already said "Products", a search snippet stands alone
+    const description = t.listMetaDescription;
     return {
         title: t.metaTitle,
-        description: t.description,
+        description,
         alternates: buildAlternates(lang, { no: "products/", en: "products/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}products/`,
-            description: t.description
+            description
         })
     };
 }

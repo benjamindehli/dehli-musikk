@@ -20,6 +20,8 @@ const translations = {
         metaTitle: "Videoer | Dehli Musikk",
         pageTitle: "Videoer",
         description: "Videoer Dehli Musikk har laget eller bidratt på",
+        listMetaDescription: (count: number) =>
+            `Alle ${count} videoene fra Dehli Musikk: lyddemoer av sample-bibliotekene og pluginene, studioutstyr i bruk, og tangentspor spilt inn på låter.`,
         listName: "Videoer av Dehli Musikk",
         theaterMode: "Kinomodus",
         descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} Video fra Dehli Musikk, publisert ${date}.`
@@ -28,6 +30,8 @@ const translations = {
         metaTitle: "Videos | Dehli Musikk",
         pageTitle: "Videos",
         description: "Videos Dehli Musikk has created or contributed in",
+        listMetaDescription: (count: number) =>
+            `All ${count} videos from Dehli Musikk: sound demos of the sample libraries and plugins, studio equipment in use, and keyboard parts played on recordings.`,
         listName: "Videos by Dehli Musikk",
         theaterMode: "Theater mode",
         descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} A video from Dehli Musikk, published ${date}.`
@@ -39,14 +43,20 @@ type VideoRouteProps = { params: Promise<{ videoId: string }> };
 export function getVideosPageMetadata(lang: Lang): Metadata {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
+    /*
+     * Longer than the paragraph the page itself opens with. That one sits under
+     * a heading which has already said "Videos", so it can be a few words; a
+     * search snippet stands alone and has to say what is in the list.
+     */
+    const description = t.listMetaDescription(videos.length);
     return {
         title: t.metaTitle,
-        description: t.description,
+        description,
         alternates: buildAlternates(lang, { no: "videos/", en: "videos/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}videos/`,
-            description: t.description
+            description
         })
     };
 }

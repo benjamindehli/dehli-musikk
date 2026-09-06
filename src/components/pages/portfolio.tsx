@@ -11,7 +11,7 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { getJsonLdIdForRelease } from "helpers/releaseHelpers";
 import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
-import { buildAlternates, socialMetadata, WEBSITE_URL, detailTitle, type Lang } from "lib/pageMetadata";
+import { buildAlternates, socialMetadata, WEBSITE_URL, detailTitle, metaDescription, type Lang } from "lib/pageMetadata";
 import releases from "data/portfolio";
 
 const translations = {
@@ -21,7 +21,9 @@ const translations = {
         description: "Utgivelser Dehli Musikk har bidratt på",
         listName: "Porteføljen til Dehli Musikk",
         byConnector: "av",
-        listenTo: (title: string, artistName: string) => `Lytt til låta ${title} av ${artistName}`
+        listenTo: (title: string, artistName: string) => `Lytt til låta ${title} av ${artistName}`,
+        releaseMetaDescription: (title: string, artistName: string, genre: string, year: number) =>
+            `Hør ${title} av ${artistName}, en ${genre}-utgivelse fra ${year} med tangentinstrumenter spilt av Benjamin Dehli i Dehli Musikk.`
     },
     en: {
         metaTitle: "Portfolio | Dehli Musikk",
@@ -29,7 +31,9 @@ const translations = {
         description: "Recordings where Dehli Musikk has contributed",
         listName: "Portfolio for Dehli Musikk",
         byConnector: "by",
-        listenTo: (title: string, artistName: string) => `Listen to the track ${title} by ${artistName}`
+        listenTo: (title: string, artistName: string) => `Listen to the track ${title} by ${artistName}`,
+        releaseMetaDescription: (title: string, artistName: string, genre: string, year: number) =>
+            `Listen to ${title} by ${artistName}, a ${genre} release from ${year} with keyboard instruments played by Benjamin Dehli of Dehli Musikk.`
     }
 } as const;
 
@@ -125,7 +129,15 @@ export async function getReleaseDetailsMetadata(lang: Lang, { params }: ReleaseR
     const languageSlug = getLanguageSlug(lang);
     const heading = `${release.title} ${t.byConnector} ${release.artistName}`;
     const title = detailTitle(heading);
-    const description = t.listenTo(release.title, release.artistName);
+    /*
+     * "Listen to the track X by Y" alone came to 45 to 49 characters, under the
+     * floor a description needs to tell a search engine anything, and 87 release
+     * pages carried one. Genre and year are on every release, and they are also
+     * what makes one of these pages different from the next.
+     */
+    const description = metaDescription(
+        t.releaseMetaDescription(release.title, release.artistName, release.genre, new Date(release.releaseDate).getFullYear())
+    );
 
     return {
         title,

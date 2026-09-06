@@ -20,6 +20,8 @@ const translations = {
         metaTitle: "Innlegg | Dehli Musikk",
         pageTitle: "Innlegg",
         description: "Siste oppdateringer fra Dehli Musikk",
+        listMetaDescription: (count: number) =>
+            `${count} oppdateringer fra Dehli Musikk: nye sample-bibliotek og pluginer, studioutstyr, og utgivelser Benjamin Dehli har spilt tangentinstrumenter på.`,
         intro: "Oppdateringer fra Dehli Musikk",
         listName: "Innlegg fra Dehli Musikk",
         // Used only when a post's own text is too thin to describe it
@@ -29,6 +31,8 @@ const translations = {
         metaTitle: "Posts | Dehli Musikk",
         pageTitle: "Posts",
         description: "Latest update from Dehli Musikk",
+        listMetaDescription: (count: number) =>
+            `${count} updates from Dehli Musikk: new sample libraries and plugins, studio equipment, and releases Benjamin Dehli has played keyboard instruments on.`,
         intro: "Updates from Dehli Musikk",
         listName: "Posts from Dehli Musikk",
         descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} A post from Dehli Musikk, published ${date}.`
@@ -40,14 +44,17 @@ type PostRouteProps = { params: Promise<{ postId: string }> };
 export function getPostsPageMetadata(lang: Lang): Metadata {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
+    // Longer than the paragraph the page opens with: that one sits under a
+    // heading that has already said "Posts", a search snippet stands alone
+    const description = t.listMetaDescription(posts.length);
     return {
         title: t.metaTitle,
-        description: t.description,
+        description,
         alternates: buildAlternates(lang, { no: "posts/", en: "posts/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}posts/`,
-            description: t.description
+            description
         })
     };
 }
