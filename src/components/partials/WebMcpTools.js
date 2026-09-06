@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 /*
  * Registers this site's tools with the browser via WebMCP, so an agent running
@@ -16,17 +16,17 @@
  * registering and unregistering them.
  */
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import { buildTools } from 'helpers/webMcpTools';
+import { buildTools } from "helpers/webMcpTools";
 
 /**
  * @param {{ lang: 'no' | 'en' }} props
  */
 const WebMcpTools = ({ lang }) => {
     useEffect(() => {
-        const modelContext = typeof navigator !== 'undefined' ? navigator.modelContext : undefined;
-        if (!modelContext || typeof modelContext.registerTool !== 'function') return undefined;
+        const modelContext = typeof navigator !== "undefined" ? navigator.modelContext : undefined;
+        if (!modelContext || typeof modelContext.registerTool !== "function") return undefined;
 
         const controller = new AbortController();
         const handles = [];
@@ -43,14 +43,14 @@ const WebMcpTools = ({ lang }) => {
             }
         } catch (error) {
             // An unsupported signature must not take the page down with it
-            console.warn('WebMCP tools were not registered:', error);
+            console.warn("WebMCP tools were not registered:", error);
         }
 
         return () => {
             controller.abort();
             for (const handle of handles) {
                 try {
-                    if (typeof handle?.unregister === 'function') handle.unregister();
+                    if (typeof handle?.unregister === "function") handle.unregister();
                 } catch {
                     // Already gone, or a shape that never needed unregistering
                 }

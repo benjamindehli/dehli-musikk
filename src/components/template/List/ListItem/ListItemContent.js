@@ -1,12 +1,8 @@
 // Stylesheets
-import style from 'components/template/List/ListItem/ListItemContent.module.scss';
+import style from "components/template/List/ListItem/ListItemContent.module.scss";
 
 const ListItemContent = ({ fullscreen = false, children }) => {
-  return (
-    <div className={`${style.listItemContent} ${fullscreen ? style.fullscreen : ''}`}>
-      {children}
-    </div>
-  )
+    return <div className={`${style.listItemContent} ${fullscreen ? style.fullscreen : ""}`}>{children}</div>;
 };
 
 export default ListItemContent;

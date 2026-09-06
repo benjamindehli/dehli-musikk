@@ -53,14 +53,14 @@ from a name that is not translated.
 
 ## What is where
 
-| Section | List | Item |
-| --- | --- | --- |
-| Recordings | `/portfolio/` | `/portfolio/{artist-title}/` |
-| Posts | `/posts/` | `/posts/{title}/` |
-| Videos | `/videos/` | `/videos/{title}/video/` |
-| Products | `/products/` | `/products/{title}/` |
-| Equipment | `/equipment/` | `/equipment/{instruments\|effects\|amplifiers}/{brand-model}/` |
-| FAQ | `/frequently-asked-questions/` | - |
+| Section    | List                           | Item                                                           |
+| ---------- | ------------------------------ | -------------------------------------------------------------- |
+| Recordings | `/portfolio/`                  | `/portfolio/{artist-title}/`                                   |
+| Posts      | `/posts/`                      | `/posts/{title}/`                                              |
+| Videos     | `/videos/`                     | `/videos/{title}/video/`                                       |
+| Products   | `/products/`                   | `/products/{title}/`                                           |
+| Equipment  | `/equipment/`                  | `/equipment/{instruments\|effects\|amplifiers}/{brand-model}/` |
+| FAQ        | `/frequently-asked-questions/` | -                                                              |
 
 Videos have two URLs: `/videos/{title}/` shows the video in a modal and
 `/videos/{title}/video/` full screen. The second is canonical; prefer it.

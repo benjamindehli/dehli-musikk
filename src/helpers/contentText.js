@@ -45,10 +45,7 @@ export const formatContentAsMarkdown = (content, websiteUrl, languageSlug) => {
     return content
         .split("\n")
         .map((paragraph) =>
-            paragraph.replace(
-                CONTENT_LINK_PATTERN,
-                (_match, title, link) => `[${title}](${resolveContentLink(link, websiteUrl, languageSlug)})`
-            )
+            paragraph.replace(CONTENT_LINK_PATTERN, (_match, title, link) => `[${title}](${resolveContentLink(link, websiteUrl, languageSlug)})`)
         )
         .join("\n\n");
 };

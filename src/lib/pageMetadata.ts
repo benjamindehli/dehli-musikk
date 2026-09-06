@@ -1,11 +1,11 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-export type Lang = 'no' | 'en';
+export type Lang = "no" | "en";
 
-export const WEBSITE_URL = 'https://www.dehlimusikk.no';
+export const WEBSITE_URL = "https://www.dehlimusikk.no";
 
-const SITE_NAME = 'Dehli Musikk';
-const TWITTER_HANDLE = '@BenjaminDehli';
+const SITE_NAME = "Dehli Musikk";
+const TWITTER_HANDLE = "@BenjaminDehli";
 
 // Shown wherever a page has no image of its own, so a shared link never renders
 // as a card with an empty image area. 1200x630 is the size both Facebook and X
@@ -17,13 +17,13 @@ const DEFAULT_OG_IMAGE = {
 };
 
 // Facebook/Open Graph locale codes (Norwegian Bokmål is nb_NO)
-export const OG_LOCALES: Record<Lang, string> = { no: 'nb_NO', en: 'en_US' };
+export const OG_LOCALES: Record<Lang, string> = { no: "nb_NO", en: "en_US" };
 
 // Same identifier used as the author @id in the site's JSON-LD, so the author
 // resolves to one identity across both vocabularies.
-export const AUTHOR_URL = 'https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f';
+export const AUTHOR_URL = "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f";
 
-export const otherLang = (lang: Lang): Lang => (lang === 'no' ? 'en' : 'no');
+export const otherLang = (lang: Lang): Lang => (lang === "no" ? "en" : "no");
 
 /*
  * Search results and social cards show roughly the first 155 characters of a
@@ -51,13 +51,13 @@ const META_DESCRIPTION_MAX = 155;
  */
 const META_DESCRIPTION_MIN = 50;
 
-const flatten = (text: string) => (text ?? '').replace(/\s+/g, ' ').trim();
+const flatten = (text: string) => (text ?? "").replace(/\s+/g, " ").trim();
 
 const clip = (text: string) =>
     text.length <= META_DESCRIPTION_MAX
         ? text
         : // Back off to a word boundary so the text does not end mid-word
-          `${text.slice(0, META_DESCRIPTION_MAX).replace(/[\s,;:]+\S*$/, '')}…`;
+          `${text.slice(0, META_DESCRIPTION_MAX).replace(/[\s,;:]+\S*$/, "")}…`;
 
 /**
  * @param text the page's own content
@@ -93,7 +93,7 @@ export function alternateUrls(paths: PagePaths): Record<Lang, string> {
  * edge negotiation layer maps an Accept: text/markdown request onto the same
  * file. Every page path already ends in a slash, so appending is enough.
  */
-export const MARKDOWN_FILENAME = 'index.md';
+export const MARKDOWN_FILENAME = "index.md";
 
 export const markdownUrl = (pageUrl: string): string => `${pageUrl}${MARKDOWN_FILENAME}`;
 
@@ -101,14 +101,14 @@ export const markdownUrl = (pageUrl: string): string => `${pageUrl}${MARKDOWN_FI
  * Builds canonical + hreflang alternates for a page, plus a link to the page's
  * markdown representation.
  */
-export function buildAlternates(lang: Lang, paths: PagePaths): Metadata['alternates'] {
+export function buildAlternates(lang: Lang, paths: PagePaths): Metadata["alternates"] {
     const urls = alternateUrls(paths);
     return {
         canonical: urls[lang],
-        languages: { no: urls.no, en: urls.en, 'x-default': urls.no },
+        languages: { no: urls.no, en: urls.en, "x-default": urls.no },
         // Renders <link rel="alternate" type="text/markdown">, which is how a
         // reader that has only the HTML discovers the markdown exists.
-        types: { 'text/markdown': markdownUrl(urls[lang]) }
+        types: { "text/markdown": markdownUrl(urls[lang]) }
     };
 }
 
@@ -128,10 +128,10 @@ type SharedSocialInput = {
 };
 
 type SocialInput =
-    | (SharedSocialInput & { type?: 'website' })
-    | (SharedSocialInput & { type: 'article'; publishedTime: string; modifiedTime: string; authors: string[] })
+    | (SharedSocialInput & { type?: "website" })
+    | (SharedSocialInput & { type: "article"; publishedTime: string; modifiedTime: string; authors: string[] })
     // og:music:duration is in whole seconds
-    | (SharedSocialInput & { type: 'music.song'; duration?: number });
+    | (SharedSocialInput & { type: "music.song"; duration?: number });
 
 /**
  * Builds both social vocabularies for a page.
@@ -143,7 +143,7 @@ type SocialInput =
  * here, in something each page calls, rather than in a layout that never
  * reaches them.
  */
-export function socialMetadata(lang: Lang, input: SocialInput): Pick<Metadata, 'openGraph' | 'twitter'> {
+export function socialMetadata(lang: Lang, input: SocialInput): Pick<Metadata, "openGraph" | "twitter"> {
     const images = input.images?.length ? input.images : [DEFAULT_OG_IMAGE];
     const shared = {
         siteName: SITE_NAME,
@@ -155,22 +155,22 @@ export function socialMetadata(lang: Lang, input: SocialInput): Pick<Metadata, '
     };
 
     const openGraph =
-        input.type === 'article'
+        input.type === "article"
             ? {
                   ...shared,
-                  type: 'article' as const,
+                  type: "article" as const,
                   publishedTime: input.publishedTime,
                   modifiedTime: input.modifiedTime,
                   authors: input.authors
               }
-            : input.type === 'music.song'
-              ? { ...shared, type: 'music.song' as const, duration: input.duration }
-              : { ...shared, type: 'website' as const };
+            : input.type === "music.song"
+              ? { ...shared, type: "music.song" as const, duration: input.duration }
+              : { ...shared, type: "website" as const };
 
     return {
         openGraph,
         twitter: {
-            card: 'summary_large_image',
+            card: "summary_large_image",
             site: TWITTER_HANDLE,
             creator: TWITTER_HANDLE,
             title: input.title,

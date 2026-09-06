@@ -6,8 +6,8 @@
  * testing, and worker/test/negotiate.test.mjs runs them under plain Node.
  */
 
-const MARKDOWN_TYPES = ['text/markdown', 'text/x-markdown'];
-const HTML_TYPE = 'text/html';
+const MARKDOWN_TYPES = ["text/markdown", "text/x-markdown"];
+const HTML_TYPE = "text/html";
 
 /**
  * The quality value an Accept header assigns to one media type.
@@ -22,25 +22,25 @@ const HTML_TYPE = 'text/html';
 export function acceptQuality(accept, mediaType) {
     if (!accept) return 0;
 
-    const [type, subtype] = mediaType.toLowerCase().split('/');
+    const [type, subtype] = mediaType.toLowerCase().split("/");
     let bestSpecificity = -1;
     let bestQuality = 0;
 
-    for (const entry of accept.split(',')) {
-        const [rangeText, ...parameters] = entry.split(';');
+    for (const entry of accept.split(",")) {
+        const [rangeText, ...parameters] = entry.split(";");
         const range = rangeText.trim().toLowerCase();
         if (!range) continue;
 
-        const [rangeType, rangeSubtype] = range.split('/');
+        const [rangeType, rangeSubtype] = range.split("/");
         let specificity;
         if (rangeType === type && rangeSubtype === subtype) specificity = 3;
-        else if (rangeType === type && rangeSubtype === '*') specificity = 2;
-        else if (rangeType === '*' && rangeSubtype === '*') specificity = 1;
+        else if (rangeType === type && rangeSubtype === "*") specificity = 2;
+        else if (rangeType === "*" && rangeSubtype === "*") specificity = 1;
         else continue;
 
         // A malformed or absent q is treated as 1, which is what the grammar says
         // an unqualified media range means.
-        const qualityParameter = parameters.map((parameter) => parameter.trim().toLowerCase()).find((parameter) => parameter.startsWith('q='));
+        const qualityParameter = parameters.map((parameter) => parameter.trim().toLowerCase()).find((parameter) => parameter.startsWith("q="));
         let quality = qualityParameter ? Number.parseFloat(qualityParameter.slice(2)) : 1;
         if (!Number.isFinite(quality)) quality = 1;
         quality = Math.min(Math.max(quality, 0), 1);
@@ -76,11 +76,11 @@ export function prefersMarkdown(accept) {
  * passes straight through instead of asking for a twin of a twin.
  */
 export function markdownPathFor(pathname) {
-    return pathname.endsWith('/') ? `${pathname}index.md` : null;
+    return pathname.endsWith("/") ? `${pathname}index.md` : null;
 }
 
 /** The host every page and file on this site is canonically served from. */
-export const CANONICAL_HOST = 'www.dehlimusikk.no';
+export const CANONICAL_HOST = "www.dehlimusikk.no";
 
 /**
  * Whether this request is for robots.txt on a host other than the canonical one.
@@ -98,7 +98,7 @@ export const CANONICAL_HOST = 'www.dehlimusikk.no';
  * ones that do not fail silently.
  */
 export function isNonCanonicalRobots(url) {
-    return url.hostname !== CANONICAL_HOST && url.pathname === '/robots.txt';
+    return url.hostname !== CANONICAL_HOST && url.pathname === "/robots.txt";
 }
 
 /**
@@ -115,13 +115,13 @@ export function isNonCanonicalRobots(url) {
  * fully available to anyone who wants it.
  */
 export function canonicalPageUrlFor(pathname) {
-    const suffix = 'index.md';
+    const suffix = "index.md";
     if (!pathname.endsWith(`/${suffix}`)) return null;
     return `https://${CANONICAL_HOST}${pathname.slice(0, -suffix.length)}`;
 }
 
 /* The two homepages: Norwegian at the root, English under /en/. */
-const HOMEPAGE_PATHS = new Set(['/', '/en/']);
+const HOMEPAGE_PATHS = new Set(["/", "/en/"]);
 
 /**
  * The value of the Link header for a homepage, or null for any other path.
@@ -147,5 +147,5 @@ export function homepageLinkHeader(pathname) {
         '</llms-full.txt>; rel="describedby"; type="text/plain"',
         `<${pathname}index.md>; rel="alternate"; type="text/markdown"`,
         '</sitemap.xml>; rel="sitemap"'
-    ].join(', ');
+    ].join(", ");
 }

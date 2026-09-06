@@ -1,31 +1,31 @@
 .breadcrumbs {
-  & ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    & ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
-    & li {
-      display: inline-block;
+        & li {
+            display: inline-block;
 
-      & a,
-      & span {
-        color: rgba(0, 0, 0, 0.65);
-        text-decoration: none;
-      }
+            & a,
+            & span {
+                color: rgba(0, 0, 0, 0.65);
+                text-decoration: none;
+            }
 
-      &:last-child {
-        & a,
-        & span {
-          color: rgba(0, 0, 0, 0.90);
+            &:last-child {
+                & a,
+                & span {
+                    color: rgba(0, 0, 0, 0.9);
+                }
+            }
+
+            &:not(:last-child):after {
+                display: inline-block;
+                content: "/";
+                margin: 0 8px;
+                color: rgba(0, 0, 0, 0.65);
+            }
         }
-      }
-
-      &:not(:last-child):after {
-        display: inline-block;
-        content: "/";
-        margin: 0 8px;
-        color: rgba(0, 0, 0, 0.65);
-      }
     }
-  }
 }

@@ -1,39 +1,37 @@
-import JsonLd from 'components/JsonLd';
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Breadcrumbs from 'components/partials/Breadcrumbs';
-import Container from 'components/template/Container';
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Modal from 'components/template/Modal';
-import Post from 'components/partials/Post';
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
-import { getPrettyDate } from 'helpers/dateFormatter';
-import { formatContentAsString } from 'helpers/contentFormatter';
-import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
-import { getLanguageSlug } from 'lib/i18n';
-import { AUTHOR_URL, buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, type Lang } from 'lib/pageMetadata';
-import posts from 'data/posts';
+import JsonLd from "components/JsonLd";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Breadcrumbs from "components/partials/Breadcrumbs";
+import Container from "components/template/Container";
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import Modal from "components/template/Modal";
+import Post from "components/partials/Post";
+import { convertToUrlFriendlyString } from "helpers/urlFormatter";
+import { getPrettyDate } from "helpers/dateFormatter";
+import { formatContentAsString } from "helpers/contentFormatter";
+import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
+import { getLanguageSlug } from "lib/i18n";
+import { AUTHOR_URL, buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, type Lang } from "lib/pageMetadata";
+import posts from "data/posts";
 
 const translations = {
     no: {
-        metaTitle: 'Innlegg | Dehli Musikk',
-        pageTitle: 'Innlegg',
-        description: 'Siste oppdateringer fra Dehli Musikk',
-        intro: 'Oppdateringer fra Dehli Musikk',
-        listName: 'Innlegg fra Dehli Musikk',
+        metaTitle: "Innlegg | Dehli Musikk",
+        pageTitle: "Innlegg",
+        description: "Siste oppdateringer fra Dehli Musikk",
+        intro: "Oppdateringer fra Dehli Musikk",
+        listName: "Innlegg fra Dehli Musikk",
         // Used only when a post's own text is too thin to describe it
-        descriptionFallback: (title: string, excerpt: string, date: string) =>
-            `${title}. ${excerpt} Innlegg fra Dehli Musikk, publisert ${date}.`
+        descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} Innlegg fra Dehli Musikk, publisert ${date}.`
     },
     en: {
-        metaTitle: 'Posts | Dehli Musikk',
-        pageTitle: 'Posts',
-        description: 'Latest update from Dehli Musikk',
-        intro: 'Updates from Dehli Musikk',
-        listName: 'Posts from Dehli Musikk',
-        descriptionFallback: (title: string, excerpt: string, date: string) =>
-            `${title}. ${excerpt} A post from Dehli Musikk, published ${date}.`
+        metaTitle: "Posts | Dehli Musikk",
+        pageTitle: "Posts",
+        description: "Latest update from Dehli Musikk",
+        intro: "Updates from Dehli Musikk",
+        listName: "Posts from Dehli Musikk",
+        descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} A post from Dehli Musikk, published ${date}.`
     }
 } as const;
 
@@ -45,7 +43,7 @@ export function getPostsPageMetadata(lang: Lang): Metadata {
     return {
         title: t.metaTitle,
         description: t.description,
-        alternates: buildAlternates(lang, { no: 'posts/', en: 'posts/' }),
+        alternates: buildAlternates(lang, { no: "posts/", en: "posts/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}posts/`,
@@ -60,17 +58,17 @@ export function PostsPage({ lang }: { lang: Lang }) {
     const postItems = posts.map((post, index) => {
         const postId = convertToUrlFriendlyString(post.title[lang]);
         return {
-            '@type': 'ListItem',
-            '@id': `${WEBSITE_URL}/posts/${convertToUrlFriendlyString(post.title.no)}/`,
+            "@type": "ListItem",
+            "@id": `${WEBSITE_URL}/posts/${convertToUrlFriendlyString(post.title.no)}/`,
             name: post.title[lang],
             position: index + 1,
             url: `${WEBSITE_URL}/${languageSlug}posts/${postId}/`
         };
     });
     const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        '@id': `${WEBSITE_URL}/posts/`,
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "@id": `${WEBSITE_URL}/posts/`,
         name: t.listName,
         numberOfItems: postItems.length,
         itemListElement: postItems
@@ -106,9 +104,7 @@ export function getPostStaticParams(lang: Lang) {
 }
 
 function getPost(lang: Lang, postId: string) {
-    const index = posts.findIndex(
-        (p) => convertToUrlFriendlyString(p.title[lang]) === postId
-    );
+    const index = posts.findIndex((p) => convertToUrlFriendlyString(p.title[lang]) === postId);
     if (index === -1) return null;
     const post = posts[index];
     return {
@@ -132,10 +128,7 @@ export async function getPostDetailsMetadata(lang: Lang, { params }: PostRoutePr
      * fallback covers the posts whose whole body is an emoji.
      */
     const excerpt = formatContentAsString(post.content[lang]);
-    const description = metaDescription(
-        excerpt,
-        t.descriptionFallback(post.title[lang], excerpt, getPrettyDate(new Date(post.timestamp), lang))
-    );
+    const description = metaDescription(excerpt, t.descriptionFallback(post.title[lang], excerpt, getPrettyDate(new Date(post.timestamp), lang)));
 
     return {
         title,
@@ -145,7 +138,7 @@ export async function getPostDetailsMetadata(lang: Lang, { params }: PostRoutePr
             en: `posts/${convertToUrlFriendlyString(post.title.en)}/`
         }),
         ...socialMetadata(lang, {
-            type: 'article',
+            type: "article",
             title: post.title[lang],
             url: `${WEBSITE_URL}/${languageSlug}posts/${postId}/`,
             description,

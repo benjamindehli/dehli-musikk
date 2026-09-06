@@ -20,13 +20,13 @@
  * fifteen hundred unchanged pages every release is the kind of thing that gets an
  * endpoint ignored.
  */
-import fs from 'node:fs';
-import path from 'node:path';
+import fs from "node:fs";
+import path from "node:path";
 
 const ROOT = process.cwd();
-const SITE_ORIGIN = 'https://www.dehlimusikk.no';
-const SITE_HOST = 'www.dehlimusikk.no';
-const ENDPOINT = 'https://api.indexnow.org/indexnow';
+const SITE_ORIGIN = "https://www.dehlimusikk.no";
+const SITE_HOST = "www.dehlimusikk.no";
+const ENDPOINT = "https://api.indexnow.org/indexnow";
 
 /*
  * How recently a page must have been published or updated to be submitted.
@@ -40,11 +40,11 @@ const WINDOW_DAYS = 21;
  * other things. They change whenever anything they list changes, so they go in
  * every time. Both languages: Norwegian at the root, English under /en/.
  */
-const NAVIGATIONAL_PATHS = ['', 'products/', 'posts/', 'videos/', 'portfolio/', 'equipment/', 'frequently-asked-questions/'];
+const NAVIGATIONAL_PATHS = ["", "products/", "posts/", "videos/", "portfolio/", "equipment/", "frequently-asked-questions/"];
 
 const args = process.argv.slice(2);
-const dryRun = args.includes('--dry-run');
-const directory = args.find((arg) => !arg.startsWith('--')) || 'out';
+const dryRun = args.includes("--dry-run");
+const directory = args.find((arg) => !arg.startsWith("--")) || "out";
 const EXPORT_DIR = path.resolve(ROOT, directory);
 
 if (!fs.existsSync(EXPORT_DIR)) {
@@ -55,14 +55,14 @@ if (!fs.existsSync(EXPORT_DIR)) {
 }
 
 // Every index.md in the export, relative to its root
-function markdownTwins(prefix = '') {
+function markdownTwins(prefix = "") {
     const found = [];
     for (const entry of fs.readdirSync(path.join(EXPORT_DIR, prefix), { withFileTypes: true })) {
         const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
         if (entry.isDirectory()) {
-            if (entry.name === '_next') continue;
+            if (entry.name === "_next") continue;
             found.push(...markdownTwins(relative));
-        } else if (entry.name === 'index.md') {
+        } else if (entry.name === "index.md") {
             found.push(relative);
         }
     }
@@ -71,13 +71,13 @@ function markdownTwins(prefix = '') {
 
 // A declaration, not a const: run() is called above, before this point in the file
 function frontMatterValue(markdown, field) {
-    return markdown.match(new RegExp(`^${field}: "([^"]*)"$`, 'm'))?.[1] ?? null;
+    return markdown.match(new RegExp(`^${field}: "([^"]*)"$`, "m"))?.[1] ?? null;
 }
 
 async function run() {
     const key = findKey();
     if (!key) {
-        console.log('No IndexNow key file found in public/. Expected a single <32-hex>.txt whose contents are its own name.');
+        console.log("No IndexNow key file found in public/. Expected a single <32-hex>.txt whose contents are its own name.");
         process.exitCode = 1;
         return;
     }
@@ -90,12 +90,12 @@ async function run() {
     let recent = 0;
 
     for (const twin of markdownTwins()) {
-        const markdown = fs.readFileSync(path.join(EXPORT_DIR, twin), 'utf8');
-        const url = frontMatterValue(markdown, 'url');
+        const markdown = fs.readFileSync(path.join(EXPORT_DIR, twin), "utf8");
+        const url = frontMatterValue(markdown, "url");
         if (!url) continue;
 
         // Whichever is later: a post edited long after publication still counts
-        const dates = ['published', 'modified'].map((field) => frontMatterValue(markdown, field)).filter(Boolean);
+        const dates = ["published", "modified"].map((field) => frontMatterValue(markdown, field)).filter(Boolean);
         if (!dates.length) continue;
         dated += 1;
 
@@ -112,13 +112,13 @@ async function run() {
 
     if (dryRun) {
         urlList.forEach((url) => console.log(`   ${url}`));
-        console.log('\n--dry-run: nothing submitted');
+        console.log("\n--dry-run: nothing submitted");
         return;
     }
 
     const response = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        method: "POST",
+        headers: { "Content-Type": "application/json; charset=utf-8" },
         body: JSON.stringify({ host: SITE_HOST, key, keyLocation: `${SITE_ORIGIN}/${key}.txt`, urlList })
     });
 
@@ -144,12 +144,12 @@ async function run() {
  */
 function findKey() {
     const candidates = fs
-        .readdirSync(path.resolve(ROOT, 'public'))
+        .readdirSync(path.resolve(ROOT, "public"))
         .filter((name) => /^[0-9a-f]{32}\.txt$/.test(name))
-        .map((name) => name.replace(/\.txt$/, ''));
+        .map((name) => name.replace(/\.txt$/, ""));
 
     if (candidates.length !== 1) return null;
     const [key] = candidates;
-    const contents = fs.readFileSync(path.resolve(ROOT, 'public', `${key}.txt`), 'utf8').trim();
+    const contents = fs.readFileSync(path.resolve(ROOT, "public", `${key}.txt`), "utf8").trim();
     return contents === key ? key : null;
 }

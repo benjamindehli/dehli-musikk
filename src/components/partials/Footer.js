@@ -1,13 +1,13 @@
 // Dependencies
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 // Lib
-import { getLanguageSlug } from 'lib/i18n';
-import { sectionLinks } from 'lib/sectionLinks';
+import { getLanguageSlug } from "lib/i18n";
+import { sectionLinks } from "lib/sectionLinks";
 
 // Stylesheets
-import style from 'components/partials/Footer.module.scss';
+import style from "components/partials/Footer.module.scss";
 
 const year = new Date().getFullYear();
 
@@ -17,43 +17,43 @@ const year = new Date().getFullYear();
  * nothing else sitewide uses and which the footer would put on every page.
  */
 const socialLinks = [
-    { href: 'https://www.facebook.com/DehliMusikk/', label: 'Facebook', titleKey: 'facebook' },
-    { href: 'https://www.instagram.com/benjamindehli/', label: 'Instagram', titleKey: 'instagram' },
-    { href: 'https://youtube.com/@BenjaminDehli', label: 'YouTube', titleKey: 'youtube' },
-    { href: 'https://github.com/benjamindehli', label: 'GitHub', titleKey: 'github' }
+    { href: "https://www.facebook.com/DehliMusikk/", label: "Facebook", titleKey: "facebook" },
+    { href: "https://www.instagram.com/benjamindehli/", label: "Instagram", titleKey: "instagram" },
+    { href: "https://youtube.com/@BenjaminDehli", label: "YouTube", titleKey: "youtube" },
+    { href: "https://github.com/benjamindehli", label: "GitHub", titleKey: "github" }
 ];
 
 const translations = {
     no: {
-        navLabel: 'Lenker i bunnteksten',
-        pages: 'Sider',
-        contact: 'Kontakt',
-        home: 'Hjem',
-        email: 'Send e-post',
-        facebook: 'Dehli Musikk på Facebook',
-        instagram: 'Dehli Musikk på Instagram',
-        youtube: 'Dehli Musikk på YouTube',
-        github: 'Benjamin Dehli på GitHub',
-        feed: 'Nyheter som RSS'
+        navLabel: "Lenker i bunnteksten",
+        pages: "Sider",
+        contact: "Kontakt",
+        home: "Hjem",
+        email: "Send e-post",
+        facebook: "Dehli Musikk på Facebook",
+        instagram: "Dehli Musikk på Instagram",
+        youtube: "Dehli Musikk på YouTube",
+        github: "Benjamin Dehli på GitHub",
+        feed: "Nyheter som RSS"
     },
     en: {
-        navLabel: 'Footer links',
-        pages: 'Pages',
-        contact: 'Contact',
-        home: 'Home',
-        email: 'Send an email',
-        facebook: 'Dehli Musikk on Facebook',
-        instagram: 'Dehli Musikk on Instagram',
-        youtube: 'Dehli Musikk on YouTube',
-        github: 'Benjamin Dehli on GitHub',
-        feed: 'News as RSS'
+        navLabel: "Footer links",
+        pages: "Pages",
+        contact: "Contact",
+        home: "Home",
+        email: "Send an email",
+        facebook: "Dehli Musikk on Facebook",
+        instagram: "Dehli Musikk on Instagram",
+        youtube: "Dehli Musikk on YouTube",
+        github: "Benjamin Dehli on GitHub",
+        feed: "News as RSS"
     }
 };
 
 const Footer = ({ lang }) => {
     const t = translations[lang] || translations.no;
     const languageSlug = getLanguageSlug(lang);
-    const feedPath = lang === 'en' ? '/feed-en.rss' : '/feed-no.rss';
+    const feedPath = lang === "en" ? "/feed-en.rss" : "/feed-no.rss";
 
     return (
         <footer className={style.footer}>
@@ -89,12 +89,7 @@ const Footer = ({ lang }) => {
                             </li>
                             {socialLinks.map((socialLink) => (
                                 <li key={socialLink.href}>
-                                    <a
-                                        href={socialLink.href}
-                                        title={t[socialLink.titleKey]}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
+                                    <a href={socialLink.href} title={t[socialLink.titleKey]} target="_blank" rel="noopener noreferrer">
                                         {socialLink.label}
                                     </a>
                                 </li>

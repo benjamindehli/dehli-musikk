@@ -1,4 +1,4 @@
-import SearchPageClient from 'components/partials/SearchPageClient';
+import SearchPageClient from "components/partials/SearchPageClient";
 
 export const metadata = {
     robots: { index: false }

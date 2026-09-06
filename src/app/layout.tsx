@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react';
-import type { Viewport } from 'next';
-import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import 'style/styles.scss';
+import type { ReactNode } from "react";
+import type { Viewport } from "next";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import "style/styles.scss";
 
 config.autoAddCss = false;
 
@@ -16,18 +16,18 @@ config.autoAddCss = false;
  * overwrites them.
  */
 export const metadata = {
-    metadataBase: new URL('https://www.dehlimusikk.no'),
-    manifest: '/manifest.json',
+    metadataBase: new URL("https://www.dehlimusikk.no"),
+    manifest: "/manifest.json",
     icons: {
         icon: [
-            { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-            { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
+            { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+            { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" }
         ],
         // iOS ignores the manifest icons and looks for this one
-        apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }]
+        apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }]
     },
     other: {
-        'fb:app_id': '525744544728800'
+        "fb:app_id": "525744544728800"
     }
 };
 
@@ -40,7 +40,7 @@ export const metadata = {
  * browser falls back to once the site is installed.
  */
 export const viewport: Viewport = {
-    themeColor: '#C32A22'
+    themeColor: "#C32A22"
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

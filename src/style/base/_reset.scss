@@ -1,56 +1,56 @@
 * {
-  -webkit-box-sizing: border-box; // Safari <= 5
-  -moz-box-sizing: border-box; // Firefox <= 19
-  box-sizing: border-box;
+    -webkit-box-sizing: border-box; // Safari <= 5
+    -moz-box-sizing: border-box; // Firefox <= 19
+    box-sizing: border-box;
 }
 
 html {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 a,
 a:focus,
 a:hover {
-  text-decoration: none;
-  outline: none;
+    text-decoration: none;
+    outline: none;
 }
 
 button,
 input[type="button"],
 input[type="submit"] {
-  border: none;
-  cursor: pointer;
+    border: none;
+    cursor: pointer;
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
 }
 
 input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 img {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 h1,
 [data-size="h1"] {
-  display: block;
-  font-size: 2em;
-  margin-block-start: 0.67em;
-  margin-block-end: 0.67em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-  unicode-bidi: isolate;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
 }

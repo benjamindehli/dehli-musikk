@@ -1,5 +1,5 @@
 // Dependencies
-import JsonLd from 'components/JsonLd';
+import JsonLd from "components/JsonLd";
 import React from "react";
 
 // Components
@@ -23,9 +23,9 @@ import { generateProductSnippet } from "helpers/richSnippetsGenerators";
 import { getProductReleases } from "helpers/instrumentReleases";
 
 const Product = ({ product, fullscreen = false, compact = false, priority = false, lang, languageSlug }) => {
-  // The first card on a list page is usually the LCP element, so it loads eagerly
-  // with a priority hint rather than being lazy like the cards below the fold.
-  const loadingAttributes = priority ? { fetchPriority: 'high' } : { loading: 'lazy' };
+    // The first card on a list page is usually the LCP element, so it loads eagerly
+    // with a priority hint rather than being lazy like the cards below the fold.
+    const loadingAttributes = priority ? { fetchPriority: "high" } : { loading: "lazy" };
 
     const renderProductSnippet = (product) => {
         const productSnippet = generateProductSnippet(product, languageSlug, lang);
@@ -34,32 +34,38 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
 
     const renderProductThumbnail = (image, altText, fullscreen, compact) => {
         if (compact) {
-            return (<React.Fragment>
-                <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" />
-                <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" />
-                <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" />
-                <img {...loadingAttributes} src={image.jpg55} data-width="55" data-height="55" alt={altText} />
-            </React.Fragment>);
-        } else if (fullscreen){
-            return (<React.Fragment>
-                <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" media='(max-width: 407px)' />
-                <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" media='(max-width: 407px)' />
-                <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" media='(max-width: 407px)' />
-                <source srcSet={`${image.avif540}`} type="image/avif" />
-                <source srcSet={`${image.webp540}`} type="image/webp" />
-                <source srcSet={`${image.jpg540}`} type="image/jpeg" />
-                <img fetchPriority="high" src={image.jpg540} data-width="540" data-height="400" alt={altText} />
-            </React.Fragment>);
+            return (
+                <React.Fragment>
+                    <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" />
+                    <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" />
+                    <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" />
+                    <img {...loadingAttributes} src={image.jpg55} data-width="55" data-height="55" alt={altText} />
+                </React.Fragment>
+            );
+        } else if (fullscreen) {
+            return (
+                <React.Fragment>
+                    <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" media="(max-width: 407px)" />
+                    <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" media="(max-width: 407px)" />
+                    <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" media="(max-width: 407px)" />
+                    <source srcSet={`${image.avif540}`} type="image/avif" />
+                    <source srcSet={`${image.webp540}`} type="image/webp" />
+                    <source srcSet={`${image.jpg540}`} type="image/jpeg" />
+                    <img fetchPriority="high" src={image.jpg540} data-width="540" data-height="400" alt={altText} />
+                </React.Fragment>
+            );
         } else {
-        return (<React.Fragment>
-            <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" media='(max-width: 599px)' />
-            <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" media='(max-width: 599px)' />
-            <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" media='(max-width: 599px)' />
-            <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
-            <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
-            <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
-            <img {...loadingAttributes} src={image.jpg350} data-width="350" data-height="260" alt={altText} />
-        </React.Fragment>);
+            return (
+                <React.Fragment>
+                    <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" media="(max-width: 599px)" />
+                    <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" media="(max-width: 599px)" />
+                    <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" media="(max-width: 599px)" />
+                    <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
+                    <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
+                    <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
+                    <img {...loadingAttributes} src={image.jpg350} data-width="350" data-height="260" alt={altText} />
+                </React.Fragment>
+            );
         }
     };
 
@@ -75,13 +81,7 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
      */
     const renderActionLink = ({ role, actionLink }) => {
         return (
-            <a
-                key={role}
-                href={actionLink.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={actionLink.text[lang]}
-            >
+            <a key={role} href={actionLink.url} target="_blank" rel="noopener noreferrer" title={actionLink.text[lang]}>
                 <Button buttontype="minimal">{actionLink.text[lang]}</Button>
             </a>
         );
@@ -101,11 +101,7 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
             return (
                 <ExpansionPanel
                     elementId={elementId}
-                    panelTitle={
-                        lang === "en"
-                            ? `Recordings with the ${product.title}`
-                            : `Utgivelser med ${product.title}`
-                    }
+                    panelTitle={lang === "en" ? `Recordings with the ${product.title}` : `Utgivelser med ${product.title}`}
                 >
                     <List compact={true}>{listItems}</List>
                 </ExpansionPanel>
@@ -118,15 +114,15 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
     const productId = convertToUrlFriendlyString(product.title);
     const image = {
         avif55: `/data/products/web/avif/${productId}_55.avif`,
-    avif110: `/data/products/web/avif/${productId}_110.avif`,
+        avif110: `/data/products/web/avif/${productId}_110.avif`,
         avif350: `/data/products/web/avif/${productId}_350.avif`,
         avif540: `/data/products/web/avif/${productId}_540.avif`,
         webp55: `/data/products/web/webp/${productId}_55.webp`,
-    webp110: `/data/products/web/webp/${productId}_110.webp`,
+        webp110: `/data/products/web/webp/${productId}_110.webp`,
         webp350: `/data/products/web/webp/${productId}_350.webp`,
         webp540: `/data/products/web/webp/${productId}_540.webp`,
         jpg55: `/data/products/web/jpg/${productId}_55.jpg`,
-    jpg110: `/data/products/web/jpg/${productId}_110.jpg`,
+        jpg110: `/data/products/web/jpg/${productId}_110.jpg`,
         jpg350: `/data/products/web/jpg/${productId}_350.jpg`,
         jpg540: `/data/products/web/jpg/${productId}_540.jpg`
     };
@@ -146,8 +142,8 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
     // Ordered as the buttons appear: where to get it first, then where to read
     // about it. A product with neither renders no button row at all.
     const actionLinks = [
-        { role: 'primary', actionLink: product.link },
-        { role: 'documentation', actionLink: product.documentationLink }
+        { role: "primary", actionLink: product.link },
+        { role: "documentation", actionLink: product.documentationLink }
     ].filter(({ actionLink }) => actionLink?.url && actionLink?.text?.[lang]);
 
     return product && product.content && product.content[lang] ? (
@@ -158,20 +154,12 @@ const Product = ({ product, fullscreen = false, compact = false, priority = fals
             </ListItemThumbnail>
             <ListItemContent fullscreen={fullscreen}>
                 <ListItemContentHeader fullscreen={fullscreen} link={link}>
-                    {
-                        fullscreen ? <h1>{product.title}</h1> : <h2>{product.title}</h2>
-                    }
-                    {!compact && (
-                        <time dateTime={productDate.toISOString()}>
-                            {getPrettyDate(productDate, lang)}
-                        </time>
-                    )}
+                    {fullscreen ? <h1>{product.title}</h1> : <h2>{product.title}</h2>}
+                    {!compact && <time dateTime={productDate.toISOString()}>{getPrettyDate(productDate, lang)}</time>}
                 </ListItemContentHeader>
                 {!compact && <ListItemContentBody fullscreen={fullscreen}>{productDescription}</ListItemContentBody>}
                 {actionLinks.length && fullscreen ? (
-                    <ListItemActionButtons fullscreen={fullscreen}>
-                        {actionLinks.map(renderActionLink)}
-                    </ListItemActionButtons>
+                    <ListItemActionButtons fullscreen={fullscreen}>{actionLinks.map(renderActionLink)}</ListItemActionButtons>
                 ) : (
                     ""
                 )}

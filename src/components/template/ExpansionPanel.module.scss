@@ -4,68 +4,68 @@
 @use "../../style/abstracts/variables/breakpoints";
 
 .expandButton {
-  @include appearance.appearance(none);
-  display: block;
-  background: none;
-  width: 100%;
-  text-align: left;
-  border: none;
-  margin: 0;
-  padding: 0;
-  &:focus {
-    & .expansionPanelHeader {
-      background-color: rgba(0, 0, 0, 0.08);
+    @include appearance.appearance(none);
+    display: block;
+    background: none;
+    width: 100%;
+    text-align: left;
+    border: none;
+    margin: 0;
+    padding: 0;
+    &:focus {
+        & .expansionPanelHeader {
+            background-color: rgba(0, 0, 0, 0.08);
+        }
     }
-  }
 }
 
 .expansionPanelHeader {
-  @include transition.transition(background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 12px 6px;
-  font-weight: normal;
-  font-size: 18px;
-  cursor: pointer;
-  &:focus,
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.08);
-  }
-
-  &:active {
-    background-color: rgba(0, 0, 0, 0.38);
-  }
-  @media (min-width: breakpoints.$screen-sm) {
-    padding: 16px;
-    font-size: 20px;
-  }
-
-  & span {
-    display: block;
-    flex: 1;
-  }
-
-  & svg {
-    @include transform.transform(rotate(0deg));
-    @include transition.transition(transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
-  }
-
-  &.expanded {
-    & svg {
-      @include transform.transform(rotate(180deg));
+    @include transition.transition(background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 12px 6px;
+    font-weight: normal;
+    font-size: 18px;
+    cursor: pointer;
+    &:focus,
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.08);
     }
-  }
+
+    &:active {
+        background-color: rgba(0, 0, 0, 0.38);
+    }
+    @media (min-width: breakpoints.$screen-sm) {
+        padding: 16px;
+        font-size: 20px;
+    }
+
+    & span {
+        display: block;
+        flex: 1;
+    }
+
+    & svg {
+        @include transform.transform(rotate(0deg));
+        @include transition.transition(transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
+    }
+
+    &.expanded {
+        & svg {
+            @include transform.transform(rotate(180deg));
+        }
+    }
 }
 
 .expansionPanelContent {
-  @include transition.transition(max-height 222ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
-  overflow: hidden;
-  &[aria-hidden="true"] {
-    pointer-events: none;
-  }
+    @include transition.transition(max-height 222ms cubic-bezier(0.4, 0, 0.2, 1) 0ms);
+    overflow: hidden;
+    &[aria-hidden="true"] {
+        pointer-events: none;
+    }
 
-  &[aria-hidden="false"] {
-    pointer-events: auto;
-  }
+    &[aria-hidden="false"] {
+        pointer-events: auto;
+    }
 }

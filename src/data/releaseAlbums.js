@@ -1,7 +1,5 @@
-import releaseAlbums from './linkedData/releaseAlbums.json';
+import releaseAlbums from "./linkedData/releaseAlbums.json";
 
-export {
-  releaseAlbums
-}
+export { releaseAlbums };
 
 export default releaseAlbums;

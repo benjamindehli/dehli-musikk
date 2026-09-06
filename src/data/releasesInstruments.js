@@ -1,7 +1,5 @@
-import releasesInstruments from './linkedData/releasesInstruments.json';
+import releasesInstruments from "./linkedData/releasesInstruments.json";
 
-export {
-  releasesInstruments
-}
+export { releasesInstruments };
 
 export default releasesInstruments;

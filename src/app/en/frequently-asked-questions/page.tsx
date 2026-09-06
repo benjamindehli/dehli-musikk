@@ -1,6 +1,6 @@
-import { FaqPage, getFaqPageMetadata } from 'components/pages/faq';
+import { FaqPage, getFaqPageMetadata } from "components/pages/faq";
 
-export const metadata = getFaqPageMetadata('en');
+export const metadata = getFaqPageMetadata("en");
 
 export default function Page() {
     return <FaqPage lang="en" />;

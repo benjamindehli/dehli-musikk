@@ -1,4 +1,4 @@
-import allPosts from './posts/data/all.json';
+import allPosts from "./posts/data/all.json";
 
 /*
  * The homepage's "latest" list, derived rather than maintained.
@@ -16,8 +16,6 @@ const LATEST_COUNT = 3;
 
 const latestPosts = [...allPosts].sort((a, b) => b.timestamp - a.timestamp).slice(0, LATEST_COUNT);
 
-export {
-  latestPosts
-}
+export { latestPosts };
 
 export default allPosts;

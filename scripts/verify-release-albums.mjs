@@ -18,39 +18,38 @@
  * Keeping albums on release-group and tracks on recording also means the two
  * namespaces cannot overlap, so an @id can never be claimed by both.
  */
-import fs from 'node:fs';
-import path from 'node:path';
+import fs from "node:fs";
+import path from "node:path";
 
 const ROOT = process.cwd();
-const readJson = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
+const readJson = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), "utf8"));
 
-const albums = readJson('src/data/linkedData/releaseAlbums.json');
+const albums = readJson("src/data/linkedData/releaseAlbums.json");
 const releases = fs
-    .readdirSync(path.join(ROOT, 'src/data/releases/data'))
-    .filter((file) => file.endsWith('.json'))
+    .readdirSync(path.join(ROOT, "src/data/releases/data"))
+    .filter((file) => file.endsWith(".json"))
     .map((file) => readJson(`src/data/releases/data/${file}`));
 
 const releaseBySlug = new Map(releases.map((release) => [release.slug, release]));
-const albumIdOf = (album) =>
-    album?.jsonLdId?.length ? album.jsonLdId : `https://www.dehlimusikk.no/#album-${album.id}`;
+const albumIdOf = (album) => (album?.jsonLdId?.length ? album.jsonLdId : `https://www.dehlimusikk.no/#album-${album.id}`);
 
 const problems = [];
 const report = (subject, message) => problems.push(`${subject}: ${message}`);
 
 // --- albums ---------------------------------------------------------------
 for (const album of albums) {
-    const subject = album.title?.length ? album.title : album.id || '(unnamed entry)';
+    const subject = album.title?.length ? album.title : album.id || "(unnamed entry)";
 
-    if (!album.id?.length) report(subject, 'missing id, so it emits nothing');
-    if (!album.title?.length) report(subject, 'missing title, so it emits nothing');
-    if (album.id?.includes('CHANGE-ME')) report(subject, 'id still holds the CHANGE-ME placeholder');
+    if (!album.id?.length) report(subject, "missing id, so it emits nothing");
+    if (!album.title?.length) report(subject, "missing title, so it emits nothing");
+    if (album.id?.includes("CHANGE-ME")) report(subject, "id still holds the CHANGE-ME placeholder");
 
-    if (album.jsonLdId?.length && !album.jsonLdId.includes('/release-group/')) {
+    if (album.jsonLdId?.length && !album.jsonLdId.includes("/release-group/")) {
         report(subject, `@id should be a MusicBrainz release-group, got ${album.jsonLdId}`);
     }
 
     const releaseIds = album.releaseIds || [];
-    if (!releaseIds.length) report(subject, 'has no releaseIds');
+    if (!releaseIds.length) report(subject, "has no releaseIds");
 
     const unknown = releaseIds.filter((id) => !releaseBySlug.has(id));
     unknown.forEach((id) => report(subject, `releaseId matches no release slug: ${id}`));
@@ -69,7 +68,7 @@ for (const album of albums) {
     if (artistSets.length > 1) {
         const shared = artistSets.reduce((common, names) => common.filter((name) => names.includes(name)));
         if (!shared.length) {
-            report(subject, `tracks share no common artist: ${[...new Set(artistSets.flat())].join(' / ')}`);
+            report(subject, `tracks share no common artist: ${[...new Set(artistSets.flat())].join(" / ")}`);
         }
     }
 }
@@ -77,13 +76,11 @@ for (const album of albums) {
 // A track legitimately belongs to several albums, so duplicates across albums are
 // fine. Two albums sharing one @id are not: they would merge into a single node.
 const albumIds = albums.map(albumIdOf);
-albumIds
-    .filter((id, index) => albumIds.indexOf(id) !== index)
-    .forEach((id) => report('album @id', `used by more than one album: ${id}`));
+albumIds.filter((id, index) => albumIds.indexOf(id) !== index).forEach((id) => report("album @id", `used by more than one album: ${id}`));
 
 // --- tracks ---------------------------------------------------------------
 for (const release of releases) {
-    if (release.jsonLdId?.length && !release.jsonLdId.includes('/recording/')) {
+    if (release.jsonLdId?.length && !release.jsonLdId.includes("/recording/")) {
         report(release.title, `@id should be a MusicBrainz recording, got ${release.jsonLdId}`);
     }
 }
@@ -108,7 +105,7 @@ if (problems.length) {
     console.log(`\n${problems.length} problem(s):`);
     problems.forEach((problem) => console.log(`   ${problem}`));
 } else {
-    console.log('\nno problems found');
+    console.log("\nno problems found");
 }
 
 process.exitCode = problems.length ? 1 : 0;

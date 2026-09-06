@@ -61,7 +61,7 @@ export function getLlmsTxt({ posts, products, releases, videos }) {
         "",
         "English pages live under /en/; Norwegian versions of the same pages live at the site root (e.g. /products/ vs /en/products/).",
         "",
-        "Every page is also published as markdown, at index.md beside the page itself: https://www.dehlimusikk.no/en/products/ has https://www.dehlimusikk.no/en/products/index.md. Each page's HTML links to its own with <link rel=\"alternate\" type=\"text/markdown\">. Requesting the page URL with an Accept: text/markdown header returns the markdown too.",
+        'Every page is also published as markdown, at index.md beside the page itself: https://www.dehlimusikk.no/en/products/ has https://www.dehlimusikk.no/en/products/index.md. Each page\'s HTML links to its own with <link rel="alternate" type="text/markdown">. Requesting the page URL with an Accept: text/markdown header returns the markdown too.',
         "",
         "## Products",
         "",
@@ -126,21 +126,42 @@ const renderFullProduct = (product) => {
     // One line per key here, rather than the nested list the markdown twins use,
     // because every other line in this file is a single Key: value pair
     const additionalLinks = getAdditionalProductLinks(product);
-    const meta = [`Price: ${price}`, product.productType?.length ? `Type: ${product.productType.join(" > ")}` : null, product.link?.url ? `Store: ${product.link.url}` : null, product.documentationLink?.url ? `Documentation: ${product.documentationLink.url}` : null, additionalLinks.length ? `Also at: ${additionalLinks.join(", ")}` : null]
+    const meta = [
+        `Price: ${price}`,
+        product.productType?.length ? `Type: ${product.productType.join(" > ")}` : null,
+        product.link?.url ? `Store: ${product.link.url}` : null,
+        product.documentationLink?.url ? `Documentation: ${product.documentationLink.url}` : null,
+        additionalLinks.length ? `Also at: ${additionalLinks.join(", ")}` : null
+    ]
         .filter(Boolean)
         .join("\n");
-    return renderFullEntry(product.title, `${websiteUrl}/en/products/${productId}/`, meta, product.content?.en ? formatContentAsString(product.content.en) : "");
+    return renderFullEntry(
+        product.title,
+        `${websiteUrl}/en/products/${productId}/`,
+        meta,
+        product.content?.en ? formatContentAsString(product.content.en) : ""
+    );
 };
 
 const renderFullPost = (post) => {
     const postId = convertToUrlFriendlyString(post.title.en);
-    return renderFullEntry(post.title.en, `${websiteUrl}/en/posts/${postId}/`, `Published: ${isoDate(post.timestamp)}`, post.content?.en ? formatContentAsString(post.content.en) : "");
+    return renderFullEntry(
+        post.title.en,
+        `${websiteUrl}/en/posts/${postId}/`,
+        `Published: ${isoDate(post.timestamp)}`,
+        post.content?.en ? formatContentAsString(post.content.en) : ""
+    );
 };
 
 const renderFullVideo = (video) => {
     const videoId = convertToUrlFriendlyString(video.title.en);
     const meta = [`Published: ${isoDate(video.timestamp)}`, `Watch: https://www.youtube.com/watch?v=${video.youTubeId}`].join("\n");
-    return renderFullEntry(video.title.en, `${websiteUrl}/en/videos/${videoId}/video/`, meta, video.content?.en ? formatContentAsString(video.content.en) : "");
+    return renderFullEntry(
+        video.title.en,
+        `${websiteUrl}/en/videos/${videoId}/video/`,
+        meta,
+        video.content?.en ? formatContentAsString(video.content.en) : ""
+    );
 };
 
 // Releases hold no prose, so they contribute their metadata instead

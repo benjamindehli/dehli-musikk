@@ -1,4 +1,4 @@
-'use client';
+"use client";
 // Dependencies
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -25,9 +25,7 @@ import { getSearchResults } from "helpers/search";
 // Stylesheets
 import style from "components/partials/NavigationBar/SearchField.module.scss";
 
-
 const SearchField = () => {
-
     const router = useRouter();
     const { lang, languageSlug } = useLang();
 
@@ -66,7 +64,7 @@ const SearchField = () => {
 
     const handleSubmitSearch = (event) => {
         if (event.key === "Enter") {
-            let searchString = event.target.value.replace(/[^a-å0-9- ]+/ig, "");
+            let searchString = event.target.value.replace(/[^a-å0-9- ]+/gi, "");
             searchString = searchString.replace(/\s\s+/g, " ");
             if (searchString.length > 1 && results.length) {
                 router.push(`/${languageSlug}search/?q=${searchString}`);
@@ -123,13 +121,7 @@ const SearchField = () => {
             const resultsElements = results.map((result, resultKey) => {
                 const href = result.hash ? `${result.link}${result.hash}` : result.link;
                 return (
-                    <Link
-                        onClick={() => hideResultsList()}
-                        href={href}
-                        title={result.linkTitle}
-                        key={resultKey}
-                        className={style.resultsListItem}
-                    >
+                    <Link onClick={() => hideResultsList()} href={href} title={result.linkTitle} key={resultKey} className={style.resultsListItem}>
                         {result.thumbnailPaths && result.thumbnailDescription
                             ? renderReleaseThumbnail(result.thumbnailPaths, result.thumbnailDescription)
                             : ""}
@@ -144,11 +136,7 @@ const SearchField = () => {
             });
             return resultsElements;
         } else {
-            return (
-                <span className={style.resultsListItem}>
-                    {lang === "en" ? "No results" : "Ingen resultat"}
-                </span>
-            );
+            return <span className={style.resultsListItem}>{lang === "en" ? "No results" : "Ingen resultat"}</span>;
         }
     };
 

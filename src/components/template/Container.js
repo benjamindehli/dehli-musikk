@@ -1,5 +1,5 @@
 // Stylesheets
-import style from 'components/template/Container.module.scss';
+import style from "components/template/Container.module.scss";
 
 /*
  * blur is only ever used for the content behind an open modal on a detail page,
@@ -13,11 +13,11 @@ import style from 'components/template/Container.module.scss';
  * the DOM and remains crawlable and indexable, unlike display: none.
  */
 const Container = ({ blur = false, children }) => {
-  return (
-    <div className={`${style.container} ${blur ? style.blur : ''}`} inert={blur}>
-      {children}
-    </div>
-  )
+    return (
+        <div className={`${style.container} ${blur ? style.blur : ""}`} inert={blur}>
+            {children}
+        </div>
+    );
 };
 
 export default Container;

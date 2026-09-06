@@ -2,10 +2,10 @@
  * Drives the MCP server against a stubbed origin. Covers the JSON-RPC surface,
  * the three tools, and the corpus parser that everything in search rests on.
  */
-import assert from 'node:assert/strict';
-import test, { afterEach } from 'node:test';
+import assert from "node:assert/strict";
+import test, { afterEach } from "node:test";
 
-import { handleMcpRequest, handleRpcMessage, parseCorpus, searchCorpus, serverCard, TOOLS } from '../src/mcp.js';
+import { handleMcpRequest, handleRpcMessage, parseCorpus, searchCorpus, serverCard, TOOLS } from "../src/mcp.js";
 
 const CORPUS = `# Dehli Musikk
 
@@ -65,42 +65,42 @@ const stub = (routes) => {
         const url = String(input);
         calls.push(url);
         const body = routes[url];
-        return body === undefined ? new Response('nope', { status: 404 }) : new Response(body, { status: 200 });
+        return body === undefined ? new Response("nope", { status: 404 }) : new Response(body, { status: 200 });
     };
     return calls;
 };
 
 const post = (body) =>
-    new Request('https://www.dehlimusikk.no/mcp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+    new Request("https://www.dehlimusikk.no/mcp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
     });
 
-test('the corpus parser finds every entry and its URL', () => {
+test("the corpus parser finds every entry and its URL", () => {
     const entries = parseCorpus(CORPUS);
 
     assert.equal(entries.length, 5);
     assert.deepEqual(
         entries.map((e) => e.category),
-        ['product', 'product', 'post', 'equipment', 'faq']
+        ["product", "product", "post", "equipment", "faq"]
     );
     // Every section heading must map to a category; an unmapped one would leave
     // entries labelled null in search output
     assert.equal(entries.filter((e) => e.category === null).length, 0);
-    assert.equal(entries[0].title, 'Overtonium');
-    assert.equal(entries[0].url, 'https://www.dehlimusikk.no/en/products/overtonium/');
+    assert.equal(entries[0].title, "Overtonium");
+    assert.equal(entries[0].url, "https://www.dehlimusikk.no/en/products/overtonium/");
     assert.match(entries[0].text, /additive synthesiser/);
     // Metadata lines stay searchable
     assert.match(entries[0].text, /Price: free/);
     // FAQ entries carry no URL of their own and fall back to the page
-    const faq = entries.find((e) => e.category === 'faq');
-    assert.equal(faq.url, 'https://www.dehlimusikk.no/en/frequently-asked-questions/');
+    const faq = entries.find((e) => e.category === "faq");
+    assert.equal(faq.url, "https://www.dehlimusikk.no/en/frequently-asked-questions/");
     // Everything else carries its own
     assert.equal(entries.filter((e) => !e.url).length, 0);
 });
 
-test('search ranks title matches above body matches', () => {
+test("search ranks title matches above body matches", () => {
     const entries = parseCorpus(CORPUS);
 
     /*
@@ -108,26 +108,26 @@ test('search ranks title matches above body matches', () => {
      * the title holder has to come first. Searching "wurlitzer" instead would
      * hit only bodies and prove nothing about the weighting.
      */
-    const results = searchCorpus(entries, 'wurli');
+    const results = searchCorpus(entries, "wurli");
 
     assert.equal(results.length, 2);
-    assert.equal(results[0].title, 'Midnight Wurli');
-    assert.ok(results[0].score > results[1].score, 'a title hit must outscore a body-only hit');
-    assert.ok(results[0].score >= 5, 'and by at least the title weight');
+    assert.equal(results[0].title, "Midnight Wurli");
+    assert.ok(results[0].score > results[1].score, "a title hit must outscore a body-only hit");
+    assert.ok(results[0].score >= 5, "and by at least the title weight");
 });
 
-test('search can be restricted by category and limited', () => {
+test("search can be restricted by category and limited", () => {
     const entries = parseCorpus(CORPUS);
 
     assert.deepEqual(
-        searchCorpus(entries, 'wurlitzer', 'post').map((r) => r.title),
-        ['Tape looping']
+        searchCorpus(entries, "wurlitzer", "post").map((r) => r.title),
+        ["Tape looping"]
     );
-    assert.equal(searchCorpus(entries, 'wurlitzer', 'all', 1).length, 1);
-    assert.equal(searchCorpus(entries, 'x', 'all').length, 0, 'single characters are not searched');
+    assert.equal(searchCorpus(entries, "wurlitzer", "all", 1).length, 1);
+    assert.equal(searchCorpus(entries, "x", "all").length, 0, "single characters are not searched");
 });
 
-test('body matches have diminishing returns', () => {
+test("body matches have diminishing returns", () => {
     /*
      * Equipment entries name every video an item appears in, so a much-used
      * accessory carries far more text than the instrument a query is about, and
@@ -137,76 +137,76 @@ test('body matches have diminishing returns', () => {
      * weight - simply moved the same artifact into the title, where a long video
      * title with a repeated word started outranking the item named after it.
      */
-    const entry = (text) => ({ title: 'Untitled', category: 'post', url: 'https://www.dehlimusikk.no/en/posts/x/', text });
+    const entry = (text) => ({ title: "Untitled", category: "post", url: "https://www.dehlimusikk.no/en/posts/x/", text });
 
-    const [one] = searchCorpus([entry('clavinet')], 'clavinet');
-    const [many] = searchCorpus([entry(Array(25).fill('clavinet').join(' '))], 'clavinet');
+    const [one] = searchCorpus([entry("clavinet")], "clavinet");
+    const [many] = searchCorpus([entry(Array(25).fill("clavinet").join(" "))], "clavinet");
 
-    assert.ok(many.score > one.score, '25 mentions still outrank 1');
+    assert.ok(many.score > one.score, "25 mentions still outrank 1");
     assert.ok(many.score < one.score * 6, `but by 5x at most, not 25x - got ${(many.score / one.score).toFixed(1)}x`);
 });
 
-test('equipment is searchable by the recordings and videos it appears on', () => {
+test("equipment is searchable by the recordings and videos it appears on", () => {
     const entries = parseCorpus(CORPUS);
 
     // The entry names no instrument type, only a brand and model, so this only
     // works because the videos it is heard in are named in the body
-    const byUsage = searchCorpus(entries, 'tape looping', 'equipment');
+    const byUsage = searchCorpus(entries, "tape looping", "equipment");
     assert.deepEqual(
         byUsage.map((r) => r.title),
-        ['Yamaha YC-25D']
+        ["Yamaha YC-25D"]
     );
 
-    const byName = searchCorpus(entries, 'yc-25d', 'equipment');
-    assert.equal(byName[0].url, 'https://www.dehlimusikk.no/en/equipment/instruments/yamaha-yc-25d/');
+    const byName = searchCorpus(entries, "yc-25d", "equipment");
+    assert.equal(byName[0].url, "https://www.dehlimusikk.no/en/equipment/instruments/yamaha-yc-25d/");
 });
 
-test('initialize reports the protocol version and tools capability', async () => {
-    const response = await handleRpcMessage({ jsonrpc: '2.0', id: 1, method: 'initialize', params: {} });
+test("initialize reports the protocol version and tools capability", async () => {
+    const response = await handleRpcMessage({ jsonrpc: "2.0", id: 1, method: "initialize", params: {} });
 
-    assert.equal(response.result.protocolVersion, '2025-06-18');
-    assert.equal(response.result.serverInfo.name, 'dehli-musikk');
+    assert.equal(response.result.protocolVersion, "2025-06-18");
+    assert.equal(response.result.serverInfo.name, "dehli-musikk");
     assert.ok(response.result.capabilities.tools);
 });
 
-test('tools/list returns the three tools with schemas and no internals', async () => {
-    const response = await handleRpcMessage({ jsonrpc: '2.0', id: 2, method: 'tools/list' });
+test("tools/list returns the three tools with schemas and no internals", async () => {
+    const response = await handleRpcMessage({ jsonrpc: "2.0", id: 2, method: "tools/list" });
 
     assert.deepEqual(
         response.result.tools.map((t) => t.name),
-        ['search', 'read_page', 'list_sections']
+        ["search", "read_page", "list_sections"]
     );
     for (const tool of response.result.tools) {
-        assert.equal(tool.inputSchema.type, 'object');
+        assert.equal(tool.inputSchema.type, "object");
         assert.ok(tool.description.length > 40);
-        assert.equal(tool.execute, undefined, 'the execute function must not be serialised to the client');
+        assert.equal(tool.execute, undefined, "the execute function must not be serialised to the client");
     }
 });
 
-test('notifications get no reply', async () => {
-    assert.equal(await handleRpcMessage({ jsonrpc: '2.0', method: 'notifications/initialized' }), null);
+test("notifications get no reply", async () => {
+    assert.equal(await handleRpcMessage({ jsonrpc: "2.0", method: "notifications/initialized" }), null);
 
-    const response = await handleMcpRequest(post({ jsonrpc: '2.0', method: 'notifications/initialized' }));
+    const response = await handleMcpRequest(post({ jsonrpc: "2.0", method: "notifications/initialized" }));
     assert.equal(response.status, 202);
-    assert.equal(await response.text(), '');
+    assert.equal(await response.text(), "");
 });
 
-test('unknown methods and tools are rejected distinctly', async () => {
-    const method = await handleRpcMessage({ jsonrpc: '2.0', id: 3, method: 'resources/list' });
+test("unknown methods and tools are rejected distinctly", async () => {
+    const method = await handleRpcMessage({ jsonrpc: "2.0", id: 3, method: "resources/list" });
     assert.equal(method.error.code, -32601);
 
-    const tool = await handleRpcMessage({ jsonrpc: '2.0', id: 4, method: 'tools/call', params: { name: 'drop_everything' } });
+    const tool = await handleRpcMessage({ jsonrpc: "2.0", id: 4, method: "tools/call", params: { name: "drop_everything" } });
     assert.equal(tool.error.code, -32602);
 });
 
-test('tools/call search returns results from the corpus', async () => {
-    stub({ 'https://www.dehlimusikk.no/llms-full.txt': CORPUS });
+test("tools/call search returns results from the corpus", async () => {
+    stub({ "https://www.dehlimusikk.no/llms-full.txt": CORPUS });
 
     const response = await handleRpcMessage({
-        jsonrpc: '2.0',
+        jsonrpc: "2.0",
         id: 5,
-        method: 'tools/call',
-        params: { name: 'search', arguments: { query: 'wurlitzer' } }
+        method: "tools/call",
+        params: { name: "search", arguments: { query: "wurlitzer" } }
     });
 
     const text = response.result.content[0].text;
@@ -215,81 +215,81 @@ test('tools/call search returns results from the corpus', async () => {
     assert.notEqual(response.result.isError, true);
 });
 
-test('tools/call read_page fetches the markdown twin', async () => {
-    const calls = stub({ 'https://www.dehlimusikk.no/en/products/subc/index.md': '# SubC\n' });
+test("tools/call read_page fetches the markdown twin", async () => {
+    const calls = stub({ "https://www.dehlimusikk.no/en/products/subc/index.md": "# SubC\n" });
 
     const response = await handleRpcMessage({
-        jsonrpc: '2.0',
+        jsonrpc: "2.0",
         id: 6,
-        method: 'tools/call',
-        params: { name: 'read_page', arguments: { page: '/en/products/subc' } }
+        method: "tools/call",
+        params: { name: "read_page", arguments: { page: "/en/products/subc" } }
     });
 
     assert.match(response.result.content[0].text, /# SubC/);
-    assert.deepEqual(calls, ['https://www.dehlimusikk.no/en/products/subc/index.md'], 'trailing slash added');
+    assert.deepEqual(calls, ["https://www.dehlimusikk.no/en/products/subc/index.md"], "trailing slash added");
 });
 
-test('read_page refuses other origins without fetching', async () => {
+test("read_page refuses other origins without fetching", async () => {
     const calls = stub({});
 
     const response = await handleRpcMessage({
-        jsonrpc: '2.0',
+        jsonrpc: "2.0",
         id: 7,
-        method: 'tools/call',
-        params: { name: 'read_page', arguments: { page: 'https://evil.example/secret/' } }
+        method: "tools/call",
+        params: { name: "read_page", arguments: { page: "https://evil.example/secret/" } }
     });
 
     assert.equal(response.result.isError, true);
     assert.match(response.result.content[0].text, /Only pages on dehlimusikk\.no/);
-    assert.deepEqual(calls, [], 'the Worker must not be usable as an open proxy');
+    assert.deepEqual(calls, [], "the Worker must not be usable as an open proxy");
 });
 
-test('a tool that throws reports it in the result, not as a JSON-RPC error', async () => {
+test("a tool that throws reports it in the result, not as a JSON-RPC error", async () => {
     globalThis.fetch = async () => {
-        throw new Error('origin unreachable');
+        throw new Error("origin unreachable");
     };
 
     const response = await handleRpcMessage({
-        jsonrpc: '2.0',
+        jsonrpc: "2.0",
         id: 8,
-        method: 'tools/call',
-        params: { name: 'search', arguments: { query: 'anything' } }
+        method: "tools/call",
+        params: { name: "search", arguments: { query: "anything" } }
     });
 
-    assert.equal(response.error, undefined, 'the call itself succeeded');
+    assert.equal(response.error, undefined, "the call itself succeeded");
     assert.equal(response.result.isError, true);
     assert.match(response.result.content[0].text, /search failed: origin unreachable/);
 });
 
-test('the HTTP endpoint handles CORS, bad JSON, batches and GET', async () => {
-    const preflight = await handleMcpRequest(new Request('https://www.dehlimusikk.no/mcp', { method: 'OPTIONS' }));
+test("the HTTP endpoint handles CORS, bad JSON, batches and GET", async () => {
+    const preflight = await handleMcpRequest(new Request("https://www.dehlimusikk.no/mcp", { method: "OPTIONS" }));
     assert.equal(preflight.status, 204);
-    assert.equal(preflight.headers.get('Access-Control-Allow-Origin'), '*');
+    assert.equal(preflight.headers.get("Access-Control-Allow-Origin"), "*");
 
     const bad = await handleMcpRequest(
-        new Request('https://www.dehlimusikk.no/mcp', { method: 'POST', body: 'not json', headers: { 'Content-Type': 'application/json' } })
+        new Request("https://www.dehlimusikk.no/mcp", { method: "POST", body: "not json", headers: { "Content-Type": "application/json" } })
     );
     assert.equal(bad.status, 400);
     assert.equal((await bad.json()).error.code, -32700);
 
-    const batch = await handleMcpRequest(post([{ jsonrpc: '2.0', id: 1, method: 'ping' }]));
+    const batch = await handleMcpRequest(post([{ jsonrpc: "2.0", id: 1, method: "ping" }]));
     assert.equal(batch.status, 400);
     assert.match((await batch.json()).error.message, /Batched requests/);
 
-    const get = await handleMcpRequest(new Request('https://www.dehlimusikk.no/mcp'));
+    const get = await handleMcpRequest(new Request("https://www.dehlimusikk.no/mcp"));
     assert.equal(get.status, 405);
-    assert.equal(get.headers.get('Allow'), 'POST, OPTIONS');
+    assert.equal(get.headers.get("Allow"), "POST, OPTIONS");
 });
 
-test('the server card names the endpoint and the tools capability', () => {
+test("the server card names the endpoint and the tools capability", () => {
     const card = serverCard();
 
-    assert.equal(card.serverInfo.name, 'dehli-musikk');
+    assert.equal(card.serverInfo.name, "dehli-musikk");
     assert.ok(card.serverInfo.version);
-    assert.equal(card.endpoint, 'https://www.dehlimusikk.no/mcp');
+    assert.equal(card.endpoint, "https://www.dehlimusikk.no/mcp");
     assert.ok(card.capabilities.tools);
-    assert.equal(card.transports[0].type, 'streamable-http');
+    assert.equal(card.transports[0].type, "streamable-http");
     // Whatever the card advertises has to be what the server implements
-    assert.equal(card.protocolVersion, '2025-06-18');
+    assert.equal(card.protocolVersion, "2025-06-18");
     assert.equal(TOOLS.length, 3);
 });

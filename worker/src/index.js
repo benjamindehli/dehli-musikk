@@ -11,8 +11,8 @@
  * page (see src/helpers/markdownHelpers.js). This Worker never generates
  * markdown; it only chooses which of two already-published files to return.
  */
-import { handleMcpRequest, handleMcpServerCard, MCP_ENDPOINT_PATH, MCP_SERVER_CARD_PATH } from './mcp.js';
-import { CANONICAL_HOST, canonicalPageUrlFor, homepageLinkHeader, isNonCanonicalRobots, markdownPathFor, prefersMarkdown } from './negotiate.js';
+import { handleMcpRequest, handleMcpServerCard, MCP_ENDPOINT_PATH, MCP_SERVER_CARD_PATH } from "./mcp.js";
+import { CANONICAL_HOST, canonicalPageUrlFor, homepageLinkHeader, isNonCanonicalRobots, markdownPathFor, prefersMarkdown } from "./negotiate.js";
 
 /*
  * Set on both branches. Without it a shared cache that stored the markdown could
@@ -24,7 +24,7 @@ import { CANONICAL_HOST, canonicalPageUrlFor, homepageLinkHeader, isNonCanonical
  */
 const withVary = (response) => {
     const varied = new Response(response.body, response);
-    varied.headers.set('Vary', 'Accept');
+    varied.headers.set("Vary", "Accept");
     return varied;
 };
 
@@ -40,7 +40,7 @@ const withHomepageLinks = (response, pathname) => {
     // Rebuilt rather than mutated: headers on a response straight from fetch()
     // are immutable in the Workers runtime.
     const linked = new Response(response.body, response);
-    linked.headers.set('Link', links);
+    linked.headers.set("Link", links);
     return linked;
 };
 
@@ -66,7 +66,7 @@ async function respond(request) {
 
     // A negotiated response to anything that changes state would be a surprise;
     // this only ever swaps one representation of a page for another.
-    if (request.method !== 'GET' && request.method !== 'HEAD') return fetch(request);
+    if (request.method !== "GET" && request.method !== "HEAD") return fetch(request);
 
     /*
      * Answer robots.txt on the apex with the real file instead of Firebase's
@@ -79,7 +79,7 @@ async function respond(request) {
         const robots = await fetch(canonical, { method: request.method });
         if (robots.ok) {
             const response = new Response(robots.body, robots);
-            response.headers.set('Content-Type', 'text/plain; charset=utf-8');
+            response.headers.set("Content-Type", "text/plain; charset=utf-8");
             return response;
         }
         // Origin trouble: fall through to the redirect rather than invent a
@@ -97,11 +97,11 @@ async function respond(request) {
     if (canonicalPage) {
         const upstream = await fetch(request);
         const twin = new Response(upstream.body, upstream);
-        twin.headers.set('Link', `<${canonicalPage}>; rel="canonical"`);
+        twin.headers.set("Link", `<${canonicalPage}>; rel="canonical"`);
         return twin;
     }
 
-    if (!prefersMarkdown(request.headers.get('Accept'))) return withVary(await fetch(request));
+    if (!prefersMarkdown(request.headers.get("Accept"))) return withVary(await fetch(request));
 
     const markdownPath = markdownPathFor(url.pathname);
     if (!markdownPath) return withVary(await fetch(request));
@@ -126,11 +126,11 @@ async function respond(request) {
     if (!markdown.ok) return withVary(await fetch(request));
 
     const response = new Response(markdown.body, markdown);
-    response.headers.set('Content-Type', 'text/markdown; charset=utf-8');
-    response.headers.set('Vary', 'Accept');
+    response.headers.set("Content-Type", "text/markdown; charset=utf-8");
+    response.headers.set("Vary", "Accept");
     // Names the resource actually returned, so a client can tell it did not get
     // the URL it asked for and can link to the twin directly next time.
-    response.headers.set('Content-Location', markdownUrl.pathname);
+    response.headers.set("Content-Location", markdownUrl.pathname);
     return response;
 }
 

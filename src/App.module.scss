@@ -12,22 +12,21 @@
 }
 
 @font-face {
-  font-family: "FallbackFont";
-  src: local("Arial");
-  size-adjust: 100.10000000000005%;
-  ascent-override: 95%;
+    font-family: "FallbackFont";
+    src: local("Arial");
+    size-adjust: 100.10000000000005%;
+    ascent-override: 95%;
 }
 
-
 .container {
-  position: absolute;
-  overflow-y: scroll;
-  width: 100%;
-  @include calc.calc('height', '100% - 56px');
-  @media (min-width: breakpoints.$screen-sm) {
-    @include calc.calc('height', '100% - 64px');
-  }
-  & a:focus {
-    text-decoration: underline;
-  }
+    position: absolute;
+    overflow-y: scroll;
+    width: 100%;
+    @include calc.calc("height", "100% - 56px");
+    @media (min-width: breakpoints.$screen-sm) {
+        @include calc.calc("height", "100% - 64px");
+    }
+    & a:focus {
+        text-decoration: underline;
+    }
 }

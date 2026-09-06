@@ -2,51 +2,51 @@
 @use "../../style/abstracts/variables/colors";
 
 .footer {
-  background-color: #eee;
+    background-color: #eee;
 
-  & .contentSection {
-    max-width: 1200px;
-    padding: 16px;
-    margin: auto;
-    flex: 1;
+    & .contentSection {
+        max-width: 1200px;
+        padding: 16px;
+        margin: auto;
+        flex: 1;
 
-    & .grid {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: 1fr;
-      text-align: left;
+        & .grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1fr;
+            text-align: left;
 
-      @media (min-width: breakpoints.$screen-sm) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    & .linkSection {
-      & h2 {
-        font-size: 1rem;
-        margin: 0 0 8px;
-      }
-
-      & ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        & li {
-          margin: 6px 0;
+            @media (min-width: breakpoints.$screen-sm) {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
-      }
-    }
 
-    & .contactLinks {
-      & a {
-        color: colors.$default-text-color;
-      }
-    }
+        & .linkSection {
+            & h2 {
+                font-size: 1rem;
+                margin: 0 0 8px;
+            }
 
-    & .copyright {
-      margin-top: 16px;
-      text-align: center;
+            & ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                & li {
+                    margin: 6px 0;
+                }
+            }
+        }
+
+        & .contactLinks {
+            & a {
+                color: colors.$default-text-color;
+            }
+        }
+
+        & .copyright {
+            margin-top: 16px;
+            text-align: center;
+        }
     }
-  }
 }

@@ -2,46 +2,46 @@
 @use "../../../../../style/abstracts/variables/colors";
 
 .listItemContentHeader {
-  display: inline-block;
-  & a {
-    text-decoration: none;
-  }
-  & h2 {
-    margin: 0;
-    font-size: 19px;
-    color: colors.$primary-text-color;
-    font-weight: 400;
-    @media (min-width: breakpoints.$screen-sm) {
-      font-size: 22px;
+    display: inline-block;
+    & a {
+        text-decoration: none;
     }
-  }
-  & span {
-    font-size: 0.75em;
-    display: block;
-    color: colors.$article-text-color;
-  }
-  & time {
-    font-size: 0.75em;
-    display: block;
-    color: colors.$article-text-color;
-    margin-top: 4px;
-  }
-  &.fullscreen {
-    display: block;
-    & h1 {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 400;
-      color: colors.$article-text-color;
-      @media (min-width: breakpoints.$screen-sm) {
-        font-size: 26px;
-      }
+    & h2 {
+        margin: 0;
+        font-size: 19px;
+        color: colors.$primary-text-color;
+        font-weight: 400;
+        @media (min-width: breakpoints.$screen-sm) {
+            font-size: 22px;
+        }
     }
     & span {
-      font-size: 0.8em;
+        font-size: 0.75em;
+        display: block;
+        color: colors.$article-text-color;
     }
     & time {
-      font-size: 0.8em;
+        font-size: 0.75em;
+        display: block;
+        color: colors.$article-text-color;
+        margin-top: 4px;
     }
-  }
+    &.fullscreen {
+        display: block;
+        & h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 400;
+            color: colors.$article-text-color;
+            @media (min-width: breakpoints.$screen-sm) {
+                font-size: 26px;
+            }
+        }
+        & span {
+            font-size: 0.8em;
+        }
+        & time {
+            font-size: 0.8em;
+        }
+    }
 }

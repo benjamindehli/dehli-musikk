@@ -4,17 +4,17 @@
 @use "../../../../style/abstracts/variables/breakpoints";
 
 .listItemContent {
-  @include calc.calc("width", "100% - 55px");
-  @include hyphens.hyphens(auto);
-  @include hyphenate-limit-chars.hyphenate-limit-chars(12, 3, 3);
-  display: inline-block;
-  padding: 6px;
-  word-break: normal;
-  @media (min-width: breakpoints.$screen-sm) {
-    padding: 16px;
-    width: 100%;
-  }
-  &.fullscreen {
-    width: 100%;
-  }
+    @include calc.calc("width", "100% - 55px");
+    @include hyphens.hyphens(auto);
+    @include hyphenate-limit-chars.hyphenate-limit-chars(12, 3, 3);
+    display: inline-block;
+    padding: 6px;
+    word-break: normal;
+    @media (min-width: breakpoints.$screen-sm) {
+        padding: 16px;
+        width: 100%;
+    }
+    &.fullscreen {
+        width: 100%;
+    }
 }

@@ -1,42 +1,42 @@
-import JsonLd from 'components/JsonLd';
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Breadcrumbs from 'components/partials/Breadcrumbs';
-import Container from 'components/template/Container';
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
-import Modal from 'components/template/Modal';
-import EquipmentItem from 'components/partials/EquipmentItem';
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
-import { getEquipmentItemDescription } from 'helpers/equipmentDescription';
-import { getInstrumentReleases } from 'helpers/instrumentReleases';
-import { getVideosForEquipmentItem } from 'helpers/equipmentUsage';
-import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
-import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
-import equipment from 'data/equipment';
+import JsonLd from "components/JsonLd";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Breadcrumbs from "components/partials/Breadcrumbs";
+import Container from "components/template/Container";
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import ListItemContent from "components/template/List/ListItem/ListItemContent";
+import ListItemContentHeader from "components/template/List/ListItem/ListItemContent/ListItemContentHeader";
+import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbnail";
+import Modal from "components/template/Modal";
+import EquipmentItem from "components/partials/EquipmentItem";
+import { convertToUrlFriendlyString } from "helpers/urlFormatter";
+import { getEquipmentItemDescription } from "helpers/equipmentDescription";
+import { getInstrumentReleases } from "helpers/instrumentReleases";
+import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
+import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
+import { getLanguageSlug } from "lib/i18n";
+import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from "lib/pageMetadata";
+import equipment from "data/equipment";
 
 const translations = {
     no: {
-        metaTitle: 'Utstyr | Dehli Musikk',
-        pageTitle: 'Utstyr',
-        description: 'Utstyr jeg bruker under innspilling',
-        listName: 'Utstyr brukt av Dehli Musikk',
+        metaTitle: "Utstyr | Dehli Musikk",
+        pageTitle: "Utstyr",
+        description: "Utstyr jeg bruker under innspilling",
+        listName: "Utstyr brukt av Dehli Musikk",
         typeDescription: (typeName: string) => `${typeName} jeg bruker under innspilling`
     },
     en: {
-        metaTitle: 'Equipment | Dehli Musikk',
-        pageTitle: 'Equipment',
-        description: 'Equipment I use during recording',
-        listName: 'Equipment used by Dehli Musikk',
+        metaTitle: "Equipment | Dehli Musikk",
+        pageTitle: "Equipment",
+        description: "Equipment I use during recording",
+        listName: "Equipment used by Dehli Musikk",
         typeDescription: (typeName: string) => `${typeName} I use during recording`
     }
 } as const;
 
-const VALID_EQUIPMENT_TYPES = ['instruments', 'effects', 'amplifiers'];
+const VALID_EQUIPMENT_TYPES = ["instruments", "effects", "amplifiers"];
 
 type EquipmentTypeRouteProps = { params: Promise<{ equipmentType: string }> };
 type EquipmentItemRouteProps = { params: Promise<{ equipmentType: string; equipmentId: string }> };
@@ -47,7 +47,7 @@ export function getEquipmentPageMetadata(lang: Lang): Metadata {
     return {
         title: t.metaTitle,
         description: t.description,
-        alternates: buildAlternates(lang, { no: 'equipment/', en: 'equipment/' }),
+        alternates: buildAlternates(lang, { no: "equipment/", en: "equipment/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}equipment/`,
@@ -60,16 +60,16 @@ export function EquipmentPage({ lang }: { lang: Lang }) {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     const equipmentTypeItems = Object.keys(equipment).map((equipmentTypeKey, index) => ({
-        '@type': 'ListItem',
-        '@id': `${WEBSITE_URL}/equipment/${equipmentTypeKey}/`,
+        "@type": "ListItem",
+        "@id": `${WEBSITE_URL}/equipment/${equipmentTypeKey}/`,
         name: equipment[equipmentTypeKey].name[lang],
         position: index + 1,
         url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentTypeKey}/`
     }));
     const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        '@id': `${WEBSITE_URL}/equipment/`,
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "@id": `${WEBSITE_URL}/equipment/`,
         name: t.listName,
         numberOfItems: equipmentTypeItems.length,
         itemListElement: equipmentTypeItems
@@ -118,9 +118,21 @@ export function EquipmentPage({ lang }: { lang: Lang }) {
                                     <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" media="(max-width: 599px)" />
                                     <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" media="(max-width: 599px)" />
                                     <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" media="(max-width: 599px)" />
-                                    <source sizes="175px" srcSet={`${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`} type="image/avif" />
-                                    <source sizes="175px" srcSet={`${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`} type="image/webp" />
-                                    <source sizes="175px" srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`} type="image/jpeg" />
+                                    <source
+                                        sizes="175px"
+                                        srcSet={`${image.avif350} 350w, ${image.avif540} 540w, ${image.avif945} 945w`}
+                                        type="image/avif"
+                                    />
+                                    <source
+                                        sizes="175px"
+                                        srcSet={`${image.webp350} 350w, ${image.webp540} 540w, ${image.webp945} 945w`}
+                                        type="image/webp"
+                                    />
+                                    <source
+                                        sizes="175px"
+                                        srcSet={`${image.jpg350} 350w, ${image.jpg540} 540w, ${image.jpg945} 945w`}
+                                        type="image/jpeg"
+                                    />
                                     <img loading="lazy" width="350" height="260" src={image.jpg350} alt={equipmentType.name[lang]} />
                                 </ListItemThumbnail>
                                 <ListItemContent>
@@ -153,7 +165,8 @@ export async function getEquipmentTypeMetadata(lang: Lang, { params }: Equipment
     const description = t.typeDescription(typeName);
 
     return {
-        title, description,
+        title,
+        description,
         alternates: buildAlternates(lang, {
             no: `equipment/${equipmentType}/`,
             en: `equipment/${equipmentType}/`
@@ -181,17 +194,17 @@ export async function EquipmentTypePage({ lang, params }: { lang: Lang } & Equip
     const equipmentItems = equipmentTypeData.items.map((item, index) => {
         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
         return {
-            '@type': 'ListItem',
-            '@id': `${WEBSITE_URL}/equipment/${equipmentType}/${itemId}/`,
+            "@type": "ListItem",
+            "@id": `${WEBSITE_URL}/equipment/${equipmentType}/${itemId}/`,
             name: `${item.brand} ${item.model}`,
             position: index + 1,
             url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentType}/${itemId}/`
         };
     });
     const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        '@id': `${WEBSITE_URL}/equipment/${equipmentType}/`,
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "@id": `${WEBSITE_URL}/equipment/${equipmentType}/`,
         name: typeName,
         numberOfItems: equipmentItems.length,
         itemListElement: equipmentItems
@@ -216,7 +229,14 @@ export async function EquipmentTypePage({ lang, params }: { lang: Lang } & Equip
                         const itemId = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
                         return (
                             <ListItem key={itemId}>
-                                <EquipmentItem item={item} itemId={itemId} itemType={equipmentType} priority={index === 0} lang={lang} languageSlug={languageSlug} />
+                                <EquipmentItem
+                                    item={item}
+                                    itemId={itemId}
+                                    itemType={equipmentType}
+                                    priority={index === 0}
+                                    lang={lang}
+                                    languageSlug={languageSlug}
+                                />
                             </ListItem>
                         );
                     })}
@@ -238,19 +258,17 @@ export function getEquipmentItemStaticParams() {
 function getEquipmentItem(equipmentType: string, equipmentId: string) {
     const typeData = equipment[equipmentType];
     if (!typeData) return null;
-    const index = typeData.items.findIndex(
-        (item) => convertToUrlFriendlyString(`${item.brand} ${item.model}`) === equipmentId
-    );
+    const index = typeData.items.findIndex((item) => convertToUrlFriendlyString(`${item.brand} ${item.model}`) === equipmentId);
     if (index === -1) return null;
     const item = typeData.items[index];
     return {
         ...item,
-        previousEquipmentItemId: index > 0
-            ? convertToUrlFriendlyString(`${typeData.items[index - 1].brand} ${typeData.items[index - 1].model}`)
-            : null,
-        nextEquipmentItemId: index < typeData.items.length - 1
-            ? convertToUrlFriendlyString(`${typeData.items[index + 1].brand} ${typeData.items[index + 1].model}`)
-            : null
+        previousEquipmentItemId:
+            index > 0 ? convertToUrlFriendlyString(`${typeData.items[index - 1].brand} ${typeData.items[index - 1].model}`) : null,
+        nextEquipmentItemId:
+            index < typeData.items.length - 1
+                ? convertToUrlFriendlyString(`${typeData.items[index + 1].brand} ${typeData.items[index + 1].model}`)
+                : null
     };
 }
 
@@ -274,7 +292,8 @@ export async function getEquipmentItemMetadata(lang: Lang, { params }: Equipment
     );
 
     return {
-        title, description,
+        title,
+        description,
         alternates: buildAlternates(lang, {
             no: `equipment/${equipmentType}/${equipmentId}/`,
             en: `equipment/${equipmentType}/${equipmentId}/`

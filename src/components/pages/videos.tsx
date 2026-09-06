@@ -1,38 +1,36 @@
-import JsonLd from 'components/JsonLd';
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Breadcrumbs from 'components/partials/Breadcrumbs';
-import Container from 'components/template/Container';
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Modal from 'components/template/Modal';
-import Video from 'components/partials/Video';
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
-import { getPrettyDate } from 'helpers/dateFormatter';
-import { formatContentAsString } from 'helpers/contentFormatter';
-import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
-import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, type Lang } from 'lib/pageMetadata';
-import videos from 'data/videos';
+import JsonLd from "components/JsonLd";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Breadcrumbs from "components/partials/Breadcrumbs";
+import Container from "components/template/Container";
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import Modal from "components/template/Modal";
+import Video from "components/partials/Video";
+import { convertToUrlFriendlyString } from "helpers/urlFormatter";
+import { getPrettyDate } from "helpers/dateFormatter";
+import { formatContentAsString } from "helpers/contentFormatter";
+import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
+import { getLanguageSlug } from "lib/i18n";
+import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, type Lang } from "lib/pageMetadata";
+import videos from "data/videos";
 
 const translations = {
     no: {
-        metaTitle: 'Videoer | Dehli Musikk',
-        pageTitle: 'Videoer',
-        description: 'Videoer Dehli Musikk har laget eller bidratt på',
-        listName: 'Videoer av Dehli Musikk',
-        theaterMode: 'Kinomodus',
-        descriptionFallback: (title: string, excerpt: string, date: string) =>
-            `${title}. ${excerpt} Video fra Dehli Musikk, publisert ${date}.`
+        metaTitle: "Videoer | Dehli Musikk",
+        pageTitle: "Videoer",
+        description: "Videoer Dehli Musikk har laget eller bidratt på",
+        listName: "Videoer av Dehli Musikk",
+        theaterMode: "Kinomodus",
+        descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} Video fra Dehli Musikk, publisert ${date}.`
     },
     en: {
-        metaTitle: 'Videos | Dehli Musikk',
-        pageTitle: 'Videos',
-        description: 'Videos Dehli Musikk has created or contributed in',
-        listName: 'Videos by Dehli Musikk',
-        theaterMode: 'Theater mode',
-        descriptionFallback: (title: string, excerpt: string, date: string) =>
-            `${title}. ${excerpt} A video from Dehli Musikk, published ${date}.`
+        metaTitle: "Videos | Dehli Musikk",
+        pageTitle: "Videos",
+        description: "Videos Dehli Musikk has created or contributed in",
+        listName: "Videos by Dehli Musikk",
+        theaterMode: "Theater mode",
+        descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} A video from Dehli Musikk, published ${date}.`
     }
 } as const;
 
@@ -44,7 +42,7 @@ export function getVideosPageMetadata(lang: Lang): Metadata {
     return {
         title: t.metaTitle,
         description: t.description,
-        alternates: buildAlternates(lang, { no: 'videos/', en: 'videos/' }),
+        alternates: buildAlternates(lang, { no: "videos/", en: "videos/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}videos/`,
@@ -60,21 +58,21 @@ export function VideosPage({ lang }: { lang: Lang }) {
         const videoId = convertToUrlFriendlyString(video.title[lang]);
         const videoDate = new Date(video.timestamp).toISOString();
         return {
-            '@type': 'VideoObject',
-            '@id': `${WEBSITE_URL}/videos/${convertToUrlFriendlyString(video.title.no)}/video/`,
+            "@type": "VideoObject",
+            "@id": `${WEBSITE_URL}/videos/${convertToUrlFriendlyString(video.title.no)}/video/`,
             position: index + 1,
             url: `${WEBSITE_URL}/${languageSlug}videos/${videoId}/video/`,
             name: video.title[lang],
-            description: video.content[lang] ? formatContentAsString(video.content[lang]) : '',
+            description: video.content[lang] ? formatContentAsString(video.content[lang]) : "",
             thumbnailUrl: `${WEBSITE_URL}/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`,
             embedUrl: `https://www.youtube.com/embed/${video.youTubeId}`,
             uploadDate: videoDate
         };
     });
     const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        '@id': `${WEBSITE_URL}/videos/`,
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "@id": `${WEBSITE_URL}/videos/`,
         name: t.listName,
         numberOfItems: videoItems.length,
         itemListElement: videoItems
@@ -113,9 +111,7 @@ export function getVideoStaticParams(lang: Lang) {
 }
 
 function getVideo(lang: Lang, videoId: string) {
-    const index = videos.findIndex(
-        (v) => convertToUrlFriendlyString(v.title[lang]) === videoId
-    );
+    const index = videos.findIndex((v) => convertToUrlFriendlyString(v.title[lang]) === videoId);
     if (index === -1) return null;
     return {
         ...videos[index],
@@ -149,14 +145,12 @@ async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps): Promis
      * keeps the full text, which is what Google's video guidelines want.
      */
     const excerpt = formatContentAsString(video.content[lang]);
-    const description = metaDescription(
-        excerpt,
-        t.descriptionFallback(video.title[lang], excerpt, getPrettyDate(new Date(video.timestamp), lang))
-    );
+    const description = metaDescription(excerpt, t.descriptionFallback(video.title[lang], excerpt, getPrettyDate(new Date(video.timestamp), lang)));
     const canonicalPaths = getCanonicalVideoPaths(video);
 
     return {
-        title, description,
+        title,
+        description,
         alternates: buildAlternates(lang, canonicalPaths),
         ...socialMetadata(lang, {
             title: video.title[lang],

@@ -20,9 +20,7 @@ function getUniqueArtistNamesFromReleases(releases) {
 }
 
 export function getArtistNamesStringFromReleases(releases, languageKey) {
-    const uniqueArtistNames = getUniqueArtistNamesFromReleases(releases).filter(
-        (artistName) => artistName !== "Benjamin Dehli"
-    );
+    const uniqueArtistNames = getUniqueArtistNamesFromReleases(releases).filter((artistName) => artistName !== "Benjamin Dehli");
     const locales = {
         en: "en-GB",
         no: "nb-NO"

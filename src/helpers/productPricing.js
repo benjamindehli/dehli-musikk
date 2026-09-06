@@ -18,8 +18,7 @@ export const getMinimumPrice = (product) => {
     return Number.isFinite(price) ? price : 0;
 };
 
-export const getPriceCurrency = (product) =>
-    product?.priceCurrency?.length ? product.priceCurrency : DEFAULT_PRICE_CURRENCY;
+export const getPriceCurrency = (product) => (product?.priceCurrency?.length ? product.priceCurrency : DEFAULT_PRICE_CURRENCY);
 
 /** Whether the product asks for money at all, which is what Google validates */
 export const hasPrice = (product) => getMinimumPrice(product) > 0;

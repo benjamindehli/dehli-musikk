@@ -2,37 +2,37 @@
 @use "../abstracts/variables/fonts";
 @use "../abstracts/variables/breakpoints";
 
-body{
-	background-color: colors.$body-background;
-	color: colors.$default-text-color;
-	font-family: fonts.$default-font;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+body {
+    background-color: colors.$body-background;
+    color: colors.$default-text-color;
+    font-family: fonts.$default-font;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-a{
-	color: colors.$primary-text-color;
-	cursor: pointer;
-	&:link {
-		text-decoration: underline;
-	}
-	&:hover{
-		color: hover-color(colors.$primary-color);
-	}
-	&:focus{
-		color: focus-color(colors.$primary-color);
-	}
+a {
+    color: colors.$primary-text-color;
+    cursor: pointer;
+    &:link {
+        text-decoration: underline;
+    }
+    &:hover {
+        color: hover-color(colors.$primary-color);
+    }
+    &:focus {
+        color: focus-color(colors.$primary-color);
+    }
 }
 
 p {
-	line-height: 1.5em;
+    line-height: 1.5em;
 }
 
 .padding {
-	padding: 24px;
+    padding: 24px;
 }
 
 .padding-sm {
-	@media (min-width: breakpoints.$screen-sm) {
-		padding: 24px;
-  }
+    @media (min-width: breakpoints.$screen-sm) {
+        padding: 24px;
+    }
 }

@@ -1,34 +1,34 @@
-import JsonLd from 'components/JsonLd';
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Breadcrumbs from 'components/partials/Breadcrumbs';
-import Container from 'components/template/Container';
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Modal from 'components/template/Modal';
-import Release from 'components/partials/Portfolio/Release';
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
-import { getJsonLdIdForRelease } from 'helpers/releaseHelpers';
-import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
-import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
-import releases from 'data/portfolio';
+import JsonLd from "components/JsonLd";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Breadcrumbs from "components/partials/Breadcrumbs";
+import Container from "components/template/Container";
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import Modal from "components/template/Modal";
+import Release from "components/partials/Portfolio/Release";
+import { convertToUrlFriendlyString } from "helpers/urlFormatter";
+import { getJsonLdIdForRelease } from "helpers/releaseHelpers";
+import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
+import { getLanguageSlug } from "lib/i18n";
+import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from "lib/pageMetadata";
+import releases from "data/portfolio";
 
 const translations = {
     no: {
-        metaTitle: 'Portefølje | Dehli Musikk',
-        pageTitle: 'Portefølje',
-        description: 'Utgivelser Dehli Musikk har bidratt på',
-        listName: 'Porteføljen til Dehli Musikk',
-        byConnector: 'av',
+        metaTitle: "Portefølje | Dehli Musikk",
+        pageTitle: "Portefølje",
+        description: "Utgivelser Dehli Musikk har bidratt på",
+        listName: "Porteføljen til Dehli Musikk",
+        byConnector: "av",
         listenTo: (title: string, artistName: string) => `Lytt til låta ${title} av ${artistName}`
     },
     en: {
-        metaTitle: 'Portfolio | Dehli Musikk',
-        pageTitle: 'Portfolio',
-        description: 'Recordings where Dehli Musikk has contributed',
-        listName: 'Portfolio for Dehli Musikk',
-        byConnector: 'by',
+        metaTitle: "Portfolio | Dehli Musikk",
+        pageTitle: "Portfolio",
+        description: "Recordings where Dehli Musikk has contributed",
+        listName: "Portfolio for Dehli Musikk",
+        byConnector: "by",
         listenTo: (title: string, artistName: string) => `Listen to the track ${title} by ${artistName}`
     }
 } as const;
@@ -41,7 +41,7 @@ export function getPortfolioPageMetadata(lang: Lang): Metadata {
     return {
         title: t.metaTitle,
         description: t.description,
-        alternates: buildAlternates(lang, { no: 'portfolio/', en: 'portfolio/' }),
+        alternates: buildAlternates(lang, { no: "portfolio/", en: "portfolio/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}portfolio/`,
@@ -56,17 +56,17 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
     const releaseItems = releases.map((release, index) => {
         const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
         return {
-            '@type': 'MusicRecording',
-            '@id': getJsonLdIdForRelease(release),
+            "@type": "MusicRecording",
+            "@id": getJsonLdIdForRelease(release),
             name: release.title,
             position: index + 1,
             url: `${WEBSITE_URL}/${languageSlug}portfolio/${releaseId}/`
         };
     });
     const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        '@id': `${WEBSITE_URL}/portfolio/`,
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "@id": `${WEBSITE_URL}/portfolio/`,
         name: t.listName,
         numberOfItems: releaseItems.length,
         itemListElement: releaseItems
@@ -105,19 +105,14 @@ export function getReleaseStaticParams() {
 }
 
 function getRelease(releaseId: string) {
-    const index = releases.findIndex(
-        (r) => convertToUrlFriendlyString(`${r.artistName} ${r.title}`) === releaseId
-    );
+    const index = releases.findIndex((r) => convertToUrlFriendlyString(`${r.artistName} ${r.title}`) === releaseId);
     if (index === -1) return null;
     const release = releases[index];
     return {
         ...release,
-        previousReleaseId: index > 0
-            ? convertToUrlFriendlyString(`${releases[index - 1].artistName} ${releases[index - 1].title}`)
-            : null,
-        nextReleaseId: index < releases.length - 1
-            ? convertToUrlFriendlyString(`${releases[index + 1].artistName} ${releases[index + 1].title}`)
-            : null
+        previousReleaseId: index > 0 ? convertToUrlFriendlyString(`${releases[index - 1].artistName} ${releases[index - 1].title}`) : null,
+        nextReleaseId:
+            index < releases.length - 1 ? convertToUrlFriendlyString(`${releases[index + 1].artistName} ${releases[index + 1].title}`) : null
     };
 }
 
@@ -133,13 +128,14 @@ export async function getReleaseDetailsMetadata(lang: Lang, { params }: ReleaseR
     const description = t.listenTo(release.title, release.artistName);
 
     return {
-        title, description,
+        title,
+        description,
         alternates: buildAlternates(lang, {
             no: `portfolio/${releaseId}/`,
             en: `portfolio/${releaseId}/`
         }),
         ...socialMetadata(lang, {
-            type: 'music.song',
+            type: "music.song",
             title: heading,
             url: `${WEBSITE_URL}/${languageSlug}portfolio/${releaseId}/`,
             description,

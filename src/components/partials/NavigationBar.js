@@ -1,19 +1,10 @@
-'use client';
+"use client";
 // Dependencies
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faLanguage,
-    faChevronDown,
-    faMusic,
-    faPhotoFilm,
-    faFilm,
-    faCartShopping,
-    faGuitar,
-    faComments
-} from "@fortawesome/free-solid-svg-icons";
+import { faLanguage, faChevronDown, faMusic, faPhotoFilm, faFilm, faCartShopping, faGuitar, faComments } from "@fortawesome/free-solid-svg-icons";
 
 // Components
 import SearchField from "components/partials/NavigationBar/SearchField";
@@ -100,9 +91,9 @@ const NavigationBar = () => {
     useEffect(() => {
         const paths = {};
         document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((link) => {
-            const hreflang = link.getAttribute('hreflang');
-            const href = link.getAttribute('href');
-            if (!hreflang || hreflang === 'x-default' || !href) return;
+            const hreflang = link.getAttribute("hreflang");
+            const href = link.getAttribute("href");
+            if (!hreflang || hreflang === "x-default" || !href) return;
             try {
                 // Keep it a path so Link still navigates client side
                 paths[hreflang] = new URL(href).pathname;
@@ -116,7 +107,7 @@ const NavigationBar = () => {
     // Posts and videos build their slug from the translated title, so the slug
     // itself differs between languages and swapping the /en prefix cannot produce
     // a path that exists. Every other section uses a language-independent slug.
-    const translatedSlugSections = ['posts', 'videos'];
+    const translatedSlugSections = ["posts", "videos"];
 
     const getAlternateLangPath = (targetLang) => {
         if (targetLang === lang) return pathname;
@@ -130,9 +121,9 @@ const NavigationBar = () => {
          * independent; for a post or video it would 404, so offer that section's
          * list in the target language rather than a broken link.
          */
-        const pathWithoutLang = pathname.replace(/^\/en(?=\/|$)/, '') || '/';
-        const [, section, slug] = pathWithoutLang.split('/');
-        const targetPrefix = targetLang === 'en' ? '/en' : '';
+        const pathWithoutLang = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
+        const [, section, slug] = pathWithoutLang.split("/");
+        const targetPrefix = targetLang === "en" ? "/en" : "";
 
         if (slug && translatedSlugSections.includes(section)) {
             return `${targetPrefix}/${section}/`;
@@ -147,11 +138,7 @@ const NavigationBar = () => {
         // cannot reach it while a modal is open. inert makes keyboard focus and
         // screen readers agree, instead of landing on links behind the overlay.
         <div className={style.navigationBar} inert={isModalOpen}>
-            <button
-                onClick={handleShowSidebarClick}
-                className={style.menuButton}
-                aria-label={lang === "en" ? "Show menu" : "Vis meny"}
-            >
+            <button onClick={handleShowSidebarClick} className={style.menuButton} aria-label={lang === "en" ? "Show menu" : "Vis meny"}>
                 <img src="/images/menuIcon.svg" className={style.menuIcon} alt="" aria-hidden="true" />
             </button>
 
@@ -168,16 +155,11 @@ const NavigationBar = () => {
                 >
                     <span className={style.languageSelectorButton}>
                         <FontAwesomeIcon icon={faLanguage} />
-                        <span className={style.languageName}>
-                            {LANGUAGES[lang]?.name || ""}
-                        </span>
+                        <span className={style.languageName}>{LANGUAGES[lang]?.name || ""}</span>
                         <FontAwesomeIcon icon={faChevronDown} />
                     </span>
                 </button>
-                <div
-                    ref={languageSelectorListWrapperRef}
-                    className={`${style.languageSelectorList} ${showLanguageSelectorList ? style.active : ""}`}
-                >
+                <div ref={languageSelectorListWrapperRef} className={`${style.languageSelectorList} ${showLanguageSelectorList ? style.active : ""}`}>
                     <ul>
                         {Object.keys(LANGUAGES).map((langKey) => {
                             const language = LANGUAGES[langKey];
@@ -195,11 +177,7 @@ const NavigationBar = () => {
                 </div>
             </div>
 
-            <aside
-                className={`${style.sidebarOverlay} ${showSidebar ? style.active : ""} ${
-                    hidingSidebar ? style.hidingSidebar : ""
-                } `}
-            >
+            <aside className={`${style.sidebarOverlay} ${showSidebar ? style.active : ""} ${hidingSidebar ? style.hidingSidebar : ""} `}>
                 <nav ref={sidebarWrapperRef} className={style.sidebarContent}>
                     <div className={style.sidebarContentHeader}>
                         <Link
@@ -221,8 +199,7 @@ const NavigationBar = () => {
                                 title={lang === "en" ? "Portfolio" : "Portefølje"}
                                 onClick={hideSidebar}
                             >
-                                <FontAwesomeIcon icon={faMusic} />{" "}
-                                {lang === "en" ? "Portfolio" : "Portefølje"}
+                                <FontAwesomeIcon icon={faMusic} /> {lang === "en" ? "Portfolio" : "Portefølje"}
                             </Link>
                         </li>
                         <li>
@@ -232,8 +209,7 @@ const NavigationBar = () => {
                                 title={lang === "en" ? "Posts" : "Innlegg"}
                                 onClick={hideSidebar}
                             >
-                                <FontAwesomeIcon icon={faPhotoFilm} />{" "}
-                                {lang === "en" ? "Posts" : "Innlegg"}
+                                <FontAwesomeIcon icon={faPhotoFilm} /> {lang === "en" ? "Posts" : "Innlegg"}
                             </Link>
                         </li>
                         <li>
@@ -243,8 +219,7 @@ const NavigationBar = () => {
                                 title={lang === "en" ? "Videos" : "Videoer"}
                                 onClick={hideSidebar}
                             >
-                                <FontAwesomeIcon icon={faFilm} />{" "}
-                                {lang === "en" ? "Videos" : "Videoer"}
+                                <FontAwesomeIcon icon={faFilm} /> {lang === "en" ? "Videos" : "Videoer"}
                             </Link>
                         </li>
                         <li>
@@ -254,8 +229,7 @@ const NavigationBar = () => {
                                 title={lang === "en" ? "Products" : "Produkter"}
                                 onClick={hideSidebar}
                             >
-                                <FontAwesomeIcon icon={faCartShopping} />{" "}
-                                {lang === "en" ? "Products" : "Produkter"}
+                                <FontAwesomeIcon icon={faCartShopping} /> {lang === "en" ? "Products" : "Produkter"}
                             </Link>
                         </li>
                         <li>
@@ -265,8 +239,7 @@ const NavigationBar = () => {
                                 title={lang === "en" ? "Equipment" : "Utstyr"}
                                 onClick={hideSidebar}
                             >
-                                <FontAwesomeIcon icon={faGuitar} />{" "}
-                                {lang === "en" ? "Equipment" : "Utstyr"}
+                                <FontAwesomeIcon icon={faGuitar} /> {lang === "en" ? "Equipment" : "Utstyr"}
                             </Link>
                         </li>
                         <li>
@@ -276,8 +249,7 @@ const NavigationBar = () => {
                                 title={lang === "en" ? "Frequently Asked Questions" : "Ofte stilte spørsmål"}
                                 onClick={hideSidebar}
                             >
-                                <FontAwesomeIcon icon={faComments} />{" "}
-                                {lang === "en" ? "FAQ" : "FAQ"}
+                                <FontAwesomeIcon icon={faComments} /> {lang === "en" ? "FAQ" : "FAQ"}
                             </Link>
                         </li>
                     </ul>

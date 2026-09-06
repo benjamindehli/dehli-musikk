@@ -1,66 +1,66 @@
 @use "../../../../style/abstracts/variables/breakpoints";
 
 .listItemThumbnail {
-  display: inline-block;
-  width: 55px;
-  height: 55px;
-  margin: 9px 6px;
-  border-radius: 50%;
-  background-color: #fff;
-  aspect-ratio: 55 / 55;
-
-  & picture {
-    display: block;
-    line-height: 0;
-
-    & img {
-      width: 55px;
-      height: 55px;
-      aspect-ratio: 55 / 55;
-      border-radius: 50%;
-      border: 1px solid #eee;
-    }
-  }
-
-  &:not(.compact) {
-    @media (min-width: breakpoints.$screen-sm) {
-      display: block;
-      width: 100%;
-      margin: 0;
-      border-radius: 0;
-      height: calc(var(--h) * 1px);
-      aspect-ratio: var(--w) / var(--h);
-      & picture {
-        & img {
-          width: 100%;
-          height: auto;
-          border-radius: 0;
-          border: none;
-          aspect-ratio: var(--w) / var(--h);
-        }
-      }
-    }
-  }
-
-  &.fullscreen {
-    width: 100%;
-    margin: 0;
-    height: calc((100vw - 56px) * (var(--h) / var(--w)));
-    max-height: calc(var(--h) * 1px);
-    aspect-ratio: var(--w) / var(--h);
-
-    @media (min-width: breakpoints.$screen-sm) {
-      height: calc((100vw - 200px) * (var(--h) / var(--w)));
-    }
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    margin: 9px 6px;
+    border-radius: 50%;
+    background-color: #fff;
+    aspect-ratio: 55 / 55;
 
     & picture {
-      & img {
-        border-radius: 0;
-        border: none;
-        width: 100%;
-        height: auto;
-        aspect-ratio: var(--w) / var(--h);
-      }
+        display: block;
+        line-height: 0;
+
+        & img {
+            width: 55px;
+            height: 55px;
+            aspect-ratio: 55 / 55;
+            border-radius: 50%;
+            border: 1px solid #eee;
+        }
     }
-  }
+
+    &:not(.compact) {
+        @media (min-width: breakpoints.$screen-sm) {
+            display: block;
+            width: 100%;
+            margin: 0;
+            border-radius: 0;
+            height: calc(var(--h) * 1px);
+            aspect-ratio: var(--w) / var(--h);
+            & picture {
+                & img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 0;
+                    border: none;
+                    aspect-ratio: var(--w) / var(--h);
+                }
+            }
+        }
+    }
+
+    &.fullscreen {
+        width: 100%;
+        margin: 0;
+        height: calc((100vw - 56px) * (var(--h) / var(--w)));
+        max-height: calc(var(--h) * 1px);
+        aspect-ratio: var(--w) / var(--h);
+
+        @media (min-width: breakpoints.$screen-sm) {
+            height: calc((100vw - 200px) * (var(--h) / var(--w)));
+        }
+
+        & picture {
+            & img {
+                border-radius: 0;
+                border: none;
+                width: 100%;
+                height: auto;
+                aspect-ratio: var(--w) / var(--h);
+            }
+        }
+    }
 }

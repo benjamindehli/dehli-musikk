@@ -17,13 +17,13 @@
  * derivations drift, some page ends up without a twin, or with one at an address
  * nothing links to.
  */
-import fs from 'node:fs';
-import path from 'node:path';
+import fs from "node:fs";
+import path from "node:path";
 
 const ROOT = process.cwd();
-const SITE_ORIGIN = 'https://www.dehlimusikk.no';
+const SITE_ORIGIN = "https://www.dehlimusikk.no";
 
-const directory = process.argv[2] || 'out';
+const directory = process.argv[2] || "out";
 const EXPORT_DIR = path.resolve(ROOT, directory);
 
 /*
@@ -34,7 +34,7 @@ const EXPORT_DIR = path.resolve(ROOT, directory);
  * for the same reason. The error pages are not content. Directory paths relative
  * to the export root, matched exactly.
  */
-const HTML_ONLY = new Set(['404', '_not-found', 'search', 'en/search']);
+const HTML_ONLY = new Set(["404", "_not-found", "search", "en/search"]);
 
 if (!fs.existsSync(EXPORT_DIR)) {
     console.log(`No ${directory}/ directory. Build first, then run this:\n\n   yarn build && node scripts/verify-markdown.mjs\n`);
@@ -45,17 +45,17 @@ if (!fs.existsSync(EXPORT_DIR)) {
 
 // Every directory holding an index.html, relative to the export root. "" is the
 // site root itself.
-function pageDirectories(prefix = '') {
+function pageDirectories(prefix = "") {
     const found = [];
     const absolute = path.join(EXPORT_DIR, prefix);
     const entries = fs.readdirSync(absolute, { withFileTypes: true });
 
-    if (entries.some((entry) => entry.isFile() && entry.name === 'index.html')) found.push(prefix);
+    if (entries.some((entry) => entry.isFile() && entry.name === "index.html")) found.push(prefix);
 
     for (const entry of entries) {
         if (!entry.isDirectory()) continue;
         // _next holds build assets, not pages
-        if (entry.name === '_next') continue;
+        if (entry.name === "_next") continue;
         found.push(...pageDirectories(prefix ? `${prefix}/${entry.name}` : entry.name));
     }
     return found;
@@ -63,7 +63,7 @@ function pageDirectories(prefix = '') {
 
 // A declaration, not a const: run() is called above, before this point in the file
 function pageUrl(pageDirectory) {
-    return `${SITE_ORIGIN}/${pageDirectory ? `${pageDirectory}/` : ''}`;
+    return `${SITE_ORIGIN}/${pageDirectory ? `${pageDirectory}/` : ""}`;
 }
 
 /*
@@ -90,19 +90,19 @@ function run() {
     let withDeclaration = 0;
 
     for (const pageDirectory of directories) {
-        const markdownFile = path.join(EXPORT_DIR, pageDirectory, 'index.md');
-        const html = fs.readFileSync(path.join(EXPORT_DIR, pageDirectory, 'index.html'), 'utf8');
-        const page = pageDirectory || '/';
+        const markdownFile = path.join(EXPORT_DIR, pageDirectory, "index.md");
+        const html = fs.readFileSync(path.join(EXPORT_DIR, pageDirectory, "index.html"), "utf8");
+        const page = pageDirectory || "/";
 
         if (!fs.existsSync(markdownFile)) {
-            problems.push({ page, detail: 'no index.md beside index.html' });
+            problems.push({ page, detail: "no index.md beside index.html" });
             continue;
         }
         withMarkdown += 1;
 
-        const markdown = fs.readFileSync(markdownFile, 'utf8');
-        if (!markdown.startsWith('---\n')) {
-            problems.push({ page, detail: 'index.md does not open with a front matter block' });
+        const markdown = fs.readFileSync(markdownFile, "utf8");
+        if (!markdown.startsWith("---\n")) {
+            problems.push({ page, detail: "index.md does not open with a front matter block" });
             continue;
         }
 
@@ -114,7 +114,7 @@ function run() {
         const declaredUrl = markdown.match(/^url: "([^"]*)"$/m);
         const expectedUrl = pageUrl(pageDirectory);
         if (!declaredUrl) {
-            problems.push({ page, detail: 'index.md front matter has no url' });
+            problems.push({ page, detail: "index.md front matter has no url" });
         } else if (declaredUrl[1] !== expectedUrl) {
             problems.push({ page, detail: `index.md says url ${declaredUrl[1]}, but sits at ${expectedUrl}` });
         }
@@ -134,10 +134,10 @@ function run() {
         }
     }
 
-    console.log(`pages${''.padEnd(17)} ${directories.length}`);
-    console.log(`with index.md${''.padEnd(9)} ${withMarkdown} / ${directories.length}`);
-    console.log(`link resolves${''.padEnd(9)} ${withDeclaration} / ${directories.length}`);
-    console.log(`\n${problems.length} problem${problems.length === 1 ? '' : 's'}`);
+    console.log(`pages${"".padEnd(17)} ${directories.length}`);
+    console.log(`with index.md${"".padEnd(9)} ${withMarkdown} / ${directories.length}`);
+    console.log(`link resolves${"".padEnd(9)} ${withDeclaration} / ${directories.length}`);
+    console.log(`\n${problems.length} problem${problems.length === 1 ? "" : "s"}`);
 
     problems.slice(0, 15).forEach(({ page, detail }) => console.log(`   ${page}\n      ${detail}`));
     if (problems.length > 15) console.log(`   ... and ${problems.length - 15} more`);

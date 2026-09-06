@@ -1,29 +1,28 @@
 // Components
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Product from 'components/partials/Product';
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import Product from "components/partials/Product";
 
 // Helpers
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter'
+import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 
 // Data
-import { latestProducts } from 'data/products';
-
+import { latestProducts } from "data/products";
 
 const LatestProducts = ({ lang, languageSlug }) => {
-  const renderProducts = () => {
-    return latestProducts && latestProducts.length
-      ? latestProducts.map(product => {
-        const productId = convertToUrlFriendlyString(product.title);
-        return (<ListItem key={productId}>
-          <Product product={product} lang={lang} languageSlug={languageSlug} />
-        </ListItem>)
-      })
-      : '';
-  }
-  return (<List>
-    {renderProducts()}
-  </List>)
-}
+    const renderProducts = () => {
+        return latestProducts && latestProducts.length
+            ? latestProducts.map((product) => {
+                  const productId = convertToUrlFriendlyString(product.title);
+                  return (
+                      <ListItem key={productId}>
+                          <Product product={product} lang={lang} languageSlug={languageSlug} />
+                      </ListItem>
+                  );
+              })
+            : "";
+    };
+    return <List>{renderProducts()}</List>;
+};
 
 export default LatestProducts;

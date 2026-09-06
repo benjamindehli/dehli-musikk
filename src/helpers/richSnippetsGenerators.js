@@ -54,10 +54,7 @@ function generateSoftwareApplicationProperties(product, productId) {
     const [category, ...platforms] = product.productType || [];
     if (!SOFTWARE_PRODUCT_CATEGORIES.includes(category)) return null;
     return {
-        operatingSystem:
-            category === "Sample instruments"
-                ? SAMPLE_INSTRUMENT_OPERATING_SYSTEMS
-                : SOFTWARE_OPERATING_SYSTEMS[productId],
+        operatingSystem: category === "Sample instruments" ? SAMPLE_INSTRUMENT_OPERATING_SYSTEMS : SOFTWARE_OPERATING_SYSTEMS[productId],
         applicationCategory: ["EntertainmentApplication", "MultimediaApplication"],
         softwareRequirements: platforms.length ? platforms.join(", ") : undefined,
         /*
@@ -70,9 +67,7 @@ function generateSoftwareApplicationProperties(product, productId) {
          * A page node rather than a bare URL, since softwareHelp expects a
          * CreativeWork.
          */
-        softwareHelp: product.documentationLink?.url
-            ? { "@type": "WebPage", url: product.documentationLink.url }
-            : undefined
+        softwareHelp: product.documentationLink?.url ? { "@type": "WebPage", url: product.documentationLink.url } : undefined
     };
 }
 

@@ -155,10 +155,7 @@ function renderEquipmentTypesList(equipmentTypes) {
         Object.keys(equipmentTypes).forEach((equipmentTypeKey) => {
             const urlNorwegianTypePage = `${urlNorwegianPage}${equipmentTypeKey}/`;
             const urlEnglishTypePage = `${urlEnglishPage}${equipmentTypeKey}/`;
-            equipmentTypeElements = [
-                ...equipmentTypeElements,
-                ...renderMultilingualUrlObjects(urlNorwegianTypePage, urlEnglishTypePage)
-            ];
+            equipmentTypeElements = [...equipmentTypeElements, ...renderMultilingualUrlObjects(urlNorwegianTypePage, urlEnglishTypePage)];
         });
     }
     return equipmentTypeElements;
@@ -228,10 +225,7 @@ function renderEquipmentDetails(equipmentTypes) {
                 const itemId = `${item.brand} ${item.model}`;
                 const urlNorwegianItemPage = `${urlNorwegianPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`;
                 const urlEnglishItemPage = `${urlEnglishPage}${equipmentTypeKey}/${convertToUrlFriendlyString(itemId)}/`;
-                equipmentDetailsElements = [
-                    ...equipmentDetailsElements,
-                    ...renderMultilingualUrlObjects(urlNorwegianItemPage, urlEnglishItemPage)
-                ];
+                equipmentDetailsElements = [...equipmentDetailsElements, ...renderMultilingualUrlObjects(urlNorwegianItemPage, urlEnglishItemPage)];
             });
         });
     }
@@ -385,10 +379,7 @@ function renderPostsListImages(posts) {
             englishImages = englishImages.concat(getImagesFromPost(post, "en"));
         });
     }
-    return [
-        renderImagePageUrlElement(urlNorwegianPage, norwegianImages),
-        renderImagePageUrlElement(urlEnglishPage, englishImages)
-    ].join("");
+    return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
 function renderVideosListImages(videos) {
@@ -402,10 +393,7 @@ function renderVideosListImages(videos) {
             englishImages = englishImages.concat(getImagesFromVideo(video, "en"));
         });
     }
-    return [
-        renderImagePageUrlElement(urlNorwegianPage, norwegianImages),
-        renderImagePageUrlElement(urlEnglishPage, englishImages)
-    ].join("");
+    return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
 function renderProductsListImages(products) {
@@ -419,10 +407,7 @@ function renderProductsListImages(products) {
             englishImages = englishImages.concat(getImagesFromProduct(product));
         });
     }
-    return [
-        renderImagePageUrlElement(urlNorwegianPage, norwegianImages),
-        renderImagePageUrlElement(urlEnglishPage, englishImages)
-    ].join("");
+    return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
 function renderReleasesListImages(releases) {
@@ -436,10 +421,7 @@ function renderReleasesListImages(releases) {
             englishImages = englishImages.concat(getImagesFromRelease(release, "en"));
         });
     }
-    return [
-        renderImagePageUrlElement(urlNorwegianPage, norwegianImages),
-        renderImagePageUrlElement(urlEnglishPage, englishImages)
-    ].join("");
+    return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
 function renderReleasesDetailsImages(releases) {
@@ -471,10 +453,7 @@ function renderEquipmentTypesListImages(equipmentTypes) {
             englishImages = englishImages.concat(getImagesFromEquipmentType(equipmentType, "en"));
         });
     }
-    return [
-        renderImagePageUrlElement(urlNorwegianPage, norwegianImages),
-        renderImagePageUrlElement(urlEnglishPage, englishImages)
-    ].join("");
+    return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
 function renderEquipmentListImages(equipmentTypes) {
@@ -571,10 +550,7 @@ function renderNewsPostsDetails(posts) {
               .map((post) => {
                   const urlNorwegianPage = `${languageSlug.no}posts/${convertToUrlFriendlyString(post.title.no)}/`;
                   const urlEnglishPage = `${languageSlug.en}posts/${convertToUrlFriendlyString(post.title.en)}/`;
-                  return [
-                      renderNewsUrlElement(urlNorwegianPage, post, "no"),
-                      renderNewsUrlElement(urlEnglishPage, post, "en")
-                  ].join("");
+                  return [renderNewsUrlElement(urlNorwegianPage, post, "no"), renderNewsUrlElement(urlEnglishPage, post, "en")].join("");
               })
               .join("")
         : "";
@@ -586,10 +562,7 @@ function renderVideoSitemapDetails(videos) {
               .map((video) => {
                   const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/video/`;
                   const urlEnglishPage = `${languageSlug.en}videos/${convertToUrlFriendlyString(video.title.en)}/video/`;
-                  return [
-                      renderVideoUrlElement(urlNorwegianPage, video, "no"),
-                      renderVideoUrlElement(urlEnglishPage, video, "en")
-                  ].join("");
+                  return [renderVideoUrlElement(urlNorwegianPage, video, "no"), renderVideoUrlElement(urlEnglishPage, video, "en")].join("");
               })
               .join("")
         : "";

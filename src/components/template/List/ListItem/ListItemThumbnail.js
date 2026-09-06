@@ -26,7 +26,7 @@ const ListItemThumbnail = ({ fullscreen = false, compact = false, link = null, c
             className={classNames.join(" ")}
             data-width={imageSize ? imageSize.width : null}
             data-height={imageSize ? imageSize.height : null}
-            style={{"--w": imageSize ? imageSize.width : null, "--h": imageSize ? imageSize.height : null}}
+            style={{ "--w": imageSize ? imageSize.width : null, "--h": imageSize ? imageSize.height : null }}
         >
             <picture>{children}</picture>
         </figure>

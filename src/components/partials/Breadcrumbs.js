@@ -1,63 +1,70 @@
 // Dependencies
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
 // Components
-import JsonLd from 'components/JsonLd';
+import JsonLd from "components/JsonLd";
 
 // Stylesheets
-import style from 'components/partials/Breadcrumbs.module.scss';
+import style from "components/partials/Breadcrumbs.module.scss";
 
 const Breadcrumbs = ({ breadcrumbs = [], languageSlug }) => {
+    const renderBreadcrumbJsonLd = (breadcrumbs) => {
+        const originUrl = "https://www.dehlimusikk.no";
+        const jsonLd = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    item: `${originUrl}/${languageSlug}`,
+                    name: "Dehli Musikk"
+                }
+            ]
+        };
+        breadcrumbs.forEach((breadcrumb, index) => {
+            jsonLd.itemListElement.push({
+                "@type": "ListItem",
+                position: index + 2,
+                item: `${originUrl}${breadcrumb.path}`,
+                name: breadcrumb.name
+            });
+        });
+        return jsonLd;
+    };
 
-  const renderBreadcrumbJsonLd = (breadcrumbs) => {
-    const originUrl = 'https://www.dehlimusikk.no';
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": `${originUrl}/${languageSlug}`,
-          "name": "Dehli Musikk"
-        }
-      ]
-    }
-    breadcrumbs.forEach((breadcrumb, index) => {
-      jsonLd.itemListElement.push({
-        "@type": "ListItem",
-        "position": index + 2,
-        "item": `${originUrl}${breadcrumb.path}`,
-        "name": breadcrumb.name
-      })
-    })
-    return jsonLd;
-  }
+    const renderBreadcrumbListElements = (breadcrumbs) => {
+        return breadcrumbs.map((breadcrumb, key) => {
+            return key === breadcrumbs.length - 1 ? (
+                <li key={key}>
+                    <span>{breadcrumb.name}</span>
+                </li>
+            ) : (
+                <li key={key}>
+                    <Link href={breadcrumb.path} title={breadcrumb.name}>
+                        {breadcrumb.name}
+                    </Link>
+                </li>
+            );
+        });
+    };
 
-  const renderBreadcrumbListElements = (breadcrumbs) => {
-    return breadcrumbs.map((breadcrumb, key) => {
-      return key === breadcrumbs.length - 1
-        ? (<li key={key}>
-          <span>{breadcrumb.name}</span>
-        </li>)
-        : (<li key={key}>
-          <Link href={breadcrumb.path} title={breadcrumb.name}>{breadcrumb.name}</Link>
-        </li>);
-    })
-  }
-
-  return (<React.Fragment>
-    <JsonLd data={renderBreadcrumbJsonLd(breadcrumbs)} />
-    <nav className={style.breadcrumbs}>
-      <ul aria-label='Breadcrumbs for current page path'>
-        <li>
-          <Link href={`/${languageSlug}`} title='Dehli Musikk'>Dehli Musikk</Link>
-        </li>
-        {renderBreadcrumbListElements(breadcrumbs)}
-      </ul>
-    </nav>
-  </React.Fragment>);
-}
+    return (
+        <React.Fragment>
+            <JsonLd data={renderBreadcrumbJsonLd(breadcrumbs)} />
+            <nav className={style.breadcrumbs}>
+                <ul aria-label="Breadcrumbs for current page path">
+                    <li>
+                        <Link href={`/${languageSlug}`} title="Dehli Musikk">
+                            Dehli Musikk
+                        </Link>
+                    </li>
+                    {renderBreadcrumbListElements(breadcrumbs)}
+                </ul>
+            </nav>
+        </React.Fragment>
+    );
+};
 
 export default Breadcrumbs;

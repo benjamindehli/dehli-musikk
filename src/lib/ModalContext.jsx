@@ -1,5 +1,5 @@
-'use client';
-import { createContext, useCallback, useContext, useMemo, useState } from 'react';
+"use client";
+import { createContext, useCallback, useContext, useMemo, useState } from "react";
 
 /**
  * Lets the navigation bar know when a detail page modal is open. The modal
@@ -14,22 +14,19 @@ const ModalContext = createContext({ isModalOpen: false, registerModal: () => ()
 
 /** @param {{ children: React.ReactNode }} props */
 export const ModalProvider = ({ children }) => {
-  // A count rather than a boolean: moving between detail pages with the arrow
-  // keys mounts the incoming modal before the outgoing one unmounts, and a
-  // boolean would be left false.
-  const [openModalCount, setOpenModalCount] = useState(0);
+    // A count rather than a boolean: moving between detail pages with the arrow
+    // keys mounts the incoming modal before the outgoing one unmounts, and a
+    // boolean would be left false.
+    const [openModalCount, setOpenModalCount] = useState(0);
 
-  const registerModal = useCallback(() => {
-    setOpenModalCount((count) => count + 1);
-    return () => setOpenModalCount((count) => count - 1);
-  }, []);
+    const registerModal = useCallback(() => {
+        setOpenModalCount((count) => count + 1);
+        return () => setOpenModalCount((count) => count - 1);
+    }, []);
 
-  const value = useMemo(
-    () => ({ isModalOpen: openModalCount > 0, registerModal }),
-    [openModalCount, registerModal]
-  );
+    const value = useMemo(() => ({ isModalOpen: openModalCount > 0, registerModal }), [openModalCount, registerModal]);
 
-  return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;
+    return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;
 };
 
 /** @returns {{ isModalOpen: boolean, registerModal: () => (() => void) }} */

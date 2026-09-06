@@ -1,37 +1,11 @@
 const monthNames = {
-    en: [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ],
+    en: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     /*
      * Lower case: Norwegian does not capitalise month names, unlike English.
      * These read as "28. mars 2021" mid-sentence, which is where they appear -
      * on post and video pages, and in the meta description fallback.
      */
-    no: [
-        "januar",
-        "februar",
-        "mars",
-        "april",
-        "mai",
-        "juni",
-        "juli",
-        "august",
-        "september",
-        "oktober",
-        "november",
-        "desember"
-    ]
+    no: ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"]
 };
 
 export const getPrettyDate = (date, language) => {

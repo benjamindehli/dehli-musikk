@@ -1,203 +1,217 @@
 // Dependencies
-import JsonLd from 'components/JsonLd';
-import React from 'react';
+import JsonLd from "components/JsonLd";
+import React from "react";
 
 // Components
-import ExpansionPanel from 'components/template/ExpansionPanel';
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import ListItemContent from 'components/template/List/ListItem/ListItemContent';
-import ListItemContentHeader from 'components/template/List/ListItem/ListItemContent/ListItemContentHeader';
-import ListItemThumbnail from 'components/template/List/ListItem/ListItemThumbnail';
-import Release from 'components/partials/Portfolio/Release';
-import Video from 'components/partials/Video';
+import ExpansionPanel from "components/template/ExpansionPanel";
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import ListItemContent from "components/template/List/ListItem/ListItemContent";
+import ListItemContentHeader from "components/template/List/ListItem/ListItemContent/ListItemContentHeader";
+import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbnail";
+import Release from "components/partials/Portfolio/Release";
+import Video from "components/partials/Video";
 
 // Helpers
-import { getEquipmentItemDescription } from 'helpers/equipmentDescription';
-import { getInstrumentReleases } from 'helpers/instrumentReleases';
-import { getVideosForEquipmentItem } from 'helpers/equipmentUsage';
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
+import { getEquipmentItemDescription } from "helpers/equipmentDescription";
+import { getInstrumentReleases } from "helpers/instrumentReleases";
+import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
+import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 
 const EquipmentItem = ({ fullscreen = false, compact = false, priority = false, item, itemType, itemId, lang, languageSlug }) => {
-  // The first card on a list page is usually the LCP element, so it loads eagerly
-  // with a priority hint rather than being lazy like the cards below the fold.
-  const loadingAttributes = priority ? { fetchPriority: 'high' } : { loading: 'lazy' };
+    // The first card on a list page is usually the LCP element, so it loads eagerly
+    // with a priority hint rather than being lazy like the cards below the fold.
+    const loadingAttributes = priority ? { fetchPriority: "high" } : { loading: "lazy" };
 
-  const renderEquipmentItemImagesSnippet = (images) => {
-    const snippet = Object.keys(images).map(format => {
-      const imagePath = images[format];
-      return {
-        "@context": "https://schema.org",
-        "@type": "ImageObject",
-        "url": `https://www.dehlimusikk.no${imagePath}`,
-        "contentUrl": `https://www.dehlimusikk.no${imagePath}`,
-        "license": "https://creativecommons.org/licenses/by/4.0/legalcode",
-        "acquireLicensePage": "https://www.dehlimusikk.no/#contact",
-        "copyrightNotice": "Benjamin Dehli",
-        "creditText": "Dehli Musikk",
-        "creator": {
-          "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
+    const renderEquipmentItemImagesSnippet = (images) => {
+        const snippet = Object.keys(images).map((format) => {
+            const imagePath = images[format];
+            return {
+                "@context": "https://schema.org",
+                "@type": "ImageObject",
+                url: `https://www.dehlimusikk.no${imagePath}`,
+                contentUrl: `https://www.dehlimusikk.no${imagePath}`,
+                license: "https://creativecommons.org/licenses/by/4.0/legalcode",
+                acquireLicensePage: "https://www.dehlimusikk.no/#contact",
+                copyrightNotice: "Benjamin Dehli",
+                creditText: "Dehli Musikk",
+                creator: {
+                    "@id": "https://musicbrainz.org/artist/56639e59-2bb5-40bd-9d5a-97d964298b6f"
+                }
+            };
+        });
+        return <JsonLd data={snippet} />;
+    };
+
+    /*
+     * Thing, deliberately, and not Product. Product would let this carry brand and
+     * model, but Google validates every Product node against its merchant listing
+     * requirements and rejects one without offers, review or aggregateRating.
+     * This gear is equipment Dehli Musikk uses, not stock for sale, so there are no
+     * honest offers to give it and no ratings to report. Typed as Product it was
+     * reported invalid across all 202 equipment pages, which cost real Search
+     * Console errors in exchange for rich results these pages could never earn.
+     *
+     * brand and model are Product properties, so they cannot come along; the brand
+     * and model are both in name and in the description regardless.
+     */
+    const renderEquipmentItemSnippet = (item, images, videoCount, releaseCount) => {
+        const imagePath = images["jpg945"];
+        const itemName = `${item.brand} ${item.model}`;
+        const snippet = {
+            "@context": "https://schema.org",
+            "@type": "Thing",
+            "@id": `https://www.dehlimusikk.no/equipment/${itemType}/${itemId}/`,
+            name: itemName,
+            url: `https://www.dehlimusikk.no/${languageSlug}equipment/${itemType}/${itemId}/`,
+            image: `https://www.dehlimusikk.no${imagePath}`,
+            description: getEquipmentItemDescription(itemName, videoCount, releaseCount, lang)
+        };
+        return <JsonLd data={snippet} />;
+    };
+
+    const renderPostThumbnail = (image, itemName, fullscreen, compact) => {
+        if (compact) {
+            return (
+                <React.Fragment>
+                    <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" />
+                    <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" />
+                    <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" />
+                    <img {...loadingAttributes} src={image.jpg55} data-width="55" data-height="55" alt={itemName} />
+                </React.Fragment>
+            );
+        } else if (fullscreen) {
+            return (
+                <React.Fragment>
+                    <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" media="(max-width: 407px)" />
+                    <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" media="(max-width: 407px)" />
+                    <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" media="(max-width: 407px)" />
+                    <source srcSet={`${image.avif540} 1x, ${image.avif945} 2x`} type="image/avif" media="(max-width: 741px)" />
+                    <source srcSet={`${image.webp540} 1x, ${image.webp945} 2x`} type="image/webp" media="(max-width: 741px)" />
+                    <source srcSet={`${image.jpg540} 1x, ${image.jpg945} 2x`} type="image/jpeg" media="(max-width: 741px)" />
+                    <source srcSet={`${image.avif945}`} type="image/avif" />
+                    <source srcSet={`${image.webp945}`} type="image/webp" />
+                    <source srcSet={`${image.jpg945}`} type="image/jpeg" />
+                    <img fetchPriority="high" src={image.jpg945} data-width="945" data-height="700" alt={itemName} />
+                </React.Fragment>
+            );
+        } else {
+            return (
+                <React.Fragment>
+                    <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" media="(max-width: 599px)" />
+                    <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" media="(max-width: 599px)" />
+                    <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" media="(max-width: 599px)" />
+                    <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
+                    <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
+                    <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
+                    <img {...loadingAttributes} src={image.jpg350} data-width="350" data-height="260" alt={itemName} />
+                </React.Fragment>
+            );
         }
-      }
-    });
-    return (
-      <JsonLd data={snippet} />
-    );
-  }
+    };
 
-  /*
-   * Thing, deliberately, and not Product. Product would let this carry brand and
-   * model, but Google validates every Product node against its merchant listing
-   * requirements and rejects one without offers, review or aggregateRating.
-   * This gear is equipment Dehli Musikk uses, not stock for sale, so there are no
-   * honest offers to give it and no ratings to report. Typed as Product it was
-   * reported invalid across all 202 equipment pages, which cost real Search
-   * Console errors in exchange for rich results these pages could never earn.
-   *
-   * brand and model are Product properties, so they cannot come along; the brand
-   * and model are both in name and in the description regardless.
-   */
-  const renderEquipmentItemSnippet = (item, images, videoCount, releaseCount) => {
-    const imagePath = images['jpg945'];
+    const renderVideosList = (videos, lang, item) => {
+        const elementId = `equipment-item-videos-${itemId}`;
+        if (!videos || !videos.length) return "";
+        const listItems = videos.map((video) => {
+            const videoId = convertToUrlFriendlyString(video.title[lang]);
+            return (
+                <ListItem key={videoId} compact={true}>
+                    <Video video={video} compact={true} lang={lang} languageSlug={languageSlug} />
+                </ListItem>
+            );
+        });
+        return (
+            <ExpansionPanel
+                elementId={elementId}
+                panelTitle={lang === "en" ? `Videos with the ${item.brand} ${item.model}` : `Videoer med ${item.brand} ${item.model}`}
+            >
+                <List compact={true}>{listItems}</List>
+            </ExpansionPanel>
+        );
+    };
+
+    const renderReleasesList = (releases, lang, item) => {
+        const elementId = `equipment-item-releases-${item.equipmentItemId}`;
+        if (releases && releases.length) {
+            const listItems = releases.map((release) => {
+                return (
+                    <ListItem key={release.releaseId} compact={true}>
+                        <Release release={release} compact={true} lang={lang} languageSlug={languageSlug} />
+                    </ListItem>
+                );
+            });
+            return (
+                <ExpansionPanel
+                    elementId={elementId}
+                    panelTitle={lang === "en" ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}
+                >
+                    <List compact={true}>{listItems}</List>
+                </ExpansionPanel>
+            );
+        } else {
+            return "";
+        }
+    };
+
+    const image = {
+        avif55: `/data/equipment/${itemType}/web/avif/${itemId}_55.avif`,
+        avif110: `/data/equipment/${itemType}/web/avif/${itemId}_110.avif`,
+        avif350: `/data/equipment/${itemType}/web/avif/${itemId}_350.avif`,
+        avif540: `/data/equipment/${itemType}/web/avif/${itemId}_540.avif`,
+        avif945: `/data/equipment/${itemType}/web/avif/${itemId}_945.avif`,
+        webp55: `/data/equipment/${itemType}/web/webp/${itemId}_55.webp`,
+        webp110: `/data/equipment/${itemType}/web/webp/${itemId}_110.webp`,
+        webp350: `/data/equipment/${itemType}/web/webp/${itemId}_350.webp`,
+        webp540: `/data/equipment/${itemType}/web/webp/${itemId}_540.webp`,
+        webp945: `/data/equipment/${itemType}/web/webp/${itemId}_945.webp`,
+        jpg55: `/data/equipment/${itemType}/web/jpg/${itemId}_55.jpg`,
+        jpg110: `/data/equipment/${itemType}/web/jpg/${itemId}_110.jpg`,
+        jpg350: `/data/equipment/${itemType}/web/jpg/${itemId}_350.jpg`,
+        jpg540: `/data/equipment/${itemType}/web/jpg/${itemId}_540.jpg`,
+        jpg945: `/data/equipment/${itemType}/web/jpg/${itemId}_945.jpg`
+    };
+    const itemPath = `/${languageSlug}equipment/${itemType}/${itemId}/`;
     const itemName = `${item.brand} ${item.model}`;
-    const snippet = {
-      "@context": "https://schema.org",
-      "@type": "Thing",
-      "@id": `https://www.dehlimusikk.no/equipment/${itemType}/${itemId}/`,
-      "name": itemName,
-      "url": `https://www.dehlimusikk.no/${languageSlug}equipment/${itemType}/${itemId}/`,
-      "image": `https://www.dehlimusikk.no${imagePath}`,
-      "description": getEquipmentItemDescription(itemName, videoCount, releaseCount, lang)
-    }
-    return (
-      <JsonLd data={snippet} />
+
+    const link = {
+        to: itemPath,
+        title: itemName
+    };
+
+    // Only the detail page renders these, and it needs the counts for the
+    // description as well as the lists themselves, so resolve them once.
+    const equipmentVideos = fullscreen ? getVideosForEquipmentItem(itemType, itemId) : [];
+    const equipmentReleases = fullscreen ? getInstrumentReleases(itemId) : [];
+
+    return item ? (
+        <React.Fragment>
+            {fullscreen ? renderEquipmentItemImagesSnippet(image) : ""}
+            {fullscreen ? renderEquipmentItemSnippet(item, image, equipmentVideos.length, equipmentReleases.length) : ""}
+            <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
+                {renderPostThumbnail(image, itemName, fullscreen, compact)}
+            </ListItemThumbnail>
+            <ListItemContent fullscreen={fullscreen}>
+                <ListItemContentHeader fullscreen={fullscreen} link={link}>
+                    {fullscreen ? (
+                        <h1>
+                            {item.model}
+                            <span>{item.brand}</span>
+                        </h1>
+                    ) : (
+                        <h2>
+                            {item.model}
+                            <span>{item.brand}</span>
+                        </h2>
+                    )}
+                </ListItemContentHeader>
+            </ListItemContent>
+            {fullscreen ? renderVideosList(equipmentVideos, lang, item) : ""}
+            {fullscreen ? renderReleasesList(equipmentReleases, lang, item) : ""}
+        </React.Fragment>
+    ) : (
+        ""
     );
-  }
-
-  const renderPostThumbnail = (image, itemName, fullscreen, compact) => {
-    if (compact) {
-        return (<React.Fragment>
-            <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" />
-            <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" />
-            <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" />
-            <img {...loadingAttributes} src={image.jpg55} data-width="55" data-height="55" alt={itemName} />
-        </React.Fragment>);
-    } else if (fullscreen){
-        return (<React.Fragment>
-            <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" media='(max-width: 407px)' />
-            <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" media='(max-width: 407px)' />
-            <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" media='(max-width: 407px)' />
-            <source srcSet={`${image.avif540} 1x, ${image.avif945} 2x`} type="image/avif" media='(max-width: 741px)' />
-            <source srcSet={`${image.webp540} 1x, ${image.webp945} 2x`} type="image/webp" media='(max-width: 741px)' />
-            <source srcSet={`${image.jpg540} 1x, ${image.jpg945} 2x`} type="image/jpeg" media='(max-width: 741px)' />
-            <source srcSet={`${image.avif945}`} type="image/avif" />
-            <source srcSet={`${image.webp945}`} type="image/webp" />
-            <source srcSet={`${image.jpg945}`} type="image/jpeg" />
-            <img fetchPriority="high" src={image.jpg945} data-width="945" data-height="700" alt={itemName} />
-        </React.Fragment>);
-    } else {
-        return (<React.Fragment>
-            <source srcSet={`${image.avif55} 1x, ${image.avif110} 2x`} type="image/avif" media='(max-width: 599px)' />
-            <source srcSet={`${image.webp55} 1x, ${image.webp110} 2x`} type="image/webp" media='(max-width: 599px)' />
-            <source srcSet={`${image.jpg55} 1x, ${image.jpg110} 2x`} type="image/jpeg" media='(max-width: 599px)' />
-            <source srcSet={`${image.avif350} 1x, ${image.avif540} 2x`} type="image/avif" />
-            <source srcSet={`${image.webp350} 1x, ${image.webp540} 2x`} type="image/webp" />
-            <source srcSet={`${image.jpg350} 1x, ${image.jpg540} 2x`} type="image/jpeg" />
-            <img {...loadingAttributes} src={image.jpg350} data-width="350" data-height="260" alt={itemName} />
-        </React.Fragment>);
-    }
-  }
-
-  const renderVideosList = (videos, lang, item) => {
-    const elementId = `equipment-item-videos-${itemId}`;
-    if (!videos || !videos.length) return '';
-    const listItems = videos.map(video => {
-      const videoId = convertToUrlFriendlyString(video.title[lang]);
-      return (<ListItem key={videoId} compact={true}>
-        <Video video={video} compact={true} lang={lang} languageSlug={languageSlug} />
-      </ListItem>)
-    });
-    return (
-      <ExpansionPanel elementId={elementId} panelTitle={lang === 'en' ? `Videos with the ${item.brand} ${item.model}` : `Videoer med ${item.brand} ${item.model}`}>
-        <List compact={true}>
-          {listItems}
-        </List>
-      </ExpansionPanel>
-    );
-  }
-
-  const renderReleasesList = (releases, lang, item) => {
-    const elementId = `equipment-item-releases-${item.equipmentItemId}`;
-    if (releases && releases.length) {
-      const listItems = releases.map(release => {
-        return (<ListItem key={release.releaseId} compact={true}>
-          <Release release={release} compact={true} lang={lang} languageSlug={languageSlug} />
-        </ListItem>)
-      });
-      return (
-        <ExpansionPanel elementId={elementId} panelTitle={lang === 'en' ? `Recordings with the ${item.brand} ${item.model}` : `Utgivelser med ${item.brand} ${item.model}`}>
-          <List compact={true}>
-            {listItems}
-          </List>
-        </ExpansionPanel>
-      );
-    } else {
-      return '';
-    }
-  }
-
-  const image = {
-    avif55: `/data/equipment/${itemType}/web/avif/${itemId}_55.avif`,
-    avif110: `/data/equipment/${itemType}/web/avif/${itemId}_110.avif`,
-    avif350: `/data/equipment/${itemType}/web/avif/${itemId}_350.avif`,
-    avif540: `/data/equipment/${itemType}/web/avif/${itemId}_540.avif`,
-    avif945: `/data/equipment/${itemType}/web/avif/${itemId}_945.avif`,
-    webp55: `/data/equipment/${itemType}/web/webp/${itemId}_55.webp`,
-    webp110: `/data/equipment/${itemType}/web/webp/${itemId}_110.webp`,
-    webp350: `/data/equipment/${itemType}/web/webp/${itemId}_350.webp`,
-    webp540: `/data/equipment/${itemType}/web/webp/${itemId}_540.webp`,
-    webp945: `/data/equipment/${itemType}/web/webp/${itemId}_945.webp`,
-    jpg55: `/data/equipment/${itemType}/web/jpg/${itemId}_55.jpg`,
-    jpg110: `/data/equipment/${itemType}/web/jpg/${itemId}_110.jpg`,
-    jpg350: `/data/equipment/${itemType}/web/jpg/${itemId}_350.jpg`,
-    jpg540: `/data/equipment/${itemType}/web/jpg/${itemId}_540.jpg`,
-    jpg945: `/data/equipment/${itemType}/web/jpg/${itemId}_945.jpg`
-  };
-  const itemPath = `/${languageSlug}equipment/${itemType}/${itemId}/`;
-  const itemName = `${item.brand} ${item.model}`;
-
-  const link = {
-    to: itemPath,
-    title: itemName
-  };
-
-  // Only the detail page renders these, and it needs the counts for the
-  // description as well as the lists themselves, so resolve them once.
-  const equipmentVideos = fullscreen ? getVideosForEquipmentItem(itemType, itemId) : [];
-  const equipmentReleases = fullscreen ? getInstrumentReleases(itemId) : [];
-
-  return item
-    ? (<React.Fragment>
-      {fullscreen ? renderEquipmentItemImagesSnippet(image) : ''}
-      {fullscreen ? renderEquipmentItemSnippet(item, image, equipmentVideos.length, equipmentReleases.length) : ''}
-      <ListItemThumbnail fullscreen={fullscreen} link={link} compact={compact}>
-        {renderPostThumbnail(image, itemName, fullscreen, compact)}
-      </ListItemThumbnail>
-      <ListItemContent fullscreen={fullscreen}>
-        <ListItemContentHeader fullscreen={fullscreen} link={link}>
-          {
-            fullscreen ? <h1>{item.model}<span>{item.brand}</span></h1> : <h2>{item.model}<span>{item.brand}</span></h2>
-          }
-        </ListItemContentHeader>
-      </ListItemContent>
-      {
-        fullscreen ? renderVideosList(equipmentVideos, lang, item) : ''
-      }
-      {
-        fullscreen ? renderReleasesList(equipmentReleases, lang, item) : ''
-      }
-    </React.Fragment>)
-    : '';
-}
+};
 
 export default EquipmentItem;

@@ -22,12 +22,7 @@ const channelInfo = {
 };
 
 const escapeXml = (value) =>
-    String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&apos;");
+    String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 
 const renderFeedItem = (post, lang, languageSlug) => {
     const postUrl = `${websiteUrl}/${languageSlug}posts/${convertToUrlFriendlyString(post.title[lang])}/`;

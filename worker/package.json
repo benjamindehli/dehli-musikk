@@ -1,5 +1,5 @@
 {
-  "name": "dehlimusikk-worker",
-  "private": true,
-  "type": "module"
+    "name": "dehlimusikk-worker",
+    "private": true,
+    "type": "module"
 }

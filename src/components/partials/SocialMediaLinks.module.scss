@@ -1,129 +1,129 @@
 .socialMediaLinks {
-  text-align: center;
-
-  & a {
-    display: inline-block;
-    background-color: #555;
-    color: #fff;
-    font-size: 34px;
-    line-height: 68px;
-    width: 64px;
-    height: 64px;
     text-align: center;
-    border-radius: 50%;
-    margin: 12px;
-    &:hover,
-    &:focus {
-      color: #fff;
-    }
 
-    &.facebook {
-      &:hover,
-      &:focus {
-        background-color: #4267b2;
-      }
-    }
+    & a {
+        display: inline-block;
+        background-color: #555;
+        color: #fff;
+        font-size: 34px;
+        line-height: 68px;
+        width: 64px;
+        height: 64px;
+        text-align: center;
+        border-radius: 50%;
+        margin: 12px;
+        &:hover,
+        &:focus {
+            color: #fff;
+        }
 
-    &.instagram {
-      &:hover,
-      &:focus {
-        background: #b900b4;
-        background: -moz-linear-gradient(left, #b900b4 0%, #f50000 100%);
-        background: -webkit-linear-gradient(left, #b900b4 0%, #f50000 100%);
-        background: linear-gradient(to right, #b900b4 0%, #f50000 100%);
-      }
-    }
+        &.facebook {
+            &:hover,
+            &:focus {
+                background-color: #4267b2;
+            }
+        }
 
-    &.youtube {
-      &:hover,
-      &:focus {
-        background-color: #ff0000;
-      }
-    }
+        &.instagram {
+            &:hover,
+            &:focus {
+                background: #b900b4;
+                background: -moz-linear-gradient(left, #b900b4 0%, #f50000 100%);
+                background: -webkit-linear-gradient(left, #b900b4 0%, #f50000 100%);
+                background: linear-gradient(to right, #b900b4 0%, #f50000 100%);
+            }
+        }
 
-    &.vimeo {
-      &:hover,
-      &:focus {
-        background-color: #1ab7ea;
-      }
-    }
+        &.youtube {
+            &:hover,
+            &:focus {
+                background-color: #ff0000;
+            }
+        }
 
-    &.soundcloud {
-      &:hover,
-      &:focus {
-        background-color: #ff5500;
-      }
-    }
+        &.vimeo {
+            &:hover,
+            &:focus {
+                background-color: #1ab7ea;
+            }
+        }
 
-    &.tumblr {
-      &:hover,
-      &:focus {
-        background-color: #051933;
-      }
-    }
+        &.soundcloud {
+            &:hover,
+            &:focus {
+                background-color: #ff5500;
+            }
+        }
 
-    &.twitter {
-      &:hover,
-      &:focus {
-        background-color: #1da1f2;
-      }
-    }
+        &.tumblr {
+            &:hover,
+            &:focus {
+                background-color: #051933;
+            }
+        }
 
-    &.github {
-      &:hover,
-      &:focus {
-        background-color: #181717;
-      }
-    }
+        &.twitter {
+            &:hover,
+            &:focus {
+                background-color: #1da1f2;
+            }
+        }
 
-    &.pianobook {
-      &:hover,
-      &:focus {
-        background-color: #002b2a;
-      }
-      & svg {
-        height: 34px;
-        width: 34px;
-        stroke-width: 150;
-        position: relative;
-        top: 2px;
-        left: 2px;
-      }
-    }
+        &.github {
+            &:hover,
+            &:focus {
+                background-color: #181717;
+            }
+        }
 
-    &.gumroad {
-      &:hover,
-      &:focus {
-        background-color: #ff90e8;
-      }
-      & img {
-        height: 45px;
-        width: 45px;
-        position: relative;
-        top: 10px;
-        left: -1px;
-      }
-    }
+        &.pianobook {
+            &:hover,
+            &:focus {
+                background-color: #002b2a;
+            }
+            & svg {
+                height: 34px;
+                width: 34px;
+                stroke-width: 150;
+                position: relative;
+                top: 2px;
+                left: 2px;
+            }
+        }
 
-    &.kofi {
-      &:hover,
-      &:focus {
-        background-color: #13c3ff;
-      }
-      & img {
-        height: 32px;
-        width: 49px;
-        position: relative;
-        left: 2px;
-        top: 3px;
-      }
-    }
+        &.gumroad {
+            &:hover,
+            &:focus {
+                background-color: #ff90e8;
+            }
+            & img {
+                height: 45px;
+                width: 45px;
+                position: relative;
+                top: 10px;
+                left: -1px;
+            }
+        }
 
-    &.rss {
-      &:hover,
-      &:focus {
-        background-color: #f26522;
-      }
+        &.kofi {
+            &:hover,
+            &:focus {
+                background-color: #13c3ff;
+            }
+            & img {
+                height: 32px;
+                width: 49px;
+                position: relative;
+                left: 2px;
+                top: 3px;
+            }
+        }
+
+        &.rss {
+            &:hover,
+            &:focus {
+                background-color: #f26522;
+            }
+        }
     }
-  }
 }

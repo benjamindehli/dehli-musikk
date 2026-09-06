@@ -1,37 +1,35 @@
-import JsonLd from 'components/JsonLd';
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import Breadcrumbs from 'components/partials/Breadcrumbs';
-import Container from 'components/template/Container';
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Modal from 'components/template/Modal';
-import Product from 'components/partials/Product';
-import { convertToUrlFriendlyString } from 'helpers/urlFormatter';
-import { getPrettyDate } from 'helpers/dateFormatter';
-import { formatContentAsString } from 'helpers/contentFormatter';
-import { generateProductSnippet } from 'helpers/richSnippetsGenerators';
-import { BACKDROP_LIST_ITEM_LIMIT } from 'lib/constants';
-import { getLanguageSlug } from 'lib/i18n';
-import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, type Lang } from 'lib/pageMetadata';
-import products from 'data/products';
+import JsonLd from "components/JsonLd";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Breadcrumbs from "components/partials/Breadcrumbs";
+import Container from "components/template/Container";
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import Modal from "components/template/Modal";
+import Product from "components/partials/Product";
+import { convertToUrlFriendlyString } from "helpers/urlFormatter";
+import { getPrettyDate } from "helpers/dateFormatter";
+import { formatContentAsString } from "helpers/contentFormatter";
+import { generateProductSnippet } from "helpers/richSnippetsGenerators";
+import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
+import { getLanguageSlug } from "lib/i18n";
+import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, type Lang } from "lib/pageMetadata";
+import products from "data/products";
 
 const translations = {
     no: {
-        metaTitle: 'Produkter | Dehli Musikk',
-        pageTitle: 'Produkter',
-        description: 'Produkter fra Dehli Musikk',
-        listName: 'Produkter fra Dehli Musikk',
-        descriptionFallback: (title: string, excerpt: string, date: string) =>
-            `${title}. ${excerpt} Produkt fra Dehli Musikk, publisert ${date}.`
+        metaTitle: "Produkter | Dehli Musikk",
+        pageTitle: "Produkter",
+        description: "Produkter fra Dehli Musikk",
+        listName: "Produkter fra Dehli Musikk",
+        descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} Produkt fra Dehli Musikk, publisert ${date}.`
     },
     en: {
-        metaTitle: 'Products | Dehli Musikk',
-        pageTitle: 'Products',
-        description: 'Products from Dehli Musikk',
-        listName: 'Products by Dehli Musikk',
-        descriptionFallback: (title: string, excerpt: string, date: string) =>
-            `${title}. ${excerpt} A product from Dehli Musikk, published ${date}.`
+        metaTitle: "Products | Dehli Musikk",
+        pageTitle: "Products",
+        description: "Products from Dehli Musikk",
+        listName: "Products by Dehli Musikk",
+        descriptionFallback: (title: string, excerpt: string, date: string) => `${title}. ${excerpt} A product from Dehli Musikk, published ${date}.`
     }
 } as const;
 
@@ -43,7 +41,7 @@ export function getProductsPageMetadata(lang: Lang): Metadata {
     return {
         title: t.metaTitle,
         description: t.description,
-        alternates: buildAlternates(lang, { no: 'products/', en: 'products/' }),
+        alternates: buildAlternates(lang, { no: "products/", en: "products/" }),
         ...socialMetadata(lang, {
             title: t.pageTitle,
             url: `${WEBSITE_URL}/${languageSlug}products/`,
@@ -56,15 +54,15 @@ export function ProductsPage({ lang }: { lang: Lang }) {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     const productItems = products.map((product, index) => ({
-        '@type': 'ListItem',
+        "@type": "ListItem",
         name: product.title,
         position: index + 1,
         item: generateProductSnippet(product, languageSlug, lang)
     }));
     const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        '@id': `${WEBSITE_URL}/products/`,
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "@id": `${WEBSITE_URL}/products/`,
         name: t.listName,
         numberOfItems: productItems.length,
         itemListElement: productItems
@@ -103,9 +101,7 @@ export function getProductStaticParams() {
 }
 
 function getProduct(productId: string) {
-    const index = products.findIndex(
-        (p) => convertToUrlFriendlyString(p.title) === productId
-    );
+    const index = products.findIndex((p) => convertToUrlFriendlyString(p.title) === productId);
     if (index === -1) return null;
     return {
         ...products[index],
@@ -127,13 +123,11 @@ export async function getProductDetailsMetadata(lang: Lang, { params }: ProductR
      * 155 characters. generateProductSnippet keeps the full text for JSON-LD.
      */
     const excerpt = formatContentAsString(product.content[lang]);
-    const description = metaDescription(
-        excerpt,
-        t.descriptionFallback(product.title, excerpt, getPrettyDate(new Date(product.timestamp), lang))
-    );
+    const description = metaDescription(excerpt, t.descriptionFallback(product.title, excerpt, getPrettyDate(new Date(product.timestamp), lang)));
 
     return {
-        title, description,
+        title,
+        description,
         alternates: buildAlternates(lang, {
             no: `products/${productId}/`,
             en: `products/${productId}/`

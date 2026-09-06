@@ -1,4 +1,4 @@
-import { EquipmentTypePage, getEquipmentTypeMetadata, getEquipmentTypeStaticParams } from 'components/pages/equipment';
+import { EquipmentTypePage, getEquipmentTypeMetadata, getEquipmentTypeStaticParams } from "components/pages/equipment";
 
 type Props = { params: Promise<{ equipmentType: string }> };
 
@@ -7,7 +7,7 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata(props: Props) {
-    return getEquipmentTypeMetadata('no', props);
+    return getEquipmentTypeMetadata("no", props);
 }
 
 export default function Page({ params }: Props) {

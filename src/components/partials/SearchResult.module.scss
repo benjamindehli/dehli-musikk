@@ -2,81 +2,81 @@
 @use "../../style/abstracts/variables/colors";
 
 .searchResultContent {
-  padding: 8px 0;
-  @media (min-width: breakpoints.$screen-sm) {
-    display: flex;
-    align-items: center;
-    padding: 0;
-  }
-  & .searchResultContentText {
-    flex: 1;
-  }
-  & .searchResultContentBadge {
-    width: 105px;
-    font-weight: bold;
-    margin: 6px 0;
+    padding: 8px 0;
     @media (min-width: breakpoints.$screen-sm) {
-      text-align: right;
+        display: flex;
+        align-items: center;
+        padding: 0;
     }
-
-    > span {
-      background-color: #eee;
-      border-radius: 4px;
-      padding: 6px;
-      color: #fff;
-      font-size: 0.75em;
-
-      & svg {
-        margin-right: 2px;
-      }
+    & .searchResultContentText {
+        flex: 1;
     }
+    & .searchResultContentBadge {
+        width: 105px;
+        font-weight: bold;
+        margin: 6px 0;
+        @media (min-width: breakpoints.$screen-sm) {
+            text-align: right;
+        }
 
-    &.release {
-      > span {
-        background-color: colors.$blue-color;
-      }
-    }
+        > span {
+            background-color: #eee;
+            border-radius: 4px;
+            padding: 6px;
+            color: #fff;
+            font-size: 0.75em;
 
-    &.post {
-      > span {
-        background-color: colors.$primary-color;
-      }
-    }
+            & svg {
+                margin-right: 2px;
+            }
+        }
 
-    &.video {
-      > span {
-        background-color: colors.$yellow-color;
-      }
-    }
+        &.release {
+            > span {
+                background-color: colors.$blue-color;
+            }
+        }
 
-    &.product {
-      > span {
-        background-color: colors.$indigo-color;
-      }
-    }
+        &.post {
+            > span {
+                background-color: colors.$primary-color;
+            }
+        }
 
-    &.instruments {
-      > span {
-        background-color: colors.$orange-color;
-      }
-    }
+        &.video {
+            > span {
+                background-color: colors.$yellow-color;
+            }
+        }
 
-    &.effects {
-      > span {
-        background-color: colors.$purple-color;
-      }
-    }
+        &.product {
+            > span {
+                background-color: colors.$indigo-color;
+            }
+        }
 
-    &.amplifiers {
-      > span {
-        background-color: colors.$green-color;
-      }
-    }
+        &.instruments {
+            > span {
+                background-color: colors.$orange-color;
+            }
+        }
 
-    &.faq {
-      > span {
-        background-color: colors.$magenta-color;
-      }
+        &.effects {
+            > span {
+                background-color: colors.$purple-color;
+            }
+        }
+
+        &.amplifiers {
+            > span {
+                background-color: colors.$green-color;
+            }
+        }
+
+        &.faq {
+            > span {
+                background-color: colors.$magenta-color;
+            }
+        }
     }
-  }
 }

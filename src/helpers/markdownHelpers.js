@@ -197,7 +197,9 @@ const linkTo = (link, lang) => {
 const metaList = (entries) => {
     const lines = entries
         .filter(([, value]) => value !== null && value !== undefined && value !== "" && !(Array.isArray(value) && !value.length))
-        .map(([label, value]) => (Array.isArray(value) ? [`- ${label}:`, ...value.map((item) => `    - ${item}`)].join("\n") : `- ${label}: ${value}`));
+        .map(([label, value]) =>
+            Array.isArray(value) ? [`- ${label}:`, ...value.map((item) => `    - ${item}`)].join("\n") : `- ${label}: ${value}`
+        );
     return lines.length ? [...lines, ""] : [];
 };
 
@@ -466,10 +468,7 @@ export function getVideoMarkdown(lang, id, { theater = false } = {}) {
             ]),
             contentToMarkdown(video.content[lang], lang),
             "",
-            ...section(
-                t.chapters,
-                video.clips?.length ? video.clips.map((clip) => `- ${formatOffset(clip.startOffset)} ${clip.name[lang]}`) : []
-            )
+            ...section(t.chapters, video.clips?.length ? video.clips.map((clip) => `- ${formatOffset(clip.startOffset)} ${clip.name[lang]}`) : [])
         ]
     });
 }
@@ -569,12 +568,7 @@ export function getEquipmentTypeMarkdown(lang, equipmentType) {
         title: typeName,
         description: t.equipmentTypeDescription(typeName),
         paths: { no: `equipment/${equipmentType}/`, en: `equipment/${equipmentType}/` },
-        body: [
-            t.equipmentTypeDescription(typeName),
-            "",
-            ...equipmentTypeData.items.map((item) => equipmentItemLine(item, equipmentType, lang)),
-            ""
-        ]
+        body: [t.equipmentTypeDescription(typeName), "", ...equipmentTypeData.items.map((item) => equipmentItemLine(item, equipmentType, lang)), ""]
     });
 }
 
@@ -600,8 +594,14 @@ export function getEquipmentItemMarkdown(lang, equipmentType, id) {
             "",
             getEquipmentItemDescription(itemName, itemVideos.length, itemReleases.length, lang),
             "",
-            ...section(t.usedInVideos, itemVideos.map((video) => videoLine(video, lang))),
-            ...section(t.heardOnReleases, itemReleases.map((release) => releaseLine(release, lang)))
+            ...section(
+                t.usedInVideos,
+                itemVideos.map((video) => videoLine(video, lang))
+            ),
+            ...section(
+                t.heardOnReleases,
+                itemReleases.map((release) => releaseLine(release, lang))
+            )
         ]
     });
 }
@@ -609,9 +609,7 @@ export function getEquipmentItemMarkdown(lang, equipmentType, id) {
 export const getEquipmentTypes = () => EQUIPMENT_TYPES;
 
 export const getEquipmentItemIds = () =>
-    EQUIPMENT_TYPES.flatMap((equipmentType) =>
-        equipment[equipmentType].items.map((item) => ({ equipmentType, equipmentId: equipmentItemId(item) }))
-    );
+    EQUIPMENT_TYPES.flatMap((equipmentType) => equipment[equipmentType].items.map((item) => ({ equipmentType, equipmentId: equipmentItemId(item) })));
 
 /* --- frequently asked questions ------------------------------------------- */
 

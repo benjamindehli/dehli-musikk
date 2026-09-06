@@ -11,17 +11,17 @@
  * reader the file has been tampered with. --check runs in CI so that cannot
  * reach a release.
  */
-import crypto from 'node:crypto';
-import fs from 'node:fs';
-import path from 'node:path';
+import crypto from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
 
 const ROOT = process.cwd();
-const SKILLS_DIR = path.join(ROOT, 'public', '.well-known', 'agent-skills');
-const INDEX_FILE = path.join(SKILLS_DIR, 'index.json');
-const SITE_ORIGIN = 'https://www.dehlimusikk.no';
-const SCHEMA = 'https://schemas.agentskills.io/discovery/0.2.0/schema.json';
+const SKILLS_DIR = path.join(ROOT, "public", ".well-known", "agent-skills");
+const INDEX_FILE = path.join(SKILLS_DIR, "index.json");
+const SITE_ORIGIN = "https://www.dehlimusikk.no";
+const SCHEMA = "https://schemas.agentskills.io/discovery/0.2.0/schema.json";
 
-const checkOnly = process.argv.includes('--check');
+const checkOnly = process.argv.includes("--check");
 
 /*
  * The description in the index has to match the one inside the document, so a
@@ -30,8 +30,8 @@ const checkOnly = process.argv.includes('--check');
  */
 function frontMatterField(markdown, field) {
     const frontMatter = markdown.match(/^---\n([\s\S]*?)\n---/);
-    if (!frontMatter) throw new Error('SKILL.md has no front matter block');
-    const line = frontMatter[1].match(new RegExp(`^${field}:\\s*(.+)$`, 'm'));
+    if (!frontMatter) throw new Error("SKILL.md has no front matter block");
+    const line = frontMatter[1].match(new RegExp(`^${field}:\\s*(.+)$`, "m"));
     if (!line) throw new Error(`SKILL.md front matter has no ${field}`);
     return line[1].trim();
 }
@@ -43,15 +43,15 @@ function readSkills() {
         .sort((a, b) => a.name.localeCompare(b.name));
 
     return entries.map((entry) => {
-        const file = path.join(SKILLS_DIR, entry.name, 'SKILL.md');
+        const file = path.join(SKILLS_DIR, entry.name, "SKILL.md");
         if (!fs.existsSync(file)) throw new Error(`${entry.name}/ has no SKILL.md`);
 
         // Hashed as bytes, not as a decoded string: the digest has to describe
         // what a client downloads.
         const contents = fs.readFileSync(file);
-        const markdown = contents.toString('utf8');
+        const markdown = contents.toString("utf8");
 
-        const name = frontMatterField(markdown, 'name');
+        const name = frontMatterField(markdown, "name");
         if (name !== entry.name) {
             throw new Error(`${entry.name}/SKILL.md declares name "${name}"; it must match its directory`);
         }
@@ -61,10 +61,10 @@ function readSkills() {
 
         return {
             name,
-            type: 'skill-md',
-            description: frontMatterField(markdown, 'description'),
+            type: "skill-md",
+            description: frontMatterField(markdown, "description"),
             url: `${SITE_ORIGIN}/.well-known/agent-skills/${name}/SKILL.md`,
-            digest: `sha256:${crypto.createHash('sha256').update(contents).digest('hex')}`
+            digest: `sha256:${crypto.createHash("sha256").update(contents).digest("hex")}`
         };
     });
 }
@@ -73,12 +73,12 @@ const index = { $schema: SCHEMA, skills: readSkills() };
 const serialised = `${JSON.stringify(index, null, 4)}\n`;
 
 if (checkOnly) {
-    const current = fs.existsSync(INDEX_FILE) ? fs.readFileSync(INDEX_FILE, 'utf8') : '';
+    const current = fs.existsSync(INDEX_FILE) ? fs.readFileSync(INDEX_FILE, "utf8") : "";
     if (current === serialised) {
-        console.log(`agent-skills index is up to date (${index.skills.length} skill${index.skills.length === 1 ? '' : 's'})`);
+        console.log(`agent-skills index is up to date (${index.skills.length} skill${index.skills.length === 1 ? "" : "s"})`);
         process.exitCode = 0;
     } else {
-        console.log('agent-skills index is out of date. Run:\n\n   yarn skills:build\n');
+        console.log("agent-skills index is out of date. Run:\n\n   yarn skills:build\n");
         process.exitCode = 1;
     }
 } else {

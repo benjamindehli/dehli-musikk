@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { getLanguageSlug } from 'lib/i18n';
-import { socialMetadata, WEBSITE_URL, type Lang } from 'lib/pageMetadata';
-import { sectionLinks } from 'lib/sectionLinks';
-import style from 'components/routes/NotFound.module.scss';
+import Link from "next/link";
+import { getLanguageSlug } from "lib/i18n";
+import { socialMetadata, WEBSITE_URL, type Lang } from "lib/pageMetadata";
+import { sectionLinks } from "lib/sectionLinks";
+import style from "components/routes/NotFound.module.scss";
 
 /*
  * Firebase Hosting serves the exported 404.html for every path it cannot match,
@@ -16,28 +16,28 @@ import style from 'components/routes/NotFound.module.scss';
  */
 const translations = {
     no: {
-        heading: 'Siden finnes ikke',
-        message: 'Siden du lette etter er flyttet eller finnes ikke lenger. Prøv en av disse i stedet:',
-        home: 'Hjem',
+        heading: "Siden finnes ikke",
+        message: "Siden du lette etter er flyttet eller finnes ikke lenger. Prøv en av disse i stedet:",
+        home: "Hjem",
         // Both languages are on the page, so each set of links is named by its
         // language: two nav landmarks called the same thing are no help to a
         // screen reader listing them.
-        navLabel: 'Norske sider'
+        navLabel: "Norske sider"
     },
     en: {
-        heading: 'Page not found',
-        message: 'The page you were looking for has moved or no longer exists. Try one of these instead:',
-        home: 'Home',
-        navLabel: 'English pages'
+        heading: "Page not found",
+        message: "The page you were looking for has moved or no longer exists. Try one of these instead:",
+        home: "Home",
+        navLabel: "English pages"
     }
 } as const;
 
 export const metadata = {
-    title: '404 - Siden finnes ikke - Page not found - Dehli Musikk',
+    title: "404 - Siden finnes ikke - Page not found - Dehli Musikk",
     robots: { follow: true, index: false, archive: false },
-    ...socialMetadata('no', {
-        title: '404 - Siden finnes ikke - Page not found',
-        description: 'Siden finnes ikke. The page does not exist.',
+    ...socialMetadata("no", {
+        title: "404 - Siden finnes ikke - Page not found",
+        description: "Siden finnes ikke. The page does not exist.",
         url: `${WEBSITE_URL}/`
     })
 };
@@ -75,18 +75,12 @@ export default function NotFound() {
             <body>
                 <div className={style.contentSection}>
                     <Link href="/" title="Dehli Musikk">
-                        <img
-                            src="/images/DehliMusikkLogoHorizontal.svg"
-                            alt="Dehli Musikk"
-                            width="680"
-                            height="112"
-                            className={style.logo}
-                        />
+                        <img src="/images/DehliMusikkLogoHorizontal.svg" alt="Dehli Musikk" width="680" height="112" className={style.logo} />
                     </Link>
                     <h1>404</h1>
                     <div className={style.languageSections}>
-                        {renderSection('no')}
-                        {renderSection('en')}
+                        {renderSection("no")}
+                        {renderSection("en")}
                     </div>
                 </div>
             </body>

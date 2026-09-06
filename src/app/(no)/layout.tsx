@@ -1,10 +1,10 @@
-import { LangProvider } from 'lib/LangContext';
-import { ModalProvider } from 'lib/ModalContext';
-import NavigationBar from 'components/partials/NavigationBar';
-import Footer from 'components/partials/Footer';
-import SiteJsonLd from 'components/SiteJsonLd';
-import WebMcpTools from 'components/partials/WebMcpTools';
-import style from 'App.module.scss';
+import { LangProvider } from "lib/LangContext";
+import { ModalProvider } from "lib/ModalContext";
+import NavigationBar from "components/partials/NavigationBar";
+import Footer from "components/partials/Footer";
+import SiteJsonLd from "components/SiteJsonLd";
+import WebMcpTools from "components/partials/WebMcpTools";
+import style from "App.module.scss";
 
 export default function NoLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -26,9 +26,7 @@ export default function NoLayout({ children }: { children: React.ReactNode }) {
                     <ModalProvider>
                         <NavigationBar />
                         <div className={style.container}>
-                            <main style={{ minHeight: '100vh' }}>
-                                {children}
-                            </main>
+                            <main style={{ minHeight: "100vh" }}>{children}</main>
                             <Footer lang="no" />
                         </div>
                         {/* Registers the site's tools with the browser for in-page

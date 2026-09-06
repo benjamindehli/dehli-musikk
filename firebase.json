@@ -1,116 +1,149 @@
 {
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
-  "hosting": {
-    "public": "out",
-    "cleanUrls": true,
-    "trailingSlash": true,
-    "appAssociation": "AUTO",
-    "_comment_ignore": "Was **/.* , which also excluded .well-known and so silently dropped the agent-skills discovery documents from every deploy. Firebase ignore globs have no negation, so the dotfiles worth excluding are now named. The only ones the export has ever contained are .DS_Store.",
-    "ignore": [
-      "firebase.json",
-      "**/node_modules/**",
-      "**/.DS_Store",
-      "**/.env*",
-      "**/.git*"
-    ],
-    "headers": [{
-      "source": "**",
-      "headers": [{
-        "key": "Content-Security-Policy",
-        "value": "default-src 'none'; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://ajax.cloudflare.com https://static.cloudflareinsights.com https://www.youtube.com; connect-src 'self'; img-src 'self'; frame-src 'self' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.youtube.com;base-uri 'self';form-action 'self'; manifest-src 'self'"
-      },{
-        "key": "X-Frame-Options",
-        "value": "deny"
-      },{
-        "key" : "X-Content-Type-Options",
-        "value" : "nosniff"
-      }, {
-        "key" : "Referrer-Policy",
-        "value" : "strict-origin-when-cross-origin"
-      }, {
-        "key": "Permissions-Policy",
-        "value": "microphone=(), camera=(), accelerometer=(), gyroscope=(), magnetometer=(), payment=()"
-      }]
-    },{
-      "source": "**/*.@(eot|otf|ttf|ttc|woff|woff2|font.css)",
-      "headers": [{
-        "key": "Access-Control-Allow-Origin",
-        "value": "*"
-      }]
-    }, {
-      "source": "**/*.@(eot|otf|ttf|ttc|woff|woff2|font.css)",
-      "headers": [{
-        "key": "Cache-Control",
-        "value": "max-age=31536000"
-      }]
-    }, {
-      "source": "**/*.@(jpg|jpeg|gif|png|webp|avif|svg|ico)",
-      "headers": [{
-        "key": "Cache-Control",
-        "value": "max-age=31536000"
-      }]
-    }, {
-      "source": "**/*.@(js|css)",
-      "headers": [{
-        "key": "Cache-Control",
-        "value": "max-age=31536000"
-      }]
-    }, {
-      "source": "/_next/static/**",
-      "headers": [{
-        "key": "Cache-Control",
-        "value": "public, max-age=31536000, immutable"
-      }]
-    }, {
-      "source": "**/*.@(rss|xml)",
-      "headers": [{
-        "key": "Cache-Control",
-        "value": "max-age=3600"
-      }]
-    }, {
-      "source": "**/*.@(html)",
-      "headers": [{
-        "key": "Cache-Control",
-        "value": "max-age=3600"
-      }]
-    }, {
-      "source": "**/*.@(md)",
-      "headers": [{
-        "key": "Content-Type",
-        "value": "text/markdown; charset=utf-8"
-      }, {
-        "key": "Cache-Control",
-        "value": "max-age=3600"
-      }]
-    }, {
-      "source": "**/*.@(json)",
-      "headers": [{
-        "key": "Cache-Control",
-        "value": "max-age=3600"
-      }]
-    }, {
-      "source": "404.html",
-      "headers": [{
-        "key": "Cache-Control",
-        "value": "max-age=3600"
-      }]
-    }]
-  },
-  "storage": {
-    "rules": "storage.rules"
-  },
-  "emulators": {
     "firestore": {
-      "port": 8080
-    },
-    "database": {
-      "port": 9000
+        "rules": "firestore.rules",
+        "indexes": "firestore.indexes.json"
     },
     "hosting": {
-      "port": 5000
+        "public": "out",
+        "cleanUrls": true,
+        "trailingSlash": true,
+        "appAssociation": "AUTO",
+        "_comment_ignore": "Was **/.* , which also excluded .well-known and so silently dropped the agent-skills discovery documents from every deploy. Firebase ignore globs have no negation, so the dotfiles worth excluding are now named. The only ones the export has ever contained are .DS_Store.",
+        "ignore": ["firebase.json", "**/node_modules/**", "**/.DS_Store", "**/.env*", "**/.git*"],
+        "headers": [
+            {
+                "source": "**",
+                "headers": [
+                    {
+                        "key": "Content-Security-Policy",
+                        "value": "default-src 'none'; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://ajax.cloudflare.com https://static.cloudflareinsights.com https://www.youtube.com; connect-src 'self'; img-src 'self'; frame-src 'self' https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.youtube.com;base-uri 'self';form-action 'self'; manifest-src 'self'"
+                    },
+                    {
+                        "key": "X-Frame-Options",
+                        "value": "deny"
+                    },
+                    {
+                        "key": "X-Content-Type-Options",
+                        "value": "nosniff"
+                    },
+                    {
+                        "key": "Referrer-Policy",
+                        "value": "strict-origin-when-cross-origin"
+                    },
+                    {
+                        "key": "Permissions-Policy",
+                        "value": "microphone=(), camera=(), accelerometer=(), gyroscope=(), magnetometer=(), payment=()"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(eot|otf|ttf|ttc|woff|woff2|font.css)",
+                "headers": [
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(eot|otf|ttf|ttc|woff|woff2|font.css)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=31536000"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(jpg|jpeg|gif|png|webp|avif|svg|ico)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=31536000"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(js|css)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=31536000"
+                    }
+                ]
+            },
+            {
+                "source": "/_next/static/**",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "public, max-age=31536000, immutable"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(rss|xml)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=3600"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(html)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=3600"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(md)",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "text/markdown; charset=utf-8"
+                    },
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=3600"
+                    }
+                ]
+            },
+            {
+                "source": "**/*.@(json)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=3600"
+                    }
+                ]
+            },
+            {
+                "source": "404.html",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=3600"
+                    }
+                ]
+            }
+        ]
+    },
+    "storage": {
+        "rules": "storage.rules"
+    },
+    "emulators": {
+        "firestore": {
+            "port": 8080
+        },
+        "database": {
+            "port": 9000
+        },
+        "hosting": {
+            "port": 5000
+        }
     }
-  }
 }

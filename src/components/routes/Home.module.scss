@@ -1,103 +1,103 @@
 @use "../../style/abstracts/variables/breakpoints";
 
 .header {
-  position: relative;
-  overflow: hidden;
-
-  & h1 {
-    font-size: 2.5em;
-    margin: 0.25em 0;
-  }
-
-  & .backgroundsImage {
-    position: absolute;
-    width: 100%;
-    img {
-      aspect-ratio: 80 / 51;
-    }
-  }
-
-  & .overlay {
-    background-color: rgba(25, 25, 25, 0.75);
-    display: flex;
     position: relative;
-    padding: 16px 24px;
+    overflow: hidden;
 
-    & .logo {
-      margin: auto;
-      width: 200px;
+    & h1 {
+        font-size: 2.5em;
+        margin: 0.25em 0;
     }
-    @media (min-width: breakpoints.$screen-xs) {
-      height: 200px;
-    }
-    @media (min-width: breakpoints.$screen-sm) {
-      height: 350px;
 
-      & .logo {
-        width: 250px;
-      }
+    & .backgroundsImage {
+        position: absolute;
+        width: 100%;
+        img {
+            aspect-ratio: 80 / 51;
+        }
     }
-    @media (min-width: breakpoints.$screen-md) {
-      height: 400px;
 
-      & .logo {
-        width: 300px;
-      }
-    }
-    @media (min-width: breakpoints.$screen-lg) {
-      height: 450px;
+    & .overlay {
+        background-color: rgba(25, 25, 25, 0.75);
+        display: flex;
+        position: relative;
+        padding: 16px 24px;
 
-      & .logo {
-        width: 350px;
-      }
-    }
-    @media (min-width: breakpoints.$screen-xl) {
-      height: 500px;
+        & .logo {
+            margin: auto;
+            width: 200px;
+        }
+        @media (min-width: breakpoints.$screen-xs) {
+            height: 200px;
+        }
+        @media (min-width: breakpoints.$screen-sm) {
+            height: 350px;
 
-      & .logo {
-        width: 400px;
-      }
+            & .logo {
+                width: 250px;
+            }
+        }
+        @media (min-width: breakpoints.$screen-md) {
+            height: 400px;
+
+            & .logo {
+                width: 300px;
+            }
+        }
+        @media (min-width: breakpoints.$screen-lg) {
+            height: 450px;
+
+            & .logo {
+                width: 350px;
+            }
+        }
+        @media (min-width: breakpoints.$screen-xl) {
+            height: 500px;
+
+            & .logo {
+                width: 400px;
+            }
+        }
     }
-  }
 }
 
 .sectionHeader {
-  margin-top: 2em;
-  text-align: center;
-  font-size: 1.8em;
+    margin-top: 2em;
+    text-align: center;
+    font-size: 1.8em;
 }
 
 .contentSection {
-  max-width: 1200px;
-  padding: 64px 24px;
-  margin: auto;
+    max-width: 1200px;
+    padding: 64px 24px;
+    margin: auto;
 
-  &.fullWidthSm {
-    padding: 20px 0;
-    @media (min-width: breakpoints.$screen-sm) {
-      padding: 64px 24px;
+    &.fullWidthSm {
+        padding: 20px 0;
+        @media (min-width: breakpoints.$screen-sm) {
+            padding: 64px 24px;
+        }
     }
-  }
 
-  > h2 {
-    text-align: center;
-    font-size: 1.8em;
-  }
+    > h2 {
+        text-align: center;
+        font-size: 1.8em;
+    }
 }
 
 .socialMediaSection {
-  background-color: #202122;
+    background-color: #202122;
 
-  & h2 {
-    color: #fff;
-  }
+    & h2 {
+        color: #fff;
+    }
 }
 
 .mutedSection {
-  background-color: #e6e6e6;
+    background-color: #e6e6e6;
 }
 
 .callToActionButtonContainer {
-  text-align: center;
-  margin: 16px 0 36px;
+    text-align: center;
+    margin: 16px 0 36px;
 }

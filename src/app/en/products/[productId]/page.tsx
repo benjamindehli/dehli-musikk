@@ -1,4 +1,4 @@
-import { ProductDetailsPage, getProductDetailsMetadata, getProductStaticParams } from 'components/pages/products';
+import { ProductDetailsPage, getProductDetailsMetadata, getProductStaticParams } from "components/pages/products";
 
 type Props = { params: Promise<{ productId: string }> };
 
@@ -7,7 +7,7 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata(props: Props) {
-    return getProductDetailsMetadata('en', props);
+    return getProductDetailsMetadata("en", props);
 }
 
 export default function Page({ params }: Props) {

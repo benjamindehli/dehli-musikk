@@ -19,20 +19,20 @@
  * whatever language the caller works in. read_page handles either language.
  */
 
-const CANONICAL_ORIGIN = 'https://www.dehlimusikk.no';
-const PROTOCOL_VERSION = '2025-06-18';
-const SERVER_INFO = { name: 'dehli-musikk', version: '1.0.0' };
+const CANONICAL_ORIGIN = "https://www.dehlimusikk.no";
+const PROTOCOL_VERSION = "2025-06-18";
+const SERVER_INFO = { name: "dehli-musikk", version: "1.0.0" };
 
-export const MCP_ENDPOINT_PATH = '/mcp';
-export const MCP_SERVER_CARD_PATH = '/.well-known/mcp/server-card.json';
+export const MCP_ENDPOINT_PATH = "/mcp";
+export const MCP_SERVER_CARD_PATH = "/.well-known/mcp/server-card.json";
 
 export const serverCard = () => ({
     serverInfo: SERVER_INFO,
     description:
-        'Read-only access to the Dehli Musikk catalogue: recordings, posts, videos, virtual instruments and plugins. Search the site and fetch any page as clean markdown.',
+        "Read-only access to the Dehli Musikk catalogue: recordings, posts, videos, virtual instruments and plugins. Search the site and fetch any page as clean markdown.",
     endpoint: `${CANONICAL_ORIGIN}${MCP_ENDPOINT_PATH}`,
-    transport: 'streamable-http',
-    transports: [{ type: 'streamable-http', url: `${CANONICAL_ORIGIN}${MCP_ENDPOINT_PATH}` }],
+    transport: "streamable-http",
+    transports: [{ type: "streamable-http", url: `${CANONICAL_ORIGIN}${MCP_ENDPOINT_PATH}` }],
     protocolVersion: PROTOCOL_VERSION,
     capabilities: { tools: { listChanged: false } },
     documentation: `${CANONICAL_ORIGIN}/.well-known/agent-skills/dehli-musikk-catalogue/SKILL.md`
@@ -41,12 +41,12 @@ export const serverCard = () => ({
 /* --- llms-full.txt as a search corpus ------------------------------------- */
 
 const SECTION_CATEGORIES = {
-    Products: 'product',
-    Posts: 'post',
-    Videos: 'video',
-    Releases: 'release',
-    Equipment: 'equipment',
-    'Frequently asked questions': 'faq'
+    Products: "product",
+    Posts: "post",
+    Videos: "video",
+    Releases: "release",
+    Equipment: "equipment",
+    "Frequently asked questions": "faq"
 };
 
 /*
@@ -62,16 +62,16 @@ export function parseCorpus(text) {
 
     const finish = () => {
         if (!current) return;
-        current.text = current.lines.join(' ').replace(/\s+/g, ' ').trim();
+        current.text = current.lines.join(" ").replace(/\s+/g, " ").trim();
         delete current.lines;
-        if (!current.url && current.category === 'faq') {
+        if (!current.url && current.category === "faq") {
             current.url = `${CANONICAL_ORIGIN}/en/frequently-asked-questions/`;
         }
         if (current.url) entries.push(current);
         current = null;
     };
 
-    for (const line of text.split('\n')) {
+    for (const line of text.split("\n")) {
         const section = line.match(/^## (.+?)(?: \(\d+\))?$/);
         if (section) {
             finish();
@@ -99,7 +99,7 @@ export function parseCorpus(text) {
     return entries;
 }
 
-const escapeForRegex = (word) => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const escapeForRegex = (word) => word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 /*
  * What one word's body matches contribute, with diminishing returns.
@@ -123,21 +123,21 @@ const bodyScore = (matches) => (matches ? Math.sqrt(matches) * 2 : 0);
  * fields, so it scores a title match well above a body match and leaves it
  * there.
  */
-export function searchCorpus(entries, query, category = 'all', limit = 10) {
+export function searchCorpus(entries, query, category = "all", limit = 10) {
     const words = query
         .toLowerCase()
         .split(/\s+/)
-        .map((word) => word.replace(/[^\p{L}\p{N}-]/gu, ''))
+        .map((word) => word.replace(/[^\p{L}\p{N}-]/gu, ""))
         .filter((word) => word.length > 1);
     if (!words.length) return [];
 
     const scored = [];
     for (const entry of entries) {
-        if (category !== 'all' && entry.category !== category) continue;
+        if (category !== "all" && entry.category !== category) continue;
 
         let score = 0;
         for (const word of words) {
-            const pattern = new RegExp(escapeForRegex(word), 'gi');
+            const pattern = new RegExp(escapeForRegex(word), "gi");
             score += (entry.title.match(pattern) || []).length * 5;
             score += bodyScore((entry.text.match(pattern) || []).length);
         }
@@ -147,12 +147,12 @@ export function searchCorpus(entries, query, category = 'all', limit = 10) {
     return scored.sort((a, b) => b.score - a.score).slice(0, Math.min(Math.max(limit, 1), 25));
 }
 
-const excerpt = (text, length = 200) => (text.length <= length ? text : `${text.slice(0, length).replace(/\s+\S*$/, '')}…`);
+const excerpt = (text, length = 200) => (text.length <= length ? text : `${text.slice(0, length).replace(/\s+\S*$/, "")}…`);
 
 /* --- tools ---------------------------------------------------------------- */
 
-const textContent = (text) => ({ content: [{ type: 'text', text }] });
-const errorContent = (text) => ({ content: [{ type: 'text', text }], isError: true });
+const textContent = (text) => ({ content: [{ type: "text", text }] });
+const errorContent = (text) => ({ content: [{ type: "text", text }], isError: true });
 
 /*
  * Only same-origin pages may be read. Without this the tool would fetch any URL
@@ -166,39 +166,39 @@ function resolveSitePath(target) {
         return null;
     }
     if (url.origin !== CANONICAL_ORIGIN) return null;
-    if (!url.pathname.endsWith('/')) url.pathname = `${url.pathname}/`;
+    if (!url.pathname.endsWith("/")) url.pathname = `${url.pathname}/`;
     return url;
 }
 
 const SECTIONS = [
-    { path: '', label: 'Home' },
-    { path: 'portfolio/', label: 'Portfolio - recordings Dehli Musikk played on' },
-    { path: 'posts/', label: 'Posts - updates and build logs' },
-    { path: 'videos/', label: 'Videos - demonstrations and studio sessions' },
-    { path: 'products/', label: 'Products - virtual instruments, sample libraries and plugins' },
-    { path: 'equipment/', label: 'Equipment - instruments, effects and amplifiers used on recordings' },
-    { path: 'frequently-asked-questions/', label: 'Frequently asked questions' }
+    { path: "", label: "Home" },
+    { path: "portfolio/", label: "Portfolio - recordings Dehli Musikk played on" },
+    { path: "posts/", label: "Posts - updates and build logs" },
+    { path: "videos/", label: "Videos - demonstrations and studio sessions" },
+    { path: "products/", label: "Products - virtual instruments, sample libraries and plugins" },
+    { path: "equipment/", label: "Equipment - instruments, effects and amplifiers used on recordings" },
+    { path: "frequently-asked-questions/", label: "Frequently asked questions" }
 ];
 
 export const TOOLS = [
     {
-        name: 'search',
+        name: "search",
         description:
             'Search the Dehli Musikk catalogue: virtual instruments and plugins, blog posts, videos, recordings in the portfolio, studio equipment, and the FAQ. Returns titles, URLs and excerpts. English only. Equipment entries name the videos and recordings each item is heard on, so this also answers "what gear is on that track".',
         inputSchema: {
-            type: 'object',
+            type: "object",
             properties: {
-                query: { type: 'string', description: 'Words to search for, e.g. "mellotron" or "Wurlitzer piano".' },
+                query: { type: "string", description: 'Words to search for, e.g. "mellotron" or "Wurlitzer piano".' },
                 category: {
-                    type: 'string',
-                    enum: ['all', 'product', 'post', 'video', 'release', 'equipment', 'faq'],
-                    description: 'Restrict to one kind of item. Defaults to all.'
+                    type: "string",
+                    enum: ["all", "product", "post", "video", "release", "equipment", "faq"],
+                    description: "Restrict to one kind of item. Defaults to all."
                 },
-                limit: { type: 'integer', minimum: 1, maximum: 25, description: 'Maximum results. Defaults to 10.' }
+                limit: { type: "integer", minimum: 1, maximum: 25, description: "Maximum results. Defaults to 10." }
             },
-            required: ['query']
+            required: ["query"]
         },
-        async execute({ query, category = 'all', limit = 10 }) {
+        async execute({ query, category = "all", limit = 10 }) {
             const response = await fetch(`${CANONICAL_ORIGIN}/llms-full.txt`);
             if (!response.ok) return errorContent(`Could not load the search corpus (HTTP ${response.status}).`);
 
@@ -206,23 +206,23 @@ export const TOOLS = [
             if (!results.length) return textContent(`No results for "${query}".`);
 
             const lines = results.map((result) => `- [${result.category}] ${result.title}\n  ${result.url}\n  ${excerpt(result.text)}`);
-            return textContent(`${results.length} result(s) for "${query}":\n\n${lines.join('\n\n')}`);
+            return textContent(`${results.length} result(s) for "${query}":\n\n${lines.join("\n\n")}`);
         }
     },
     {
-        name: 'read_page',
+        name: "read_page",
         description:
-            'Fetch any page on dehlimusikk.no as clean markdown, without navigation or layout. Accepts a full URL or a site-relative path, in either language. Prefer this over fetching the HTML.',
+            "Fetch any page on dehlimusikk.no as clean markdown, without navigation or layout. Accepts a full URL or a site-relative path, in either language. Prefer this over fetching the HTML.",
         inputSchema: {
-            type: 'object',
+            type: "object",
             properties: {
-                page: { type: 'string', description: 'A dehlimusikk.no URL or site-relative path, e.g. "/en/products/overtonium/".' }
+                page: { type: "string", description: 'A dehlimusikk.no URL or site-relative path, e.g. "/en/products/overtonium/".' }
             },
-            required: ['page']
+            required: ["page"]
         },
         async execute({ page }) {
             const url = resolveSitePath(page);
-            if (!url) return errorContent('Only pages on dehlimusikk.no can be read with this tool.');
+            if (!url) return errorContent("Only pages on dehlimusikk.no can be read with this tool.");
 
             const response = await fetch(`${CANONICAL_ORIGIN}${url.pathname}index.md`);
             if (!response.ok) {
@@ -234,18 +234,18 @@ export const TOOLS = [
         }
     },
     {
-        name: 'list_sections',
-        description: 'List the main sections of dehlimusikk.no with their URLs. Norwegian is at the site root, English under /en/.',
+        name: "list_sections",
+        description: "List the main sections of dehlimusikk.no with their URLs. Norwegian is at the site root, English under /en/.",
         inputSchema: {
-            type: 'object',
+            type: "object",
             properties: {
-                language: { type: 'string', enum: ['no', 'en'], description: 'Which language to return URLs for. Defaults to en.' }
+                language: { type: "string", enum: ["no", "en"], description: "Which language to return URLs for. Defaults to en." }
             }
         },
-        async execute({ language = 'en' } = {}) {
-            const slug = language === 'no' ? '' : 'en/';
+        async execute({ language = "en" } = {}) {
+            const slug = language === "no" ? "" : "en/";
             const lines = SECTIONS.map((section) => `- ${section.label}: ${CANONICAL_ORIGIN}/${slug}${section.path}`);
-            return textContent([`Sections of dehlimusikk.no (${language}):`, '', ...lines].join('\n'));
+            return textContent([`Sections of dehlimusikk.no (${language}):`, "", ...lines].join("\n"));
         }
     }
 ];
@@ -254,23 +254,23 @@ const publicTool = ({ name, description, inputSchema }) => ({ name, description,
 
 /* --- JSON-RPC ------------------------------------------------------------- */
 
-const rpcResult = (id, result) => ({ jsonrpc: '2.0', id, result });
-const rpcError = (id, code, message) => ({ jsonrpc: '2.0', id, error: { code, message } });
+const rpcResult = (id, result) => ({ jsonrpc: "2.0", id, result });
+const rpcError = (id, code, message) => ({ jsonrpc: "2.0", id, error: { code, message } });
 
 /**
  * Handles one JSON-RPC message. Returns null for notifications, which by
  * definition get no reply.
  */
 export async function handleRpcMessage(message) {
-    if (!message || message.jsonrpc !== '2.0' || typeof message.method !== 'string') {
-        return rpcError(message?.id ?? null, -32600, 'Not a valid JSON-RPC 2.0 request');
+    if (!message || message.jsonrpc !== "2.0" || typeof message.method !== "string") {
+        return rpcError(message?.id ?? null, -32600, "Not a valid JSON-RPC 2.0 request");
     }
 
     const { id, method, params } = message;
     const isNotification = id === undefined;
 
     switch (method) {
-        case 'initialize':
+        case "initialize":
             return isNotification
                 ? null
                 : rpcResult(id, {
@@ -278,16 +278,16 @@ export async function handleRpcMessage(message) {
                       capabilities: { tools: { listChanged: false } },
                       serverInfo: SERVER_INFO,
                       instructions:
-                          'Read-only access to dehlimusikk.no. Use search to find items, then read_page to get a page as markdown. The content may be used to answer questions with attribution, but not to train models.'
+                          "Read-only access to dehlimusikk.no. Use search to find items, then read_page to get a page as markdown. The content may be used to answer questions with attribution, but not to train models."
                   });
 
-        case 'ping':
+        case "ping":
             return isNotification ? null : rpcResult(id, {});
 
-        case 'tools/list':
+        case "tools/list":
             return isNotification ? null : rpcResult(id, { tools: TOOLS.map(publicTool) });
 
-        case 'tools/call': {
+        case "tools/call": {
             if (isNotification) return null;
             const tool = TOOLS.find((candidate) => candidate.name === params?.name);
             if (!tool) return rpcError(id, -32602, `Unknown tool: ${params?.name}`);
@@ -311,33 +311,33 @@ export async function handleRpcMessage(message) {
 }
 
 const CORS_HEADERS = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, MCP-Protocol-Version, Mcp-Session-Id, Authorization',
-    'Access-Control-Max-Age': '86400'
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, MCP-Protocol-Version, Mcp-Session-Id, Authorization",
+    "Access-Control-Max-Age": "86400"
 };
 
 const json = (body, status = 200) =>
     new Response(JSON.stringify(body), {
         status,
-        headers: { 'Content-Type': 'application/json', ...CORS_HEADERS }
+        headers: { "Content-Type": "application/json", ...CORS_HEADERS }
     });
 
 /**
  * The Streamable HTTP endpoint.
  */
 export async function handleMcpRequest(request) {
-    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: CORS_HEADERS });
+    if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS_HEADERS });
 
-    if (request.method !== 'POST') {
+    if (request.method !== "POST") {
         /*
          * GET opens a server-to-client SSE stream in Streamable HTTP. This server
          * has nothing to push - no subscriptions, no progress, no sampling - so
          * it declines rather than holding a connection open forever.
          */
-        return new Response(JSON.stringify(rpcError(null, -32000, 'This server supports POST only; it has no server-initiated stream.')), {
+        return new Response(JSON.stringify(rpcError(null, -32000, "This server supports POST only; it has no server-initiated stream.")), {
             status: 405,
-            headers: { 'Content-Type': 'application/json', Allow: 'POST, OPTIONS', ...CORS_HEADERS }
+            headers: { "Content-Type": "application/json", Allow: "POST, OPTIONS", ...CORS_HEADERS }
         });
     }
 
@@ -345,11 +345,11 @@ export async function handleMcpRequest(request) {
     try {
         payload = await request.json();
     } catch {
-        return json(rpcError(null, -32700, 'Parse error'), 400);
+        return json(rpcError(null, -32700, "Parse error"), 400);
     }
 
     // Batching was removed from MCP in 2025-06-18
-    if (Array.isArray(payload)) return json(rpcError(null, -32600, 'Batched requests are not supported'), 400);
+    if (Array.isArray(payload)) return json(rpcError(null, -32600, "Batched requests are not supported"), 400);
 
     const response = await handleRpcMessage(payload);
     // A notification gets no body, only an acknowledgement

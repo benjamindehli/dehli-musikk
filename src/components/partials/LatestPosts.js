@@ -1,26 +1,25 @@
 // Components
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Post from 'components/partials/Post';
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import Post from "components/partials/Post";
 
 // Data
-import { latestPosts } from 'data/posts';
-
+import { latestPosts } from "data/posts";
 
 const LatestPosts = ({ lang, languageSlug }) => {
-  const renderPosts = () => {
-    return latestPosts && latestPosts.length
-      ? latestPosts.map(post => {
-        return (<ListItem key={post.id}>
-          <Post post={post} lang={lang} languageSlug={languageSlug} />
-        </ListItem>)
-      })
-      : '';
-  }
+    const renderPosts = () => {
+        return latestPosts && latestPosts.length
+            ? latestPosts.map((post) => {
+                  return (
+                      <ListItem key={post.id}>
+                          <Post post={post} lang={lang} languageSlug={languageSlug} />
+                      </ListItem>
+                  );
+              })
+            : "";
+    };
 
-  return (<List>
-    {renderPosts()}
-  </List>)
-}
+    return <List>{renderPosts()}</List>;
+};
 
 export default LatestPosts;

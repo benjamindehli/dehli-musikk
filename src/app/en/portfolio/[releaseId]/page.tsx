@@ -1,4 +1,4 @@
-import { ReleaseDetailsPage, getReleaseDetailsMetadata, getReleaseStaticParams } from 'components/pages/portfolio';
+import { ReleaseDetailsPage, getReleaseDetailsMetadata, getReleaseStaticParams } from "components/pages/portfolio";
 
 type Props = { params: Promise<{ releaseId: string }> };
 
@@ -7,7 +7,7 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata(props: Props) {
-    return getReleaseDetailsMetadata('en', props);
+    return getReleaseDetailsMetadata("en", props);
 }
 
 export default function Page({ params }: Props) {

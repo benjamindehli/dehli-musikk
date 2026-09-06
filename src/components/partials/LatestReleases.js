@@ -1,26 +1,25 @@
 // Components
-import List from 'components/template/List';
-import ListItem from 'components/template/List/ListItem';
-import Release from 'components/partials/Portfolio/Release';
+import List from "components/template/List";
+import ListItem from "components/template/List/ListItem";
+import Release from "components/partials/Portfolio/Release";
 
 // Data
-import { latestReleases } from 'data/portfolio';
+import { latestReleases } from "data/portfolio";
 
 const LatestReleases = ({ lang, languageSlug }) => {
+    const renderReleases = () => {
+        return latestReleases && latestReleases.length
+            ? latestReleases.map((release) => {
+                  return (
+                      <ListItem key={release.id}>
+                          <Release release={release} lang={lang} languageSlug={languageSlug} />
+                      </ListItem>
+                  );
+              })
+            : "";
+    };
 
-  const renderReleases = () => {
-    return latestReleases && latestReleases.length
-      ? latestReleases.map(release => {
-        return (<ListItem key={release.id}>
-          <Release release={release} lang={lang} languageSlug={languageSlug} />
-        </ListItem>)
-      })
-      : '';
-  }
-
-  return (<List>
-    {renderReleases()}
-  </List>)
-}
+    return <List>{renderReleases()}</List>;
+};
 
 export default LatestReleases;
