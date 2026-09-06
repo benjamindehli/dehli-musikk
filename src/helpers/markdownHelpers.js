@@ -21,6 +21,7 @@ import { getEquipmentItemDescription } from "helpers/equipmentDescription";
 import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
 import { getArtistNamesStringFromReleases } from "helpers/releaseHelpers";
+import { getAdditionalProductLinks } from "helpers/productLinks";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 
@@ -73,6 +74,7 @@ const translations = {
         productType: "Type",
         store: "Butikk",
         documentation: "Dokumentasjon",
+        alsoAt: "Også på",
         readMore: "Les mer",
         watch: "Se video",
         duration: "Varighet",
@@ -120,6 +122,7 @@ const translations = {
         productType: "Type",
         store: "Store",
         documentation: "Documentation",
+        alsoAt: "Also at",
         readMore: "Read more",
         watch: "Watch",
         duration: "Duration",
@@ -186,8 +189,15 @@ const linkTo = (link, lang) => {
     return `[${link.text[lang]}](${url})`;
 };
 
+/*
+ * An array value becomes a nested list under its label rather than a comma run,
+ * so that a label carrying several URLs stays one item of the same list as the
+ * single-value labels around it.
+ */
 const metaList = (entries) => {
-    const lines = entries.filter(([, value]) => value !== null && value !== undefined && value !== "").map(([label, value]) => `- ${label}: ${value}`);
+    const lines = entries
+        .filter(([, value]) => value !== null && value !== undefined && value !== "" && !(Array.isArray(value) && !value.length))
+        .map(([label, value]) => (Array.isArray(value) ? [`- ${label}:`, ...value.map((item) => `    - ${item}`)].join("\n") : `- ${label}: ${value}`));
     return lines.length ? [...lines, ""] : [];
 };
 
@@ -356,7 +366,8 @@ export function getProductMarkdown(lang, id) {
                 [t.price, price],
                 [t.productType, product.productType?.length ? product.productType.join(" > ") : null],
                 [t.store, linkTo(product.link, lang)],
-                [t.documentation, linkTo(product.documentationLink, lang)]
+                [t.documentation, linkTo(product.documentationLink, lang)],
+                [t.alsoAt, getAdditionalProductLinks(product)]
             ]),
             contentToMarkdown(product.content[lang], lang),
             ""

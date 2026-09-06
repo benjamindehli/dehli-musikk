@@ -23,7 +23,6 @@
         "sameAs": [
             "https://benjamindehli.github.io/overtonium/",
             "https://github.com/benjamindehli/overtonium",
-            "https://github.com/benjamindehli/overtonium/releases",
             "https://www.kvraudio.com/product/overtonium-by-dehli-musikk"
         ],
         "productType": ["Software"],
@@ -54,7 +53,6 @@
         "sameAs": [
             "https://benjamindehli.github.io/sidstation-asid/",
             "https://github.com/benjamindehli/sidstation-asid",
-            "https://github.com/benjamindehli/sidstation-asid/releases",
             "https://www.kvraudio.com/product/sidstation-asid-by-dehli-musikk"
         ],
         "productType": ["Software", "Elektron SidStation"],
@@ -90,7 +88,6 @@
         "sameAs": [
             "https://benjamindehli.github.io/microsampler-editor-librarian/",
             "https://github.com/benjamindehli/microsampler-editor-librarian",
-            "https://github.com/benjamindehli/microsampler-editor-librarian/releases",
             "https://www.kvraudio.com/product/microsampler-editor-librarian-by-dehli-musikk"
         ],
         "productType": ["Software", "Korg microSAMPLER"],

@@ -6,6 +6,7 @@ import { formatContentAsString } from "helpers/contentText";
 import { getEquipmentItemDescription } from "helpers/equipmentDescription";
 import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
+import { getAdditionalProductLinks } from "helpers/productLinks";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
 
 const websiteUrl = "https://www.dehlimusikk.no";
@@ -122,7 +123,10 @@ const renderFullProduct = (product) => {
      * and easy to mistake for a missing value.
      */
     const price = hasPrice(product) ? `from ${product.price} ${getPriceCurrency(product)}` : "free";
-    const meta = [`Price: ${price}`, product.productType?.length ? `Type: ${product.productType.join(" > ")}` : null, product.link?.url ? `Store: ${product.link.url}` : null, product.documentationLink?.url ? `Documentation: ${product.documentationLink.url}` : null]
+    // One line per key here, rather than the nested list the markdown twins use,
+    // because every other line in this file is a single Key: value pair
+    const additionalLinks = getAdditionalProductLinks(product);
+    const meta = [`Price: ${price}`, product.productType?.length ? `Type: ${product.productType.join(" > ")}` : null, product.link?.url ? `Store: ${product.link.url}` : null, product.documentationLink?.url ? `Documentation: ${product.documentationLink.url}` : null, additionalLinks.length ? `Also at: ${additionalLinks.join(", ")}` : null]
         .filter(Boolean)
         .join("\n");
     return renderFullEntry(product.title, `${websiteUrl}/en/products/${productId}/`, meta, product.content?.en ? formatContentAsString(product.content.en) : "");
