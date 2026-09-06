@@ -1,0 +1,13 @@
+# Commits that changed formatting only, never behaviour. git blame skips
+# straight through these to whoever last changed the line for a real reason.
+#
+# GitHub reads this file automatically. Locally it needs enabling once:
+#
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+#
+# Add a commit here only if it is purely mechanical. A commit that reformats
+# and edits at the same time cannot go in, because ignoring it would hide the
+# edit as well - which is the reason to keep the two apart in the first place.
+
+# Format with Prettier (166 files, first run after adopting the config)
+c29dd9df1a074b7cffb811c54fbc7ec5867ae600
