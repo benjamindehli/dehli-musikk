@@ -16,7 +16,7 @@ import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
 import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
-import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from "lib/pageMetadata";
+import { buildAlternates, socialMetadata, WEBSITE_URL, detailTitle, type Lang } from "lib/pageMetadata";
 import equipment from "data/equipment";
 
 const translations = {
@@ -161,7 +161,7 @@ export async function getEquipmentTypeMetadata(lang: Lang, { params }: Equipment
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     const typeName = equipmentTypeData.name[lang];
-    const title = `${typeName} - ${t.metaTitle}`;
+    const title = detailTitle(typeName);
     const description = t.typeDescription(typeName);
 
     return {
@@ -282,8 +282,7 @@ export async function getEquipmentItemMetadata(lang: Lang, { params }: Equipment
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     const itemName = `${item.brand} ${item.model}`;
-    const typeName = equipmentTypeData.name[lang];
-    const title = `${itemName} - ${typeName} - ${t.metaTitle}`;
+    const title = detailTitle(itemName);
     const description = getEquipmentItemDescription(
         itemName,
         getVideosForEquipmentItem(equipmentType, equipmentId).length,

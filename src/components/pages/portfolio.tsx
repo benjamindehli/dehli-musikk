@@ -11,7 +11,7 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { getJsonLdIdForRelease } from "helpers/releaseHelpers";
 import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
-import { buildAlternates, socialMetadata, WEBSITE_URL, type Lang } from "lib/pageMetadata";
+import { buildAlternates, socialMetadata, WEBSITE_URL, detailTitle, type Lang } from "lib/pageMetadata";
 import releases from "data/portfolio";
 
 const translations = {
@@ -124,7 +124,7 @@ export async function getReleaseDetailsMetadata(lang: Lang, { params }: ReleaseR
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     const heading = `${release.title} ${t.byConnector} ${release.artistName}`;
-    const title = `${heading} - ${t.metaTitle}`;
+    const title = detailTitle(heading);
     const description = t.listenTo(release.title, release.artistName);
 
     return {

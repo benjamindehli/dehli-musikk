@@ -12,7 +12,7 @@ import { getPrettyDate } from "helpers/dateFormatter";
 import { formatContentAsString } from "helpers/contentFormatter";
 import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
-import { AUTHOR_URL, buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, type Lang } from "lib/pageMetadata";
+import { AUTHOR_URL, buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, detailTitle, type Lang } from "lib/pageMetadata";
 import posts from "data/posts";
 
 const translations = {
@@ -121,7 +121,7 @@ export async function getPostDetailsMetadata(lang: Lang, { params }: PostRoutePr
 
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
-    const title = `${post.title[lang]} - ${t.metaTitle}`;
+    const title = detailTitle(post.title[lang]);
     /*
      * Truncated: this feeds meta, og and twitter descriptions, all of which are
      * shown at about 155 characters. The Article JSON-LD is unaffected. The

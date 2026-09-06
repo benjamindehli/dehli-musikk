@@ -12,7 +12,7 @@ import { getPrettyDate } from "helpers/dateFormatter";
 import { formatContentAsString } from "helpers/contentFormatter";
 import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
-import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, type Lang } from "lib/pageMetadata";
+import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, detailTitle, type Lang } from "lib/pageMetadata";
 import videos from "data/videos";
 
 const translations = {
@@ -139,7 +139,7 @@ async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps): Promis
 
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
-    const title = `${video.title[lang]} - ${t.metaTitle}`;
+    const title = detailTitle(video.title[lang]);
     /*
      * Truncated for the snippet vocabularies only; the VideoObject JSON-LD above
      * keeps the full text, which is what Google's video guidelines want.

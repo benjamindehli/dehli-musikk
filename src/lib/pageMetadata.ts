@@ -70,6 +70,25 @@ export function metaDescription(text: string, fallback?: string): string {
     return clip(flatten(fallback));
 }
 
+/*
+ * The title of a page about one thing: the thing's name, then the site.
+ *
+ * Detail pages used to name their section as well - "{item} - Videos | Dehli
+ * Musikk", and equipment items named two, "{item} - Instruments - Equipment |
+ * Dehli Musikk". That spends 9 to 22 characters restating what the item's own
+ * name already tells a reader, and it was enough on its own to push 274 pages
+ * past the 65 characters Bing reports on and both engines truncate at.
+ *
+ * Deliberately not clipped, unlike the description. What stays over the limit
+ * afterwards is authored titles that are simply long, and cutting those loses
+ * the part that distinguishes them: "Wurlitzer Electric Piano plugin preset for
+ * Decent Sampler (Midnight Wurli)" would lose the product name it ends with. A
+ * long title is displayed truncated and costs nothing else; one truncated here
+ * is truncated everywhere, including in the share cards. Shortening the few
+ * that matter belongs in the data, where the title is written.
+ */
+export const detailTitle = (name: string): string => `${name} | ${SITE_NAME}`;
+
 /** Site-relative page paths in both languages, without a leading slash and
  *  without the /en/ prefix, e.g. { no: 'posts/innlegg-slug/', en: 'posts/post-slug/' }. */
 export type PagePaths = { no: string; en: string };
