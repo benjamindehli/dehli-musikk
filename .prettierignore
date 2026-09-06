@@ -1,0 +1,9 @@
+# Prettier 3 already reads .gitignore, so build output is covered. These are the
+# tracked files it should still leave alone.
+
+# The product, portfolio, video and equipment data is written by the authoring
+# app rather than by hand. Formatting it here would produce a diff every time
+# that app regenerates a file, with the formatter and the app rewriting each
+# other's output. The .js modules alongside it are hand-written, so they are not
+# excluded.
+src/data/**/*.json

@@ -15,6 +15,7 @@
     "@types/node": "^26.4.1",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
+    "prettier": "^3.9.6",
     "sass": "^1.103.1",
     "typescript": "^6.0.3"
   },
@@ -22,6 +23,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "verify:thumbnails": "node scripts/verify-110-thumbnails.mjs",
     "verify:albums": "node scripts/verify-release-albums.mjs",
     "verify:markup": "node scripts/verify-markup-assets.mjs",
