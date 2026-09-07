@@ -2,7 +2,29 @@ import Link from "next/link";
 import { getLanguageSlug } from "lib/i18n";
 import { socialMetadata, WEBSITE_URL, type Lang } from "lib/pageMetadata";
 import { sectionLinks } from "lib/sectionLinks";
-import style from "components/routes/NotFound.module.scss";
+
+/*
+ * These rules are inline rather than in a CSS module. This file is the app's
+ * not-found boundary, which means it is part of every page's segment tree, so a
+ * stylesheet imported here becomes a <link rel="preload" as="style"> in the head
+ * of every page - downloaded everywhere, used only on the 404. Inlining keeps it
+ * on the one page that renders it.
+ *
+ * The 600px breakpoint mirrors $screen-sm in style/abstracts/variables. Class
+ * names cannot collide with anything, as this page renders its own document and
+ * pulls in no shared components.
+ */
+const styles = `
+.notFound { max-width: 1200px; padding: 64px 24px; margin: auto }
+.notFound h1 { margin-bottom: 0 }
+.notFoundLogo { width: 100%; max-width: 340px; height: auto }
+.notFoundSections { display: grid; gap: 24px; grid-template-columns: 1fr }
+.notFoundSection ul { list-style: none; padding: 0 }
+.notFoundSection li { margin: 6px 0 }
+@media (min-width: 600px) {
+    .notFoundSections { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+}
+`;
 
 /*
  * Firebase Hosting serves the exported 404.html for every path it cannot match,
@@ -46,7 +68,7 @@ const renderSection = (lang: Lang) => {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     return (
-        <section lang={lang} className={style.languageSection}>
+        <section lang={lang} className="notFoundSection">
             <h2>{t.heading}</h2>
             <p>{t.message}</p>
             <nav aria-label={t.navLabel}>
@@ -73,12 +95,13 @@ export default function NotFound() {
     return (
         <html lang="no">
             <body>
-                <div className={style.contentSection}>
+                <style dangerouslySetInnerHTML={{ __html: styles }} />
+                <div className="notFound">
                     <Link href="/" title="Dehli Musikk">
-                        <img src="/images/DehliMusikkLogoHorizontal.svg" alt="Dehli Musikk" width="680" height="112" className={style.logo} />
+                        <img src="/images/DehliMusikkLogoHorizontal.svg" alt="Dehli Musikk" width="680" height="112" className="notFoundLogo" />
                     </Link>
                     <h1>404</h1>
-                    <div className={style.languageSections}>
+                    <div className="notFoundSections">
                         {renderSection("no")}
                         {renderSection("en")}
                     </div>

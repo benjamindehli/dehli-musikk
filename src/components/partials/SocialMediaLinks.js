@@ -6,6 +6,14 @@ import { faFacebookF, faGithub, faInstagram, faYoutube, faVimeoV, faSoundcloud, 
 // Stylesheets
 import style from "components/partials/SocialMediaLinks.module.scss";
 
+/*
+ * The two <img> icons below carry loading="lazy". React emits a
+ * <link rel="preload" as="image"> into the head for every eager <img> it server
+ * renders, and these sit at the bottom of the home page, so that preload only
+ * competes with the header image for bandwidth and then goes unused - which is
+ * what the browser complains about in the console. The other icons are Font
+ * Awesome SVGs rendered inline, so they never had the problem.
+ */
 const SocialMediaLinks = ({ lang }) => {
     return (
         <div className={style.socialMediaLinks}>
@@ -97,7 +105,7 @@ const SocialMediaLinks = ({ lang }) => {
                 rel="noopener noreferrer"
                 className={style.gumroad}
             >
-                <img src="/images/gumroad.svg" alt="" aria-hidden="true" width="45" height="45" />
+                <img src="/images/gumroad.svg" alt="" aria-hidden="true" width="45" height="45" loading="lazy" />
             </a>
             <a
                 href="https://ko-fi.com/benjamindehli"
@@ -107,7 +115,7 @@ const SocialMediaLinks = ({ lang }) => {
                 rel="noopener noreferrer"
                 className={style.kofi}
             >
-                <img src="/images/kofi.svg" alt="" aria-hidden="true" width="49" height="32" />
+                <img src="/images/kofi.svg" alt="" aria-hidden="true" width="49" height="32" loading="lazy" />
             </a>
             <a
                 href={lang === "en" ? "/feed-en.rss" : "/feed-no.rss"}

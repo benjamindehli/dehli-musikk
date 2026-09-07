@@ -187,7 +187,23 @@ const NavigationBar = () => {
                             onClick={hideSidebar}
                         >
                             <span className={style.appLogo}>
-                                <img src="/images/DehliMusikkLogoHorizontal.svg" alt="Dehli Musikk logo" width="680" height="112" />
+                                {/*
+                                 * fetchPriority="low" is what stops React from
+                                 * emitting a <link rel="preload" as="image"> for
+                                 * this logo on every page. The sidebar is hidden
+                                 * until the menu button is pressed, so preloading
+                                 * it at high priority only takes bandwidth from
+                                 * the content that is actually on screen. The
+                                 * image is still fetched eagerly, so the drawer
+                                 * has its logo the moment it opens.
+                                 */}
+                                <img
+                                    src="/images/DehliMusikkLogoHorizontal.svg"
+                                    alt="Dehli Musikk logo"
+                                    width="680"
+                                    height="112"
+                                    fetchPriority="low"
+                                />
                             </span>
                         </Link>
                     </div>
