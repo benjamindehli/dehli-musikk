@@ -25,6 +25,7 @@
         "start": "next start",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
+        "typecheck": "tsc --noEmit",
         "verify:thumbnails": "node scripts/verify-110-thumbnails.mjs",
         "verify:albums": "node scripts/verify-release-albums.mjs",
         "verify:markup": "node scripts/verify-markup-assets.mjs",
