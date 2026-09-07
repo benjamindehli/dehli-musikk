@@ -1,12 +1,8 @@
 {
     "short_name": "Dehli Musikk",
     "name": "Dehli Musikk",
+    "description": "Dehli Musikk er et enkeltpersonsforetak drevet av Benjamin Dehli som tilbyr spilling av tangentinstrumenter på låter for artister og band",
     "icons": [
-        {
-            "src": "favicon.ico",
-            "sizes": "16x16 32x32 48x48",
-            "type": "image/x-icon"
-        },
         {
             "src": "favicon-16x16.png",
             "sizes": "16x16",
@@ -31,7 +27,37 @@
             "src": "maskable_icon.png",
             "sizes": "640x640",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "images/screenshots/hjem-wide.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Forsiden til Dehli Musikk"
+        },
+        {
+            "src": "images/screenshots/produkter-wide.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Produktlisten med virtuelle instrumenter og plugins"
+        },
+        {
+            "src": "images/screenshots/hjem-narrow.png",
+            "sizes": "720x1280",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Forsiden til Dehli Musikk"
+        },
+        {
+            "src": "images/screenshots/produkter-narrow.png",
+            "sizes": "720x1280",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Produktlisten med virtuelle instrumenter og plugins"
         }
     ],
     "start_url": "/",
