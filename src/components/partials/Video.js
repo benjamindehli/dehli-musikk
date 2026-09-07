@@ -194,10 +194,15 @@ const Video = ({ video, fullscreen = false, compact = false, priority = false, i
                             <Link href={theaterModeLink.to} aria-label={theaterModeLink.ariaLabel}>
                                 <Button buttontype="minimal">
                                     <span className={style.label}>{theaterModeLink.label}</span>
+                                    {/* fetchPriority="low" keeps these out of the
+                                        preload hints this server component would
+                                        otherwise record - a button icon is never
+                                        worth a head entry. Low rather than lazy so
+                                        the icon is still there on first paint. */}
                                     {isTheaterMode ? (
-                                        <img src="/images/minimize.svg" className={style.icon} alt="" aria-hidden="true" />
+                                        <img src="/images/minimize.svg" className={style.icon} alt="" aria-hidden="true" fetchPriority="low" />
                                     ) : (
-                                        <img src="/images/maximize.svg" className={style.icon} alt="" aria-hidden="true" />
+                                        <img src="/images/maximize.svg" className={style.icon} alt="" aria-hidden="true" fetchPriority="low" />
                                     )}
                                 </Button>
                             </Link>

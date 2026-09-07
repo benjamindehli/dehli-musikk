@@ -110,7 +110,14 @@ export function HomePage({ lang }: { lang: Lang }) {
                 {renderHeaderImage()}
                 <div className={style.overlay}>
                     <span className={style.logo}>
-                        <img src="/images/DehliMusikkLogoInverse.svg" alt="Logo for Dehli Musikk" width="350" height="207" />
+                        {/*
+                         * This logo is above the fold, but the header image
+                         * behind it is the LCP element and already claims
+                         * fetchPriority="high". Preloading a 7kB overlay SVG
+                         * only takes bandwidth from that, so the hint is
+                         * declined here and the logo is fetched on discovery.
+                         */}
+                        <img src="/images/DehliMusikkLogoInverse.svg" alt="Logo for Dehli Musikk" width="350" height="207" fetchPriority="low" />
                     </span>
                 </div>
             </div>

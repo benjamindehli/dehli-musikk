@@ -188,14 +188,15 @@ const NavigationBar = () => {
                         >
                             <span className={style.appLogo}>
                                 {/*
-                                 * fetchPriority="low" is what stops React from
-                                 * emitting a <link rel="preload" as="image"> for
-                                 * this logo on every page. The sidebar is hidden
-                                 * until the menu button is pressed, so preloading
-                                 * it at high priority only takes bandwidth from
-                                 * the content that is actually on screen. The
-                                 * image is still fetched eagerly, so the drawer
-                                 * has its logo the moment it opens.
+                                 * The sidebar is hidden until the menu button is
+                                 * pressed, so this logo should not be preloaded.
+                                 * fetchPriority="low" declines it. This being a
+                                 * client component, the preload would come from
+                                 * react-dom while streaming the HTML rather than
+                                 * from a serialised hint, but both paths read the
+                                 * same attribute. The image is still fetched
+                                 * eagerly, so the drawer has its logo the moment
+                                 * it opens.
                                  */}
                                 <img
                                     src="/images/DehliMusikkLogoHorizontal.svg"

@@ -98,7 +98,24 @@ export default function NotFound() {
                 <style dangerouslySetInnerHTML={{ __html: styles }} />
                 <div className="notFound">
                     <Link href="/" title="Dehli Musikk">
-                        <img src="/images/DehliMusikkLogoHorizontal.svg" alt="Dehli Musikk" width="680" height="112" className="notFoundLogo" />
+                        {/*
+                         * fetchPriority="low" stops React recording a preload
+                         * hint for this logo. It has to be here rather than
+                         * looking harmless: this file is every page's not-found
+                         * boundary, so React walks this <img> while serialising
+                         * any page and the hint ends up in all 1437 heads, for a
+                         * logo only the 404 ever shows. Low priority rather than
+                         * loading="lazy" because on the 404 itself the logo is
+                         * the first thing on the page.
+                         */}
+                        <img
+                            src="/images/DehliMusikkLogoHorizontal.svg"
+                            alt="Dehli Musikk"
+                            width="680"
+                            height="112"
+                            className="notFoundLogo"
+                            fetchPriority="low"
+                        />
                     </Link>
                     <h1>404</h1>
                     <div className="notFoundSections">

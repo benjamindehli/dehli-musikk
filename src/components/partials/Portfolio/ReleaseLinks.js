@@ -23,7 +23,15 @@ const getLinkIcon = (linkKey) => {
         youtubeMusic: "/images/youtubeMusic.svg"
     };
     const src = icons[linkKey];
-    return src ? <img src={src} alt="" aria-hidden="true" /> : null;
+    /*
+     * loading="lazy" is load-bearing, not a micro-optimisation. This is a server
+     * component, so React records a preload hint for every eager <img> it walks
+     * and Next replays those into the document head. A release links to up to 14
+     * services, and a portfolio page lists several releases, so without this the
+     * head fills with preloads for icons nobody scrolls to - which is what makes
+     * the browser log "preloaded ... but not used".
+     */
+    return src ? <img src={src} alt="" aria-hidden="true" loading="lazy" /> : null;
 };
 
 const getLinkName = (linkKey) => {
