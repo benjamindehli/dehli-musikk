@@ -1,3 +1,5 @@
+import type { Lang } from "lib/pageMetadata";
+import type { Video } from "types/content";
 // Data
 import videos from "data/videos";
 
@@ -11,15 +13,15 @@ import videos from "data/videos";
  */
 const EQUIPMENT_LINK_PATTERN = /equipment\/(instruments|effects|amplifiers)\/([a-z0-9-]+)\//g;
 
-let videosByEquipmentKey = null;
+let videosByEquipmentKey: Record<string, Video[]> | null = null;
 
-function buildVideosByEquipmentKey() {
-    const index = {};
-    videos.forEach((video) => {
+function buildVideosByEquipmentKey(): Record<string, Video[]> {
+    const index: Record<string, Video[]> = {};
+    (videos as Video[]).forEach((video) => {
         // A description may link the same item more than once, and the Norwegian
         // and English versions link the same items, so collect keys per video.
-        const equipmentKeys = new Set();
-        ["no", "en"].forEach((languageKey) => {
+        const equipmentKeys = new Set<string>();
+        (["no", "en"] as Lang[]).forEach((languageKey) => {
             const content = video?.content?.[languageKey] || "";
             for (const match of content.matchAll(EQUIPMENT_LINK_PATTERN)) {
                 equipmentKeys.add(`${match[1]}/${match[2]}`);
@@ -33,7 +35,7 @@ function buildVideosByEquipmentKey() {
     return index;
 }
 
-export function getVideosForEquipmentItem(equipmentType, equipmentId) {
+export function getVideosForEquipmentItem(equipmentType: string, equipmentId: string): Video[] {
     if (!videosByEquipmentKey) {
         videosByEquipmentKey = buildVideosByEquipmentKey();
     }

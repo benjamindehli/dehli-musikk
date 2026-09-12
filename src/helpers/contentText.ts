@@ -13,11 +13,11 @@ const CONTENT_LINK_PATTERN = /\[(?<title>[^\]]+)\]\((?<link>[^)]+)\)/gm;
 /**
  * Content with its inline links flattened to their titles.
  */
-export const formatContentAsString = (content) => {
+export const formatContentAsString = (content: string | null | undefined): string => {
     if (!content) return "";
     return content
         .split("\n")
-        .map((paragraph) => paragraph.replace(CONTENT_LINK_PATTERN, (_match, title) => title))
+        .map((paragraph) => paragraph.replace(CONTENT_LINK_PATTERN, (_match: string, title: string) => title))
         .join(" ");
 };
 
@@ -32,7 +32,7 @@ export const formatContentAsString = (content) => {
  * The scheme test is a guard for content not yet written. Every link in the data
  * today is site-relative.
  */
-const resolveContentLink = (link, websiteUrl, languageSlug) =>
+const resolveContentLink = (link: string, websiteUrl: string, languageSlug: string): string =>
     /^[a-z][a-z0-9+.-]*:|^\/\//i.test(link) ? link : `${websiteUrl}/${languageSlug}${link}`;
 
 /*
@@ -40,12 +40,15 @@ const resolveContentLink = (link, websiteUrl, languageSlug) =>
  * as a soft break rather than a paragraph break, so they are rejoined with a
  * blank line between them.
  */
-export const formatContentAsMarkdown = (content, websiteUrl, languageSlug) => {
+export const formatContentAsMarkdown = (content: string | null | undefined, websiteUrl: string, languageSlug: string): string => {
     if (!content) return "";
     return content
         .split("\n")
         .map((paragraph) =>
-            paragraph.replace(CONTENT_LINK_PATTERN, (_match, title, link) => `[${title}](${resolveContentLink(link, websiteUrl, languageSlug)})`)
+            paragraph.replace(
+                CONTENT_LINK_PATTERN,
+                (_match: string, title: string, link: string) => `[${title}](${resolveContentLink(link, websiteUrl, languageSlug)})`
+            )
         )
         .join("\n\n");
 };

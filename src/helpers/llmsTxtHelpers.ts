@@ -1,3 +1,18 @@
+import type { EquipmentItemData, EquipmentType } from "data/equipment";
+import type { FaqItem, Post, Product, Release, Video } from "types/content";
+
+type LlmsTxtInput = {
+    posts: Post[];
+    products: Product[];
+    releases: Release[];
+    videos: Video[];
+};
+
+type LlmsFullTxtInput = LlmsTxtInput & {
+    equipmentTypes: Record<string, EquipmentType>;
+    frequentlyAskedQuestions: FaqItem[];
+};
+
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 // From contentText, not contentFormatter: this module produces plain text and
@@ -15,41 +30,41 @@ const latestPostCount = 15;
 const latestReleaseCount = 15;
 const latestVideoCount = 10;
 
-const truncate = (text, maxLength = 160) => {
+const truncate = (text: string, maxLength = 160): string => {
     if (!text) return "";
     const flattened = text.replace(/\s+/g, " ").trim();
     if (flattened.length <= maxLength) return flattened;
     return `${flattened.slice(0, maxLength).replace(/[,;:\s]+\S*$/, "")}…`;
 };
 
-const isoDate = (timestamp) => new Date(timestamp).toISOString().slice(0, 10);
+const isoDate = (timestamp: number) => new Date(timestamp).toISOString().slice(0, 10);
 
-const renderProductLine = (product) => {
+const renderProductLine = (product: Product) => {
     const productId = convertToUrlFriendlyString(product.title);
     const description = product.content.en ? truncate(formatContentAsString(product.content.en)) : "";
     return `- [${product.title}](${websiteUrl}/en/products/${productId}/): ${description}`;
 };
 
-const renderPostLine = (post) => {
+const renderPostLine = (post: Post) => {
     const postId = convertToUrlFriendlyString(post.title.en);
     const description = post.content.en ? truncate(formatContentAsString(post.content.en), 120) : "";
     return `- [${post.title.en}](${websiteUrl}/en/posts/${postId}/) (${isoDate(post.timestamp)}): ${description}`;
 };
 
-const renderReleaseLine = (release) => {
+const renderReleaseLine = (release: Release) => {
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
     const genre = release.genre ? `${release.genre}, ` : "";
     return `- [${release.title} by ${release.artistName}](${websiteUrl}/en/portfolio/${releaseId}/) (${genre}${isoDate(release.releaseDate)})`;
 };
 
-const renderVideoLine = (video) => {
+const renderVideoLine = (video: Video) => {
     const videoId = convertToUrlFriendlyString(video.title.en);
     const description = video.content.en ? truncate(formatContentAsString(video.content.en), 120) : "";
     // The /video/ URL is the canonical one: /en/videos/{slug}/ canonicalises to it
     return `- [${video.title.en}](${websiteUrl}/en/videos/${videoId}/video/) (${isoDate(video.timestamp)}): ${description}`;
 };
 
-export function getLlmsTxt({ posts, products, releases, videos }) {
+export function getLlmsTxt({ posts, products, releases, videos }: LlmsTxtInput) {
     const latestPosts = [...posts].sort((a, b) => b.timestamp - a.timestamp).slice(0, latestPostCount);
     const latestReleases = [...releases].sort((a, b) => b.releaseDate - a.releaseDate).slice(0, latestReleaseCount);
     const latestVideos = [...videos].sort((a, b) => b.timestamp - a.timestamp).slice(0, latestVideoCount);
@@ -112,10 +127,10 @@ export function getLlmsTxt({ posts, products, releases, videos }) {
  * llms-full.txt is a widely followed convention rather than part of the llms.txt
  * specification, so it is kept deliberately plain: headings, then prose.
  */
-const renderFullEntry = (heading, url, meta, body) =>
+const renderFullEntry = (heading: string, url: string, meta: string, body: string) =>
     [`### ${heading}`, "", `URL: ${url}`, ...(meta ? [meta, ""] : [""]), ...(body ? [body, ""] : [])].join("\n");
 
-const renderFullProduct = (product) => {
+const renderFullProduct = (product: Product) => {
     const productId = convertToUrlFriendlyString(product.title);
     /*
      * "from", because the price on a store product is a pay what you want
@@ -143,7 +158,7 @@ const renderFullProduct = (product) => {
     );
 };
 
-const renderFullPost = (post) => {
+const renderFullPost = (post: Post) => {
     const postId = convertToUrlFriendlyString(post.title.en);
     return renderFullEntry(
         post.title.en,
@@ -153,7 +168,7 @@ const renderFullPost = (post) => {
     );
 };
 
-const renderFullVideo = (video) => {
+const renderFullVideo = (video: Video) => {
     const videoId = convertToUrlFriendlyString(video.title.en);
     const meta = [`Published: ${isoDate(video.timestamp)}`, `Watch: https://www.youtube.com/watch?v=${video.youTubeId}`].join("\n");
     return renderFullEntry(
@@ -165,7 +180,7 @@ const renderFullVideo = (video) => {
 };
 
 // Releases hold no prose, so they contribute their metadata instead
-const renderFullRelease = (release) => {
+const renderFullRelease = (release: Release) => {
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
     const meta = [
         `Artist: ${release.artistName}`,
@@ -179,7 +194,7 @@ const renderFullRelease = (release) => {
     return renderFullEntry(`${release.title} by ${release.artistName}`, `${websiteUrl}/en/portfolio/${releaseId}/`, meta, "");
 };
 
-const renderFullFaq = (faq) => [`### ${faq.question.en}`, "", formatContentAsString(faq.answer.en), ""].join("\n");
+const renderFullFaq = (faq: FaqItem) => [`### ${faq.question.en}`, "", formatContentAsString(faq.answer.en), ""].join("\n");
 
 /*
  * Equipment holds only a brand and a model, so an entry that stopped at the name
@@ -188,7 +203,7 @@ const renderFullFaq = (faq) => [`### ${faq.question.en}`, "", formatContentAsStr
  * track" - so they are named here rather than merely counted, the way the
  * equipment page itself lists them.
  */
-const renderFullEquipmentItem = (item, equipmentType, equipmentTypeKey) => {
+const renderFullEquipmentItem = (item: EquipmentItemData, equipmentType: EquipmentType, equipmentTypeKey: string) => {
     const itemName = `${item.brand} ${item.model}`;
     const itemId = convertToUrlFriendlyString(itemName);
     const itemVideos = getVideosForEquipmentItem(equipmentTypeKey, itemId);
@@ -206,8 +221,9 @@ const renderFullEquipmentItem = (item, equipmentType, equipmentTypeKey) => {
     return renderFullEntry(itemName, `${websiteUrl}/en/equipment/${equipmentTypeKey}/${itemId}/`, meta, body);
 };
 
-export function getLlmsFullTxt({ posts, products, releases, videos, equipmentTypes, frequentlyAskedQuestions }) {
-    const byNewest = (items, dateKey = "timestamp") => [...items].sort((a, b) => b[dateKey] - a[dateKey]);
+export function getLlmsFullTxt({ posts, products, releases, videos, equipmentTypes, frequentlyAskedQuestions }: LlmsFullTxtInput) {
+    const byNewest = <T>(items: T[], dateKey: keyof T & string = "timestamp" as keyof T & string): T[] =>
+        [...items].sort((a, b) => (b[dateKey] as number) - (a[dateKey] as number));
 
     const equipmentKeys = Object.keys(equipmentTypes);
     const equipmentCount = equipmentKeys.reduce((total, key) => total + equipmentTypes[key].items.length, 0);

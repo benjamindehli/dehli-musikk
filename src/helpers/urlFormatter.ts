@@ -1,4 +1,4 @@
-const replaceAndAddSpace = (string, replace, replaceWith) => {
+const replaceAndAddSpace = (string: string, replace: string, replaceWith: string): string => {
     string = string.replace(new RegExp(`([^s])([${replace}])([^s])`, "ig"), `$1 ${replaceWith} $3`); // Character right before and after
     string = string.replace(new RegExp(`([^s])([${replace}])`, "ig"), `$1 ${replaceWith}`); // Character right before
     string = string.replace(new RegExp(`([${replace}])([^s])`, "ig"), `${replaceWith} $2`); // Character right after
@@ -7,7 +7,7 @@ const replaceAndAddSpace = (string, replace, replaceWith) => {
     return string;
 };
 
-export const convertToUrlFriendlyString = (string) => {
+export const convertToUrlFriendlyString = (string: string | null | undefined): string => {
     if (string) {
         // To lower case
         string = string.toLowerCase();

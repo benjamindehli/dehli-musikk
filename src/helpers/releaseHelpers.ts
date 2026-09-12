@@ -1,3 +1,5 @@
+import type { Lang } from "lib/pageMetadata";
+import type { ArtistCollaboration, ArtistJsonLd, ArtistJsonLdId, Release } from "types/content";
 // Global functions
 import { convertToUrlFriendlyString } from "./urlFormatter";
 
@@ -5,12 +7,12 @@ import { convertToUrlFriendlyString } from "./urlFormatter";
 import artistJsonLdIds from "data/artists/jsonLdIds";
 import collaborations from "data/artists/collaborations";
 
-function getArtistNamesFromArtistNameString(artistNameString) {
+function getArtistNamesFromArtistNameString(artistNameString: string): string[] {
     return artistNameString.split(/[,&]/).map((artistName) => artistName.trim());
 }
 
-function getUniqueArtistNamesFromReleases(releases) {
-    const artistNames = [];
+function getUniqueArtistNamesFromReleases(releases: Release[]): string[] {
+    const artistNames: string[] = [];
     for (const release of releases) {
         for (const artistName of getArtistNamesFromArtistNameString(release.artistName)) {
             artistNames.push(artistName);
@@ -19,9 +21,9 @@ function getUniqueArtistNamesFromReleases(releases) {
     return Array.from(new Set(artistNames)).sort();
 }
 
-export function getArtistNamesStringFromReleases(releases, languageKey) {
+export function getArtistNamesStringFromReleases(releases: Release[], languageKey: Lang): string {
     const uniqueArtistNames = getUniqueArtistNamesFromReleases(releases).filter((artistName) => artistName !== "Benjamin Dehli");
-    const locales = {
+    const locales: Record<Lang, string> = {
         en: "en-GB",
         no: "nb-NO"
     };
@@ -29,8 +31,8 @@ export function getArtistNamesStringFromReleases(releases, languageKey) {
     return formatter.format(uniqueArtistNames);
 }
 
-export function getJsonLdIdForArtist(artistName) {
-    const artistJsonLdId = artistJsonLdIds.find((artist) => artist.name === artistName);
+export function getJsonLdIdForArtist(artistName: string): string {
+    const artistJsonLdId = (artistJsonLdIds as ArtistJsonLdId[]).find((artist) => artist.name === artistName);
     if (artistJsonLdId) {
         return artistJsonLdId.jsonLdId;
     } else {
@@ -39,8 +41,8 @@ export function getJsonLdIdForArtist(artistName) {
     }
 }
 
-export function getArtistNamesForCollaboration(collaborationName) {
-    const collaboration = collaborations.find((collaboration) => collaboration.name === collaborationName);
+export function getArtistNamesForCollaboration(collaborationName: string): string[] | null {
+    const collaboration = (collaborations as ArtistCollaboration[]).find((collaboration) => collaboration.name === collaborationName);
     if (collaboration) {
         return collaboration.artistNames;
     } else {
@@ -48,7 +50,7 @@ export function getArtistNamesForCollaboration(collaborationName) {
     }
 }
 
-export function getJsonLdForArtist(artistName) {
+export function getJsonLdForArtist(artistName: string): ArtistJsonLd | ArtistJsonLd[] {
     const artistNamesForCollaboration = getArtistNamesForCollaboration(artistName);
     if (artistNamesForCollaboration) {
         return artistNamesForCollaboration.map((artistName) => {
@@ -67,9 +69,11 @@ export function getJsonLdForArtist(artistName) {
     }
 }
 
-export function getJsonLdIdForRelease(release) {
-    if (release?.jsonLdId?.length > 0) {
-        return release.jsonLdId;
+export function getJsonLdIdForRelease(release: Release): string {
+    if ((release?.jsonLdId?.length as number) > 0) {
+        // The length check above already establishes this, but comparing through
+        // an optional chain does not narrow the property for the compiler.
+        return release.jsonLdId as string;
     } else {
         const formattedReleaseTitle = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
         return `https://www.dehlimusikk.no/#release-${formattedReleaseTitle}`;

@@ -1,4 +1,6 @@
-const monthNames = {
+import type { Lang } from "lib/pageMetadata";
+
+const monthNames: Record<Lang, string[]> = {
     en: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
     /*
      * Lower case: Norwegian does not capitalise month names, unlike English.
@@ -8,7 +10,7 @@ const monthNames = {
     no: ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"]
 };
 
-export const getPrettyDate = (date, language) => {
+export const getPrettyDate = (date: Date, language: Lang): string => {
     const year = date.getFullYear();
     const month = monthNames[language][date.getMonth()];
     const day = date.getDate();
@@ -19,13 +21,13 @@ export const getPrettyDate = (date, language) => {
     }
 };
 
-export const getRichSnippetDateString = (date) => {
+export const getRichSnippetDateString = (date: Date): string => {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are 0 based, so we add 1
     const day = date.getDate().toString().padStart(2, "0");
     return `${year}-${month}-${day}`;
 };
 
-export const getPlusOneYear = () => {
+export const getPlusOneYear = (): string => {
     return new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString();
 };

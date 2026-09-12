@@ -1,3 +1,24 @@
+import type { Lang } from "lib/pageMetadata";
+
+type Translations = {
+    search: string;
+    read: string;
+    sections: string;
+    noResults: (query: string) => string;
+    heading: string;
+};
+
+/* The fields these tools read off a search result. helpers/search owns the
+ * full shape; `hash` is carried only by the FAQ entries, which link to a
+ * panel on the FAQ page rather than to a page of their own. */
+type SearchHit = {
+    link: string;
+    hash?: string;
+    excerpt?: string;
+    label: string;
+    text: string;
+};
+
 /*
  * The tools this site offers to an in-page agent through WebMCP.
  *
@@ -13,24 +34,24 @@
 
 const WEBSITE_URL = "https://www.dehlimusikk.no";
 
-const translations = {
+const translations: Record<Lang, Translations> = {
     no: {
         search: "Search everything Dehli Musikk publishes: recordings in the portfolio, blog posts, videos, virtual instruments and plugins, studio equipment, and the FAQ. Returns Norwegian results. Use this to answer questions about what Dehli Musikk has made, played on, or sells.",
         read: "Fetch the clean markdown version of any page on dehlimusikk.no, without navigation or layout. Accepts a full URL or a site-relative path. Prefer this over reading the rendered page.",
         sections: "List the main sections of dehlimusikk.no with their URLs, for navigation.",
-        noResults: (query) => `Ingen treff for "${query}".`,
+        noResults: (query: string) => `Ingen treff for "${query}".`,
         heading: "Seksjoner på dehlimusikk.no:"
     },
     en: {
         search: "Search everything Dehli Musikk publishes: recordings in the portfolio, blog posts, videos, virtual instruments and plugins, studio equipment, and the FAQ. Returns English results. Use this to answer questions about what Dehli Musikk has made, played on, or sells.",
         read: "Fetch the clean markdown version of any page on dehlimusikk.no, without navigation or layout. Accepts a full URL or a site-relative path. Prefer this over reading the rendered page.",
         sections: "List the main sections of dehlimusikk.no with their URLs, for navigation.",
-        noResults: (query) => `No results for "${query}".`,
+        noResults: (query: string) => `No results for "${query}".`,
         heading: "Sections on dehlimusikk.no:"
     }
 };
 
-const textResult = (text) => ({ content: [{ type: "text", text }] });
+const textResult = (text: string) => ({ content: [{ type: "text", text }] });
 
 /*
  * Resolves a caller-supplied page reference to a same-origin URL, or null.
@@ -39,8 +60,8 @@ const textResult = (text) => ({ content: [{ type: "text", text }] });
  * named, from the visitor's browser and with the visitor's cookies. A tool that
  * reads this site must only read this site.
  */
-export function resolveSitePath(target) {
-    let url;
+export function resolveSitePath(target: string): URL | null {
+    let url: URL;
     try {
         url = new URL(target, `${WEBSITE_URL}/`);
     } catch {
@@ -52,7 +73,7 @@ export function resolveSitePath(target) {
     return url;
 }
 
-export function buildTools(lang) {
+export function buildTools(lang: Lang) {
     const t = translations[lang] || translations.no;
     const languageSlug = lang === "en" ? "en/" : "";
 
@@ -73,13 +94,13 @@ export function buildTools(lang) {
                 },
                 required: ["query"]
             },
-            async execute({ query, category = "all", limit = 10 }) {
+            async execute({ query, category = "all", limit = 10 }: { query: string; category?: string; limit?: number }) {
                 const { getSearchResults } = await import("helpers/search");
                 const results = (await getSearchResults(query, lang, category)) || [];
                 if (!results.length) return textResult(t.noResults(query));
 
                 const shown = results.slice(0, Math.min(Math.max(limit, 1), 25));
-                const lines = shown.map((result) => {
+                const lines = shown.map((result: SearchHit) => {
                     const url = `${WEBSITE_URL}${result.link}${result.hash ? `#${result.hash}` : ""}`;
                     const excerpt = result.excerpt ? ` - ${result.excerpt}` : "";
                     return `- [${result.label}] ${result.text}${excerpt}\n  ${url}`;
@@ -98,7 +119,7 @@ export function buildTools(lang) {
                 },
                 required: ["page"]
             },
-            async execute({ page }) {
+            async execute({ page }: { page: string }) {
                 const url = resolveSitePath(page);
                 if (!url) return textResult("Only pages on dehlimusikk.no can be read with this tool.");
 

@@ -1,3 +1,4 @@
+import type { ArtistJsonLd, Release, ReleaseAlbum } from "types/content";
 // Helpers
 import { getArtistNamesForCollaboration, getJsonLdForArtist } from "helpers/releaseHelpers";
 
@@ -16,11 +17,11 @@ const websiteUrl = "https://www.dehlimusikk.no";
  * after itself, so leaving a release out of the file is the correct way to say it
  * stands alone.
  */
-function getAlbums(releaseId) {
+function getAlbums(releaseId: string): ReleaseAlbum[] {
     // Every match, not the first: a track can legitimately appear on more than one
     // album, such as the original plus a compilation, a deluxe edition or a
     // remaster. Taking only the first would silently drop the rest in file order.
-    return releaseAlbums.filter((album) => album.releaseIds?.includes(releaseId));
+    return (releaseAlbums as ReleaseAlbum[]).filter((album) => album.releaseIds?.includes(releaseId));
 }
 
 /*
@@ -31,13 +32,13 @@ function getAlbums(releaseId) {
  * contradictory entity. Albums without a MusicBrainz entry fall back to a site
  * fragment, matching how releaseHelpers handles artists and releases.
  */
-export function getAlbumJsonLdId(album) {
+export function getAlbumJsonLdId(album: ReleaseAlbum): string {
     return album?.jsonLdId?.length ? album.jsonLdId : `${websiteUrl}/#album-${album.id}`;
 }
 
 // A credit naming several artists is already broken down in the collaborations
 // data, which handles names that themselves contain a separator
-function getArtistNamesForRelease(artistName) {
+function getArtistNamesForRelease(artistName: string): string[] {
     return getArtistNamesForCollaboration(artistName) || [artistName];
 }
 
@@ -48,11 +49,14 @@ function getArtistNamesForRelease(artistName) {
  * album: the Selkie track is credited to Haunted By Silhouettes & Bjorn "Speed"
  * Strid, but the album No Man Isle is by Haunted By Silhouettes alone.
  */
-function getAlbumByArtist(album) {
-    const namesPerTrack = (album.releaseIds || [])
-        .map((releaseId) => releases.find((release) => release.slug === releaseId)?.artistName)
-        .filter(Boolean)
-        .map(getArtistNamesForRelease);
+function getAlbumByArtist(album: ReleaseAlbum): ArtistJsonLd | ArtistJsonLd[] | null {
+    const namesPerTrack = (
+        (album.releaseIds || [])
+            .map((releaseId) => (releases as Release[]).find((release) => release.slug === releaseId)?.artistName)
+            // filter(Boolean) drops the undefined entries but does not narrow the
+            // element type, so the cast states what the filter already guarantees.
+            .filter(Boolean) as string[]
+    ).map(getArtistNamesForRelease);
 
     if (!namesPerTrack.length) return null;
 
@@ -71,7 +75,7 @@ function getAlbumByArtist(album) {
  * numTracks and track are deliberately absent: Dehli Musikk only knows the tracks
  * it played on, so counting or listing them would describe the album wrongly.
  */
-export function getAlbumJsonLdForRelease(releaseId) {
+export function getAlbumJsonLdForRelease(releaseId: string) {
     const albums = getAlbums(releaseId)
         // Both fields are required so a half-filled entry emits nothing: without a
         // title the album would have no name, and without an id every fallback @id

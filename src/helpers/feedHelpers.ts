@@ -1,3 +1,13 @@
+import type { Lang } from "lib/pageMetadata";
+import type { Post, Product } from "types/content";
+
+type ChannelInfo = {
+    title: string;
+    description: string;
+    feedFilename: string;
+    languageSlug: string;
+};
+
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { formatContentAsString } from "helpers/contentFormatter";
@@ -6,7 +16,7 @@ import { getPriceCurrency, hasPrice } from "helpers/productPricing";
 const websiteUrl = "https://www.dehlimusikk.no";
 const feedPostCount = 20;
 
-const channelInfo = {
+const channelInfo: Record<Lang, ChannelInfo> = {
     no: {
         title: "Dehli Musikk nyheter",
         description: "Siste nytt fra Dehli Musikk",
@@ -21,10 +31,10 @@ const channelInfo = {
     }
 };
 
-const escapeXml = (value) =>
+const escapeXml = (value: string) =>
     String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 
-const renderFeedItem = (post, lang, languageSlug) => {
+const renderFeedItem = (post: Post, lang: Lang, languageSlug: string) => {
     const postUrl = `${websiteUrl}/${languageSlug}posts/${convertToUrlFriendlyString(post.title[lang])}/`;
     const description = post.content[lang] ? formatContentAsString(post.content[lang]) : "";
     return [
@@ -41,7 +51,7 @@ const renderFeedItem = (post, lang, languageSlug) => {
 
 const STORE_CODE = "04516683628261596954";
 
-const getProductId = (product) => convertToUrlFriendlyString(product.title);
+const getProductId = (product: Product) => convertToUrlFriendlyString(product.title);
 
 /*
  * Merchant Center rejects an item priced at zero, for both Shopping ads and free
@@ -54,7 +64,7 @@ const getProductId = (product) => convertToUrlFriendlyString(product.title);
  * price is what Google actually validates: make one of these paid, or a paid one
  * free, and it enters or leaves the feed on its own.
  */
-const getSellableProducts = (products) => (products || []).filter(hasPrice);
+const getSellableProducts = (products: Product[]) => (products || []).filter(hasPrice);
 
 /*
  * Merchant Center caps g:description at 5000 characters and disapproves the item
@@ -76,7 +86,7 @@ const MAX_DESCRIPTION_LENGTH = 5000;
  */
 const SENTENCE_SEARCH_WINDOW = 500;
 
-const capDescription = (description) => {
+const capDescription = (description: string) => {
     if (description.length <= MAX_DESCRIPTION_LENGTH) return description;
 
     const head = description.slice(0, MAX_DESCRIPTION_LENGTH);
@@ -94,7 +104,7 @@ const capDescription = (description) => {
     return `${atWordBoundary || hardCut}…`;
 };
 
-const renderMerchantItem = (product, lang, languageSlug) => {
+const renderMerchantItem = (product: Product, lang: Lang, languageSlug: string) => {
     const productId = getProductId(product);
     const description = product.content[lang] ? capDescription(formatContentAsString(product.content[lang])) : "";
     const additionalImageLinks = (product.additionalImages || []).map(
@@ -123,7 +133,7 @@ const renderMerchantItem = (product, lang, languageSlug) => {
     ].join("\n");
 };
 
-const renderLocalInventoryItem = (product, lang) => {
+const renderLocalInventoryItem = (product: Product, lang: Lang) => {
     return [
         "<item>",
         `<g:id>${lang}-${getProductId(product)}</g:id>`,
@@ -143,7 +153,7 @@ const merchantFeedHeader = [
     "<description>Products from Dehli Musikk</description>\n"
 ].join("");
 
-export function getMerchantFeedXML(products, lang) {
+export function getMerchantFeedXML(products: Product[], lang: Lang) {
     const { languageSlug } = channelInfo[lang];
     return [
         merchantFeedHeader,
@@ -154,7 +164,7 @@ export function getMerchantFeedXML(products, lang) {
     ].join("");
 }
 
-export function getLocalInventoryFeedXML(products, lang) {
+export function getLocalInventoryFeedXML(products: Product[], lang: Lang) {
     return [
         merchantFeedHeader,
         getSellableProducts(products)
@@ -164,7 +174,7 @@ export function getLocalInventoryFeedXML(products, lang) {
     ].join("");
 }
 
-export function getRssFeedXML(posts, lang) {
+export function getRssFeedXML(posts: Post[], lang: Lang) {
     const { title, description, feedFilename, languageSlug } = channelInfo[lang];
     const latestPosts = [...posts].sort((a, b) => b.timestamp - a.timestamp).slice(0, feedPostCount);
     return [

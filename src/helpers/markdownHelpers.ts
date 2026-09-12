@@ -1,3 +1,72 @@
+import type { Lang } from "lib/pageMetadata";
+import type { EquipmentItemData, EquipmentTypeKey } from "data/equipment";
+import type { ContentLink, Localized, Post, PostLink, Product, Release, Video } from "types/content";
+
+/*
+ * The user-facing strings, in both languages. The five function-valued members
+ * take a value the sentence has to agree with grammatically, which is why they
+ * are not plain strings: Norwegian lower-cases what English capitalises, and
+ * the price line differs in word order.
+ */
+type Translations = {
+    siteDescription: string;
+    home: string;
+    homeDescription: string;
+    posts: string;
+    postsDescription: string;
+    products: string;
+    productsDescription: string;
+    videos: string;
+    videosDescription: string;
+    portfolio: string;
+    portfolioDescription: string;
+    equipment: string;
+    equipmentDescription: string;
+    equipmentTypeDescription: (typeName: string) => string;
+    faq: string;
+    faqDescription: string;
+    latestPosts: string;
+    latestReleases: string;
+    latestVideos: string;
+    latestProducts: string;
+    artists: string;
+    seeAll: (label: string) => string;
+    byConnector: string;
+    listenTo: (title: string, artistName: string) => string;
+    published: string;
+    price: string;
+    free: string;
+    priceFrom: (amount: string, currency: string) => string;
+    productType: string;
+    store: string;
+    documentation: string;
+    alsoAt: string;
+    readMore: string;
+    watch: string;
+    duration: string;
+    chapters: string;
+    artist: string;
+    genre: string;
+    released: string;
+    listen: string;
+    usedInVideos: string;
+    heardOnReleases: string;
+    alsoAvailableAs: (url: string) => string;
+    translationLabel: string;
+};
+
+/* The head every markdown twin shares, plus the body the caller assembled. */
+type MarkdownDocumentInput = {
+    lang: Lang;
+    type: string;
+    title: string;
+    description: string;
+    paths: Localized;
+    published?: number;
+    modified?: number;
+    body: string[];
+};
+
 /*
  * Markdown representations of the site's pages: one document per page URL,
  * published as an index.md sibling of the page it mirrors.
@@ -37,9 +106,9 @@ import products, { latestProducts } from "data/products";
 import releases, { latestReleases } from "data/portfolio";
 import videos, { latestVideos } from "data/videos";
 
-const EQUIPMENT_TYPES = ["instruments", "effects", "amplifiers"];
+const EQUIPMENT_TYPES: EquipmentTypeKey[] = ["instruments", "effects", "amplifiers"];
 
-const translations = {
+const translations: Record<Lang, Translations> = {
     no: {
         siteDescription:
             "Dehli Musikk er et enkeltpersonsforetak drevet av Benjamin Dehli i Bø i Telemark som tilbyr spilling av tangentinstrumenter på låter for artister og band, og som selger virtuelle sample-baserte instrumenter og patch-biblioteker.",
@@ -56,7 +125,7 @@ const translations = {
         portfolioDescription: "Utgivelser Dehli Musikk har bidratt på",
         equipment: "Utstyr",
         equipmentDescription: "Utstyr jeg bruker under innspilling",
-        equipmentTypeDescription: (typeName) => `${typeName} jeg bruker under innspilling`,
+        equipmentTypeDescription: (typeName: string) => `${typeName} jeg bruker under innspilling`,
         faq: "Ofte stilte spørsmål",
         faqDescription: "Ofte stilte spørsmål om Dehli Musikk, produkter og tjenester.",
         latestPosts: "Siste oppdateringer",
@@ -64,13 +133,13 @@ const translations = {
         latestVideos: "Siste videoer",
         latestProducts: "Nyeste produkter",
         artists: "Artister som Dehli Musikk har samarbeidet med",
-        seeAll: (label) => `Se alle ${label.toLowerCase()}`,
+        seeAll: (label: string) => `Se alle ${label.toLowerCase()}`,
         byConnector: "av",
-        listenTo: (title, artistName) => `Lytt til låta ${title} av ${artistName}`,
+        listenTo: (title: string, artistName: string) => `Lytt til låta ${title} av ${artistName}`,
         published: "Publisert",
         price: "Pris",
         free: "gratis",
-        priceFrom: (amount, currency) => `fra ${amount} ${currency}`,
+        priceFrom: (amount: string, currency: string) => `fra ${amount} ${currency}`,
         productType: "Type",
         store: "Butikk",
         documentation: "Dokumentasjon",
@@ -85,7 +154,7 @@ const translations = {
         listen: "Lytt",
         usedInVideos: "Brukt i videoer",
         heardOnReleases: "Hørt på utgivelser",
-        alsoAvailableAs: (url) => `Denne siden finnes også som HTML: ${url}`,
+        alsoAvailableAs: (url: string) => `Denne siden finnes også som HTML: ${url}`,
         translationLabel: "På engelsk"
     },
     en: {
@@ -104,7 +173,7 @@ const translations = {
         portfolioDescription: "Recordings where Dehli Musikk has contributed",
         equipment: "Equipment",
         equipmentDescription: "Equipment I use during recording",
-        equipmentTypeDescription: (typeName) => `${typeName} I use during recording`,
+        equipmentTypeDescription: (typeName: string) => `${typeName} I use during recording`,
         faq: "Frequently Asked Questions",
         faqDescription: "Frequently asked questions about Dehli Musikk, products, and services.",
         latestPosts: "Latest updates",
@@ -112,13 +181,13 @@ const translations = {
         latestVideos: "Latest videos",
         latestProducts: "Newest products",
         artists: "Artists who have collaborated with Dehli Musikk",
-        seeAll: (label) => `See all ${label.toLowerCase()}`,
+        seeAll: (label: string) => `See all ${label.toLowerCase()}`,
         byConnector: "by",
-        listenTo: (title, artistName) => `Listen to the track ${title} by ${artistName}`,
+        listenTo: (title: string, artistName: string) => `Listen to the track ${title} by ${artistName}`,
         published: "Published",
         price: "Price",
         free: "free",
-        priceFrom: (amount, currency) => `from ${amount} ${currency}`,
+        priceFrom: (amount: string, currency: string) => `from ${amount} ${currency}`,
         productType: "Type",
         store: "Store",
         documentation: "Documentation",
@@ -133,16 +202,16 @@ const translations = {
         listen: "Listen",
         usedInVideos: "Used in videos",
         heardOnReleases: "Heard on recordings",
-        alsoAvailableAs: (url) => `This page is also available as HTML: ${url}`,
+        alsoAvailableAs: (url: string) => `This page is also available as HTML: ${url}`,
         translationLabel: "In Norwegian"
     }
 };
 
 /* --- formatting primitives ------------------------------------------------ */
 
-const isoDate = (timestamp) => new Date(timestamp).toISOString().slice(0, 10);
+const isoDate = (timestamp: number) => new Date(timestamp).toISOString().slice(0, 10);
 
-const truncate = (text, maxLength = 200) => {
+const truncate = (text: string | null | undefined, maxLength = 200): string => {
     if (!text) return "";
     const flattened = text.replace(/\s+/g, " ").trim();
     if (flattened.length <= maxLength) return flattened;
@@ -155,7 +224,7 @@ const truncate = (text, maxLength = 200) => {
  * leading character YAML treats as syntax. "microSAMPLER Editor / Librarian" and
  * "nanobox | lemondrop" are both real titles in the data.
  */
-const frontMatter = (fields) =>
+const frontMatter = (fields: Record<string, unknown>) =>
     [
         "---",
         ...Object.entries(fields)
@@ -164,16 +233,16 @@ const frontMatter = (fields) =>
         "---"
     ].join("\n");
 
-const absoluteUrl = (lang, path) => `${WEBSITE_URL}/${getLanguageSlug(lang)}${path}`;
+const absoluteUrl = (lang: Lang, path: string) => `${WEBSITE_URL}/${getLanguageSlug(lang)}${path}`;
 
-const contentToMarkdown = (content, lang) => formatContentAsMarkdown(content, WEBSITE_URL, getLanguageSlug(lang));
+const contentToMarkdown = (content: string | null | undefined, lang: Lang) => formatContentAsMarkdown(content, WEBSITE_URL, getLanguageSlug(lang));
 
 /*
  * Only emits the heading when the section has something under it, so an
  * equipment item that appears in no videos does not get an empty "Used in
  * videos" heading.
  */
-const section = (heading, lines) => (lines && lines.length ? [`## ${heading}`, "", ...lines, ""] : []);
+const section = (heading: string, lines: string[]) => (lines && lines.length ? [`## ${heading}`, "", ...lines, ""] : []);
 
 /*
  * A link on a post is either external, where url is a plain string, or internal,
@@ -181,9 +250,10 @@ const section = (heading, lines) => (lines && lines.length ? [`## ${heading}`, "
  * slug in front of it. Product links are always the external shape. Post.js
  * branches on link.internal the same way.
  */
-const linkTo = (link, lang) => {
+const linkTo = (link: PostLink | ContentLink | undefined, lang: Lang): string | null => {
     if (!link?.url) return null;
-    const url = link.internal ? absoluteUrl(lang, link.url[lang]) : link.url;
+    // Only a PostLink carries `internal`; a ContentLink is always external.
+    const url = (link as PostLink).internal ? absoluteUrl(lang, (link.url as Localized)[lang]) : (link.url as string);
     return `[${link.text[lang]}](${url})`;
 };
 
@@ -192,7 +262,7 @@ const linkTo = (link, lang) => {
  * so that a label carrying several URLs stays one item of the same list as the
  * single-value labels around it.
  */
-const metaList = (entries) => {
+const metaList = (entries: [string, unknown][]) => {
     const lines = entries
         .filter(([, value]) => value !== null && value !== undefined && value !== "" && !(Array.isArray(value) && !value.length))
         .map(([label, value]) =>
@@ -205,7 +275,7 @@ const metaList = (entries) => {
  * Assembles one markdown document. Every page's markdown gets the same head:
  * front matter a parser can read, then the page's own heading.
  */
-function markdownDocument({ lang, type, title, description, paths, published, modified, body }) {
+function markdownDocument({ lang, type, title, description, paths, published, modified, body }: MarkdownDocumentInput) {
     const urls = alternateUrls(paths);
     const t = translations[lang];
     return [
@@ -239,7 +309,7 @@ function markdownDocument({ lang, type, title, description, paths, published, mo
  * only ever produces ids that do match, so this is a guard against a params list
  * and a lookup drifting apart rather than something the build hits.
  */
-export function markdownResponse(body) {
+export function markdownResponse(body: string) {
     if (body === null) {
         return new Response("Not found", { status: 404, headers: { "Content-Type": "text/plain; charset=utf-8" } });
     }
@@ -248,47 +318,47 @@ export function markdownResponse(body) {
 
 /* --- identifiers ---------------------------------------------------------- */
 
-const productId = (product) => convertToUrlFriendlyString(product.title);
-const postId = (post, lang) => convertToUrlFriendlyString(post.title[lang]);
-const videoId = (video, lang) => convertToUrlFriendlyString(video.title[lang]);
-const releaseId = (release) => convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
-const equipmentItemId = (item) => convertToUrlFriendlyString(`${item.brand} ${item.model}`);
+const productId = (product: Product) => convertToUrlFriendlyString(product.title);
+const postId = (post: Post, lang: Lang) => convertToUrlFriendlyString(post.title[lang]);
+const videoId = (video: Video, lang: Lang) => convertToUrlFriendlyString(video.title[lang]);
+const releaseId = (release: Release) => convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
+const equipmentItemId = (item: EquipmentItemData) => convertToUrlFriendlyString(`${item.brand} ${item.model}`);
 
-const productPaths = (product) => ({ no: `products/${productId(product)}/`, en: `products/${productId(product)}/` });
-const postPaths = (post) => ({ no: `posts/${postId(post, "no")}/`, en: `posts/${postId(post, "en")}/` });
-const releasePaths = (release) => ({ no: `portfolio/${releaseId(release)}/`, en: `portfolio/${releaseId(release)}/` });
+const productPaths = (product: Product) => ({ no: `products/${productId(product)}/`, en: `products/${productId(product)}/` });
+const postPaths = (post: Post) => ({ no: `posts/${postId(post, "no")}/`, en: `posts/${postId(post, "en")}/` });
+const releasePaths = (release: Release) => ({ no: `portfolio/${releaseId(release)}/`, en: `portfolio/${releaseId(release)}/` });
 // The modal URL and the theater URL hold the same video; only the theater one is
 // canonical, but both are real pages so both get a markdown sibling.
-const videoPaths = (video, theater) => {
+const videoPaths = (video: Video, theater: boolean) => {
     const suffix = theater ? "video/" : "";
     return { no: `videos/${videoId(video, "no")}/${suffix}`, en: `videos/${videoId(video, "en")}/${suffix}` };
 };
 
 /* --- list item lines ------------------------------------------------------ */
 
-const productLine = (product, lang) =>
+const productLine = (product: Product, lang: Lang) =>
     `- [${product.title}](${absoluteUrl(lang, `products/${productId(product)}/`)}) (${isoDate(product.timestamp)}): ${truncate(formatContentAsString(product.content[lang]), 160)}`;
 
-const postLine = (post, lang) =>
+const postLine = (post: Post, lang: Lang) =>
     `- [${post.title[lang]}](${absoluteUrl(lang, `posts/${postId(post, lang)}/`)}) (${isoDate(post.timestamp)}): ${truncate(formatContentAsString(post.content[lang]), 160)}`;
 
-const videoLine = (video, lang) =>
+const videoLine = (video: Video, lang: Lang) =>
     `- [${video.title[lang]}](${absoluteUrl(lang, `videos/${videoId(video, lang)}/video/`)}) (${isoDate(video.timestamp)}): ${truncate(formatContentAsString(video.content[lang]), 160)}`;
 
-const releaseLine = (release, lang) => {
+const releaseLine = (release: Release, lang: Lang) => {
     const genre = release.genre ? `${release.genre}, ` : "";
     return `- [${release.title} ${translations[lang].byConnector} ${release.artistName}](${absoluteUrl(lang, `portfolio/${releaseId(release)}/`)}) (${genre}${isoDate(release.releaseDate)})`;
 };
 
-const equipmentItemLine = (item, equipmentType, lang) => {
+const equipmentItemLine = (item: EquipmentItemData, equipmentType: string, lang: Lang) => {
     const itemName = `${item.brand} ${item.model}`;
     return `- [${itemName}](${absoluteUrl(lang, `equipment/${equipmentType}/${equipmentItemId(item)}/`)})`;
 };
 
 /* --- home ----------------------------------------------------------------- */
 
-const homeIntro = {
-    no: (languageSlug) => [
+const homeIntro: Record<Lang, (languageSlug: string) => string[]> = {
+    no: (languageSlug: string) => [
         "Dehli Musikk er et enkeltpersonsforetak drevet av keyboardist og produsent Benjamin Dehli og tilbyr spilling av tangentinstrumenter på låter for artister og band.",
         "",
         "Har du en låt som skal spilles inn og mangler tangenter, ta gjerne kontakt på [Facebook](https://www.facebook.com/DehliMusikk/) eller [e-post](mailto:superelg@gmail.com).",
@@ -296,7 +366,7 @@ const homeIntro = {
         `Sjekk ut [porteføljen](${WEBSITE_URL}/${languageSlug}portfolio/) om du vil høre utgivelser Benjamin Dehli (Dehli Musikk) har bidratt på.`,
         ""
     ],
-    en: (languageSlug) => [
+    en: (languageSlug: string) => [
         "Dehli Musikk is a sole proprietorship run by keyboard player and producer Benjamin Dehli and offers keyboard instrument tracks on recordings for artists and bands.",
         "",
         "If you're recording a song and want some keyboard instrument tracks, feel free to contact me on [Facebook](https://www.facebook.com/DehliMusikk/) or [email](mailto:superelg@gmail.com).",
@@ -306,10 +376,10 @@ const homeIntro = {
     ]
 };
 
-export function getHomeMarkdown(lang) {
+export function getHomeMarkdown(lang: Lang) {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
-    const seeAll = (label, path) => [`[${t.seeAll(label)}](${absoluteUrl(lang, path)})`];
+    const seeAll = (label: string, path: string) => [`[${t.seeAll(label)}](${absoluteUrl(lang, path)})`];
 
     return markdownDocument({
         lang,
@@ -330,7 +400,7 @@ export function getHomeMarkdown(lang) {
 
 /* --- products ------------------------------------------------------------- */
 
-export function getProductsMarkdown(lang) {
+export function getProductsMarkdown(lang: Lang) {
     const t = translations[lang];
     return markdownDocument({
         lang,
@@ -342,7 +412,7 @@ export function getProductsMarkdown(lang) {
     });
 }
 
-export function getProductMarkdown(lang, id) {
+export function getProductMarkdown(lang: Lang, id: string) {
     const product = products.find((candidate) => productId(candidate) === id);
     if (!product) return null;
 
@@ -379,7 +449,7 @@ export const getProductIds = () => products.map(productId);
 
 /* --- posts ---------------------------------------------------------------- */
 
-export function getPostsMarkdown(lang) {
+export function getPostsMarkdown(lang: Lang) {
     const t = translations[lang];
     return markdownDocument({
         lang,
@@ -391,7 +461,7 @@ export function getPostsMarkdown(lang) {
     });
 }
 
-export function getPostMarkdown(lang, id) {
+export function getPostMarkdown(lang: Lang, id: string) {
     const post = posts.find((candidate) => postId(candidate, lang) === id);
     if (!post) return null;
 
@@ -412,16 +482,16 @@ export function getPostMarkdown(lang, id) {
             "",
             // Stands on its own rather than sitting under a "Read more" label,
             // because the link's own text already says where it goes.
-            ...(linkTo(post.link, lang) ? [linkTo(post.link, lang), ""] : [])
+            ...(linkTo(post.link, lang) ? [linkTo(post.link, lang) as string, ""] : [])
         ]
     });
 }
 
-export const getPostIds = (lang) => posts.map((post) => postId(post, lang));
+export const getPostIds = (lang: Lang) => (posts as Post[]).map((post) => postId(post, lang));
 
 /* --- videos --------------------------------------------------------------- */
 
-export function getVideosMarkdown(lang) {
+export function getVideosMarkdown(lang: Lang) {
     const t = translations[lang];
     return markdownDocument({
         lang,
@@ -437,13 +507,13 @@ export function getVideosMarkdown(lang) {
  * Chapter offsets are seconds from the start of the video. Rendered as the
  * timestamps a reader would see on YouTube rather than as raw offsets.
  */
-const formatOffset = (seconds) => {
+const formatOffset = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainder = seconds % 60;
     return `${minutes}:${String(remainder).padStart(2, "0")}`;
 };
 
-export function getVideoMarkdown(lang, id, { theater = false } = {}) {
+export function getVideoMarkdown(lang: Lang, id: string, { theater = false }: { theater?: boolean } = {}) {
     const video = videos.find((candidate) => videoId(candidate, lang) === id);
     if (!video) return null;
 
@@ -471,11 +541,11 @@ export function getVideoMarkdown(lang, id, { theater = false } = {}) {
     });
 }
 
-export const getVideoIds = (lang) => videos.map((video) => videoId(video, lang));
+export const getVideoIds = (lang: Lang) => (videos as Video[]).map((video) => videoId(video, lang));
 
 /* --- portfolio ------------------------------------------------------------ */
 
-export function getPortfolioMarkdown(lang) {
+export function getPortfolioMarkdown(lang: Lang) {
     const t = translations[lang];
     return markdownDocument({
         lang,
@@ -487,7 +557,7 @@ export function getPortfolioMarkdown(lang) {
     });
 }
 
-const STREAMING_SERVICE_NAMES = {
+const STREAMING_SERVICE_NAMES: Record<string, string> = {
     spotify: "Spotify",
     appleMusic: "Apple Music",
     amazon: "Amazon Music",
@@ -499,7 +569,7 @@ const STREAMING_SERVICE_NAMES = {
     bandcamp: "Bandcamp"
 };
 
-export function getReleaseMarkdown(lang, id) {
+export function getReleaseMarkdown(lang: Lang, id: string) {
     const release = releases.find((candidate) => releaseId(candidate) === id);
     if (!release) return null;
 
@@ -534,7 +604,7 @@ export const getReleaseIds = () => releases.map(releaseId);
 
 /* --- equipment ------------------------------------------------------------ */
 
-export function getEquipmentMarkdown(lang) {
+export function getEquipmentMarkdown(lang: Lang) {
     const t = translations[lang];
     return markdownDocument({
         lang,
@@ -554,8 +624,8 @@ export function getEquipmentMarkdown(lang) {
     });
 }
 
-export function getEquipmentTypeMarkdown(lang, equipmentType) {
-    const equipmentTypeData = equipment[equipmentType];
+export function getEquipmentTypeMarkdown(lang: Lang, equipmentType: string) {
+    const equipmentTypeData = equipment[equipmentType as EquipmentTypeKey];
     if (!equipmentTypeData) return null;
 
     const t = translations[lang];
@@ -570,8 +640,8 @@ export function getEquipmentTypeMarkdown(lang, equipmentType) {
     });
 }
 
-export function getEquipmentItemMarkdown(lang, equipmentType, id) {
-    const equipmentTypeData = equipment[equipmentType];
+export function getEquipmentItemMarkdown(lang: Lang, equipmentType: string, id: string) {
+    const equipmentTypeData = equipment[equipmentType as EquipmentTypeKey];
     if (!equipmentTypeData) return null;
     const item = equipmentTypeData.items.find((candidate) => equipmentItemId(candidate) === id);
     if (!item) return null;
@@ -611,7 +681,7 @@ export const getEquipmentItemIds = () =>
 
 /* --- frequently asked questions ------------------------------------------- */
 
-export function getFaqMarkdown(lang) {
+export function getFaqMarkdown(lang: Lang) {
     const t = translations[lang];
     return markdownDocument({
         lang,

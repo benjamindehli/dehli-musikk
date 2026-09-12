@@ -1,3 +1,5 @@
+import type { Product } from "types/content";
+
 /*
  * The URLs from a product's sameAs that are worth showing a reader, used by the
  * markdown twins and by llms-full.txt.
@@ -25,13 +27,13 @@ const REDUNDANT_HOSTS = ["dehlimusikk.gumroad.com", "cylex.no"];
 
 // Deliberately not new URL(): this runs while the static export is being built,
 // where one malformed string in the data should not take the whole build down.
-const hostOf = (url) =>
+const hostOf = (url: string): string =>
     url
         .replace(/^https?:\/\//, "")
         .replace(/^www\./, "")
         .split("/")[0];
 
-export const getAdditionalProductLinks = (product) => {
+export const getAdditionalProductLinks = (product: Product): string[] => {
     const alreadyShown = [product.link?.url, product.documentationLink?.url].filter(Boolean);
-    return (product.sameAs ?? []).filter((url) => !alreadyShown.includes(url) && !REDUNDANT_HOSTS.includes(hostOf(url)));
+    return (product.sameAs ?? []).filter((url: string) => !alreadyShown.includes(url) && !REDUNDANT_HOSTS.includes(hostOf(url)));
 };

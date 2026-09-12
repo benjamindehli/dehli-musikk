@@ -1,3 +1,5 @@
+import type { Lang } from "lib/pageMetadata";
+import type { Product } from "types/content";
 // Helpers
 import { formatContentAsString } from "./contentFormatter";
 import { getPlusOneYear } from "./dateFormatter";
@@ -44,13 +46,13 @@ const SAMPLE_INSTRUMENT_OPERATING_SYSTEMS = "macOS, Windows, Linux";
  * A product missing from here gets no operatingSystem at all rather than a
  * guess, which is what leaving it out of this map means.
  */
-const SOFTWARE_OPERATING_SYSTEMS = {
+const SOFTWARE_OPERATING_SYSTEMS: Record<string, string> = {
     overtonium: "macOS, Windows, Linux",
     "sidstation-asid": "macOS, Windows, Linux",
     "microsampler-editor-librarian": "macOS, Linux"
 };
 
-function generateSoftwareApplicationProperties(product, productId) {
+function generateSoftwareApplicationProperties(product: Product, productId: string) {
     const [category, ...platforms] = product.productType || [];
     if (!SOFTWARE_PRODUCT_CATEGORIES.includes(category)) return null;
     return {
@@ -71,7 +73,7 @@ function generateSoftwareApplicationProperties(product, productId) {
     };
 }
 
-export function generateProductSnippet(product, languageSlug, selectedLanguageKey) {
+export function generateProductSnippet(product: Product, languageSlug: string, selectedLanguageKey: Lang) {
     const productId = convertToUrlFriendlyString(product.title);
 
     const productDate = new Date(product.timestamp).toISOString();

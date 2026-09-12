@@ -1,3 +1,73 @@
+import type { Lang } from "lib/pageMetadata";
+import type { EquipmentItemData } from "data/equipment";
+import type { Localized } from "types/content";
+
+/*
+ * The trimmed shapes the search box downloads, as helpers/searchDataHelpers
+ * builds them. They are narrower than the content model in types/content: only
+ * the fields scored or rendered here survive the trip to the browser.
+ */
+type SearchableRelease = {
+    artistName: string;
+    title: string;
+    genre: string;
+    releaseDate: number;
+    duration: number;
+    thumbnailFilename: string;
+    unreleased?: boolean;
+};
+
+type SearchablePost = {
+    title: Localized;
+    content: Localized;
+    thumbnailFilename: string;
+    thumbnailDescription: string;
+};
+
+type SearchableVideo = SearchablePost;
+
+type SearchableProduct = {
+    title: string;
+    content: Localized;
+};
+
+type SearchableEquipmentType = {
+    equipmentType: string;
+    name: Localized;
+    items: EquipmentItemData[];
+};
+
+type SearchableFaq = {
+    question: Localized;
+    answer: Localized;
+};
+
+/** Thumbnails are offered in three formats; releases fall back to a PNG placeholder. */
+type ThumbnailPaths = {
+    avif: string;
+    webp: string;
+    jpg?: string;
+    png?: string;
+};
+
+/*
+ * One scored hit. `type` doubles as the category key, so an equipment hit
+ * carries its equipment type rather than "equipment". `hash` is FAQ-only: those
+ * link to a panel on the FAQ page instead of a page of their own.
+ */
+export type SearchResult = {
+    type: string;
+    text: string;
+    label: string;
+    excerpt?: string;
+    thumbnailPaths: ThumbnailPaths;
+    thumbnailDescription: string;
+    points: number;
+    link: string;
+    linkTitle?: string;
+    hash?: string;
+};
+
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 // From contentText, not contentFormatter: this module is plain string work and
@@ -5,7 +75,7 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { formatContentAsString } from "./contentText";
 
 // Get from /public/data
-const getJsonData = async (fileName) => {
+const getJsonData = async (fileName: string) => {
     try {
         const response = await fetch(`/data/${fileName}.json`);
         return await response.json();
@@ -15,18 +85,18 @@ const getJsonData = async (fileName) => {
     }
 };
 
-let releases;
-let posts;
-let videos;
-let products;
-let equipmentTypes;
-let frequentlyAskedQuestions;
+let releases: SearchableRelease[] | null;
+let posts: SearchablePost[] | null;
+let videos: SearchableVideo[] | null;
+let products: SearchableProduct[] | null;
+let equipmentTypes: Record<string, SearchableEquipmentType> | null;
+let frequentlyAskedQuestions: SearchableFaq[] | null;
 
-const getLanguageSlug = (selectedLanguageKey) => {
+const getLanguageSlug = (selectedLanguageKey: Lang) => {
     return selectedLanguageKey === "en" ? "en/" : "";
 };
 
-export const convertStringToExcerpt = (string) => {
+export const convertStringToExcerpt = (string: string | null | undefined): string => {
     if (!string?.trim().length) {
         return "";
     }
@@ -37,7 +107,7 @@ export const convertStringToExcerpt = (string) => {
 };
 
 // Get search points
-const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguageKey) => {
+const getSearchPointsFromRelease = (release: SearchableRelease, searchStringWords: string[], selectedLanguageKey: Lang): SearchResult => {
     const id = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
     const link = `/${getLanguageSlug(selectedLanguageKey)}portfolio/${id}/`;
     const linkTitle = `${selectedLanguageKey === "en" ? "Listen to" : "Lytt til"} ${release.title}`;
@@ -103,9 +173,16 @@ const getSearchPointsFromRelease = (release, searchStringWords, selectedLanguage
     };
 };
 
-const getSearchPointsFromPost = (post, searchStringWords, selectedLanguageKey) => {
+const getSearchPointsFromPost = (post: SearchablePost, searchStringWords: string[], selectedLanguageKey: Lang): SearchResult => {
     if (!post) {
-        return null;
+        /*
+         * Unreachable, and the only one of the six scorers with this guard. Its
+         * five siblings have none, and every caller reads result.points straight
+         * off the mapped value, so a null returned here would throw one line
+         * later rather than being skipped. The assertion keeps the runtime
+         * exactly as it was instead of quietly widening the contract.
+         */
+        return null!;
     }
 
     const id = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
@@ -150,7 +227,7 @@ const getSearchPointsFromPost = (post, searchStringWords, selectedLanguageKey) =
     };
 };
 
-const getSearchPointsFromVideos = (video, searchStringWords, selectedLanguageKey) => {
+const getSearchPointsFromVideos = (video: SearchableVideo, searchStringWords: string[], selectedLanguageKey: Lang): SearchResult => {
     const id = convertToUrlFriendlyString(video.title[selectedLanguageKey]);
     const link = `/${getLanguageSlug(selectedLanguageKey)}videos/${id}/`;
     const linkTitle = video.title[selectedLanguageKey];
@@ -193,7 +270,7 @@ const getSearchPointsFromVideos = (video, searchStringWords, selectedLanguageKey
     };
 };
 
-const getSearchPointsFromProduct = (product, searchStringWords, selectedLanguageKey) => {
+const getSearchPointsFromProduct = (product: SearchableProduct, searchStringWords: string[], selectedLanguageKey: Lang): SearchResult => {
     const id = convertToUrlFriendlyString(product.title);
     const link = `/${getLanguageSlug(selectedLanguageKey)}products/${id}/`;
     const linkTitle = product.title;
@@ -236,7 +313,13 @@ const getSearchPointsFromProduct = (product, searchStringWords, selectedLanguage
     };
 };
 
-const getSearchPointsFromEquipmentItems = (item, equipmentType, equipmentTypeKey, searchStringWords, selectedLanguageKey) => {
+const getSearchPointsFromEquipmentItems = (
+    item: EquipmentItemData,
+    equipmentType: SearchableEquipmentType,
+    equipmentTypeKey: string,
+    searchStringWords: string[],
+    selectedLanguageKey: Lang
+): SearchResult => {
     const id = convertToUrlFriendlyString(`${item.brand} ${item.model}`);
     const link = `/${getLanguageSlug(selectedLanguageKey)}equipment/${equipmentTypeKey}/${id}/`;
     const linkTitle = `${item.brand} ${item.model}`;
@@ -281,7 +364,7 @@ const getSearchPointsFromEquipmentItems = (item, equipmentType, equipmentTypeKey
     };
 };
 
-const getSearchPointsFromFrequentlyAskedQuestions = (faq, searchStringWords, selectedLanguageKey) => {
+const getSearchPointsFromFrequentlyAskedQuestions = (faq: SearchableFaq, searchStringWords: string[], selectedLanguageKey: Lang): SearchResult => {
     const question = faq.question[selectedLanguageKey];
     const answer = faq.answer[selectedLanguageKey];
     const link = `/${getLanguageSlug(selectedLanguageKey)}frequently-asked-questions/`;
@@ -326,7 +409,7 @@ const getSearchPointsFromFrequentlyAskedQuestions = (faq, searchStringWords, sel
 };
 
 // Get search results
-const getSearchResultsFromReleases = (releases, searchStringWords, selectedLanguageKey) => {
+const getSearchResultsFromReleases = (releases: SearchableRelease[] | null, searchStringWords: string[], selectedLanguageKey: Lang) => {
     if (!releases?.length) {
         return null;
     }
@@ -338,7 +421,7 @@ const getSearchResultsFromReleases = (releases, searchStringWords, selectedLangu
     });
 };
 
-const getSearchResultsFromPosts = (posts, searchStringWords, selectedLanguageKey) => {
+const getSearchResultsFromPosts = (posts: SearchablePost[] | null, searchStringWords: string[], selectedLanguageKey: Lang) => {
     if (!posts?.length) {
         return null;
     }
@@ -350,7 +433,7 @@ const getSearchResultsFromPosts = (posts, searchStringWords, selectedLanguageKey
     });
 };
 
-const getSearchResultsFromVideos = (videos, searchStringWords, selectedLanguageKey) => {
+const getSearchResultsFromVideos = (videos: SearchableVideo[] | null, searchStringWords: string[], selectedLanguageKey: Lang) => {
     if (!videos?.length) {
         return null;
     }
@@ -362,7 +445,7 @@ const getSearchResultsFromVideos = (videos, searchStringWords, selectedLanguageK
     });
 };
 
-const getSearchResultsFromProducts = (products, searchStringWords, selectedLanguageKey) => {
+const getSearchResultsFromProducts = (products: SearchableProduct[] | null, searchStringWords: string[], selectedLanguageKey: Lang) => {
     if (!products?.length) {
         return null;
     }
@@ -374,7 +457,12 @@ const getSearchResultsFromProducts = (products, searchStringWords, selectedLangu
     });
 };
 
-const getSearchResultsFromEquipmentTypes = (equipmentTypes, searchStringWords, selectedLanguageKey, searchCategory) => {
+const getSearchResultsFromEquipmentTypes = (
+    equipmentTypes: Record<string, SearchableEquipmentType> | null,
+    searchStringWords: string[],
+    selectedLanguageKey: Lang,
+    searchCategory: string
+) => {
     /*
      * Keyed by type - instruments, effects, amplifiers - rather than an array, so
      * the .length test this used to do always read undefined and returned early.
@@ -384,7 +472,7 @@ const getSearchResultsFromEquipmentTypes = (equipmentTypes, searchStringWords, s
     if (!equipmentTypes || !Object.keys(equipmentTypes).length) {
         return null;
     }
-    let searchResultsFromEquipmentTypes = [];
+    let searchResultsFromEquipmentTypes: SearchResult[] = [];
     if (searchCategory === "all") {
         Object.keys(equipmentTypes).forEach((equipmentTypeKey) => {
             const equipmentType = equipmentTypes[equipmentTypeKey];
@@ -394,7 +482,7 @@ const getSearchResultsFromEquipmentTypes = (equipmentTypes, searchStringWords, s
                 searchStringWords,
                 selectedLanguageKey
             );
-            searchResultsFromEquipmentTypes = searchResultsFromEquipmentTypes.concat(searchResultsFromEquipmentType);
+            searchResultsFromEquipmentTypes = searchResultsFromEquipmentTypes.concat(searchResultsFromEquipmentType as SearchResult[]);
         });
     } else if (["amplifiers", "effects", "instruments"].includes(searchCategory)) {
         const equipmentType = equipmentTypes[searchCategory];
@@ -404,14 +492,19 @@ const getSearchResultsFromEquipmentTypes = (equipmentTypes, searchStringWords, s
             searchStringWords,
             selectedLanguageKey
         );
-        searchResultsFromEquipmentTypes = searchResultsFromEquipmentTypes.concat(searchResultsFromEquipmentType);
+        searchResultsFromEquipmentTypes = searchResultsFromEquipmentTypes.concat(searchResultsFromEquipmentType as SearchResult[]);
     } else {
         return [];
     }
     return searchResultsFromEquipmentTypes;
 };
 
-const getSearchResultsFromEquipmentType = (equipmentType, equipmentTypeKey, searchStringWords, selectedLanguageKey) => {
+const getSearchResultsFromEquipmentType = (
+    equipmentType: SearchableEquipmentType,
+    equipmentTypeKey: string,
+    searchStringWords: string[],
+    selectedLanguageKey: Lang
+) => {
     if (!equipmentType?.items?.length) {
         return null;
     }
@@ -423,7 +516,7 @@ const getSearchResultsFromEquipmentType = (equipmentType, equipmentTypeKey, sear
     });
 };
 
-const getSearchResultsFromFrequentlyAskedQuestions = (faqs, searchStringWords, selectedLanguageKey) => {
+const getSearchResultsFromFrequentlyAskedQuestions = (faqs: SearchableFaq[] | null, searchStringWords: string[], selectedLanguageKey: Lang) => {
     if (!faqs?.length) {
         return null;
     }
@@ -435,7 +528,11 @@ const getSearchResultsFromFrequentlyAskedQuestions = (faqs, searchStringWords, s
     });
 };
 
-export const getSearchResults = async (query, selectedLanguageKey, searchCategory = "all") => {
+export const getSearchResults = async (
+    query: string,
+    selectedLanguageKey: Lang,
+    searchCategory = "all"
+): Promise<SearchResult[] | null | undefined> => {
     let searchString = query.replace(/[^a-å0-9- ]+/gi, ""); // Removes unwanted characters
     searchString = searchString.replace(/\s\s+/g, " "); // Remove redundant whitespace
     const searchStringWords = searchString.split(" ").filter((searchStringWord) => {
@@ -471,12 +568,18 @@ export const getSearchResults = async (query, selectedLanguageKey, searchCategor
             searchCategory === "faq" || searchCategory === "all"
                 ? getSearchResultsFromFrequentlyAskedQuestions(frequentlyAskedQuestions, searchStringWords, selectedLanguageKey)
                 : [];
+        /*
+         * Each of these is null when its category had no data, and concat splices
+         * a null in as an element rather than skipping it. The filter below drops
+         * those again, which is why the casts state the array type rather than
+         * the code guarding each argument.
+         */
         const results = searchResultsFromReleases?.concat(
-            searchResultsFromPosts,
-            searchResultsFromVideos,
-            searchResultsFromProducts,
-            searchResultsFromEquipmentTypes,
-            searchResultsFromFrequentlyAskedQuestions
+            searchResultsFromPosts as SearchResult[],
+            searchResultsFromVideos as SearchResult[],
+            searchResultsFromProducts as SearchResult[],
+            searchResultsFromEquipmentTypes as SearchResult[],
+            searchResultsFromFrequentlyAskedQuestions as SearchResult[]
         );
         return results?.filter((result) => result).sort((a, b) => b.points - a.points);
     } else {

@@ -1,4 +1,4 @@
-export function convertToXmlFriendlyString(string) {
+export function convertToXmlFriendlyString(string: string | null | undefined): string {
     if (string) {
         // Character replace
         string = string.replace(/&/g, "&amp;");

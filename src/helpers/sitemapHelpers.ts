@@ -1,3 +1,42 @@
+import type { Lang } from "lib/pageMetadata";
+import type { EquipmentItemData, EquipmentType } from "data/equipment";
+import type { Post, Product, Release, Video } from "types/content";
+
+type EquipmentTypes = Record<string, EquipmentType>;
+
+/*
+ * One <image:image> entry. License and geo location are carried only by the
+ * images the site holds the copyright to.
+ */
+type SitemapImage = {
+    loc: string;
+    caption: string;
+    title: string;
+    license?: string;
+    geoLocation?: string;
+};
+
+/*
+ * Anything a list page can take its lastmod from. The date field differs per
+ * collection, which is why the key is passed in rather than assumed.
+ */
+type DatedItem = { lastmod?: number; [key: string]: unknown };
+
+/* What renderMultilingualUrlObjects emits: the shape next-sitemap consumes. */
+type SitemapUrlEntry = {
+    url: string;
+    lastModified: Date | undefined;
+    alternates: { languages: Record<string, string> };
+};
+
+type SitemapInput = {
+    equipmentTypes: EquipmentTypes;
+    posts: Post[];
+    products: Product[];
+    releases: Release[];
+    videos: Video[];
+};
+
 // Helpers
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { convertToXmlFriendlyString } from "helpers/xmlStringFormatter";
@@ -6,16 +45,16 @@ import { formatContentAsString } from "helpers/contentFormatter";
 import { SITE_ORIGIN } from "lib/constants";
 
 // Redux store
-const languageSlug = {
+const languageSlug: Record<Lang, string> = {
     no: "",
     en: "en/"
 };
 
-function absoluteUrl(url) {
+function absoluteUrl(url: string): string {
     return url?.startsWith("http") ? url : `${SITE_ORIGIN}${url}`;
 }
 
-function renderNewsUrlElement(url, post, languageKey) {
+function renderNewsUrlElement(url: string, post: Post, languageKey: Lang) {
     const date = new Date(post.timestamp);
     const dateYear = date.getFullYear();
     const dateMonth = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
@@ -31,7 +70,7 @@ function renderNewsUrlElement(url, post, languageKey) {
   </url>\n`;
 }
 
-function renderVideoUrlElement(url, video, languageKey) {
+function renderVideoUrlElement(url: string, video: Video, languageKey: Lang) {
     const date = new Date(video.timestamp);
     const dateYear = date.getFullYear();
     const dateMonth = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
@@ -56,13 +95,13 @@ function renderVideoUrlElement(url, video, languageKey) {
   </url>\n`;
 }
 
-function renderImageUrlElement(image) {
+function renderImageUrlElement(image: SitemapImage) {
     const imageLicense = image.license ? `<image:license>${image.license}</image:license>` : "";
     const imageGeoLocation = image.geoLocation ? `<image:geo_location>${image.geoLocation}</image:geo_location>` : "";
     return `<image:image><image:loc>${SITE_ORIGIN}${image.loc}</image:loc><image:title>${image.title}</image:title><image:caption>${image.caption}</image:caption>${imageLicense}${imageGeoLocation}</image:image>`;
 }
 
-function renderImagePageUrlElement(url, images) {
+function renderImagePageUrlElement(url: string, images: SitemapImage[]) {
     let imageUrlElements = "";
     images.forEach((image) => {
         imageUrlElements += renderImageUrlElement(image);
@@ -73,7 +112,7 @@ function renderImagePageUrlElement(url, images) {
   </url>\n`;
 }
 
-function renderMultilingualUrlObjects(norwegianUrl, englishUrl, timestamp) {
+function renderMultilingualUrlObjects(norwegianUrl: string, englishUrl: string, timestamp?: number) {
     // Matches buildAlternates() in lib/pageMetadata: Norwegian is x-default.
     const languages = {
         no: absoluteUrl(norwegianUrl),
@@ -104,13 +143,13 @@ function renderMultilingualUrlObjects(norwegianUrl, englishUrl, timestamp) {
  * releaseDate. Equipment and the FAQ carry no dates at all, so those list pages
  * are left without a lastmod rather than given an invented one.
  */
-function getNewestTimestamp(items, dateKey = "timestamp") {
+function getNewestTimestamp(items: DatedItem[], dateKey = "timestamp") {
     if (!items?.length) return undefined;
-    const timestamps = items.map((item) => item?.lastmod || item?.[dateKey]).filter(Boolean);
+    const timestamps = items.map((item) => item?.lastmod || item?.[dateKey]).filter(Boolean) as number[];
     return timestamps.length ? Math.max(...timestamps) : undefined;
 }
 
-function renderHome(posts, videos, products, releases) {
+function renderHome(posts: Post[], videos: Video[], products: Product[], releases: Release[]) {
     const urlNorwegianPage = `${languageSlug.no}`;
     const urlEnglishPage = `${languageSlug.en}`;
     // The home page surfaces the latest of everything, so any of them can change it
@@ -120,34 +159,34 @@ function renderHome(posts, videos, products, releases) {
         getNewestTimestamp(products),
         getNewestTimestamp(releases, "releaseDate")
     ].filter(Boolean);
-    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, newest.length ? Math.max(...newest) : undefined);
+    return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, newest.length ? Math.max(...(newest as number[])) : undefined);
 }
 
-function renderPostsList(posts) {
+function renderPostsList(posts: Post[]) {
     const urlNorwegianPage = `${languageSlug.no}posts/`;
     const urlEnglishPage = `${languageSlug.en}posts/`;
     return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, getNewestTimestamp(posts));
 }
 
-function renderVideosList(videos) {
+function renderVideosList(videos: Video[]) {
     const urlNorwegianPage = `${languageSlug.no}videos/`;
     const urlEnglishPage = `${languageSlug.en}videos/`;
     return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, getNewestTimestamp(videos));
 }
 
-function renderProductsList(products) {
+function renderProductsList(products: Product[]) {
     const urlNorwegianPage = `${languageSlug.no}products/`;
     const urlEnglishPage = `${languageSlug.en}products/`;
     return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, getNewestTimestamp(products));
 }
 
-function renderReleasesList(releases) {
+function renderReleasesList(releases: Release[]) {
     const urlNorwegianPage = `${languageSlug.no}portfolio/`;
     const urlEnglishPage = `${languageSlug.en}portfolio/`;
     return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage, getNewestTimestamp(releases, "releaseDate"));
 }
 
-function renderEquipmentTypesList(equipmentTypes) {
+function renderEquipmentTypesList(equipmentTypes: EquipmentTypes) {
     const urlNorwegianPage = `${languageSlug.no}equipment/`;
     const urlEnglishPage = `${languageSlug.en}equipment/`;
     let equipmentTypeElements = renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage);
@@ -167,7 +206,7 @@ function renderFaqList() {
     return renderMultilingualUrlObjects(urlNorwegianPage, urlEnglishPage);
 }
 
-function renderPostsDetails(posts) {
+function renderPostsDetails(posts: Post[]) {
     return posts?.length
         ? posts.flatMap((post) => {
               const urlNorwegianPage = `${languageSlug.no}posts/${convertToUrlFriendlyString(post.title.no)}/`;
@@ -180,7 +219,7 @@ function renderPostsDetails(posts) {
 
 // Only the /video/ URL is listed: /videos/{slug}/ serves the same content and
 // canonicalises to it, so submitting both would offer Google a duplicate.
-function renderVideosDetailsVideo(videos) {
+function renderVideosDetailsVideo(videos: Video[]) {
     return videos?.length
         ? videos.flatMap((video) => {
               const urlNorwegianPage = `${languageSlug.no}videos/${convertToUrlFriendlyString(video.title.no)}/video/`;
@@ -191,7 +230,7 @@ function renderVideosDetailsVideo(videos) {
         : [];
 }
 
-function renderProductsDetails(products) {
+function renderProductsDetails(products: Product[]) {
     return products?.length
         ? products.flatMap((product) => {
               const urlNorwegianPage = `${languageSlug.no}products/${convertToUrlFriendlyString(product.title)}/`;
@@ -202,7 +241,7 @@ function renderProductsDetails(products) {
         : [];
 }
 
-function renderReleasesDetails(releases) {
+function renderReleasesDetails(releases: Release[]) {
     return releases?.length
         ? releases.flatMap((release) => {
               const relaseId = `${release.artistName} ${release.title}`;
@@ -214,10 +253,10 @@ function renderReleasesDetails(releases) {
         : [];
 }
 
-function renderEquipmentDetails(equipmentTypes) {
+function renderEquipmentDetails(equipmentTypes: EquipmentTypes) {
     const urlNorwegianPage = `${languageSlug.no}equipment/`;
     const urlEnglishPage = `${languageSlug.en}equipment/`;
-    let equipmentDetailsElements = [];
+    let equipmentDetailsElements: SitemapUrlEntry[] = [];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
         Object.keys(equipmentTypes).forEach((equipmentTypeKey) => {
             const equipmentItems = equipmentTypes[equipmentTypeKey].items;
@@ -232,15 +271,15 @@ function renderEquipmentDetails(equipmentTypes) {
     return equipmentDetailsElements;
 }
 
-function getImagesFromPost(post, languageKey) {
-    let images = [];
+function getImagesFromPost(post: Post, languageKey: Lang) {
+    const images: SitemapImage[] = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
     formats.forEach((format) => {
         const imagePath = `data/posts/web/${format}/${post.thumbnailFilename}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
-            let image = {
+            const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(post.thumbnailDescription),
                 title: convertToXmlFriendlyString(post.title[languageKey])
@@ -255,15 +294,15 @@ function getImagesFromPost(post, languageKey) {
     return images;
 }
 
-function getImagesFromVideo(video, languageKey) {
-    let images = [];
+function getImagesFromVideo(video: Video, languageKey: Lang) {
+    const images: SitemapImage[] = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
     formats.forEach((format) => {
         const imagePath = `data/videos/web/${format}/${video.thumbnailFilename}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
-            let image = {
+            const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(video.thumbnailDescription),
                 title: convertToXmlFriendlyString(video.title[languageKey])
@@ -278,15 +317,15 @@ function getImagesFromVideo(video, languageKey) {
     return images;
 }
 
-function getImagesFromProduct(product) {
-    let images = [];
+function getImagesFromProduct(product: Product) {
+    const images: SitemapImage[] = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
     formats.forEach((format) => {
         const imagePath = `data/products/web/${format}/${convertToUrlFriendlyString(product.title)}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
-            let image = {
+            const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(product.thumbnailDescription),
                 title: convertToXmlFriendlyString(product.title),
@@ -299,12 +338,12 @@ function getImagesFromProduct(product) {
     return images;
 }
 
-function getImagesFromRelease(release, languageKey) {
+function getImagesFromRelease(release: Release, languageKey: Lang) {
     // Unreleased entries show a shared "coming soon" placeholder rather than
     // cover art, so there is nothing release-specific to submit.
     if (release.unreleased) return [];
 
-    let images = [];
+    const images: SitemapImage[] = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
     const connector = languageKey === "en" ? "by" : "av";
@@ -323,8 +362,8 @@ function getImagesFromRelease(release, languageKey) {
     return images;
 }
 
-function getImagesFromEquipmentType(equipmentType, languageKey) {
-    let images = [];
+function getImagesFromEquipmentType(equipmentType: EquipmentType, languageKey: Lang) {
+    const images: SitemapImage[] = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540, 945];
 
@@ -332,7 +371,7 @@ function getImagesFromEquipmentType(equipmentType, languageKey) {
         const imagePath = `data/equipment/web/${format}/${equipmentType.equipmentType}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
-            let image = {
+            const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(equipmentType.name[languageKey]),
                 title: convertToXmlFriendlyString(equipmentType.name[languageKey]),
@@ -345,8 +384,8 @@ function getImagesFromEquipmentType(equipmentType, languageKey) {
     return images;
 }
 
-function getImagesFromEquipmentItem(equipmentItem, equipmentType) {
-    let images = [];
+function getImagesFromEquipmentItem(equipmentItem: EquipmentItemData, equipmentType: string) {
+    const images: SitemapImage[] = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540, 945];
 
@@ -355,7 +394,7 @@ function getImagesFromEquipmentItem(equipmentItem, equipmentType) {
         const imagePath = `data/equipment/${equipmentType}/web/${format}/${imageFileName}`;
         sizes.forEach((size) => {
             const imageLoc = `${imagePath}_${size}.${format}`;
-            let image = {
+            const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(`${equipmentItem.model} by ${equipmentItem.brand}`),
                 title: convertToXmlFriendlyString(`${equipmentItem.brand} ${equipmentItem.model}`),
@@ -368,11 +407,11 @@ function getImagesFromEquipmentItem(equipmentItem, equipmentType) {
     return images;
 }
 
-function renderPostsListImages(posts) {
+function renderPostsListImages(posts: Post[]) {
     const urlNorwegianPage = `${languageSlug.no}posts/`;
     const urlEnglishPage = `${languageSlug.en}posts/`;
-    let norwegianImages = [];
-    let englishImages = [];
+    let norwegianImages: SitemapImage[] = [];
+    let englishImages: SitemapImage[] = [];
     if (posts?.length) {
         posts.forEach((post) => {
             norwegianImages = norwegianImages.concat(getImagesFromPost(post, "no"));
@@ -382,11 +421,11 @@ function renderPostsListImages(posts) {
     return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
-function renderVideosListImages(videos) {
+function renderVideosListImages(videos: Video[]) {
     const urlNorwegianPage = `${languageSlug.no}videos/`;
     const urlEnglishPage = `${languageSlug.en}videos/`;
-    let norwegianImages = [];
-    let englishImages = [];
+    let norwegianImages: SitemapImage[] = [];
+    let englishImages: SitemapImage[] = [];
     if (videos?.length) {
         videos.forEach((video) => {
             norwegianImages = norwegianImages.concat(getImagesFromVideo(video, "no"));
@@ -396,11 +435,11 @@ function renderVideosListImages(videos) {
     return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
-function renderProductsListImages(products) {
+function renderProductsListImages(products: Product[]) {
     const urlNorwegianPage = `${languageSlug.no}products/`;
     const urlEnglishPage = `${languageSlug.en}products/`;
-    let norwegianImages = [];
-    let englishImages = [];
+    let norwegianImages: SitemapImage[] = [];
+    let englishImages: SitemapImage[] = [];
     if (products?.length) {
         products.forEach((product) => {
             norwegianImages = norwegianImages.concat(getImagesFromProduct(product));
@@ -410,11 +449,11 @@ function renderProductsListImages(products) {
     return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
-function renderReleasesListImages(releases) {
+function renderReleasesListImages(releases: Release[]) {
     const urlNorwegianPage = `${languageSlug.no}portfolio/`;
     const urlEnglishPage = `${languageSlug.en}portfolio/`;
-    let norwegianImages = [];
-    let englishImages = [];
+    let norwegianImages: SitemapImage[] = [];
+    let englishImages: SitemapImage[] = [];
     if (releases?.length) {
         releases.forEach((release) => {
             norwegianImages = norwegianImages.concat(getImagesFromRelease(release, "no"));
@@ -424,7 +463,7 @@ function renderReleasesListImages(releases) {
     return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
-function renderReleasesDetailsImages(releases) {
+function renderReleasesDetailsImages(releases: Release[]) {
     return releases?.length
         ? releases
               .map((release) => {
@@ -441,11 +480,11 @@ function renderReleasesDetailsImages(releases) {
         : "";
 }
 
-function renderEquipmentTypesListImages(equipmentTypes) {
+function renderEquipmentTypesListImages(equipmentTypes: EquipmentTypes) {
     const urlNorwegianPage = `${languageSlug.no}equipment/`;
     const urlEnglishPage = `${languageSlug.en}equipment/`;
-    let norwegianImages = [];
-    let englishImages = [];
+    let norwegianImages: SitemapImage[] = [];
+    let englishImages: SitemapImage[] = [];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
         Object.keys(equipmentTypes).forEach((equipmentTypeKey) => {
             const equipmentType = equipmentTypes[equipmentTypeKey];
@@ -456,16 +495,16 @@ function renderEquipmentTypesListImages(equipmentTypes) {
     return [renderImagePageUrlElement(urlNorwegianPage, norwegianImages), renderImagePageUrlElement(urlEnglishPage, englishImages)].join("");
 }
 
-function renderEquipmentListImages(equipmentTypes) {
+function renderEquipmentListImages(equipmentTypes: EquipmentTypes) {
     const urlNorwegianPage = `${languageSlug.no}equipment/`;
     const urlEnglishPage = `${languageSlug.en}equipment/`;
-    const equipmentDetailsElements = [];
+    const equipmentDetailsElements: string[] = [];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
         Object.keys(equipmentTypes).forEach((equipmentTypeKey) => {
             const equipmentItems = equipmentTypes[equipmentTypeKey].items;
             const urlNorwegianItemListPage = `${urlNorwegianPage}${equipmentTypeKey}/`;
             const urlEnglishItemListPage = `${urlEnglishPage}${equipmentTypeKey}/`;
-            let images = [];
+            let images: SitemapImage[] = [];
             equipmentItems.forEach((item) => {
                 images = images.concat(getImagesFromEquipmentItem(item, equipmentTypeKey));
             });
@@ -478,7 +517,7 @@ function renderEquipmentListImages(equipmentTypes) {
     return equipmentDetailsElements.join("");
 }
 
-function renderPostsDetailsImages(posts) {
+function renderPostsDetailsImages(posts: Post[]) {
     return posts?.length
         ? posts
               .map((post) => {
@@ -495,7 +534,7 @@ function renderPostsDetailsImages(posts) {
         : "";
 }
 
-function renderProductsDetailsImages(products) {
+function renderProductsDetailsImages(products: Product[]) {
     return products?.length
         ? products
               .map((product) => {
@@ -512,11 +551,11 @@ function renderProductsDetailsImages(products) {
         : "";
 }
 
-function renderEquipmentDetailsImages(equipmentTypes) {
+function renderEquipmentDetailsImages(equipmentTypes: EquipmentTypes) {
     const urlNorwegianPage = `${languageSlug.no}equipment/`;
     const urlEnglishPage = `${languageSlug.en}equipment/`;
 
-    const equipmentDetailsElements = [];
+    const equipmentDetailsElements: string[] = [];
     if (equipmentTypes && Object.keys(equipmentTypes).length) {
         Object.keys(equipmentTypes).forEach((equipmentTypeKey) => {
             const equipmentItems = equipmentTypes[equipmentTypeKey].items;
@@ -542,7 +581,7 @@ function renderEquipmentDetailsImages(equipmentTypes) {
 // entries that have aged out.
 const NEWS_SITEMAP_POST_LIMIT = 10;
 
-function renderNewsPostsDetails(posts) {
+function renderNewsPostsDetails(posts: Post[]) {
     return posts?.length
         ? [...posts]
               .sort((postA, postB) => postB.timestamp - postA.timestamp)
@@ -556,7 +595,7 @@ function renderNewsPostsDetails(posts) {
         : "";
 }
 
-function renderVideoSitemapDetails(videos) {
+function renderVideoSitemapDetails(videos: Video[]) {
     return videos?.length
         ? videos
               .map((video) => {
@@ -568,7 +607,7 @@ function renderVideoSitemapDetails(videos) {
         : "";
 }
 
-export function getSitemapXML({ equipmentTypes, posts, products, releases, videos }) {
+export function getSitemapXML({ equipmentTypes, posts, products, releases, videos }: SitemapInput) {
     return [
         ...renderHome(posts, videos, products, releases),
         ...renderPostsList(posts),
@@ -585,7 +624,7 @@ export function getSitemapXML({ equipmentTypes, posts, products, releases, video
     ];
 }
 
-export function getNewsSitemapXML(posts) {
+export function getNewsSitemapXML(posts: Post[]) {
     return [
         '<?xml version="1.0" encoding="UTF-8"?>\n',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n',
@@ -594,7 +633,7 @@ export function getNewsSitemapXML(posts) {
     ].join("");
 }
 
-export function getImageSitemapXML({ equipmentTypes, posts, products, releases, videos }) {
+export function getImageSitemapXML({ equipmentTypes, posts, products, releases, videos }: SitemapInput) {
     return [
         '<?xml version="1.0" encoding="UTF-8"?>\n',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n',
@@ -612,7 +651,7 @@ export function getImageSitemapXML({ equipmentTypes, posts, products, releases, 
     ].join("");
 }
 
-export function getVideoSitemapXML(videos) {
+export function getVideoSitemapXML(videos: Video[]) {
     return [
         '<?xml version="1.0" encoding="UTF-8"?>\n',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">\n',

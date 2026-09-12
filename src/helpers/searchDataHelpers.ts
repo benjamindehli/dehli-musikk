@@ -1,3 +1,5 @@
+import type { EquipmentItemData, EquipmentType } from "data/equipment";
+import type { FaqItem, Post, Product, Release, Video } from "types/content";
 /*
  * The JSON the search box fetches at runtime, built from src/data at build time.
  *
@@ -14,14 +16,14 @@
  * including equipment staying an object keyed by type rather than an array.
  */
 
-const searchablePost = ({ title, content, thumbnailFilename, thumbnailDescription }) => ({
+const searchablePost = ({ title, content, thumbnailFilename, thumbnailDescription }: Post) => ({
     title,
     content,
     thumbnailFilename,
     thumbnailDescription
 });
 
-const searchableVideo = ({ title, content, thumbnailFilename, thumbnailDescription }) => ({
+const searchableVideo = ({ title, content, thumbnailFilename, thumbnailDescription }: Video) => ({
     title,
     content,
     thumbnailFilename,
@@ -30,14 +32,14 @@ const searchableVideo = ({ title, content, thumbnailFilename, thumbnailDescripti
 
 // Products need no thumbnail fields: search derives both the image paths and the
 // alt text from the title.
-const searchableProduct = ({ title, content }) => ({ title, content });
+const searchableProduct = ({ title, content }: Product) => ({ title, content });
 
 /*
  * genre is read without a guard in search.js (release.genre.match(...)), so it
  * is passed through as-is rather than defaulted; a release without one should
  * fail loudly here rather than silently score zero.
  */
-const searchableRelease = ({ artistName, title, genre, releaseDate, duration, thumbnailFilename, unreleased }) => ({
+const searchableRelease = ({ artistName, title, genre, releaseDate, duration, thumbnailFilename, unreleased }: Release) => ({
     artistName,
     title,
     genre,
@@ -47,17 +49,17 @@ const searchableRelease = ({ artistName, title, genre, releaseDate, duration, th
     unreleased
 });
 
-const searchableEquipmentItem = ({ brand, model }) => ({ brand, model });
+const searchableEquipmentItem = ({ brand, model }: EquipmentItemData) => ({ brand, model });
 
-const searchableFaq = ({ question, answer }) => ({ question, answer });
+const searchableFaq = ({ question, answer }: FaqItem) => ({ question, answer });
 
-export const getSearchablePosts = (posts) => posts.map(searchablePost);
-export const getSearchableVideos = (videos) => videos.map(searchableVideo);
-export const getSearchableProducts = (products) => products.map(searchableProduct);
-export const getSearchableReleases = (releases) => releases.map(searchableRelease);
-export const getSearchableFrequentlyAskedQuestions = (faqs) => faqs.map(searchableFaq);
+export const getSearchablePosts = (posts: Post[]) => posts.map(searchablePost);
+export const getSearchableVideos = (videos: Video[]) => videos.map(searchableVideo);
+export const getSearchableProducts = (products: Product[]) => products.map(searchableProduct);
+export const getSearchableReleases = (releases: Release[]) => releases.map(searchableRelease);
+export const getSearchableFrequentlyAskedQuestions = (faqs: FaqItem[]) => faqs.map(searchableFaq);
 
-export const getSearchableEquipment = (equipmentTypes) =>
+export const getSearchableEquipment = (equipmentTypes: Record<string, EquipmentType>) =>
     Object.fromEntries(
         Object.keys(equipmentTypes).map((key) => [
             key,
@@ -74,7 +76,7 @@ export const getSearchableEquipment = (equipmentTypes) =>
  * applied to these paths when they were static files, so nothing about how they
  * are cached changes with the move.
  */
-export const searchDataResponse = (payload) =>
+export const searchDataResponse = (payload: unknown) =>
     new Response(JSON.stringify(payload), {
         headers: { "Content-Type": "application/json; charset=utf-8" }
     });

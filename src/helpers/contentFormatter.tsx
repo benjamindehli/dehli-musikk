@@ -1,13 +1,14 @@
+import type { ReactNode } from "react";
 import { Fragment } from "react";
 import Link from "next/link";
 
-const renderContentLinksAsReactLinks = (content, languageSlug) => {
+const renderContentLinksAsReactLinks = (content: string, languageSlug: string): ReactNode[] | string => {
     const regex = /\[(?<title>[^\]]+)\]\((?<link>[^)]+)\)/gm;
 
-    const elements = [];
+    const elements: ReactNode[] = [];
     let lastIndex = 0;
 
-    let match;
+    let match: RegExpExecArray | null;
     while ((match = regex.exec(content)) !== null) {
         const matchStart = match.index;
         const matchEnd = regex.lastIndex;
@@ -18,8 +19,8 @@ const renderContentLinksAsReactLinks = (content, languageSlug) => {
         }
 
         // Push the matched link
-        const title = match.groups.title;
-        const link = `/${languageSlug}${match.groups.link}`;
+        const title = (match.groups as Record<string, string>).title;
+        const link = `/${languageSlug}${(match.groups as Record<string, string>).link}`;
         elements.push(
             <Link key={`link-${matchStart}`} href={link} data-tabable={true}>
                 {title}
@@ -38,7 +39,7 @@ const renderContentLinksAsReactLinks = (content, languageSlug) => {
     return elements.length ? elements : content;
 };
 
-export const formatContentWithReactLinks = (content, languageSlug) => {
+export const formatContentWithReactLinks = (content: string, languageSlug: string) => {
     const formattedContent = content.split("\n").map((paragraph) => {
         const paraKey = `para-${paragraph.slice(0, 20)}-${paragraph.length}`;
         return <p key={paraKey}>{renderContentLinksAsReactLinks(paragraph, languageSlug)}</p>;

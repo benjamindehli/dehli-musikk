@@ -9,26 +9,10 @@ import Container from "components/template/Container";
 import List from "components/template/List";
 import ListItem from "components/template/List/ListItem";
 import SearchResult from "components/partials/SearchResult";
-import { getSearchResults } from "helpers/search";
+// Aliased: the default import above is the component that renders one of these.
+import { getSearchResults, type SearchResult as SearchResultData } from "helpers/search";
 import { useLang } from "lib/LangContext";
 import style from "components/routes/Search.module.scss";
-
-/*
- * One hit as helpers/search.js builds it. `type` is the category the result
- * counts towards and doubles as a key into searchCategoryNames, so equipment
- * hits carry their equipment type ("instruments") rather than "equipment".
- */
-type SearchResultItem = {
-    type: string;
-    text: string;
-    label: string;
-    excerpt: string;
-    thumbnailPaths: Record<string, string> | null;
-    thumbnailDescription: string | null;
-    points: number;
-    link: string;
-    linkTitle: string;
-};
 
 const searchCategoryNames: Record<string, { en: string; no: string }> = {
     all: { en: "Show all", no: "Vis alle" },
@@ -49,7 +33,7 @@ function SearchContent() {
     const searchQuery = searchParams.get("q") || null;
     const searchCategory = searchParams.get("category") || "all";
 
-    const [searchResults, setSearchResults] = useState<SearchResultItem[]>([]);
+    const [searchResults, setSearchResults] = useState<SearchResultData[]>([]);
     const [searchResultsCount, setSearchResultsCount] = useState<Record<string, number>>({});
 
     const hasSearchResultsCount = Object.keys(searchResultsCount).length > 0;
@@ -60,7 +44,7 @@ function SearchContent() {
             return;
         }
         getSearchResults(searchQuery, lang, searchCategory).then((results) => {
-            const sorted: SearchResultItem[] = results || [];
+            const sorted: SearchResultData[] = results || [];
             setSearchResults(sorted);
             if (searchCategory === "all") {
                 const counts: Record<string, number> = { all: sorted.length };

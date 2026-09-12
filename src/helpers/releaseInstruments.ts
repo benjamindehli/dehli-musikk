@@ -1,22 +1,24 @@
+import type { EquipmentItemData } from "data/equipment";
+import type { Product, ReleaseInstrumentLink } from "types/content";
 import releasesInstruments from "data/releasesInstruments";
 import { instruments } from "data/equipment";
 import products from "data/products";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 
-const getInstrument = (equipmentId) => {
+const getInstrument = (equipmentId: string): EquipmentItemData | undefined => {
     return instruments.items.find((instrument) => {
         return convertToUrlFriendlyString(`${instrument.brand} ${instrument.model}`) === equipmentId;
     });
 };
 
-const getProduct = (equipmentId) => {
-    return products.find((product) => {
+const getProduct = (equipmentId: string): Product | undefined => {
+    return (products as Product[]).find((product) => {
         return convertToUrlFriendlyString(product.title) === equipmentId;
     });
 };
 
-export const getReleaseInstruments = (releaseId) => {
-    const releaseInstrumentConnections = releasesInstruments
+export const getReleaseInstruments = (releaseId: string) => {
+    const releaseInstrumentConnections = (releasesInstruments as ReleaseInstrumentLink[])
         .filter((instrumentRelease) => !instrumentRelease.isProduct)
         .filter((releaseInstrument) => {
             return releaseInstrument.releaseId === releaseId;
@@ -26,8 +28,8 @@ export const getReleaseInstruments = (releaseId) => {
     });
 };
 
-export const getReleaseProducts = (releaseId) => {
-    const releaseProductConnections = releasesInstruments
+export const getReleaseProducts = (releaseId: string) => {
+    const releaseProductConnections = (releasesInstruments as ReleaseInstrumentLink[])
         .filter((releaseInstrument) => releaseInstrument.isProduct)
         .filter((releaseProduct) => {
             return releaseProduct.releaseId === releaseId;

@@ -1,3 +1,5 @@
+import type { Product } from "types/content";
+
 /*
  * What the price field on a product means, in one place, because the feeds, the
  * Product structured data and llms.txt all have to agree about it.
@@ -13,12 +15,16 @@
 export const DEFAULT_PRICE_CURRENCY = "USD";
 
 /** The least a buyer can pay, as a number. Zero for anything free. */
-export const getMinimumPrice = (product) => {
-    const price = Number.parseFloat(product?.price);
+export const getMinimumPrice = (product: Product | null | undefined): number => {
+    // The cast keeps the existing behaviour rather than papering over it: a
+    // missing product gives parseFloat(undefined), which is NaN, which the
+    // isFinite guard below already turns into 0.
+    const price = Number.parseFloat(product?.price as string);
     return Number.isFinite(price) ? price : 0;
 };
 
-export const getPriceCurrency = (product) => (product?.priceCurrency?.length ? product.priceCurrency : DEFAULT_PRICE_CURRENCY);
+export const getPriceCurrency = (product: Product | null | undefined): string =>
+    product?.priceCurrency?.length ? product.priceCurrency : DEFAULT_PRICE_CURRENCY;
 
 /** Whether the product asks for money at all, which is what Google validates */
-export const hasPrice = (product) => getMinimumPrice(product) > 0;
+export const hasPrice = (product: Product | null | undefined): boolean => getMinimumPrice(product) > 0;

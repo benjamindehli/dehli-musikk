@@ -1,12 +1,12 @@
-export const youTubeTimeToSeconds = (youTubeTime) => {
-    var regex = /^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/;
-    var hours = 0,
+export const youTubeTimeToSeconds = (youTubeTime: string): number | undefined => {
+    const regex = /^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/;
+    let hours = 0,
         minutes = 0,
         seconds = 0,
-        totalseconds;
+        totalseconds: number | undefined;
 
     if (regex.test(youTubeTime)) {
-        var matches = regex.exec(youTubeTime);
+        const matches = regex.exec(youTubeTime) as RegExpExecArray;
         if (matches[1]) hours = Number(matches[1]);
         if (matches[2]) minutes = Number(matches[2]);
         if (matches[3]) seconds = Number(matches[3]);
@@ -15,7 +15,7 @@ export const youTubeTimeToSeconds = (youTubeTime) => {
     return totalseconds;
 };
 
-export function millisecondsToMinutesAndSeconds(milliseconds) {
+export function millisecondsToMinutesAndSeconds(milliseconds: number): { minutes: number; seconds: number } {
     const minutes = Math.floor(milliseconds / 60000);
     const seconds = Math.round((milliseconds % 60000) / 1000);
     return {
@@ -24,7 +24,7 @@ export function millisecondsToMinutesAndSeconds(milliseconds) {
     };
 }
 
-export function millisecondsToReadableTime(milliseconds) {
+export function millisecondsToReadableTime(milliseconds: number): string {
     const { minutes, seconds } = millisecondsToMinutesAndSeconds(milliseconds);
     const minuteLabel = minutes === 1 ? "minute" : "minutes";
     const secondLabel = seconds === 1 ? "second" : "seconds";
