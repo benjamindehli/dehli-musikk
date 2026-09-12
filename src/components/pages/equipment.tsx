@@ -17,7 +17,7 @@ import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
 import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
 import { buildAlternates, socialMetadata, WEBSITE_URL, detailTitle, type Lang } from "lib/pageMetadata";
-import equipment from "data/equipment";
+import equipment, { EQUIPMENT_TYPE_KEYS, getEquipmentType } from "data/equipment";
 
 const translations = {
     no: {
@@ -44,7 +44,9 @@ const translations = {
     }
 } as const;
 
-const VALID_EQUIPMENT_TYPES = ["instruments", "effects", "amplifiers"];
+// Derived from the data module so a new equipment type cannot be added to one
+// and forgotten in the other.
+const VALID_EQUIPMENT_TYPES = EQUIPMENT_TYPE_KEYS;
 
 type EquipmentTypeRouteProps = { params: Promise<{ equipmentType: string }> };
 type EquipmentItemRouteProps = { params: Promise<{ equipmentType: string; equipmentId: string }> };
@@ -70,7 +72,7 @@ export function getEquipmentPageMetadata(lang: Lang): Metadata {
 export function EquipmentPage({ lang }: { lang: Lang }) {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
-    const equipmentTypeItems = Object.keys(equipment).map((equipmentTypeKey, index) => ({
+    const equipmentTypeItems = EQUIPMENT_TYPE_KEYS.map((equipmentTypeKey, index) => ({
         "@type": "ListItem",
         "@id": `${WEBSITE_URL}/equipment/${equipmentTypeKey}/`,
         name: equipment[equipmentTypeKey].name[lang],
@@ -98,7 +100,7 @@ export function EquipmentPage({ lang }: { lang: Lang }) {
             </Container>
             <Container>
                 <List>
-                    {Object.keys(equipment).map((equipmentTypeKey) => {
+                    {EQUIPMENT_TYPE_KEYS.map((equipmentTypeKey) => {
                         const equipmentType = equipment[equipmentTypeKey];
                         const itemPath = `/${languageSlug}equipment/${equipmentTypeKey}/`;
                         const link = { to: itemPath, title: equipmentType.name[lang] };
@@ -166,7 +168,7 @@ export function getEquipmentTypeStaticParams() {
 
 export async function getEquipmentTypeMetadata(lang: Lang, { params }: EquipmentTypeRouteProps): Promise<Metadata> {
     const { equipmentType } = await params;
-    const equipmentTypeData = equipment[equipmentType];
+    const equipmentTypeData = getEquipmentType(equipmentType);
     if (!equipmentTypeData) return {};
 
     const t = translations[lang];
@@ -194,7 +196,7 @@ export async function getEquipmentTypeMetadata(lang: Lang, { params }: Equipment
 
 export async function EquipmentTypePage({ lang, params }: { lang: Lang } & EquipmentTypeRouteProps) {
     const { equipmentType } = await params;
-    const equipmentTypeData = equipment[equipmentType];
+    const equipmentTypeData = getEquipmentType(equipmentType);
 
     if (!equipmentTypeData) notFound();
 
@@ -268,7 +270,7 @@ export function getEquipmentItemStaticParams() {
 }
 
 function getEquipmentItem(equipmentType: string, equipmentId: string) {
-    const typeData = equipment[equipmentType];
+    const typeData = getEquipmentType(equipmentType);
     if (!typeData) return null;
     const index = typeData.items.findIndex((item) => convertToUrlFriendlyString(`${item.brand} ${item.model}`) === equipmentId);
     if (index === -1) return null;
@@ -286,7 +288,7 @@ function getEquipmentItem(equipmentType: string, equipmentId: string) {
 
 export async function getEquipmentItemMetadata(lang: Lang, { params }: EquipmentItemRouteProps): Promise<Metadata> {
     const { equipmentType, equipmentId } = await params;
-    const equipmentTypeData = equipment[equipmentType];
+    const equipmentTypeData = getEquipmentType(equipmentType);
     if (!equipmentTypeData) return {};
     const item = getEquipmentItem(equipmentType, equipmentId);
     if (!item) return {};
@@ -320,7 +322,7 @@ export async function getEquipmentItemMetadata(lang: Lang, { params }: Equipment
 
 export async function EquipmentItemPage({ lang, params }: { lang: Lang } & EquipmentItemRouteProps) {
     const { equipmentType, equipmentId } = await params;
-    const equipmentTypeData = equipment[equipmentType];
+    const equipmentTypeData = getEquipmentType(equipmentType);
 
     if (!equipmentTypeData) notFound();
 

@@ -8,33 +8,55 @@ import JsonLd from "components/JsonLd";
 // Stylesheets
 import style from "components/partials/Breadcrumbs.module.scss";
 
-const Breadcrumbs = ({ breadcrumbs = [], languageSlug }) => {
-    const renderBreadcrumbJsonLd = (breadcrumbs) => {
+/*
+ * One rung of the trail, in the order it is rendered. `path` is site-relative
+ * and carries its own language slug, because the trail is built by the page and
+ * a Norwegian page links to Norwegian ancestors.
+ */
+export type Breadcrumb = {
+    name: string;
+    path: string;
+};
+
+type BreadcrumbsProps = {
+    breadcrumbs?: Breadcrumb[];
+    languageSlug: string;
+};
+
+type ListItem = {
+    "@type": "ListItem";
+    position: number;
+    item: string;
+    name: string;
+};
+
+const Breadcrumbs = ({ breadcrumbs = [], languageSlug }: BreadcrumbsProps) => {
+    const renderBreadcrumbJsonLd = (breadcrumbs: Breadcrumb[]) => {
         const originUrl = "https://www.dehlimusikk.no";
-        const jsonLd = {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-                {
-                    "@type": "ListItem",
-                    position: 1,
-                    item: `${originUrl}/${languageSlug}`,
-                    name: "Dehli Musikk"
-                }
-            ]
-        };
+        const itemListElement: ListItem[] = [
+            {
+                "@type": "ListItem",
+                position: 1,
+                item: `${originUrl}/${languageSlug}`,
+                name: "Dehli Musikk"
+            }
+        ];
         breadcrumbs.forEach((breadcrumb, index) => {
-            jsonLd.itemListElement.push({
+            itemListElement.push({
                 "@type": "ListItem",
                 position: index + 2,
                 item: `${originUrl}${breadcrumb.path}`,
                 name: breadcrumb.name
             });
         });
-        return jsonLd;
+        return {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement
+        };
     };
 
-    const renderBreadcrumbListElements = (breadcrumbs) => {
+    const renderBreadcrumbListElements = (breadcrumbs: Breadcrumb[]) => {
         return breadcrumbs.map((breadcrumb, key) => {
             return key === breadcrumbs.length - 1 ? (
                 <li key={key}>
