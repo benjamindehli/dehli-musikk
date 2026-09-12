@@ -1,5 +1,6 @@
 import type { Lang } from "lib/pageMetadata";
 import type { Release } from "types/content";
+import { getStreamingServiceName } from "lib/streamingServices";
 
 // Stylesheets
 import style from "components/partials/Portfolio/ReleaseLinks.module.scss";
@@ -37,56 +38,13 @@ const getLinkIcon = (linkKey: string) => {
     return src ? <img src={src} alt="" aria-hidden="true" loading="lazy" /> : null;
 };
 
-const getLinkName = (linkKey: string) => {
-    switch (linkKey) {
-        case "amazonMusic":
-            return "Amazon Music";
-        case "amazonStore":
-            return "Amazon";
-        case "anghami":
-            return "Anghami";
-        case "appleMusic":
-            return "Apple Music";
-        case "audiomack":
-            return "Audiomack";
-        case "boomplay":
-            return "Boomplay";
-        case "deezer":
-            return "Deezer";
-        case "google":
-            return "Google Play Music";
-        case "googleStore":
-            return "Google Play";
-        case "itunes":
-            return "iTunes";
-        case "napster":
-            return "Napster";
-        case "pandora":
-            return "Pandora";
-        case "soundcloud":
-            return "SoundCloud";
-        case "spotify":
-            return "Spotify";
-        case "tidal":
-            return "Tidal";
-        case "yandex":
-            return "Yandex";
-        case "youtube":
-            return "YouTube";
-        case "youtubeMusic":
-            return "YouTube Music";
-        default:
-            return linkKey;
-    }
-};
-
 const ReleaseLinks = ({ release, lang }: { release: Release; lang: Lang }) => {
     const links = release.links;
     return (
         <div className={style.releaseLinks}>
             {Object.keys(links).map((linkKey) => {
                 const url = links[linkKey as keyof typeof links];
-                const name = getLinkName(linkKey);
+                const name = getStreamingServiceName(linkKey);
                 const linkTitle = `${lang === "en" ? "Listen to" : "Lytt til"} ${release.title} ${lang === "en" ? "on" : "på"} ${name}`;
                 return (
                     <a

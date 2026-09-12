@@ -97,6 +97,7 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 // Lib
 import { getLanguageSlug } from "lib/i18n";
 import { alternateUrls, otherLang, WEBSITE_URL } from "lib/pageMetadata";
+import { getStreamingServiceName } from "lib/streamingServices";
 
 // Data
 import equipment from "data/equipment";
@@ -557,18 +558,6 @@ export function getPortfolioMarkdown(lang: Lang) {
     });
 }
 
-const STREAMING_SERVICE_NAMES: Record<string, string> = {
-    spotify: "Spotify",
-    appleMusic: "Apple Music",
-    amazon: "Amazon Music",
-    deezer: "Deezer",
-    tidal: "Tidal",
-    youtube: "YouTube",
-    youtubeMusic: "YouTube Music",
-    soundcloud: "SoundCloud",
-    bandcamp: "Bandcamp"
-};
-
 export function getReleaseMarkdown(lang: Lang, id: string) {
     const release = releases.find((candidate) => releaseId(candidate) === id);
     if (!release) return null;
@@ -577,7 +566,7 @@ export function getReleaseMarkdown(lang: Lang, id: string) {
     const heading = `${release.title} ${t.byConnector} ${release.artistName}`;
     const listenLinks = Object.entries(release.links || {})
         .filter(([, url]) => url)
-        .map(([service, url]) => `- [${STREAMING_SERVICE_NAMES[service] || service}](${url})`);
+        .map(([service, url]) => `- [${getStreamingServiceName(service)}](${url})`);
 
     return markdownDocument({
         lang,
