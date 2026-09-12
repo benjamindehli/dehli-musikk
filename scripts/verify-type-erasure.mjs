@@ -95,16 +95,30 @@ const firstDifference = (a, b) => {
 let failed = 0;
 let skipped = 0;
 for (const file of files) {
-    const original = path.join(path.dirname(file), path.basename(file).replace(/\.tsx?$/, ".js"));
+    /* A .tsx may have come from either .js or .jsx, so both are tried before
+     * giving up. Guessing only .js silently skipped the two context providers. */
+    const stem = path.join(path.dirname(file), path.basename(file).replace(/\.tsx?$/, ""));
+    const candidates = [`${stem}.js`, `${stem}.jsx`];
+    let original = candidates[0];
     let before;
     try {
         // -c safe.directory so a repo owned by another uid still reads. Without
         // it git exits non-zero, every file "skips", and a check that verified
         // nothing reports success.
-        before = execFileSync("git", ["-c", `safe.directory=${process.cwd()}`, "show", `${ref}:${original}`], {
-            encoding: "utf8",
-            stdio: ["ignore", "pipe", "pipe"]
-        });
+        let lastError;
+        for (const candidate of candidates) {
+            try {
+                before = execFileSync("git", ["-c", `safe.directory=${process.cwd()}`, "show", `${ref}:${candidate}`], {
+                    encoding: "utf8",
+                    stdio: ["ignore", "pipe", "pipe"]
+                });
+                original = candidate;
+                break;
+            } catch (error) {
+                lastError = error;
+            }
+        }
+        if (before === undefined) throw lastError;
     } catch (error) {
         skipped++;
         console.log(`SKIP  ${file} (could not read ${original} at ${ref}: ${String(error.stderr || error.message).trim()})`);

@@ -8,5 +8,11 @@
  */
 export type ListItemLink = {
     to: string;
-    title: string;
+    /*
+     * Optional because a search result may have no link title: the four content
+     * kinds set one, equipment items and FAQ entries do not. Link renders
+     * without the attribute in that case, which is correct - the heading beside
+     * it already names the destination.
+     */
+    title?: string;
 };

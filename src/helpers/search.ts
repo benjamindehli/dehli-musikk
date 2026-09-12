@@ -42,12 +42,20 @@ type SearchableFaq = {
     answer: Localized;
 };
 
-/** Thumbnails are offered in three formats; releases fall back to a PNG placeholder. */
+/*
+ * Thumbnails at 55px with a 2x companion, in three formats. An unreleased
+ * release has no cover art and falls back to the shared "coming soon"
+ * placeholder, which is png rather than jpeg - hence both being optional.
+ */
 type ThumbnailPaths = {
     avif: string;
+    avif110: string;
     webp: string;
+    webp110: string;
     jpg?: string;
+    jpg110?: string;
     png?: string;
+    png110?: string;
 };
 
 /*
@@ -174,17 +182,6 @@ const getSearchPointsFromRelease = (release: SearchableRelease, searchStringWord
 };
 
 const getSearchPointsFromPost = (post: SearchablePost, searchStringWords: string[], selectedLanguageKey: Lang): SearchResult => {
-    if (!post) {
-        /*
-         * Unreachable, and the only one of the six scorers with this guard. Its
-         * five siblings have none, and every caller reads result.points straight
-         * off the mapped value, so a null returned here would throw one line
-         * later rather than being skipped. The assertion keeps the runtime
-         * exactly as it was instead of quietly widening the contract.
-         */
-        return null!;
-    }
-
     const id = convertToUrlFriendlyString(post.title[selectedLanguageKey]);
     const link = `/${getLanguageSlug(selectedLanguageKey)}posts/${id}/`;
     const linkTitle = post.title[selectedLanguageKey];

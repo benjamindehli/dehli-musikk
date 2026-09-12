@@ -27,12 +27,29 @@ export type PostLink = {
     internal?: boolean;
 };
 
-/** Streaming destinations for a release. Not every release is on every service. */
+/*
+ * Streaming and store destinations for a release. All optional: no release is
+ * on every service, and the counts below are how many of the 81 carry each.
+ * Amazon appears as two separate links, and Apple as both appleMusic and
+ * itunes, because they are different destinations rather than aliases.
+ */
 export type ReleaseLinks = {
-    spotify?: string;
-    appleMusic?: string;
-    tidal?: string;
-    yandex?: string;
+    youtube?: string; // 76
+    youtubeMusic?: string; // 76
+    spotify?: string; // 67
+    tidal?: string; // 66
+    amazonMusic?: string; // 61
+    amazonStore?: string; // 61
+    appleMusic?: string; // 59
+    itunes?: string; // 58
+    deezer?: string; // 46
+    soundcloud?: string; // 35
+    yandex?: string; // 31
+    napster?: string; // 25
+    boomplay?: string; // 18
+    pandora?: string; // 17
+    anghami?: string; // 12
+    audiomack?: string; // 1
 };
 
 export type Release = {
@@ -190,4 +207,38 @@ export type ArtistJsonLd = {
     "@type": "MusicGroup";
     "@id": string;
     name: string;
+};
+
+/*
+ * The pair almost every page-level component takes. languageSlug is derivable
+ * from lang via getLanguageSlug, but it is threaded through as a prop because
+ * these render on the server where there is no context to read it from, and
+ * recomputing it in each component invites the two to disagree.
+ */
+export type LangProps = {
+    lang: Lang;
+    languageSlug: string;
+};
+
+/*
+ * A schema.org ImageObject as the page components build it.
+ *
+ * The copyright fields are filled in afterwards, and only where the site holds
+ * the copyright: several videos were published by the artist or label rather
+ * than by Dehli Musikk, so claiming a licence on their thumbnails would be
+ * wrong. They are optional here for that reason, not because they are
+ * incidental.
+ */
+export type JsonLdImageObject = {
+    "@type": "ImageObject";
+    url: string;
+    contentUrl: string;
+    caption?: string;
+    description?: string;
+    uploadDate?: string;
+    license?: string;
+    acquireLicensePage?: string;
+    copyrightNotice?: string;
+    creditText?: string;
+    creator?: { "@type"?: string; "@id"?: string; name?: string };
 };
