@@ -1,0 +1,80 @@
+name: Validate
+
+permissions:
+  contents: read
+
+# buildAndDeploy.yml runs only on `release: created`, which meant nothing looked
+# at master between releases: a type error or a missing thumbnail sat there until
+# release day and then failed the release rather than the commit that caused it.
+# This workflow moves those checks to the commit.
+#
+# Push is limited to master so a pull request from a branch in this repo is not
+# validated twice.
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+# A new push to the same branch makes the previous run's answer irrelevant.
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Static Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install Dependencies
+        run: yarn install --immutable
+      # Every step below reads src/ and public/ only, so none of them need the
+      # export and all of them can fail fast. The build-dependent verifications
+      # (markup, markdown) stay in buildAndDeploy.yml, which has an export to
+      # read.
+      - name: Typecheck
+        run: yarn typecheck
+      - name: Check Formatting
+        run: yarn format:check
+      # Same index-digest check the release runs. Cheap, and catches a SKILL.md
+      # edited without regenerating the digest at the commit that edited it.
+      - name: Verify Agent Skills Index
+        run: yarn verify:skills
+      # Thumbnails and release albums. Neither was gated anywhere before, so a
+      # release could ship a list item with no image behind it.
+      - name: Verify Data
+        run: yarn verify
+      - name: Test Worker
+        run: yarn worker:test
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install Dependencies
+        run: yarn install --immutable
+      # A build that only ever runs at release time is a release that can be
+      # blocked by a commit from weeks earlier. This job exists to find that
+      # commit instead. It does not upload an artifact: buildAndDeploy.yml
+      # rebuilds from the tag, and that build is the one that ships.
+      - name: Build
+        run: yarn build
+      - name: Verify Markup Assets
+        run: yarn verify:markup
+      - name: Verify Markdown
+        run: yarn verify:markdown
