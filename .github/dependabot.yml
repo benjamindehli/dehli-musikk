@@ -1,0 +1,47 @@
+version: 2
+
+# Dependencies here are updated by hand, and carefully - the last few bumps were
+# read before they were taken. This does not change that: it just means the
+# reading starts from a pull request with a changelog attached rather than from
+# noticing that something moved.
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    # One pull request per group rather than per package. A month of patch
+    # releases across next, react, the types and sass is otherwise a dozen
+    # near-identical PRs for what is really one decision.
+    groups:
+      # Next and React move together and are tested together; splitting them
+      # produces a PR that cannot pass CI on its own.
+      react-and-next:
+        patterns:
+          - next
+          - react
+          - react-dom
+          - "@types/react"
+          - "@types/react-dom"
+          - eslint-config-next
+      tooling:
+        patterns:
+          - typescript
+          - prettier
+          - sass
+          - eslint
+          - "@types/node"
+    # A major version is a migration, not an update: it gets its own PR so the
+    # changelog is read rather than skimmed alongside four patch bumps.
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major]
+
+  # The workflows pin actions by major version (actions/checkout@v4), so these
+  # only move when a new major ships - rarely, and worth knowing about when it
+  # happens. Kept out of the ignore rule above for that reason.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
