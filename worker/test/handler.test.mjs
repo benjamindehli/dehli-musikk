@@ -144,7 +144,7 @@ test("non-GET methods are passed straight through", async () => {
 test("robots.txt on the apex serves the real file, not the redirect", async () => {
     const ROBOTS = "# https://www.robotstxt.org/robotstxt.html\nUser-agent: *\nContent-Signal: search=yes, ai-input=yes, ai-train=no\nAllow: /\n";
     const calls = [];
-    globalThis.fetch = async (input, init = {}) => {
+    globalThis.fetch = async (input) => {
         const url = new URL(typeof input === "string" || input instanceof URL ? input : input.url);
         calls.push(`${url.hostname}${url.pathname}`);
         // The apex would answer with Firebase's text/plain 301

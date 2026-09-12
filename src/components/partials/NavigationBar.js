@@ -101,6 +101,10 @@ const NavigationBar = () => {
                 // A malformed href is not worth breaking the switcher over
             }
         });
+        // The hreflang links are in the rendered document, so this is a read of
+        // an external system rather than state derivable during render. Waived
+        // for the same reason the comment above gives for reading them at all.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setAlternatePaths(paths);
     }, [pathname]);
 

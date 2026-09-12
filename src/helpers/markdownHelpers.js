@@ -164,8 +164,6 @@ const frontMatter = (fields) =>
         "---"
     ].join("\n");
 
-const pageUrl = (lang, paths) => alternateUrls(paths)[lang];
-
 const absoluteUrl = (lang, path) => `${WEBSITE_URL}/${getLanguageSlug(lang)}${path}`;
 
 const contentToMarkdown = (content, lang) => formatContentAsMarkdown(content, WEBSITE_URL, getLanguageSlug(lang));

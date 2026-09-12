@@ -48,7 +48,7 @@ const IntroContent = ({ lang, languageSlug }) => {
                 recordings for artists and bands.
             </p>
             <p>
-                If you're recording a song and want some keyboard instrument tracks, feel free to contact me on{" "}
+                If you&apos;re recording a song and want some keyboard instrument tracks, feel free to contact me on{" "}
                 <a href={facebookLink} title="Dehli Musikk's Facebook page" target="_blank" rel="noopener noreferrer">
                     Facebook
                 </a>{" "}

@@ -293,7 +293,6 @@ export async function getEquipmentItemMetadata(lang: Lang, { params }: Equipment
     const item = getEquipmentItem(equipmentType, equipmentId);
     if (!item) return {};
 
-    const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
     const itemName = `${item.brand} ${item.model}`;
     const title = detailTitle(itemName);

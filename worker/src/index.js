@@ -134,7 +134,7 @@ async function respond(request) {
     return response;
 }
 
-export default {
+const worker = {
     async fetch(request) {
         /*
          * A failure in here must not take the site down. If anything throws, fall
@@ -148,3 +148,5 @@ export default {
         }
     }
 };
+
+export default worker;

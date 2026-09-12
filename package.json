@@ -15,6 +15,8 @@
         "@types/node": "^26.5.1",
         "@types/react": "^19.3.0",
         "@types/react-dom": "^19.3.0",
+        "eslint": "^9",
+        "eslint-config-next": "^16.3.5",
         "prettier": "^3.9.6",
         "sass": "^1.104.1",
         "typescript": "^6.0.3"
@@ -25,6 +27,8 @@
         "start": "next start",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
         "typecheck": "tsc --noEmit",
         "verify:thumbnails": "node scripts/verify-110-thumbnails.mjs",
         "verify:albums": "node scripts/verify-release-albums.mjs",

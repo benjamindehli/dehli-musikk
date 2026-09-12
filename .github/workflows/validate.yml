@@ -43,6 +43,10 @@ jobs:
         run: yarn typecheck
       - name: Check Formatting
         run: yarn format:check
+      # Next 16 removed `next lint` and no longer lints during `next build`, so
+      # nothing runs ESLint unless a step like this one does.
+      - name: Lint
+        run: yarn lint
       # Same index-digest check the release runs. Cheap, and catches a SKILL.md
       # edited without regenerating the digest at the commit that edited it.
       - name: Verify Agent Skills Index

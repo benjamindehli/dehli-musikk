@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import style from "components/template/ExpansionPanel.module.scss";
@@ -10,7 +10,14 @@ const ExpansionPanel = ({ panelTitle, children, elementId }) => {
 
     const containerRef = useRef(null);
 
-    const id = elementId || `expansion-panel-${Math.random().toString(36).slice(2, 9)}`;
+    /*
+     * useId rather than Math.random, which drew a new value on every render:
+     * the server and the client never agreed on the id, and the aria-controls
+     * and aria-labelledby links pointed at elements whose ids had already
+     * changed. It also made the hash effect below re-run on each render.
+     */
+    const generatedId = useId();
+    const id = elementId || generatedId;
 
     // Measure content height BEFORE paint to avoid CLS
     useLayoutEffect(() => {
@@ -19,9 +26,15 @@ const ExpansionPanel = ({ panelTitle, children, elementId }) => {
         }
     }, [children]);
 
-    // Auto-expand if URL hash matches
+    /*
+     * Auto-expand if URL hash matches. The hash is browser-only state that does
+     * not exist while the page is being rendered on the server, so reading it
+     * during render would hydrate to the wrong panel. An effect is the only
+     * place it can be read, which is why the setState rule is waived here.
+     */
     useEffect(() => {
         if (id === window.location?.hash?.substring(1)) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setExpanded(true);
         }
     }, [id]);
