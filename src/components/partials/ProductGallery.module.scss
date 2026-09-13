@@ -1,0 +1,38 @@
+@use "../../style/abstracts/variables/colors";
+
+.gallery {
+    margin-top: 24px;
+
+    /*
+     * A single column at the full width of the modal, rather than a grid. The
+     * images range from 0.41:1 to 5.33:1 - portrait close ups of one control
+     * next to strips of a whole front panel - and any grid cell wide enough for
+     * the strips renders the portraits as slivers.
+     */
+    & .image {
+        display: block;
+
+        & + .image {
+            margin-top: 16px;
+        }
+
+        & img {
+            display: block;
+            width: 100%;
+            // Overrides the width/height attributes the markup sets for the
+            // aspect ratio, which are the intrinsic size rather than the
+            // displayed one.
+            height: auto;
+            border-radius: 4px;
+            // The screen captures are mostly dark UI on a transparent or near
+            // black ground, so they need an edge against the light page.
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+    }
+}
+
+.heading {
+    font-size: 1rem;
+    margin: 0 0 12px;
+    color: colors.$article-text-color;
+}

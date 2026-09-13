@@ -7,6 +7,7 @@ import React from "react";
 
 // Components
 import Button from "components/partials/Button";
+import ProductGallery from "components/partials/ProductGallery";
 import Release from "components/partials//Portfolio/Release";
 import ListItem from "components/template/List/ListItem";
 import ListItemActionButtons from "components/template/List/ListItem/ListItemActionButtons";
@@ -14,6 +15,7 @@ import ListItemContent from "components/template/List/ListItem/ListItemContent";
 import ListItemContentBody from "components/template/List/ListItem/ListItemContent/ListItemContentBody";
 import ListItemContentHeader from "components/template/List/ListItem/ListItemContent/ListItemContentHeader";
 import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbnail";
+import ListItemVideo from "components/template/List/ListItem/ListItemVideo";
 import ExpansionPanel from "components/template/ExpansionPanel";
 import List from "components/template/List";
 
@@ -24,6 +26,7 @@ import { formatContentWithReactLinks } from "helpers/contentFormatter";
 import { convertStringToExcerpt } from "helpers/search";
 import { generateProductSnippet } from "helpers/richSnippetsGenerators";
 import { getProductReleases } from "helpers/instrumentReleases";
+import { getYouTubeId } from "helpers/youTube";
 
 const Product = ({
     product,
@@ -101,6 +104,36 @@ const Product = ({
             <a key={role} href={actionLink.url} target="_blank" rel="noopener noreferrer" title={actionLink.text[lang]}>
                 <Button buttontype="minimal">{actionLink.text[lang]}</Button>
             </a>
+        );
+    };
+
+    /*
+     * The demo video, which 15 of the 18 products have and none of them showed:
+     * it went into the product's JSON-LD as a VideoObject and nowhere else, so
+     * the only way to reach it from a product page was to already know it
+     * existed. For a sampled instrument it is the thing that actually sells the
+     * product, so it sits directly under the buttons.
+     *
+     * ListItemVideo is the same facade the video pages use, so nothing is
+     * requested from YouTube until the visitor presses play.
+     *
+     * The poster is the product's own photo rather than YouTube's thumbnail,
+     * for the same reason: fetching the thumbnail would put a request to
+     * i.ytimg.com on every product page, which is exactly what the facade
+     * exists to avoid. It also costs nothing, because the candidate the browser
+     * picks here is the one the main image above has already loaded.
+     */
+    const renderVideo = (product: ProductData, image: ResponsiveImage) => {
+        const youTubeId = getYouTubeId(product.video?.contentUrl);
+        if (!youTubeId) return null;
+        return (
+            <ListItemVideo
+                videoTitle={product.video?.name?.[lang] ?? product.title}
+                thumbnailDescription={product.thumbnailDescription}
+                youTubeId={youTubeId}
+                image={image}
+                lang={lang}
+            />
         );
     };
 
@@ -184,6 +217,8 @@ const Product = ({
                 ) : (
                     ""
                 )}
+                {fullscreen ? renderVideo(product, image) : ""}
+                {fullscreen ? <ProductGallery filenames={product.additionalImages ?? []} productTitle={product.title} lang={lang} /> : ""}
             </ListItemContent>
             {fullscreen ? renderReleasesList(getProductReleases(productId), lang, product) : ""}
         </React.Fragment>
