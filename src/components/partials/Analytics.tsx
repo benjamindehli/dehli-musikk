@@ -36,7 +36,26 @@ const token = process.env.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN;
 const Analytics = () => {
     if (!token) return null;
 
-    return <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token })} />;
+    return (
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token })}
+            /*
+             * Rocket Loader is on for this zone, and the first release proved it
+             * does not spare this tag: the served HTML came back with
+             * type="<hash>-text/javascript", which is Rocket Loader neutralising
+             * a script so it can run it itself later.
+             *
+             * That is a bad trade here. The beacon reports on the window load
+             * event, and Rocket Loader can get to a script after load has already
+             * fired, which costs page load timings and undercounts views. The
+             * beacon Cloudflare injects itself is exempt; one shipped in the page
+             * like this is not, and data-cfasync="false" is how a script opts out.
+             */
+            data-cfasync="false"
+        />
+    );
 };
 
 export default Analytics;
