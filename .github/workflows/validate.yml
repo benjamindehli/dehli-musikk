@@ -51,8 +51,10 @@ jobs:
       # edited without regenerating the digest at the commit that edited it.
       - name: Verify Agent Skills Index
         run: yarn verify:skills
-      # Thumbnails and release albums. Neither was gated anywhere before, so a
-      # release could ship a list item with no image behind it.
+      # Thumbnails, release albums and the generated product gallery sizes. None
+      # of them was gated anywhere before, so a release could ship a list item
+      # with no image behind it, or a product page whose screenshots were never
+      # encoded and are therefore silently left out.
       - name: Verify Data
         run: yarn verify
       - name: Test Worker

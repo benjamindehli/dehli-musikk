@@ -27,8 +27,23 @@ jobs:
       # reader the document had been tampered with.
       - name: Verify Agent Skills Index
         run: yarn verify:skills
+      # Also source-only, so it runs before the build for the same reason. The
+      # gallery renders whatever the manifest describes and quietly skips the
+      # rest, so a product whose screenshots were added without running
+      # `yarn images:products` would otherwise ship a page that looks untouched
+      # and never says why.
+      - name: Verify Product Gallery Images
+        run: yarn verify:images
       - name: Build
         run: yarn build
+        env:
+          # Not a secret: the beacon token identifies the site, is served in the
+          # HTML of every page by design, and says nothing about a visitor. A
+          # repository variable rather than a repository secret, so it stays
+          # readable in the logs and in the dashboard. An empty value builds a
+          # site with no beacon at all rather than failing, which is what forks
+          # and local builds want.
+          NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN: ${{ vars.CLOUDFLARE_ANALYTICS_TOKEN }}
       # Reads the exported HTML, so it has to run after the build and before the
       # artifact goes anywhere. Fails the release rather than shipping markup
       # that points at files which are not there.
