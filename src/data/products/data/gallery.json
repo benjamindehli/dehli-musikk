@@ -1,0 +1,730 @@
+{
+    "4-track-glockenspiel_01.jpg": {
+        "base": "4-track-glockenspiel_01",
+        "width": 3968,
+        "height": 2976,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "4-track-music-box_01.jpg": {
+        "base": "4-track-music-box_01",
+        "width": 3968,
+        "height": 2976,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "4-track-toy-piano_01.jpg": {
+        "base": "4-track-toy-piano_01",
+        "width": 3968,
+        "height": 2976,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "4-track_01.png": {
+        "base": "4-track_01",
+        "width": 1083,
+        "height": 632,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "4-track_02.png": {
+        "base": "4-track_02",
+        "width": 386,
+        "height": 632,
+        "widths": [
+            386
+        ]
+    },
+    "4-track_03.png": {
+        "base": "4-track_03",
+        "width": 1083,
+        "height": 315,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "4-track_04.png": {
+        "base": "4-track_04",
+        "width": 1083,
+        "height": 315,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "4-track_05.png": {
+        "base": "4-track_05",
+        "width": 386,
+        "height": 315,
+        "widths": [
+            386
+        ]
+    },
+    "dxtraterrestrial-1_01.jpg": {
+        "base": "dxtraterrestrial-1_01",
+        "width": 1080,
+        "height": 1920,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "edb-orgel_01.png": {
+        "base": "edb-orgel_01",
+        "width": 1920,
+        "height": 1200,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "edb-orgel_02.png": {
+        "base": "edb-orgel_02",
+        "width": 1920,
+        "height": 1200,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "edb-orgel_03.png": {
+        "base": "edb-orgel_03",
+        "width": 1920,
+        "height": 1200,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "elektrisk-salmesykkel_01.png": {
+        "base": "elektrisk-salmesykkel_01",
+        "width": 1599,
+        "height": 893,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "elektrisk-salmesykkel_02.png": {
+        "base": "elektrisk-salmesykkel_02",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "elektrisk-salmesykkel_03.png": {
+        "base": "elektrisk-salmesykkel_03",
+        "width": 330,
+        "height": 324,
+        "widths": [
+            330
+        ]
+    },
+    "elektrisk-salmesykkel_04.png": {
+        "base": "elektrisk-salmesykkel_04",
+        "width": 220,
+        "height": 324,
+        "widths": [
+            220
+        ]
+    },
+    "elektrisk-salmesykkel_05.png": {
+        "base": "elektrisk-salmesykkel_05",
+        "width": 134,
+        "height": 323,
+        "widths": [
+            134
+        ]
+    },
+    "elektrisk-salmesykkel_06.png": {
+        "base": "elektrisk-salmesykkel_06",
+        "width": 307,
+        "height": 324,
+        "widths": [
+            307
+        ]
+    },
+    "lo-fi-tape-piano_01.jpg": {
+        "base": "lo-fi-tape-piano_01",
+        "width": 3968,
+        "height": 2976,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "lo-fi-tape-piano_02.png": {
+        "base": "lo-fi-tape-piano_02",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "maskintrommer_01.png": {
+        "base": "maskintrommer_01",
+        "width": 1624,
+        "height": 1000,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "maskintrommer_02.png": {
+        "base": "maskintrommer_02",
+        "width": 1058,
+        "height": 230,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "maskintrommer_03.png": {
+        "base": "maskintrommer_03",
+        "width": 1058,
+        "height": 361,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "maskintrommer_04.png": {
+        "base": "maskintrommer_04",
+        "width": 279,
+        "height": 230,
+        "widths": [
+            279
+        ]
+    },
+    "maskintrommer_05.png": {
+        "base": "maskintrommer_05",
+        "width": 279,
+        "height": 361,
+        "widths": [
+            279
+        ]
+    },
+    "microsampler-editor-librarian_01.png": {
+        "base": "microsampler-editor-librarian_01",
+        "width": 1000,
+        "height": 610,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "microsampler-editor-librarian_02.png": {
+        "base": "microsampler-editor-librarian_02",
+        "width": 1000,
+        "height": 610,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "microsampler-editor-librarian_03.png": {
+        "base": "microsampler-editor-librarian_03",
+        "width": 1000,
+        "height": 610,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "microsampler-editor-librarian_04.png": {
+        "base": "microsampler-editor-librarian_04",
+        "width": 1000,
+        "height": 610,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "microsampler-editor-librarian_05.png": {
+        "base": "microsampler-editor-librarian_05",
+        "width": 1000,
+        "height": 610,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "microsampler-editor-librarian_06.png": {
+        "base": "microsampler-editor-librarian_06",
+        "width": 1000,
+        "height": 610,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "microsampler-editor-librarian_07.png": {
+        "base": "microsampler-editor-librarian_07",
+        "width": 1000,
+        "height": 610,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "midnight-wurli_01.jpg": {
+        "base": "midnight-wurli_01",
+        "width": 1920,
+        "height": 1080,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "midnight-wurli_02.jpg": {
+        "base": "midnight-wurli_02",
+        "width": 1080,
+        "height": 1920,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "midnight-wurli_03.png": {
+        "base": "midnight-wurli_03",
+        "width": 1624,
+        "height": 846,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "midnight-wurli_04.png": {
+        "base": "midnight-wurli_04",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "omni-84_01.jpg": {
+        "base": "omni-84_01",
+        "width": 3694,
+        "height": 2078,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "omni-84_02.png": {
+        "base": "omni-84_02",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "omni-84_03.png": {
+        "base": "omni-84_03",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "omni-84_04.png": {
+        "base": "omni-84_04",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "omni-84_05.png": {
+        "base": "omni-84_05",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "omni-84_06.png": {
+        "base": "omni-84_06",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "omni-84_07.png": {
+        "base": "omni-84_07",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "overtonium_01.jpg": {
+        "base": "overtonium_01",
+        "width": 2696,
+        "height": 1651,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "overtonium_02.png": {
+        "base": "overtonium_02",
+        "width": 1348,
+        "height": 1010,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "sidstation-asid_01.png": {
+        "base": "sidstation-asid_01",
+        "width": 1444,
+        "height": 1204,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "sidstation-asid_02.png": {
+        "base": "sidstation-asid_02",
+        "width": 1444,
+        "height": 1204,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "sidstation-asid_03.png": {
+        "base": "sidstation-asid_03",
+        "width": 1444,
+        "height": 1204,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "sidstation-asid_04.png": {
+        "base": "sidstation-asid_04",
+        "width": 1444,
+        "height": 1204,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "strykebrett_01.png": {
+        "base": "strykebrett_01",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "strykebrett_02.png": {
+        "base": "strykebrett_02",
+        "width": 670,
+        "height": 438,
+        "widths": [
+            400
+        ]
+    },
+    "strykebrett_03.png": {
+        "base": "strykebrett_03",
+        "width": 670,
+        "height": 438,
+        "widths": [
+            400
+        ]
+    },
+    "strykebrett_04.png": {
+        "base": "strykebrett_04",
+        "width": 670,
+        "height": 438,
+        "widths": [
+            400
+        ]
+    },
+    "strykebrett_05.png": {
+        "base": "strykebrett_05",
+        "width": 390,
+        "height": 185,
+        "widths": [
+            390
+        ]
+    },
+    "strykebrett_06.png": {
+        "base": "strykebrett_06",
+        "width": 390,
+        "height": 185,
+        "widths": [
+            390
+        ]
+    },
+    "strykebrett_07.png": {
+        "base": "strykebrett_07",
+        "width": 581,
+        "height": 185,
+        "widths": [
+            400
+        ]
+    },
+    "strykebrett_08.png": {
+        "base": "strykebrett_08",
+        "width": 581,
+        "height": 185,
+        "widths": [
+            400
+        ]
+    },
+    "strykebrett_09.png": {
+        "base": "strykebrett_09",
+        "width": 581,
+        "height": 185,
+        "widths": [
+            400
+        ]
+    },
+    "stylopoly_01.png": {
+        "base": "stylopoly_01",
+        "width": 1624,
+        "height": 750,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "stylopoly_02.png": {
+        "base": "stylopoly_02",
+        "width": 726,
+        "height": 237,
+        "widths": [
+            400
+        ]
+    },
+    "stylopoly_03.png": {
+        "base": "stylopoly_03",
+        "width": 570,
+        "height": 237,
+        "widths": [
+            400
+        ]
+    },
+    "stylopoly_04.png": {
+        "base": "stylopoly_04",
+        "width": 997,
+        "height": 237,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "stylopoly_05.png": {
+        "base": "stylopoly_05",
+        "width": 455,
+        "height": 237,
+        "widths": [
+            400
+        ]
+    },
+    "stylopoly_06.png": {
+        "base": "stylopoly_06",
+        "width": 455,
+        "height": 237,
+        "widths": [
+            400
+        ]
+    },
+    "stylopoly_07.png": {
+        "base": "stylopoly_07",
+        "width": 726,
+        "height": 237,
+        "widths": [
+            400
+        ]
+    },
+    "stylopoly_08.png": {
+        "base": "stylopoly_08",
+        "width": 726,
+        "height": 237,
+        "widths": [
+            400
+        ]
+    },
+    "stylopoly_09.png": {
+        "base": "stylopoly_09",
+        "width": 726,
+        "height": 237,
+        "widths": [
+            400
+        ]
+    },
+    "stylopoly_10.png": {
+        "base": "stylopoly_10",
+        "width": 726,
+        "height": 237,
+        "widths": [
+            400
+        ]
+    },
+    "subc_01.png": {
+        "base": "subc_01",
+        "width": 1919,
+        "height": 622,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "subc_02.png": {
+        "base": "subc_02",
+        "width": 573,
+        "height": 622,
+        "widths": [
+            400
+        ]
+    },
+    "subc_03.png": {
+        "base": "subc_03",
+        "width": 573,
+        "height": 622,
+        "widths": [
+            400
+        ]
+    },
+    "voltage-controlled-cassette-organ_01.png": {
+        "base": "voltage-controlled-cassette-organ_01",
+        "width": 1624,
+        "height": 1500,
+        "widths": [
+            400,
+            800,
+            1200
+        ]
+    },
+    "voltage-controlled-cassette-organ_02.png": {
+        "base": "voltage-controlled-cassette-organ_02",
+        "width": 912,
+        "height": 407,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "voltage-controlled-cassette-organ_03.png": {
+        "base": "voltage-controlled-cassette-organ_03",
+        "width": 1039,
+        "height": 422,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "voltage-controlled-cassette-organ_04.png": {
+        "base": "voltage-controlled-cassette-organ_04",
+        "width": 624,
+        "height": 193,
+        "widths": [
+            400
+        ]
+    },
+    "voltage-controlled-cassette-organ_05.png": {
+        "base": "voltage-controlled-cassette-organ_05",
+        "width": 746,
+        "height": 203,
+        "widths": [
+            400
+        ]
+    },
+    "voltage-controlled-cassette-organ_06.png": {
+        "base": "voltage-controlled-cassette-organ_06",
+        "width": 1039,
+        "height": 195,
+        "widths": [
+            400,
+            800
+        ]
+    },
+    "voltage-controlled-cassette-organ_07.png": {
+        "base": "voltage-controlled-cassette-organ_07",
+        "width": 372,
+        "height": 193,
+        "widths": [
+            372
+        ]
+    },
+    "voltage-controlled-cassette-organ_08.png": {
+        "base": "voltage-controlled-cassette-organ_08",
+        "width": 250,
+        "height": 207,
+        "widths": [
+            250
+        ]
+    },
+    "voltage-controlled-cassette-organ_09.png": {
+        "base": "voltage-controlled-cassette-organ_09",
+        "width": 328,
+        "height": 207,
+        "widths": [
+            328
+        ]
+    },
+    "voltage-controlled-cassette-organ_10.png": {
+        "base": "voltage-controlled-cassette-organ_10",
+        "width": 328,
+        "height": 207,
+        "widths": [
+            328
+        ]
+    }
+}
