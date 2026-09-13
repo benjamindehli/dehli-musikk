@@ -1,5 +1,13 @@
+import { createRequire } from "node:module";
 import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import nextTypeScript from "eslint-config-next/typescript";
+
+/*
+ * The React version is read rather than written down, because the only thing
+ * worse than no version here is one that quietly stops matching the installed
+ * React. See the settings block below for why it has to be stated at all.
+ */
+const reactVersion = createRequire(import.meta.url)("react/package.json").version;
 
 /*
  * Flat config, because Next 16 removed `next lint` and no longer lints during
@@ -25,6 +33,28 @@ const config = [
     },
     ...nextCoreWebVitals,
     ...nextTypeScript,
+    {
+        /*
+         * Must come after the presets, which set react.version to "detect".
+         *
+         * Under ESLint 10 that setting is not merely slow, it is fatal: every
+         * React rule fails to load with "contextOrFilename.getFilename is not a
+         * function". ESLint 10 removed context.getFilename(), deprecated since
+         * 9, and eslint-plugin-react 7.37.5 still calls it - but only from the
+         * filesystem walk that "detect" triggers. Naming the version skips that
+         * path entirely, so the whole plugin works again.
+         *
+         * This is a workaround for a dependency, not a preference. The upstream
+         * fix is on eslint-plugin-react master but unreleased
+         * (jsx-eslint/eslint-plugin-react#3977), and eslint-config-next pins
+         * ^7.37.0, so a plain `yarn up` will pick it up whenever it ships. At
+         * that point this block becomes optional - though it is still worth
+         * keeping, because detection costs a stat walk per rule per file.
+         */
+        settings: {
+            react: { version: reactVersion }
+        }
+    },
     {
         rules: {
             /*
