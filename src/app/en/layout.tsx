@@ -1,5 +1,6 @@
 import { LangProvider } from "lib/LangContext";
 import { ModalProvider } from "lib/ModalContext";
+import Analytics from "components/partials/Analytics";
 import NavigationBar from "components/partials/NavigationBar";
 import Footer from "components/partials/Footer";
 import SiteJsonLd from "components/SiteJsonLd";
@@ -32,6 +33,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
                         {/* Registers the site's tools with the browser for in-page
                             agents. Renders nothing. */}
                         <WebMcpTools lang="en" />
+                        <Analytics />
                     </ModalProvider>
                 </LangProvider>
             </body>
