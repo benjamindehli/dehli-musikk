@@ -1,0 +1,152 @@
+[
+    {
+        "productId": "subc",
+        "equipmentId": "alex-franklinos-stereo-transformer-saturator",
+        "relation": "effect"
+    },
+    {
+        "productId": "edb-orgel",
+        "equipmentId": "casio-cz-101",
+        "relation": "sampled"
+    },
+    {
+        "productId": "strykebrett",
+        "equipmentId": "chase-bliss-audio-and-meris-cxm-1978",
+        "relation": "effect"
+    },
+    {
+        "productId": "stylopoly",
+        "equipmentId": "chase-bliss-audio-and-meris-cxm-1978",
+        "relation": "effect"
+    },
+    {
+        "productId": "voltage-controlled-cassette-organ",
+        "equipmentId": "chase-bliss-audio-and-meris-cxm-1978",
+        "relation": "effect"
+    },
+    {
+        "productId": "maskintrommer",
+        "equipmentId": "doepfer-dark-energy",
+        "relation": "sampled"
+    },
+    {
+        "productId": "subc",
+        "equipmentId": "dreadbox-erebus-v2",
+        "relation": "sampled"
+    },
+    {
+        "productId": "stylopoly",
+        "equipmentId": "dubreq-stylophone-s-1",
+        "relation": "sampled"
+    },
+    {
+        "productId": "sidstation-asid",
+        "equipmentId": "elektron-sidstation",
+        "relation": "controls"
+    },
+    {
+        "productId": "edb-orgel",
+        "equipmentId": "elektron-sidstation",
+        "relation": "sampled"
+    },
+    {
+        "productId": "strykebrett",
+        "equipmentId": "fulltone-tube-tape-echo",
+        "relation": "effect"
+    },
+    {
+        "productId": "stylopoly",
+        "equipmentId": "fulltone-tube-tape-echo",
+        "relation": "effect"
+    },
+    {
+        "productId": "voltage-controlled-cassette-organ",
+        "equipmentId": "fulltone-tube-tape-echo",
+        "relation": "effect"
+    },
+    {
+        "productId": "subc",
+        "equipmentId": "hairball-audio-fet-rack-revision-d",
+        "relation": "effect"
+    },
+    {
+        "productId": "4-track-toy-piano",
+        "equipmentId": "kalikaa-leksakspiano",
+        "relation": "sampled"
+    },
+    {
+        "productId": "voltage-controlled-cassette-organ",
+        "equipmentId": "korg-cx-3",
+        "relation": "sampled"
+    },
+    {
+        "productId": "microsampler-editor-librarian",
+        "equipmentId": "korg-microsampler",
+        "relation": "controls"
+    },
+    {
+        "productId": "maskintrommer",
+        "equipmentId": "korg-ms-20",
+        "relation": "sampled"
+    },
+    {
+        "productId": "strykebrett",
+        "equipmentId": "logan-string-melody-ii",
+        "relation": "sampled"
+    },
+    {
+        "productId": "lo-fi-tape-piano",
+        "equipmentId": "louis-zwicki-pianette",
+        "relation": "sampled"
+    },
+    {
+        "productId": "edb-orgel",
+        "equipmentId": "roland-d-50",
+        "relation": "sampled"
+    },
+    {
+        "productId": "maskintrommer",
+        "equipmentId": "roland-sh-09",
+        "relation": "sampled"
+    },
+    {
+        "productId": "maskintrommer",
+        "equipmentId": "sequential-circuits-pro-one",
+        "relation": "sampled"
+    },
+    {
+        "productId": "omni-84",
+        "equipmentId": "suzuki-omnichord-om-84-system-two",
+        "relation": "sampled"
+    },
+    {
+        "productId": "subc",
+        "equipmentId": "tc-electronic-scf-stereo-chorus-flanger",
+        "relation": "effect"
+    },
+    {
+        "productId": "midnight-wurli",
+        "equipmentId": "wurlitzer-200a",
+        "relation": "sampled"
+    },
+    {
+        "productId": "dxtraterrestrial-1",
+        "equipmentId": "yamaha-dx7",
+        "relation": "controls"
+    },
+    {
+        "productId": "dxtraterrestrial-2",
+        "equipmentId": "yamaha-dx7",
+        "relation": "controls"
+    },
+    {
+        "productId": "edb-orgel",
+        "equipmentId": "yamaha-dx7",
+        "relation": "sampled"
+    },
+    {
+        "productId": "elektrisk-salmesykkel",
+        "equipmentId": "yamaha-l-20d",
+        "relation": "sampled"
+    }
+]

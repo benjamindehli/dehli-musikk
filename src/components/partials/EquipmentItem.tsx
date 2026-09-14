@@ -1,6 +1,6 @@
 import type { Lang } from "lib/pageMetadata";
 import type { EquipmentItemData } from "data/equipment";
-import type { LinkedRelease, Video as VideoData } from "types/content";
+import type { LinkedRelease, Product as ProductData, ProductEquipmentRelation, Video as VideoData } from "types/content";
 import type { ResponsiveImage } from "types/image";
 // Dependencies
 import JsonLd from "components/JsonLd";
@@ -13,6 +13,7 @@ import ListItem from "components/template/List/ListItem";
 import ListItemContent from "components/template/List/ListItem/ListItemContent";
 import ListItemContentHeader from "components/template/List/ListItem/ListItemContent/ListItemContentHeader";
 import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbnail";
+import Product from "components/partials/Product";
 import Release from "components/partials/Portfolio/Release";
 import Video from "components/partials/Video";
 
@@ -20,6 +21,7 @@ import Video from "components/partials/Video";
 import { getEquipmentItemDescription } from "helpers/equipmentDescription";
 import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
+import { getProductsForEquipmentItem } from "helpers/productEquipment";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 
 const EquipmentItem = ({
@@ -176,6 +178,46 @@ const EquipmentItem = ({
         }
     };
 
+    /*
+     * What this piece of equipment became. The relation decides the wording,
+     * because they are genuinely different claims: a pedal was not sampled, and
+     * the SidStation is played rather than recorded.
+     */
+    const PRODUCT_PANEL_TITLES: Record<ProductEquipmentRelation, Record<Lang, (name: string) => string>> = {
+        sampled: {
+            en: (name) => `Products sampled from the ${name}`,
+            no: (name) => `Produkter samplet fra ${name}`
+        },
+        effect: {
+            en: (name) => `Products recorded through the ${name}`,
+            no: (name) => `Produkter spilt inn gjennom ${name}`
+        },
+        controls: {
+            en: (name) => `Products for the ${name}`,
+            no: (name) => `Produkter for ${name}`
+        }
+    };
+
+    const renderProductsList = (relation: ProductEquipmentRelation, relatedProducts: ProductData[], lang: Lang, item: EquipmentItemData) => {
+        if (!relatedProducts?.length) return "";
+        const name = `${item.brand} ${item.model}`;
+        return (
+            <ExpansionPanel
+                key={relation}
+                elementId={`equipment-item-products-${relation}-${itemId}`}
+                panelTitle={PRODUCT_PANEL_TITLES[relation][lang](name)}
+            >
+                <List compact={true}>
+                    {relatedProducts.map((relatedProduct) => (
+                        <ListItem key={convertToUrlFriendlyString(relatedProduct.title)} compact={true}>
+                            <Product product={relatedProduct} compact={true} lang={lang} languageSlug={languageSlug} />
+                        </ListItem>
+                    ))}
+                </List>
+            </ExpansionPanel>
+        );
+    };
+
     const image = {
         avif55: `/data/equipment/${itemType}/web/avif/${itemId}_55.avif`,
         avif110: `/data/equipment/${itemType}/web/avif/${itemId}_110.avif`,
@@ -205,6 +247,7 @@ const EquipmentItem = ({
     // description as well as the lists themselves, so resolve them once.
     const equipmentVideos = fullscreen ? getVideosForEquipmentItem(itemType, itemId) : [];
     const equipmentReleases = fullscreen ? getInstrumentReleases(itemId) : [];
+    const equipmentProducts = fullscreen ? getProductsForEquipmentItem(itemId) : {};
 
     return item ? (
         <React.Fragment>
@@ -228,6 +271,14 @@ const EquipmentItem = ({
                     )}
                 </ListItemContentHeader>
             </ListItemContent>
+            {/* Before the videos and recordings: a product made from this
+                item is the most direct thing the page has to offer, and the
+                only one that leads anywhere someone can act on. */}
+            {fullscreen
+                ? (Object.keys(PRODUCT_PANEL_TITLES) as ProductEquipmentRelation[]).map((relation) =>
+                      renderProductsList(relation, equipmentProducts[relation] ?? [], lang, item)
+                  )
+                : ""}
             {fullscreen ? renderVideosList(equipmentVideos, lang, item) : ""}
             {fullscreen ? renderReleasesList(equipmentReleases, lang, item) : ""}
         </React.Fragment>

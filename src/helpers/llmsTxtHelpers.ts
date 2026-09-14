@@ -23,6 +23,7 @@ import { formatContentAsString } from "helpers/contentText";
 import { getEquipmentItemDescription } from "helpers/equipmentDescription";
 import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
+import { getProductsForEquipmentItem } from "helpers/productEquipment";
 import { getAdditionalProductLinks } from "helpers/productLinks";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
 import { formatProductFormats } from "helpers/productSpecs";
@@ -121,7 +122,10 @@ const copy = {
         released: "Utgitt",
         listen: "Lytt",
         heardIn: (titles: string) => `Høres i: ${titles}.`,
-        heardOn: (titles: string) => `Høres på: ${titles}.`
+        heardOn: (titles: string) => `Høres på: ${titles}.`,
+        sampledIn: (titles: string) => `Samplet i: ${titles}.`,
+        usedAsEffectOn: (titles: string) => `Brukt som effekt på: ${titles}.`,
+        productsFor: (titles: string) => `Produkter for dette utstyret: ${titles}.`
     },
     en: {
         summary:
@@ -175,7 +179,10 @@ const copy = {
         released: "Released",
         listen: "Listen",
         heardIn: (titles: string) => `Heard in: ${titles}.`,
-        heardOn: (titles: string) => `Heard on: ${titles}.`
+        heardOn: (titles: string) => `Heard on: ${titles}.`,
+        sampledIn: (titles: string) => `Sampled in: ${titles}.`,
+        usedAsEffectOn: (titles: string) => `Used as an effect on: ${titles}.`,
+        productsFor: (titles: string) => `Products for this equipment: ${titles}.`
     }
 } as const;
 
@@ -383,6 +390,7 @@ const renderFullEquipmentItem = (item: EquipmentItemData, equipmentType: Equipme
     const itemId = convertToUrlFriendlyString(itemName);
     const itemVideos = getVideosForEquipmentItem(equipmentTypeKey, itemId);
     const itemReleases = getInstrumentReleases(itemId);
+    const itemProducts = getProductsForEquipmentItem(itemId);
 
     const meta = [`${t.type}: ${equipmentType.name[lang]}`].join("\n");
     const body = [
@@ -390,7 +398,16 @@ const renderFullEquipmentItem = (item: EquipmentItemData, equipmentType: Equipme
         itemVideos.length ? t.heardIn(itemVideos.map((video) => video.title[lang]).join(", ")) : null,
         itemReleases.length
             ? t.heardOn(itemReleases.map((release) => `${release.title} ${lang === "en" ? "by" : "av"} ${release.artistName}`).join(", "))
-            : null
+            : null,
+        /*
+         * What came out of the item, as opposed to what it was heard on. For an
+         * instrument that was sampled into a library this is the most useful
+         * line on the entry, and for most of these items it is the only
+         * sentence they have beyond their own name.
+         */
+        itemProducts.sampled?.length ? t.sampledIn(itemProducts.sampled.map((product) => product.title).join(", ")) : null,
+        itemProducts.effect?.length ? t.usedAsEffectOn(itemProducts.effect.map((product) => product.title).join(", ")) : null,
+        itemProducts.controls?.length ? t.productsFor(itemProducts.controls.map((product) => product.title).join(", ")) : null
     ]
         .filter(Boolean)
         .join("\n");

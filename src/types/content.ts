@@ -208,6 +208,24 @@ export type ReleaseInstrumentLink = {
 };
 
 /*
+ * Joins a product to a piece of equipment, by what the equipment did for it.
+ *
+ * `sampled` is the instrument whose sound is in the library, `effect` is gear
+ * the sound was recorded through, and `controls` is hardware the product drives
+ * or supplies patches for without sampling it at all - SidStation ASID plays a
+ * SidStation, DXtraterrestrial is programs for a DX7. Keeping them apart is the
+ * whole point of the file: an equipment page that listed all three under one
+ * heading would claim a reverb pedal had been sampled.
+ */
+export type ProductEquipmentRelation = "sampled" | "effect" | "controls";
+
+export type ProductEquipmentLink = {
+    productId: string;
+    equipmentId: string;
+    relation: ProductEquipmentRelation;
+};
+
+/*
  * An album, keyed by the releases on it. Kept apart from the releases
  * themselves so one album's title cannot drift between its tracks.
  */

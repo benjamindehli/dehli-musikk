@@ -54,6 +54,9 @@ type Translations = {
     genre: string;
     released: string;
     listen: string;
+    sampledInProducts: string;
+    recordedThroughInProducts: string;
+    productsForItem: string;
     usedInVideos: string;
     heardOnReleases: string;
     alsoAvailableAs: (url: string) => string;
@@ -94,6 +97,7 @@ import { formatContentAsMarkdown, formatContentAsString } from "helpers/contentT
 import { getEquipmentItemDescription } from "helpers/equipmentDescription";
 import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
+import { getProductsForEquipmentItem } from "helpers/productEquipment";
 import { getArtistNamesStringFromReleases } from "helpers/releaseHelpers";
 import { getAdditionalProductLinks } from "helpers/productLinks";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
@@ -164,6 +168,9 @@ const translations: Record<Lang, Translations> = {
         genre: "Sjanger",
         released: "Utgitt",
         listen: "Lytt",
+        sampledInProducts: "Samplet i produkter",
+        recordedThroughInProducts: "Brukt som effekt på produkter",
+        productsForItem: "Produkter for dette utstyret",
         usedInVideos: "Brukt i videoer",
         heardOnReleases: "Hørt på utgivelser",
         alsoAvailableAs: (url: string) => `Denne siden finnes også som HTML: ${url}`,
@@ -217,6 +224,9 @@ const translations: Record<Lang, Translations> = {
         genre: "Genre",
         released: "Released",
         listen: "Listen",
+        sampledInProducts: "Sampled in products",
+        recordedThroughInProducts: "Used as an effect on products",
+        productsForItem: "Products for this equipment",
         usedInVideos: "Used in videos",
         heardOnReleases: "Heard on recordings",
         alsoAvailableAs: (url: string) => `This page is also available as HTML: ${url}`,
@@ -660,6 +670,7 @@ export function getEquipmentItemMarkdown(lang: Lang, equipmentType: string, id: 
     const itemName = `${item.brand} ${item.model}`;
     const itemVideos = getVideosForEquipmentItem(equipmentType, id);
     const itemReleases = getInstrumentReleases(id);
+    const itemProducts = getProductsForEquipmentItem(id);
 
     return markdownDocument({
         lang,
@@ -672,6 +683,18 @@ export function getEquipmentItemMarkdown(lang: Lang, equipmentType: string, id: 
             "",
             getEquipmentItemDescription(itemName, itemVideos.length, itemReleases.length, lang),
             "",
+            ...section(
+                t.sampledInProducts,
+                (itemProducts.sampled ?? []).map((product) => productLine(product, lang))
+            ),
+            ...section(
+                t.recordedThroughInProducts,
+                (itemProducts.effect ?? []).map((product) => productLine(product, lang))
+            ),
+            ...section(
+                t.productsForItem,
+                (itemProducts.controls ?? []).map((product) => productLine(product, lang))
+            ),
             ...section(
                 t.usedInVideos,
                 itemVideos.map((video) => videoLine(video, lang))
