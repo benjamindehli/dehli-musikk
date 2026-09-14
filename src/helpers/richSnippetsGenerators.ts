@@ -25,9 +25,9 @@ function generateHasMerchantReturnPolicySnippet() {
 }
 
 // productType is ordered as [category, ...platforms], e.g.
-// ["Sample instruments", "Decent Sampler", "EXS24"]. Only the categories below
-// are software you run; a patch library is sysex data for a hardware synth and
-// is a Product but not a SoftwareApplication.
+// ["Sample instruments", "Decent Sampler"] or ["Software", "Elektron SidStation"].
+// Only the categories below are software you run; a patch library is sysex data
+// for a hardware synth and is a Product but not a SoftwareApplication.
 const SOFTWARE_PRODUCT_CATEGORIES = ["Software", "Sample instruments"];
 
 /*
