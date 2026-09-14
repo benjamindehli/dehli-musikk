@@ -1,11 +1,13 @@
 import type { EquipmentItemData, EquipmentType } from "data/equipment";
 import type { FaqItem, Post, Product, Release, Video } from "types/content";
+import type { Lang } from "lib/pageMetadata";
 
 type LlmsTxtInput = {
     posts: Post[];
     products: Product[];
     releases: Release[];
     videos: Video[];
+    lang: Lang;
 };
 
 type LlmsFullTxtInput = LlmsTxtInput & {
@@ -23,12 +25,148 @@ import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
 import { getAdditionalProductLinks } from "helpers/productLinks";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
+import { getLanguageSlug } from "lib/i18n";
 
 const websiteUrl = "https://www.dehlimusikk.no";
 
 const latestPostCount = 15;
 const latestReleaseCount = 15;
 const latestVideoCount = 10;
+
+/*
+ * Both files exist per language, and the English pair keeps the bare names it
+ * has always had.
+ *
+ * Tempting to make the unsuffixed /llms.txt the Norwegian one, since Norwegian
+ * is what the site root serves and English is what lives under a prefix. It is
+ * not worth it: /llms.txt has been English since it shipped, the Worker's MCP
+ * server reads /llms-full.txt as its search corpus, and anything that has
+ * already fetched either would silently change language under it.
+ */
+const llmsFileNames = (lang: Lang) => ({
+    index: lang === "en" ? "llms.txt" : "llms-no.txt",
+    full: lang === "en" ? "llms-full.txt" : "llms-full-no.txt"
+});
+
+/*
+ * The prose around the data. Everything here was English string literals before
+ * the files were generated per language, which is precisely why the Norwegian
+ * half of the site - the half with the least competition on the queries it
+ * answers - was invisible to anything reading llms.txt.
+ *
+ * The meta labels are translated along with the headings. A reader answering a
+ * Norwegian question from a Norwegian document should not have to cross a
+ * language boundary in the middle of an entry to learn what a price is.
+ * "URL" and "ISRC" stay as they are, being the same token in both.
+ */
+const copy = {
+    no: {
+        summary:
+            "> Dehli Musikk er et enkeltpersonsforetak drevet av Benjamin Dehli i Bø i Telemark. Foretaket tilbyr spilling av tangentinstrumenter på låter for artister og band, og selger virtuelle samplede instrumenter og patch-bibliotek.",
+        /*
+         * The path segments are English in both languages - the Norwegian
+         * product list is /products/, not /produkter/ - so this says so
+         * outright. Writing the plausible-looking /produkter/ here sent a
+         * reader to a URL that has never existed, which is a worse failure
+         * than saying nothing: it looks authoritative and 404s.
+         */
+        languageNote:
+            "Norske sider ligger på rota av nettstedet; engelske versjoner av de samme sidene ligger under /en/ (for eksempel /products/ mot /en/products/). Stinavnene er de samme på begge språk - bare /en/-prefikset skiller dem.",
+        markdownNote:
+            'Hver side er også publisert som markdown, som index.md ved siden av siden selv: https://www.dehlimusikk.no/products/ har https://www.dehlimusikk.no/products/index.md. HTML-en til hver side lenker til sin egen med <link rel="alternate" type="text/markdown">. Et kall på side-URL-en med headeren Accept: text/markdown gir markdown tilbake.',
+        fullTextNote: (indexUrl: string) =>
+            `Dette er fullteksten til de norske sidene. Engelske versjoner av hver side ligger under /en/. For en oversikt med lenker i stedet, se ${indexUrl}.`,
+        products: "Produkter",
+        releases: "Utgivelser",
+        posts: "Innlegg",
+        videos: "Videoer",
+        equipment: "Utstyr",
+        faq: "Ofte stilte spørsmål",
+        optional: "Valgfritt",
+        productsIntro: (listUrl: string) =>
+            `Virtuelle instrumenter og patch-bibliotek fra Dehli Musikk (full liste: ${listUrl}). Kjøp håndteres i den eksterne butikken på https://store.dehlimusikk.no/.`,
+        releasesIntro: (count: number, total: number, listUrl: string) =>
+            `De ${count} nyeste av ${total} utgivelser Dehli Musikk har bidratt på (hele porteføljen: ${listUrl}).`,
+        postsIntro: (count: number, total: number, listUrl: string) => `De ${count} nyeste av ${total} innlegg (alle innlegg: ${listUrl}).`,
+        videosIntro: (count: number, total: number, listUrl: string) => `De ${count} nyeste av ${total} videoer (alle videoer: ${listUrl}).`,
+        equipmentLinks: {
+            instruments: "Instrumenter brukt under innspilling",
+            effects: "Effektpedaler og prosessorer brukt under innspilling",
+            amplifiers: "Forsterkere brukt under innspilling"
+        },
+        equipmentLinkNames: { instruments: "Instrumenter", effects: "Effekter", amplifiers: "Forsterkere" },
+        faqLink: "Spørsmål og svar om Dehli Musikk, produkter og tjenester",
+        fullTextLink: "Hele teksten til hver side i én fil, i stedet for lenker til den",
+        otherLanguageName: "Engelsk versjon",
+        otherLanguageLink: "Samme oversikt for de engelske sidene under /en/",
+        feedLink: (otherUrl: string) => `RSS-feed med de siste innleggene (engelsk: ${otherUrl})`,
+        sitemapLink: "Alle sider på begge språk",
+        price: "Pris",
+        free: "gratis",
+        from: "fra",
+        type: "Type",
+        store: "Butikk",
+        documentation: "Dokumentasjon",
+        alsoAt: "Finnes også på",
+        published: "Publisert",
+        watch: "Se",
+        artist: "Artist",
+        genre: "Sjanger",
+        released: "Utgitt",
+        listen: "Lytt",
+        heardIn: (titles: string) => `Høres i: ${titles}.`,
+        heardOn: (titles: string) => `Høres på: ${titles}.`
+    },
+    en: {
+        summary:
+            "> Dehli Musikk is a sole proprietorship run by Benjamin Dehli in Bø i Telemark, Norway. It offers keyboard instrument tracks on recordings for artists and bands, and sells virtual sample-based instruments and patch libraries.",
+        languageNote: "English pages live under /en/; Norwegian versions of the same pages live at the site root (e.g. /products/ vs /en/products/).",
+        markdownNote:
+            'Every page is also published as markdown, at index.md beside the page itself: https://www.dehlimusikk.no/en/products/ has https://www.dehlimusikk.no/en/products/index.md. Each page\'s HTML links to its own with <link rel="alternate" type="text/markdown">. Requesting the page URL with an Accept: text/markdown header returns the markdown too.',
+        fullTextNote: (indexUrl: string) =>
+            `This is the full text of the English pages. Norwegian versions of every page live at the site root rather than under /en/. For a linked overview instead, see ${indexUrl}.`,
+        products: "Products",
+        releases: "Releases",
+        posts: "Posts",
+        videos: "Videos",
+        equipment: "Equipment",
+        faq: "Frequently asked questions",
+        optional: "Optional",
+        productsIntro: (listUrl: string) =>
+            `Virtual instruments and patch libraries by Dehli Musikk (full list: ${listUrl}). Purchases are handled on the external store at https://store.dehlimusikk.no/.`,
+        releasesIntro: (count: number, total: number, listUrl: string) =>
+            `The ${count} most recent of ${total} releases Dehli Musikk has contributed to (full portfolio: ${listUrl}).`,
+        postsIntro: (count: number, total: number, listUrl: string) => `The ${count} most recent of ${total} posts (all posts: ${listUrl}).`,
+        videosIntro: (count: number, total: number, listUrl: string) => `The ${count} most recent of ${total} videos (all videos: ${listUrl}).`,
+        equipmentLinks: {
+            instruments: "Instruments used during recording",
+            effects: "Effect pedals and processors used during recording",
+            amplifiers: "Amplifiers used during recording"
+        },
+        equipmentLinkNames: { instruments: "Instruments", effects: "Effects", amplifiers: "Amplifiers" },
+        faqLink: "Questions and answers about Dehli Musikk, products, and services",
+        fullTextLink: "Every page's complete text in one file, rather than links to it",
+        otherLanguageName: "Norwegian version",
+        otherLanguageLink: "The same overview for the Norwegian pages at the site root",
+        feedLink: (otherUrl: string) => `RSS feed with the latest posts (Norwegian: ${otherUrl})`,
+        sitemapLink: "All pages in both languages",
+        price: "Price",
+        free: "free",
+        from: "from",
+        type: "Type",
+        store: "Store",
+        documentation: "Documentation",
+        alsoAt: "Also at",
+        published: "Published",
+        watch: "Watch",
+        artist: "Artist",
+        genre: "Genre",
+        released: "Released",
+        listen: "Listen",
+        heardIn: (titles: string) => `Heard in: ${titles}.`,
+        heardOn: (titles: string) => `Heard on: ${titles}.`
+    }
+} as const;
 
 const truncate = (text: string, maxLength = 160): string => {
     if (!text) return "";
@@ -39,81 +177,97 @@ const truncate = (text: string, maxLength = 160): string => {
 
 const isoDate = (timestamp: number) => new Date(timestamp).toISOString().slice(0, 10);
 
-const renderProductLine = (product: Product) => {
+/*
+ * Products and releases carry one title across both languages, so their slugs
+ * match. Posts and videos are titled per language and slugged from that title,
+ * so theirs do not - which is why every slug below is derived from the language
+ * being rendered rather than from a single canonical one.
+ */
+const renderProductLine = (product: Product, lang: Lang, slug: string) => {
     const productId = convertToUrlFriendlyString(product.title);
-    const description = product.content.en ? truncate(formatContentAsString(product.content.en)) : "";
-    return `- [${product.title}](${websiteUrl}/en/products/${productId}/): ${description}`;
+    const description = product.content[lang] ? truncate(formatContentAsString(product.content[lang])) : "";
+    return `- [${product.title}](${websiteUrl}/${slug}products/${productId}/): ${description}`;
 };
 
-const renderPostLine = (post: Post) => {
-    const postId = convertToUrlFriendlyString(post.title.en);
-    const description = post.content.en ? truncate(formatContentAsString(post.content.en), 120) : "";
-    return `- [${post.title.en}](${websiteUrl}/en/posts/${postId}/) (${isoDate(post.timestamp)}): ${description}`;
+const renderPostLine = (post: Post, lang: Lang, slug: string) => {
+    const postId = convertToUrlFriendlyString(post.title[lang]);
+    const description = post.content[lang] ? truncate(formatContentAsString(post.content[lang]), 120) : "";
+    return `- [${post.title[lang]}](${websiteUrl}/${slug}posts/${postId}/) (${isoDate(post.timestamp)}): ${description}`;
 };
 
-const renderReleaseLine = (release: Release) => {
+const renderReleaseLine = (release: Release, lang: Lang, slug: string) => {
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
     const genre = release.genre ? `${release.genre}, ` : "";
-    return `- [${release.title} by ${release.artistName}](${websiteUrl}/en/portfolio/${releaseId}/) (${genre}${isoDate(release.releaseDate)})`;
+    const by = lang === "en" ? "by" : "av";
+    return `- [${release.title} ${by} ${release.artistName}](${websiteUrl}/${slug}portfolio/${releaseId}/) (${genre}${isoDate(release.releaseDate)})`;
 };
 
-const renderVideoLine = (video: Video) => {
-    const videoId = convertToUrlFriendlyString(video.title.en);
-    const description = video.content.en ? truncate(formatContentAsString(video.content.en), 120) : "";
-    // The /video/ URL is the canonical one: /en/videos/{slug}/ canonicalises to it
-    return `- [${video.title.en}](${websiteUrl}/en/videos/${videoId}/video/) (${isoDate(video.timestamp)}): ${description}`;
+const renderVideoLine = (video: Video, lang: Lang, slug: string) => {
+    const videoId = convertToUrlFriendlyString(video.title[lang]);
+    const description = video.content[lang] ? truncate(formatContentAsString(video.content[lang]), 120) : "";
+    // The /video/ URL is the canonical one: the bare video page canonicalises to it
+    return `- [${video.title[lang]}](${websiteUrl}/${slug}videos/${videoId}/video/) (${isoDate(video.timestamp)}): ${description}`;
 };
 
-export function getLlmsTxt({ posts, products, releases, videos }: LlmsTxtInput) {
+export function getLlmsTxt({ posts, products, releases, videos, lang }: LlmsTxtInput) {
+    const t = copy[lang];
+    const slug = getLanguageSlug(lang);
+    const files = llmsFileNames(lang);
+    const otherLang: Lang = lang === "en" ? "no" : "en";
+
     const latestPosts = [...posts].sort((a, b) => b.timestamp - a.timestamp).slice(0, latestPostCount);
     const latestReleases = [...releases].sort((a, b) => b.releaseDate - a.releaseDate).slice(0, latestReleaseCount);
     const latestVideos = [...videos].sort((a, b) => b.timestamp - a.timestamp).slice(0, latestVideoCount);
 
+    const equipmentLink = (key: "instruments" | "effects" | "amplifiers") =>
+        `- [${t.equipmentLinkNames[key]}](${websiteUrl}/${slug}equipment/${key}/): ${t.equipmentLinks[key]}`;
+
     return [
         "# Dehli Musikk",
         "",
-        "> Dehli Musikk is a sole proprietorship run by Benjamin Dehli in Bø i Telemark, Norway. It offers keyboard instrument tracks on recordings for artists and bands, and sells virtual sample-based instruments and patch libraries.",
+        t.summary,
         "",
-        "English pages live under /en/; Norwegian versions of the same pages live at the site root (e.g. /products/ vs /en/products/).",
+        t.languageNote,
         "",
-        'Every page is also published as markdown, at index.md beside the page itself: https://www.dehlimusikk.no/en/products/ has https://www.dehlimusikk.no/en/products/index.md. Each page\'s HTML links to its own with <link rel="alternate" type="text/markdown">. Requesting the page URL with an Accept: text/markdown header returns the markdown too.',
+        t.markdownNote,
         "",
-        "## Products",
+        `## ${t.products}`,
         "",
-        `Virtual instruments and patch libraries by Dehli Musikk (full list: ${websiteUrl}/en/products/). Purchases are handled on the external store at https://store.dehlimusikk.no/.`,
+        t.productsIntro(`${websiteUrl}/${slug}products/`),
         "",
-        products.map(renderProductLine).join("\n"),
+        products.map((product) => renderProductLine(product, lang, slug)).join("\n"),
         "",
-        "## Releases",
+        `## ${t.releases}`,
         "",
-        `The ${latestReleaseCount} most recent of ${releases.length} releases Dehli Musikk has contributed to (full portfolio: ${websiteUrl}/en/portfolio/).`,
+        t.releasesIntro(latestReleaseCount, releases.length, `${websiteUrl}/${slug}portfolio/`),
         "",
-        latestReleases.map(renderReleaseLine).join("\n"),
+        latestReleases.map((release) => renderReleaseLine(release, lang, slug)).join("\n"),
         "",
-        "## Posts",
+        `## ${t.posts}`,
         "",
-        `The ${latestPostCount} most recent of ${posts.length} posts (all posts: ${websiteUrl}/en/posts/).`,
+        t.postsIntro(latestPostCount, posts.length, `${websiteUrl}/${slug}posts/`),
         "",
-        latestPosts.map(renderPostLine).join("\n"),
+        latestPosts.map((post) => renderPostLine(post, lang, slug)).join("\n"),
         "",
-        "## Videos",
+        `## ${t.videos}`,
         "",
-        `The ${latestVideoCount} most recent of ${videos.length} videos (all videos: ${websiteUrl}/en/videos/).`,
+        t.videosIntro(latestVideoCount, videos.length, `${websiteUrl}/${slug}videos/`),
         "",
-        latestVideos.map(renderVideoLine).join("\n"),
+        latestVideos.map((video) => renderVideoLine(video, lang, slug)).join("\n"),
         "",
-        "## Equipment",
+        `## ${t.equipment}`,
         "",
-        `- [Instruments](${websiteUrl}/en/equipment/instruments/): Instruments used during recording`,
-        `- [Effects](${websiteUrl}/en/equipment/effects/): Effect pedals and processors used during recording`,
-        `- [Amplifiers](${websiteUrl}/en/equipment/amplifiers/): Amplifiers used during recording`,
+        equipmentLink("instruments"),
+        equipmentLink("effects"),
+        equipmentLink("amplifiers"),
         "",
-        "## Optional",
+        `## ${t.optional}`,
         "",
-        `- [Frequently asked questions](${websiteUrl}/en/frequently-asked-questions/): Questions and answers about Dehli Musikk, products, and services`,
-        `- [Full text](${websiteUrl}/llms-full.txt): Every page's complete text in one file, rather than links to it`,
-        `- [News feed](${websiteUrl}/feed-en.rss): RSS feed with the latest posts (Norwegian: ${websiteUrl}/feed-no.rss)`,
-        `- [Sitemap](${websiteUrl}/sitemap.xml): All pages in both languages`,
+        `- [${t.faq}](${websiteUrl}/${slug}frequently-asked-questions/): ${t.faqLink}`,
+        `- [${lang === "en" ? "Full text" : "Fulltekst"}](${websiteUrl}/${files.full}): ${t.fullTextLink}`,
+        `- [${t.otherLanguageName}](${websiteUrl}/${llmsFileNames(otherLang).index}): ${t.otherLanguageLink}`,
+        `- [${lang === "en" ? "News feed" : "Nyhetsfeed"}](${websiteUrl}/feed-${lang}.rss): ${t.feedLink(`${websiteUrl}/feed-${otherLang}.rss`)}`,
+        `- [${lang === "en" ? "Sitemap" : "Nettstedskart"}](${websiteUrl}/sitemap.xml): ${t.sitemapLink}`,
         ""
     ].join("\n");
 }
@@ -130,71 +284,75 @@ export function getLlmsTxt({ posts, products, releases, videos }: LlmsTxtInput) 
 const renderFullEntry = (heading: string, url: string, meta: string, body: string) =>
     [`### ${heading}`, "", `URL: ${url}`, ...(meta ? [meta, ""] : [""]), ...(body ? [body, ""] : [])].join("\n");
 
-const renderFullProduct = (product: Product) => {
+const renderFullProduct = (product: Product, lang: Lang, slug: string) => {
+    const t = copy[lang];
     const productId = convertToUrlFriendlyString(product.title);
     /*
      * "from", because the price on a store product is a pay what you want
      * minimum. Zero reads as free rather than as "0.00 USD", which was both ugly
      * and easy to mistake for a missing value.
      */
-    const price = hasPrice(product) ? `from ${product.price} ${getPriceCurrency(product)}` : "free";
+    const price = hasPrice(product) ? `${t.from} ${product.price} ${getPriceCurrency(product)}` : t.free;
     // One line per key here, rather than the nested list the markdown twins use,
     // because every other line in this file is a single Key: value pair
     const additionalLinks = getAdditionalProductLinks(product);
     const meta = [
-        `Price: ${price}`,
-        product.productType?.length ? `Type: ${product.productType.join(" > ")}` : null,
-        product.link?.url ? `Store: ${product.link.url}` : null,
-        product.documentationLink?.url ? `Documentation: ${product.documentationLink.url}` : null,
-        additionalLinks.length ? `Also at: ${additionalLinks.join(", ")}` : null
+        `${t.price}: ${price}`,
+        product.productType?.length ? `${t.type}: ${product.productType.join(" > ")}` : null,
+        product.link?.url ? `${t.store}: ${product.link.url}` : null,
+        product.documentationLink?.url ? `${t.documentation}: ${product.documentationLink.url}` : null,
+        additionalLinks.length ? `${t.alsoAt}: ${additionalLinks.join(", ")}` : null
     ]
         .filter(Boolean)
         .join("\n");
     return renderFullEntry(
         product.title,
-        `${websiteUrl}/en/products/${productId}/`,
+        `${websiteUrl}/${slug}products/${productId}/`,
         meta,
-        product.content?.en ? formatContentAsString(product.content.en) : ""
+        product.content?.[lang] ? formatContentAsString(product.content[lang]) : ""
     );
 };
 
-const renderFullPost = (post: Post) => {
-    const postId = convertToUrlFriendlyString(post.title.en);
+const renderFullPost = (post: Post, lang: Lang, slug: string) => {
+    const postId = convertToUrlFriendlyString(post.title[lang]);
     return renderFullEntry(
-        post.title.en,
-        `${websiteUrl}/en/posts/${postId}/`,
-        `Published: ${isoDate(post.timestamp)}`,
-        post.content?.en ? formatContentAsString(post.content.en) : ""
+        post.title[lang],
+        `${websiteUrl}/${slug}posts/${postId}/`,
+        `${copy[lang].published}: ${isoDate(post.timestamp)}`,
+        post.content?.[lang] ? formatContentAsString(post.content[lang]) : ""
     );
 };
 
-const renderFullVideo = (video: Video) => {
-    const videoId = convertToUrlFriendlyString(video.title.en);
-    const meta = [`Published: ${isoDate(video.timestamp)}`, `Watch: https://www.youtube.com/watch?v=${video.youTubeId}`].join("\n");
+const renderFullVideo = (video: Video, lang: Lang, slug: string) => {
+    const t = copy[lang];
+    const videoId = convertToUrlFriendlyString(video.title[lang]);
+    const meta = [`${t.published}: ${isoDate(video.timestamp)}`, `${t.watch}: https://www.youtube.com/watch?v=${video.youTubeId}`].join("\n");
     return renderFullEntry(
-        video.title.en,
-        `${websiteUrl}/en/videos/${videoId}/video/`,
+        video.title[lang],
+        `${websiteUrl}/${slug}videos/${videoId}/video/`,
         meta,
-        video.content?.en ? formatContentAsString(video.content.en) : ""
+        video.content?.[lang] ? formatContentAsString(video.content[lang]) : ""
     );
 };
 
 // Releases hold no prose, so they contribute their metadata instead
-const renderFullRelease = (release: Release) => {
+const renderFullRelease = (release: Release, lang: Lang, slug: string) => {
+    const t = copy[lang];
     const releaseId = convertToUrlFriendlyString(`${release.artistName} ${release.title}`);
     const meta = [
-        `Artist: ${release.artistName}`,
-        release.genre ? `Genre: ${release.genre}` : null,
-        release.releaseDate ? `Released: ${isoDate(release.releaseDate)}` : null,
+        `${t.artist}: ${release.artistName}`,
+        release.genre ? `${t.genre}: ${release.genre}` : null,
+        release.releaseDate ? `${t.released}: ${isoDate(release.releaseDate)}` : null,
         release.isrcCode ? `ISRC: ${release.isrcCode}` : null,
-        release.links?.spotify ? `Listen: ${release.links.spotify}` : null
+        release.links?.spotify ? `${t.listen}: ${release.links.spotify}` : null
     ]
         .filter(Boolean)
         .join("\n");
-    return renderFullEntry(`${release.title} by ${release.artistName}`, `${websiteUrl}/en/portfolio/${releaseId}/`, meta, "");
+    const by = lang === "en" ? "by" : "av";
+    return renderFullEntry(`${release.title} ${by} ${release.artistName}`, `${websiteUrl}/${slug}portfolio/${releaseId}/`, meta, "");
 };
 
-const renderFullFaq = (faq: FaqItem) => [`### ${faq.question.en}`, "", formatContentAsString(faq.answer.en), ""].join("\n");
+const renderFullFaq = (faq: FaqItem, lang: Lang) => [`### ${faq.question[lang]}`, "", formatContentAsString(faq.answer[lang]), ""].join("\n");
 
 /*
  * Equipment holds only a brand and a model, so an entry that stopped at the name
@@ -203,58 +361,71 @@ const renderFullFaq = (faq: FaqItem) => [`### ${faq.question.en}`, "", formatCon
  * track" - so they are named here rather than merely counted, the way the
  * equipment page itself lists them.
  */
-const renderFullEquipmentItem = (item: EquipmentItemData, equipmentType: EquipmentType, equipmentTypeKey: string) => {
+const renderFullEquipmentItem = (item: EquipmentItemData, equipmentType: EquipmentType, equipmentTypeKey: string, lang: Lang, slug: string) => {
+    const t = copy[lang];
     const itemName = `${item.brand} ${item.model}`;
     const itemId = convertToUrlFriendlyString(itemName);
     const itemVideos = getVideosForEquipmentItem(equipmentTypeKey, itemId);
     const itemReleases = getInstrumentReleases(itemId);
 
-    const meta = [`Type: ${equipmentType.name.en}`].join("\n");
+    const meta = [`${t.type}: ${equipmentType.name[lang]}`].join("\n");
     const body = [
-        getEquipmentItemDescription(itemName, itemVideos.length, itemReleases.length, "en"),
-        itemVideos.length ? `Heard in: ${itemVideos.map((video) => video.title.en).join(", ")}.` : null,
-        itemReleases.length ? `Heard on: ${itemReleases.map((release) => `${release.title} by ${release.artistName}`).join(", ")}.` : null
+        getEquipmentItemDescription(itemName, itemVideos.length, itemReleases.length, lang),
+        itemVideos.length ? t.heardIn(itemVideos.map((video) => video.title[lang]).join(", ")) : null,
+        itemReleases.length
+            ? t.heardOn(itemReleases.map((release) => `${release.title} ${lang === "en" ? "by" : "av"} ${release.artistName}`).join(", "))
+            : null
     ]
         .filter(Boolean)
         .join("\n");
 
-    return renderFullEntry(itemName, `${websiteUrl}/en/equipment/${equipmentTypeKey}/${itemId}/`, meta, body);
+    return renderFullEntry(itemName, `${websiteUrl}/${slug}equipment/${equipmentTypeKey}/${itemId}/`, meta, body);
 };
 
-export function getLlmsFullTxt({ posts, products, releases, videos, equipmentTypes, frequentlyAskedQuestions }: LlmsFullTxtInput) {
+export function getLlmsFullTxt({ posts, products, releases, videos, equipmentTypes, frequentlyAskedQuestions, lang }: LlmsFullTxtInput) {
+    const t = copy[lang];
+    const slug = getLanguageSlug(lang);
+    const files = llmsFileNames(lang);
+
     const byNewest = <T>(items: T[], dateKey: keyof T & string = "timestamp" as keyof T & string): T[] =>
         [...items].sort((a, b) => (b[dateKey] as number) - (a[dateKey] as number));
 
     const equipmentKeys = Object.keys(equipmentTypes);
     const equipmentCount = equipmentKeys.reduce((total, key) => total + equipmentTypes[key].items.length, 0);
     const equipmentEntries = equipmentKeys
-        .flatMap((key) => equipmentTypes[key].items.map((item) => renderFullEquipmentItem(item, equipmentTypes[key], key)))
+        .flatMap((key) => equipmentTypes[key].items.map((item) => renderFullEquipmentItem(item, equipmentTypes[key], key, lang, slug)))
         .join("\n");
 
     return [
         "# Dehli Musikk",
         "",
-        "> Dehli Musikk is a sole proprietorship run by Benjamin Dehli in Bø i Telemark, Norway. It offers keyboard instrument tracks on recordings for artists and bands, and sells virtual sample-based instruments and patch libraries.",
+        t.summary,
         "",
-        `This is the full text of the English pages. Norwegian versions of every page live at the site root rather than under /en/. For a linked overview instead, see ${websiteUrl}/llms.txt.`,
+        t.fullTextNote(`${websiteUrl}/${files.index}`),
         "",
-        `## Products (${products.length})`,
+        `## ${t.products} (${products.length})`,
         "",
-        products.map(renderFullProduct).join("\n"),
-        `## Posts (${posts.length})`,
+        products.map((product) => renderFullProduct(product, lang, slug)).join("\n"),
+        `## ${t.posts} (${posts.length})`,
         "",
-        byNewest(posts).map(renderFullPost).join("\n"),
-        `## Videos (${videos.length})`,
+        byNewest(posts)
+            .map((post) => renderFullPost(post, lang, slug))
+            .join("\n"),
+        `## ${t.videos} (${videos.length})`,
         "",
-        byNewest(videos).map(renderFullVideo).join("\n"),
-        `## Releases (${releases.length})`,
+        byNewest(videos)
+            .map((video) => renderFullVideo(video, lang, slug))
+            .join("\n"),
+        `## ${t.releases} (${releases.length})`,
         "",
-        byNewest(releases, "releaseDate").map(renderFullRelease).join("\n"),
-        `## Equipment (${equipmentCount})`,
+        byNewest(releases, "releaseDate")
+            .map((release) => renderFullRelease(release, lang, slug))
+            .join("\n"),
+        `## ${t.equipment} (${equipmentCount})`,
         "",
         equipmentEntries,
-        `## Frequently asked questions (${frequentlyAskedQuestions.length})`,
+        `## ${t.faq} (${frequentlyAskedQuestions.length})`,
         "",
-        frequentlyAskedQuestions.map(renderFullFaq).join("\n")
+        frequentlyAskedQuestions.map((faq) => renderFullFaq(faq, lang)).join("\n")
     ].join("\n");
 }

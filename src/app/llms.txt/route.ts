@@ -10,7 +10,7 @@ import videos from "data/videos";
 export const dynamic = "force-static";
 
 export async function GET() {
-    const body = getLlmsTxt({ posts, products, releases, videos });
+    const body = getLlmsTxt({ posts, products, releases, videos, lang: "en" });
 
     return new Response(body, {
         headers: { "Content-Type": "text/plain; charset=utf-8" }

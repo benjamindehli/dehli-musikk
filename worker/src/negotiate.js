@@ -142,9 +142,19 @@ const HOMEPAGE_PATHS = new Set(["/", "/en/"]);
  */
 export function homepageLinkHeader(pathname) {
     if (!HOMEPAGE_PATHS.has(pathname)) return null;
+    /*
+     * Each homepage describes itself in its own language. The English pair kept
+     * the unsuffixed names when the Norwegian files were added, so "/" is the
+     * one that carries a suffix here even though it is the site root.
+     *
+     * One language rather than all four files: an agent that arrived at "/" is
+     * reading Norwegian, and handing it two more describedby links to the same
+     * material in another language is noise. Each file names its counterpart,
+     * so nothing is unreachable.
+     */
+    const files = pathname === "/en/" ? ["/llms.txt", "/llms-full.txt"] : ["/llms-no.txt", "/llms-full-no.txt"];
     return [
-        '</llms.txt>; rel="describedby"; type="text/plain"',
-        '</llms-full.txt>; rel="describedby"; type="text/plain"',
+        ...files.map((file) => `<${file}>; rel="describedby"; type="text/plain"`),
         `<${pathname}index.md>; rel="alternate"; type="text/markdown"`,
         '</sitemap.xml>; rel="sitemap"'
     ].join(", ");

@@ -207,18 +207,34 @@ test("non-twin paths get no canonical header", async () => {
 });
 
 test("the homepages carry a Link header pointing at the machine-readable descriptions", async () => {
+    // Each homepage names the pair in its own language. The English files kept
+    // the unsuffixed names when the Norwegian ones were added, so it is the
+    // Norwegian root that carries a suffix.
+    const describedBy = {
+        "/": [/<\/llms-no\.txt>; rel="describedby"/, /<\/llms-full-no\.txt>; rel="describedby"/],
+        "/en/": [/<\/llms\.txt>; rel="describedby"/, /<\/llms-full\.txt>; rel="describedby"/]
+    };
+
     for (const homepage of ["/", "/en/"]) {
         stubOrigin({ [homepage]: { body: PAGE_HTML } });
 
         const link = (await handle(get(homepage, "text/html,*/*;q=0.8"))).headers.get("Link");
 
         assert.ok(link, `${homepage} should carry a Link header`);
-        assert.match(link, /<\/llms\.txt>; rel="describedby"/);
+        for (const pattern of describedBy[homepage]) assert.match(link, pattern);
         assert.match(link, /<\/sitemap\.xml>; rel="sitemap"/);
         assert.match(link, new RegExp(`<${homepage}index\\.md>; rel="alternate"; type="text/markdown"`));
         // No API exists, so nothing may claim to describe one
         assert.doesNotMatch(link, /api-catalog|service-desc|service-doc/);
     }
+
+    // The Norwegian root must not advertise the English pair: "/llms.txt" is a
+    // substring of nothing here, but "/llms-full-no.txt" would satisfy a loose
+    // check for the English full file, so this asserts the exact forms.
+    stubOrigin({ "/": { body: PAGE_HTML } });
+    const norwegianLink = (await handle(get("/", "text/html,*/*;q=0.8"))).headers.get("Link");
+    assert.doesNotMatch(norwegianLink, /<\/llms\.txt>/);
+    assert.doesNotMatch(norwegianLink, /<\/llms-full\.txt>/);
 });
 
 test("interior pages carry no Link header", async () => {
