@@ -25,6 +25,7 @@ import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
 import { getAdditionalProductLinks } from "helpers/productLinks";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
+import { formatProductFormats } from "helpers/productSpecs";
 import { getLanguageSlug } from "lib/i18n";
 
 const websiteUrl = "https://www.dehlimusikk.no";
@@ -105,6 +106,11 @@ const copy = {
         free: "gratis",
         from: "fra",
         type: "Type",
+        formats: "Formater",
+        operatingSystem: "Operativsystem",
+        softwareVersion: "Versjon",
+        fileSize: "Størrelse",
+        license: "Lisens",
         store: "Butikk",
         documentation: "Dokumentasjon",
         alsoAt: "Finnes også på",
@@ -154,6 +160,11 @@ const copy = {
         free: "free",
         from: "from",
         type: "Type",
+        formats: "Formats",
+        operatingSystem: "Operating system",
+        softwareVersion: "Version",
+        fileSize: "Size",
+        license: "Licence",
         store: "Store",
         documentation: "Documentation",
         alsoAt: "Also at",
@@ -299,6 +310,11 @@ const renderFullProduct = (product: Product, lang: Lang, slug: string) => {
     const meta = [
         `${t.price}: ${price}`,
         product.productType?.length ? `${t.type}: ${product.productType.join(" > ")}` : null,
+        formatProductFormats(product) ? `${t.formats}: ${formatProductFormats(product)}` : null,
+        product.operatingSystem ? `${t.operatingSystem}: ${product.operatingSystem}` : null,
+        product.softwareVersion ? `${t.softwareVersion}: ${product.softwareVersion}` : null,
+        product.fileSize ? `${t.fileSize}: ${product.fileSize}` : null,
+        product.license ? `${t.license}: ${product.license}` : null,
         product.link?.url ? `${t.store}: ${product.link.url}` : null,
         product.documentationLink?.url ? `${t.documentation}: ${product.documentationLink.url}` : null,
         additionalLinks.length ? `${t.alsoAt}: ${additionalLinks.join(", ")}` : null

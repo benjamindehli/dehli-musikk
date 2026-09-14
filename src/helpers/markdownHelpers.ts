@@ -38,6 +38,11 @@ type Translations = {
     free: string;
     priceFrom: (amount: string, currency: string) => string;
     productType: string;
+    formats: string;
+    operatingSystem: string;
+    softwareVersion: string;
+    fileSize: string;
+    license: string;
     store: string;
     documentation: string;
     alsoAt: string;
@@ -92,6 +97,7 @@ import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
 import { getArtistNamesStringFromReleases } from "helpers/releaseHelpers";
 import { getAdditionalProductLinks } from "helpers/productLinks";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
+import { formatProductFormats } from "helpers/productSpecs";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 
 // Lib
@@ -142,6 +148,11 @@ const translations: Record<Lang, Translations> = {
         free: "gratis",
         priceFrom: (amount: string, currency: string) => `fra ${amount} ${currency}`,
         productType: "Type",
+        formats: "Formater",
+        operatingSystem: "Operativsystem",
+        softwareVersion: "Versjon",
+        fileSize: "Størrelse",
+        license: "Lisens",
         store: "Butikk",
         documentation: "Dokumentasjon",
         alsoAt: "Også på",
@@ -190,6 +201,11 @@ const translations: Record<Lang, Translations> = {
         free: "free",
         priceFrom: (amount: string, currency: string) => `from ${amount} ${currency}`,
         productType: "Type",
+        formats: "Formats",
+        operatingSystem: "Operating system",
+        softwareVersion: "Version",
+        fileSize: "Size",
+        license: "Licence",
         store: "Store",
         documentation: "Documentation",
         alsoAt: "Also at",
@@ -436,6 +452,11 @@ export function getProductMarkdown(lang: Lang, id: string) {
                 [t.published, isoDate(product.timestamp)],
                 [t.price, price],
                 [t.productType, product.productType?.length ? product.productType.join(" > ") : null],
+                [t.formats, formatProductFormats(product) ?? null],
+                [t.operatingSystem, product.operatingSystem ?? null],
+                [t.softwareVersion, product.softwareVersion ?? null],
+                [t.fileSize, product.fileSize ?? null],
+                [t.license, product.license ?? null],
                 [t.store, linkTo(product.link, lang)],
                 [t.documentation, linkTo(product.documentationLink, lang)],
                 [t.alsoAt, getAdditionalProductLinks(product)]

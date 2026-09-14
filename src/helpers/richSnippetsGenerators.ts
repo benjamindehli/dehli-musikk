@@ -5,6 +5,7 @@ import { formatContentAsString } from "./contentFormatter";
 import { getPlusOneYear } from "./dateFormatter";
 import { getMinimumPrice, getPriceCurrency } from "./productPricing";
 import { convertToUrlFriendlyString } from "./urlFormatter";
+import { formatProductFormats } from "./productSpecs";
 
 // Data
 import countryCodes from "data/countryCodes";
@@ -30,35 +31,33 @@ function generateHasMerchantReturnPolicySnippet() {
 // for a hardware synth and is a Product but not a SoftwareApplication.
 const SOFTWARE_PRODUCT_CATEGORIES = ["Software", "Sample instruments"];
 
-/*
- * operatingSystem used to be "All" for every software product, which is not true
- * of a native plugin and contradicted what the plugins' own pages say about
- * themselves. The values below come from each product's own description.
- *
- * Every sample library here is a Decent Sampler instrument, and Decent Sampler
- * runs on all three systems. Each library also ships a macOS plugin build, so
- * the three cover the product either way.
- */
-const SAMPLE_INSTRUMENT_OPERATING_SYSTEMS = "macOS, Windows, Linux";
-
-/*
- * The standalone plugins state their own support, so they are listed one by one.
- * A product missing from here gets no operatingSystem at all rather than a
- * guess, which is what leaving it out of this map means.
- */
-const SOFTWARE_OPERATING_SYSTEMS: Record<string, string> = {
-    overtonium: "macOS, Windows, Linux",
-    "sidstation-asid": "macOS, Windows, Linux",
-    "microsampler-editor-librarian": "macOS, Linux"
-};
-
-function generateSoftwareApplicationProperties(product: Product, productId: string) {
+function generateSoftwareApplicationProperties(product: Product) {
     const [category, ...platforms] = product.productType || [];
     if (!SOFTWARE_PRODUCT_CATEGORIES.includes(category)) return null;
+
+    const formats = formatProductFormats(product);
+
     return {
-        operatingSystem: category === "Sample instruments" ? SAMPLE_INSTRUMENT_OPERATING_SYSTEMS : SOFTWARE_OPERATING_SYSTEMS[productId],
+        /*
+         * From the product data now, rather than from a lookup keyed by slug
+         * that lived here. That map needed editing whenever a product was
+         * added, and a product missing from it got no operatingSystem at all
+         * with nothing to show for it - the same silent gap the gallery
+         * manifest has a verify step for.
+         */
+        operatingSystem: product.operatingSystem,
         applicationCategory: ["EntertainmentApplication", "MultimediaApplication"],
         softwareRequirements: platforms.length ? platforms.join(", ") : undefined,
+        softwareVersion: product.softwareVersion,
+        fileSize: product.fileSize,
+        license: product.license,
+        /*
+         * schema.org has no property for "which plugin formats is this", and
+         * fileFormat wants a media type rather than "VST3". A PropertyValue
+         * says the same thing without misusing a typed property, and is the
+         * shape consumers already read arbitrary specs out of.
+         */
+        additionalProperty: formats ? [{ "@type": "PropertyValue", name: "Formats", value: formats }] : undefined,
         /*
          * The optional docs link, which is what softwareHelp is for. It lives
          * here rather than beside the other product properties because
@@ -105,7 +104,7 @@ export function generateProductSnippet(product: Product, languageSlug: string, s
           }
         : null;
 
-    const softwareApplicationProperties = generateSoftwareApplicationProperties(product, productId);
+    const softwareApplicationProperties = generateSoftwareApplicationProperties(product);
 
     /*
      * video belongs to CreativeWork. A SoftwareApplication is one, so the sample

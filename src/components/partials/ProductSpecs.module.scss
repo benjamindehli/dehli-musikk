@@ -1,0 +1,48 @@
+@use "../../style/abstracts/variables/breakpoints";
+@use "../../style/abstracts/variables/colors";
+
+.specs {
+    margin-top: 24px;
+
+    & dl {
+        margin: 0;
+    }
+
+    /*
+     * Stacked on a phone and two columns from the small breakpoint up. The
+     * label column is sized to the longest label rather than to a fraction of
+     * the width, so "Operating system" does not wrap while "Price" leaves a
+     * third of the row empty.
+     */
+    & .row {
+        padding: 6px 0;
+
+        & + .row {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        @media (min-width: breakpoints.$screen-sm) {
+            display: grid;
+            grid-template-columns: minmax(auto, 10rem) 1fr;
+            column-gap: 16px;
+        }
+
+        & dt {
+            color: colors.$article-text-color;
+            font-weight: 500;
+        }
+
+        & dd {
+            margin: 0;
+            // The formats line is the long one, and it has to be able to break
+            // inside a 540px column without pushing the page sideways.
+            overflow-wrap: anywhere;
+        }
+    }
+}
+
+.heading {
+    font-size: 1rem;
+    margin: 0 0 8px;
+    color: colors.$article-text-color;
+}

@@ -18,16 +18,44 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/overtonium/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://benjamindehli.github.io/overtonium/",
             "https://github.com/benjamindehli/overtonium",
             "https://www.kvraudio.com/product/overtonium-by-dehli-musikk"
         ],
-        "productType": ["Software"],
+        "productType": [
+            "Software"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS, Windows, Linux"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "LV2",
+                "operatingSystem": "Linux"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
+        "license": "https://www.gnu.org/licenses/agpl-3.0.html",
         "mainImage": "overtonium.jpg",
-        "additionalImages": ["overtonium_01.jpg", "overtonium_02.png"]
+        "additionalImages": [
+            "overtonium_01.jpg",
+            "overtonium_02.png"
+        ]
     },
     {
         "timestamp": 1786276800000,
@@ -48,14 +76,36 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/sidstation-asid/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://benjamindehli.github.io/sidstation-asid/",
             "https://github.com/benjamindehli/sidstation-asid",
             "https://www.kvraudio.com/product/sidstation-asid-by-dehli-musikk"
         ],
-        "productType": ["Software", "Elektron SidStation"],
+        "productType": [
+            "Software",
+            "Elektron SidStation"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS, Windows, Linux"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
+        "license": "https://www.gnu.org/licenses/gpl-3.0.html",
         "mainImage": "sidstation-asid.jpg",
         "additionalImages": [
             "sidstation-asid_01.png",
@@ -83,14 +133,22 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/microsampler-editor-librarian/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://benjamindehli.github.io/microsampler-editor-librarian/",
             "https://github.com/benjamindehli/microsampler-editor-librarian",
             "https://www.kvraudio.com/product/microsampler-editor-librarian-by-dehli-musikk"
         ],
-        "productType": ["Software", "Korg microSAMPLER"],
+        "productType": [
+            "Software",
+            "Korg microSAMPLER"
+        ],
+        "operatingSystem": "macOS, Linux",
+        "license": "https://www.gnu.org/licenses/gpl-3.0.html",
         "mainImage": "microsampler-editor-librarian.jpg",
         "additionalImages": [
             "microsampler-editor-librarian_01.png",
@@ -121,7 +179,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/MaskinTrommer/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/maskintrommer",
@@ -132,7 +193,29 @@
             "https://benjamindehli.github.io/MaskinTrommer/",
             "https://www.kvraudio.com/product/maskintrommer-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "maskintrommer.jpg",
         "additionalImages": [
             "maskintrommer_01.png",
@@ -173,7 +256,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/MidnightWurli/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/midnight-wurli",
@@ -185,7 +271,29 @@
             "https://benjamindehli.github.io/MidnightWurli/",
             "https://www.kvraudio.com/product/midnight-wurli-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "midnight-wurli.jpg",
         "additionalImages": [
             "midnight-wurli_01.jpg",
@@ -231,7 +339,10 @@
             "https://www.matrixsynth.com/2025/03/more-custom-patches-for-yamaha-dx7.html",
             "https://www.kvraudio.com/product/dxtraterrestrial-2-by-dehli-musikk"
         ],
-        "productType": ["Patch library", "Yamaha DX7"],
+        "productType": [
+            "Patch library",
+            "Yamaha DX7"
+        ],
         "mainImage": "dxtraterrestrial-2.jpg",
         "video": {
             "name": {
@@ -273,9 +384,14 @@
             "https://www.matrixsynth.com/2024/08/custom-patches-for-yamaha-dx7.html",
             "https://www.kvraudio.com/product/dxtraterrestrial-1-by-dehli-musikk"
         ],
-        "productType": ["Patch library", "Yamaha DX7"],
+        "productType": [
+            "Patch library",
+            "Yamaha DX7"
+        ],
         "mainImage": "dxtraterrestrial-1.jpg",
-        "additionalImages": ["dxtraterrestrial-1_01.jpg"],
+        "additionalImages": [
+            "dxtraterrestrial-1_01.jpg"
+        ],
         "video": {
             "name": {
                 "en": "Custom patches for Yamaha DX7 (DXtraterrestrial 1)",
@@ -308,7 +424,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/EDB-Orgel/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/edb-orgel",
@@ -319,9 +438,35 @@
             "https://benjamindehli.github.io/EDB-Orgel/",
             "https://www.kvraudio.com/product/edb-orgel-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "edb-orgel.jpg",
-        "additionalImages": ["edb-orgel_01.png", "edb-orgel_02.png", "edb-orgel_03.png"],
+        "additionalImages": [
+            "edb-orgel_01.png",
+            "edb-orgel_02.png",
+            "edb-orgel_03.png"
+        ],
         "video": {
             "name": {
                 "en": "EDB-Orgel for Decent Sampler",
@@ -354,7 +499,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/SubC/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/subc",
@@ -366,9 +514,35 @@
             "https://benjamindehli.github.io/SubC/",
             "https://www.kvraudio.com/product/subc-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "subc.jpg",
-        "additionalImages": ["subc_01.png", "subc_02.png", "subc_03.png"],
+        "additionalImages": [
+            "subc_01.png",
+            "subc_02.png",
+            "subc_03.png"
+        ],
         "video": {
             "name": {
                 "en": "Sub bass sample library (SubC)",
@@ -401,7 +575,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/4-track-toy-piano/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/4-track-toy-piano",
@@ -412,7 +589,29 @@
             "https://benjamindehli.github.io/4-track-toy-piano/",
             "https://www.kvraudio.com/product/4-track-toy-piano-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "4-track-toy-piano.jpg",
         "additionalImages": [
             "4-track-toy-piano_01.jpg",
@@ -454,7 +653,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/ElektriskSalmesykkel/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/elektrisk-salmesykkel",
@@ -465,7 +667,29 @@
             "https://benjamindehli.github.io/ElektriskSalmesykkel/",
             "https://www.kvraudio.com/product/elektrisk-salmesykkel-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "elektrisk-salmesykkel.jpg",
         "additionalImages": [
             "elektrisk-salmesykkel_01.png",
@@ -507,7 +731,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/StyloPoly/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/stylopoly",
@@ -519,7 +746,29 @@
             "https://benjamindehli.github.io/StyloPoly/",
             "https://www.kvraudio.com/product/stylopoly-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "stylopoly.jpg",
         "additionalImages": [
             "stylopoly_01.png",
@@ -565,7 +814,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/Strykebrett/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/strykebrett",
@@ -577,7 +829,29 @@
             "https://benjamindehli.github.io/Strykebrett/",
             "https://www.kvraudio.com/product/strykebrett-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "strykebrett.jpg",
         "additionalImages": [
             "strykebrett_01.png",
@@ -622,7 +896,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/4-track-glockenspiel/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/4-track-glockenspiel",
@@ -633,7 +910,29 @@
             "https://benjamindehli.github.io/4-track-glockenspiel/",
             "https://www.kvraudio.com/product/4-track-glockenspiel-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "4-track-glockenspiel.jpg",
         "additionalImages": [
             "4-track-glockenspiel_01.jpg",
@@ -675,7 +974,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/4-track-music-box/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/4-track-music-box",
@@ -686,7 +988,29 @@
             "https://benjamindehli.github.io/4-track-music-box/",
             "https://www.kvraudio.com/product/4-track-music-box-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "4-track-music-box.jpg",
         "additionalImages": [
             "4-track-music-box_01.jpg",
@@ -728,7 +1052,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/VoltageControlledCassetteOrgan/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/voltage-controlled-cassette-organ",
@@ -740,7 +1067,29 @@
             "https://benjamindehli.github.io/VoltageControlledCassetteOrgan/",
             "https://www.kvraudio.com/product/voltage-controlled-cassette-organ-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "voltage-controlled-cassette-organ.jpg",
         "additionalImages": [
             "voltage-controlled-cassette-organ_01.png",
@@ -786,7 +1135,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/Omni-84/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/omni-84",
@@ -798,7 +1150,29 @@
             "https://benjamindehli.github.io/Omni-84/",
             "https://www.kvraudio.com/product/omni-84-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "omni-84.jpg",
         "additionalImages": [
             "omni-84_01.jpg",
@@ -841,7 +1215,10 @@
         },
         "documentationLink": {
             "url": "https://benjamindehli.github.io/lo-fi-tape-piano/",
-            "text": { "en": "Read the documentation", "no": "Les dokumentasjonen" }
+            "text": {
+                "en": "Read the documentation",
+                "no": "Les dokumentasjonen"
+            }
         },
         "sameAs": [
             "https://store.dehlimusikk.no/l/lo-fi-tape-piano",
@@ -853,9 +1230,34 @@
             "https://benjamindehli.github.io/lo-fi-tape-piano/",
             "https://www.kvraudio.com/product/lo-fi-tape-piano-by-dehli-musikk"
         ],
-        "productType": ["Sample instruments", "Decent Sampler"],
+        "productType": [
+            "Sample instruments",
+            "Decent Sampler"
+        ],
+        "operatingSystem": "macOS, Windows, Linux",
+        "formats": [
+            {
+                "name": "VST3",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "AU",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Standalone",
+                "operatingSystem": "macOS"
+            },
+            {
+                "name": "Decent Sampler",
+                "operatingSystem": "macOS, Windows, Linux"
+            }
+        ],
         "mainImage": "lo-fi-tape-piano.jpg",
-        "additionalImages": ["lo-fi-tape-piano_01.jpg", "lo-fi-tape-piano_02.png"],
+        "additionalImages": [
+            "lo-fi-tape-piano_01.jpg",
+            "lo-fi-tape-piano_02.png"
+        ],
         "video": {
             "name": {
                 "en": "Lo-fi Tape Piano (sample pack)",

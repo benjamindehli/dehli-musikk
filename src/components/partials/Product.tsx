@@ -8,6 +8,7 @@ import React from "react";
 // Components
 import Button from "components/partials/Button";
 import ProductGallery from "components/partials/ProductGallery";
+import ProductSpecs from "components/partials/ProductSpecs";
 import Release from "components/partials//Portfolio/Release";
 import ListItem from "components/template/List/ListItem";
 import ListItemActionButtons from "components/template/List/ListItem/ListItemActionButtons";
@@ -217,6 +218,10 @@ const Product = ({
                 ) : (
                     ""
                 )}
+                {/* Above the demo and the gallery: someone deciding whether
+                    this runs on their machine should not have to scroll past
+                    ten screenshots to find out. */}
+                {fullscreen ? <ProductSpecs product={product} lang={lang} /> : ""}
                 {fullscreen ? renderVideo(product, image) : ""}
                 {fullscreen ? <ProductGallery filenames={product.additionalImages ?? []} productTitle={product.title} lang={lang} /> : ""}
             </ListItemContent>

@@ -102,6 +102,34 @@ export type Product = {
     link: ContentLink;
     sameAs: string[];
     productType: string[];
+    /*
+     * Which systems the product runs on, as free text for schema.org's
+     * operatingSystem.
+     *
+     * Lived in a lookup keyed by slug in richSnippetsGenerators until it moved
+     * here. That map had to be edited whenever a product was added, and a
+     * product missing from it silently got no operatingSystem at all - the kind
+     * of omission nothing fails on and nobody notices. Absent here means the
+     * same thing, but at least it is absent in the place the fact belongs.
+     *
+     * Only the software categories carry one. A patch library is data for a
+     * hardware synth and has no operating system to speak of.
+     */
+    operatingSystem?: string;
+    /*
+     * The formats the product is delivered in, each with the systems that
+     * format runs on - which are not always the product's own. The sample
+     * instruments are the reason it is a list of pairs rather than a list of
+     * names: their VST3, AU and Standalone builds are macOS only, and it is the
+     * Decent Sampler version that reaches Windows and Linux.
+     */
+    formats?: { name: string; operatingSystem?: string }[];
+    /** A licence URL, on the products that are open source. */
+    license?: string;
+    /** The current release, when there is a number worth stating. */
+    softwareVersion?: string;
+    /** Download size as authored text, e.g. "637.8 MB". */
+    fileSize?: string;
     mainImage: string;
     additionalImages?: string[];
     documentationLink?: ContentLink;
