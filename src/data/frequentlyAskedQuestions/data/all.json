@@ -62,11 +62,11 @@
     {
         "question": {
             "en": "What software or hardware do I need to use the products?",
-            "no": "Jeg trenger programvare eller maskinvare for å bruke produktene?"
+            "no": "Hvilken programvare eller maskinvare trenger jeg for å bruke produktene?"
         },
         "answer": {
-            "en": "The instrument libraries are available both as DecentSampler presets and as native plugins. The DecentSampler version requires the free DecentSampler plugin (Windows, macOS and Linux). The plugin version (VST3, AU and Standalone) runs on its own without DecentSampler and is currently available for macOS, with Windows and Linux planned. The DX7 synthesizer patches require a [Yamaha DX7 synthesizer](equipment/instruments/yamaha-dx7/) or DX7-compatible software or hardware.",
-            "no": "Instrumentbibliotekene er tilgjengelige både som DecentSampler-presets og som native plugins. DecentSampler-versjonen krever den gratis DecentSampler-pluginen (Windows, macOS og Linux). Plugin-versjonen (VST3, AU og Standalone) kjører på egen hånd uten DecentSampler og er foreløpig tilgjengelig for macOS, med Windows og Linux planlagt. DX7-synthesizer-patchene krever en [Yamaha DX7-synthesizer](equipment/instruments/yamaha-dx7/) eller DX7-kompatibel programvare eller maskinvare."
+            "en": "The sample instruments are plugins - VST3, AU and Standalone - and those builds run on their own, without Decent Sampler, on macOS, with Windows and Linux planned. Each library also comes as a Decent Sampler version, which is what covers Windows and Linux today and needs the free Decent Sampler plugin. The DX7 synthesizer patches require a [Yamaha DX7 synthesizer](equipment/instruments/yamaha-dx7/) or DX7-compatible software or hardware.",
+            "no": "Sample-instrumentene er plugins - VST3, AU og Standalone - og de versjonene kjører på egen hånd, uten Decent Sampler, på macOS, med Windows og Linux planlagt. Hvert bibliotek kommer også som en Decent Sampler-versjon, og det er den som dekker Windows og Linux i dag. Den krever den gratis Decent Sampler-pluginen. DX7-synthesizer-patchene krever en [Yamaha DX7-synthesizer](equipment/instruments/yamaha-dx7/) eller DX7-kompatibel programvare eller maskinvare."
         }
     },
     {
@@ -77,6 +77,96 @@
         "answer": {
             "en": "You can contact Dehli Musikk through email, or reach out via social media platforms.",
             "no": "Du kan kontakte Dehli Musikk via e-post, eller ta kontakt gjennom sosiale medier."
+        }
+    },
+    {
+        "question": {
+            "en": "Which products from Dehli Musikk are free?",
+            "no": "Hvilke produkter fra Dehli Musikk er gratis?"
+        },
+        "answer": {
+            "en": "Four of them: [Overtonium](products/overtonium/), [SidStation ASID](products/sidstation-asid/), [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) and [Omni-84](products/omni-84/). The rest are pay what you want with a minimum of 9.99 USD, so the price shown on a product page is the least you can pay rather than a fixed amount.",
+            "no": "Fire av dem: [Overtonium](products/overtonium/), [SidStation ASID](products/sidstation-asid/), [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) og [Omni-84](products/omni-84/). Resten er betal hva du vil, med et minimum på 9,99 USD, så prisen som står på en produktside er det minste du kan betale, ikke et fast beløp."
+        }
+    },
+    {
+        "question": {
+            "en": "What is Decent Sampler, and do I have to pay for it?",
+            "no": "Hva er Decent Sampler, og må jeg betale for den?"
+        },
+        "answer": {
+            "en": "Decent Sampler is a sampler plugin from Decent Samples, and it is free. The sample instruments from Dehli Musikk are plugins in their own right - VST3, AU and Standalone - but those builds are macOS only, so each library also comes as a Decent Sampler version. That is what covers Windows and Linux, since Decent Sampler runs on all three. Either way there is nothing further to buy.",
+            "no": "Decent Sampler er en sampler-plugin fra Decent Samples, og den er gratis. Sample-instrumentene fra Dehli Musikk er egne plugins - VST3, AU og Standalone - men de versjonene finnes bare for macOS, så hvert bibliotek kommer også som en Decent Sampler-versjon. Det er den som dekker Windows og Linux, siden Decent Sampler kjører på alle tre. Uansett hvilken vei du går, er det ingenting mer å kjøpe."
+        }
+    },
+    {
+        "question": {
+            "en": "Do the products run on Linux?",
+            "no": "Kjører produktene på Linux?"
+        },
+        "answer": {
+            "en": "Most of them, one way or another. The sample instruments do through their Decent Sampler version, which runs on macOS, Windows and Linux; their VST3, AU and Standalone builds are macOS only. [Overtonium](products/overtonium/) has a Linux build. [SidStation ASID](products/sidstation-asid/) has Windows and Linux builds, though those have not been tested against the hardware yet. [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) runs on macOS and Linux, but not on Windows. The DX7 patch libraries are synthesizer data rather than software, so no operating system is involved. Everything here is developed on a Mac, so reports from Windows and Linux are welcome.",
+            "no": "De fleste, på en eller annen måte. Sample-instrumentene gjør det gjennom Decent Sampler-versjonen, som kjører på macOS, Windows og Linux; VST3-, AU- og Standalone-versjonene finnes bare for macOS. [Overtonium](products/overtonium/) har en Linux-versjon. [SidStation ASID](products/sidstation-asid/) har versjoner for Windows og Linux, men de er foreløpig ikke testet mot maskinvaren. [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) kjører på macOS og Linux, men ikke på Windows. DX7-patchbibliotekene er synthesizer-data og ikke programvare, så noe operativsystem er ikke involvert. Alt her utvikles på en Mac, så tilbakemeldinger fra Windows og Linux tas imot med takk."
+        }
+    },
+    {
+        "question": {
+            "en": "Which plugin formats are available?",
+            "no": "Hvilke plugin-formater finnes?"
+        },
+        "answer": {
+            "en": "[Overtonium](products/overtonium/) comes as VST3, AU, LV2 and Standalone. [SidStation ASID](products/sidstation-asid/) comes as VST3, AU and Standalone. The sample instruments come as VST3, AU and Standalone for macOS, and as a Decent Sampler version that also covers Windows and Linux.",
+            "no": "[Overtonium](products/overtonium/) finnes som VST3, AU, LV2 og Standalone. [SidStation ASID](products/sidstation-asid/) finnes som VST3, AU og Standalone. Sample-instrumentene finnes som VST3, AU og Standalone for macOS, og som en Decent Sampler-versjon som også dekker Windows og Linux."
+        }
+    },
+    {
+        "question": {
+            "en": "Do I need the original hardware to use the products?",
+            "no": "Trenger jeg den originale maskinvaren for å bruke produktene?"
+        },
+        "answer": {
+            "en": "It depends on the product. The sample libraries need no hardware, since the instruments have already been recorded. [SidStation ASID](products/sidstation-asid/) plays the SID voices of an [Elektron SidStation](equipment/instruments/elektron-sidstation/) over the ASID protocol and contains no emulation, so the hardware is required. [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) talks to a [Korg microSAMPLER](equipment/instruments/korg-microsampler/) over USB, though its library mode also reads old backups with nothing connected. The DX7 patch libraries need a [Yamaha DX7](equipment/instruments/yamaha-dx7/) or something DX7 compatible.",
+            "no": "Det kommer an på produktet. Lydbibliotekene trenger ingen maskinvare, siden instrumentene allerede er spilt inn. [SidStation ASID](products/sidstation-asid/) spiller SID-stemmene i en [Elektron SidStation](equipment/instruments/elektron-sidstation/) over ASID-protokollen og inneholder ingen emulering, så maskinvaren er nødvendig. [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) snakker med en [Korg microSAMPLER](equipment/instruments/korg-microsampler/) over USB, men bibliotek-modusen leser også gamle backuper uten at noe er koblet til. DX7-patchbibliotekene krever en [Yamaha DX7](equipment/instruments/yamaha-dx7/) eller noe DX7-kompatibelt."
+        }
+    },
+    {
+        "question": {
+            "en": "What is the difference between a sample instrument and a patch library?",
+            "no": "Hva er forskjellen på et sample-instrument og et patch-bibliotek?"
+        },
+        "answer": {
+            "en": "A sample instrument is a set of recordings of a real instrument, played back by sampler software. The sample instruments here work that way and need no hardware. A patch library is a set of settings for a synthesizer you already own: the DXtraterrestrial libraries are programs for the [Yamaha DX7](equipment/instruments/yamaha-dx7/), so they make no sound on their own.",
+            "no": "Et sample-instrument er innspillinger av et virkelig instrument som spilles av med sampler-programvare. Sample-instrumentene her fungerer slik og trenger ingen maskinvare. Et patch-bibliotek er innstillinger til en synthesizer du allerede har: DXtraterrestrial-bibliotekene er programmer for [Yamaha DX7](equipment/instruments/yamaha-dx7/), og lager derfor ingen lyd på egen hånd."
+        }
+    },
+    {
+        "question": {
+            "en": "How do I install the products?",
+            "no": "Hvordan installerer jeg produktene?"
+        },
+        "answer": {
+            "en": "A plugin is installed by putting the downloaded file in the folder your DAW scans for plugins, or by running the Standalone build instead. A Decent Sampler version is unpacked and then opened from inside Decent Sampler itself. Where a product has its own documentation, the link to it sits on the product page beside the download button.",
+            "no": "En plugin installeres ved å legge den nedlastede fila i mappa DAW-en din leter etter plugins i, eller ved å kjøre Standalone-versjonen i stedet. En Decent Sampler-versjon pakkes ut og åpnes deretter inne i Decent Sampler. Der et produkt har egen dokumentasjon, ligger lenka til den på produktsida ved siden av nedlastingsknappen."
+        }
+    },
+    {
+        "question": {
+            "en": "Can I hear the instruments before buying?",
+            "no": "Kan jeg høre instrumentene før jeg kjøper?"
+        },
+        "answer": {
+            "en": "Yes. Most product pages carry a demo video, and they are collected on the [videos page](videos/). Where an instrument has been used on a release, the product page lists those recordings too.",
+            "no": "Ja. De fleste produktsidene har en demovideo, og de er samlet på [videosiden](videos/). Der et instrument er brukt på en utgivelse, lister produktsida også opp de innspillingene."
+        }
+    },
+    {
+        "question": {
+            "en": "Are the free products open source?",
+            "no": "Er gratisproduktene åpen kildekode?"
+        },
+        "answer": {
+            "en": "The three free plugins are. [Overtonium](products/overtonium/) is under GNU AGPL v3, and [SidStation ASID](products/sidstation-asid/) and [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) are under GNU GPL v3. Source code and releases are on GitHub, linked from each product page. The last two are independent projects, not affiliated with Elektron or Korg.",
+            "no": "De tre gratis pluginene er det. [Overtonium](products/overtonium/) er under GNU AGPL v3, og [SidStation ASID](products/sidstation-asid/) og [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) er under GNU GPL v3. Kildekode og utgivelser ligger på GitHub, lenket fra hver produktside. De to siste er uavhengige prosjekter, uten tilknytning til Elektron eller Korg."
         }
     }
 ]
