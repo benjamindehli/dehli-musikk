@@ -25,8 +25,8 @@
             "no": "Kan jeg leie Benjamin Dehli for å spille inn keyboardspor til mitt prosjekt?"
         },
         "answer": {
-            "en": "Yes! Benjamin offers keyboard track recording services for artists and bands. For inquiries about collaboration or recording services, you can reach out via social media or email.",
-            "no": "Ja! Benjamin tilbyr innspilling av keyboardspor for artister og band. For spørsmål angående samarbeid eller innspillingstjenester, kan du ta kontakt via sosiale medier eller e-post."
+            "en": "Yes. Benjamin records keyboard tracks for artists and bands. Get in touch by email at [superelg@gmail.com](mailto:superelg@gmail.com) or on [Facebook](https://www.facebook.com/DehliMusikk/), and hear what earlier collaborations sound like on the [portfolio page](portfolio/).",
+            "no": "Ja. Benjamin spiller inn tangentspor for artister og band. Ta kontakt på e-post til [superelg@gmail.com](mailto:superelg@gmail.com) eller på [Facebook](https://www.facebook.com/DehliMusikk/), og hør hvordan tidligere samarbeid låter på [porteføljesiden](portfolio/)."
         }
     },
     {
@@ -75,8 +75,8 @@
             "no": "Hvordan kan jeg kontakte Dehli Musikk for henvendelser?"
         },
         "answer": {
-            "en": "You can contact Dehli Musikk through email, or reach out via social media platforms.",
-            "no": "Du kan kontakte Dehli Musikk via e-post, eller ta kontakt gjennom sosiale medier."
+            "en": "By email at [superelg@gmail.com](mailto:superelg@gmail.com), or on [Facebook](https://www.facebook.com/DehliMusikk/). Both are in the footer of every page.",
+            "no": "På e-post til [superelg@gmail.com](mailto:superelg@gmail.com), eller på [Facebook](https://www.facebook.com/DehliMusikk/). Begge står i bunnen av hver side."
         }
     },
     {
@@ -167,6 +167,16 @@
         "answer": {
             "en": "The three free plugins are. [Overtonium](products/overtonium/) is under GNU AGPL v3, and [SidStation ASID](products/sidstation-asid/) and [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) are under GNU GPL v3. Source code and releases are on GitHub, linked from each product page. The last two are independent projects, not affiliated with Elektron or Korg.",
             "no": "De tre gratis pluginene er det. [Overtonium](products/overtonium/) er under GNU AGPL v3, og [SidStation ASID](products/sidstation-asid/) og [microSAMPLER Editor / Librarian](products/microsampler-editor-librarian/) er under GNU GPL v3. Kildekode og utgivelser ligger på GitHub, lenket fra hver produktside. De to siste er uavhengige prosjekter, uten tilknytning til Elektron eller Korg."
+        }
+    },
+    {
+        "question": {
+            "en": "Can I use the sounds in my own music?",
+            "no": "Kan jeg bruke lydene i min egen musikk?"
+        },
+        "answer": {
+            "en": "Yes. The products are released under the [GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.html), which covers the sampled audio as well as the software, so you can use the sounds in your own music, including releases you sell. The licence governs redistributing the library itself rather than the music you make with it. The linked text is the authoritative statement of what it allows - if you are unsure how it applies to something in particular, just ask.",
+            "no": "Ja. Produktene er utgitt under [GNU General Public License v3](https://www.gnu.org/licenses/gpl-3.0.html), som dekker de samplede lydene så vel som programvaren, så du kan bruke lydene i din egen musikk, også på utgivelser du selger. Lisensen handler om videredistribusjon av selve biblioteket, ikke om musikken du lager med det. Den lenkede teksten er det som gjelder - er du usikker på hvordan den slår ut i et konkret tilfelle, er det bare å spørre."
         }
     }
 ]
