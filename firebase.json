@@ -13,6 +13,8 @@
         "_comment_csp_script_src": "script-src keeps 'unsafe-inline' deliberately. The App Router streams its payload as inline self.__next_f.push(...) calls whose contents differ per page, so the 1437 pages produce about as many distinct scripts: hashing them would mean a CSP header of roughly 200KB. Nonces are the alternative and fit this site worse, because a nonce must be unique per response while these pages are static and cached at the edge - a cached page and a fresh nonce never match. The ld+json blocks beside them need nothing: a script element with a non-JavaScript type is a data block the browser never executes, so script-src does not govern it.",
         "_comment_frame_ancestors": "frame-ancestors 'none' is the CSP-level control and what current browsers prefer; X-Frame-Options is kept below for anything that only understands that one.",
         "_comment_hsts": "Strict-Transport-Security is set here, but Cloudflare replaces it at the edge: the site serves max-age=15552000 (180 days) from the zone's HSTS setting, not the value in this file. The origin header is kept as a floor for the case where that setting is ever turned off - so the live decision is in the Cloudflare dashboard, and changing this value alone does nothing. Neither preload nor includeSubDomains is sent, both deliberately: preload cannot be undone and the served header would not qualify for the list anyway, which wants a year plus includeSubDomains, and includeSubDomains would commit store.dehlimusikk.no, a separately hosted storefront, to HTTPS-only on this file's say-so.",
+        "_comment_image_cache": "A year is right for an image whose URL changes when its content does, and a trap for one whose URL never changes. The generated sizes under /data are the first kind - the gallery variants carry their source's hash in the filename, see scripts/generate-product-images.mjs - so they keep the year. The originals under /product-images are the second kind: their names are fixed because the JSON-LD and the merchant feeds point at them, and renaming them risks Merchant Center disapprovals. Release 2.19.3 is what this is here for: it replaced 29 of those originals, every one kept its URL, and a year long cache entry meant Google went on being served the previous photo with nothing to indicate otherwise. A day is short enough that replacing an original becomes visible without anyone purging anything, and no page renders these - they are crawler traffic, not visitor traffic.",
+        "_comment_image_cache_globs": "The image rules are deliberately disjoint, rather than one broad rule with /product-images overriding it, because which of two matching header rules wins is not something this config should be betting on. The built output puts images in exactly /data, /images, /product-images and nine files at the root, so the four rules cover all of them. An image added outside those paths falls through to the Hosting default rather than to the wrong value. To check a deploy: curl -sI https://dehlimusikk.no/<path> | grep -i cache-control",
         "_comment_analytics_connect_src": "connect-src names cloudflareinsights.com for the Web Analytics beacon, and which host that is depends on how the beacon was installed rather than on whether the zone is proxied. Cloudflare's automatic JS injection reports to /cdn-cgi/rum on this site's own origin, which 'self' already covers; the snippet this repo ships in components/partials/Analytics.tsx is a manual install, and a manual install reports to cloudflareinsights.com/cdn-cgi/rum instead. Getting this wrong fails silently in the worst way: the script still loads and runs, every report is refused, and the dashboard simply shows no traffic. If the beacon is ever switched to automatic injection in the dashboard, drop this host again.",
         "headers": [
             {
@@ -63,7 +65,34 @@
                 ]
             },
             {
-                "source": "**/*.@(jpg|jpeg|gif|png|webp|avif|svg|ico)",
+                "source": "/product-images/**",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=86400"
+                    }
+                ]
+            },
+            {
+                "source": "/data/**/*.@(jpg|jpeg|gif|png|webp|avif|svg|ico)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=31536000"
+                    }
+                ]
+            },
+            {
+                "source": "/images/**/*.@(jpg|jpeg|gif|png|webp|avif|svg|ico)",
+                "headers": [
+                    {
+                        "key": "Cache-Control",
+                        "value": "max-age=31536000"
+                    }
+                ]
+            },
+            {
+                "source": "/*.@(jpg|jpeg|gif|png|webp|avif|svg|ico)",
                 "headers": [
                     {
                         "key": "Cache-Control",
