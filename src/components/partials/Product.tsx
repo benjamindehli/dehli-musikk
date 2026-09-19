@@ -223,7 +223,16 @@ const Product = ({
                     ten screenshots to find out. */}
                 {fullscreen ? <ProductSpecs product={product} lang={lang} /> : ""}
                 {fullscreen ? renderVideo(product, image) : ""}
-                {fullscreen ? <ProductGallery filenames={product.additionalImages ?? []} productTitle={product.title} lang={lang} /> : ""}
+                {fullscreen ? (
+                    <ProductGallery
+                        filenames={product.additionalImages ?? []}
+                        descriptions={product.additionalImageDescriptions}
+                        productTitle={product.title}
+                        lang={lang}
+                    />
+                ) : (
+                    ""
+                )}
             </ListItemContent>
             {fullscreen ? renderReleasesList(getProductReleases(productId), lang, product) : ""}
         </React.Fragment>

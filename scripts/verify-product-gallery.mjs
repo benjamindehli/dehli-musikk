@@ -36,6 +36,7 @@ const SOURCE_DIR = path.join(ROOT, "public", "product-images");
 const GALLERY_DIR = path.join(ROOT, "public", "data", "products", "gallery");
 
 const FORMATS = ["avif", "webp", "jpg"];
+const LANGUAGES = ["no", "en"];
 
 const products = JSON.parse(fs.readFileSync(PRODUCTS_PATH, "utf8"));
 const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
@@ -55,6 +56,25 @@ for (const product of products) {
             problems.push(`${product.title}: "${filename}" has no generated sizes`);
         } else {
             problems.push(`${product.title}: "${filename}" is not in ${path.relative(ROOT, SOURCE_DIR)}`);
+        }
+    }
+
+    /*
+     * Authored captions are keyed by filename, and both ways of getting that key
+     * wrong are invisible on the page: the caption simply never appears, and the
+     * positional fallback reads as if none was ever written. A key naming a file
+     * the product does not carry is a typo or a leftover from a renumbering; a
+     * caption in one language only leaves the other page silently positional.
+     */
+    for (const [filename, description] of Object.entries(product.additionalImageDescriptions ?? {})) {
+        if (!(product.additionalImages ?? []).includes(filename)) {
+            problems.push(`${product.title}: a caption names "${filename}", which is not one of its additionalImages`);
+            continue;
+        }
+        for (const lang of LANGUAGES) {
+            if (!description?.[lang]?.trim()) {
+                problems.push(`${product.title}: the caption for "${filename}" has no ${lang} text`);
+            }
         }
     }
 }

@@ -355,12 +355,16 @@ function getImagesFromProduct(product: Product) {
  * additionalImages that was never encoded, and the gallery skips it.
  */
 function getGalleryImagesFromProduct(product: Product, languageKey: Lang) {
-    const galleryImages = (product.additionalImages ?? []).map((filename) => productGallery[filename]).filter(Boolean);
-    return galleryImages.map((image, index) => ({
+    const galleryImages = (product.additionalImages ?? [])
+        .map((filename) => ({ filename, image: productGallery[filename] }))
+        .filter(({ image }) => image);
+    return galleryImages.map(({ filename, image }, index) => ({
         // Relative: SITE_ORIGIN carries the trailing slash, and galleryVariant
         // builds an absolute path for the markup.
         loc: galleryVariant(image, image.widths[image.widths.length - 1], "jpg").replace(/^\//, ""),
-        caption: convertToXmlFriendlyString(galleryImageDescription(languageKey, product.title, index, galleryImages.length)),
+        caption: convertToXmlFriendlyString(
+            galleryImageDescription(languageKey, product.title, index, galleryImages.length, product.additionalImageDescriptions?.[filename])
+        ),
         title: convertToXmlFriendlyString(product.title),
         license: "https://creativecommons.org/licenses/by-sa/4.0/",
         geoLocation: "Bø i Telemark, Norway"

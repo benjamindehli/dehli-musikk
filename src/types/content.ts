@@ -132,6 +132,18 @@ export type Product = {
     fileSize?: string;
     mainImage: string;
     additionalImages?: string[];
+    /*
+     * What each gallery image shows, keyed by its additionalImages filename.
+     * Optional, and optional per image: anything without an entry falls back to
+     * a positional description ("SubC - bilde 2 av 4"), which is honest but
+     * tells a reader nothing. One caption serves both the alt text and the
+     * image sitemap, so this is the only place to write it.
+     *
+     * Keyed per product rather than per file because the three 4-track captures
+     * are shared by the toy piano, the glockenspiel and the music box, and the
+     * same photo is worth describing differently on each of their pages.
+     */
+    additionalImageDescriptions?: Record<string, Localized>;
     documentationLink?: ContentLink;
     /*
      * A demo video, on 15 of the 18 products. Becomes a VideoObject in the

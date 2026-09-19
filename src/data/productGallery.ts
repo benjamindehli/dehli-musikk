@@ -1,4 +1,5 @@
 import type { Lang } from "lib/pageMetadata";
+import type { Localized } from "types/content";
 
 import galleryManifest from "./products/data/gallery.json";
 
@@ -60,11 +61,12 @@ const descriptions = {
 };
 
 /*
- * What one gallery image is called, in the page's language. There is no authored
- * description for these: the product data carries a single thumbnailDescription
- * and it belongs to the main photo, so this is positional. Weak text, but honest,
- * and it names the product - better than an empty alt for something that is
- * content rather than decoration, and better than a filename read aloud.
+ * What one gallery image shows, in the page's language: the caption authored in
+ * the product's additionalImageDescriptions when there is one, and otherwise a
+ * positional fallback. The fallback is weak - it describes where the image sits
+ * rather than what is in it - but it is honest, it names the product, and it
+ * beats both an empty alt for something that is content rather than decoration
+ * and a filename read aloud.
  *
  * It lives here rather than in the component because the markup and the image
  * sitemap both need it, and a crawler reading a different sentence in
@@ -73,10 +75,11 @@ const descriptions = {
  * rendered set - the images the manifest describes, not the raw
  * additionalImages list, which can name a file that was never encoded.
  *
- * Worth replacing with real per image descriptions in the product data. That is
- * an authoring job rather than a code one, so it is not pretended at here.
+ * An authored caption that is present but empty falls back too, so blanking one
+ * out in the data is a way of saying "not written yet" rather than a way of
+ * shipping an image with no description at all.
  */
-export const galleryImageDescription = (lang: Lang, productTitle: string, index: number, total: number) =>
-    descriptions[lang](productTitle, index + 1, total);
+export const galleryImageDescription = (lang: Lang, productTitle: string, index: number, total: number, authored?: Localized) =>
+    authored?.[lang]?.trim() || descriptions[lang](productTitle, index + 1, total);
 
 export default productGallery;

@@ -1,4 +1,5 @@
 import type { Lang } from "lib/pageMetadata";
+import type { Localized } from "types/content";
 
 // Data
 import productGallery, { galleryImageDescription, galleryVariant, type GalleryFormat, type ProductGalleryImage } from "data/productGallery";
@@ -33,22 +34,35 @@ const GALLERY_SIZES = "(max-width: 599px) 100vw, 540px";
 const srcSetFor = (image: ProductGalleryImage, format: GalleryFormat) =>
     image.widths.map((width) => `${galleryVariant(image, width, format)} ${width}w`).join(", ");
 
-const ProductGallery = ({ filenames, productTitle, lang }: { filenames: string[]; productTitle: string; lang: Lang }) => {
+const ProductGallery = ({
+    filenames,
+    descriptions,
+    productTitle,
+    lang
+}: {
+    filenames: string[];
+    descriptions?: Record<string, Localized>;
+    productTitle: string;
+    lang: Lang;
+}) => {
     /*
      * Only the images that were actually encoded. On a checkout where
      * scripts/generate-product-images.mjs has not been run the manifest is
      * empty, and this renders nothing rather than pointing the browser at files
      * that are not there. yarn verify:images is what stops that reaching a
      * release unnoticed.
+     *
+     * The filename travels with the entry because the authored caption is keyed
+     * by it, and the manifest entry knows only the basename.
      */
-    const images = filenames.map((filename) => productGallery[filename]).filter(Boolean);
+    const images = filenames.map((filename) => ({ filename, image: productGallery[filename] })).filter(({ image }) => image);
 
     if (!images.length) return null;
 
     return (
         <section className={style.gallery}>
             <h2 className={style.heading}>{translations[lang].heading}</h2>
-            {images.map((image, index) => (
+            {images.map(({ filename, image }, index) => (
                 <picture key={image.base} className={style.image}>
                     <source type="image/avif" sizes={GALLERY_SIZES} srcSet={srcSetFor(image, "avif")} />
                     <source type="image/webp" sizes={GALLERY_SIZES} srcSet={srcSetFor(image, "webp")} />
@@ -69,7 +83,7 @@ const ProductGallery = ({ filenames, productTitle, lang }: { filenames: string[]
                         height={image.height}
                         loading="lazy"
                         decoding="async"
-                        alt={galleryImageDescription(lang, productTitle, index, images.length)}
+                        alt={galleryImageDescription(lang, productTitle, index, images.length, descriptions?.[filename])}
                     />
                 </picture>
             ))}
