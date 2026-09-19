@@ -142,8 +142,15 @@ export type Product = {
      * Keyed per product rather than per file because the three 4-track captures
      * are shared by the toy piano, the glockenspiel and the music box, and the
      * same photo is worth describing differently on each of their pages.
+     *
+     * The values are optional because a lookup here is a lookup by filename and
+     * most of them miss: only some images are captioned, and only some products
+     * carry the field at all. Saying so in the type is also what lets the JSON
+     * be assigned to Product[] in data/products - inference across records that
+     * have different keys gives every absent key the type undefined, and a plain
+     * Record<string, Localized> rejects that.
      */
-    additionalImageDescriptions?: Record<string, Localized>;
+    additionalImageDescriptions?: Record<string, Localized | undefined>;
     documentationLink?: ContentLink;
     /*
      * A demo video, on 15 of the 18 products. Becomes a VideoObject in the

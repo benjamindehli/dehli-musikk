@@ -41,7 +41,7 @@ const ProductGallery = ({
     lang
 }: {
     filenames: string[];
-    descriptions?: Record<string, Localized>;
+    descriptions?: Record<string, Localized | undefined>;
     productTitle: string;
     lang: Lang;
 }) => {
