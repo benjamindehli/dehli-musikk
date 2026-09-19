@@ -22,6 +22,10 @@
  * that width at all, and the manifest records only what was written, so the
  * markup never offers a candidate that is a blown up copy of a smaller one.
  *
+ * Every generated file carries its source's hash in its name, so replacing a
+ * photo produces a URL that no cache has ever seen. See variantPath below for
+ * why that is not optional here.
+ *
  * Run from the repo root, after adding or replacing an image:
  *
  *     yarn images:products            (only what is missing or out of date)
@@ -157,6 +161,30 @@ function fingerprint(sourcePath) {
 }
 
 /*
+ * Where a variant lives, relative to the gallery directory, hash and all:
+ *
+ *     avif/subc_02_400.5f3a91c0d8e27b46.avif
+ *
+ * The hash is in the name because firebase.json serves every image with
+ * max-age=31536000. Without it a replaced photo keeps its URL, and a year long
+ * cache entry is exactly as durable as it sounds: the 2.19.3 release put 29
+ * replaced images behind 216 unchanged URLs, and the six that had genuinely new
+ * names were the only ones that reached anybody. Purging the edge would have
+ * been a workaround, and it cannot reach a browser that already has the file.
+ *
+ * With the hash here, the URL changes whenever the pixels do, the year long
+ * cache header becomes true rather than a trap, and the variants of the previous
+ * version are pruned on the same run that writes the new ones.
+ *
+ * src/data/productGallery.ts builds these same names for the markup, and the two
+ * have to agree. If they ever stop agreeing, verify:markup is what notices: it
+ * checks every path in the built HTML against the files on disk.
+ */
+export function variantPath(image, width, format) {
+    return `${format}/${image.base}_${width}.${image.hash}.${format}`;
+}
+
+/*
  * Variants nothing refers to any more. A source that shrinks past a width, or a
  * set that loses a member, leaves files behind that no page will ever ask for,
  * and nothing else would ever remove them. This directory is written by this
@@ -229,9 +257,17 @@ async function run() {
         const targetWidths = WIDTHS.filter((candidate) => candidate <= width);
         if (targetWidths.length === 0) targetWidths.push(width);
 
+        /*
+         * The intrinsic size travels with the manifest so the markup can set
+         * width and height on every image. Without it a gallery of images this
+         * irregular - portrait captures next to 5:1 strips - reflows the page
+         * under the visitor as each one arrives.
+         */
+        const entry = { base, width, height, widths: targetWidths, hash };
+
         for (const targetWidth of targetWidths) {
             for (const [format, encode] of Object.entries(ENCODERS)) {
-                const relative = `${format}/${base}_${targetWidth}.${format}`;
+                const relative = variantPath(entry, targetWidth, format);
                 const outputPath = path.join(OUTPUT_DIR, relative);
                 expected.add(relative);
                 // A file deleted by hand is written again even when the source
@@ -249,13 +285,7 @@ async function run() {
             }
         }
 
-        /*
-         * The intrinsic size travels with the manifest so the markup can set
-         * width and height on every image. Without it a gallery of images this
-         * irregular - portrait captures next to 5:1 strips - reflows the page
-         * under the visitor as each one arrives.
-         */
-        manifest[filename] = { base, width, height, widths: targetWidths, hash };
+        manifest[filename] = entry;
     }
 
     /*
@@ -277,8 +307,12 @@ async function run() {
     const mb = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)}MB`;
     console.log(`${Object.keys(sorted).length} images, ${written} files written, ${skipped} already current`);
     if (removed.length) {
+        // Replacing one photo prunes its whole previous set, and changing the
+        // naming prunes every file there is, so this lists a few and counts the
+        // rest rather than scrolling the run away.
         console.log(`${removed.length} file(s) no longer referenced, removed:`);
-        for (const entry of removed) console.log(`  ${entry}`);
+        for (const file of removed.slice(0, 10)) console.log(`  ${file}`);
+        if (removed.length > 10) console.log(`  and ${removed.length - 10} more`);
     }
     if (missing.length) {
         console.log("skipped removing unreferenced files: a source is missing, and its variants may be the only copy");
@@ -293,4 +327,6 @@ async function run() {
     }
 }
 
-run();
+// Only when run as a script. verify-product-gallery.mjs imports variantPath
+// from here so that the two cannot disagree about what a variant is called.
+if (import.meta.main) run();

@@ -27,6 +27,8 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
+import { variantPath } from "./generate-product-images.mjs";
+
 const ROOT = process.cwd();
 const PRODUCTS_PATH = path.join(ROOT, "src", "data", "products", "data", "all.json");
 const MANIFEST_PATH = path.join(ROOT, "src", "data", "products", "data", "gallery.json");
@@ -67,7 +69,7 @@ for (const [filename, image] of Object.entries(manifest)) {
     }
     for (const width of image.widths) {
         for (const format of FORMATS) {
-            const relative = `${format}/${image.base}_${width}.${format}`;
+            const relative = variantPath(image, width, format);
             expected.add(relative);
             if (!fs.existsSync(path.join(GALLERY_DIR, relative))) {
                 problems.push(`${filename}: missing ${path.relative(ROOT, path.join(GALLERY_DIR, relative))}`);

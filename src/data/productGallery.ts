@@ -35,4 +35,21 @@ const productGallery: Record<string, ProductGalleryImage> = galleryManifest;
 
 export const GALLERY_PATH = "/data/products/gallery";
 
+export type GalleryFormat = "avif" | "webp" | "jpg";
+
+/*
+ * The URL of one variant. The hash in the name is what lets firebase.json serve
+ * these with a year long max-age honestly: a replaced photo is a different URL,
+ * so no cache anywhere is ever asked to notice that a file it already has has
+ * changed underneath it.
+ *
+ * scripts/generate-product-images.mjs writes the files by this same rule, and
+ * the two are separate implementations of it because one is TypeScript the build
+ * consumes and the other is the Node script that has to run without one. A
+ * divergence shows up as markup pointing at files that are not there, which is
+ * what yarn verify:markup checks.
+ */
+export const galleryVariant = (image: ProductGalleryImage, width: number, format: GalleryFormat) =>
+    `${GALLERY_PATH}/${format}/${image.base}_${width}.${image.hash}.${format}`;
+
 export default productGallery;

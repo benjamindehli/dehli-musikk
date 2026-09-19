@@ -1,7 +1,7 @@
 import type { Lang } from "lib/pageMetadata";
 
 // Data
-import productGallery, { GALLERY_PATH, type ProductGalleryImage } from "data/productGallery";
+import productGallery, { galleryVariant, type GalleryFormat, type ProductGalleryImage } from "data/productGallery";
 
 // Stylesheets
 import style from "components/partials/ProductGallery.module.scss";
@@ -38,8 +38,8 @@ const translations = {
  */
 const GALLERY_SIZES = "(max-width: 599px) 100vw, 540px";
 
-const srcSetFor = (image: ProductGalleryImage, format: "avif" | "webp" | "jpg") =>
-    image.widths.map((width) => `${GALLERY_PATH}/${format}/${image.base}_${width}.${format} ${width}w`).join(", ");
+const srcSetFor = (image: ProductGalleryImage, format: GalleryFormat) =>
+    image.widths.map((width) => `${galleryVariant(image, width, format)} ${width}w`).join(", ");
 
 /*
  * There is no authored description for these images, only the one
@@ -74,7 +74,7 @@ const ProductGallery = ({ filenames, productTitle, lang }: { filenames: string[]
                     <img
                         // The widest generated variant, which is the fallback a
                         // browser without srcset support gets.
-                        src={`${GALLERY_PATH}/jpg/${image.base}_${image.widths[image.widths.length - 1]}.jpg`}
+                        src={galleryVariant(image, image.widths[image.widths.length - 1], "jpg")}
                         srcSet={srcSetFor(image, "jpg")}
                         sizes={GALLERY_SIZES}
                         /*
