@@ -41,6 +41,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const ROOT = process.cwd();
 const SOURCE_DIR = path.join(ROOT, "public", "product-images");
@@ -327,6 +328,16 @@ async function run() {
     }
 }
 
-// Only when run as a script. verify-product-gallery.mjs imports variantPath
-// from here so that the two cannot disagree about what a variant is called.
-if (import.meta.main) run();
+/*
+ * Only when run as a script, so verify-product-gallery.mjs can import
+ * variantPath from here without encoding anything.
+ *
+ * import.meta.main says this far more directly and was what this line used at
+ * first, but it only exists from Node 24.2. On anything older it is not an
+ * error, it is undefined, so the condition is simply false: the script loads,
+ * does nothing at all, and exits 0. It cost a release to find out. The argv
+ * comparison works on every version that can load this file, and realpath on
+ * both sides keeps it working when node is reached through a symlink.
+ */
+const invokedPath = process.argv[1] ? fs.realpathSync(path.resolve(process.argv[1])) : "";
+if (invokedPath === fs.realpathSync(fileURLToPath(import.meta.url))) run();
