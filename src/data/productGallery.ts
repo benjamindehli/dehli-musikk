@@ -22,6 +22,13 @@ export type ProductGalleryImage = {
     height: number;
     /** The widths that were written, never wider than the source. */
     widths: number[];
+    /**
+     * The source's content when these were encoded, truncated sha256. Nothing
+     * renders it - it is how yarn verify:images tells variants made from the
+     * current source apart from ones made from a photo that has since been
+     * replaced, which no count of files can see.
+     */
+    hash: string;
 };
 
 const productGallery: Record<string, ProductGalleryImage> = galleryManifest;

@@ -7,7 +7,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "d99c45c76718ca73"
     },
     "4-track-glockenspiel_02.png": {
         "base": "4-track-glockenspiel_02",
@@ -17,7 +18,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "f4caeaa09c5c087d"
     },
     "4-track-music-box_01.jpg": {
         "base": "4-track-music-box_01",
@@ -27,7 +29,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "d4beccb7a2d31415"
     },
     "4-track-music-box_02.png": {
         "base": "4-track-music-box_02",
@@ -37,7 +40,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "aea9e7577b887a8d"
     },
     "4-track-toy-piano_01.jpg": {
         "base": "4-track-toy-piano_01",
@@ -47,7 +51,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "9cf59fe56f4957ca"
     },
     "4-track-toy-piano_02.png": {
         "base": "4-track-toy-piano_02",
@@ -57,7 +62,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "07e3778b9bf4ee03"
     },
     "4-track_01.png": {
         "base": "4-track_01",
@@ -66,7 +72,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "8b0679ce01438782"
     },
     "4-track_02.png": {
         "base": "4-track_02",
@@ -74,7 +81,8 @@
         "height": 632,
         "widths": [
             386
-        ]
+        ],
+        "hash": "ca05176c8a7953b9"
     },
     "4-track_03.png": {
         "base": "4-track_03",
@@ -83,7 +91,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "2e84634a70a992e1"
     },
     "4-track_04.png": {
         "base": "4-track_04",
@@ -92,7 +101,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "afae03d6b9e8be08"
     },
     "4-track_05.png": {
         "base": "4-track_05",
@@ -100,7 +110,8 @@
         "height": 315,
         "widths": [
             386
-        ]
+        ],
+        "hash": "3ca16410da9f814e"
     },
     "dxtraterrestrial-1_01.jpg": {
         "base": "dxtraterrestrial-1_01",
@@ -109,7 +120,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "b24b3aff6cf544b6"
     },
     "edb-orgel_01.png": {
         "base": "edb-orgel_01",
@@ -119,7 +131,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "fbaa06e9754759cd"
     },
     "edb-orgel_02.png": {
         "base": "edb-orgel_02",
@@ -129,7 +142,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "e141ed2de4560af2"
     },
     "edb-orgel_03.png": {
         "base": "edb-orgel_03",
@@ -139,7 +153,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "7ad76001b6545fc0"
     },
     "elektrisk-salmesykkel_01.png": {
         "base": "elektrisk-salmesykkel_01",
@@ -149,7 +164,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "4217241950a30d43"
     },
     "elektrisk-salmesykkel_02.png": {
         "base": "elektrisk-salmesykkel_02",
@@ -159,7 +175,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "225db84f7a6e481b"
     },
     "elektrisk-salmesykkel_03.png": {
         "base": "elektrisk-salmesykkel_03",
@@ -167,7 +184,8 @@
         "height": 324,
         "widths": [
             330
-        ]
+        ],
+        "hash": "55318c54b7bb8363"
     },
     "elektrisk-salmesykkel_04.png": {
         "base": "elektrisk-salmesykkel_04",
@@ -175,7 +193,8 @@
         "height": 324,
         "widths": [
             220
-        ]
+        ],
+        "hash": "5ed25ac3084d5bda"
     },
     "elektrisk-salmesykkel_05.png": {
         "base": "elektrisk-salmesykkel_05",
@@ -183,7 +202,8 @@
         "height": 323,
         "widths": [
             134
-        ]
+        ],
+        "hash": "a2c48a70af4be38a"
     },
     "elektrisk-salmesykkel_06.png": {
         "base": "elektrisk-salmesykkel_06",
@@ -191,7 +211,8 @@
         "height": 324,
         "widths": [
             307
-        ]
+        ],
+        "hash": "ef3308375b083a11"
     },
     "elektrisk-salmesykkel_07.png": {
         "base": "elektrisk-salmesykkel_07",
@@ -200,7 +221,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "294dbd255491775c"
     },
     "lo-fi-tape-piano_01.jpg": {
         "base": "lo-fi-tape-piano_01",
@@ -210,7 +232,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "9cc01f121e5de355"
     },
     "lo-fi-tape-piano_02.png": {
         "base": "lo-fi-tape-piano_02",
@@ -220,7 +243,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "c210aa757cd23f84"
     },
     "maskintrommer_01.png": {
         "base": "maskintrommer_01",
@@ -230,7 +254,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "28a8715a5c346fac"
     },
     "maskintrommer_02.png": {
         "base": "maskintrommer_02",
@@ -239,7 +264,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "585765ca5a659262"
     },
     "maskintrommer_03.png": {
         "base": "maskintrommer_03",
@@ -248,7 +274,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "c7222d78d97e6f7e"
     },
     "maskintrommer_04.png": {
         "base": "maskintrommer_04",
@@ -256,7 +283,8 @@
         "height": 230,
         "widths": [
             279
-        ]
+        ],
+        "hash": "dc0f4cfdcafa3503"
     },
     "maskintrommer_05.png": {
         "base": "maskintrommer_05",
@@ -264,7 +292,8 @@
         "height": 361,
         "widths": [
             279
-        ]
+        ],
+        "hash": "d31a1b92ad41d40a"
     },
     "microsampler-editor-librarian_01.png": {
         "base": "microsampler-editor-librarian_01",
@@ -273,7 +302,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "fdfe484ceafc5743"
     },
     "microsampler-editor-librarian_02.png": {
         "base": "microsampler-editor-librarian_02",
@@ -282,7 +312,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "48f6d40611f8f61c"
     },
     "microsampler-editor-librarian_03.png": {
         "base": "microsampler-editor-librarian_03",
@@ -291,7 +322,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "95d02d20c52586a6"
     },
     "microsampler-editor-librarian_04.png": {
         "base": "microsampler-editor-librarian_04",
@@ -300,7 +332,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "e5e759738f5afaa8"
     },
     "microsampler-editor-librarian_05.png": {
         "base": "microsampler-editor-librarian_05",
@@ -309,7 +342,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "334dfd5d9c8a1bb2"
     },
     "microsampler-editor-librarian_06.png": {
         "base": "microsampler-editor-librarian_06",
@@ -318,7 +352,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "737001238e285d91"
     },
     "microsampler-editor-librarian_07.png": {
         "base": "microsampler-editor-librarian_07",
@@ -327,7 +362,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "289932f5be1f1c2a"
     },
     "midnight-wurli_01.jpg": {
         "base": "midnight-wurli_01",
@@ -337,7 +373,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "0d470ede820de206"
     },
     "midnight-wurli_02.jpg": {
         "base": "midnight-wurli_02",
@@ -346,7 +383,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "2e3d7a7e9cfe88ae"
     },
     "midnight-wurli_03.png": {
         "base": "midnight-wurli_03",
@@ -356,7 +394,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "a2e09be470623b12"
     },
     "midnight-wurli_04.png": {
         "base": "midnight-wurli_04",
@@ -366,7 +405,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "3620ce186902d8c6"
     },
     "omni-84_01.jpg": {
         "base": "omni-84_01",
@@ -376,7 +416,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "1a77602edb83cffc"
     },
     "omni-84_02.png": {
         "base": "omni-84_02",
@@ -386,7 +427,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "4844112263651ef0"
     },
     "omni-84_03.png": {
         "base": "omni-84_03",
@@ -396,7 +438,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "82fb15f626485c39"
     },
     "omni-84_04.png": {
         "base": "omni-84_04",
@@ -406,7 +449,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "466f3c4e08384209"
     },
     "omni-84_05.png": {
         "base": "omni-84_05",
@@ -416,7 +460,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "1346a5f42ebcf1b9"
     },
     "omni-84_06.png": {
         "base": "omni-84_06",
@@ -426,7 +471,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "3026a0f75ecf047b"
     },
     "omni-84_07.png": {
         "base": "omni-84_07",
@@ -436,7 +482,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "370c16d290eb990b"
     },
     "overtonium_01.jpg": {
         "base": "overtonium_01",
@@ -446,7 +493,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "413f20d2615dc2c0"
     },
     "overtonium_02.png": {
         "base": "overtonium_02",
@@ -456,7 +504,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "5d9c5bbee3273555"
     },
     "sidstation-asid_01.png": {
         "base": "sidstation-asid_01",
@@ -466,7 +515,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "0fca0319fca88525"
     },
     "sidstation-asid_02.png": {
         "base": "sidstation-asid_02",
@@ -476,7 +526,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "a8947f67a1c5da09"
     },
     "sidstation-asid_03.png": {
         "base": "sidstation-asid_03",
@@ -486,7 +537,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "baea331051d8209e"
     },
     "sidstation-asid_04.png": {
         "base": "sidstation-asid_04",
@@ -496,7 +548,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "7a44cd09b5c8938c"
     },
     "strykebrett_01.png": {
         "base": "strykebrett_01",
@@ -506,7 +559,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "e370954b9d48adba"
     },
     "strykebrett_02.png": {
         "base": "strykebrett_02",
@@ -514,7 +568,8 @@
         "height": 438,
         "widths": [
             400
-        ]
+        ],
+        "hash": "d1f9ed1982a8ff88"
     },
     "strykebrett_03.png": {
         "base": "strykebrett_03",
@@ -522,7 +577,8 @@
         "height": 438,
         "widths": [
             400
-        ]
+        ],
+        "hash": "4efb40c10a004a35"
     },
     "strykebrett_04.png": {
         "base": "strykebrett_04",
@@ -530,7 +586,8 @@
         "height": 438,
         "widths": [
             400
-        ]
+        ],
+        "hash": "ac58f26d2dcf6b96"
     },
     "strykebrett_05.png": {
         "base": "strykebrett_05",
@@ -538,7 +595,8 @@
         "height": 185,
         "widths": [
             390
-        ]
+        ],
+        "hash": "c6d1b6f1130e3457"
     },
     "strykebrett_06.png": {
         "base": "strykebrett_06",
@@ -546,7 +604,8 @@
         "height": 185,
         "widths": [
             390
-        ]
+        ],
+        "hash": "09a62551f1e35153"
     },
     "strykebrett_07.png": {
         "base": "strykebrett_07",
@@ -554,7 +613,8 @@
         "height": 185,
         "widths": [
             400
-        ]
+        ],
+        "hash": "44bc5072778c1503"
     },
     "strykebrett_08.png": {
         "base": "strykebrett_08",
@@ -562,7 +622,8 @@
         "height": 185,
         "widths": [
             400
-        ]
+        ],
+        "hash": "ba01bff064c532d9"
     },
     "strykebrett_09.png": {
         "base": "strykebrett_09",
@@ -570,7 +631,8 @@
         "height": 185,
         "widths": [
             400
-        ]
+        ],
+        "hash": "47b5c95ec5245cee"
     },
     "stylopoly_01.png": {
         "base": "stylopoly_01",
@@ -580,7 +642,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "4dcc11d4ece27a81"
     },
     "stylopoly_02.png": {
         "base": "stylopoly_02",
@@ -588,7 +651,8 @@
         "height": 237,
         "widths": [
             400
-        ]
+        ],
+        "hash": "0d0b906127639443"
     },
     "stylopoly_03.png": {
         "base": "stylopoly_03",
@@ -596,7 +660,8 @@
         "height": 237,
         "widths": [
             400
-        ]
+        ],
+        "hash": "642c21d5e5c933a3"
     },
     "stylopoly_04.png": {
         "base": "stylopoly_04",
@@ -605,7 +670,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "d97ef04342e5c539"
     },
     "stylopoly_05.png": {
         "base": "stylopoly_05",
@@ -613,7 +679,8 @@
         "height": 237,
         "widths": [
             400
-        ]
+        ],
+        "hash": "2cd77893afe6fe22"
     },
     "stylopoly_06.png": {
         "base": "stylopoly_06",
@@ -621,7 +688,8 @@
         "height": 237,
         "widths": [
             400
-        ]
+        ],
+        "hash": "37528e71f867f73c"
     },
     "stylopoly_07.png": {
         "base": "stylopoly_07",
@@ -629,7 +697,8 @@
         "height": 237,
         "widths": [
             400
-        ]
+        ],
+        "hash": "18935e120d21c092"
     },
     "stylopoly_08.png": {
         "base": "stylopoly_08",
@@ -637,7 +706,8 @@
         "height": 237,
         "widths": [
             400
-        ]
+        ],
+        "hash": "01b106880463d780"
     },
     "stylopoly_09.png": {
         "base": "stylopoly_09",
@@ -645,7 +715,8 @@
         "height": 237,
         "widths": [
             400
-        ]
+        ],
+        "hash": "d10af164e1b6da7f"
     },
     "stylopoly_10.png": {
         "base": "stylopoly_10",
@@ -653,7 +724,8 @@
         "height": 237,
         "widths": [
             400
-        ]
+        ],
+        "hash": "28e766403b4d9689"
     },
     "subc_01.png": {
         "base": "subc_01",
@@ -663,7 +735,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "e2775d863014722a"
     },
     "subc_02.png": {
         "base": "subc_02",
@@ -673,7 +746,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "cb6f60496d9c1745"
     },
     "subc_03.png": {
         "base": "subc_03",
@@ -681,7 +755,8 @@
         "height": 622,
         "widths": [
             400
-        ]
+        ],
+        "hash": "be27c72cb9b15c20"
     },
     "subc_04.png": {
         "base": "subc_04",
@@ -689,7 +764,8 @@
         "height": 622,
         "widths": [
             400
-        ]
+        ],
+        "hash": "e32455ea1becf34f"
     },
     "voltage-controlled-cassette-organ_01.png": {
         "base": "voltage-controlled-cassette-organ_01",
@@ -699,7 +775,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "c1a4cb31c1bf167c"
     },
     "voltage-controlled-cassette-organ_02.png": {
         "base": "voltage-controlled-cassette-organ_02",
@@ -709,7 +786,8 @@
             400,
             800,
             1200
-        ]
+        ],
+        "hash": "c2add6f72c860496"
     },
     "voltage-controlled-cassette-organ_03.png": {
         "base": "voltage-controlled-cassette-organ_03",
@@ -718,7 +796,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "877c826928074ab6"
     },
     "voltage-controlled-cassette-organ_04.png": {
         "base": "voltage-controlled-cassette-organ_04",
@@ -727,7 +806,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "b31a3ce9c52e38cc"
     },
     "voltage-controlled-cassette-organ_05.png": {
         "base": "voltage-controlled-cassette-organ_05",
@@ -735,7 +815,8 @@
         "height": 193,
         "widths": [
             400
-        ]
+        ],
+        "hash": "c525483156b0d98e"
     },
     "voltage-controlled-cassette-organ_06.png": {
         "base": "voltage-controlled-cassette-organ_06",
@@ -743,7 +824,8 @@
         "height": 203,
         "widths": [
             400
-        ]
+        ],
+        "hash": "0374d8b68282fa31"
     },
     "voltage-controlled-cassette-organ_07.png": {
         "base": "voltage-controlled-cassette-organ_07",
@@ -752,7 +834,8 @@
         "widths": [
             400,
             800
-        ]
+        ],
+        "hash": "e40477366a6e9e55"
     },
     "voltage-controlled-cassette-organ_08.png": {
         "base": "voltage-controlled-cassette-organ_08",
@@ -760,7 +843,8 @@
         "height": 193,
         "widths": [
             372
-        ]
+        ],
+        "hash": "df0beaa7c86a38e6"
     },
     "voltage-controlled-cassette-organ_09.png": {
         "base": "voltage-controlled-cassette-organ_09",
@@ -768,7 +852,8 @@
         "height": 207,
         "widths": [
             250
-        ]
+        ],
+        "hash": "405a30af1736950d"
     },
     "voltage-controlled-cassette-organ_10.png": {
         "base": "voltage-controlled-cassette-organ_10",
@@ -776,7 +861,8 @@
         "height": 207,
         "widths": [
             328
-        ]
+        ],
+        "hash": "092b5a52d15b85dd"
     },
     "voltage-controlled-cassette-organ_11.png": {
         "base": "voltage-controlled-cassette-organ_11",
@@ -784,6 +870,7 @@
         "height": 207,
         "widths": [
             328
-        ]
+        ],
+        "hash": "8ec4f353bb7c30f0"
     }
 }

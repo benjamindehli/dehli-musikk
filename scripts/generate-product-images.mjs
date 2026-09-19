@@ -27,9 +27,14 @@
  *     yarn images:products            (only what is missing or out of date)
  *     yarn images:products --force    (everything, after changing quality)
  *
+ * Out of date means the source's content no longer matches what the manifest
+ * records, so replacing a screenshot is a plain rerun. --force is for the case
+ * the sources cannot signal: changing a quality setting or a width above.
+ *
  * This is an authoring step, not a build step. The output is committed, the
  * same way public/data/products/web already is, and CI never runs it.
  */
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -120,15 +125,55 @@ function assertNoBasenameCollisions(filenames) {
     }
 }
 
-// An output is stale when it is missing or older than the file it came from,
-// which makes a rerun after replacing one screenshot cost one image.
-function isStale(outputPath, sourceMtimeMs) {
-    if (force) return true;
+/*
+ * What the outputs were last made from. A missing or unreadable manifest means
+ * the first run, or a deliberate reset, and everything is encoded again.
+ */
+function previousManifest() {
     try {
-        return fs.statSync(outputPath).mtimeMs < sourceMtimeMs;
+        return JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
     } catch {
-        return true;
+        return {};
     }
+}
+
+/*
+ * The source's content, not its timestamp, decides whether its variants are
+ * current. mtime is the obvious signal and it is wrong in exactly the case that
+ * matters: a replaced screenshot arrives carrying the date it was captured or
+ * exported, routinely older than the variants it is meant to replace, so an
+ * mtime comparison reads "already current" and skips the one image that
+ * changed. Renumbering a set is the worst version of it, because every file in
+ * the set lands on content it has never been encoded from, and the failure is
+ * silent: the manifest is rewritten from fresh metadata either way, so the
+ * dimensions are right and only the pixels are a previous photo.
+ *
+ * Sixteen hex characters of sha256 is 64 bits, far more than a set this size
+ * needs, and short enough to keep the manifest diff readable when one photo is
+ * replaced.
+ */
+function fingerprint(sourcePath) {
+    return crypto.createHash("sha256").update(fs.readFileSync(sourcePath)).digest("hex").slice(0, 16);
+}
+
+/*
+ * Variants nothing refers to any more. A source that shrinks past a width, or a
+ * set that loses a member, leaves files behind that no page will ever ask for,
+ * and nothing else would ever remove them. This directory is written by this
+ * script alone, so anything outside the expected set is left over by definition.
+ */
+function prune(expected) {
+    const removed = [];
+    for (const format of Object.keys(ENCODERS)) {
+        const dir = path.join(OUTPUT_DIR, format);
+        for (const entry of fs.readdirSync(dir)) {
+            const relative = `${format}/${entry}`;
+            if (expected.has(relative)) continue;
+            fs.unlinkSync(path.join(dir, entry));
+            removed.push(relative);
+        }
+    }
+    return removed;
 }
 
 async function run() {
@@ -146,7 +191,9 @@ async function run() {
         fs.mkdirSync(path.join(OUTPUT_DIR, format), { recursive: true });
     }
 
+    const previous = previousManifest();
     const manifest = {};
+    const expected = new Set();
     const missing = [];
     let written = 0;
     let skipped = 0;
@@ -162,6 +209,8 @@ async function run() {
 
         const base = path.parse(filename).name;
         const sourceStat = fs.statSync(sourcePath);
+        const hash = fingerprint(sourcePath);
+        const changed = force || previous[filename]?.hash !== hash;
         const metadata = await sharp(sourcePath).metadata();
         const { width, height } = metadata;
         if (!width || !height) {
@@ -182,8 +231,12 @@ async function run() {
 
         for (const targetWidth of targetWidths) {
             for (const [format, encode] of Object.entries(ENCODERS)) {
-                const outputPath = path.join(OUTPUT_DIR, format, `${base}_${targetWidth}.${format}`);
-                if (isStale(outputPath, sourceStat.mtimeMs)) {
+                const relative = `${format}/${base}_${targetWidth}.${format}`;
+                const outputPath = path.join(OUTPUT_DIR, relative);
+                expected.add(relative);
+                // A file deleted by hand is written again even when the source
+                // is untouched, so the manifest's promise always holds.
+                if (changed || !fs.existsSync(outputPath)) {
                     // withoutEnlargement belts the braces on the filter above:
                     // fit "inside" keeps the aspect ratio, and the height is
                     // left to follow from the width rather than being given.
@@ -202,8 +255,15 @@ async function run() {
          * irregular - portrait captures next to 5:1 strips - reflows the page
          * under the visitor as each one arrives.
          */
-        manifest[filename] = { base, width, height, widths: targetWidths };
+        manifest[filename] = { base, width, height, widths: targetWidths, hash };
     }
+
+    /*
+     * Pruning is skipped when a source has gone missing, because then the
+     * variants are the only copy left of that image and deleting them is not
+     * recoverable by rerunning. The missing source is reported below either way.
+     */
+    const removed = missing.length ? [] : prune(expected);
 
     // Sorted so a rerun that changes nothing produces no diff, which keeps the
     // manifest out of the way when reviewing an actual image change.
@@ -216,6 +276,13 @@ async function run() {
 
     const mb = (bytes) => `${(bytes / 1024 / 1024).toFixed(1)}MB`;
     console.log(`${Object.keys(sorted).length} images, ${written} files written, ${skipped} already current`);
+    if (removed.length) {
+        console.log(`${removed.length} file(s) no longer referenced, removed:`);
+        for (const entry of removed) console.log(`  ${entry}`);
+    }
+    if (missing.length) {
+        console.log("skipped removing unreferenced files: a source is missing, and its variants may be the only copy");
+    }
     console.log(`sources ${mb(sourceBytes)} -> variants ${mb(outputBytes)} across ${Object.keys(ENCODERS).length} formats`);
     console.log(`manifest: ${path.relative(ROOT, MANIFEST_PATH)}`);
 
