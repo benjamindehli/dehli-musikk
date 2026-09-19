@@ -35,6 +35,7 @@
         "verify:albums": "node scripts/verify-release-albums.mjs",
         "verify:markup": "node scripts/verify-markup-assets.mjs",
         "verify:markdown": "node scripts/verify-markdown.mjs",
+        "verify:links": "node scripts/verify-internal-links.mjs",
         "verify:images": "node scripts/verify-product-gallery.mjs",
         "verify:skills": "node scripts/agent-skills.mjs --check",
         "images:products": "node scripts/generate-product-images.mjs",

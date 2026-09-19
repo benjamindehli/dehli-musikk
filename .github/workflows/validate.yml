@@ -82,5 +82,7 @@ jobs:
         run: yarn build
       - name: Verify Markup Assets
         run: yarn verify:markup
+      - name: Verify Internal Links
+        run: yarn verify:links
       - name: Verify Markdown
         run: yarn verify:markdown

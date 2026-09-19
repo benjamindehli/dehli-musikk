@@ -2,6 +2,19 @@ import type { ReactNode } from "react";
 import { Fragment } from "react";
 import Link from "next/link";
 
+/*
+ * A link target that is not a path into this site: it carries a scheme
+ * (https:, mailto:, tel:), is protocol relative, or is a fragment on the page it
+ * is already on. The language slug must not be prefixed onto any of them.
+ *
+ * Getting this wrong produced href="/mailto:superelg@gmail.com" and
+ * href="/https://www.facebook.com/DehliMusikk/" on both language versions of the
+ * FAQ - the contact links on the page that exists to answer "how do I get in
+ * touch". They render, they look like links, and they 404. yarn verify:links is
+ * what found them.
+ */
+const NOT_A_SITE_PATH = /^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i;
+
 const renderContentLinksAsReactLinks = (content: string, languageSlug: string): ReactNode[] | string => {
     const regex = /\[(?<title>[^\]]+)\]\((?<link>[^)]+)\)/gm;
 
@@ -20,12 +33,27 @@ const renderContentLinksAsReactLinks = (content: string, languageSlug: string): 
 
         // Push the matched link
         const title = (match.groups as Record<string, string>).title;
-        const link = `/${languageSlug}${(match.groups as Record<string, string>).link}`;
-        elements.push(
-            <Link key={`link-${matchStart}`} href={link} data-tabable={true}>
-                {title}
-            </Link>
-        );
+        const target = (match.groups as Record<string, string>).link;
+        if (NOT_A_SITE_PATH.test(target)) {
+            elements.push(
+                <a key={`link-${matchStart}`} href={target} data-tabable={true}>
+                    {title}
+                </a>
+            );
+        } else {
+            /*
+             * Targets are authored relative to the language root ("portfolio/"),
+             * which is what gets the slug. One authored with a leading slash is
+             * already rooted, and prefixing it would produce "//portfolio/" - a
+             * protocol relative URL pointing at a host called "portfolio".
+             */
+            const href = target.startsWith("/") ? target : `/${languageSlug}${target}`;
+            elements.push(
+                <Link key={`link-${matchStart}`} href={href} data-tabable={true}>
+                    {title}
+                </Link>
+            );
+        }
 
         // Update lastIndex
         lastIndex = matchEnd;

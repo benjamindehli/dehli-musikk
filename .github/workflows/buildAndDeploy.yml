@@ -49,6 +49,11 @@ jobs:
       # that points at files which are not there.
       - name: Verify Markup Assets
         run: yarn verify:markup
+      # And that the pages the markup links to were built. An asset that is
+      # missing is a broken image; a page that is missing is a link the site
+      # itself offers and the host answers with a 404.
+      - name: Verify Internal Links
+        run: yarn verify:links
       # Same reasoning: the markdown twins only exist once the exporter has run,
       # and a page that loses its twin is invisible from the site itself.
       - name: Verify Markdown
