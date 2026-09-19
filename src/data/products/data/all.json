@@ -545,7 +545,8 @@
         "additionalImages": [
             "subc_01.png",
             "subc_02.png",
-            "subc_03.png"
+            "subc_03.png",
+            "subc_04.png"
         ],
         "video": {
             "name": {
@@ -620,6 +621,7 @@
         "mainImage": "4-track-toy-piano.jpg",
         "additionalImages": [
             "4-track-toy-piano_01.jpg",
+            "4-track-toy-piano_02.png",
             "4-track_01.png",
             "4-track_02.png",
             "4-track_03.png",
@@ -703,7 +705,8 @@
             "elektrisk-salmesykkel_03.png",
             "elektrisk-salmesykkel_04.png",
             "elektrisk-salmesykkel_05.png",
-            "elektrisk-salmesykkel_06.png"
+            "elektrisk-salmesykkel_06.png",
+            "elektrisk-salmesykkel_07.png"
         ],
         "video": {
             "name": {
@@ -945,6 +948,7 @@
         "mainImage": "4-track-glockenspiel.jpg",
         "additionalImages": [
             "4-track-glockenspiel_01.jpg",
+            "4-track-glockenspiel_02.png",
             "4-track_01.png",
             "4-track_02.png",
             "4-track_03.png",
@@ -1024,6 +1028,7 @@
         "mainImage": "4-track-music-box.jpg",
         "additionalImages": [
             "4-track-music-box_01.jpg",
+            "4-track-music-box_02.png",
             "4-track_01.png",
             "4-track_02.png",
             "4-track_03.png",
@@ -1112,7 +1117,8 @@
             "voltage-controlled-cassette-organ_07.png",
             "voltage-controlled-cassette-organ_08.png",
             "voltage-controlled-cassette-organ_09.png",
-            "voltage-controlled-cassette-organ_10.png"
+            "voltage-controlled-cassette-organ_10.png",
+            "voltage-controlled-cassette-organ_11.png"
         ],
         "video": {
             "name": {
