@@ -1,7 +1,7 @@
 import type { Lang } from "lib/pageMetadata";
 
 // Data
-import productGallery, { galleryVariant, type GalleryFormat, type ProductGalleryImage } from "data/productGallery";
+import productGallery, { galleryImageDescription, galleryVariant, type GalleryFormat, type ProductGalleryImage } from "data/productGallery";
 
 // Stylesheets
 import style from "components/partials/ProductGallery.module.scss";
@@ -19,16 +19,8 @@ import style from "components/partials/ProductGallery.module.scss";
  */
 
 const translations = {
-    no: {
-        heading: "Bilder",
-        // Falls back to a positional description because the data has no text
-        // for these. See the note on altTextFor.
-        alt: (title: string, index: number, total: number) => `${title} - bilde ${index} av ${total}`
-    },
-    en: {
-        heading: "Images",
-        alt: (title: string, index: number, total: number) => `${title} - image ${index} of ${total}`
-    }
+    no: { heading: "Bilder" },
+    en: { heading: "Images" }
 } as const;
 
 /*
@@ -40,17 +32,6 @@ const GALLERY_SIZES = "(max-width: 599px) 100vw, 540px";
 
 const srcSetFor = (image: ProductGalleryImage, format: GalleryFormat) =>
     image.widths.map((width) => `${galleryVariant(image, width, format)} ${width}w`).join(", ");
-
-/*
- * There is no authored description for these images, only the one
- * thumbnailDescription that belongs to the main photo. A positional string is
- * weak alt text, but it is honest, it names the product, and it beats both an
- * empty alt - these are content, not decoration - and a filename read aloud.
- *
- * Worth replacing with real per image descriptions in the product data. That is
- * an authoring job rather than a code one, so it is not pretended at here.
- */
-const altTextFor = (lang: Lang, productTitle: string, index: number, total: number) => translations[lang].alt(productTitle, index + 1, total);
 
 const ProductGallery = ({ filenames, productTitle, lang }: { filenames: string[]; productTitle: string; lang: Lang }) => {
     /*
@@ -88,7 +69,7 @@ const ProductGallery = ({ filenames, productTitle, lang }: { filenames: string[]
                         height={image.height}
                         loading="lazy"
                         decoding="async"
-                        alt={altTextFor(lang, productTitle, index, images.length)}
+                        alt={galleryImageDescription(lang, productTitle, index, images.length)}
                     />
                 </picture>
             ))}

@@ -38,6 +38,7 @@ type SitemapInput = {
 };
 
 // Helpers
+import productGallery, { galleryImageDescription, galleryVariant } from "data/productGallery";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { convertToXmlFriendlyString } from "helpers/xmlStringFormatter";
 import { youTubeTimeToSeconds } from "helpers/timeFormatter";
@@ -338,6 +339,34 @@ function getImagesFromProduct(product: Product) {
     return images;
 }
 
+/*
+ * The gallery below the buttons on a product page, which getImagesFromProduct
+ * deliberately leaves out: that one feeds the products list page too, and the
+ * list shows thumbnails only. Submitting these against the list page would
+ * describe images that are not on it.
+ *
+ * One entry per image, not one per variant. The main photo above is listed at
+ * all nine of its sizes and formats, and doing the same here would be 783
+ * near duplicate entries for pictures each page shows once. This is the URL the
+ * img element resolves to when a crawler ignores srcset - the widest jpg.
+ *
+ * Only what the manifest describes, in manifest order, so the position in the
+ * caption is the position on the page: a product can name a file in
+ * additionalImages that was never encoded, and the gallery skips it.
+ */
+function getGalleryImagesFromProduct(product: Product, languageKey: Lang) {
+    const galleryImages = (product.additionalImages ?? []).map((filename) => productGallery[filename]).filter(Boolean);
+    return galleryImages.map((image, index) => ({
+        // Relative: SITE_ORIGIN carries the trailing slash, and galleryVariant
+        // builds an absolute path for the markup.
+        loc: galleryVariant(image, image.widths[image.widths.length - 1], "jpg").replace(/^\//, ""),
+        caption: convertToXmlFriendlyString(galleryImageDescription(languageKey, product.title, index, galleryImages.length)),
+        title: convertToXmlFriendlyString(product.title),
+        license: "https://creativecommons.org/licenses/by-sa/4.0/",
+        geoLocation: "Bø i Telemark, Norway"
+    }));
+}
+
 function getImagesFromRelease(release: Release, languageKey: Lang) {
     // Unreleased entries show a shared "coming soon" placeholder rather than
     // cover art, so there is nothing release-specific to submit.
@@ -538,8 +567,8 @@ function renderProductsDetailsImages(products: Product[]) {
     return products?.length
         ? products
               .map((product) => {
-                  const norwegianImages = getImagesFromProduct(product);
-                  const englishImages = getImagesFromProduct(product);
+                  const norwegianImages = [...getImagesFromProduct(product), ...getGalleryImagesFromProduct(product, "no")];
+                  const englishImages = [...getImagesFromProduct(product), ...getGalleryImagesFromProduct(product, "en")];
                   const urlNorwegianPage = `${languageSlug.no}products/${convertToUrlFriendlyString(product.title)}/`;
                   const urlEnglishPage = `${languageSlug.en}products/${convertToUrlFriendlyString(product.title)}/`;
                   return [
