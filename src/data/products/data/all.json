@@ -55,7 +55,17 @@
         "additionalImages": [
             "overtonium_01.jpg",
             "overtonium_02.png"
-        ]
+        ],
+        "additionalImageDescriptions": {
+            "overtonium_01.jpg": {
+                "en": "Screenshot of the bottom part of the user interface with the Overtonium logo in front",
+                "no": "Skjermbilde av den nederste delen av brukergrensesnittet med Overtonium-logoen foran"
+            },
+            "overtonium_02.png": {
+                "en": "Screenshot of the user interface of the Overtonium plugin",
+                "no": "Skjermbilde av brukergrensesnittet til Overtonium-pluginen"
+            }
+        }
     },
     {
         "timestamp": 1786276800000,
@@ -112,7 +122,25 @@
             "sidstation-asid_02.png",
             "sidstation-asid_03.png",
             "sidstation-asid_04.png"
-        ]
+        ],
+        "additionalImageDescriptions": {
+            "sidstation-asid_01.png": {
+                "en": "Screenshot of the voice editor in the SidStation ASID plugin",
+                "no": "Skjermbilde av voice-editoren i SidStation ASID-pluginen"
+            },
+            "sidstation-asid_02.png": {
+                "en": "Screenshot of the wavetable editor in the SidStation ASID plugin",
+                "no": "Skjermbilde av wavetable-editoren i SidStation ASID-pluginen"
+            },
+            "sidstation-asid_03.png": {
+                "en": "Screenshot of the modulation editor in the SidStation ASID plugin",
+                "no": "Skjermbilde av modulasjonseditoren i SidStation ASID-pluginen"
+            },
+            "sidstation-asid_04.png": {
+                "en": "Screenshot of the global parameters editor in the SidStation ASID plugin",
+                "no": "Skjermbilde av global-parametereditoren i SidStation ASID-pluginen"
+            }
+        }
     },
     {
         "timestamp": 1780920000000,
@@ -158,7 +186,37 @@
             "microsampler-editor-librarian_05.png",
             "microsampler-editor-librarian_06.png",
             "microsampler-editor-librarian_07.png"
-        ]
+        ],
+        "additionalImageDescriptions": {
+            "microsampler-editor-librarian_01.png": {
+                "en": "Screenshot of the user interface of the sample editor in microSAMPLER Editor / Librarian",
+                "no": "Skjermbilde av brukergrensesnittet til sample-editoren i microSAMPLER Editor / Librarian"
+            },
+            "microsampler-editor-librarian_02.png": {
+                "en": "Screenshot of the user interface of the load sample dialog in microSAMPLER Editor / Librarian",
+                "no": "Skjermbilde av brukergrensesnittet til sample-innlastingsdialogen i microSAMPLER Editor / Librarian"
+            },
+            "microsampler-editor-librarian_03.png": {
+                "en": "Screenshot of the user interface of the audio effect editor in microSAMPLER Editor / Librarian",
+                "no": "Skjermbilde av brukergrensesnittet til lydeffekt-editoren i microSAMPLER Editor / Librarian"
+            },
+            "microsampler-editor-librarian_04.png": {
+                "en": "Screenshot of the user interface of the MIDI patterns overview in microSAMPLER Editor / Librarian",
+                "no": "Skjermbilde av brukergrensesnittet til MIDI-mønsteroversikten i microSAMPLER Editor / Librarian"
+            },
+            "microsampler-editor-librarian_05.png": {
+                "en": "Screenshot of the user interface of the MIDI pattern editor in microSAMPLER Editor / Librarian",
+                "no": "Skjermbilde av brukergrensesnittet til MIDI-mønstereditoren i microSAMPLER Editor / Librarian"
+            },
+            "microsampler-editor-librarian_06.png": {
+                "en": "Screenshot of the user interface of the utility view in microSAMPLER Editor / Librarian",
+                "no": "Skjermbilde av brukergrensesnittet til verktøyvisningen i microSAMPLER Editor / Librarian"
+            },
+            "microsampler-editor-librarian_07.png": {
+                "en": "Screenshot of the user interface of the microSAMPLER Library",
+                "no": "Skjermbilde av brukergrensesnittet til microSAMPLER Library"
+            }
+        }
     },
     {
         "timestamp": 1772391600000,
@@ -225,6 +283,28 @@
             "maskintrommer_04.png",
             "maskintrommer_05.png"
         ],
+        "additionalImageDescriptions": {
+            "maskintrommer_01.png": {
+                "en": "Screenshot of the user interface of the MaskinTrommer plugin",
+                "no": "Skjermbilde av brukergrensesnittet til MaskinTrommer-pluginen"
+            },
+            "maskintrommer_02.png": {
+                "en": "Close-up of the pitch and sustain controls of the MaskinTrommer plugin",
+                "no": "Nærbilde av tonehøyde- og sustain-kontrollene til MaskinTrommer-pluginen"
+            },
+            "maskintrommer_03.png": {
+                "en": "Close-up of the mixer controls of the MaskinTrommer plugin",
+                "no": "Nærbilde av mikserkontrollene til MaskinTrommer-pluginen"
+            },
+            "maskintrommer_04.png": {
+                "en": "Close-up of the velocity sensitivity controls of the MaskinTrommer plugin",
+                "no": "Nærbilde av anslagsfølsomhetskontrollene til MaskinTrommer-pluginen"
+            },
+            "maskintrommer_05.png": {
+                "en": "Close-up of the impact and saturation controls of the MaskinTrommer plugin",
+                "no": "Nærbilde av impact- og saturasjonskontrollene til MaskinTrommer-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "Drum Machine plugin preset for Decent Sampler (MaskinTrommer)",
@@ -303,6 +383,24 @@
             "midnight-wurli_03.png",
             "midnight-wurli_04.png"
         ],
+        "additionalImageDescriptions": {
+            "midnight-wurli_01.jpg": {
+                "en": "The Midnight Wurli logo and a screenshot of the user interface of the Midnight Wurli plugin with a Wurlitzer 200A electric piano in the background",
+                "no": "Midnight Wurli-logoen og et skjermbilde av brukergrensesnittet til Midnight Wurli-pluginen med en Wurlitzer 200A elektrisk piano i bakgrunnen"
+            },
+            "midnight-wurli_02.jpg": {
+                "en": "A collage with the user interface of the Midnight Wurli plugin, the Dehli Musikk logo, the Midnight Wurli logo, a Wurlitzer 200A electric piano and the text store.dehlimusikk.no",
+                "no": "En collage med brukergrensesnittet til Midnight Wurli-pluginen, Dehli Musikk-logoen, Midnight Wurli-logoen, et Wurlitzer 200A elektrisk piano og teksten store.dehlimusikk.no"
+            },
+            "midnight-wurli_03.png": {
+                "en": "Screenshot of the user interface of the Midnight Wurli plugin with the Midnight Wurli mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Midnight Wurli-pluginen med Midnight Wurli-modus aktiv"
+            },
+            "midnight-wurli_04.png": {
+                "en": "Screenshot of the user interface of the Midnight Wurli plugin with the Midnight Wurli (Lite) mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Midnight Wurli-pluginen med Midnight Wurli (Lite)-modus aktiv"
+            }
+        },
         "video": {
             "name": {
                 "en": "Wurlitzer Electric Piano plugin preset for Decent Sampler (Midnight Wurli)",
@@ -394,6 +492,12 @@
         "additionalImages": [
             "dxtraterrestrial-1_01.jpg"
         ],
+        "additionalImageDescriptions": {
+            "dxtraterrestrial-1_01.jpg": {
+                "en": "A collage with a posterized Yamaha DX7 at the top, a Yamaha DX7 being played at the bottom and a Yamaha DX7 cartridge in the foreground with the text Dehli Musikk DXtraterrestrial 1",
+                "no": "En collage med en posterisert Yamaha DX7 øverst, en Yamaha DX7 som spilles nederst og en Yamaha DX7-kassett i forgrunnen med teksten Dehli Musikk DXtraterrestrial 1"
+            }
+        },
         "video": {
             "name": {
                 "en": "Custom patches for Yamaha DX7 (DXtraterrestrial 1)",
@@ -470,6 +574,20 @@
             "edb-orgel_02.png",
             "edb-orgel_03.png"
         ],
+        "additionalImageDescriptions": {
+            "edb-orgel_01.png": {
+                "en": "Screenshot of the user interface of the mixer view in the EDB-Orgel plugin",
+                "no": "Skjermbilde av brukergrensesnittet til mikservisningen i EDB-Orgel-pluginen"
+            },
+            "edb-orgel_02.png": {
+                "en": "Screenshot of the user interface of the modulation view in the EDB-Orgel plugin",
+                "no": "Skjermbilde av brukergrensesnittet til modulasjonsvisningen i EDB-Orgel-pluginen"
+            },
+            "edb-orgel_03.png": {
+                "en": "Screenshot of the user interface of the patch load view in the EDB-Orgel plugin",
+                "no": "Skjermbilde av brukergrensesnittet til innlastingsvisningen av patcher i EDB-Orgel-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "EDB-Orgel for Decent Sampler",
@@ -548,6 +666,24 @@
             "subc_03.png",
             "subc_04.png"
         ],
+        "additionalImageDescriptions": {
+            "subc_01.png": {
+                "en": "Screenshot of the user interface of the SubC plugin",
+                "no": "Skjermbilde av brukergrensesnittet til SubC-pluginen"
+            },
+            "subc_02.png": {
+                "en": "Close-up of the volume envelope controls in the SubC plugin",
+                "no": "Nærbilde av volum-envelope-kontrollene i SubC-pluginen"
+            },
+            "subc_03.png": {
+                "en": "Close-up of the dynamics switch in the SubC plugin",
+                "no": "Nærbilde av dynamikkbryteren i SubC-pluginen"
+            },
+            "subc_04.png": {
+                "en": "Close-up of the saturation control in the SubC plugin",
+                "no": "Nærbilde av saturasjonskontrollen i SubC-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "Sub bass sample library (SubC)",
@@ -628,6 +764,36 @@
             "4-track_04.png",
             "4-track_05.png"
         ],
+        "additionalImageDescriptions": {
+            "4-track-toy-piano_01.jpg": {
+                "en": "A Kalikå Leksakspiano (toy piano) seen from the side, with the hammers standing above the keys",
+                "no": "Et Kalikå Leksakspiano (leketøyspiano) sett fra siden, med hammerne synlige over tangentene"
+            },
+            "4-track-toy-piano_02.png": {
+                "en": "Screenshot of the user interface of the 4-track Toy Piano plugin",
+                "no": "Skjermbilde av brukergrensesnittet til 4-track Toy Piano-pluginen"
+            },
+            "4-track_01.png": {
+                "en": "Close-up of the mixer controls of the 4-track Toy Piano plugin",
+                "no": "Nærbilde av mikserkontrollene til 4-track Toy Piano-pluginen"
+            },
+            "4-track_02.png": {
+                "en": "Close-up of the instrument controls of the 4-track Toy Piano plugin",
+                "no": "Nærbilde av instrumentkontrollene til 4-track Toy Piano-pluginen"
+            },
+            "4-track_03.png": {
+                "en": "Close-up of the echo controls of the 4-track Toy Piano plugin",
+                "no": "Nærbilde av ekkokontrollene til 4-track Toy Piano-pluginen"
+            },
+            "4-track_04.png": {
+                "en": "Close-up of the reverb controls of the 4-track Toy Piano plugin",
+                "no": "Nærbilde av klangkontrollene til 4-track Toy Piano-pluginen"
+            },
+            "4-track_05.png": {
+                "en": "Close-up of the fidelity controls of the 4-track Toy Piano plugin",
+                "no": "Nærbilde av fidelity-kontrollene til 4-track Toy Piano-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "4-track Toy Piano - Sound Examples",
@@ -708,6 +874,36 @@
             "elektrisk-salmesykkel_06.png",
             "elektrisk-salmesykkel_07.png"
         ],
+        "additionalImageDescriptions": {
+            "elektrisk-salmesykkel_01.png": {
+                "en": "The logo / badge of the Elektrisk Salmesykkel plugin",
+                "no": "Logoen / merket til Elektrisk Salmesykkel-pluginen"
+            },
+            "elektrisk-salmesykkel_02.png": {
+                "en": "Screenshot of the user interface of the Elektrisk Salmesykkel plugin",
+                "no": "Skjermbilde av brukergrensesnittet til Elektrisk Salmesykkel-pluginen"
+            },
+            "elektrisk-salmesykkel_03.png": {
+                "en": "Close-up of the levers for air supply, reed selection and reed opening in the Elektrisk Salmesykkel plugin",
+                "no": "Nærbilde av spakene for lufttilførsel, rørvalg og åpning av rørene i Elektrisk Salmesykkel-pluginen"
+            },
+            "elektrisk-salmesykkel_04.png": {
+                "en": "Close-up of the tremulant controls in the Elektrisk Salmesykkel plugin",
+                "no": "Nærbilde av tremulant-kontrollene i Elektrisk Salmesykkel-pluginen"
+            },
+            "elektrisk-salmesykkel_05.png": {
+                "en": "Close-up of the mechanical noise controls in the Elektrisk Salmesykkel plugin",
+                "no": "Nærbilde av mekanikkstøy-kontrollene i Elektrisk Salmesykkel-pluginen"
+            },
+            "elektrisk-salmesykkel_06.png": {
+                "en": "Close-up of the reverb controls in the Elektrisk Salmesykkel plugin",
+                "no": "Nærbilde av romklangkontrollene i Elektrisk Salmesykkel-pluginen"
+            },
+            "elektrisk-salmesykkel_07.png": {
+                "en": "The air-supply emulation toggle in the Elektrisk Salmesykkel plugin settings menu",
+                "no": "Bryteren for lufttilførselsemulering i innstillingsmenyen til Elektrisk Salmesykkel-pluginen"
+            }
+        }, 
         "video": {
             "name": {
                 "en": "Electric harmonium sample plugin (Elektrisk Salmesykkel)",
@@ -792,6 +988,48 @@
             "stylopoly_09.png",
             "stylopoly_10.png"
         ],
+        "additionalImageDescriptions": {
+            "stylopoly_01.png": {
+                "en": "Screenshot of the StyloPoly plugin interface",
+                "no": "Skjermbilde av StyloPoly-pluginens grensesnitt"
+            },
+            "stylopoly_02.png": {
+                "en": "Close-up of the mixer controls in the StyloPoly plugin",
+                "no": "Nærbilde av mikserkontrollene i StyloPoly-pluginen"
+            },
+            "stylopoly_03.png": {
+                "en": "Close-up of the keyboard controls in the StyloPoly plugin",
+                "no": "Nærbilde av keyboard-kontrollene i StyloPoly-pluginen"
+            },
+            "stylopoly_04.png": {
+                "en": "Close-up of the volume envelope controls in the StyloPoly plugin",
+                "no": "Nærbilde av volum-envelope-kontrollene i StyloPoly-pluginen"
+            },
+            "stylopoly_05.png": {
+                "en": "Close-up of the noise controls in the StyloPoly plugin",
+                "no": "Nærbilde av støykontrollene i StyloPoly-pluginen"
+            },
+            "stylopoly_06.png": {
+                "en": "Close-up of the vibrato controls in the StyloPoly plugin",
+                "no": "Nærbilde av vibrato-kontrollene i StyloPoly-pluginen"
+            },
+            "stylopoly_07.png": {
+                "en": "Close-up of the high pass filter controls in the StyloPoly plugin",
+                "no": "Nærbilde av høypassfilter-kontrollene i StyloPoly-pluginen"
+            },
+            "stylopoly_08.png": {
+                "en": "Close-up of the low pass filter controls in the StyloPoly plugin",
+                "no": "Nærbilde av lavpassfilter-kontrollene i StyloPoly-pluginen"
+            },
+            "stylopoly_09.png": {
+                "en": "Close-up of the echo controls in the StyloPoly plugin",
+                "no": "Nærbilde av ekkokontrollene i StyloPoly-pluginen"
+            },
+            "stylopoly_10.png": {
+                "en": "Close-up of the reverb controls in the StyloPoly plugin",
+                "no": "Nærbilde av reverb-kontrollene i StyloPoly-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "Stylophone sample plugin (StyloPoly)",
@@ -875,6 +1113,44 @@
             "strykebrett_08.png",
             "strykebrett_09.png"
         ],
+        "additionalImageDescriptions": {
+            "strykebrett_01.png": {
+                "en": "Screenshot of the user interface of the Strykebrett plugin",
+                "no": "Skjermbilde av brukergrensesnittet til Strykebrett-pluginen"
+            },
+            "strykebrett_02.png": {
+                "en": "Close-up of the mixer controls of the Strykebrett plugin",
+                "no": "Nærbilde av mikserkontrollene til Strykebrett-pluginen"
+            },
+            "strykebrett_03.png": {
+                "en": "Close-up of the amplitude modulation section of the Strykebrett plugin",
+                "no": "Nærbilde av amplitudemodulasjonsseksjonen til Strykebrett-pluginen"
+            },
+            "strykebrett_04.png": {
+                "en": "Close-up of the filter section of the Strykebrett plugin",
+                "no": "Nærbilde av filterseksjonen til Strykebrett-pluginen"
+            },
+            "strykebrett_05.png": {
+                "en": "Close-up of the oscillator switches of the Strykebrett plugin",
+                "no": "Nærbilde av oscillatorbryterne til Strykebrett-pluginen"
+            },
+            "strykebrett_06.png": {
+                "en": "Close-up of the ensemble section of the Strykebrett plugin",
+                "no": "Nærbilde av ensembleseksjonen til Strykebrett-pluginen"
+            },
+            "strykebrett_07.png": {
+                "en": "Close-up of the phaser section of the Strykebrett plugin",
+                "no": "Nærbilde av phaserseksjonen til Strykebrett-pluginen"
+            },
+            "strykebrett_08.png": {
+                "en": "Close-up of the echo section of the Strykebrett plugin",
+                "no": "Nærbilde av ekkoseksjonen til Strykebrett-pluginen"
+            },
+            "strykebrett_09.png": {
+                "en": "Close-up of the reverb section of the Strykebrett plugin",
+                "no": "Nærbilde av klangseksjonen til Strykebrett-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "String synthesizer sample plugin (Strykebrett)",
@@ -955,6 +1231,36 @@
             "4-track_04.png",
             "4-track_05.png"
         ],
+        "additionalImageDescriptions": {
+            "4-track-glockenspiel_01.jpg": {
+                "en": "Close-up of the tuned metal bars of a glockenspiel, with the note names stamped into them",
+                "no": "Nærbilde av de stemte metallplatene på et klokkespill, med notenavnene preget inn i platene"
+            },
+            "4-track-glockenspiel_02.png": {
+                "en": "Screenshot of the user interface of the 4-track Glockenspiel plugin",
+                "no": "Skjermbilde av brukergrensesnittet til 4-track Glockenspiel-pluginen"
+            },
+            "4-track_01.png": {
+                "en": "Close-up of the mixer controls of the 4-track Glockenspiel plugin",
+                "no": "Nærbilde av mikserkontrollene til 4-track Glockenspiel-pluginen"
+            },
+            "4-track_02.png": {
+                "en": "Close-up of the instrument controls of the 4-track Glockenspiel plugin",
+                "no": "Nærbilde av instrumentkontrollene til 4-track Glockenspiel-pluginen"
+            },
+            "4-track_03.png": {
+                "en": "Close-up of the echo controls of the 4-track Glockenspiel plugin",
+                "no": "Nærbilde av ekkokontrollene til 4-track Glockenspiel-pluginen"
+            },
+            "4-track_04.png": {
+                "en": "Close-up of the reverb controls of the 4-track Glockenspiel plugin",
+                "no": "Nærbilde av klangkontrollene til 4-track Glockenspiel-pluginen"
+            },
+            "4-track_05.png": {
+                "en": "Close-up of the fidelity controls of the 4-track Glockenspiel plugin",
+                "no": "Nærbilde av fidelity-kontrollene til 4-track Glockenspiel-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "4-track Glockenspiel - Sound Examples",
@@ -1035,6 +1341,36 @@
             "4-track_04.png",
             "4-track_05.png"
         ],
+        "additionalImageDescriptions": {
+            "4-track-music-box_01.jpg": {
+                "en": "A music box placed on the body of an acoustic guitar",
+                "no": "En spilledåse plassert på kroppen til en akustisk gitar"
+            },
+            "4-track-music-box_02.png": {
+                "en": "Screenshot of the user interface of the 4-track Music Box plugin",
+                "no": "Skjermbilde av brukergrensesnittet til 4-track Music Box-pluginen"
+            },
+            "4-track_01.png": {
+                "en": "Close-up of the mixer controls of the 4-track Music Box plugin",
+                "no": "Nærbilde av mikserkontrollene til 4-track Music Box-pluginen"
+            },
+            "4-track_02.png": {
+                "en": "Close-up of the instrument controls of the 4-track Music Box plugin",
+                "no": "Nærbilde av instrumentkontrollene til 4-track Music Box-pluginen"
+            },
+            "4-track_03.png": {
+                "en": "Close-up of the echo controls of the 4-track Music Box plugin",
+                "no": "Nærbilde av ekkokontrollene til 4-track Music Box-pluginen"
+            },
+            "4-track_04.png": {
+                "en": "Close-up of the reverb controls of the 4-track Music Box plugin",
+                "no": "Nærbilde av klangkontrollene til 4-track Music Box-pluginen"
+            },
+            "4-track_05.png": {
+                "en": "Close-up of the fidelity controls of the 4-track Music Box plugin",
+                "no": "Nærbilde av fidelity-kontrollene til 4-track Music Box-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "Masquerade (music box version) from The Phantom of the Opera",
@@ -1120,6 +1456,52 @@
             "voltage-controlled-cassette-organ_10.png",
             "voltage-controlled-cassette-organ_11.png"
         ],
+        "additionalImageDescriptions": {
+            "voltage-controlled-cassette-organ_01.png": {
+                "en": "Screenshot of the user interface of the Voltage Controlled Cassette Organ plugin with the All Drawbars mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Voltage Controlled Cassette Organ-pluginen med All Drawbars-modus aktiv"
+            },
+            "voltage-controlled-cassette-organ_02.png": {
+                "en": "Screenshot of the user interface of the Voltage Controlled Cassette Organ plugin with the Single Drawbar mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Voltage Controlled Cassette Organ-pluginen med Single Drawbar-modus aktiv"
+            },
+            "voltage-controlled-cassette-organ_03.png": {
+                "en": "Close-up of the drawbars section in the Voltage Controlled Cassette Organ plugin",
+                "no": "Nærbilde av drawbars-delen i Voltage Controlled Cassette Organ-pluginen"
+            },
+            "voltage-controlled-cassette-organ_04.png": {
+                "en": "Close-up of the drawbars envelope section for the All Drawbars mode in the Voltage Controlled Cassette Organ plugin",
+                "no": "Nærbilde av drawbars-envelope-delen for All Drawbars-modus i Voltage Controlled Cassette Organ-pluginen"
+            },
+            "voltage-controlled-cassette-organ_05.png": {
+                "en": "Close-up of the drawbars envelope section for the Single Drawbar mode in the Voltage Controlled Cassette Organ plugin",
+                "no": "Nærbilde av drawbars-envelope-delen for Single Drawbar-modus i Voltage Controlled Cassette Organ-pluginen"
+            },
+            "voltage-controlled-cassette-organ_06.png": {
+                "en": "Close-up of the drawbars envelope curve section for the Single Drawbar mode in the Voltage Controlled Cassette Organ plugin",
+                "no": "Nærbilde av drawbars-envelope-kurve-delen for Single Drawbar-modus i Voltage Controlled Cassette Organ-pluginen"
+            },
+            "voltage-controlled-cassette-organ_07.png": {
+                "en": "Close-up of the drawbars LFO modulation section for the All Drawbars mode in the Voltage Controlled Cassette Organ plugin",
+                "no": "Nærbilde av drawbars-LFO-modulasjons-delen for All Drawbars-modus i Voltage Controlled Cassette Organ-pluginen"
+            },
+            "voltage-controlled-cassette-organ_08.png": {
+                "en": "Close-up of the amplitude modulation section for the Single Drawbar mode in the Voltage Controlled Cassette Organ plugin",
+                "no": "Nærbilde av amplitudemodulasjonsdelen for Single Drawbar-modus i Voltage Controlled Cassette Organ-pluginen"
+            },
+            "voltage-controlled-cassette-organ_09.png": {
+                "en": "Close-up of the double track switches in the Voltage Controlled Cassette Organ plugin",
+                "no": "Nærbilde av double track-bryterne i Voltage Controlled Cassette Organ-pluginen"
+            },
+            "voltage-controlled-cassette-organ_10.png": {
+                "en": "Close-up of the echo controls in the Voltage Controlled Cassette Organ plugin",
+                "no": "Nærbilde av ekkokontrollene i Voltage Controlled Cassette Organ-pluginen"
+            },
+            "voltage-controlled-cassette-organ_11.png": {
+                "en": "Close-up of the reverb controls in the Voltage Controlled Cassette Organ plugin",
+                "no": "Nærbilde av klangkontrollene i Voltage Controlled Cassette Organ-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "Voltage Controlled Cassette Organ - Sound Examples",
@@ -1201,6 +1583,36 @@
             "omni-84_06.png",
             "omni-84_07.png"
         ],
+        "additionalImageDescriptions": {
+            "omni-84_01.jpg": {
+                "en": "A Suzuki Omnichord OM-84 System Two with a Dehli Musikk logo",
+                "no": "En Suzuki Omnichord OM-84 System Two med en Dehli Musikk-logo"
+            },
+            "omni-84_02.png": {
+                "en": "Screenshot of the user interface of the Omni-84 plugin with the SonicStrings mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Omni-84-pluginen med SonicStrings-modus aktiv"
+            },
+            "omni-84_03.png": {
+                "en": "Screenshot of the user interface of the Omni-84 plugin with the SonicStrings (AutoStrum) mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Omni-84-pluginen med SonicStrings (AutoStrum)-modus aktiv"
+            },
+            "omni-84_04.png": {
+                "en": "Screenshot of the user interface of the Omni-84 plugin with the Chords mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Omni-84-pluginen med Chords-modus aktiv"
+            },
+            "omni-84_05.png": {
+                "en": "Screenshot of the user interface of the Omni-84 plugin with the Drums mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Omni-84-pluginen med Drums-modus aktiv"
+            },
+            "omni-84_06.png": {
+                "en": "Screenshot of the user interface of the Omni-84 plugin with the Bass mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Omni-84-pluginen med Bass-modus aktiv"
+            },
+            "omni-84_07.png": {
+                "en": "Screenshot of the user interface of the Omni-84 plugin with the Keyboard mode active",
+                "no": "Skjermbilde av brukergrensesnittet til Omni-84-pluginen med Keyboard-modus aktiv"
+            }
+        },
         "video": {
             "name": {
                 "en": "Free Omnichord sample plugin (Omni-84)",
@@ -1277,6 +1689,16 @@
             "lo-fi-tape-piano_01.jpg",
             "lo-fi-tape-piano_02.png"
         ],
+        "additionalImageDescriptions": {
+            "lo-fi-tape-piano_01.jpg": {
+                "en": "A Louis Zwicki Pianette piano with an old Televerket telephone, a Fostex 4-track cassette recorder and a cup of coffee placed on top",
+                "no": "Et Louis Zwicki Pianette-piano med en gammel Televerket-telefon, en Fostex 4-spors kassettopptaker og en kopp kaffe plassert på lokket"
+            },
+            "lo-fi-tape-piano_02.png": {
+                "en": "Screenshot of the user interface of the Lo-fi Tape Piano plugin",
+                "no": "Skjermbilde av brukergrensesnittet til Lo-fi Tape Piano-pluginen"
+            }
+        },
         "video": {
             "name": {
                 "en": "Lo-fi Tape Piano (sample pack)",
