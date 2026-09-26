@@ -26,7 +26,8 @@
         "sameAs": [
             "https://benjamindehli.github.io/overtonium/",
             "https://github.com/benjamindehli/overtonium",
-            "https://www.kvraudio.com/product/overtonium-by-dehli-musikk"
+            "https://www.kvraudio.com/product/overtonium-by-dehli-musikk",
+            "https://www.youtube.com/watch?v=L1oYdPxGlGA"
         ],
         "productType": [
             "Software"
@@ -65,6 +66,18 @@
                 "en": "Screenshot of the user interface of the Overtonium plugin with the Op-amp character active",
                 "no": "Skjermbilde av brukergrensesnittet til Overtonium-pluginen med Op-amp-karakteren aktiv"
             }
+        },
+        "video": {
+            "name": {
+                "en": "Overtonium - Sound Examples",
+                "no": "Overtonium - Lydeksempler"
+            },
+            "description": {
+                "en": "A demonstration of 11 of the factory presets in the Overtonium plugin.",
+                "no": "En demonstrasjon av 11 av patchene som følger med Overtonium-pluginen."
+            },
+            "uploadDate": "2026-09-26",
+            "contentUrl": "https://www.youtube.com/watch?v=L1oYdPxGlGA"
         }
     },
     {
