@@ -485,19 +485,8 @@
         ],
         "hash": "370c16d290eb990b"
     },
-    "overtonium_01.jpg": {
+    "overtonium_01.png": {
         "base": "overtonium_01",
-        "width": 2696,
-        "height": 1651,
-        "widths": [
-            400,
-            800,
-            1200
-        ],
-        "hash": "413f20d2615dc2c0"
-    },
-    "overtonium_02.png": {
-        "base": "overtonium_02",
         "width": 1348,
         "height": 1010,
         "widths": [
@@ -505,7 +494,7 @@
             800,
             1200
         ],
-        "hash": "56dca8e839ad68bd"
+        "hash": "e25b087840906573"
     },
     "sidstation-asid_01.png": {
         "base": "sidstation-asid_01",
