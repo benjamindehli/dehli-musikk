@@ -299,7 +299,9 @@ export async function getEquipmentItemMetadata(lang: Lang, { params }: Equipment
             title: itemName,
             url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentType}/${equipmentId}/`,
             description,
-            images: [{ url: `${WEBSITE_URL}${thumbnailUrl(`/data/equipment/${equipmentType}/web`, equipmentId, 945, "jpg")}`, width: 945, height: 700 }]
+            images: [
+                { url: `${WEBSITE_URL}${thumbnailUrl(`/data/equipment/${equipmentType}/web`, equipmentId, 945, "jpg")}`, width: 945, height: 700 }
+            ]
         })
     };
 }
