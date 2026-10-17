@@ -6,6 +6,7 @@ import { getPlusOneYear } from "./dateFormatter";
 import { getMinimumPrice, getPriceCurrency } from "./productPricing";
 import { convertToUrlFriendlyString } from "./urlFormatter";
 import { formatProductFormats } from "./productSpecs";
+import { thumbnailUrl } from "./thumbnailUrls";
 
 // Data
 import countryCodes from "data/countryCodes";
@@ -78,7 +79,7 @@ export function generateProductSnippet(product: Product, languageSlug: string, s
     const productDate = new Date(product.timestamp).toISOString();
     const plusOneYear = getPlusOneYear();
 
-    const productThumbnailSrc = `https://www.dehlimusikk.no/data/products/web/jpg/${productId}_540.jpg`;
+    const productThumbnailSrc = `https://www.dehlimusikk.no${thumbnailUrl("/data/products/web", productId, 540, "jpg")}`;
 
     /*
      * mainImage and additionalImages are bare filenames, and the files sit in

@@ -14,6 +14,7 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { getEquipmentItemDescription } from "helpers/equipmentDescription";
 import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
+import { thumbnailImage, thumbnailUrl } from "helpers/thumbnailUrls";
 import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
 import { buildAlternates, socialMetadata, WEBSITE_URL, detailTitle, type Lang } from "lib/pageMetadata";
@@ -104,23 +105,7 @@ export function EquipmentPage({ lang }: { lang: Lang }) {
                         const equipmentType = equipment[equipmentTypeKey];
                         const itemPath = `/${languageSlug}equipment/${equipmentTypeKey}/`;
                         const link = { to: itemPath, title: equipmentType.name[lang] };
-                        const image = {
-                            avif55: `/data/equipment/web/avif/${equipmentTypeKey}_55.avif`,
-                            avif110: `/data/equipment/web/avif/${equipmentTypeKey}_110.avif`,
-                            avif350: `/data/equipment/web/avif/${equipmentTypeKey}_350.avif`,
-                            avif540: `/data/equipment/web/avif/${equipmentTypeKey}_540.avif`,
-                            avif945: `/data/equipment/web/avif/${equipmentTypeKey}_945.avif`,
-                            webp55: `/data/equipment/web/webp/${equipmentTypeKey}_55.webp`,
-                            webp110: `/data/equipment/web/webp/${equipmentTypeKey}_110.webp`,
-                            webp350: `/data/equipment/web/webp/${equipmentTypeKey}_350.webp`,
-                            webp540: `/data/equipment/web/webp/${equipmentTypeKey}_540.webp`,
-                            webp945: `/data/equipment/web/webp/${equipmentTypeKey}_945.webp`,
-                            jpg55: `/data/equipment/web/jpg/${equipmentTypeKey}_55.jpg`,
-                            jpg110: `/data/equipment/web/jpg/${equipmentTypeKey}_110.jpg`,
-                            jpg350: `/data/equipment/web/jpg/${equipmentTypeKey}_350.jpg`,
-                            jpg540: `/data/equipment/web/jpg/${equipmentTypeKey}_540.jpg`,
-                            jpg945: `/data/equipment/web/jpg/${equipmentTypeKey}_945.jpg`
-                        };
+                        const image = thumbnailImage("/data/equipment/web", equipmentTypeKey, [55, 110, 350, 540, 945]);
                         return (
                             <ListItem key={equipmentTypeKey}>
                                 <ListItemThumbnail link={link}>
@@ -189,7 +174,7 @@ export async function getEquipmentTypeMetadata(lang: Lang, { params }: Equipment
             title: typeName,
             url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentType}/`,
             description,
-            images: [{ url: `${WEBSITE_URL}/data/equipment/web/jpg/${equipmentType}_945.jpg`, width: 945, height: 700 }]
+            images: [{ url: `${WEBSITE_URL}${thumbnailUrl("/data/equipment/web", equipmentType, 945, "jpg")}`, width: 945, height: 700 }]
         })
     };
 }
@@ -314,7 +299,7 @@ export async function getEquipmentItemMetadata(lang: Lang, { params }: Equipment
             title: itemName,
             url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentType}/${equipmentId}/`,
             description,
-            images: [{ url: `${WEBSITE_URL}/data/equipment/${equipmentType}/web/jpg/${equipmentId}_945.jpg`, width: 945, height: 700 }]
+            images: [{ url: `${WEBSITE_URL}${thumbnailUrl(`/data/equipment/${equipmentType}/web`, equipmentId, 945, "jpg")}`, width: 945, height: 700 }]
         })
     };
 }

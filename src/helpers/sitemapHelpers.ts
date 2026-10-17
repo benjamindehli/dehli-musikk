@@ -44,6 +44,7 @@ import { convertToXmlFriendlyString } from "helpers/xmlStringFormatter";
 import { youTubeTimeToSeconds } from "helpers/timeFormatter";
 import { formatContentAsString } from "helpers/contentFormatter";
 import { SITE_ORIGIN } from "lib/constants";
+import { thumbnailUrl, thumbnailVersion, withThumbnailVersion } from "helpers/thumbnailUrls";
 
 // Redux store
 const languageSlug: Record<Lang, string> = {
@@ -78,7 +79,7 @@ function renderVideoUrlElement(url: string, video: Video, languageKey: Lang) {
     const dateDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     const dateString = `${dateYear}-${dateMonth}-${dateDay}`;
     const duration = youTubeTimeToSeconds(video.duration);
-    const thumbnailLoc = `data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`;
+    const thumbnailLoc = thumbnailUrl("/data/videos/web", video.thumbnailFilename, 540, "jpg").replace(/^\//, "");
     const absoluteThumbnailLoc = `${SITE_ORIGIN}${thumbnailLoc}`;
     const contentAsString = formatContentAsString(video.content[languageKey]);
     return `  <url>
@@ -276,10 +277,11 @@ function getImagesFromPost(post: Post, languageKey: Lang) {
     const images: SitemapImage[] = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
+    const version = thumbnailVersion("/data/posts/web", post.thumbnailFilename);
     formats.forEach((format) => {
         const imagePath = `data/posts/web/${format}/${post.thumbnailFilename}`;
         sizes.forEach((size) => {
-            const imageLoc = `${imagePath}_${size}.${format}`;
+            const imageLoc = withThumbnailVersion(`${imagePath}_${size}.${format}`, version);
             const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(post.thumbnailDescription),
@@ -299,10 +301,11 @@ function getImagesFromVideo(video: Video, languageKey: Lang) {
     const images: SitemapImage[] = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
+    const version = thumbnailVersion("/data/videos/web", video.thumbnailFilename);
     formats.forEach((format) => {
         const imagePath = `data/videos/web/${format}/${video.thumbnailFilename}`;
         sizes.forEach((size) => {
-            const imageLoc = `${imagePath}_${size}.${format}`;
+            const imageLoc = withThumbnailVersion(`${imagePath}_${size}.${format}`, version);
             const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(video.thumbnailDescription),
@@ -322,10 +325,11 @@ function getImagesFromProduct(product: Product) {
     const images: SitemapImage[] = [];
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
+    const version = thumbnailVersion("/data/products/web", convertToUrlFriendlyString(product.title));
     formats.forEach((format) => {
         const imagePath = `data/products/web/${format}/${convertToUrlFriendlyString(product.title)}`;
         sizes.forEach((size) => {
-            const imageLoc = `${imagePath}_${size}.${format}`;
+            const imageLoc = withThumbnailVersion(`${imagePath}_${size}.${format}`, version);
             const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(product.thumbnailDescription),
@@ -380,13 +384,14 @@ function getImagesFromRelease(release: Release, languageKey: Lang) {
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540];
     const connector = languageKey === "en" ? "by" : "av";
+    const version = thumbnailVersion("/data/releases/web", release.thumbnailFilename);
     formats.forEach((format) => {
         const imagePath = `data/releases/web/${format}/${release.thumbnailFilename}`;
         sizes.forEach((size) => {
             // No license or geoLocation here, unlike the other image types:
             // cover art belongs to the artists and labels, not Dehli Musikk.
             images.push({
-                loc: `${imagePath}_${size}.${format}`,
+                loc: withThumbnailVersion(`${imagePath}_${size}.${format}`, version),
                 caption: convertToXmlFriendlyString(`${release.title} ${connector} ${release.artistName}`),
                 title: convertToXmlFriendlyString(release.title)
             });
@@ -400,10 +405,11 @@ function getImagesFromEquipmentType(equipmentType: EquipmentType, languageKey: L
     const formats = ["avif", "webp", "jpg"];
     const sizes = [55, 350, 540, 945];
 
+    const version = thumbnailVersion("/data/equipment/web", equipmentType.equipmentType);
     formats.forEach((format) => {
         const imagePath = `data/equipment/web/${format}/${equipmentType.equipmentType}`;
         sizes.forEach((size) => {
-            const imageLoc = `${imagePath}_${size}.${format}`;
+            const imageLoc = withThumbnailVersion(`${imagePath}_${size}.${format}`, version);
             const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(equipmentType.name[languageKey]),
@@ -423,10 +429,11 @@ function getImagesFromEquipmentItem(equipmentItem: EquipmentItemData, equipmentT
     const sizes = [55, 350, 540, 945];
 
     const imageFileName = convertToUrlFriendlyString(`${equipmentItem.brand} ${equipmentItem.model}`);
+    const version = thumbnailVersion(`/data/equipment/${equipmentType}/web`, imageFileName);
     formats.forEach((format) => {
         const imagePath = `data/equipment/${equipmentType}/web/${format}/${imageFileName}`;
         sizes.forEach((size) => {
-            const imageLoc = `${imagePath}_${size}.${format}`;
+            const imageLoc = withThumbnailVersion(`${imagePath}_${size}.${format}`, version);
             const image: SitemapImage = {
                 loc: imageLoc,
                 caption: convertToXmlFriendlyString(`${equipmentItem.model} by ${equipmentItem.brand}`),

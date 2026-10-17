@@ -1,5 +1,4 @@
 import type { Lang } from "lib/pageMetadata";
-import type { EquipmentItemData } from "data/equipment";
 import type { Localized } from "types/content";
 
 /*
@@ -15,6 +14,7 @@ type SearchableRelease = {
     duration: number;
     thumbnailFilename: string;
     unreleased?: boolean;
+    thumbnailVersion?: string;
 };
 
 type SearchablePost = {
@@ -22,6 +22,7 @@ type SearchablePost = {
     content: Localized;
     thumbnailFilename: string;
     thumbnailDescription: string;
+    thumbnailVersion?: string;
 };
 
 type SearchableVideo = SearchablePost;
@@ -29,18 +30,34 @@ type SearchableVideo = SearchablePost;
 type SearchableProduct = {
     title: string;
     content: Localized;
+    thumbnailVersion?: string;
+};
+
+type SearchableEquipmentItem = {
+    brand: string;
+    model: string;
+    thumbnailVersion?: string;
 };
 
 type SearchableEquipmentType = {
     equipmentType: string;
     name: Localized;
-    items: EquipmentItemData[];
+    items: SearchableEquipmentItem[];
 };
 
 type SearchableFaq = {
     question: Localized;
     answer: Localized;
+    thumbnailVersion?: string;
 };
+
+/*
+ * The cache-busting version searchDataHelpers puts on each item, appended the
+ * same way helpers/thumbnailUrls does for the rest of the site. Repeated here
+ * rather than imported because that module reads files and this one runs in
+ * the browser.
+ */
+const versioned = (url: string, version: string | undefined) => (version ? `${url}?v=${version}` : url);
 
 /*
  * Thumbnails at 55px with a 2x companion, in three formats. An unreleased
@@ -140,12 +157,12 @@ const getSearchPointsFromRelease = (release: SearchableRelease, searchStringWord
 
     const thumbnailPaths = !release.unreleased
         ? {
-              avif: `/data/releases/web/avif/${release.thumbnailFilename}_55.avif`,
-              avif110: `/data/releases/web/avif/${release.thumbnailFilename}_110.avif`,
-              webp: `/data/releases/web/webp/${release.thumbnailFilename}_55.webp`,
-              webp110: `/data/releases/web/webp/${release.thumbnailFilename}_110.webp`,
-              jpg: `/data/releases/web/jpg/${release.thumbnailFilename}_55.jpg`,
-              jpg110: `/data/releases/web/jpg/${release.thumbnailFilename}_110.jpg`
+              avif: versioned(`/data/releases/web/avif/${release.thumbnailFilename}_55.avif`, release.thumbnailVersion),
+              avif110: versioned(`/data/releases/web/avif/${release.thumbnailFilename}_110.avif`, release.thumbnailVersion),
+              webp: versioned(`/data/releases/web/webp/${release.thumbnailFilename}_55.webp`, release.thumbnailVersion),
+              webp110: versioned(`/data/releases/web/webp/${release.thumbnailFilename}_110.webp`, release.thumbnailVersion),
+              jpg: versioned(`/data/releases/web/jpg/${release.thumbnailFilename}_55.jpg`, release.thumbnailVersion),
+              jpg110: versioned(`/data/releases/web/jpg/${release.thumbnailFilename}_110.jpg`, release.thumbnailVersion)
           }
         : {
               avif: `/images/comingSoon_${selectedLanguageKey}_55.avif`,
@@ -202,12 +219,12 @@ const getSearchPointsFromPost = (post: SearchablePost, searchStringWords: string
     const points = (titlePoints + contentPoints) / searchStringWords.length;
 
     const thumbnailPaths = {
-        avif: `/data/posts/web/avif/${post.thumbnailFilename}_55.avif`,
-        avif110: `/data/posts/web/avif/${post.thumbnailFilename}_110.avif`,
-        webp: `/data/posts/web/webp/${post.thumbnailFilename}_55.webp`,
-        webp110: `/data/posts/web/webp/${post.thumbnailFilename}_110.webp`,
-        jpg: `/data/posts/web/jpg/${post.thumbnailFilename}_55.jpg`,
-        jpg110: `/data/posts/web/jpg/${post.thumbnailFilename}_110.jpg`
+        avif: versioned(`/data/posts/web/avif/${post.thumbnailFilename}_55.avif`, post.thumbnailVersion),
+        avif110: versioned(`/data/posts/web/avif/${post.thumbnailFilename}_110.avif`, post.thumbnailVersion),
+        webp: versioned(`/data/posts/web/webp/${post.thumbnailFilename}_55.webp`, post.thumbnailVersion),
+        webp110: versioned(`/data/posts/web/webp/${post.thumbnailFilename}_110.webp`, post.thumbnailVersion),
+        jpg: versioned(`/data/posts/web/jpg/${post.thumbnailFilename}_55.jpg`, post.thumbnailVersion),
+        jpg110: versioned(`/data/posts/web/jpg/${post.thumbnailFilename}_110.jpg`, post.thumbnailVersion)
     };
     const thumbnailDescription = post.thumbnailDescription;
 
@@ -245,12 +262,12 @@ const getSearchPointsFromVideos = (video: SearchableVideo, searchStringWords: st
     const points = (titlePoints + contentPoints) / searchStringWords.length;
 
     const thumbnailPaths = {
-        avif: `/data/videos/web/avif/${video.thumbnailFilename}_55.avif`,
-        avif110: `/data/videos/web/avif/${video.thumbnailFilename}_110.avif`,
-        webp: `/data/videos/web/webp/${video.thumbnailFilename}_55.webp`,
-        webp110: `/data/videos/web/webp/${video.thumbnailFilename}_110.webp`,
-        jpg: `/data/videos/web/jpg/${video.thumbnailFilename}_55.jpg`,
-        jpg110: `/data/videos/web/jpg/${video.thumbnailFilename}_110.jpg`
+        avif: versioned(`/data/videos/web/avif/${video.thumbnailFilename}_55.avif`, video.thumbnailVersion),
+        avif110: versioned(`/data/videos/web/avif/${video.thumbnailFilename}_110.avif`, video.thumbnailVersion),
+        webp: versioned(`/data/videos/web/webp/${video.thumbnailFilename}_55.webp`, video.thumbnailVersion),
+        webp110: versioned(`/data/videos/web/webp/${video.thumbnailFilename}_110.webp`, video.thumbnailVersion),
+        jpg: versioned(`/data/videos/web/jpg/${video.thumbnailFilename}_55.jpg`, video.thumbnailVersion),
+        jpg110: versioned(`/data/videos/web/jpg/${video.thumbnailFilename}_110.jpg`, video.thumbnailVersion)
     };
     const thumbnailDescription = video.thumbnailDescription;
 
@@ -288,12 +305,12 @@ const getSearchPointsFromProduct = (product: SearchableProduct, searchStringWord
     const points = (titlePoints + contentPoints) / searchStringWords.length;
 
     const thumbnailPaths = {
-        avif: `/data/products/web/avif/${id}_55.avif`,
-        avif110: `/data/products/web/avif/${id}_110.avif`,
-        webp: `/data/products/web/webp/${id}_55.webp`,
-        webp110: `/data/products/web/webp/${id}_110.webp`,
-        jpg: `/data/products/web/jpg/${id}_55.jpg`,
-        jpg110: `/data/products/web/jpg/${id}_110.jpg`
+        avif: versioned(`/data/products/web/avif/${id}_55.avif`, product.thumbnailVersion),
+        avif110: versioned(`/data/products/web/avif/${id}_110.avif`, product.thumbnailVersion),
+        webp: versioned(`/data/products/web/webp/${id}_55.webp`, product.thumbnailVersion),
+        webp110: versioned(`/data/products/web/webp/${id}_110.webp`, product.thumbnailVersion),
+        jpg: versioned(`/data/products/web/jpg/${id}_55.jpg`, product.thumbnailVersion),
+        jpg110: versioned(`/data/products/web/jpg/${id}_110.jpg`, product.thumbnailVersion)
     };
     const thumbnailDescription = linkTitle;
 
@@ -311,7 +328,7 @@ const getSearchPointsFromProduct = (product: SearchableProduct, searchStringWord
 };
 
 const getSearchPointsFromEquipmentItems = (
-    item: EquipmentItemData,
+    item: SearchableEquipmentItem,
     equipmentType: SearchableEquipmentType,
     equipmentTypeKey: string,
     searchStringWords: string[],
@@ -340,12 +357,12 @@ const getSearchPointsFromEquipmentItems = (
     const points = (brandPoints + modelPoints + equipmentTypePoints) / searchStringWords.length;
 
     const thumbnailPaths = {
-        avif: `/data/equipment/${equipmentTypeKey}/web/avif/${id}_55.avif`,
-        avif110: `/data/equipment/${equipmentTypeKey}/web/avif/${id}_110.avif`,
-        webp: `/data/equipment/${equipmentTypeKey}/web/webp/${id}_55.webp`,
-        webp110: `/data/equipment/${equipmentTypeKey}/web/webp/${id}_110.webp`,
-        jpg: `/data/equipment/${equipmentTypeKey}/web/jpg/${id}_55.jpg`,
-        jpg110: `/data/equipment/${equipmentTypeKey}/web/jpg/${id}_110.jpg`
+        avif: versioned(`/data/equipment/${equipmentTypeKey}/web/avif/${id}_55.avif`, item.thumbnailVersion),
+        avif110: versioned(`/data/equipment/${equipmentTypeKey}/web/avif/${id}_110.avif`, item.thumbnailVersion),
+        webp: versioned(`/data/equipment/${equipmentTypeKey}/web/webp/${id}_55.webp`, item.thumbnailVersion),
+        webp110: versioned(`/data/equipment/${equipmentTypeKey}/web/webp/${id}_110.webp`, item.thumbnailVersion),
+        jpg: versioned(`/data/equipment/${equipmentTypeKey}/web/jpg/${id}_55.jpg`, item.thumbnailVersion),
+        jpg110: versioned(`/data/equipment/${equipmentTypeKey}/web/jpg/${id}_110.jpg`, item.thumbnailVersion)
     };
     const thumbnailDescription = `${item.brand} ${item.model}`;
 
@@ -382,12 +399,12 @@ const getSearchPointsFromFrequentlyAskedQuestions = (faq: SearchableFaq, searchS
     const points = (questionPoints + answerPoints) / searchStringWords.length;
 
     const thumbnailPaths = {
-        avif: `/data/frequentlyAskedQuestions/web/avif/thumbnail_55.avif`,
-        avif110: `/data/frequentlyAskedQuestions/web/avif/thumbnail_110.avif`,
-        webp: `/data/frequentlyAskedQuestions/web/webp/thumbnail_55.webp`,
-        webp110: `/data/frequentlyAskedQuestions/web/webp/thumbnail_110.webp`,
-        jpg: `/data/frequentlyAskedQuestions/web/jpg/thumbnail_55.jpg`,
-        jpg110: `/data/frequentlyAskedQuestions/web/jpg/thumbnail_110.jpg`
+        avif: versioned(`/data/frequentlyAskedQuestions/web/avif/thumbnail_55.avif`, faq.thumbnailVersion),
+        avif110: versioned(`/data/frequentlyAskedQuestions/web/avif/thumbnail_110.avif`, faq.thumbnailVersion),
+        webp: versioned(`/data/frequentlyAskedQuestions/web/webp/thumbnail_55.webp`, faq.thumbnailVersion),
+        webp110: versioned(`/data/frequentlyAskedQuestions/web/webp/thumbnail_110.webp`, faq.thumbnailVersion),
+        jpg: versioned(`/data/frequentlyAskedQuestions/web/jpg/thumbnail_55.jpg`, faq.thumbnailVersion),
+        jpg110: versioned(`/data/frequentlyAskedQuestions/web/jpg/thumbnail_110.jpg`, faq.thumbnailVersion)
     };
     const thumbnailDescription = `Speach bubble icon for frequently asked questions`;
 

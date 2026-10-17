@@ -21,6 +21,7 @@ import ExpansionPanel from "components/template/ExpansionPanel";
 import List from "components/template/List";
 
 // Helpers
+import { thumbnailImage } from "helpers/thumbnailUrls";
 import { getPrettyDate } from "helpers/dateFormatter";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { formatContentWithReactLinks } from "helpers/contentFormatter";
@@ -163,20 +164,7 @@ const Product = ({
     };
 
     const productId = convertToUrlFriendlyString(product.title);
-    const image = {
-        avif55: `/data/products/web/avif/${productId}_55.avif`,
-        avif110: `/data/products/web/avif/${productId}_110.avif`,
-        avif350: `/data/products/web/avif/${productId}_350.avif`,
-        avif540: `/data/products/web/avif/${productId}_540.avif`,
-        webp55: `/data/products/web/webp/${productId}_55.webp`,
-        webp110: `/data/products/web/webp/${productId}_110.webp`,
-        webp350: `/data/products/web/webp/${productId}_350.webp`,
-        webp540: `/data/products/web/webp/${productId}_540.webp`,
-        jpg55: `/data/products/web/jpg/${productId}_55.jpg`,
-        jpg110: `/data/products/web/jpg/${productId}_110.jpg`,
-        jpg350: `/data/products/web/jpg/${productId}_350.jpg`,
-        jpg540: `/data/products/web/jpg/${productId}_540.jpg`
-    };
+    const image = thumbnailImage("/data/products/web", productId, [55, 110, 350, 540]);
     const productDate = new Date(product.timestamp);
     const productPath = `/${languageSlug}products/${productId}/`;
     const productDescription = fullscreen ? (

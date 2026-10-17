@@ -31,6 +31,7 @@ import ListItemContentHeader from "components/template/List/ListItem/ListItemCon
 import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbnail";
 
 // Helpers
+import { thumbnailImage } from "helpers/thumbnailUrls";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { getReleaseInstruments, getReleaseProducts } from "helpers/releaseInstruments";
 import { getRichSnippetDateString } from "helpers/dateFormatter";
@@ -291,18 +292,7 @@ const Release = ({
               jpg540: null
           }
         : {
-              avif55: `/data/releases/web/avif/${release.thumbnailFilename}_55.avif`,
-              avif110: `/data/releases/web/avif/${release.thumbnailFilename}_110.avif`,
-              avif350: `/data/releases/web/avif/${release.thumbnailFilename}_350.avif`,
-              avif540: `/data/releases/web/avif/${release.thumbnailFilename}_540.avif`,
-              webp55: `/data/releases/web/webp/${release.thumbnailFilename}_55.webp`,
-              webp110: `/data/releases/web/webp/${release.thumbnailFilename}_110.webp`,
-              webp350: `/data/releases/web/webp/${release.thumbnailFilename}_350.webp`,
-              webp540: `/data/releases/web/webp/${release.thumbnailFilename}_540.webp`,
-              jpg55: `/data/releases/web/jpg/${release.thumbnailFilename}_55.jpg`,
-              jpg110: `/data/releases/web/jpg/${release.thumbnailFilename}_110.jpg`,
-              jpg350: `/data/releases/web/jpg/${release.thumbnailFilename}_350.jpg`,
-              jpg540: `/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg`,
+              ...thumbnailImage("/data/releases/web", release.thumbnailFilename, [55, 110, 350, 540]),
               png55: null,
               png110: null,
               png350: null,

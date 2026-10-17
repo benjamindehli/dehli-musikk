@@ -102,6 +102,7 @@ import { getArtistNamesStringFromReleases } from "helpers/releaseHelpers";
 import { getAdditionalProductLinks } from "helpers/productLinks";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
 import { formatProductFormats } from "helpers/productSpecs";
+import { thumbnailUrl } from "helpers/thumbnailUrls";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 
 // Lib
@@ -456,7 +457,7 @@ export function getProductMarkdown(lang: Lang, id: string) {
         paths: productPaths(product),
         published: product.timestamp,
         body: [
-            `![${product.thumbnailDescription}](${WEBSITE_URL}/data/products/web/jpg/${id}_540.jpg)`,
+            `![${product.thumbnailDescription}](${WEBSITE_URL}${thumbnailUrl("/data/products/web", id, 540, "jpg")})`,
             "",
             ...metaList([
                 [t.published, isoDate(product.timestamp)],
@@ -507,7 +508,7 @@ export function getPostMarkdown(lang: Lang, id: string) {
         published: post.timestamp,
         modified: post.lastmod ?? post.timestamp,
         body: [
-            `![${post.thumbnailDescription}](${WEBSITE_URL}/data/posts/web/jpg/${post.thumbnailFilename}_540.jpg)`,
+            `![${post.thumbnailDescription}](${WEBSITE_URL}${thumbnailUrl("/data/posts/web", post.thumbnailFilename, 540, "jpg")})`,
             "",
             ...metaList([[t.published, isoDate(post.timestamp)]]),
             contentToMarkdown(post.content[lang], lang),
@@ -559,7 +560,7 @@ export function getVideoMarkdown(lang: Lang, id: string, { theater = false }: { 
         published: video.timestamp,
         modified: video.lastmod ?? video.timestamp,
         body: [
-            `![${video.thumbnailDescription}](${WEBSITE_URL}/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg)`,
+            `![${video.thumbnailDescription}](${WEBSITE_URL}${thumbnailUrl("/data/videos/web", video.thumbnailFilename, 540, "jpg")})`,
             "",
             ...metaList([
                 [t.published, isoDate(video.timestamp)],
@@ -607,7 +608,7 @@ export function getReleaseMarkdown(lang: Lang, id: string) {
         paths: releasePaths(release),
         published: release.releaseDate,
         body: [
-            `![${heading}](${WEBSITE_URL}/data/releases/web/jpg/${release.thumbnailFilename}_540.jpg)`,
+            `![${heading}](${WEBSITE_URL}${thumbnailUrl("/data/releases/web", release.thumbnailFilename, 540, "jpg")})`,
             "",
             ...metaList([
                 [t.artist, release.artistName],
@@ -679,7 +680,7 @@ export function getEquipmentItemMarkdown(lang: Lang, equipmentType: string, id: 
         description: getEquipmentItemDescription(itemName, itemVideos.length, itemReleases.length, lang),
         paths: { no: `equipment/${equipmentType}/${id}/`, en: `equipment/${equipmentType}/${id}/` },
         body: [
-            `![${itemName}](${WEBSITE_URL}/data/equipment/${equipmentType}/web/jpg/${id}_945.jpg)`,
+            `![${itemName}](${WEBSITE_URL}${thumbnailUrl(`/data/equipment/${equipmentType}/web`, id, 945, "jpg")})`,
             "",
             getEquipmentItemDescription(itemName, itemVideos.length, itemReleases.length, lang),
             "",

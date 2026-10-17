@@ -14,6 +14,7 @@ import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
 import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, detailTitle, type Lang } from "lib/pageMetadata";
 import videos from "data/videos";
+import { thumbnailUrl } from "helpers/thumbnailUrls";
 
 const translations = {
     no: {
@@ -74,7 +75,7 @@ export function VideosPage({ lang }: { lang: Lang }) {
             url: `${WEBSITE_URL}/${languageSlug}videos/${videoId}/video/`,
             name: video.title[lang],
             description: video.content[lang] ? formatContentAsString(video.content[lang]) : "",
-            thumbnailUrl: `${WEBSITE_URL}/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`,
+            thumbnailUrl: `${WEBSITE_URL}${thumbnailUrl("/data/videos/web", video.thumbnailFilename, 540, "jpg")}`,
             embedUrl: `https://www.youtube.com/embed/${video.youTubeId}`,
             uploadDate: videoDate
         };
@@ -185,7 +186,7 @@ async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps): Promis
             title: video.title[lang],
             url: `${WEBSITE_URL}/${languageSlug}${canonicalPaths[lang]}`,
             description,
-            images: [{ url: `${WEBSITE_URL}/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`, width: 540, height: 304 }]
+            images: [{ url: `${WEBSITE_URL}${thumbnailUrl("/data/videos/web", video.thumbnailFilename, 540, "jpg")}`, width: 540, height: 304 }]
         })
     };
 }

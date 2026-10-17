@@ -8,6 +8,7 @@ import React from "react";
 import Link from "next/link";
 
 // Helpers
+import { thumbnailImage } from "helpers/thumbnailUrls";
 import { getPrettyDate } from "helpers/dateFormatter";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { convertStringToExcerpt } from "helpers/search";
@@ -126,20 +127,7 @@ const Video = ({
         );
     };
 
-    const image = {
-        avif55: `/data/videos/web/avif/${video.thumbnailFilename}_55.avif`,
-        avif110: `/data/videos/web/avif/${video.thumbnailFilename}_110.avif`,
-        avif350: `/data/videos/web/avif/${video.thumbnailFilename}_350.avif`,
-        avif540: `/data/videos/web/avif/${video.thumbnailFilename}_540.avif`,
-        webp55: `/data/videos/web/webp/${video.thumbnailFilename}_55.webp`,
-        webp110: `/data/videos/web/webp/${video.thumbnailFilename}_110.webp`,
-        webp350: `/data/videos/web/webp/${video.thumbnailFilename}_350.webp`,
-        webp540: `/data/videos/web/webp/${video.thumbnailFilename}_540.webp`,
-        jpg55: `/data/videos/web/jpg/${video.thumbnailFilename}_55.jpg`,
-        jpg110: `/data/videos/web/jpg/${video.thumbnailFilename}_110.jpg`,
-        jpg350: `/data/videos/web/jpg/${video.thumbnailFilename}_350.jpg`,
-        jpg540: `/data/videos/web/jpg/${video.thumbnailFilename}_540.jpg`
-    };
+    const image = thumbnailImage("/data/videos/web", video.thumbnailFilename, [55, 110, 350, 540]);
     const videoDate = new Date(video.timestamp);
     const videoId = convertToUrlFriendlyString(video.title[lang]);
     const videoPath = `/${languageSlug}videos/${videoId}/`;

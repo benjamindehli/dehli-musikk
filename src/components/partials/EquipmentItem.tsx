@@ -18,6 +18,7 @@ import Release from "components/partials/Portfolio/Release";
 import Video from "components/partials/Video";
 
 // Helpers
+import { thumbnailImage } from "helpers/thumbnailUrls";
 import { getEquipmentItemDescription } from "helpers/equipmentDescription";
 import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
@@ -218,23 +219,7 @@ const EquipmentItem = ({
         );
     };
 
-    const image = {
-        avif55: `/data/equipment/${itemType}/web/avif/${itemId}_55.avif`,
-        avif110: `/data/equipment/${itemType}/web/avif/${itemId}_110.avif`,
-        avif350: `/data/equipment/${itemType}/web/avif/${itemId}_350.avif`,
-        avif540: `/data/equipment/${itemType}/web/avif/${itemId}_540.avif`,
-        avif945: `/data/equipment/${itemType}/web/avif/${itemId}_945.avif`,
-        webp55: `/data/equipment/${itemType}/web/webp/${itemId}_55.webp`,
-        webp110: `/data/equipment/${itemType}/web/webp/${itemId}_110.webp`,
-        webp350: `/data/equipment/${itemType}/web/webp/${itemId}_350.webp`,
-        webp540: `/data/equipment/${itemType}/web/webp/${itemId}_540.webp`,
-        webp945: `/data/equipment/${itemType}/web/webp/${itemId}_945.webp`,
-        jpg55: `/data/equipment/${itemType}/web/jpg/${itemId}_55.jpg`,
-        jpg110: `/data/equipment/${itemType}/web/jpg/${itemId}_110.jpg`,
-        jpg350: `/data/equipment/${itemType}/web/jpg/${itemId}_350.jpg`,
-        jpg540: `/data/equipment/${itemType}/web/jpg/${itemId}_540.jpg`,
-        jpg945: `/data/equipment/${itemType}/web/jpg/${itemId}_945.jpg`
-    };
+    const image = thumbnailImage(`/data/equipment/${itemType}/web`, itemId, [55, 110, 350, 540, 945]);
     const itemPath = `/${languageSlug}equipment/${itemType}/${itemId}/`;
     const itemName = `${item.brand} ${item.model}`;
 

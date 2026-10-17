@@ -8,6 +8,7 @@ import React from "react";
 import Link from "next/link";
 
 // Helpers
+import { thumbnailImage } from "helpers/thumbnailUrls";
 import { getPrettyDate } from "helpers/dateFormatter";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { formatContentAsString, formatContentWithReactLinks } from "helpers/contentFormatter";
@@ -129,20 +130,7 @@ const Post = ({
         );
     };
 
-    const image = {
-        avif55: `/data/posts/web/avif/${post.thumbnailFilename}_55.avif`,
-        avif110: `/data/posts/web/avif/${post.thumbnailFilename}_110.avif`,
-        avif350: `/data/posts/web/avif/${post.thumbnailFilename}_350.avif`,
-        avif540: `/data/posts/web/avif/${post.thumbnailFilename}_540.avif`,
-        webp55: `/data/posts/web/webp/${post.thumbnailFilename}_55.webp`,
-        webp110: `/data/posts/web/webp/${post.thumbnailFilename}_110.webp`,
-        webp350: `/data/posts/web/webp/${post.thumbnailFilename}_350.webp`,
-        webp540: `/data/posts/web/webp/${post.thumbnailFilename}_540.webp`,
-        jpg55: `/data/posts/web/jpg/${post.thumbnailFilename}_55.jpg`,
-        jpg110: `/data/posts/web/jpg/${post.thumbnailFilename}_110.jpg`,
-        jpg350: `/data/posts/web/jpg/${post.thumbnailFilename}_350.jpg`,
-        jpg540: `/data/posts/web/jpg/${post.thumbnailFilename}_540.jpg`
-    };
+    const image = thumbnailImage("/data/posts/web", post.thumbnailFilename, [55, 110, 350, 540]);
     const postDate = new Date(post.timestamp);
     const postId = convertToUrlFriendlyString(post.title[lang]);
     const postPath = `/${languageSlug}posts/${postId}/`;

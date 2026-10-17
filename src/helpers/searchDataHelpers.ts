@@ -1,5 +1,7 @@
 import type { EquipmentItemData, EquipmentType } from "data/equipment";
 import type { FaqItem, Post, Product, Release, Video } from "types/content";
+import { thumbnailVersion } from "helpers/thumbnailUrls";
+import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 /*
  * The JSON the search box fetches at runtime, built from src/data at build time.
  *
@@ -14,25 +16,35 @@ import type { FaqItem, Post, Product, Release, Video } from "types/content";
  *
  * The shapes below are deliberately identical to what search.js received before,
  * including equipment staying an object keyed by type rather than an array.
+ *
+ * The one addition is thumbnailVersion: search builds its thumbnail URLs in the
+ * browser, where it cannot hash files, so the version helpers/thumbnailUrls puts
+ * on every other thumbnail URL travels in here instead.
  */
 
 const searchablePost = ({ title, content, thumbnailFilename, thumbnailDescription }: Post) => ({
     title,
     content,
     thumbnailFilename,
-    thumbnailDescription
+    thumbnailDescription,
+    thumbnailVersion: thumbnailVersion("/data/posts/web", thumbnailFilename)
 });
 
 const searchableVideo = ({ title, content, thumbnailFilename, thumbnailDescription }: Video) => ({
     title,
     content,
     thumbnailFilename,
-    thumbnailDescription
+    thumbnailDescription,
+    thumbnailVersion: thumbnailVersion("/data/videos/web", thumbnailFilename)
 });
 
 // Products need no thumbnail fields: search derives both the image paths and the
 // alt text from the title.
-const searchableProduct = ({ title, content }: Product) => ({ title, content });
+const searchableProduct = ({ title, content }: Product) => ({
+    title,
+    content,
+    thumbnailVersion: thumbnailVersion("/data/products/web", convertToUrlFriendlyString(title))
+});
 
 /*
  * genre is read without a guard in search.js (release.genre.match(...)), so it
@@ -46,12 +58,22 @@ const searchableRelease = ({ artistName, title, genre, releaseDate, duration, th
     releaseDate,
     duration,
     thumbnailFilename,
-    unreleased
+    unreleased,
+    thumbnailVersion: unreleased ? undefined : thumbnailVersion("/data/releases/web", thumbnailFilename)
 });
 
-const searchableEquipmentItem = ({ brand, model }: EquipmentItemData) => ({ brand, model });
+const searchableEquipmentItem = (equipmentType: string, { brand, model }: EquipmentItemData) => ({
+    brand,
+    model,
+    thumbnailVersion: thumbnailVersion(`/data/equipment/${equipmentType}/web`, convertToUrlFriendlyString(`${brand} ${model}`))
+});
 
-const searchableFaq = ({ question, answer }: FaqItem) => ({ question, answer });
+// Every FAQ hit shows the same speech bubble, so each carries the same version
+const searchableFaq = ({ question, answer }: FaqItem) => ({
+    question,
+    answer,
+    thumbnailVersion: thumbnailVersion("/data/frequentlyAskedQuestions/web", "thumbnail")
+});
 
 export const getSearchablePosts = (posts: Post[]) => posts.map(searchablePost);
 export const getSearchableVideos = (videos: Video[]) => videos.map(searchableVideo);
@@ -66,7 +88,7 @@ export const getSearchableEquipment = (equipmentTypes: Record<string, EquipmentT
             {
                 equipmentType: equipmentTypes[key].equipmentType,
                 name: equipmentTypes[key].name,
-                items: equipmentTypes[key].items.map(searchableEquipmentItem)
+                items: equipmentTypes[key].items.map((item) => searchableEquipmentItem(key, item))
             }
         ])
     );
