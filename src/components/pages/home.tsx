@@ -14,9 +14,9 @@ import style from "components/routes/Home.module.scss";
 
 const translations = {
     no: {
-        metaTitle: "Dehli Musikk - tangentinstrumenter på låter for artister og band",
+        metaTitle: "Dehli Musikk - tangentinnspilling og virtuelle instrumenter",
         description:
-            "Dehli Musikk er et enkeltpersonsforetak drevet av Benjamin Dehli som tilbyr spilling av tangentinstrumenter på låter for artister og band",
+            "Dehli Musikk spiller inn tangentinstrumenter for artister og band, og lager plugins og sampleinstrumenter. Drevet av Benjamin Dehli i Bø i Telemark.",
         latestPosts: "Siste oppdateringer",
         seeAllPosts: "Se alle innlegg",
         showAllPosts: "Vis alle innlegg",
@@ -32,9 +32,9 @@ const translations = {
         followOnSocialMedia: "Følg Dehli Musikk på sosiale medier"
     },
     en: {
-        metaTitle: "Dehli Musikk - keyboard instrument tracks for artists and bands",
+        metaTitle: "Dehli Musikk - keyboard tracks and virtual instruments",
         description:
-            "Dehli Musikk is a sole proprietorship run by Benjamin Dehli which offers keyboard instrument tracks on recordings for artists and bands",
+            "Dehli Musikk records keyboard tracks for artists and bands, and makes plugins and sample instruments. Run by Benjamin Dehli in Bø i Telemark, Norway.",
         latestPosts: "Latest updates",
         seeAllPosts: "See all posts",
         showAllPosts: "Show all posts",

@@ -126,7 +126,7 @@ const translations: Record<Lang, Translations> = {
             "Dehli Musikk er et enkeltpersonsforetak drevet av Benjamin Dehli i Bø i Telemark som tilbyr spilling av tangentinstrumenter på låter for artister og band, og som selger virtuelle sample-baserte instrumenter og patch-biblioteker.",
         home: "Dehli Musikk",
         homeDescription:
-            "Dehli Musikk er et enkeltpersonsforetak drevet av Benjamin Dehli som tilbyr spilling av tangentinstrumenter på låter for artister og band",
+            "Dehli Musikk spiller inn tangentinstrumenter for artister og band, og lager plugins og sampleinstrumenter. Drevet av Benjamin Dehli i Bø i Telemark.",
         posts: "Innlegg",
         postsDescription: "Siste oppdateringer fra Dehli Musikk",
         products: "Produkter",
@@ -182,7 +182,7 @@ const translations: Record<Lang, Translations> = {
             "Dehli Musikk is a sole proprietorship run by Benjamin Dehli in Bø i Telemark, Norway, offering keyboard instrument tracks on recordings for artists and bands, and selling virtual sample-based instruments and patch libraries.",
         home: "Dehli Musikk",
         homeDescription:
-            "Dehli Musikk is a sole proprietorship run by Benjamin Dehli which offers keyboard instrument tracks on recordings for artists and bands",
+            "Dehli Musikk records keyboard tracks for artists and bands, and makes plugins and sample instruments. Run by Benjamin Dehli in Bø i Telemark, Norway.",
         posts: "Posts",
         postsDescription: "Latest update from Dehli Musikk",
         products: "Products",
