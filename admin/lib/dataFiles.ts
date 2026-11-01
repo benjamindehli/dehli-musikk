@@ -96,7 +96,10 @@ export async function writeDataFile(name: DataFile, value: unknown): Promise<voi
 
 function releasePath(fileName: string): string {
     if (!RELEASE_FILE.test(fileName)) throw new Error(`Not a release file name: ${fileName}`);
-    return path.join(RELEASES_DIR, fileName);
+    const base = path.resolve(RELEASES_DIR);
+    const resolved = path.resolve(base, fileName);
+    if (resolved !== base && !resolved.startsWith(base + path.sep)) throw new Error(`Release path escapes releases directory: ${fileName}`);
+    return resolved;
 }
 
 /** Every release, keyed by its file name. Finder's .DS_Store and the like are skipped. */
