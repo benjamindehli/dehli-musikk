@@ -79,9 +79,14 @@ function serialize(value: unknown, layout: Layout): string {
  * breaks the site's build.
  */
 async function writeAtomically(target: string, contents: string): Promise<void> {
-    const temporary = `${target}.${process.pid}.tmp`;
+    const safeBase = path.resolve(DATA_DIR);
+    const safeTarget = path.resolve(target);
+    if (safeTarget !== safeBase && !safeTarget.startsWith(safeBase + path.sep)) {
+        throw new Error(`Refusing to write outside data directory: ${target}`);
+    }
+    const temporary = `${safeTarget}.${process.pid}.tmp`;
     await fs.writeFile(temporary, contents, "utf8");
-    await fs.rename(temporary, target);
+    await fs.rename(temporary, safeTarget);
 }
 
 export async function readDataFile<T>(name: DataFile): Promise<T> {
