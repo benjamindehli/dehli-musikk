@@ -210,3 +210,11 @@ body {
     display: flex;
     gap: 1rem;
 }
+
+.admin-clip {
+    align-items: flex-end;
+}
+
+.admin-form label.admin-narrow {
+    flex: 0 0 6rem;
+}

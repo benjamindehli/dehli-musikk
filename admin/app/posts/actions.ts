@@ -6,20 +6,8 @@ import type { Post, PostLink } from "types/content";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { readDataFile, writeDataFile } from "@admin/lib/dataFiles";
 import { fromOsloDate, toOsloDate } from "@admin/lib/dates";
+import { dateIdentifiers, newestFirstPosition } from "@admin/lib/identifiers";
 import { checked, isAbsoluteUrl, isSitePath, Problems, text, type FormState } from "@admin/lib/forms";
-
-/*
- * The id and the image filename are both the post's day plus a two-digit
- * order number: 2026101800 and 2026-10-18-00. They are fixed when the post is
- * created and never rederived, because the thumbnails on disk are named after
- * thumbnailFilename - changing the date of an existing post must not quietly
- * point it at images that do not exist.
- */
-function identifiers(timestamp: number, orderNumber: number) {
-    const day = toOsloDate(timestamp);
-    const order = String(orderNumber).padStart(2, "0");
-    return { id: `${day.replace(/-/g, "")}${order}`, thumbnailFilename: `${day}-${order}` };
-}
 
 function readLink(form: FormData, existing: PostLink | undefined, problems: Problems): PostLink | undefined {
     const kind = text(form, "linkKind");
@@ -95,7 +83,7 @@ export async function savePost(originalId: string | null, _previous: FormState, 
         if (lastmod === undefined) delete post.lastmod;
         posts[index] = post;
     } else {
-        const { id, thumbnailFilename } = identifiers(timestamp, orderNumber);
+        const { id, thumbnailFilename } = dateIdentifiers(timestamp, orderNumber);
         if (posts.some((other) => other.id === id)) {
             return { status: "error", errors: [`A post with id ${id} already exists. Use a higher order number for a second post on the same day.`] };
         }
@@ -105,8 +93,7 @@ export async function savePost(originalId: string | null, _previous: FormState, 
         // Newest first, and before any post from the same day: that is the
         // order the file has always been in, and the site's stable sort keeps
         // it for posts sharing a timestamp.
-        const position = posts.findIndex((other) => other.timestamp <= timestamp);
-        posts.splice(position === -1 ? posts.length : position, 0, post);
+        posts.splice(newestFirstPosition(posts, timestamp), 0, post);
     }
 
     await writeDataFile("posts", posts);

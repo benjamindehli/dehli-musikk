@@ -4,8 +4,21 @@
  * the validation in each action then treats as missing.
  */
 export function text(form: FormData, name: string): string {
-    const value = form.get(name);
-    return typeof value === "string" ? value.trim() : "";
+    return clean(form.get(name));
+}
+
+/** Every value posted under a repeated field name, such as the rows of a list. */
+export function texts(form: FormData, name: string): string[] {
+    return form.getAll(name).map(clean);
+}
+
+/*
+ * Browsers submit textarea line breaks as CRLF. The data uses plain \n (the
+ * video descriptions are multi-line), so a save that kept the CRs would change
+ * every line of text it touched without anything visibly different.
+ */
+function clean(value: FormDataEntryValue | null): string {
+    return typeof value === "string" ? value.replace(/\r\n?/g, "\n").trim() : "";
 }
 
 export function checked(form: FormData, name: string): boolean {
