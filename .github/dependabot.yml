@@ -37,9 +37,13 @@ updates:
       - dependency-name: "*"
         update-types: [version-update:semver-major]
 
-  # The workflows pin actions by major version (actions/checkout@v4), so these
-  # only move when a new major ships - rarely, and worth knowing about when it
-  # happens. Kept out of the ignore rule above for that reason.
+  # The workflows pin every action to a full commit SHA, with the release it
+  # came from in a trailing comment (actions/checkout@<sha> # v7.0.1). A tag
+  # can be moved to other code after the fact; a SHA cannot, so what runs in
+  # the job that holds the deploy secrets is exactly what was reviewed.
+  # Dependabot understands this form: it bumps the SHA and the comment
+  # together, so these PRs now arrive for minor and patch releases too, not
+  # only for new majors. Kept out of the npm ignore rule above for that reason.
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
