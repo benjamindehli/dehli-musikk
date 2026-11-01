@@ -118,17 +118,34 @@ const escapeForRegex = (word) => word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const bodyScore = (matches) => (matches ? Math.sqrt(matches) * 2 : 0);
 
 /*
+ * Bounds on what one search may cost. Every word is a regex run over the whole
+ * corpus, about 0.4 ms each, so an unbounded query is unbounded CPU: a few
+ * kilobytes of words already took 400 ms, and a large request body would have
+ * run every call into the Worker's CPU limit. Real queries are a handful of
+ * words; these limits sit well above that.
+ */
+export const MAX_QUERY_LENGTH = 200;
+export const MAX_QUERY_WORDS = 8;
+
+/*
  * Deliberately simpler than the ranking behind the site's own search box, which
  * weights each field of each content type separately. This has one corpus and no
  * fields, so it scores a title match well above a body match and leaves it
  * there.
  */
 export function searchCorpus(entries, query, category = "all", limit = 10) {
-    const words = query
-        .toLowerCase()
-        .split(/\s+/)
-        .map((word) => word.replace(/[^\p{L}\p{N}-]/gu, ""))
-        .filter((word) => word.length > 1);
+    // Duplicates are dropped before the cap, so repeating a word cannot crowd
+    // out the others, and the cap applies to distinct words only.
+    const words = [
+        ...new Set(
+            query
+                .slice(0, MAX_QUERY_LENGTH)
+                .toLowerCase()
+                .split(/\s+/)
+                .map((word) => word.replace(/[^\p{L}\p{N}-]/gu, ""))
+                .filter((word) => word.length > 1)
+        )
+    ].slice(0, MAX_QUERY_WORDS);
     if (!words.length) return [];
 
     const scored = [];
@@ -188,7 +205,11 @@ export const TOOLS = [
         inputSchema: {
             type: "object",
             properties: {
-                query: { type: "string", description: 'Words to search for, e.g. "mellotron" or "Wurlitzer piano".' },
+                query: {
+                    type: "string",
+                    maxLength: MAX_QUERY_LENGTH,
+                    description: 'Words to search for, e.g. "mellotron" or "Wurlitzer piano". Only the first few distinct words are used.'
+                },
                 category: {
                     type: "string",
                     enum: ["all", "product", "post", "video", "release", "equipment", "faq"],
@@ -198,11 +219,18 @@ export const TOOLS = [
             },
             required: ["query"]
         },
-        async execute({ query, category = "all", limit = 10 }) {
+        async execute({ query, category = "all", limit = 10 }, audit = {}) {
+            // Checked before the corpus is fetched, so an oversized query costs
+            // nothing. Refused rather than truncated, because the reply quotes
+            // the query back and should not quote an arbitrary amount of it.
+            if (typeof query !== "string") return errorContent("query must be a string.");
+            if (query.length > MAX_QUERY_LENGTH) return errorContent(`query must be at most ${MAX_QUERY_LENGTH} characters.`);
+
             const response = await fetch(`${CANONICAL_ORIGIN}/llms-full.txt`);
             if (!response.ok) return errorContent(`Could not load the search corpus (HTTP ${response.status}).`);
 
             const results = searchCorpus(parseCorpus(await response.text()), query, category, limit);
+            audit.results = results.length;
             if (!results.length) return textContent(`No results for "${query}".`);
 
             const lines = results.map((result) => `- [${result.category}] ${result.title}\n  ${result.url}\n  ${excerpt(result.text)}`);
@@ -220,11 +248,12 @@ export const TOOLS = [
             },
             required: ["page"]
         },
-        async execute({ page }) {
+        async execute({ page }, audit = {}) {
             const url = resolveSitePath(page);
             if (!url) return errorContent("Only pages on dehlimusikk.no can be read with this tool.");
 
             const response = await fetch(`${CANONICAL_ORIGIN}${url.pathname}index.md`);
+            audit.status = response.status;
             if (!response.ok) {
                 return errorContent(
                     `No markdown available for ${url.pathname} (HTTP ${response.status}). The search page and the error pages are published as HTML only.`
@@ -256,6 +285,35 @@ const publicTool = ({ name, description, inputSchema }) => ({ name, description,
 
 const rpcResult = (id, result) => ({ jsonrpc: "2.0", id, result });
 const rpcError = (id, code, message) => ({ jsonrpc: "2.0", id, error: { code, message } });
+
+/*
+ * One JSON line per tool call, so Workers Logs can say which tools are used,
+ * how often, how they fare, and whether one is being hammered. Every call is
+ * the same POST /mcp, so the request log alone shows none of that.
+ *
+ * Built from an allowlist, never from the arguments object: the query and the
+ * page are whatever the caller typed and stay out of the logs, as they do in
+ * worker_fallback and mcp_tool_error. Category and limit are logged only once
+ * they are known to be one of the schema's values, so a caller cannot write
+ * free text into the log through them either.
+ *
+ * ms is wall time, which in a Worker advances only across I/O, so it measures
+ * the origin fetch rather than CPU spent ranking.
+ */
+const SEARCH_CATEGORIES = new Set(TOOLS.find((tool) => tool.name === "search").inputSchema.properties.category.enum);
+
+function logToolCall(tool, args, audit, result, ms) {
+    const entry = { event: "mcp_tool_call", tool, ok: result?.isError !== true, ms };
+    if (tool === "search") {
+        const category = args.category ?? "all";
+        entry.category = SEARCH_CATEGORIES.has(category) ? category : "invalid";
+        if (Number.isInteger(args.limit)) entry.limit = args.limit;
+        if (Number.isInteger(audit.results)) entry.results = audit.results;
+    }
+    if (tool === "read_page" && Number.isInteger(audit.status)) entry.status = audit.status;
+    if (tool === "list_sections") entry.language = args.language === "no" ? "no" : "en";
+    console.log(JSON.stringify(entry));
+}
 
 /**
  * Handles one JSON-RPC message. Returns null for notifications, which by
@@ -291,15 +349,29 @@ export async function handleRpcMessage(message) {
             if (isNotification) return null;
             const tool = TOOLS.find((candidate) => candidate.name === params?.name);
             if (!tool) return rpcError(id, -32602, `Unknown tool: ${params?.name}`);
+
+            const args = params.arguments ?? {};
+            const audit = {};
+            const startedAt = Date.now();
+            let result;
             try {
-                return rpcResult(id, await tool.execute(params.arguments ?? {}));
+                result = await tool.execute(args, audit);
+                return rpcResult(id, result);
             } catch (error) {
                 /*
                  * A tool that fails reports it in the result, not as a JSON-RPC
                  * error: the call itself succeeded, the work inside it did not,
                  * and the model is supposed to see why and be able to react.
+                 *
+                 * Logged as well, since the caller is the only one who would
+                 * otherwise know. The tool name and the error only: arguments are
+                 * whatever the caller sent and stay out of the logs.
                  */
-                return rpcResult(id, errorContent(`${tool.name} failed: ${error?.message ?? error}`));
+                console.error(JSON.stringify({ event: "mcp_tool_error", tool: tool.name, error: String(error?.stack ?? error) }));
+                result = errorContent(`${tool.name} failed: ${error?.message ?? error}`);
+                return rpcResult(id, result);
+            } finally {
+                logToolCall(tool.name, args, audit, result, Date.now() - startedAt);
             }
         }
 
@@ -323,6 +395,8 @@ const json = (body, status = 200) =>
         headers: { "Content-Type": "application/json", ...CORS_HEADERS }
     });
 
+export const MAX_BODY_BYTES = 16 * 1024;
+
 /**
  * The Streamable HTTP endpoint.
  */
@@ -341,9 +415,20 @@ export async function handleMcpRequest(request) {
         });
     }
 
+    /*
+     * Every legitimate message here is a few hundred bytes, so anything far past
+     * that is refused before it is parsed. The declared length is checked first
+     * so an honest oversized request is turned away unread; the text length
+     * covers a request that declares none.
+     */
+    const tooLarge = () => json(rpcError(null, -32600, `Request body exceeds ${MAX_BODY_BYTES} bytes`), 413);
+    if (Number(request.headers.get("Content-Length")) > MAX_BODY_BYTES) return tooLarge();
+
     let payload;
     try {
-        payload = await request.json();
+        const body = await request.text();
+        if (body.length > MAX_BODY_BYTES) return tooLarge();
+        payload = JSON.parse(body);
     } catch {
         return json(rpcError(null, -32700, "Parse error"), 400);
     }

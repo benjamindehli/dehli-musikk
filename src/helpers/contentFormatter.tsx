@@ -15,6 +15,17 @@ import Link from "next/link";
  */
 const NOT_A_SITE_PATH = /^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i;
 
+/*
+ * The schemes an authored link may use. Anything else (javascript:, data:,
+ * vbscript:) is rendered as its title in plain text instead of as a link.
+ * React 19 already neutralises javascript: in href, so this is the second
+ * layer, and it also covers schemes React leaves alone. Content is authored in
+ * this repository, so it only matters if something unexpected gets into it.
+ * Protocol relative and fragment targets carry no scheme and pass.
+ */
+const SAFE_SCHEME = /^(?:https?|mailto|tel):/i;
+const isSafeExternalTarget = (target: string) => !/^[a-z][a-z0-9+.-]*:/i.test(target) || SAFE_SCHEME.test(target);
+
 const renderContentLinksAsReactLinks = (content: string, languageSlug: string): ReactNode[] | string => {
     const regex = /\[(?<title>[^\]]+)\]\((?<link>[^)]+)\)/gm;
 
@@ -34,7 +45,9 @@ const renderContentLinksAsReactLinks = (content: string, languageSlug: string): 
         // Push the matched link
         const title = (match.groups as Record<string, string>).title;
         const target = (match.groups as Record<string, string>).link;
-        if (NOT_A_SITE_PATH.test(target)) {
+        if (NOT_A_SITE_PATH.test(target) && !isSafeExternalTarget(target)) {
+            elements.push(<Fragment key={`link-${matchStart}`}>{title}</Fragment>);
+        } else if (NOT_A_SITE_PATH.test(target)) {
             elements.push(
                 <a key={`link-${matchStart}`} href={target} data-tabable={true}>
                     {title}

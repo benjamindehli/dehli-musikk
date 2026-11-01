@@ -9,6 +9,7 @@ import Container from "components/template/Container";
 import List from "components/template/List";
 import ListItem from "components/template/List/ListItem";
 import SearchResult from "components/partials/SearchResult";
+import { searchPagePath } from "helpers/urlFormatter";
 // Aliased: the default import above is the component that renders one of these.
 import { getSearchResults, type SearchResult as SearchResultData } from "helpers/search";
 import { useLang } from "lib/LangContext";
@@ -57,9 +58,8 @@ function SearchContent() {
     }, [searchQuery, lang, searchCategory, languageSlug, router]);
 
     const handleSearchCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const value = event.target.value;
-        const urlParameters = value !== "all" ? `?q=${searchQuery}&category=${value}` : `?q=${searchQuery}`;
-        router.push(`/${languageSlug}search/${urlParameters}`);
+        if (!searchQuery) return;
+        router.push(searchPagePath(languageSlug, searchQuery, event.target.value));
     };
 
     const getTitle = () => {
@@ -73,7 +73,7 @@ function SearchContent() {
     };
 
     const heading = getTitle();
-    const breadcrumbs = [{ name: heading, path: `/${languageSlug}search/${searchQuery ? `?q=${searchQuery}` : ""}` }];
+    const breadcrumbs = [{ name: heading, path: searchQuery ? searchPagePath(languageSlug, searchQuery) : `/${languageSlug}search/` }];
 
     return (
         <>

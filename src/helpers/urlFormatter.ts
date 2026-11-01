@@ -40,3 +40,19 @@ export const convertToUrlFriendlyString = (string: string | null | undefined): s
         return "";
     }
 };
+
+/*
+ * The site-relative URL of a search results page.
+ *
+ * The query is user input and goes through URLSearchParams, never string
+ * concatenation. Concatenated, a query of "x&category=faq" set the category,
+ * one containing "#" lost everything after it, and a query with "%" was decoded
+ * into something the user never typed. Category "all" is the default and is
+ * left out, so the plain search URL stays the one the SearchAction in
+ * SiteJsonLd advertises.
+ */
+export const searchPagePath = (languageSlug: string, query: string, category = "all"): string => {
+    const parameters = new URLSearchParams({ q: query });
+    if (category !== "all") parameters.set("category", category);
+    return `/${languageSlug}search/?${parameters}`;
+};

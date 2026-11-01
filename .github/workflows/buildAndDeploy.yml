@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Setup Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
       - name: Enable Corepack
@@ -64,7 +64,7 @@ jobs:
       - name: Test Worker
         run: yarn worker:test
       - name: Archive Production Artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: build
           path: out
@@ -78,15 +78,37 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    # At job level so the step below can test it in an `if`, which cannot read a
-    # secret directly.
-    env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    # The deploy secrets belong to this environment rather than to the
+    # repository, so only a job that names it can read them, and the
+    # environment's own rules (allowed tags, an approval) decide when that is.
+    # Configured under Settings -> Environments. If it does not exist yet,
+    # GitHub creates it on the first run with no rules, and repository-level
+    # secrets keep working, so this line is safe before the setup is done.
+    environment:
+      name: production
+      url: https://www.dehlimusikk.no/
+    # One deploy at a time. Without it two releases close together could finish
+    # in the wrong order and leave the older build live. GitHub keeps at most
+    # one run waiting and replaces it with any newer one, so the newest release
+    # is always the last to deploy. A running deploy is never cancelled: a
+    # half-finished Firebase deploy is worse than a late one.
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
+    # Each secret is handed only to the step that uses it, never set at job
+    # level. A job-level env is visible to every step, including third-party
+    # code, which is exactly what a deploy token must not be.
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      # wrangler needs Node 22 or later. Set explicitly rather than trusting
+      # whichever Node the runner image ships.
+      - name: Setup Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
       - name: Download Artifact
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: build
           path: out
@@ -101,12 +123,47 @@ jobs:
           done
           [ "$missing" = 0 ] || { echo "Refusing to deploy an incomplete artifact."; exit 1; }
           echo "artifact complete"
+      # Both deploy CLIs come from deploy/package-lock.json, which fixes every
+      # package in their trees and its integrity hash. npx pinned only the top
+      # level, so each release resolved firebase-tools' 650-odd dependencies
+      # afresh in the one job that holds the deploy tokens. --ignore-scripts
+      # because nothing in that tree needs an install script to run, and a
+      # compromised package most often strikes through one. See deploy/README.md.
+      #
+      # No secret is in reach of this step or the next.
+      - name: Install Deploy Tools
+        working-directory: deploy
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      # Checks every installed package against the npm registry's signatures,
+      # and its provenance attestation where it has one. A tarball that was
+      # altered after publishing fails here, before any token is handed out.
+      - name: Verify Deploy Tool Signatures
+        working-directory: deploy
+        run: npm audit signatures
+      # The official CLI, rather than w9jds/firebase-action. That action was
+      # referenced by branch (@master), so whatever its owner pushed would have
+      # run here with the deploy token.
+      #
+      # Signs in as the github-deploy service account, which holds two roles on
+      # this project and nothing else: Firebase Hosting Admin, and Service Usage
+      # Viewer for the CLI's check that the Hosting API is enabled. It replaced
+      # a `firebase login:ci` token, which acts as the whole Google account that
+      # created it, across every project, and never expires.
+      #
+      # The key is written to a file only this user can read, in the runner's
+      # temp directory, and removed when the step ends whether it succeeded or
+      # not. FIREBASE_TOKEN must not be set here: the CLI prefers it over
+      # GOOGLE_APPLICATION_CREDENTIALS and would silently use it instead.
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          umask 077
+          credentials="$RUNNER_TEMP/firebase-service-account.json"
+          trap 'rm -f "$credentials"' EXIT
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$credentials"
+          GOOGLE_APPLICATION_CREDENTIALS="$credentials" \
+            deploy/node_modules/.bin/firebase deploy --only hosting --non-interactive --project dehli-musikk
       # After hosting, so the URLs submitted are already live. Reads the markdown
       # twins in the downloaded artifact for their published/modified dates and
       # submits only what this release changed.
@@ -122,13 +179,24 @@ jobs:
       # Worker is an enhancement, and a missing secret should not fail a release
       # that has already shipped the site.
       #
-      # Invoked through npx rather than cloudflare/wrangler-action, which infers
+      # Run directly rather than through cloudflare/wrangler-action, which infers
       # a package manager from the lockfile: it picked yarn, and the global yarn
       # on the runner is 1.22 while this repo declares yarn 4 via packageManager,
-      # so it refused to run without Corepack. The major version is pinned
-      # because that action also defaulted to wrangler 3.90, which is older than
-      # wrangler.jsonc support and cannot read this Worker's config at all.
+      # so it refused to run without Corepack. That action also defaulted to
+      # wrangler 3.90, which is older than wrangler.jsonc support and cannot read
+      # this Worker's config at all. The version now comes from
+      # deploy/package-lock.json, like firebase-tools above.
+      #
+      # An `if` cannot read a secret, so this step reports only whether the token
+      # exists, and the token itself reaches the deploy step alone.
+      - name: Check For Cloudflare Token
+        id: cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: echo "configured=$([ -n "$CLOUDFLARE_API_TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
       # wrangler reads CLOUDFLARE_API_TOKEN from the environment.
       - name: Deploy Markdown Negotiation Worker
-        if: env.CLOUDFLARE_API_TOKEN != ''
-        run: npx --yes wrangler@4 deploy --config worker/wrangler.jsonc
+        if: steps.cloudflare.outputs.configured == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: deploy/node_modules/.bin/wrangler deploy --config worker/wrangler.jsonc

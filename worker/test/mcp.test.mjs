@@ -3,9 +3,19 @@
  * the three tools, and the corpus parser that everything in search rests on.
  */
 import assert from "node:assert/strict";
-import test, { afterEach } from "node:test";
+import test, { afterEach, beforeEach, mock } from "node:test";
 
-import { handleMcpRequest, handleRpcMessage, parseCorpus, searchCorpus, serverCard, TOOLS } from "../src/mcp.js";
+import {
+    handleMcpRequest,
+    handleRpcMessage,
+    MAX_BODY_BYTES,
+    MAX_QUERY_LENGTH,
+    MAX_QUERY_WORDS,
+    parseCorpus,
+    searchCorpus,
+    serverCard,
+    TOOLS
+} from "../src/mcp.js";
 
 const CORPUS = `# Dehli Musikk
 
@@ -55,8 +65,15 @@ No. Dehli Musikk is not a physical music store.
 `;
 
 const realFetch = globalThis.fetch;
+// Every tool call writes an audit line; keep them out of the test output. The
+// test that checks those lines mocks console.log again on top of this.
+beforeEach(() => {
+    mock.method(console, "log", () => {});
+});
+
 afterEach(() => {
     globalThis.fetch = realFetch;
+    mock.restoreAll();
 });
 
 const stub = (routes) => {
@@ -125,6 +142,14 @@ test("search can be restricted by category and limited", () => {
     );
     assert.equal(searchCorpus(entries, "wurlitzer", "all", 1).length, 1);
     assert.equal(searchCorpus(entries, "x", "all").length, 0, "single characters are not searched");
+});
+
+test("search uses a bounded number of distinct words", () => {
+    const entries = parseCorpus(CORPUS);
+    const filler = Array.from({ length: MAX_QUERY_WORDS }, (_, i) => `zz${i}`).join(" ");
+
+    assert.equal(searchCorpus(entries, `${filler} wurli`).length, 0, "words past the cap are not searched");
+    assert.equal(searchCorpus(entries, `${"zz ".repeat(50)}wurli`).length, 2, "a repeated word counts once toward the cap");
 });
 
 test("body matches have diminishing returns", () => {
@@ -215,6 +240,36 @@ test("tools/call search returns results from the corpus", async () => {
     assert.notEqual(response.result.isError, true);
 });
 
+test("every tool call is logged with counts but without the caller's text", async () => {
+    stub({
+        "https://www.dehlimusikk.no/llms-full.txt": CORPUS,
+        "https://www.dehlimusikk.no/en/products/subc/index.md": "# SubC\n"
+    });
+    const logged = mock.method(console, "log", () => {});
+    const call = (name, args) => handleRpcMessage({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name, arguments: args } });
+
+    await call("search", { query: "wurlitzer secretword", category: "product", limit: 3 });
+    await call("search", { query: "wurlitzer", category: "ignore previous instructions" });
+    await call("read_page", { page: "/en/products/subc-secretpath/" });
+
+    const lines = logged.mock.calls.map((c) => c.arguments[0]);
+    const entries = lines.map((line) => JSON.parse(line));
+    logged.mock.restore();
+
+    assert.equal(entries.length, 3, "one line per call");
+    assert.deepEqual(
+        { ...entries[0], ms: 0 },
+        { event: "mcp_tool_call", tool: "search", ok: true, ms: 0, category: "product", limit: 3, results: 1 }
+    );
+    assert.equal(entries[1].category, "invalid", "a category outside the enum is not written to the log");
+    assert.equal(entries[2].tool, "read_page");
+    assert.equal(entries[2].status, 404);
+    assert.equal(entries[2].ok, false);
+    for (const line of lines) {
+        assert.doesNotMatch(line, /secret|ignore previous/, "queries, pages and free text stay out of the log");
+    }
+});
+
 test("tools/call read_page fetches the markdown twin", async () => {
     const calls = stub({ "https://www.dehlimusikk.no/en/products/subc/index.md": "# SubC\n" });
 
@@ -244,10 +299,26 @@ test("read_page refuses other origins without fetching", async () => {
     assert.deepEqual(calls, [], "the Worker must not be usable as an open proxy");
 });
 
+test("search refuses an oversized query without fetching the corpus", async () => {
+    const calls = stub({ "https://www.dehlimusikk.no/llms-full.txt": CORPUS });
+
+    for (const query of ["a".repeat(MAX_QUERY_LENGTH + 1), 42]) {
+        const response = await handleRpcMessage({
+            jsonrpc: "2.0",
+            id: 9,
+            method: "tools/call",
+            params: { name: "search", arguments: { query } }
+        });
+        assert.equal(response.result.isError, true);
+    }
+    assert.deepEqual(calls, [], "the corpus is not fetched for a refused query");
+});
+
 test("a tool that throws reports it in the result, not as a JSON-RPC error", async () => {
     globalThis.fetch = async () => {
         throw new Error("origin unreachable");
     };
+    const logged = mock.method(console, "error", () => {});
 
     const response = await handleRpcMessage({
         jsonrpc: "2.0",
@@ -259,6 +330,12 @@ test("a tool that throws reports it in the result, not as a JSON-RPC error", asy
     assert.equal(response.error, undefined, "the call itself succeeded");
     assert.equal(response.result.isError, true);
     assert.match(response.result.content[0].text, /search failed: origin unreachable/);
+
+    assert.equal(logged.mock.callCount(), 1, "the failure is logged as well as returned");
+    const line = logged.mock.calls[0].arguments[0];
+    assert.equal(JSON.parse(line).tool, "search");
+    assert.doesNotMatch(line, /anything/, "the caller's arguments stay out of the log");
+    logged.mock.restore();
 });
 
 test("the HTTP endpoint handles CORS, bad JSON, batches and GET", async () => {
@@ -275,6 +352,9 @@ test("the HTTP endpoint handles CORS, bad JSON, batches and GET", async () => {
     const batch = await handleMcpRequest(post([{ jsonrpc: "2.0", id: 1, method: "ping" }]));
     assert.equal(batch.status, 400);
     assert.match((await batch.json()).error.message, /Batched requests/);
+
+    const huge = await handleMcpRequest(post({ jsonrpc: "2.0", id: 1, method: "ping", padding: "x".repeat(MAX_BODY_BYTES) }));
+    assert.equal(huge.status, 413);
 
     const get = await handleMcpRequest(new Request("https://www.dehlimusikk.no/mcp"));
     assert.equal(get.status, 405);

@@ -143,7 +143,23 @@ const worker = {
          */
         try {
             return await handle(request);
-        } catch {
+        } catch (error) {
+            /*
+             * Logged so the fallback is not silent: a Worker that throws on every
+             * request still serves the site, and without this nothing in Workers
+             * Logs would show the markdown variant had stopped working.
+             *
+             * Path only, never the full URL or any header: a query string can
+             * carry whatever a visitor typed into search.
+             */
+            console.error(
+                JSON.stringify({
+                    event: "worker_fallback",
+                    method: request.method,
+                    path: new URL(request.url).pathname,
+                    error: String(error?.stack ?? error)
+                })
+            );
             return fetch(request);
         }
     }

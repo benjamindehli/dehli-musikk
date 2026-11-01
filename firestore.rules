@@ -1,9 +1,23 @@
 rules_version = '2';
+
+// Nothing reads or writes Firestore: the site is a static export served from
+// Firebase Hosting, and this project is used for hosting alone. Everything is
+// denied so that a database created here by accident is not world-readable.
+// Was `allow read: if true` on every document from 2019 until this change.
+//
+// The release workflow deploys hosting only, so editing this file changes
+// nothing live until it is deployed by hand:
+//   firebase deploy --only firestore:rules
+//
+// Storage has no rules file and no entry in firebase.json. The project is on
+// the Spark plan, where the legacy default bucket cannot be reached without
+// upgrading to Blaze, so its rules cannot be deployed either: the CLI fails
+// with a 403 about billing. Nothing was ever stored there. If Storage is
+// used one day, add it back with deny-all rules like the ones above.
 service cloud.firestore {
   match /databases/{database}/documents {
     match /{document=**} {
-      allow read: if true;
-      allow write: if false;
+      allow read, write: if false;
     }
   }
 }
