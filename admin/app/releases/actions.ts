@@ -10,6 +10,8 @@ import { clockToSeconds, secondsToIso } from "@admin/lib/durations";
 import { checked, isAbsoluteUrl, Problems, text, texts, type FormState } from "@admin/lib/forms";
 import { RELEASE_PLATFORMS } from "./platforms";
 
+const RELEASE_FILE = /^[A-Za-z0-9_-]+\.json$/;
+
 /*
  * "KAASIN" + "Wrong" -> "kAASIN_wrong": letters and digits only, Norwegian
  * letters spelled out, first letter lowered. The same rule the old authoring
@@ -82,6 +84,7 @@ function updateLinks(all: ReleaseInstrumentLink[], slug: string, instruments: st
 }
 
 export async function saveRelease(originalFile: string | null, _previous: FormState, form: FormData): Promise<FormState> {
+    if (originalFile !== null && !RELEASE_FILE.test(originalFile)) return { status: "error", errors: [`Not a release file name: ${originalFile}`] };
     const releases = await readReleases<Release>();
     const existing = originalFile === null ? undefined : releases[originalFile];
     if (originalFile !== null && !existing) return { status: "error", errors: [`Release ${originalFile} no longer exists. Was it deleted?`] };
