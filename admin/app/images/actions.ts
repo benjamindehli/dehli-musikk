@@ -1,9 +1,12 @@
 "use server";
 
+import fs from "node:fs/promises";
+import path from "node:path";
+import sharp from "sharp";
 import { revalidatePath } from "next/cache";
 import type { Post, Product, Release, Video } from "types/content";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { readDataFile, readReleases } from "@admin/lib/dataFiles";
+import { readDataFile, readReleases, REPO_ROOT } from "@admin/lib/dataFiles";
 import { CROP_POSITIONS, IMAGE_SECTIONS, type CropPosition, type ImageSectionKey } from "@admin/lib/imageSpecs";
 import { fetchSourceImage, writeThumbnails } from "@admin/lib/thumbnails";
 import type { FormState } from "@admin/lib/forms";
@@ -62,16 +65,35 @@ export async function makeThumbnails(section: ImageSectionKey, key: string, _pre
 
     try {
         const result = await writeThumbnails(section, name, source, position);
+        const original = section === "products" && form.get("keepOriginal") === "on" ? await saveProductOriginal(key, source) : null;
         revalidatePath("/", "layout");
         const notes = [
             `Wrote ${result.written.length} files from a ${result.source.width}x${result.source.height} source to public${IMAGE_SECTIONS[section].dir}.`,
             result.skipped.length
                 ? `Skipped ${result.skipped.join(", ")}: the source is too small, and a share image is better missing than blurry.`
                 : "",
-            result.upscaled.length ? `Enlarged to fit: ${result.upscaled.join(", ")}.` : ""
+            result.upscaled.length ? `Enlarged to fit: ${result.upscaled.join(", ")}.` : "",
+            original ? `Saved the original as public/product-images/${original}.` : ""
         ];
         return { status: "saved", message: notes.filter(Boolean).join(" ") };
     } catch (error) {
         return { status: "error", errors: [`Could not read that image: ${(error as Error).message}`] };
     }
+}
+
+/*
+ * A product's main image is also kept full size in public/product-images,
+ * because the JSON-LD and the merchant feeds link to it there. It is always a
+ * jpeg under the name the product data gives it; a JPEG upload is stored as
+ * is, anything else is converted.
+ */
+async function saveProductOriginal(slug: string, source: Buffer): Promise<string | null> {
+    const product = (await readDataFile<Product[]>("products")).find((candidate) => convertToUrlFriendlyString(candidate.title) === slug);
+    if (!product || !/^[a-z0-9-]+\.jpg$/.test(product.mainImage)) return null;
+    const isJpeg = source[0] === 0xff && source[1] === 0xd8;
+    const target = path.join(REPO_ROOT, "public", "product-images", product.mainImage);
+    const temporary = `${target}.${process.pid}.tmp`;
+    await fs.writeFile(temporary, isJpeg ? source : await sharp(source).rotate().flatten({ background: "#ffffff" }).jpeg({ quality: 90 }).toBuffer());
+    await fs.rename(temporary, target);
+    return product.mainImage;
 }

@@ -45,6 +45,8 @@ const FILES = {
     videos: { file: "videos/data/all.json", layout: "compact" },
     products: { file: "products/data/all.json", layout: "indented" },
     productsEquipment: { file: "products/data/productsEquipment.json", layout: "indented" },
+    // Written by scripts/generate-product-images.mjs; the admin only reads it.
+    productGallery: { file: "products/data/gallery.json", layout: "indented" },
     instruments: { file: "equipment/data/instruments.json", layout: "indented" },
     effects: { file: "equipment/data/effects.json", layout: "indented" },
     amplifiers: { file: "equipment/data/amplifiers.json", layout: "indented" },

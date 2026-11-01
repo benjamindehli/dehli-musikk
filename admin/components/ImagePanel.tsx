@@ -19,13 +19,16 @@ export default function ImagePanel({
     itemKey,
     name,
     existing,
-    sources = []
+    sources = [],
+    originalFile
 }: {
     section: ImageSectionKey;
     itemKey: string;
     name: string;
     existing: ExistingSet;
     sources?: OnlineSource[];
+    /** Products only: the main image original that can be replaced along with the thumbnails. */
+    originalFile?: string;
 }) {
     const [state, formAction, pending] = useActionState(makeThumbnails.bind(null, section, itemKey), IDLE);
     const spec = IMAGE_SECTIONS[section];
@@ -74,6 +77,12 @@ export default function ImagePanel({
                                         </option>
                                     ))}
                                 </select>
+                            </label>
+                        ) : null}
+                        {originalFile ? (
+                            <label className="admin-checkbox">
+                                <input type="checkbox" name="keepOriginal" defaultChecked />
+                                Also save it as the full-size original, public/product-images/{originalFile}
                             </label>
                         ) : null}
                         <label>
