@@ -20,6 +20,8 @@ import path from "node:path";
  *   equipment and releasesInstruments are hand-formatted in a style no
  *   serializer reproduces, so their first save rewrites the layout once.
  *   products differs only by one trailing space, which its first save drops.
+ * - "rows": one object per line. releasesInstruments is 441 two-field links,
+ *   and this is the layout it already has, byte for byte.
  */
 
 /*
@@ -36,7 +38,7 @@ function findRepoRoot(): string {
 export const REPO_ROOT = findRepoRoot();
 const DATA_DIR = path.join(REPO_ROOT, "src", "data");
 
-type Layout = "compact" | "indented";
+type Layout = "compact" | "indented" | "rows";
 
 const FILES = {
     posts: { file: "posts/data/all.json", layout: "compact" },
@@ -46,7 +48,8 @@ const FILES = {
     instruments: { file: "equipment/data/instruments.json", layout: "indented" },
     effects: { file: "equipment/data/effects.json", layout: "indented" },
     amplifiers: { file: "equipment/data/amplifiers.json", layout: "indented" },
-    releasesInstruments: { file: "linkedData/releasesInstruments.json", layout: "indented" },
+    releasesInstruments: { file: "linkedData/releasesInstruments.json", layout: "rows" },
+    releaseAlbums: { file: "linkedData/releaseAlbums.json", layout: "indented" },
     frequentlyAskedQuestions: { file: "frequentlyAskedQuestions/data/all.json", layout: "indented" }
 } as const satisfies Record<string, { file: string; layout: Layout }>;
 
@@ -55,8 +58,16 @@ export type DataFile = keyof typeof FILES;
 const RELEASES_DIR = path.join(DATA_DIR, "releases", "data");
 const RELEASE_FILE = /^[A-Za-z0-9_-]+\.json$/;
 
+// {"releaseId": "x", "equipmentId": "y"}: a space after each colon and comma, as written by hand.
+const row = (item: object) =>
+    `{${Object.entries(item)
+        .map(([key, value]) => `${JSON.stringify(key)}: ${JSON.stringify(value)}`)
+        .join(", ")}}`;
+
 function serialize(value: unknown, layout: Layout): string {
-    return layout === "compact" ? JSON.stringify(value) : `${JSON.stringify(value, null, 4)}\n`;
+    if (layout === "compact") return JSON.stringify(value);
+    if (layout === "rows") return `[\n${(value as object[]).map((item) => `  ${row(item)}`).join(",\n")}\n]\n`;
+    return `${JSON.stringify(value, null, 4)}\n`;
 }
 
 /*
@@ -94,4 +105,8 @@ export async function readReleases<T>(): Promise<Record<string, T>> {
 
 export async function writeRelease(fileName: string, value: unknown): Promise<void> {
     await writeAtomically(releasePath(fileName), serialize(value, "compact"));
+}
+
+export async function deleteReleaseFile(fileName: string): Promise<void> {
+    await fs.unlink(releasePath(fileName));
 }

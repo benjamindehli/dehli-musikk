@@ -218,3 +218,10 @@ body {
 .admin-form label.admin-narrow {
     flex: 0 0 6rem;
 }
+
+.admin-links,
+.admin-choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.5rem 1rem;
+}
