@@ -45,7 +45,7 @@ Every editor except the FAQ has a thumbnail panel. It makes every size in avif, 
 - **Videos:** 55, 110, 350x197, 540x304 and 1200x675.
 - **Releases:** square 55, 110, 350, 540 and 1200.
 
-The 1200 size is the share image. Pages use it for `og:image` once it exists (see `shareImage` in `src/helpers/thumbnailUrls.ts`). It is skipped when the source is too small, rather than enlarged. Videos can use their YouTube thumbnail as the source, and releases their Spotify cover.
+The 1200 size is the share image, and is written as jpg only. Pages use it for `og:image` once it exists (see `shareImage` in `src/helpers/thumbnailUrls.ts`). It is skipped when the source is too small, rather than enlarged. Videos can use their YouTube thumbnail as the source, and releases their Spotify cover.
 
 Our own images are marked the way the hand-exported ones were, with two checkboxes on the panel:
 

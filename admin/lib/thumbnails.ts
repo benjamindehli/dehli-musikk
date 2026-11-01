@@ -6,11 +6,10 @@ import sharp from "sharp";
 import { REPO_ROOT } from "@admin/lib/dataFiles";
 import { IMAGE_FORMATS, IMAGE_SECTIONS, SHARE_WIDTH, type CropPosition, type ImageSectionKey, type ImageSize } from "@admin/lib/imageSpecs";
 import { WATERMARK_MIN_WIDTH, watermarkLayers } from "@admin/lib/watermark";
-import { creditYear, withCredit, withIptc } from "@admin/lib/imageCredit";
+import { creditYear } from "@admin/lib/imageCredit";
+import { encodeImage } from "@admin/lib/imageEncoding";
 
 const PUBLIC_DIR = path.join(REPO_ROOT, "public");
-
-type SharpImage = ReturnType<typeof sharp>;
 
 /* The names the data gives image sets: "2026-10-18-00", "kAASIN_wrong", "korg-ms-20". */
 const SET_NAME = /^[A-Za-z0-9_-]+$/;
@@ -23,19 +22,6 @@ function filePath(section: ImageSectionKey, name: string, width: number, format:
     if (!SET_NAME.test(name)) throw new Error(`Not an image set name: ${name}`);
     return path.join(webDir(section), format, `${name}_${width}.${format}`);
 }
-
-/*
- * Quality 80 for jpeg is what the hand-exported sets used. webp matches it,
- * and avif at 55 lands at about the same apparent quality in far fewer bytes,
- * which is the trade the product gallery script makes too.
- */
-const ENCODERS = {
-    avif: (image: SharpImage) => image.avif({ quality: 55, effort: 4 }),
-    webp: (image: SharpImage) => image.webp({ quality: 80 }),
-    // Flattened because a jpeg cannot carry the alpha a PNG screenshot may
-    // have, and sharp would otherwise composite it onto black.
-    jpg: (image: SharpImage) => image.flatten({ background: "#ffffff" }).jpeg({ quality: 80, mozjpeg: true })
-};
 
 export type ThumbnailResult = { written: string[]; skipped: string[]; upscaled: string[]; source: ImageSize };
 
@@ -88,16 +74,12 @@ export async function writeThumbnails(
             // Composite runs after the resize, so the watermark is drawn at the final size.
             resized = sharp(await resized.png().toBuffer()).composite(await watermarkLayers(size.width, size.height, logo));
         }
-        for (const format of IMAGE_FORMATS) {
+        // The share size is only ever linked as og:image, which wants a jpeg; webp and avif copies would be unused weight.
+        for (const format of size.width >= SHARE_WIDTH ? (["jpg"] as const) : IMAGE_FORMATS) {
             const target = filePath(section, name, size.width, format);
             await fs.mkdir(path.dirname(target), { recursive: true });
             const temporary = `${target}.${process.pid}.tmp`;
-            if (format === "jpg" && year) {
-                const jpeg = await withCredit(ENCODERS.jpg(resized.clone()), year).toBuffer();
-                await fs.writeFile(temporary, withIptc(jpeg, year));
-            } else {
-                await ENCODERS[format](resized.clone()).toFile(temporary);
-            }
+            await fs.writeFile(temporary, await encodeImage(resized.clone(), format, year));
             await fs.rename(temporary, target);
             result.written.push(path.relative(PUBLIC_DIR, target));
         }
