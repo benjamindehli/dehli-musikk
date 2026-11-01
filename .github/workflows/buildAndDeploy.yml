@@ -143,10 +143,27 @@ jobs:
       # The official CLI, rather than w9jds/firebase-action. That action was
       # referenced by branch (@master), so whatever its owner pushed would have
       # run here with the deploy token.
+      #
+      # Signs in as the github-deploy service account, which holds two roles on
+      # this project and nothing else: Firebase Hosting Admin, and Service Usage
+      # Viewer for the CLI's check that the Hosting API is enabled. It replaced
+      # a `firebase login:ci` token, which acts as the whole Google account that
+      # created it, across every project, and never expires.
+      #
+      # The key is written to a file only this user can read, in the runner's
+      # temp directory, and removed when the step ends whether it succeeded or
+      # not. FIREBASE_TOKEN must not be set here: the CLI prefers it over
+      # GOOGLE_APPLICATION_CREDENTIALS and would silently use it instead.
       - name: Deploy to Firebase
-        run: deploy/node_modules/.bin/firebase deploy --only hosting --non-interactive
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          umask 077
+          credentials="$RUNNER_TEMP/firebase-service-account.json"
+          trap 'rm -f "$credentials"' EXIT
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$credentials"
+          GOOGLE_APPLICATION_CREDENTIALS="$credentials" \
+            deploy/node_modules/.bin/firebase deploy --only hosting --non-interactive --project dehli-musikk
       # After hosting, so the URLs submitted are already live. Reads the markdown
       # twins in the downloaded artifact for their published/modified dates and
       # submits only what this release changed.
