@@ -44,8 +44,9 @@
         "verify": "yarn verify:thumbnails && yarn verify:albums && yarn verify:images",
         "skills:build": "node scripts/agent-skills.mjs",
         "worker:test": "node --test \"worker/test/*.test.mjs\"",
-        "worker:dev": "yarn dlx wrangler@4 dev --config worker/wrangler.jsonc",
-        "worker:deploy": "yarn dlx wrangler@4 deploy --config worker/wrangler.jsonc"
+        "deploy:install": "npm ci --prefix deploy --ignore-scripts --no-audit --no-fund",
+        "worker:dev": "deploy/node_modules/.bin/wrangler dev --config worker/wrangler.jsonc",
+        "worker:deploy": "deploy/node_modules/.bin/wrangler deploy --config worker/wrangler.jsonc"
     },
     "packageManager": "yarn@4.5.0+sha512.837566d24eec14ec0f5f1411adb544e892b3454255e61fdef8fd05f3429480102806bac7446bc9daff3896b01ae4b62d00096c7e989f1596f2af10b927532f39"
 }

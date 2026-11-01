@@ -113,21 +113,24 @@ zone ids are pinned in `wrangler.jsonc` rather than looked up by name:
 
 No DNS permission is involved.
 
-Wrangler's major version is pinned to 4 in both the workflow and the `worker:*`
-scripts. `wrangler.jsonc` needs 3.91 or newer to be read at all, and an
-unpinned install is one breaking major away from a failing release.
+Wrangler comes from `deploy/package-lock.json`, the same locked install the
+release workflow deploys with (see `deploy/README.md`), so a local deploy and a
+release run exactly the same version. `wrangler.jsonc` needs 3.91 or newer to
+be read at all.
 
-Manually:
+Manually, after installing the locked tools once (and again whenever
+`deploy/package-lock.json` changes):
 
 ```
+yarn deploy:install
 yarn worker:deploy
 ```
 
 ## Testing
 
 ```
-yarn worker:test     # 15 cases, no network needed
-yarn worker:dev      # local runtime, proxying to the real origin
+yarn worker:test     # no network needed
+yarn worker:dev      # local runtime, proxying to the real origin (needs yarn deploy:install)
 ```
 
 The tests cover the negotiation rules and the request flow against a stubbed

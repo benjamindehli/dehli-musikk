@@ -46,6 +46,9 @@ bower_components
 # Any depth, not just the root: deploy/ has an install of its own, and a
 # root-anchored pattern would leave its 650+ packages one `git add` from a commit.
 node_modules/
+
+# Local state from `yarn worker:dev` (wrangler's simulated storage and build temp)
+.wrangler/
 /.pnp
 .pnp.js
 .yarn/
