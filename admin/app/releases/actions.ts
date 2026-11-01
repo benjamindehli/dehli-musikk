@@ -4,13 +4,11 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import type { Release, ReleaseAlbum, ReleaseInstrumentLink, ReleaseLinks } from "types/content";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
-import { deleteReleaseFile, readDataFile, readReleases, writeDataFile, writeRelease } from "@admin/lib/dataFiles";
+import { deleteReleaseFile, readDataFile, readReleases, RELEASE_FILE, writeDataFile, writeRelease } from "@admin/lib/dataFiles";
 import { fromOsloDate, toOsloDate } from "@admin/lib/dates";
 import { clockToSeconds, secondsToIso } from "@admin/lib/durations";
 import { checked, isAbsoluteUrl, Problems, text, texts, type FormState } from "@admin/lib/forms";
 import { RELEASE_PLATFORMS } from "./platforms";
-
-const RELEASE_FILE = /^[A-Za-z0-9_-]+\.json$/;
 
 /*
  * "KAASIN" + "Wrong" -> "kAASIN_wrong": letters and digits only, Norwegian
@@ -84,11 +82,11 @@ function updateLinks(all: ReleaseInstrumentLink[], slug: string, instruments: st
 }
 
 export async function saveRelease(originalFile: string | null, _previous: FormState, form: FormData): Promise<FormState> {
+    // Bound on the page, but a server action's arguments can be replayed with any value.
     if (originalFile !== null && !RELEASE_FILE.test(originalFile)) return { status: "error", errors: [`Not a release file name: ${originalFile}`] };
-    const safeOriginalFile = originalFile;
     const releases = await readReleases<Release>();
-    const existing = safeOriginalFile === null ? undefined : releases[safeOriginalFile];
-    if (safeOriginalFile !== null && !existing) return { status: "error", errors: [`Release ${safeOriginalFile} no longer exists. Was it deleted?`] };
+    const existing = originalFile === null ? undefined : releases[originalFile];
+    if (originalFile !== null && !existing) return { status: "error", errors: [`Release ${originalFile} no longer exists. Was it deleted?`] };
 
     const problems = new Problems();
     const artistName = problems.require(text(form, "artistName"), "Artist");
@@ -111,7 +109,7 @@ export async function saveRelease(originalFile: string | null, _previous: FormSt
     const links = readLinks(form, existing?.links, problems);
 
     const slug = existing ? existing.slug : convertToUrlFriendlyString(`${artistName} ${title}`);
-    const fileName = existing ? safeOriginalFile! : `${camelize(artistName)}_${camelize(title)}.json`;
+    const fileName = existing ? originalFile! : `${camelize(artistName)}_${camelize(title)}.json`;
     if (!existing) {
         if (releases[fileName]) problems.add(`There is already a release file named ${fileName}.`);
         const sameSlug = Object.values(releases).find((release) => release.slug === slug);

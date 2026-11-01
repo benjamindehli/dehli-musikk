@@ -59,7 +59,7 @@ const FILES = {
 export type DataFile = keyof typeof FILES;
 
 const RELEASES_DIR = path.join(DATA_DIR, "releases", "data");
-const RELEASE_FILE = /^[A-Za-z0-9_-]+\.json$/;
+export const RELEASE_FILE = /^[A-Za-z0-9_-]+\.json$/;
 
 // {"releaseId": "x", "equipmentId": "y"}: a space after each colon and comma, as written by hand.
 const row = (item: object) =>
@@ -79,22 +79,22 @@ function serialize(value: unknown, layout: Layout): string {
  * breaks the site's build.
  */
 async function writeAtomically(target: string, contents: string): Promise<void> {
-    const resolvedTarget = path.resolve(target);
-    const dir = path.dirname(resolvedTarget);
-    const temporary = path.join(dir, `${path.basename(resolvedTarget)}.${process.pid}.tmp`);
-    const resolvedTemporary = path.resolve(temporary);
-    if (resolvedTemporary !== dir && !resolvedTemporary.startsWith(`${dir}${path.sep}`)) {
-        throw new Error(`Temporary path escapes target directory: ${temporary}`);
-    }
-    await fs.writeFile(resolvedTemporary, contents, "utf8");
-    await fs.rename(resolvedTemporary, resolvedTarget);
-        throw new Error(`Refusing to write outside data directory: ${target}`);
-    }
-    const targetDir = path.dirname(safeTarget);
-    const targetName = path.basename(safeTarget);
-    const temporary = path.join(targetDir, `.${targetName}.${process.pid}.tmp`);
+    const safeTarget = insideDirectory(DATA_DIR, target);
+    const temporary = `${safeTarget}.${process.pid}.tmp`;
     await fs.writeFile(temporary, contents, "utf8");
     await fs.rename(temporary, safeTarget);
+}
+
+/*
+ * The path resolved, and refused unless it is inside directory. Every path
+ * here is already built from a fixed list or a checked file name, so this is
+ * a second line of defence, and the check CodeQL recognises.
+ */
+function insideDirectory(directory: string, target: string): string {
+    const root = path.resolve(directory);
+    const resolved = path.resolve(root, target);
+    if (!resolved.startsWith(`${root}${path.sep}`)) throw new Error(`Refusing a path outside ${path.relative(REPO_ROOT, root)}: ${target}`);
+    return resolved;
 }
 
 export async function readDataFile<T>(name: DataFile): Promise<T> {
@@ -107,9 +107,9 @@ export async function writeDataFile(name: DataFile, value: unknown): Promise<voi
     await writeAtomically(path.join(DATA_DIR, file), serialize(value, layout));
 }
 
-    const resolved = path.resolve(RELEASES_DIR, fileName);
-    if (resolved !== root && !resolved.startsWith(`${root}${path.sep}`)) throw new Error(`Release path escapes releases directory: ${fileName}`);
-    return resolved;
+function releasePath(fileName: string): string {
+    if (!RELEASE_FILE.test(fileName)) throw new Error(`Not a release file name: ${fileName}`);
+    return insideDirectory(RELEASES_DIR, fileName);
 }
 
 /** Every release, keyed by its file name. Finder's .DS_Store and the like are skipped. */

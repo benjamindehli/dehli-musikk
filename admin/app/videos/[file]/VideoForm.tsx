@@ -136,7 +136,12 @@ export default function VideoForm({ initial, channels }: { initial: VideoFormVal
                             placeholder="dQw4w9WgXcQ"
                         />
                         {validYouTubeId ? (
-                            <a className="admin-hint" href={`https://www.youtube.com/watch?v=${encodeURIComponent(validYouTubeId)}`} target="_blank" rel="noreferrer">
+                            <a
+                                className="admin-hint"
+                                href={`https://www.youtube.com/watch?v=${encodeURIComponent(validYouTubeId)}`}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
                                 Open on YouTube
                             </a>
                         ) : null}
