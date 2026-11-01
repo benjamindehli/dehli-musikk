@@ -6,6 +6,7 @@ import type { SearchResult } from "helpers/search";
 // Dependencies
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { searchPagePath } from "helpers/urlFormatter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faMagnifyingGlass,
@@ -73,7 +74,7 @@ const SearchField = () => {
             let searchString = (event.target as HTMLInputElement).value.replace(/[^a-å0-9- ]+/gi, "");
             searchString = searchString.replace(/\s\s+/g, " ");
             if (searchString.length > 1 && results?.length) {
-                router.push(`/${languageSlug}search/?q=${searchString}`);
+                router.push(searchPagePath(languageSlug, searchString));
                 setShowResultsList(false);
             }
         }
