@@ -1,9 +1,12 @@
+rules_version = '2';
+
+// Nothing uses Firebase Storage; the site's images ship with the export and are
+// served by Hosting. Denied for the same reason as firestore.rules, and deployed
+// the same way: firebase deploy --only firestore:rules,storage
 service firebase.storage {
   match /b/{bucket}/o {
     match /{allPaths=**} {
-      allow read: if true;
-      allow create: if false;
-      allow update, delete: if false;
+      allow read, write: if false;
     }
   }
 }
