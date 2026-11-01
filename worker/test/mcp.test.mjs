@@ -5,7 +5,17 @@
 import assert from "node:assert/strict";
 import test, { afterEach } from "node:test";
 
-import { handleMcpRequest, handleRpcMessage, parseCorpus, searchCorpus, serverCard, TOOLS } from "../src/mcp.js";
+import {
+    handleMcpRequest,
+    handleRpcMessage,
+    MAX_BODY_BYTES,
+    MAX_QUERY_LENGTH,
+    MAX_QUERY_WORDS,
+    parseCorpus,
+    searchCorpus,
+    serverCard,
+    TOOLS
+} from "../src/mcp.js";
 
 const CORPUS = `# Dehli Musikk
 
@@ -127,6 +137,14 @@ test("search can be restricted by category and limited", () => {
     assert.equal(searchCorpus(entries, "x", "all").length, 0, "single characters are not searched");
 });
 
+test("search uses a bounded number of distinct words", () => {
+    const entries = parseCorpus(CORPUS);
+    const filler = Array.from({ length: MAX_QUERY_WORDS }, (_, i) => `zz${i}`).join(" ");
+
+    assert.equal(searchCorpus(entries, `${filler} wurli`).length, 0, "words past the cap are not searched");
+    assert.equal(searchCorpus(entries, `${"zz ".repeat(50)}wurli`).length, 2, "a repeated word counts once toward the cap");
+});
+
 test("body matches have diminishing returns", () => {
     /*
      * Equipment entries name every video an item appears in, so a much-used
@@ -244,6 +262,21 @@ test("read_page refuses other origins without fetching", async () => {
     assert.deepEqual(calls, [], "the Worker must not be usable as an open proxy");
 });
 
+test("search refuses an oversized query without fetching the corpus", async () => {
+    const calls = stub({ "https://www.dehlimusikk.no/llms-full.txt": CORPUS });
+
+    for (const query of ["a".repeat(MAX_QUERY_LENGTH + 1), 42]) {
+        const response = await handleRpcMessage({
+            jsonrpc: "2.0",
+            id: 9,
+            method: "tools/call",
+            params: { name: "search", arguments: { query } }
+        });
+        assert.equal(response.result.isError, true);
+    }
+    assert.deepEqual(calls, [], "the corpus is not fetched for a refused query");
+});
+
 test("a tool that throws reports it in the result, not as a JSON-RPC error", async () => {
     globalThis.fetch = async () => {
         throw new Error("origin unreachable");
@@ -275,6 +308,9 @@ test("the HTTP endpoint handles CORS, bad JSON, batches and GET", async () => {
     const batch = await handleMcpRequest(post([{ jsonrpc: "2.0", id: 1, method: "ping" }]));
     assert.equal(batch.status, 400);
     assert.match((await batch.json()).error.message, /Batched requests/);
+
+    const huge = await handleMcpRequest(post({ jsonrpc: "2.0", id: 1, method: "ping", padding: "x".repeat(MAX_BODY_BYTES) }));
+    assert.equal(huge.status, 413);
 
     const get = await handleMcpRequest(new Request("https://www.dehlimusikk.no/mcp"));
     assert.equal(get.status, 405);

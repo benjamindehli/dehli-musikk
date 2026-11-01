@@ -118,17 +118,34 @@ const escapeForRegex = (word) => word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const bodyScore = (matches) => (matches ? Math.sqrt(matches) * 2 : 0);
 
 /*
+ * Bounds on what one search may cost. Every word is a regex run over the whole
+ * corpus, about 0.4 ms each, so an unbounded query is unbounded CPU: a few
+ * kilobytes of words already took 400 ms, and a large request body would have
+ * run every call into the Worker's CPU limit. Real queries are a handful of
+ * words; these limits sit well above that.
+ */
+export const MAX_QUERY_LENGTH = 200;
+export const MAX_QUERY_WORDS = 8;
+
+/*
  * Deliberately simpler than the ranking behind the site's own search box, which
  * weights each field of each content type separately. This has one corpus and no
  * fields, so it scores a title match well above a body match and leaves it
  * there.
  */
 export function searchCorpus(entries, query, category = "all", limit = 10) {
-    const words = query
-        .toLowerCase()
-        .split(/\s+/)
-        .map((word) => word.replace(/[^\p{L}\p{N}-]/gu, ""))
-        .filter((word) => word.length > 1);
+    // Duplicates are dropped before the cap, so repeating a word cannot crowd
+    // out the others, and the cap applies to distinct words only.
+    const words = [
+        ...new Set(
+            query
+                .slice(0, MAX_QUERY_LENGTH)
+                .toLowerCase()
+                .split(/\s+/)
+                .map((word) => word.replace(/[^\p{L}\p{N}-]/gu, ""))
+                .filter((word) => word.length > 1)
+        )
+    ].slice(0, MAX_QUERY_WORDS);
     if (!words.length) return [];
 
     const scored = [];
@@ -188,7 +205,11 @@ export const TOOLS = [
         inputSchema: {
             type: "object",
             properties: {
-                query: { type: "string", description: 'Words to search for, e.g. "mellotron" or "Wurlitzer piano".' },
+                query: {
+                    type: "string",
+                    maxLength: MAX_QUERY_LENGTH,
+                    description: 'Words to search for, e.g. "mellotron" or "Wurlitzer piano". Only the first few distinct words are used.'
+                },
                 category: {
                     type: "string",
                     enum: ["all", "product", "post", "video", "release", "equipment", "faq"],
@@ -199,6 +220,12 @@ export const TOOLS = [
             required: ["query"]
         },
         async execute({ query, category = "all", limit = 10 }) {
+            // Checked before the corpus is fetched, so an oversized query costs
+            // nothing. Refused rather than truncated, because the reply quotes
+            // the query back and should not quote an arbitrary amount of it.
+            if (typeof query !== "string") return errorContent("query must be a string.");
+            if (query.length > MAX_QUERY_LENGTH) return errorContent(`query must be at most ${MAX_QUERY_LENGTH} characters.`);
+
             const response = await fetch(`${CANONICAL_ORIGIN}/llms-full.txt`);
             if (!response.ok) return errorContent(`Could not load the search corpus (HTTP ${response.status}).`);
 
@@ -323,6 +350,8 @@ const json = (body, status = 200) =>
         headers: { "Content-Type": "application/json", ...CORS_HEADERS }
     });
 
+export const MAX_BODY_BYTES = 16 * 1024;
+
 /**
  * The Streamable HTTP endpoint.
  */
@@ -341,9 +370,20 @@ export async function handleMcpRequest(request) {
         });
     }
 
+    /*
+     * Every legitimate message here is a few hundred bytes, so anything far past
+     * that is refused before it is parsed. The declared length is checked first
+     * so an honest oversized request is turned away unread; the text length
+     * covers a request that declares none.
+     */
+    const tooLarge = () => json(rpcError(null, -32600, `Request body exceeds ${MAX_BODY_BYTES} bytes`), 413);
+    if (Number(request.headers.get("Content-Length")) > MAX_BODY_BYTES) return tooLarge();
+
     let payload;
     try {
-        payload = await request.json();
+        const body = await request.text();
+        if (body.length > MAX_BODY_BYTES) return tooLarge();
+        payload = JSON.parse(body);
     } catch {
         return json(rpcError(null, -32700, "Parse error"), 400);
     }
