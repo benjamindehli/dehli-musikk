@@ -1,0 +1,97 @@
+import "server-only";
+
+import { existsSync } from "node:fs";
+import fs from "node:fs/promises";
+import path from "node:path";
+
+/*
+ * Every file the admin reads or writes, and how each one is laid out on disk.
+ *
+ * Nothing outside this list can be touched: callers name a collection, never a
+ * path, so a value coming from a form can at most pick which of these files is
+ * written. The one directory-backed collection, releases, validates its file
+ * names against a pattern for the same reason.
+ *
+ * The layouts match what is in the repo today, so saving a file that was not
+ * changed produces no diff:
+ * - "compact": posts, videos and releases, written on one line by the old
+ *   authoring app and never edited by hand.
+ * - "indented": the hand-edited files, at the 4-space indent most of them use.
+ *   equipment and releasesInstruments are hand-formatted in a style no
+ *   serializer reproduces, so their first save rewrites the layout once.
+ *   products differs only by one trailing space, which its first save drops.
+ */
+
+/*
+ * `yarn admin` starts Next from the repo root, but `next dev` run from inside
+ * admin/ is just as plausible, so look for the repo rather than assume either.
+ */
+function findRepoRoot(): string {
+    for (let dir = process.cwd(); ; dir = path.dirname(dir)) {
+        if (existsSync(path.join(dir, "admin", "next.config.mjs")) && existsSync(path.join(dir, "src", "data"))) return dir;
+        if (path.dirname(dir) === dir) throw new Error("Could not find the repo root from " + process.cwd());
+    }
+}
+
+export const REPO_ROOT = findRepoRoot();
+const DATA_DIR = path.join(REPO_ROOT, "src", "data");
+
+type Layout = "compact" | "indented";
+
+const FILES = {
+    posts: { file: "posts/data/all.json", layout: "compact" },
+    videos: { file: "videos/data/all.json", layout: "compact" },
+    products: { file: "products/data/all.json", layout: "indented" },
+    productsEquipment: { file: "products/data/productsEquipment.json", layout: "indented" },
+    instruments: { file: "equipment/data/instruments.json", layout: "indented" },
+    effects: { file: "equipment/data/effects.json", layout: "indented" },
+    amplifiers: { file: "equipment/data/amplifiers.json", layout: "indented" },
+    releasesInstruments: { file: "linkedData/releasesInstruments.json", layout: "indented" },
+    frequentlyAskedQuestions: { file: "frequentlyAskedQuestions/data/all.json", layout: "indented" }
+} as const satisfies Record<string, { file: string; layout: Layout }>;
+
+export type DataFile = keyof typeof FILES;
+
+const RELEASES_DIR = path.join(DATA_DIR, "releases", "data");
+const RELEASE_FILE = /^[A-Za-z0-9_-]+\.json$/;
+
+function serialize(value: unknown, layout: Layout): string {
+    return layout === "compact" ? JSON.stringify(value) : `${JSON.stringify(value, null, 4)}\n`;
+}
+
+/*
+ * Written beside the target and renamed over it, so a crash or a full disk
+ * mid-write leaves the old file intact rather than half a JSON document that
+ * breaks the site's build.
+ */
+async function writeAtomically(target: string, contents: string): Promise<void> {
+    const temporary = `${target}.${process.pid}.tmp`;
+    await fs.writeFile(temporary, contents, "utf8");
+    await fs.rename(temporary, target);
+}
+
+export async function readDataFile<T>(name: DataFile): Promise<T> {
+    const { file } = FILES[name];
+    return JSON.parse(await fs.readFile(path.join(DATA_DIR, file), "utf8")) as T;
+}
+
+export async function writeDataFile(name: DataFile, value: unknown): Promise<void> {
+    const { file, layout } = FILES[name];
+    await writeAtomically(path.join(DATA_DIR, file), serialize(value, layout));
+}
+
+function releasePath(fileName: string): string {
+    if (!RELEASE_FILE.test(fileName)) throw new Error(`Not a release file name: ${fileName}`);
+    return path.join(RELEASES_DIR, fileName);
+}
+
+/** Every release, keyed by its file name. Finder's .DS_Store and the like are skipped. */
+export async function readReleases<T>(): Promise<Record<string, T>> {
+    const names = (await fs.readdir(RELEASES_DIR)).filter((name) => RELEASE_FILE.test(name)).sort();
+    const entries = await Promise.all(names.map(async (name) => [name, JSON.parse(await fs.readFile(releasePath(name), "utf8"))] as const));
+    return Object.fromEntries(entries);
+}
+
+export async function writeRelease(fileName: string, value: unknown): Promise<void> {
+    await writeAtomically(releasePath(fileName), serialize(value, "compact"));
+}
