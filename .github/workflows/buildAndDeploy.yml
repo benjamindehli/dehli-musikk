@@ -78,13 +78,18 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    # At job level so the step below can test it in an `if`, which cannot read a
-    # secret directly.
-    env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    # Each secret is handed only to the step that uses it, never set at job
+    # level. A job-level env is visible to every step, including third-party
+    # code, which is exactly what a deploy token must not be.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v7
+      # Both CLIs below are fetched by npx, and wrangler needs Node 22 or later.
+      # Set explicitly rather than trusting whichever Node the runner image ships.
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
       - name: Download Artifact
         uses: actions/download-artifact@v8
         with:
@@ -101,10 +106,12 @@ jobs:
           done
           [ "$missing" = 0 ] || { echo "Refusing to deploy an incomplete artifact."; exit 1; }
           echo "artifact complete"
+      # The official CLI at an exact version, rather than w9jds/firebase-action.
+      # That action was referenced by branch (@master), so whatever its owner
+      # pushed would have run here with the deploy token, and it installed the
+      # newest firebase-tools on every run besides. Bump the version on purpose.
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
+        run: npx --yes firebase-tools@15.34.2 deploy --only hosting --non-interactive
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       # After hosting, so the URLs submitted are already live. Reads the markdown
@@ -125,10 +132,22 @@ jobs:
       # Invoked through npx rather than cloudflare/wrangler-action, which infers
       # a package manager from the lockfile: it picked yarn, and the global yarn
       # on the runner is 1.22 while this repo declares yarn 4 via packageManager,
-      # so it refused to run without Corepack. The major version is pinned
+      # so it refused to run without Corepack. The version is pinned in part
       # because that action also defaulted to wrangler 3.90, which is older than
       # wrangler.jsonc support and cannot read this Worker's config at all.
+      # The exact version is pinned too, because this step runs with a token that
+      # can rewrite every route on the zone. Bump it on purpose.
+      #
+      # An `if` cannot read a secret, so this step reports only whether the token
+      # exists, and the token itself reaches the deploy step alone.
+      - name: Check For Cloudflare Token
+        id: cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: echo "configured=$([ -n "$CLOUDFLARE_API_TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
       # wrangler reads CLOUDFLARE_API_TOKEN from the environment.
       - name: Deploy Markdown Negotiation Worker
-        if: env.CLOUDFLARE_API_TOKEN != ''
-        run: npx --yes wrangler@4 deploy --config worker/wrangler.jsonc
+        if: steps.cloudflare.outputs.configured == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes wrangler@4.156.0 deploy --config worker/wrangler.jsonc
