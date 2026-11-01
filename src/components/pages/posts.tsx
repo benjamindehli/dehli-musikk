@@ -14,7 +14,7 @@ import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
 import { AUTHOR_URL, buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, detailTitle, type Lang } from "lib/pageMetadata";
 import posts from "data/posts";
-import { thumbnailUrl } from "helpers/thumbnailUrls";
+import { shareImage } from "helpers/thumbnailUrls";
 
 const translations = {
     no: {
@@ -153,7 +153,7 @@ export async function getPostDetailsMetadata(lang: Lang, { params }: PostRoutePr
             publishedTime: new Date(post.timestamp).toISOString(),
             modifiedTime: new Date(post.lastmod ?? post.timestamp).toISOString(),
             authors: [AUTHOR_URL],
-            images: [{ url: `${WEBSITE_URL}${thumbnailUrl("/data/posts/web", post.thumbnailFilename, 540, "jpg")}`, width: 540, height: 400 }]
+            images: [shareImage("/data/posts/web", post.thumbnailFilename, { size: 540, width: 540, height: 400 }, { width: 1200, height: 889 })]
         })
     };
 }

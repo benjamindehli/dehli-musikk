@@ -14,7 +14,7 @@ import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
 import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, detailTitle, type Lang } from "lib/pageMetadata";
 import videos from "data/videos";
-import { thumbnailUrl } from "helpers/thumbnailUrls";
+import { shareImage, thumbnailUrl } from "helpers/thumbnailUrls";
 
 const translations = {
     no: {
@@ -186,7 +186,7 @@ async function getVideoMetadata(lang: Lang, { params }: VideoRouteProps): Promis
             title: video.title[lang],
             url: `${WEBSITE_URL}/${languageSlug}${canonicalPaths[lang]}`,
             description,
-            images: [{ url: `${WEBSITE_URL}${thumbnailUrl("/data/videos/web", video.thumbnailFilename, 540, "jpg")}`, width: 540, height: 304 }]
+            images: [shareImage("/data/videos/web", video.thumbnailFilename, { size: 540, width: 540, height: 304 }, { width: 1200, height: 675 })]
         })
     };
 }

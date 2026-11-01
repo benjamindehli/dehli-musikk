@@ -1,0 +1,241 @@
+:root {
+    --admin-accent: #c32a22;
+    --admin-border: #d9d9d9;
+    --admin-muted: #666;
+    font-family: system-ui, sans-serif;
+    color-scheme: light;
+}
+
+body {
+    margin: 0;
+    background: #f6f6f6;
+    color: #222;
+}
+
+.admin-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: #222;
+    color: #fff;
+}
+
+.admin-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.admin-header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.admin-header a:hover,
+.admin-header a:focus-visible {
+    text-decoration: underline;
+}
+
+.admin-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.admin-note {
+    color: var(--admin-muted);
+}
+
+.admin-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.admin-cards a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 1.25rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+}
+
+.admin-cards a:hover,
+.admin-cards a:focus-visible {
+    border-color: var(--admin-accent);
+}
+
+.admin-card-count {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--admin-accent);
+}
+
+.admin-muted,
+.admin-hint {
+    color: var(--admin-muted);
+    font-size: 0.875rem;
+}
+
+.admin-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.admin-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 6px;
+    background: var(--admin-accent);
+    color: #fff;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.admin-button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.admin-button-danger {
+    background: #555;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--admin-border);
+    text-align: left;
+    vertical-align: top;
+}
+
+.admin-table td:first-child {
+    white-space: nowrap;
+}
+
+.admin-status {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+}
+
+.admin-status p,
+.admin-status ul {
+    margin: 0;
+}
+
+.admin-status-saved {
+    background: #e3f4e5;
+}
+
+.admin-status-error {
+    background: #fbe4e2;
+}
+
+.admin-warning {
+    padding: 0.5rem 0.75rem;
+    border-left: 4px solid #e0a100;
+    background: #fff6dc;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin-form fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid var(--admin-border);
+    border-radius: 8px;
+    background: #fff;
+}
+
+.admin-form legend {
+    font-weight: 600;
+}
+
+.admin-form label {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.admin-form input:not([type="checkbox"]),
+.admin-form select,
+.admin-form textarea {
+    padding: 0.4rem 0.5rem;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font: inherit;
+}
+
+.admin-form textarea {
+    resize: vertical;
+}
+
+.admin-form label.admin-checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.admin-clip {
+    align-items: flex-end;
+}
+
+.admin-form label.admin-narrow {
+    flex: 0 0 6rem;
+}
+
+.admin-links,
+.admin-choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.5rem 1rem;
+}
+
+.admin-gallery-thumb {
+    flex: 0 0 80px;
+    width: 80px;
+    height: 60px;
+    object-fit: contain;
+    background: #eee;
+}
+
+.admin-preview {
+    max-width: 270px;
+    height: auto;
+    border: 1px solid var(--admin-border);
+}

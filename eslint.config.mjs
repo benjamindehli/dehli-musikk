@@ -21,7 +21,8 @@ const reactVersion = createRequire(import.meta.url)("react/package.json").versio
 const config = [
     {
         ignores: [
-            ".next/**",
+            // The site's dev/build cache, and the admin dashboard's beside it.
+            "**/.next/**",
             // The static export. 1437 pages of generated HTML and bundled JS,
             // none of it ours to lint.
             "out/**",

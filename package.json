@@ -24,6 +24,8 @@
     },
     "scripts": {
         "dev": "next dev",
+        "admin": "next dev admin --hostname 127.0.0.1 --port 3100",
+        "admin:typecheck": "tsc --noEmit -p admin",
         "build": "next build",
         "start": "next start",
         "format": "prettier --write .",
