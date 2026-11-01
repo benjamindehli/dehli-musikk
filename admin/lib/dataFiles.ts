@@ -90,7 +90,9 @@ async function writeAtomically(target: string, contents: string): Promise<void> 
     await fs.rename(resolvedTemporary, resolvedTarget);
         throw new Error(`Refusing to write outside data directory: ${target}`);
     }
-    const temporary = `${safeTarget}.${process.pid}.tmp`;
+    const targetDir = path.dirname(safeTarget);
+    const targetName = path.basename(safeTarget);
+    const temporary = path.join(targetDir, `.${targetName}.${process.pid}.tmp`);
     await fs.writeFile(temporary, contents, "utf8");
     await fs.rename(temporary, safeTarget);
 }
@@ -107,9 +109,6 @@ export async function writeDataFile(name: DataFile, value: unknown): Promise<voi
 
     const resolved = path.resolve(RELEASES_DIR, fileName);
     if (resolved !== root && !resolved.startsWith(`${root}${path.sep}`)) throw new Error(`Release path escapes releases directory: ${fileName}`);
-    return resolved;
-    const resolved = path.resolve(base, fileName);
-    if (resolved !== base && !resolved.startsWith(base + path.sep)) throw new Error(`Release path escapes releases directory: ${fileName}`);
     return resolved;
 }
 
