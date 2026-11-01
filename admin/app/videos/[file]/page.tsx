@@ -7,6 +7,7 @@ import { isoToSeconds, secondsToClock } from "@admin/lib/durations";
 import VideoForm, { type Channel, type VideoFormValues } from "./VideoForm";
 import ImagePanel from "@admin/components/ImagePanel";
 import { existingThumbnails } from "@admin/lib/thumbnails";
+import { defaultImageMarks } from "@admin/lib/imageSpecs";
 
 export const dynamic = "force-dynamic";
 
@@ -52,6 +53,7 @@ export default async function EditVideoPage({
     const isNew = file === "new";
     const video = isNew ? undefined : videos.find((candidate) => candidate.thumbnailFilename === file);
     if (!isNew && !video) notFound();
+    const videosSet = video ? await existingThumbnails("videos", video.thumbnailFilename) : { sizes: [], version: "" };
 
     // Every channel the data already names, for the channel fields to suggest.
     const channels = new Map<string, Channel>();
@@ -70,7 +72,8 @@ export default async function EditVideoPage({
                     section="videos"
                     itemKey={video.thumbnailFilename}
                     name={video.thumbnailFilename}
-                    existing={await existingThumbnails("videos", video.thumbnailFilename)}
+                    existing={videosSet}
+                    marks={defaultImageMarks("videos", videosSet, { copyright: video.copyright, timestamp: video.timestamp })}
                     sources={[
                         // maxresdefault is 1280x720 but only exists for videos uploaded in HD; hqdefault always does, at 480x360.
                         { label: "YouTube thumbnail, full size", url: `https://i.ytimg.com/vi/${video.youTubeId}/maxresdefault.jpg` },

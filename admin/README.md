@@ -47,6 +47,13 @@ Every editor except the FAQ has a thumbnail panel. It makes every size in avif, 
 
 The 1200 size is the share image. Pages use it for `og:image` once it exists (see `shareImage` in `src/helpers/thumbnailUrls.ts`). It is skipped when the source is too small, rather than enlarged. Videos can use their YouTube thumbnail as the source, and releases their Spotify cover.
 
+Our own images are marked the way the hand-exported ones were, with two checkboxes on the panel:
+
+- **Watermark:** "Benjamin Dehli / www.dehlimusikk.no" bottom left, and the logo (`admin/assets/watermark-logo.svg`, at 70%) bottom right. It goes on the sizes from 540 up. It is on by default for equipment, and for posts marked as copyright. Untick it for screenshots of products.
+- **Copyright credit:** creator, credit, copyright notice and location in the jpegs' XMP, IPTC and EXIF. It is on by default for equipment and products, for posts and videos marked as copyright, and for any set whose current files carry it. Regenerating a set keeps the year its files already have.
+
+The text is set in Helvetica, which the Mac has. On a machine without it, the text falls back to a similar font.
+
 Product gallery images are uploaded on the product page and encoded by the same script as `yarn images:products`, through the button there.
 
 ## What happened to the old app's features

@@ -7,6 +7,7 @@ import { toOsloDate } from "@admin/lib/dates";
 import { secondsToClock } from "@admin/lib/durations";
 import ImagePanel from "@admin/components/ImagePanel";
 import { existingThumbnails } from "@admin/lib/thumbnails";
+import { defaultImageMarks } from "@admin/lib/imageSpecs";
 import ReleaseForm, { type Choice, type ReleaseFormValues } from "./ReleaseForm";
 
 export const dynamic = "force-dynamic";
@@ -53,6 +54,7 @@ export default async function EditReleasePage({
     const fileName = isNew ? null : `${decodeURIComponent(file)}.json`;
     const release = fileName ? releases[fileName] : undefined;
     if (!isNew && !release) notFound();
+    const releasesSet = release ? await existingThumbnails("releases", release.thumbnailFilename) : { sizes: [], version: "" };
 
     // Ids are the slugs the site derives, so a link here resolves to the same item there.
     const instruments: Choice[] = instrumentItems
@@ -88,7 +90,8 @@ export default async function EditReleasePage({
                     section="releases"
                     itemKey={release.thumbnailFilename}
                     name={release.thumbnailFilename}
-                    existing={await existingThumbnails("releases", release.thumbnailFilename)}
+                    existing={releasesSet}
+                    marks={defaultImageMarks("releases", releasesSet, { timestamp: release.releaseDate })}
                     sources={
                         release.spotifyThumbnailUrl.startsWith("https://i.scdn.co/")
                             ? [{ label: "Spotify cover art", url: release.spotifyThumbnailUrl }]

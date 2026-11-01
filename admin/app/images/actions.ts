@@ -47,6 +47,11 @@ export async function makeThumbnails(section: ImageSectionKey, key: string, _pre
     const positionValue = form.get("position");
     const position: CropPosition = typeof positionValue === "string" && positionValue in CROP_POSITIONS ? (positionValue as CropPosition) : "centre";
 
+    const yearValue = Number(form.get("creditYear"));
+    const creditYear = form.get("credit") === "on" && Number.isInteger(yearValue) && yearValue >= 1990 && yearValue <= 2100 ? yearValue : undefined;
+    if (form.get("credit") === "on" && !creditYear) return { status: "error", errors: ["The copyright year should be a year, such as 2026."] };
+    const watermark = form.get("watermark") === "on";
+
     let source: Buffer;
     try {
         const file = form.get("file");
@@ -64,7 +69,7 @@ export async function makeThumbnails(section: ImageSectionKey, key: string, _pre
     }
 
     try {
-        const result = await writeThumbnails(section, name, source, position);
+        const result = await writeThumbnails(section, name, source, { position, watermark, creditYear });
         const original = section === "products" && form.get("keepOriginal") === "on" ? await saveProductOriginal(key, source) : null;
         revalidatePath("/", "layout");
         const notes = [
@@ -73,6 +78,8 @@ export async function makeThumbnails(section: ImageSectionKey, key: string, _pre
                 ? `Skipped ${result.skipped.join(", ")}: the source is too small, and a share image is better missing than blurry.`
                 : "",
             result.upscaled.length ? `Enlarged to fit: ${result.upscaled.join(", ")}.` : "",
+            watermark ? "Watermarked the sizes from 540 up." : "",
+            creditYear ? `Credited the jpegs © ${creditYear}.` : "",
             original ? `Saved the original as public/product-images/${original}.` : ""
         ];
         return { status: "saved", message: notes.filter(Boolean).join(" ") };

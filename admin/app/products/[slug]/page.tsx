@@ -5,6 +5,7 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { readDataFile } from "@admin/lib/dataFiles";
 import { toOsloDate } from "@admin/lib/dates";
 import { existingThumbnails } from "@admin/lib/thumbnails";
+import { defaultImageMarks } from "@admin/lib/imageSpecs";
 import ImagePanel from "@admin/components/ImagePanel";
 import GalleryPanel from "./GalleryPanel";
 import ProductForm, { type EquipmentChoice, type ProductFormValues } from "./ProductForm";
@@ -79,6 +80,7 @@ export default async function EditProductPage({
     const isNew = slug === "new";
     const product = isNew ? undefined : products.find((candidate) => convertToUrlFriendlyString(candidate.title) === slug);
     if (!isNew && !product) notFound();
+    const productsSet = product ? await existingThumbnails("products", slug) : { sizes: [], version: "" };
 
     const equipment: EquipmentChoice[] = [
         ...instruments.map((item) => ({ item, type: "Instrument" })),
@@ -120,7 +122,8 @@ export default async function EditProductPage({
                         section="products"
                         itemKey={slug}
                         name={slug}
-                        existing={await existingThumbnails("products", slug)}
+                        existing={productsSet}
+                        marks={defaultImageMarks("products", productsSet, { timestamp: product.timestamp })}
                         originalFile={product.mainImage}
                     />
                     <GalleryPanel slug={slug} />

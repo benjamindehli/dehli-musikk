@@ -1,7 +1,7 @@
 "use client";
 
 import { startTransition, useActionState, type FormEvent } from "react";
-import { CROP_POSITIONS, IMAGE_SECTIONS, type ImageSectionKey } from "@admin/lib/imageSpecs";
+import { CROP_POSITIONS, IMAGE_SECTIONS, type ImageMarks, type ImageSectionKey } from "@admin/lib/imageSpecs";
 import { IDLE } from "@admin/lib/forms";
 import type { ExistingSet } from "@admin/lib/thumbnails";
 import FormStatus from "@admin/components/FormStatus";
@@ -19,6 +19,7 @@ export default function ImagePanel({
     itemKey,
     name,
     existing,
+    marks,
     sources = [],
     originalFile
 }: {
@@ -26,6 +27,8 @@ export default function ImagePanel({
     itemKey: string;
     name: string;
     existing: ExistingSet;
+    /** The starting watermark and credit choice; see defaultImageMarks. */
+    marks: ImageMarks;
     sources?: OnlineSource[];
     /** Products only: the main image original that can be replaced along with the thumbnails. */
     originalFile?: string;
@@ -85,6 +88,20 @@ export default function ImagePanel({
                                 Also save it as the full-size original, public/product-images/{originalFile}
                             </label>
                         ) : null}
+                        <label className="admin-checkbox">
+                            <input type="checkbox" name="watermark" defaultChecked={marks.watermark} />
+                            Watermark the sizes from 540 up (our own photos only)
+                        </label>
+                        <div className="admin-row">
+                            <label className="admin-checkbox">
+                                <input type="checkbox" name="credit" defaultChecked={marks.credit} />
+                                Add our copyright credit to the jpegs
+                            </label>
+                            <label>
+                                Copyright year
+                                <input type="number" name="creditYear" min={1990} max={2100} defaultValue={marks.year} />
+                            </label>
+                        </div>
                         <label>
                             Crop from
                             <select name="position" defaultValue="centre">

@@ -64,3 +64,29 @@ export const CROP_POSITIONS = {
 } as const;
 
 export type CropPosition = keyof typeof CROP_POSITIONS;
+
+/*
+ * What the studio's own images are marked with, as the hand-exported sets
+ * were: a watermark on the sizes from 540 up, and a copyright credit in the
+ * jpegs' metadata. Neither goes on anything the site does not hold the
+ * copyright to: product screenshots, covers, other people's videos.
+ */
+export type ImageMarks = { watermark: boolean; credit: boolean; year: number };
+
+/**
+ * The starting choice for an item's thumbnail panel. A set already carrying
+ * a credit keeps it, with its year; otherwise the section decides: equipment
+ * photos are always ours, posts and videos are when marked as copyright, and
+ * the rest only by choice.
+ */
+export function defaultImageMarks(
+    section: ImageSectionKey,
+    existing: { creditYear?: number },
+    item: { copyright?: boolean; timestamp?: number | string } = {}
+): ImageMarks {
+    const itemYear = item.timestamp === undefined ? undefined : new Date(item.timestamp).getFullYear();
+    const year = existing.creditYear ?? itemYear ?? new Date().getFullYear();
+    const equipment = section === "instruments" || section === "effects" || section === "amplifiers";
+    const owned = equipment || section === "products" || Boolean(item.copyright) || existing.creditYear !== undefined;
+    return { watermark: equipment || (section === "posts" && Boolean(item.copyright)), credit: owned, year };
+}

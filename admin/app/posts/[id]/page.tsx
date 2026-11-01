@@ -6,6 +6,7 @@ import { toOsloDate } from "@admin/lib/dates";
 import PostForm, { type PostFormValues } from "./PostForm";
 import ImagePanel from "@admin/components/ImagePanel";
 import { existingThumbnails } from "@admin/lib/thumbnails";
+import { defaultImageMarks } from "@admin/lib/imageSpecs";
 
 export const dynamic = "force-dynamic";
 
@@ -45,6 +46,7 @@ export default async function EditPostPage({
     const isNew = id === "new";
     const post = isNew ? undefined : (await readDataFile<Post[]>("posts")).find((candidate) => candidate.id === id);
     if (!isNew && !post) notFound();
+    const postsSet = post ? await existingThumbnails("posts", post.thumbnailFilename) : { sizes: [], version: "" };
 
     return (
         <>
@@ -60,7 +62,8 @@ export default async function EditPostPage({
                     section="posts"
                     itemKey={post.thumbnailFilename}
                     name={post.thumbnailFilename}
-                    existing={await existingThumbnails("posts", post.thumbnailFilename)}
+                    existing={postsSet}
+                    marks={defaultImageMarks("posts", postsSet, { copyright: post.copyright, timestamp: post.timestamp })}
                 />
             ) : null}
         </>

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { readDataFile } from "@admin/lib/dataFiles";
 import { existingThumbnails } from "@admin/lib/thumbnails";
+import { defaultImageMarks } from "@admin/lib/imageSpecs";
 import ImagePanel from "@admin/components/ImagePanel";
 import { EQUIPMENT_TYPES, isEquipmentType, type EquipmentItem } from "../../types";
 import { equipmentUsage } from "../../usage";
@@ -28,6 +29,7 @@ export default async function EditEquipmentPage({
           );
     if (!isNew && !item) notFound();
     const usage = item ? await equipmentUsage(type, slug) : null;
+    const imageSet = item ? await existingThumbnails(type, slug) : { sizes: [], version: "" };
 
     return (
         <>
@@ -39,7 +41,7 @@ export default async function EditEquipmentPage({
             <EquipmentForm key={slug} type={type} slug={isNew ? null : slug} brand={item?.brand ?? ""} model={item?.model ?? ""} />
             {item && usage ? (
                 <>
-                    <ImagePanel section={type} itemKey={slug} name={slug} existing={await existingThumbnails(type, slug)} />
+                    <ImagePanel section={type} itemKey={slug} name={slug} existing={imageSet} marks={defaultImageMarks(type, imageSet)} />
                     <section className="admin-form">
                         <fieldset>
                             <legend>Where it is used</legend>
