@@ -78,6 +78,23 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
+    # The deploy secrets belong to this environment rather than to the
+    # repository, so only a job that names it can read them, and the
+    # environment's own rules (allowed tags, an approval) decide when that is.
+    # Configured under Settings -> Environments. If it does not exist yet,
+    # GitHub creates it on the first run with no rules, and repository-level
+    # secrets keep working, so this line is safe before the setup is done.
+    environment:
+      name: production
+      url: https://www.dehlimusikk.no/
+    # One deploy at a time. Without it two releases close together could finish
+    # in the wrong order and leave the older build live. GitHub keeps at most
+    # one run waiting and replaces it with any newer one, so the newest release
+    # is always the last to deploy. A running deploy is never cancelled: a
+    # half-finished Firebase deploy is worse than a late one.
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
     # Each secret is handed only to the step that uses it, never set at job
     # level. A job-level env is visible to every step, including third-party
     # code, which is exactly what a deploy token must not be.
