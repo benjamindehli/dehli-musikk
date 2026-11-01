@@ -1,0 +1,12 @@
+{
+    "name": "dehli-musikk-deploy-tools",
+    "private": true,
+    "description": "The CLIs the release workflow deploys with, locked by package-lock.json. See deploy/README.md.",
+    "engines": {
+        "node": ">=22"
+    },
+    "dependencies": {
+        "firebase-tools": "15.34.2",
+        "wrangler": "4.156.0"
+    }
+}

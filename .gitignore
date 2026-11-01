@@ -43,7 +43,9 @@ bower_components
 /out
 
 # Dependencies
-/node_modules
+# Any depth, not just the root: deploy/ has an install of its own, and a
+# root-anchored pattern would leave its 650+ packages one `git add` from a commit.
+node_modules/
 /.pnp
 .pnp.js
 .yarn/
