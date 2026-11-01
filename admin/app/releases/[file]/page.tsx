@@ -5,6 +5,8 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { readDataFile, readReleases } from "@admin/lib/dataFiles";
 import { toOsloDate } from "@admin/lib/dates";
 import { secondsToClock } from "@admin/lib/durations";
+import ImagePanel from "@admin/components/ImagePanel";
+import { existingThumbnails } from "@admin/lib/thumbnails";
 import ReleaseForm, { type Choice, type ReleaseFormValues } from "./ReleaseForm";
 
 export const dynamic = "force-dynamic";
@@ -81,6 +83,19 @@ export default async function EditReleasePage({
                 products={productChoices}
                 genres={genres}
             />
+            {release ? (
+                <ImagePanel
+                    section="releases"
+                    itemKey={release.thumbnailFilename}
+                    name={release.thumbnailFilename}
+                    existing={await existingThumbnails("releases", release.thumbnailFilename)}
+                    sources={
+                        release.spotifyThumbnailUrl.startsWith("https://i.scdn.co/")
+                            ? [{ label: "Spotify cover art", url: release.spotifyThumbnailUrl }]
+                            : []
+                    }
+                />
+            ) : null}
         </>
     );
 }

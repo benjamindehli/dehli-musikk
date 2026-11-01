@@ -4,6 +4,8 @@ import type { Post } from "types/content";
 import { readDataFile } from "@admin/lib/dataFiles";
 import { toOsloDate } from "@admin/lib/dates";
 import PostForm, { type PostFormValues } from "./PostForm";
+import ImagePanel from "@admin/components/ImagePanel";
+import { existingThumbnails } from "@admin/lib/thumbnails";
 
 export const dynamic = "force-dynamic";
 
@@ -53,6 +55,14 @@ export default async function EditPostPage({
             {created ? <p className="admin-status admin-status-saved">Created. It is saved to src/data/posts/data/all.json.</p> : null}
             {/* Keyed by id so moving between posts resets the form's state. */}
             <PostForm key={id} initial={formValues(post)} />
+            {post ? (
+                <ImagePanel
+                    section="posts"
+                    itemKey={post.thumbnailFilename}
+                    name={post.thumbnailFilename}
+                    existing={await existingThumbnails("posts", post.thumbnailFilename)}
+                />
+            ) : null}
         </>
     );
 }

@@ -29,6 +29,9 @@ export default function config(phase) {
         outputFileTracingRoot: repoRoot,
         // sharp is a native module; bundling it breaks its binary lookup.
         serverExternalPackages: ["sharp"],
+        // Thumbnails are made from uploaded originals: camera photos and full
+        // resolution screenshots run to 8 MB, against a 1 MB default.
+        experimental: { serverActions: { bodySizeLimit: "45mb" } },
         // Same URL shape as the site, so the hrefs here can be written the same way.
         trailingSlash: true,
         devIndicators: false,

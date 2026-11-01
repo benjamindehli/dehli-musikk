@@ -5,6 +5,8 @@ import { readDataFile } from "@admin/lib/dataFiles";
 import { toOsloDate } from "@admin/lib/dates";
 import { isoToSeconds, secondsToClock } from "@admin/lib/durations";
 import VideoForm, { type Channel, type VideoFormValues } from "./VideoForm";
+import ImagePanel from "@admin/components/ImagePanel";
+import { existingThumbnails } from "@admin/lib/thumbnails";
 
 export const dynamic = "force-dynamic";
 
@@ -63,6 +65,19 @@ export default async function EditVideoPage({
             <h1>{video ? video.title.no : "New video"}</h1>
             {created ? <p className="admin-status admin-status-saved">Created. It is saved to src/data/videos/data/all.json.</p> : null}
             <VideoForm key={file} initial={formValues(video)} channels={[...channels.values()]} />
+            {video ? (
+                <ImagePanel
+                    section="videos"
+                    itemKey={video.thumbnailFilename}
+                    name={video.thumbnailFilename}
+                    existing={await existingThumbnails("videos", video.thumbnailFilename)}
+                    sources={[
+                        // maxresdefault is 1280x720 but only exists for videos uploaded in HD; hqdefault always does, at 480x360.
+                        { label: "YouTube thumbnail, full size", url: `https://i.ytimg.com/vi/${video.youTubeId}/maxresdefault.jpg` },
+                        { label: "YouTube thumbnail, 480 wide", url: `https://i.ytimg.com/vi/${video.youTubeId}/hqdefault.jpg` }
+                    ]}
+                />
+            ) : null}
         </>
     );
 }
