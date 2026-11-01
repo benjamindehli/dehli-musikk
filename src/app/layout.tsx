@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "style/styles.scss";
@@ -12,11 +12,24 @@ config.autoAddCss = false;
  * is discarded by every page that declares its own, which is all of them. The
  * sitewide defaults live in socialMetadata() in lib/pageMetadata instead.
  *
- * The fields below are safe here because no page sets them, so nothing
- * overwrites them.
+ * The other fields below are safe here because no page sets them, so nothing
+ * overwrites them. robots is the exception: the noindex pages (search and
+ * not-found) declare their own, which replaces this one whole. That is wanted -
+ * a page kept out of the index has no preview to size.
  */
-export const metadata = {
+export const metadata: Metadata = {
     metadataBase: new URL("https://www.dehlimusikk.no"),
+    /*
+     * Lets search engines show a large image preview, a full-length text snippet
+     * and a video preview of any length. Without max-image-preview:large Google
+     * shows only small thumbnails in Discover and similar surfaces, however big
+     * the image. Bing reads the same three directives.
+     */
+    robots: {
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1
+    },
     manifest: "/manifest.json",
     icons: {
         icon: [
