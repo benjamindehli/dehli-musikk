@@ -34,6 +34,11 @@ export type VideoFormValues = {
 // Search results and social cards show about this much of a description.
 const SNIPPET_LENGTH = 155;
 
+function getValidYouTubeId(value: string): string | null {
+    const trimmed = value.trim();
+    return /^[A-Za-z0-9_-]{11}$/.test(trimmed) ? trimmed : null;
+}
+
 export default function VideoForm({ initial, channels }: { initial: VideoFormValues; channels: Channel[] }) {
     const [state, formAction, pending] = useActionState(saveVideo.bind(null, initial.thumbnailFilename), IDLE);
     const [titleNo, setTitleNo] = useState(initial.titleNo);
@@ -49,6 +54,7 @@ export default function VideoForm({ initial, channels }: { initial: VideoFormVal
     const slugNo = convertToUrlFriendlyString(titleNo);
     const slugEn = convertToUrlFriendlyString(titleEn);
     const urlChanged = !isNew && (slugNo !== convertToUrlFriendlyString(initial.titleNo) || slugEn !== convertToUrlFriendlyString(initial.titleEn));
+    const validYouTubeId = getValidYouTubeId(youTubeId);
 
     const updateClip = (index: number, field: keyof ClipRow, value: string) =>
         setClips((rows) => rows.map((row, i) => (i === index ? { ...row, [field]: value } : row)));
@@ -129,8 +135,8 @@ export default function VideoForm({ initial, channels }: { initial: VideoFormVal
                             maxLength={11}
                             placeholder="dQw4w9WgXcQ"
                         />
-                        {youTubeId.length === 11 ? (
-                            <a className="admin-hint" href={`https://www.youtube.com/watch?v=${youTubeId}`} target="_blank" rel="noreferrer">
+                        {validYouTubeId ? (
+                            <a className="admin-hint" href={`https://www.youtube.com/watch?v=${encodeURIComponent(validYouTubeId)}`} target="_blank" rel="noreferrer">
                                 Open on YouTube
                             </a>
                         ) : null}
