@@ -13,7 +13,7 @@ import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
 import { buildAlternates, socialMetadata, WEBSITE_URL, detailTitle, metaDescription, type Lang } from "lib/pageMetadata";
 import releases from "data/portfolio";
-import { thumbnailUrl } from "helpers/thumbnailUrls";
+import { shareImage } from "helpers/thumbnailUrls";
 
 const translations = {
     no: {
@@ -161,7 +161,9 @@ export async function getReleaseDetailsMetadata(lang: Lang, { params }: ReleaseR
             description,
             // release.duration is in milliseconds, og:music:duration in seconds
             duration: release.duration ? Math.round(release.duration / 1000) : undefined,
-            images: [{ url: `${WEBSITE_URL}${thumbnailUrl("/data/releases/web", release.thumbnailFilename, 540, "jpg")}`, width: 540, height: 540 }]
+            images: [
+                shareImage("/data/releases/web", release.thumbnailFilename, { size: 540, width: 540, height: 540 }, { width: 1200, height: 1200 })
+            ]
         })
     };
 }

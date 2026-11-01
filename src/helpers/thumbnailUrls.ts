@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { WEBSITE_URL } from "lib/pageMetadata";
 
 /*
  * Thumbnail URLs with a version on the end: /data/products/web/jpg/subc_540.jpg?v=3f2a9c1b7e4d
@@ -86,4 +87,22 @@ export function thumbnailImage<Size extends number>(webDir: string, name: string
         }
     }
     return image;
+}
+
+type ShareSize = { size: number; width: number; height: number };
+
+/*
+ * The og:image for a detail page: the 1200-wide share image when the set has
+ * one, otherwise the largest size every set has always had.
+ *
+ * 540 renders as a small thumbnail beside a shared link and is too small for
+ * Google Discover's large previews, which want 1200 pixels across. The admin
+ * dashboard writes a _1200 alongside the other sizes whenever a set is made,
+ * but the older sets were exported by hand without one, so each page checks
+ * rather than assumes, and improves as its images are regenerated.
+ */
+export function shareImage(webDir: string, name: string, fallback: ShareSize, share: Omit<ShareSize, "size">) {
+    const hasShareSize = listDirectory(path.join(PUBLIC_DIR, webDir, "jpg")).includes(`${name}_1200.jpg`);
+    const chosen = hasShareSize ? { size: 1200, ...share } : fallback;
+    return { url: `${WEBSITE_URL}${thumbnailUrl(webDir, name, chosen.size, "jpg")}`, width: chosen.width, height: chosen.height };
 }

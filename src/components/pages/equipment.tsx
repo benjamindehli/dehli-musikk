@@ -14,7 +14,7 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { getEquipmentItemDescription } from "helpers/equipmentDescription";
 import { getInstrumentReleases } from "helpers/instrumentReleases";
 import { getVideosForEquipmentItem } from "helpers/equipmentUsage";
-import { thumbnailImage, thumbnailUrl } from "helpers/thumbnailUrls";
+import { shareImage, thumbnailImage, thumbnailUrl } from "helpers/thumbnailUrls";
 import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
 import { buildAlternates, socialMetadata, WEBSITE_URL, detailTitle, type Lang } from "lib/pageMetadata";
@@ -300,7 +300,7 @@ export async function getEquipmentItemMetadata(lang: Lang, { params }: Equipment
             url: `${WEBSITE_URL}/${languageSlug}equipment/${equipmentType}/${equipmentId}/`,
             description,
             images: [
-                { url: `${WEBSITE_URL}${thumbnailUrl(`/data/equipment/${equipmentType}/web`, equipmentId, 945, "jpg")}`, width: 945, height: 700 }
+                shareImage(`/data/equipment/${equipmentType}/web`, equipmentId, { size: 945, width: 945, height: 700 }, { width: 1200, height: 889 })
             ]
         })
     };

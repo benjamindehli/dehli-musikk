@@ -15,7 +15,7 @@ import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
 import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, detailTitle, type Lang } from "lib/pageMetadata";
 import products from "data/products";
-import { thumbnailUrl } from "helpers/thumbnailUrls";
+import { shareImage } from "helpers/thumbnailUrls";
 
 const translations = {
     no: {
@@ -144,7 +144,7 @@ export async function getProductDetailsMetadata(lang: Lang, { params }: ProductR
             title: product.title,
             url: `${WEBSITE_URL}/${languageSlug}products/${productId}/`,
             description,
-            images: [{ url: `${WEBSITE_URL}${thumbnailUrl("/data/products/web", productId, 540, "jpg")}`, width: 540, height: 400 }]
+            images: [shareImage("/data/products/web", productId, { size: 540, width: 540, height: 400 }, { width: 1200, height: 889 })]
         })
     };
 }
