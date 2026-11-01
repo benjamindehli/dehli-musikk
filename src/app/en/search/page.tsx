@@ -1,6 +1,7 @@
 import SearchPageClient from "components/partials/SearchPageClient";
 
 export const metadata = {
+    title: "Search | Dehli Musikk",
     robots: { index: false }
 };
 
