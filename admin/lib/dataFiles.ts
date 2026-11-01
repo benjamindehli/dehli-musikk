@@ -79,9 +79,15 @@ function serialize(value: unknown, layout: Layout): string {
  * breaks the site's build.
  */
 async function writeAtomically(target: string, contents: string): Promise<void> {
-    const safeBase = path.resolve(DATA_DIR);
-    const safeTarget = path.resolve(target);
-    if (safeTarget !== safeBase && !safeTarget.startsWith(safeBase + path.sep)) {
+    const resolvedTarget = path.resolve(target);
+    const dir = path.dirname(resolvedTarget);
+    const temporary = path.join(dir, `${path.basename(resolvedTarget)}.${process.pid}.tmp`);
+    const resolvedTemporary = path.resolve(temporary);
+    if (resolvedTemporary !== dir && !resolvedTemporary.startsWith(`${dir}${path.sep}`)) {
+        throw new Error(`Temporary path escapes target directory: ${temporary}`);
+    }
+    await fs.writeFile(resolvedTemporary, contents, "utf8");
+    await fs.rename(resolvedTemporary, resolvedTarget);
         throw new Error(`Refusing to write outside data directory: ${target}`);
     }
     const temporary = `${safeTarget}.${process.pid}.tmp`;
