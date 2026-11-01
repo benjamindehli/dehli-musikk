@@ -7,9 +7,9 @@
  * live on Cloudflare. See worker/README.md for the checks to run after deploying.
  */
 import assert from "node:assert/strict";
-import test, { afterEach } from "node:test";
+import test, { afterEach, mock } from "node:test";
 
-import { handle } from "../src/index.js";
+import worker, { handle } from "../src/index.js";
 
 const PAGE_HTML = "<!DOCTYPE html><html><head><title>SubC</title></head><body>page</body></html>";
 const PAGE_MARKDOWN = '---\ntitle: "SubC"\n---\n\n# SubC\n';
@@ -253,4 +253,26 @@ test("the root page has a twin", async () => {
     const response = await handle(get("/", "text/markdown"));
 
     assert.equal(response.headers.get("Content-Location"), "/index.md");
+});
+
+test("a handler failure falls back to the origin and is logged without the query string", async () => {
+    let calls = 0;
+    globalThis.fetch = async () => {
+        calls += 1;
+        // The first origin fetch fails inside the handler; the fallback succeeds
+        if (calls === 1) throw new Error("origin hiccup");
+        return new Response(PAGE_HTML, { status: 200, headers: { "Content-Type": "text/html" } });
+    };
+    const logged = mock.method(console, "error", () => {});
+
+    const response = await worker.fetch(new Request("https://www.dehlimusikk.no/en/search/?q=private+words"));
+
+    assert.equal(response.status, 200, "the visitor still gets the page");
+    assert.equal(logged.mock.callCount(), 1);
+    const entry = JSON.parse(logged.mock.calls[0].arguments[0]);
+    assert.equal(entry.event, "worker_fallback");
+    assert.equal(entry.path, "/en/search/");
+    assert.match(entry.error, /origin hiccup/);
+    assert.doesNotMatch(logged.mock.calls[0].arguments[0], /private/, "the query string never reaches the log");
+    logged.mock.restore();
 });

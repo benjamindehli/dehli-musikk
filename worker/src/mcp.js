@@ -325,7 +325,12 @@ export async function handleRpcMessage(message) {
                  * A tool that fails reports it in the result, not as a JSON-RPC
                  * error: the call itself succeeded, the work inside it did not,
                  * and the model is supposed to see why and be able to react.
+                 *
+                 * Logged as well, since the caller is the only one who would
+                 * otherwise know. The tool name and the error only: arguments are
+                 * whatever the caller sent and stay out of the logs.
                  */
+                console.error(JSON.stringify({ event: "mcp_tool_error", tool: tool.name, error: String(error?.stack ?? error) }));
                 return rpcResult(id, errorContent(`${tool.name} failed: ${error?.message ?? error}`));
             }
         }

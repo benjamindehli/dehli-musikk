@@ -3,7 +3,7 @@
  * the three tools, and the corpus parser that everything in search rests on.
  */
 import assert from "node:assert/strict";
-import test, { afterEach } from "node:test";
+import test, { afterEach, mock } from "node:test";
 
 import {
     handleMcpRequest,
@@ -281,6 +281,7 @@ test("a tool that throws reports it in the result, not as a JSON-RPC error", asy
     globalThis.fetch = async () => {
         throw new Error("origin unreachable");
     };
+    const logged = mock.method(console, "error", () => {});
 
     const response = await handleRpcMessage({
         jsonrpc: "2.0",
@@ -292,6 +293,12 @@ test("a tool that throws reports it in the result, not as a JSON-RPC error", asy
     assert.equal(response.error, undefined, "the call itself succeeded");
     assert.equal(response.result.isError, true);
     assert.match(response.result.content[0].text, /search failed: origin unreachable/);
+
+    assert.equal(logged.mock.callCount(), 1, "the failure is logged as well as returned");
+    const line = logged.mock.calls[0].arguments[0];
+    assert.equal(JSON.parse(line).tool, "search");
+    assert.doesNotMatch(line, /anything/, "the caller's arguments stay out of the log");
+    logged.mock.restore();
 });
 
 test("the HTTP endpoint handles CORS, bad JSON, batches and GET", async () => {
