@@ -17,9 +17,10 @@ import path from "node:path";
  * - "compact": posts, videos and releases, written on one line by the old
  *   authoring app and never edited by hand.
  * - "indented": the hand-edited files, at the 4-space indent most of them use.
- *   equipment and releasesInstruments are hand-formatted in a style no
- *   serializer reproduces, so their first save rewrites the layout once.
  *   products differs only by one trailing space, which its first save drops.
+ * - "indented2": the equipment lists, at a 2-space indent. effects matches it
+ *   exactly but for a final newline; instruments and amplifiers open with
+ *   "[{" on one line, which their first save splits.
  * - "rows": one object per line. releasesInstruments is 441 two-field links,
  *   and this is the layout it already has, byte for byte.
  */
@@ -38,7 +39,7 @@ function findRepoRoot(): string {
 export const REPO_ROOT = findRepoRoot();
 const DATA_DIR = path.join(REPO_ROOT, "src", "data");
 
-type Layout = "compact" | "indented" | "rows";
+type Layout = "compact" | "indented" | "indented2" | "rows";
 
 const FILES = {
     posts: { file: "posts/data/all.json", layout: "compact" },
@@ -47,9 +48,9 @@ const FILES = {
     productsEquipment: { file: "products/data/productsEquipment.json", layout: "indented" },
     // Written by scripts/generate-product-images.mjs; the admin only reads it.
     productGallery: { file: "products/data/gallery.json", layout: "indented" },
-    instruments: { file: "equipment/data/instruments.json", layout: "indented" },
-    effects: { file: "equipment/data/effects.json", layout: "indented" },
-    amplifiers: { file: "equipment/data/amplifiers.json", layout: "indented" },
+    instruments: { file: "equipment/data/instruments.json", layout: "indented2" },
+    effects: { file: "equipment/data/effects.json", layout: "indented2" },
+    amplifiers: { file: "equipment/data/amplifiers.json", layout: "indented2" },
     releasesInstruments: { file: "linkedData/releasesInstruments.json", layout: "rows" },
     releaseAlbums: { file: "linkedData/releaseAlbums.json", layout: "indented" },
     frequentlyAskedQuestions: { file: "frequentlyAskedQuestions/data/all.json", layout: "indented" }
@@ -69,7 +70,7 @@ const row = (item: object) =>
 function serialize(value: unknown, layout: Layout): string {
     if (layout === "compact") return JSON.stringify(value);
     if (layout === "rows") return `[\n${(value as object[]).map((item) => `  ${row(item)}`).join(",\n")}\n]\n`;
-    return `${JSON.stringify(value, null, 4)}\n`;
+    return `${JSON.stringify(value, null, layout === "indented2" ? 2 : 4)}\n`;
 }
 
 /*
