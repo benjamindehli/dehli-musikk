@@ -3,7 +3,7 @@
  * the three tools, and the corpus parser that everything in search rests on.
  */
 import assert from "node:assert/strict";
-import test, { afterEach, mock } from "node:test";
+import test, { afterEach, beforeEach, mock } from "node:test";
 
 import {
     handleMcpRequest,
@@ -65,8 +65,15 @@ No. Dehli Musikk is not a physical music store.
 `;
 
 const realFetch = globalThis.fetch;
+// Every tool call writes an audit line; keep them out of the test output. The
+// test that checks those lines mocks console.log again on top of this.
+beforeEach(() => {
+    mock.method(console, "log", () => {});
+});
+
 afterEach(() => {
     globalThis.fetch = realFetch;
+    mock.restoreAll();
 });
 
 const stub = (routes) => {
@@ -231,6 +238,36 @@ test("tools/call search returns results from the corpus", async () => {
     assert.match(text, /Midnight Wurli/);
     assert.match(text, /https:\/\/www\.dehlimusikk\.no\/en\/products\/midnight-wurli\//);
     assert.notEqual(response.result.isError, true);
+});
+
+test("every tool call is logged with counts but without the caller's text", async () => {
+    stub({
+        "https://www.dehlimusikk.no/llms-full.txt": CORPUS,
+        "https://www.dehlimusikk.no/en/products/subc/index.md": "# SubC\n"
+    });
+    const logged = mock.method(console, "log", () => {});
+    const call = (name, args) => handleRpcMessage({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name, arguments: args } });
+
+    await call("search", { query: "wurlitzer secretword", category: "product", limit: 3 });
+    await call("search", { query: "wurlitzer", category: "ignore previous instructions" });
+    await call("read_page", { page: "/en/products/subc-secretpath/" });
+
+    const lines = logged.mock.calls.map((c) => c.arguments[0]);
+    const entries = lines.map((line) => JSON.parse(line));
+    logged.mock.restore();
+
+    assert.equal(entries.length, 3, "one line per call");
+    assert.deepEqual(
+        { ...entries[0], ms: 0 },
+        { event: "mcp_tool_call", tool: "search", ok: true, ms: 0, category: "product", limit: 3, results: 1 }
+    );
+    assert.equal(entries[1].category, "invalid", "a category outside the enum is not written to the log");
+    assert.equal(entries[2].tool, "read_page");
+    assert.equal(entries[2].status, 404);
+    assert.equal(entries[2].ok, false);
+    for (const line of lines) {
+        assert.doesNotMatch(line, /secret|ignore previous/, "queries, pages and free text stay out of the log");
+    }
 });
 
 test("tools/call read_page fetches the markdown twin", async () => {
