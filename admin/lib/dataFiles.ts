@@ -105,9 +105,6 @@ export async function writeDataFile(name: DataFile, value: unknown): Promise<voi
     await writeAtomically(path.join(DATA_DIR, file), serialize(value, layout));
 }
 
-function releasePath(fileName: string): string {
-    if (!RELEASE_FILE.test(fileName)) throw new Error(`Not a release file name: ${fileName}`);
-    const root = path.resolve(RELEASES_DIR);
     const resolved = path.resolve(RELEASES_DIR, fileName);
     if (resolved !== root && !resolved.startsWith(`${root}${path.sep}`)) throw new Error(`Release path escapes releases directory: ${fileName}`);
     return resolved;
