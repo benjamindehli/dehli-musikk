@@ -29,6 +29,8 @@ export default function config(phase) {
         outputFileTracingRoot: repoRoot,
         // sharp is a native module; bundling it breaks its binary lookup.
         serverExternalPackages: ["sharp"],
+        // Same URL shape as the site, so the hrefs here can be written the same way.
+        trailingSlash: true,
         devIndicators: false,
         // next dev otherwise writes an AGENTS.md into admin/ on every start.
         agentRules: false
