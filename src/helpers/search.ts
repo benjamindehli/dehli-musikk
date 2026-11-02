@@ -98,6 +98,7 @@ import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 // From contentText, not contentFormatter: this module is plain string work and
 // pulling JSX in behind it makes it impossible to exercise outside a bundler.
 import { formatContentAsString } from "./contentText";
+import { osloDate } from "helpers/dateFormatter";
 
 // Get from /public/data
 const getJsonData = async (fileName: string) => {
@@ -181,7 +182,7 @@ const getSearchPointsFromRelease = (release: SearchableRelease, searchStringWord
         new Date(release.duration).getSeconds() > 9 ? new Date(release.duration).getSeconds() : "0" + new Date(release.duration).getSeconds()
     }`;
 
-    const releaseYearString = `${new Date(release.releaseDate).getFullYear()}`;
+    const releaseYearString = `${osloDate(release.releaseDate).year}`;
 
     const excerpt = `${selectedLanguageKey === "en" ? "Released" : "Utgitt"}: ${releaseYearString}, ${selectedLanguageKey === "en" ? "duration" : "lengde"}: ${durationString}, ${selectedLanguageKey === "en" ? "genre" : "sjanger"}: ${release.genre}`;
 

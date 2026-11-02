@@ -34,7 +34,7 @@ import ListItemThumbnail from "components/template/List/ListItem/ListItemThumbna
 import { thumbnailImage } from "helpers/thumbnailUrls";
 import { convertToUrlFriendlyString } from "helpers/urlFormatter";
 import { getReleaseInstruments, getReleaseProducts } from "helpers/releaseInstruments";
-import { getRichSnippetDateString } from "helpers/dateFormatter";
+import { getRichSnippetDateString, osloDate } from "helpers/dateFormatter";
 import { getAlbumJsonLdForRelease } from "helpers/releaseAlbums";
 import { getJsonLdForArtist, getJsonLdIdForArtist, getJsonLdIdForRelease } from "helpers/releaseHelpers";
 import { millisecondsToReadableTime } from "helpers/timeFormatter";
@@ -336,7 +336,7 @@ const Release = ({
                             </time>
                         </li>
                         <li>
-                            <time dateTime={new Date(release.releaseDate).toISOString()}>{new Date(release.releaseDate).getFullYear()}</time>
+                            <time dateTime={new Date(release.releaseDate).toISOString()}>{osloDate(release.releaseDate).year}</time>
                         </li>
                     </ul>
                 </ListItemContentBody>

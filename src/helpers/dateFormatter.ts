@@ -10,10 +10,31 @@ const monthNames: Record<Lang, string[]> = {
     no: ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"]
 };
 
+/*
+ * Every date in the data is a day in Norway, stored as that day's midnight in
+ * Oslo, which is 22:00 or 23:00 the day before in UTC. Reading it with the
+ * machine's own clock gave the previous day wherever that clock was UTC: on
+ * GitHub's runners, which build the live site, 57 posts and 154 videos were
+ * shown a day early. So the day is always read in Oslo, on any machine and in
+ * any visitor's browser, which also keeps the server render and the hydrated
+ * page in agreement.
+ */
+const OSLO_DAY = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Oslo", year: "numeric", month: "2-digit", day: "2-digit" });
+
+export function osloDate(date: Date | number): { year: number; month: number; day: number } {
+    const parts = Object.fromEntries(OSLO_DAY.formatToParts(date).map((part) => [part.type, part.value]));
+    return { year: Number(parts.year), month: Number(parts.month), day: Number(parts.day) };
+}
+
+/** The Oslo day as "2026-10-18", for front matter, sitemaps and JSON-LD dates. */
+export function osloIsoDate(date: Date | number): string {
+    const { year, month, day } = osloDate(date);
+    return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
 export const getPrettyDate = (date: Date, language: Lang): string => {
-    const year = date.getFullYear();
-    const month = monthNames[language][date.getMonth()];
-    const day = date.getDate();
+    const { year, month: monthNumber, day } = osloDate(date);
+    const month = monthNames[language][monthNumber - 1];
     if (language === "en") {
         return `${month} ${day}, ${year}`;
     } else {
@@ -21,12 +42,7 @@ export const getPrettyDate = (date: Date, language: Lang): string => {
     }
 };
 
-export const getRichSnippetDateString = (date: Date): string => {
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are 0 based, so we add 1
-    const day = date.getDate().toString().padStart(2, "0");
-    return `${year}-${month}-${day}`;
-};
+export const getRichSnippetDateString = (date: Date): string => osloIsoDate(date);
 
 export const getPlusOneYear = (): string => {
     return new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString();

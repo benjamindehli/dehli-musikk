@@ -117,6 +117,7 @@ import posts, { latestPosts } from "data/posts";
 import products, { latestProducts } from "data/products";
 import releases, { latestReleases } from "data/portfolio";
 import videos, { latestVideos } from "data/videos";
+import { osloIsoDate } from "helpers/dateFormatter";
 
 const EQUIPMENT_TYPES: EquipmentTypeKey[] = ["instruments", "effects", "amplifiers"];
 
@@ -237,7 +238,7 @@ const translations: Record<Lang, Translations> = {
 
 /* --- formatting primitives ------------------------------------------------ */
 
-const isoDate = (timestamp: number) => new Date(timestamp).toISOString().slice(0, 10);
+const isoDate = (timestamp: number) => osloIsoDate(timestamp);
 
 const truncate = (text: string | null | undefined, maxLength = 200): string => {
     if (!text) return "";
