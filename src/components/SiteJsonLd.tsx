@@ -122,7 +122,8 @@ const localBusinessJsonLd = {
         "https://ko-fi.com/benjamindehli",
         "https://credits.muso.ai/profile/39f5096c-b6bd-41d0-9248-d959da8c4b81",
         "https://credits.muso.ai/profile/120086b1-1215-4d5c-a61d-d992e0b2289e",
-        "https://www.kvraudio.com/developer/dehli-musikk"
+        "https://www.kvraudio.com/developer/dehli-musikk",
+        "https://www.wikidata.org/wiki/Q141757809"
     ],
     // No openingHours: the work is booked rather than served over a counter, and
     // claiming Mo-Su 00:00-24:00 from a home address reads as inflated, which
@@ -239,7 +240,8 @@ const personJsonLd = {
         "https://ko-fi.com/benjamindehli",
         "https://credits.muso.ai/profile/39f5096c-b6bd-41d0-9248-d959da8c4b81",
         "https://credits.muso.ai/profile/120086b1-1215-4d5c-a61d-d992e0b2289e",
-        "https://www.discogs.com/artist/6942564-Benjamin-Dehli"
+        "https://www.discogs.com/artist/6942564-Benjamin-Dehli",
+        "https://www.wikidata.org/wiki/Q141757746"
     ],
     brand: { "@id": "https://www.dehlimusikk.no/" },
     jobTitle: {
