@@ -28,6 +28,7 @@ import { getAdditionalProductLinks } from "helpers/productLinks";
 import { getPriceCurrency, hasPrice } from "helpers/productPricing";
 import { formatProductFormats } from "helpers/productSpecs";
 import { getLanguageSlug } from "lib/i18n";
+import { osloIsoDate } from "helpers/dateFormatter";
 
 const websiteUrl = "https://www.dehlimusikk.no";
 
@@ -193,7 +194,7 @@ const truncate = (text: string, maxLength = 160): string => {
     return `${flattened.slice(0, maxLength).replace(/[,;:\s]+\S*$/, "")}…`;
 };
 
-const isoDate = (timestamp: number) => new Date(timestamp).toISOString().slice(0, 10);
+const isoDate = (timestamp: number) => osloIsoDate(timestamp);
 
 /*
  * Products and releases carry one title across both languages, so their slugs

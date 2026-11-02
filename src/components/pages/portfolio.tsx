@@ -14,6 +14,7 @@ import { getLanguageSlug } from "lib/i18n";
 import { buildAlternates, socialMetadata, WEBSITE_URL, detailTitle, metaDescription, type Lang } from "lib/pageMetadata";
 import releases from "data/portfolio";
 import { shareImage } from "helpers/thumbnailUrls";
+import { osloDate } from "helpers/dateFormatter";
 
 const translations = {
     no: {
@@ -144,7 +145,7 @@ export async function getReleaseDetailsMetadata(lang: Lang, { params }: ReleaseR
      * what makes one of these pages different from the next.
      */
     const description = metaDescription(
-        t.releaseMetaDescription(release.title, release.artistName, release.genre, new Date(release.releaseDate).getFullYear())
+        t.releaseMetaDescription(release.title, release.artistName, release.genre, osloDate(release.releaseDate).year)
     );
 
     return {

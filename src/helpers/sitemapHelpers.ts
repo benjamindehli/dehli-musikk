@@ -45,6 +45,7 @@ import { youTubeTimeToSeconds } from "helpers/timeFormatter";
 import { formatContentAsString } from "helpers/contentFormatter";
 import { SITE_ORIGIN } from "lib/constants";
 import { thumbnailUrl, thumbnailVersion, withThumbnailVersion } from "helpers/thumbnailUrls";
+import { osloIsoDate } from "helpers/dateFormatter";
 
 // Redux store
 const languageSlug: Record<Lang, string> = {
@@ -58,10 +59,7 @@ function absoluteUrl(url: string): string {
 
 function renderNewsUrlElement(url: string, post: Post, languageKey: Lang) {
     const date = new Date(post.timestamp);
-    const dateYear = date.getFullYear();
-    const dateMonth = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-    const dateDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-    const dateString = `${dateYear}-${dateMonth}-${dateDay}`;
+    const dateString = osloIsoDate(date);
     return `  <url>
     <loc>${SITE_ORIGIN}${url}</loc>
     <news:news>
@@ -74,10 +72,7 @@ function renderNewsUrlElement(url: string, post: Post, languageKey: Lang) {
 
 function renderVideoUrlElement(url: string, video: Video, languageKey: Lang) {
     const date = new Date(video.timestamp);
-    const dateYear = date.getFullYear();
-    const dateMonth = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-    const dateDay = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
-    const dateString = `${dateYear}-${dateMonth}-${dateDay}`;
+    const dateString = osloIsoDate(date);
     const duration = youTubeTimeToSeconds(video.duration);
     const thumbnailLoc = thumbnailUrl("/data/videos/web", video.thumbnailFilename, 540, "jpg").replace(/^\//, "");
     const absoluteThumbnailLoc = `${SITE_ORIGIN}${thumbnailLoc}`;

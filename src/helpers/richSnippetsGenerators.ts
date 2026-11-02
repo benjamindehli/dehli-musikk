@@ -208,9 +208,15 @@ export function generateProductSnippet(product: Product, languageSlug: string, s
              */
             seller: { "@type": "Organization", "@id": SITE_JSON_LD_ID, name: "Dehli Musikk" }
         },
+        /*
+         * dateModified on the page rather than the product: Product has no such
+         * property, and it is the page's description that changes. The same
+         * date the sitemap and the markdown twin give.
+         */
         mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`
+            "@id": `https://www.dehlimusikk.no/${languageSlug}products/${productId}/`,
+            dateModified: new Date(product.lastmod ?? product.timestamp).toISOString()
         },
         sameAs: product.sameAs?.length ? product.sameAs : undefined,
         ...softwareApplicationProperties
