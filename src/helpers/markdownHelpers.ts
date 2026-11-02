@@ -456,6 +456,9 @@ export function getProductMarkdown(lang: Lang, id: string) {
         description: truncate(formatContentAsString(product.content[lang])),
         paths: productPaths(product),
         published: product.timestamp,
+        // As on posts and videos. IndexNow reads this to find changed pages, so
+        // a product whose description is rewritten needs a lastmod to be sent.
+        modified: product.lastmod ?? product.timestamp,
         body: [
             `![${product.thumbnailDescription}](${WEBSITE_URL}${thumbnailUrl("/data/products/web", id, 540, "jpg")})`,
             "",

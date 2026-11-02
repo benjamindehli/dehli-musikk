@@ -74,7 +74,8 @@
             },
             "uploadDate": "2026-09-26",
             "contentUrl": "https://www.youtube.com/watch?v=L1oYdPxGlGA"
-        }
+        },
+        "lastmod": 1793574000000
     },
     {
         "timestamp": 1786276800000,
@@ -912,7 +913,7 @@
                 "en": "The air-supply emulation toggle in the Elektrisk Salmesykkel plugin settings menu",
                 "no": "Bryteren for lufttilførselsemulering i innstillingsmenyen til Elektrisk Salmesykkel-pluginen"
             }
-        }, 
+        },
         "video": {
             "name": {
                 "en": "Electric harmonium sample plugin (Elektrisk Salmesykkel)",
