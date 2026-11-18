@@ -60,8 +60,8 @@
         ],
         "additionalImageDescriptions": {
             "overtonium_01.png": {
-                "en": "Screenshot of the user interface of the Overtonium plugin with the Op-amp character active",
-                "no": "Skjermbilde av brukergrensesnittet til Overtonium-pluginen med Op-amp-karakteren aktiv"
+                "en": "Screenshot of the user interface of the Overtonium plugin with the FM Perc Piano preset, where partials move each other's pitch",
+                "no": "Skjermbilde av brukergrensesnittet til Overtonium-pluginen med FM Perc Piano-presetet, der deltonene flytter tonehøyden til hverandre"
             }
         },
         "video": {
