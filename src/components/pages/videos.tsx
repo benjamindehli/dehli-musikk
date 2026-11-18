@@ -14,7 +14,7 @@ import { BACKDROP_LIST_ITEM_LIMIT } from "lib/constants";
 import { getLanguageSlug } from "lib/i18n";
 import { buildAlternates, socialMetadata, WEBSITE_URL, metaDescription, detailTitle, type Lang } from "lib/pageMetadata";
 import videos from "data/videos";
-import { shareImage, thumbnailUrl } from "helpers/thumbnailUrls";
+import { shareImage } from "helpers/thumbnailUrls";
 
 const translations = {
     no: {
@@ -65,21 +65,21 @@ export function getVideosPageMetadata(lang: Lang): Metadata {
 export function VideosPage({ lang }: { lang: Lang }) {
     const t = translations[lang];
     const languageSlug = getLanguageSlug(lang);
-    const videoItems = videos.map((video, index) => {
-        const videoId = convertToUrlFriendlyString(video.title[lang]);
-        const videoDate = new Date(video.timestamp).toISOString();
-        return {
-            "@type": "VideoObject",
-            "@id": `${WEBSITE_URL}/videos/${convertToUrlFriendlyString(video.title.no)}/video/`,
-            position: index + 1,
-            url: `${WEBSITE_URL}/${languageSlug}videos/${videoId}/video/`,
-            name: video.title[lang],
-            description: video.content[lang] ? formatContentAsString(video.content[lang]) : "",
-            thumbnailUrl: `${WEBSITE_URL}${thumbnailUrl("/data/videos/web", video.thumbnailFilename, 540, "jpg")}`,
-            embedUrl: `https://www.youtube.com/embed/${video.youTubeId}`,
-            uploadDate: videoDate
-        };
-    });
+    /*
+     * Summary-page list: each entry only points at the video's theater page,
+     * which carries the full VideoObject. Embedding all of them here made the
+     * list's JSON-LD about 180 KB per language.
+     *
+     * No @id on the entries: the VideoObject already owns
+     * /videos/{slug}/video/, and a ListItem sharing it would be merged into the
+     * same node by anything that reads the graph.
+     */
+    const videoItems = videos.map((video, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: video.title[lang],
+        url: `${WEBSITE_URL}/${languageSlug}videos/${convertToUrlFriendlyString(video.title[lang])}/video/`
+    }));
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ItemList",
