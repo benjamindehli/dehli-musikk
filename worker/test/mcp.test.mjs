@@ -169,6 +169,38 @@ test("the corpus parser finds every entry and its URL", () => {
     assert.equal(entries.filter((e) => !e.url).length, 0);
 });
 
+test("excerpts open with the description, not the metadata", async () => {
+    const entries = parseCorpus(CORPUS);
+    // The summary is the body alone; the metadata stays searchable in text
+    assert.equal(entries[0].summary, "Overtonium is an additive synthesiser laid out like a 32-channel mixer.");
+    assert.match(entries[0].text, /^Price: free Type: Software Overtonium is/);
+    // FAQ entries have no metadata block, so their summary is their text
+    const faq = entries.find((e) => e.category === "faq");
+    assert.equal(faq.summary, faq.text);
+
+    // Releases are metadata and nothing else, which is then what they show
+    const [release] = parseCorpus(`## Releases (1)
+
+### Flock by Haunted By Silhouettes
+
+URL: https://www.dehlimusikk.no/en/portfolio/haunted-by-silhouettes-flock/
+Artist: Haunted By Silhouettes
+Released: 2021-03-05
+`);
+    assert.equal(release.summary, "Artist: Haunted By Silhouettes Released: 2021-03-05");
+
+    stub({ "https://www.dehlimusikk.no/llms-full.txt": CORPUS });
+    const response = await handleRpcMessage({
+        jsonrpc: "2.0",
+        id: 8,
+        method: "tools/call",
+        params: { name: "search", arguments: { query: "overtonium", category: "product" } }
+    });
+    const text = response.result.content[0].text;
+    assert.match(text, /\n  Overtonium is an additive synthesiser/);
+    assert.doesNotMatch(text, /Price: free/);
+});
+
 test("the Norwegian corpus maps every translated section and its own FAQ page", () => {
     const entries = parseCorpus(CORPUS_NO, "no");
 

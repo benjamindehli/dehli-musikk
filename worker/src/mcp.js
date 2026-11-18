@@ -80,6 +80,12 @@ export const SEARCH_LANGUAGES = Object.keys(CORPORA);
  * entry, then an optional "URL:" line, some "Key: value" metadata, then the
  * body. FAQ entries carry no URL of their own, so they fall back to the page
  * that lists them.
+ *
+ * The metadata is the block that starts with the URL line and runs to the first
+ * blank line. It stays in `text`, which is what search matches against, but
+ * `summary` holds the body alone so excerpts open with the description rather
+ * than "Price: ... Type: ... Formats: ...". Releases have metadata and no body,
+ * so their summary is the metadata, which is the useful part of them.
  */
 export function parseCorpus(text, language = "en") {
     const { sections, faqUrl } = CORPORA[language];
@@ -89,8 +95,12 @@ export function parseCorpus(text, language = "en") {
 
     const finish = () => {
         if (!current) return;
-        current.text = current.lines.join(" ").replace(/\s+/g, " ").trim();
-        delete current.lines;
+        const join = (lines) => lines.join(" ").replace(/\s+/g, " ").trim();
+        current.text = join([...current.meta, ...current.body]);
+        current.summary = join(current.body) || current.text;
+        delete current.meta;
+        delete current.body;
+        delete current.inMeta;
         if (!current.url && current.category === "faq") {
             current.url = faqUrl;
         }
@@ -108,7 +118,7 @@ export function parseCorpus(text, language = "en") {
         const heading = line.match(/^### (.+)$/);
         if (heading) {
             finish();
-            current = { title: heading[1].trim(), category, url: null, lines: [] };
+            current = { title: heading[1].trim(), category, url: null, meta: [], body: [], inMeta: false };
             continue;
         }
         if (!current) continue;
@@ -116,10 +126,15 @@ export function parseCorpus(text, language = "en") {
         const url = line.match(/^URL: (\S+)$/);
         if (url) {
             current.url = url[1];
+            current.inMeta = true;
+            continue;
+        }
+        if (!line.trim()) {
+            current.inMeta = false;
             continue;
         }
         // Metadata lines read fine as prose and are worth searching too
-        if (line.trim()) current.lines.push(line.trim());
+        (current.inMeta ? current.meta : current.body).push(line.trim());
     }
     finish();
 
@@ -269,7 +284,7 @@ export const TOOLS = [
             audit.results = results.length;
             if (!results.length) return textContent(`No results for "${query}".`);
 
-            const lines = results.map((result) => `- [${result.category}] ${result.title}\n  ${result.url}\n  ${excerpt(result.text)}`);
+            const lines = results.map((result) => `- [${result.category}] ${result.title}\n  ${result.url}\n  ${excerpt(result.summary)}`);
             return textContent(`${results.length} result(s) for "${query}":\n\n${lines.join("\n\n")}`);
         }
     },
