@@ -63,11 +63,13 @@ there are no sessions; the site is static, so nothing writes.
 
 Search reads `/llms-full.txt` rather than the JSON behind the site's own search
 box. That file already carries every item's title, URL and full text, so the
-Worker never derives a slug — a second copy of `convertToUrlFriendlyString` at
-the edge would 404 every search result the day it drifted from the build's. The
-cost of that choice: `llms-full.txt` is English only and omits equipment, so
-search covers products, posts, videos, releases and the FAQ, in English.
-`read_page` has no such limit and serves either language.
+Worker never derives a slug - a second copy of `convertToUrlFriendlyString` at
+the edge would 404 every search result the day it drifted from the build's. It
+covers products, posts, videos, releases, equipment and the FAQ. Its `language`
+argument picks the corpus: `en` (the default) reads `/llms-full.txt`, `no` reads
+`/llms-full-no.txt` and returns Norwegian URLs. The section headings are
+translated, so a new section has to be added to both maps in `CORPORA`, or its
+entries show as `[null]`. `read_page` serves either language.
 
 Point a client at `https://www.dehlimusikk.no/mcp`, or try it by hand:
 

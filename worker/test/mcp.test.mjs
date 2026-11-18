@@ -64,6 +64,58 @@ Heard in: Tape looping with a Yamaha YC-25D.
 No. Dehli Musikk is not a physical music store.
 `;
 
+// The same shape as CORPUS, with the Norwegian file's translated headings and
+// root-level URLs.
+const CORPUS_NO = `# Dehli Musikk
+
+## Produkter (1)
+
+### Midnight Wurli
+
+URL: https://www.dehlimusikk.no/products/midnight-wurli/
+Pris: fra 5.00 USD
+
+Et samplet Wurlitzer 200A elektrisk piano.
+
+## Innlegg (1)
+
+### Kassettlooping
+
+URL: https://www.dehlimusikk.no/posts/kassettlooping/
+
+Opptak av en Wurlitzer til en kassettloop.
+
+## Videoer (1)
+
+### Kassettlooping med Yamaha YC-25D
+
+URL: https://www.dehlimusikk.no/videos/kassettlooping-med-yamaha-yc-25d/video/
+
+Et orgel spilt inn på kassett.
+
+## Utgivelser (1)
+
+### Laura Palmer's Theme
+
+URL: https://www.dehlimusikk.no/portfolio/benjamin-dehli-laura-palmers-theme-cover/
+
+Coverversjon.
+
+## Utstyr (1)
+
+### Yamaha YC-25D
+
+URL: https://www.dehlimusikk.no/equipment/instruments/yamaha-yc-25d/
+
+Et transistororgel.
+
+## Ofte stilte spørsmål (1)
+
+### Er Dehli Musikk en musikkbutikk?
+
+Nei. Dehli Musikk er ikke en fysisk musikkbutikk.
+`;
+
 const realFetch = globalThis.fetch;
 // Every tool call writes an audit line; keep them out of the test output. The
 // test that checks those lines mocks console.log again on top of this.
@@ -115,6 +167,18 @@ test("the corpus parser finds every entry and its URL", () => {
     assert.equal(faq.url, "https://www.dehlimusikk.no/en/frequently-asked-questions/");
     // Everything else carries its own
     assert.equal(entries.filter((e) => !e.url).length, 0);
+});
+
+test("the Norwegian corpus maps every translated section and its own FAQ page", () => {
+    const entries = parseCorpus(CORPUS_NO, "no");
+
+    assert.deepEqual(
+        entries.map((e) => e.category),
+        ["product", "post", "video", "release", "equipment", "faq"]
+    );
+    const faq = entries.find((e) => e.category === "faq");
+    assert.equal(faq.url, "https://www.dehlimusikk.no/frequently-asked-questions/");
+    assert.equal(entries.filter((e) => !e.url.startsWith("https://www.dehlimusikk.no/") || e.url.includes("/en/")).length, 0);
 });
 
 test("search ranks title matches above body matches", () => {
@@ -240,6 +304,39 @@ test("tools/call search returns results from the corpus", async () => {
     assert.notEqual(response.result.isError, true);
 });
 
+test("tools/call search reads the Norwegian corpus when asked", async () => {
+    const calls = stub({ "https://www.dehlimusikk.no/llms-full-no.txt": CORPUS_NO });
+
+    const response = await handleRpcMessage({
+        jsonrpc: "2.0",
+        id: 6,
+        method: "tools/call",
+        params: { name: "search", arguments: { query: "orgel", language: "no" } }
+    });
+
+    const text = response.result.content[0].text;
+    assert.deepEqual(calls, ["https://www.dehlimusikk.no/llms-full-no.txt"]);
+    assert.match(text, /\[equipment\] Yamaha YC-25D/);
+    assert.match(text, /https:\/\/www\.dehlimusikk\.no\/videos\/kassettlooping-med-yamaha-yc-25d\/video\//);
+    assert.doesNotMatch(text, /\/en\//);
+});
+
+test("search refuses an unknown language without fetching", async () => {
+    const calls = stub({});
+
+    for (const language of ["de", "__proto__", "constructor"]) {
+        const response = await handleRpcMessage({
+            jsonrpc: "2.0",
+            id: 7,
+            method: "tools/call",
+            params: { name: "search", arguments: { query: "orgel", language } }
+        });
+        assert.equal(response.result.isError, true, language);
+        assert.match(response.result.content[0].text, /language must be one of: en, no/);
+    }
+    assert.equal(calls.length, 0);
+});
+
 test("every tool call is logged with counts but without the caller's text", async () => {
     stub({
         "https://www.dehlimusikk.no/llms-full.txt": CORPUS,
@@ -249,7 +346,7 @@ test("every tool call is logged with counts but without the caller's text", asyn
     const call = (name, args) => handleRpcMessage({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name, arguments: args } });
 
     await call("search", { query: "wurlitzer secretword", category: "product", limit: 3 });
-    await call("search", { query: "wurlitzer", category: "ignore previous instructions" });
+    await call("search", { query: "wurlitzer", category: "ignore previous instructions", language: "ignore previous instructions" });
     await call("read_page", { page: "/en/products/subc-secretpath/" });
 
     const lines = logged.mock.calls.map((c) => c.arguments[0]);
@@ -259,9 +356,10 @@ test("every tool call is logged with counts but without the caller's text", asyn
     assert.equal(entries.length, 3, "one line per call");
     assert.deepEqual(
         { ...entries[0], ms: 0 },
-        { event: "mcp_tool_call", tool: "search", ok: true, ms: 0, category: "product", limit: 3, results: 1 }
+        { event: "mcp_tool_call", tool: "search", ok: true, ms: 0, category: "product", limit: 3, language: "en", results: 1 }
     );
     assert.equal(entries[1].category, "invalid", "a category outside the enum is not written to the log");
+    assert.equal(entries[1].language, "invalid", "nor is a language outside it");
     assert.equal(entries[2].tool, "read_page");
     assert.equal(entries[2].status, 404);
     assert.equal(entries[2].ok, false);

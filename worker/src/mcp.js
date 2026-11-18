@@ -15,8 +15,9 @@
  * copy of convertToUrlFriendlyString living at the edge, and the day the two
  * disagreed every URL in a search result would 404 with nothing to catch it.
  *
- * The trade is that llms-full.txt is English only, so search results are English
- * whatever language the caller works in. read_page handles either language.
+ * The file comes in both languages, /llms-full.txt (English) and
+ * /llms-full-no.txt (Norwegian), with the same structure and entries, so search
+ * takes a language and reads the matching one. read_page handles either.
  */
 
 const CANONICAL_ORIGIN = "https://www.dehlimusikk.no";
@@ -40,14 +41,39 @@ export const serverCard = () => ({
 
 /* --- llms-full.txt as a search corpus ------------------------------------- */
 
-const SECTION_CATEGORIES = {
-    Products: "product",
-    Posts: "post",
-    Videos: "video",
-    Releases: "release",
-    Equipment: "equipment",
-    "Frequently asked questions": "faq"
+/*
+ * One per language. The section headings are translated, so each corpus needs
+ * its own map; a heading missing here parses as category null and shows as
+ * [null] in results, so a new section must be added to both.
+ */
+const CORPORA = {
+    en: {
+        path: "/llms-full.txt",
+        faqUrl: `${CANONICAL_ORIGIN}/en/frequently-asked-questions/`,
+        sections: {
+            Products: "product",
+            Posts: "post",
+            Videos: "video",
+            Releases: "release",
+            Equipment: "equipment",
+            "Frequently asked questions": "faq"
+        }
+    },
+    no: {
+        path: "/llms-full-no.txt",
+        faqUrl: `${CANONICAL_ORIGIN}/frequently-asked-questions/`,
+        sections: {
+            Produkter: "product",
+            Innlegg: "post",
+            Videoer: "video",
+            Utgivelser: "release",
+            Utstyr: "equipment",
+            "Ofte stilte spørsmål": "faq"
+        }
+    }
 };
+
+export const SEARCH_LANGUAGES = Object.keys(CORPORA);
 
 /*
  * The document is headings and prose: "## Section (n)", then "### Title" per
@@ -55,7 +81,8 @@ const SECTION_CATEGORIES = {
  * body. FAQ entries carry no URL of their own, so they fall back to the page
  * that lists them.
  */
-export function parseCorpus(text) {
+export function parseCorpus(text, language = "en") {
+    const { sections, faqUrl } = CORPORA[language];
     const entries = [];
     let category = null;
     let current = null;
@@ -65,7 +92,7 @@ export function parseCorpus(text) {
         current.text = current.lines.join(" ").replace(/\s+/g, " ").trim();
         delete current.lines;
         if (!current.url && current.category === "faq") {
-            current.url = `${CANONICAL_ORIGIN}/en/frequently-asked-questions/`;
+            current.url = faqUrl;
         }
         if (current.url) entries.push(current);
         current = null;
@@ -75,7 +102,7 @@ export function parseCorpus(text) {
         const section = line.match(/^## (.+?)(?: \(\d+\))?$/);
         if (section) {
             finish();
-            category = SECTION_CATEGORIES[section[1]] ?? null;
+            category = sections[section[1]] ?? null;
             continue;
         }
         const heading = line.match(/^### (.+)$/);
@@ -201,7 +228,7 @@ export const TOOLS = [
     {
         name: "search",
         description:
-            'Search the Dehli Musikk catalogue: virtual instruments and plugins, blog posts, videos, recordings in the portfolio, studio equipment, and the FAQ. Returns titles, URLs and excerpts. English only. Equipment entries name the videos and recordings each item is heard on, so this also answers "what gear is on that track".',
+            'Search the Dehli Musikk catalogue: virtual instruments and plugins, blog posts, videos, recordings in the portfolio, studio equipment, and the FAQ. Returns titles, URLs and excerpts, in English or Norwegian. Equipment entries name the videos and recordings each item is heard on, so this also answers "what gear is on that track".',
         inputSchema: {
             type: "object",
             properties: {
@@ -215,21 +242,30 @@ export const TOOLS = [
                     enum: ["all", "product", "post", "video", "release", "equipment", "faq"],
                     description: "Restrict to one kind of item. Defaults to all."
                 },
-                limit: { type: "integer", minimum: 1, maximum: 25, description: "Maximum results. Defaults to 10." }
+                limit: { type: "integer", minimum: 1, maximum: 25, description: "Maximum results. Defaults to 10." },
+                language: {
+                    type: "string",
+                    enum: SEARCH_LANGUAGES,
+                    description:
+                        'Which language to search and return URLs in: "en" for English, "no" for Norwegian. Query in the same language for best results. Defaults to en.'
+                }
             },
             required: ["query"]
         },
-        async execute({ query, category = "all", limit = 10 }, audit = {}) {
+        async execute({ query, category = "all", limit = 10, language = "en" }, audit = {}) {
             // Checked before the corpus is fetched, so an oversized query costs
             // nothing. Refused rather than truncated, because the reply quotes
             // the query back and should not quote an arbitrary amount of it.
             if (typeof query !== "string") return errorContent("query must be a string.");
             if (query.length > MAX_QUERY_LENGTH) return errorContent(`query must be at most ${MAX_QUERY_LENGTH} characters.`);
+            // Checked by own-key lookup, not truthiness, so "__proto__" and the
+            // like cannot pick a corpus or a fetch path.
+            if (!Object.hasOwn(CORPORA, language)) return errorContent(`language must be one of: ${SEARCH_LANGUAGES.join(", ")}.`);
 
-            const response = await fetch(`${CANONICAL_ORIGIN}/llms-full.txt`);
+            const response = await fetch(`${CANONICAL_ORIGIN}${CORPORA[language].path}`);
             if (!response.ok) return errorContent(`Could not load the search corpus (HTTP ${response.status}).`);
 
-            const results = searchCorpus(parseCorpus(await response.text()), query, category, limit);
+            const results = searchCorpus(parseCorpus(await response.text(), language), query, category, limit);
             audit.results = results.length;
             if (!results.length) return textContent(`No results for "${query}".`);
 
@@ -308,6 +344,8 @@ function logToolCall(tool, args, audit, result, ms) {
         const category = args.category ?? "all";
         entry.category = SEARCH_CATEGORIES.has(category) ? category : "invalid";
         if (Number.isInteger(args.limit)) entry.limit = args.limit;
+        const language = args.language ?? "en";
+        entry.language = SEARCH_LANGUAGES.includes(language) ? language : "invalid";
         if (Number.isInteger(audit.results)) entry.results = audit.results;
     }
     if (tool === "read_page" && Number.isInteger(audit.status)) entry.status = audit.status;
