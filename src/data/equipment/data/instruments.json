@@ -1,4 +1,5 @@
-[{
+[
+  {
     "brand": "1010music",
     "model": "nanobox | lemondrop"
   },
@@ -117,6 +118,10 @@
   {
     "brand": "Moog",
     "model": "Minitaur"
+  },
+  {
+    "brand": "Morphor",
+    "model": "ECHON 6"
   },
   {
     "brand": "Muse Research",
